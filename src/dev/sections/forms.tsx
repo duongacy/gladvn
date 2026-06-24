@@ -92,16 +92,36 @@ export default function FormsSection() {
         <ShowcaseBlock title="Text Inputs">
           <div className="space-y-3">
             <div className="space-y-1.5">
-              <Label>Default</Label>
-              <Input placeholder="Enter value..." />
+              <Label>Default (w-full)</Label>
+              <Input className="w-full" placeholder="Enter value..." />
             </div>
             <div className="space-y-1.5">
               <Label>With error</Label>
-              <Input aria-invalid placeholder="Invalid input" />
+              <Input className="w-full" aria-invalid placeholder="Invalid input" />
             </div>
             <div className="space-y-1.5">
-              <Label>Textarea</Label>
-              <Textarea rows={3} placeholder="Write something..." />
+              <Label>Sizes</Label>
+              <div className="flex flex-col items-start gap-2">
+                <Input size="sm" placeholder="Small (sm)" />
+                <Input size="md" placeholder="Medium (md - default)" />
+                <Input size="lg" placeholder="Large (lg)" />
+              </div>
+            </div>
+            <div className="space-y-1.5">
+              <Label>Textarea (w-full)</Label>
+              <Textarea className="w-full" rows={3} placeholder="Write something..." />
+            </div>
+            <div className="space-y-1.5">
+              <Label>Textarea with error</Label>
+              <Textarea className="w-full" aria-invalid rows={2} placeholder="Invalid text..." />
+            </div>
+            <div className="space-y-1.5">
+              <Label>Textarea Sizes</Label>
+              <div className="flex flex-col gap-2">
+                <Textarea size="sm" rows={2} placeholder="Small (sm)..." />
+                <Textarea size="md" rows={2} placeholder="Medium (md - default)..." />
+                <Textarea size="lg" rows={2} placeholder="Large (lg)..." />
+              </div>
             </div>
           </div>
         </ShowcaseBlock>

@@ -48,9 +48,9 @@ const buttonVariants = cva(
 
       // ── Size ─────────────────────────────────────────────────────
       size: {
-        sm: "h-7 gap-1.5 px-3 text-xs [&_svg:not([class*='size-'])]:size-3.5 has-[>svg:only-child]:w-7 has-[>svg:only-child]:px-0",
-        md: "h-8 gap-2 px-4 [&_svg:not([class*='size-'])]:size-4 has-[>svg:only-child]:w-8 has-[>svg:only-child]:px-0",
-        lg: "h-9 gap-2 px-5 [&_svg:not([class*='size-'])]:size-5 has-[>svg:only-child]:w-9 has-[>svg:only-child]:px-0",
+        sm: "h-7 gap-1.5 px-3 text-xs [&_svg:not([class*='size-'])]:size-3.5 data-[icon-only=true]:w-7 data-[icon-only=true]:px-0",
+        md: "h-8 gap-2 px-4 [&_svg:not([class*='size-'])]:size-4 data-[icon-only=true]:w-8 data-[icon-only=true]:px-0",
+        lg: "h-9 gap-2 px-5 [&_svg:not([class*='size-'])]:size-5 data-[icon-only=true]:w-9 data-[icon-only=true]:px-0",
       },
     },
 
@@ -118,21 +118,39 @@ const buttonVariants = cva(
   }
 )
 
+import * as React from "react"
+
 function Button({
   className,
   variant = "solid",
   color = "primary",
   size = "md",
+  children,
   ...props
 }: ButtonPrimitive.Props & VariantProps<typeof buttonVariants>) {
+  
+  // Auto-detect if the button contains exactly one element (like an icon) and no text
+  const isIconOnly = React.useMemo(() => {
+    const childrenArray = React.Children.toArray(children)
+    const visibleChildren = childrenArray.filter((child) => {
+      if (typeof child === "string") return child.trim() !== ""
+      if (typeof child === "number") return true
+      return child
+    })
+    return visibleChildren.length === 1 && React.isValidElement(visibleChildren[0])
+  }, [children])
+
   return (
     <ButtonPrimitive
       data-slot="button"
       data-color={color}
       data-variant={variant}
+      data-icon-only={isIconOnly ? "true" : undefined}
       className={cn(buttonVariants({ variant, color, size, className }))}
       {...props}
-    />
+    >
+      {children}
+    </ButtonPrimitive>
   )
 }
 

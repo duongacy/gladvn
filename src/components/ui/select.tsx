@@ -14,7 +14,7 @@ function SelectGroup({ className, ...props }: SelectPrimitive.Group.Props) {
   return (
     <SelectPrimitive.Group
       data-slot="select-group"
-      className={cn("scroll-my-1 p-1", className)}
+      className={cn("scroll-my-1", className)}
       {...props}
     />
   )
@@ -35,9 +35,9 @@ const selectTriggerVariants = cva(
   {
     variants: {
       size: {
-        sm: "h-7 px-2 text-xs",
-        md: "h-8 px-2.5 py-1",
-        lg: "h-9 px-3 py-1.5",
+        sm: "h-7 px-3 text-xs",
+        md: "h-8 px-4 py-1",
+        lg: "h-9 px-5 py-1.5",
       },
     },
     defaultVariants: {
@@ -72,10 +72,10 @@ function SelectContent({
   className,
   children,
   side = "bottom",
-  sideOffset = -4,
+  sideOffset = 0,
   align = "center",
-  alignOffset = -4,
-  alignItemWithTrigger = true,
+  alignOffset = 0,
+  alignItemWithTrigger = false,
   ...props
 }: SelectPrimitive.Popup.Props &
   Pick<
@@ -96,7 +96,14 @@ function SelectContent({
           <SelectPrimitive.Popup
             data-slot="select-content"
             data-align-trigger={alignItemWithTrigger}
-            className={cn("relative isolate z-50 max-h-(--available-height) w-(--anchor-width) min-w-36 origin-(--transform-origin) overflow-x-hidden overflow-y-auto rounded-lg bg-popover text-popover-foreground shadow-md ring-1 ring-foreground/10 duration-100 data-[align-trigger=true]:animate-none data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95", className)}
+            className={cn(
+              "relative isolate z-50 max-h-(--available-height) overflow-x-hidden overflow-y-auto rounded-lg bg-popover text-popover-foreground shadow-md ring-1 ring-foreground/10 data-[align-trigger=true]:animate-none data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
+              !alignItemWithTrigger &&
+                "mt-[calc(-1*var(--anchor-height)-4px)] min-w-[calc(var(--anchor-width)+8px)] w-max p-1",
+              alignItemWithTrigger &&
+                "min-w-[calc(var(--anchor-width)+8px)] w-max origin-(--transform-origin) p-1",
+              className
+            )}
             {...props}
           >
             <SelectScrollUpButton />
@@ -204,6 +211,8 @@ function SelectScrollDownButton({
 interface MonoSelectOption {
   value: string
   label: string
+  /** Optional label to display inside the dropdown menu (if different from the trigger label) */
+  dropdownLabel?: React.ReactNode
   disabled?: boolean
   group?: string
 }
@@ -266,6 +275,7 @@ function MonoSelect({
           : undefined
       }
       disabled={disabled}
+      items={Object.fromEntries(options.map((opt) => [opt.value, opt.label]))}
     >
       <SelectTrigger
         className={className}
@@ -296,7 +306,7 @@ function MonoSelect({
                       value={opt.value}
                       disabled={opt.disabled}
                     >
-                      {opt.label}
+                      {opt.dropdownLabel || opt.label}
                     </SelectItem>
                   ))}
                 </SelectGroup>
@@ -309,7 +319,7 @@ function MonoSelect({
                 value={opt.value}
                 disabled={opt.disabled}
               >
-                {opt.label}
+                {opt.dropdownLabel || opt.label}
               </SelectItem>
             ))
           })

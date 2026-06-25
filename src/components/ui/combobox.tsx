@@ -263,7 +263,7 @@ function ComboboxChip({
       data-slot="combobox-chip"
       className={cn(
         "flex w-fit items-center justify-center gap-1 rounded-sm bg-muted px-1.5 font-medium whitespace-nowrap text-foreground has-disabled:pointer-events-none has-disabled:cursor-not-allowed has-disabled:opacity-50 has-data-[slot=combobox-chip-remove]:pr-0",
-        "h-[calc(--spacing(5.25))] text-xs",
+        "h-5 text-xs",
         "group-[.chips-sm]/combobox-chips:h-4 group-[.chips-sm]/combobox-chips:text-[10px]",
         "group-[.chips-lg]/combobox-chips:h-6 group-[.chips-lg]/combobox-chips:text-sm",
         className
@@ -273,7 +273,7 @@ function ComboboxChip({
       {children}
       {showRemove && (
         <ComboboxPrimitive.ChipRemove
-          className="-ml-1 flex size-4 items-center justify-center rounded-sm opacity-50 transition-opacity outline-none hover:opacity-100 hover:bg-foreground/10 focus-visible:ring-2 focus-visible:ring-ring"
+          className="-ml-1 flex size-4 items-center justify-center rounded-sm opacity-50 transition-opacity outline-none hover:opacity-100 hover:bg-foreground/10 focus-visible:ring-3 focus-visible:ring-ring/50"
           data-slot="combobox-chip-remove"
         >
           <XIcon className="pointer-events-none size-3" />

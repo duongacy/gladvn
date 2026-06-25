@@ -1,5 +1,5 @@
 import { useState, createContext } from "react"
-import { Badge, Switch, Separator, useTheme, NativeSelect, NativeSelectOption } from "../../src/index"
+import { Badge, Switch, Separator, useTheme, MonoSelect } from "../../src/index"
 import { LayersIcon } from "lucide-react"
 import { NAV } from "./data"
 import OverviewSection from "./sections/overview"
@@ -29,7 +29,7 @@ export default function App() {
     <div className="min-h-screen bg-background text-foreground">
       {/* Top nav */}
       <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-md">
-        <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
+        <div className="mx-auto flex h-14 max-w-[1440px] items-center justify-between px-6">
           <div className="flex items-center gap-3">
             <div className="size-7 rounded-lg bg-primary flex items-center justify-center">
               <LayersIcon className="size-4 text-primary-foreground" />
@@ -38,11 +38,15 @@ export default function App() {
             <Badge variant="secondary" className="text-[10px]">v0.2.1</Badge>
           </div>
           <div className="flex items-center gap-2">
-            <NativeSelect value={globalSize} onChange={(e) => setGlobalSize(e.target.value as any)}>
-              <NativeSelectOption value="sm">Size: sm</NativeSelectOption>
-              <NativeSelectOption value="md">Size: md</NativeSelectOption>
-              <NativeSelectOption value="lg">Size: lg</NativeSelectOption>
-            </NativeSelect>
+            <MonoSelect 
+              value={globalSize} 
+              onValueChange={(v) => setGlobalSize(v as any)}
+              options={[
+                { value: "sm", label: "Size: sm" },
+                { value: "md", label: "Size: md" },
+                { value: "lg", label: "Size: lg" },
+              ]}
+            />
             <Separator orientation="vertical" className="h-4 mx-2" />
             <span className="text-xs text-muted-foreground mr-1">Dark</span>
             <Switch
@@ -53,7 +57,7 @@ export default function App() {
         </div>
       </header>
 
-      <div className="mx-auto flex max-w-6xl gap-0">
+      <div className="mx-auto flex max-w-[1440px] gap-0">
         {/* Sidebar */}
         <aside className="sticky top-14 h-[calc(100vh-3.5rem)] w-56 shrink-0 border-r pt-6 px-3 hidden md:block">
           <p className="mb-2 px-2 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">

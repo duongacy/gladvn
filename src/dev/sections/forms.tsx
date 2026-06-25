@@ -268,7 +268,7 @@ export default function FormsSection() {
 
           <ShowcaseBlock title="Calendar">
             <div className="flex justify-center rounded-md border p-2 bg-background">
-              <Calendar />
+              <Calendar size={globalSize} mode="single" captionLayout="dropdown" startMonth={new Date(1990, 0)} endMonth={new Date(2050, 11)} />
             </div>
           </ShowcaseBlock>
         </div>

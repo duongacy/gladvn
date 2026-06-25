@@ -18,13 +18,13 @@ function RadioGroup({ className, ...props }: RadioGroupPrimitive.Props) {
 }
 
 const radioGroupItemVariants = cva(
-  "group/radio-group-item peer relative flex aspect-square shrink-0 rounded-full border border-input outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:border-destructive aria-invalid:focus-visible:ring-3 aria-invalid:focus-visible:ring-destructive/20 aria-invalid:aria-checked:border-primary dark:bg-input/30 dark:aria-invalid:border-destructive/50 dark:aria-invalid:focus-visible:ring-destructive/40 data-checked:border-primary data-checked:bg-primary data-checked:text-primary-foreground dark:data-checked:bg-primary",
+  "group/radio peer relative flex aspect-square shrink-0 rounded-full border border-input outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:border-destructive aria-invalid:focus-visible:ring-3 aria-invalid:focus-visible:ring-destructive/20 aria-invalid:aria-checked:border-primary dark:bg-input/30 dark:aria-invalid:border-destructive/50 dark:aria-invalid:focus-visible:ring-destructive/40 data-checked:border-primary data-checked:bg-primary data-checked:text-primary-foreground dark:data-checked:bg-primary",
   {
     variants: {
       size: {
-        sm: "size-3.5 after:-inset-x-2.5 after:-inset-y-2.5",
-        md: "size-4 after:-inset-x-3 after:-inset-y-2",
-        lg: "size-5 after:-inset-x-4 after:-inset-y-3",
+        sm: "radio-sm size-3.5 after:-inset-x-2.5 after:-inset-y-2.5",
+        md: "radio-md size-4 after:-inset-x-3 after:-inset-y-2",
+        lg: "radio-lg size-5 after:-inset-x-4 after:-inset-y-3",
       },
     },
     defaultVariants: {
@@ -46,19 +46,9 @@ function RadioGroupItem({
     >
       <RadioPrimitive.Indicator
         data-slot="radio-group-indicator"
-        className={cn(
-          "flex items-center justify-center",
-          size === "sm" && "size-3.5",
-          size === "md" && "size-4",
-          size === "lg" && "size-5"
-        )}
+        className="flex items-center justify-center size-4 group-[.radio-sm]/radio:size-3.5 group-[.radio-lg]/radio:size-5"
       >
-        <span className={cn(
-          "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-foreground",
-          size === "sm" && "size-1.5",
-          size === "md" && "size-2",
-          size === "lg" && "size-2.5"
-        )} />
+        <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-foreground size-2 group-[.radio-sm]/radio:size-1.5 group-[.radio-lg]/radio:size-2.5" />
       </RadioPrimitive.Indicator>
     </RadioPrimitive.Root>
   )

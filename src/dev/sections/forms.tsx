@@ -365,6 +365,61 @@ export default function FormsSection() {
             </div>
           </div>
         </ShowcaseBlock>
+        <ShowcaseBlock title="Validation States (Error Rings)">
+          <div className="space-y-5">
+            <p className="text-sm text-muted-foreground">
+              These controls only show the red ring when <strong>focused</strong>.
+            </p>
+
+            <div className="space-y-1.5">
+              <Label>NativeSelect (Invalid)</Label>
+              <NativeSelect aria-invalid defaultValue="">
+                <NativeSelectOption value="" disabled>Select option...</NativeSelectOption>
+                <NativeSelectOption value="1">Option 1</NativeSelectOption>
+              </NativeSelect>
+            </div>
+
+            <div className="space-y-1.5">
+              <Label>InputGroup (Invalid)</Label>
+              <InputGroup>
+                <InputGroupAddon>
+                  <InputGroupText>@</InputGroupText>
+                </InputGroupAddon>
+                <InputGroupInput aria-invalid placeholder="username" />
+              </InputGroup>
+            </div>
+
+            <div className="space-y-1.5">
+              <Label>InputOTP (Invalid)</Label>
+              <InputOTP maxLength={3}>
+                <InputOTPGroup>
+                  <InputOTPSlot aria-invalid index={0} />
+                  <InputOTPSlot aria-invalid index={1} />
+                  <InputOTPSlot aria-invalid index={2} />
+                </InputOTPGroup>
+              </InputOTP>
+            </div>
+
+            <div className="flex gap-6 pt-2">
+              <div className="flex items-center gap-2">
+                <Checkbox aria-invalid id="err-check" />
+                <Label htmlFor="err-check">Checkbox</Label>
+              </div>
+              <div className="flex items-center gap-2">
+                <RadioGroup defaultValue="">
+                  <div className="flex items-center gap-2">
+                    <RadioGroupItem aria-invalid value="1" id="err-radio" />
+                    <Label htmlFor="err-radio">Radio</Label>
+                  </div>
+                </RadioGroup>
+              </div>
+              <div className="flex items-center gap-2">
+                <Switch aria-invalid id="err-switch" />
+                <Label htmlFor="err-switch">Switch</Label>
+              </div>
+            </div>
+          </div>
+        </ShowcaseBlock>
       </div>
     </div>
   )

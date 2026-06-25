@@ -35,9 +35,9 @@ const selectTriggerVariants = cva(
   {
     variants: {
       size: {
-        sm: "h-7 px-3 text-xs",
-        md: "h-8 px-4 py-1",
-        lg: "h-9 px-5 py-1.5",
+        sm: "h-7 px-2 text-xs",
+        md: "h-8 px-2.5 py-1",
+        lg: "h-9 px-3 py-1.5",
       },
     },
     defaultVariants: {
@@ -99,9 +99,9 @@ function SelectContent({
             className={cn(
               "relative isolate z-50 max-h-(--available-height) overflow-x-hidden overflow-y-auto rounded-lg bg-popover text-popover-foreground shadow-md ring-1 ring-foreground/10 data-[align-trigger=true]:animate-none data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
               !alignItemWithTrigger &&
-                "mt-[calc(-1*var(--anchor-height)-4px)] min-w-[calc(var(--anchor-width)+8px)] w-max p-1",
+              "mt-[calc(-1*var(--anchor-height)-4px)] w-[calc(var(--anchor-width)+8px)] p-1",
               alignItemWithTrigger &&
-                "min-w-[calc(var(--anchor-width)+8px)] w-max origin-(--transform-origin) p-1",
+              "w-[calc(var(--anchor-width)+8px)] origin-(--transform-origin) p-1",
               className
             )}
             {...props}

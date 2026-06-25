@@ -3,6 +3,8 @@
 import { Radio as RadioPrimitive } from "@base-ui/react/radio"
 import { RadioGroup as RadioGroupPrimitive } from "@base-ui/react/radio-group"
 
+import { cva, type VariantProps } from "class-variance-authority"
+
 import { cn } from "../../lib/utils"
 
 function RadioGroup({ className, ...props }: RadioGroupPrimitive.Props) {
@@ -15,21 +17,48 @@ function RadioGroup({ className, ...props }: RadioGroupPrimitive.Props) {
   )
 }
 
-function RadioGroupItem({ className, ...props }: RadioPrimitive.Root.Props) {
+const radioGroupItemVariants = cva(
+  "group/radio-group-item peer relative flex aspect-square shrink-0 rounded-full border border-input outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:border-destructive aria-invalid:focus-visible:ring-3 aria-invalid:focus-visible:ring-destructive/20 aria-invalid:aria-checked:border-primary dark:bg-input/30 dark:aria-invalid:border-destructive/50 dark:aria-invalid:focus-visible:ring-destructive/40 data-checked:border-primary data-checked:bg-primary data-checked:text-primary-foreground dark:data-checked:bg-primary",
+  {
+    variants: {
+      size: {
+        sm: "size-3.5 after:-inset-x-2.5 after:-inset-y-2.5",
+        md: "size-4 after:-inset-x-3 after:-inset-y-2",
+        lg: "size-5 after:-inset-x-4 after:-inset-y-3",
+      },
+    },
+    defaultVariants: {
+      size: "md",
+    },
+  }
+)
+
+function RadioGroupItem({
+  className,
+  size = "md",
+  ...props
+}: RadioPrimitive.Root.Props & VariantProps<typeof radioGroupItemVariants>) {
   return (
     <RadioPrimitive.Root
       data-slot="radio-group-item"
-      className={cn(
-        "group/radio-group-item peer relative flex aspect-square size-4 shrink-0 rounded-full border border-input outline-none after:absolute after:-inset-x-3 after:-inset-y-2 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:ring-3 aria-invalid:focus-visible:ring-destructive/20 aria-invalid:aria-checked:border-primary dark:bg-input/30 dark:aria-invalid:border-destructive/50 dark:aria-invalid:focus-visible:ring-destructive/40 data-checked:border-primary data-checked:bg-primary data-checked:text-primary-foreground dark:data-checked:bg-primary",
-        className
-      )}
+      className={cn(radioGroupItemVariants({ size, className }))}
       {...props}
     >
       <RadioPrimitive.Indicator
         data-slot="radio-group-indicator"
-        className="flex size-4 items-center justify-center"
+        className={cn(
+          "flex items-center justify-center",
+          size === "sm" && "size-3.5",
+          size === "md" && "size-4",
+          size === "lg" && "size-5"
+        )}
       >
-        <span className="absolute top-1/2 left-1/2 size-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-foreground" />
+        <span className={cn(
+          "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-foreground",
+          size === "sm" && "size-1.5",
+          size === "md" && "size-2",
+          size === "lg" && "size-2.5"
+        )} />
       </RadioPrimitive.Indicator>
     </RadioPrimitive.Root>
   )

@@ -49,22 +49,26 @@ function ComboboxClear({ className, ...props }: ComboboxPrimitive.Clear.Props) {
   )
 }
 
+type DistributiveOmit<T, K extends keyof any> = T extends any ? Omit<T, K> : never
+
 function ComboboxInput({
   className,
   children,
   disabled = false,
   showTrigger = true,
   showClear = false,
+  size = "md",
   ...props
-}: ComboboxPrimitive.Input.Props & {
+}: DistributiveOmit<ComboboxPrimitive.Input.Props, "size"> & {
   showTrigger?: boolean
   showClear?: boolean
+  size?: "sm" | "md" | "lg"
 }) {
   return (
-    <InputGroup className={cn("w-auto", className)}>
+    <InputGroup size={size} className={cn("w-auto", className)}>
       <ComboboxPrimitive.Input
         render={<InputGroupInput disabled={disabled} />}
-        {...props}
+        {...(props as ComboboxPrimitive.Input.Props)}
       />
       <InputGroupAddon align="inline-end">
         {showTrigger && (
@@ -212,18 +216,35 @@ function ComboboxSeparator({
   )
 }
 
+import { cva, type VariantProps } from "class-variance-authority"
+
+const comboboxChipsVariants = cva(
+  "group/combobox-chips flex flex-wrap items-center gap-1 rounded-lg border border-input bg-transparent bg-clip-padding transition-colors focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/50 has-aria-invalid:border-destructive has-aria-invalid:focus-within:ring-3 has-aria-invalid:focus-within:ring-destructive/20 has-data-[slot=combobox-chip]:px-1 dark:bg-input/30 dark:has-aria-invalid:border-destructive/50 dark:has-aria-invalid:focus-within:ring-destructive/40 has-disabled:opacity-50 has-disabled:cursor-not-allowed has-disabled:pointer-events-none",
+  {
+    variants: {
+      size: {
+        sm: "chips-sm min-h-7 px-2 py-0.5 text-xs",
+        md: "chips-md min-h-8 px-2.5 py-1 text-sm",
+        lg: "chips-lg min-h-9 px-3 py-1.5 text-sm",
+      },
+    },
+    defaultVariants: {
+      size: "md",
+    },
+  }
+)
+
 function ComboboxChips({
   className,
+  size = "md",
   ...props
 }: React.ComponentPropsWithRef<typeof ComboboxPrimitive.Chips> &
-  ComboboxPrimitive.Chips.Props) {
+  ComboboxPrimitive.Chips.Props &
+  VariantProps<typeof comboboxChipsVariants>) {
   return (
     <ComboboxPrimitive.Chips
       data-slot="combobox-chips"
-      className={cn(
-        "flex min-h-8 flex-wrap items-center gap-1 rounded-lg border border-input bg-transparent bg-clip-padding px-2.5 py-1 text-sm transition-colors focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/50 has-aria-invalid:border-destructive has-aria-invalid:focus-within:ring-3 has-aria-invalid:focus-within:ring-destructive/20 has-data-[slot=combobox-chip]:px-1 dark:bg-input/30 dark:has-aria-invalid:border-destructive/50 dark:has-aria-invalid:focus-within:ring-destructive/40",
-        className
-      )}
+      className={cn(comboboxChipsVariants({ size }), className)}
       {...props}
     />
   )
@@ -241,7 +262,10 @@ function ComboboxChip({
     <ComboboxPrimitive.Chip
       data-slot="combobox-chip"
       className={cn(
-        "flex h-[calc(--spacing(5.25))] w-fit items-center justify-center gap-1 rounded-sm bg-muted px-1.5 text-xs font-medium whitespace-nowrap text-foreground has-disabled:pointer-events-none has-disabled:cursor-not-allowed has-disabled:opacity-50 has-data-[slot=combobox-chip-remove]:pr-0",
+        "flex w-fit items-center justify-center gap-1 rounded-sm bg-muted px-1.5 font-medium whitespace-nowrap text-foreground has-disabled:pointer-events-none has-disabled:cursor-not-allowed has-disabled:opacity-50 has-data-[slot=combobox-chip-remove]:pr-0",
+        "h-[calc(--spacing(5.25))] text-xs",
+        "group-[.chips-sm]/combobox-chips:h-4 group-[.chips-sm]/combobox-chips:text-[10px]",
+        "group-[.chips-lg]/combobox-chips:h-6 group-[.chips-lg]/combobox-chips:text-sm",
         className
       )}
       {...props}
@@ -266,7 +290,7 @@ function ComboboxChipsInput({
   return (
     <ComboboxPrimitive.Input
       data-slot="combobox-chip-input"
-      className={cn("min-w-16 flex-1 outline-none", className)}
+      className={cn("min-w-16 flex-1 outline-none bg-transparent disabled:opacity-100 disabled:cursor-not-allowed disabled:pointer-events-none", className)}
       {...props}
     />
   )

@@ -1,140 +1,87 @@
-import { useState } from "react"
+import { useContext } from "react"
 import {
-  Button,
-  Badge,
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-  Input,
-  Label,
-  Switch,
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-  Separator,
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-  Progress,
-  Skeleton,
-  Slider,
-  Checkbox,
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-  SelectGroup,
-  SelectLabel,
-  SelectSeparator,
-  Textarea,
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
   Alert,
   AlertDescription,
-  RadioGroup,
-  RadioGroupItem,
-  Combobox,
-  ComboboxInput,
-  ComboboxContent,
-  ComboboxList,
-  ComboboxItem,
   Calendar,
-  InputOTP,
-  InputOTPGroup,
-  InputOTPSlot,
-  InputOTPSeparator,
-  NativeSelect,
-  NativeSelectOption,
-  InputGroup,
-  InputGroupAddon,
-  InputGroupText,
-  InputGroupInput,
+  Checkbox,
+  Combobox,
+  ComboboxContent,
+  ComboboxInput,
+  ComboboxItem,
+  ComboboxList,
   Field,
-  FieldTitle,
+  FieldContent,
   FieldDescription,
   FieldError,
-  FieldContent,
-  ThemeProvider,
+  FieldTitle,
+  Input,
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+  InputGroupText,
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSeparator,
+  InputOTPSlot,
+  Label,
   MonoSelect,
+  NativeSelect,
+  NativeSelectOption,
+  RadioGroup,
+  RadioGroupItem,
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectSeparator,
+  SelectTrigger,
+  SelectValue,
+  Separator,
+  Slider,
+  Switch,
+  Textarea
 } from "../../index"
-import {
-  SunIcon,
-  MoonIcon,
-  ZapIcon,
-  ShieldCheckIcon,
-  LayersIcon,
-  PaletteIcon,
-  BoxIcon,
-  ToggleLeftIcon,
-  TypeIcon,
-  AlertCircleIcon,
-  CheckCircle2Icon,
-  InfoIcon,
-  TriangleAlertIcon,
-  XCircleIcon,
-} from "lucide-react"
+import { ShowcaseSizeContext } from "../App"
 
 
-import { SectionHeader, ShowcaseBlock, ColorSwatch } from "../components/showcase"
-import { VARIANTS, COLORS, SIZES, STATS, COLOR_INFO } from "../data"
+import { SectionHeader, ShowcaseBlock } from "../components/showcase"
 
 export default function FormsSection() {
+  const globalSize = useContext(ShowcaseSizeContext)
+
   return (
     <div className="space-y-5">
       <SectionHeader title="Forms" description="Input, Select, Checkbox, Slider, Textarea and more" />
-      
+
       {/* Use CSS Columns for a Masonry-like layout so tall blocks don't leave empty spaces */}
       <div className="columns-1 md:columns-2 gap-5 space-y-5 [&>div]:break-inside-avoid">
-        
+
         {/* 1. TEXT FIELDS */}
         <ShowcaseBlock title="Text Fields">
           <div className="space-y-4">
             <div className="space-y-1.5">
               <Label>Default Input</Label>
-              <Input className="w-full" placeholder="Enter value..." />
-            </div>
-            
-            <div className="space-y-1.5">
-              <Label>Input Sizes</Label>
-              <div className="flex flex-col items-start gap-2">
-                <Input size="sm" placeholder="Small (sm)" />
-                <Input size="md" placeholder="Medium (md - default)" />
-                <Input size="lg" placeholder="Large (lg)" />
-              </div>
+              <Input size={globalSize} className="w-full" placeholder="Enter value..." />
             </div>
 
             <Separator />
 
             <div className="space-y-1.5">
               <Label>Textarea</Label>
-              <Textarea className="w-full" rows={3} placeholder="Write something..." />
+              <Textarea size={globalSize} className="w-full" rows={3} placeholder="Write something..." />
             </div>
 
             <div className="space-y-1.5">
-              <Label>Textarea Sizes</Label>
-              <div className="flex flex-col gap-2">
-                <Textarea size="sm" rows={2} placeholder="Small (sm)..." />
-                <Textarea size="md" rows={2} placeholder="Medium (md)..." />
-                <Textarea size="lg" rows={2} placeholder="Large (lg)..." />
-              </div>
+              <Label>Textarea</Label>
+              <Textarea size={globalSize} className="w-full" rows={3} placeholder="Write something..." />
             </div>
 
             <Separator />
 
             <div className="space-y-1.5">
               <Label>Input Group</Label>
-              <InputGroup>
+              <InputGroup size={globalSize}>
                 <InputGroupAddon>
                   <InputGroupText>https://</InputGroupText>
                 </InputGroupAddon>
@@ -147,7 +94,7 @@ export default function FormsSection() {
 
             <div className="space-y-1.5">
               <Label>Input OTP</Label>
-              <InputOTP maxLength={6}>
+              <InputOTP size={globalSize} maxLength={6}>
                 <InputOTPGroup>
                   <InputOTPSlot index={0} />
                   <InputOTPSlot index={1} />
@@ -170,7 +117,7 @@ export default function FormsSection() {
             <div className="space-y-1.5">
               <Label>Select (Custom)</Label>
               <Select>
-                <SelectTrigger className="w-full">
+                <SelectTrigger size={globalSize} className="w-full">
                   <SelectValue placeholder="Pick a framework..." />
                 </SelectTrigger>
                 <SelectContent>
@@ -185,7 +132,7 @@ export default function FormsSection() {
             <div className="space-y-1.5">
               <Label>Select (Grouped)</Label>
               <Select>
-                <SelectTrigger className="w-full">
+                <SelectTrigger size={globalSize} className="w-full">
                   <SelectValue placeholder="Pick a fruit..." />
                 </SelectTrigger>
                 <SelectContent>
@@ -204,26 +151,12 @@ export default function FormsSection() {
               </Select>
             </div>
 
-            <div className="space-y-1.5">
-              <Label>Select Sizes</Label>
-              <div className="flex flex-col items-start gap-2">
-                <Select>
-                  <SelectTrigger size="sm"><SelectValue placeholder="Small (sm)" /></SelectTrigger>
-                </Select>
-                <Select>
-                  <SelectTrigger size="md"><SelectValue placeholder="Medium (md)" /></SelectTrigger>
-                </Select>
-                <Select>
-                  <SelectTrigger size="lg"><SelectValue placeholder="Large (lg)" /></SelectTrigger>
-                </Select>
-              </div>
-            </div>
 
-            <Separator />
 
             <div className="space-y-1.5">
               <Label>MonoSelect</Label>
               <MonoSelect
+                size={globalSize}
                 className="w-full"
                 placeholder="Flat list..."
                 options={[
@@ -235,7 +168,7 @@ export default function FormsSection() {
 
             <div className="space-y-1.5">
               <Label>Native Select</Label>
-              <NativeSelect defaultValue="mac">
+              <NativeSelect size={globalSize} defaultValue="mac">
                 <NativeSelectOption value="mac">macOS</NativeSelectOption>
                 <NativeSelectOption value="win">Windows</NativeSelectOption>
                 <NativeSelectOption value="linux">Linux</NativeSelectOption>
@@ -247,7 +180,7 @@ export default function FormsSection() {
             <div className="space-y-1.5">
               <Label>Combobox</Label>
               <Combobox>
-                <ComboboxInput placeholder="Search framework..." />
+                <ComboboxInput size={globalSize} placeholder="Search framework..." />
                 <ComboboxContent>
                   <ComboboxList>
                     <ComboboxItem value="react">React</ComboboxItem>
@@ -267,7 +200,7 @@ export default function FormsSection() {
               <Label className="mb-1 block">Checkboxes</Label>
               {["TypeScript", "ESLint", "Tailwind CSS"].map((item) => (
                 <div key={item} className="flex items-center gap-2">
-                  <Checkbox id={`check-${item}`} defaultChecked={item === "TypeScript"} />
+                  <Checkbox size={globalSize} id={`check-${item}`} defaultChecked={item === "TypeScript"} />
                   <Label htmlFor={`check-${item}`}>{item}</Label>
                 </div>
               ))}
@@ -279,15 +212,15 @@ export default function FormsSection() {
               <Label className="mb-1 block">Radio Group</Label>
               <RadioGroup defaultValue="comfortable">
                 <div className="flex items-center gap-2">
-                  <RadioGroupItem value="default" id="r1" />
+                  <RadioGroupItem size={globalSize} value="default" id="r1" />
                   <Label htmlFor="r1">Default</Label>
                 </div>
                 <div className="flex items-center gap-2">
-                  <RadioGroupItem value="comfortable" id="r2" />
+                  <RadioGroupItem size={globalSize} value="comfortable" id="r2" />
                   <Label htmlFor="r2">Comfortable</Label>
                 </div>
                 <div className="flex items-center gap-2">
-                  <RadioGroupItem value="compact" id="r3" />
+                  <RadioGroupItem size={globalSize} value="compact" id="r3" />
                   <Label htmlFor="r3">Compact</Label>
                 </div>
               </RadioGroup>
@@ -300,7 +233,7 @@ export default function FormsSection() {
               {["Notifications", "Dark Mode", "Auto-save"].map((item, i) => (
                 <div key={item} className="flex items-center justify-between">
                   <Label>{item}</Label>
-                  <Switch defaultChecked={i === 0} />
+                  <Switch size={globalSize} defaultChecked={i === 0} />
                 </div>
               ))}
             </div>
@@ -310,11 +243,11 @@ export default function FormsSection() {
             <div className="space-y-4">
               <div className="space-y-1.5">
                 <Label>Slider (Volume)</Label>
-                <Slider defaultValue={[60]} max={100} step={1} />
+                <Slider size={globalSize} defaultValue={[60]} max={100} step={1} />
               </div>
               <div className="space-y-1.5">
                 <Label>Slider (Range)</Label>
-                <Slider defaultValue={[20, 80]} max={100} step={1} />
+                <Slider size={globalSize} defaultValue={[20, 80]} max={100} step={1} />
               </div>
             </div>
           </div>
@@ -327,7 +260,7 @@ export default function FormsSection() {
               <FieldTitle>Email address</FieldTitle>
               <FieldDescription>We will not share your email with anyone.</FieldDescription>
               <FieldContent>
-                <Input type="email" placeholder="you@example.com" />
+                <Input size={globalSize} type="email" placeholder="you@example.com" />
               </FieldContent>
               <FieldError errors={[{ message: "Please enter a valid email address." }]} />
             </Field>
@@ -352,12 +285,12 @@ export default function FormsSection() {
             <div className="space-y-3">
               <div className="space-y-1.5">
                 <Label>Input</Label>
-                <Input aria-invalid placeholder="Invalid text" />
+                <Input size={globalSize} aria-invalid placeholder="Invalid text" />
               </div>
 
               <div className="space-y-1.5">
                 <Label>InputGroup</Label>
-                <InputGroup>
+                <InputGroup size={globalSize}>
                   <InputGroupAddon><InputGroupText>@</InputGroupText></InputGroupAddon>
                   <InputGroupInput aria-invalid placeholder="username" />
                 </InputGroup>
@@ -366,21 +299,21 @@ export default function FormsSection() {
               <div className="space-y-1.5">
                 <Label>Select</Label>
                 <Select>
-                  <SelectTrigger aria-invalid><SelectValue placeholder="Invalid selection..." /></SelectTrigger>
+                  <SelectTrigger size={globalSize} aria-invalid><SelectValue placeholder="Invalid selection..." /></SelectTrigger>
                   <SelectContent><SelectItem value="1">1</SelectItem></SelectContent>
                 </Select>
               </div>
 
               <div className="space-y-1.5">
                 <Label>NativeSelect</Label>
-                <NativeSelect aria-invalid defaultValue="">
+                <NativeSelect size={globalSize} aria-invalid defaultValue="">
                   <NativeSelectOption value="" disabled>Select option...</NativeSelectOption>
                 </NativeSelect>
               </div>
 
               <div className="space-y-1.5">
                 <Label>InputOTP</Label>
-                <InputOTP maxLength={3}>
+                <InputOTP size={globalSize} maxLength={3}>
                   <InputOTPGroup>
                     <InputOTPSlot aria-invalid index={0} />
                     <InputOTPSlot aria-invalid index={1} />
@@ -391,19 +324,19 @@ export default function FormsSection() {
 
               <div className="flex gap-6 pt-3">
                 <div className="flex items-center gap-2">
-                  <Checkbox aria-invalid id="err-check2" />
+                  <Checkbox size={globalSize} aria-invalid id="err-check2" />
                   <Label htmlFor="err-check2">Check</Label>
                 </div>
                 <div className="flex items-center gap-2">
                   <RadioGroup defaultValue="">
                     <div className="flex items-center gap-2">
-                      <RadioGroupItem aria-invalid value="1" id="err-radio2" />
+                      <RadioGroupItem size={globalSize} aria-invalid value="1" id="err-radio2" />
                       <Label htmlFor="err-radio2">Radio</Label>
                     </div>
                   </RadioGroup>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Switch aria-invalid id="err-switch2" />
+                  <Switch size={globalSize} aria-invalid id="err-switch2" />
                   <Label htmlFor="err-switch2">Switch</Label>
                 </div>
               </div>

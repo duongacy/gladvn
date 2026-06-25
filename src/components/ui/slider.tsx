@@ -1,6 +1,43 @@
 import { Slider as SliderPrimitive } from "@base-ui/react/slider"
+import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "../../lib/utils"
+
+const sliderVariants = cva(
+  "peer group/slider data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full"
+)
+
+const trackVariants = cva(
+  "relative grow overflow-hidden rounded-full bg-muted select-none data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full",
+  {
+    variants: {
+      size: {
+        sm: "data-[orientation=horizontal]:h-1 data-[orientation=vertical]:w-1",
+        md: "data-[orientation=horizontal]:h-1.5 data-[orientation=vertical]:w-1.5",
+        lg: "data-[orientation=horizontal]:h-2 data-[orientation=vertical]:w-2",
+      },
+    },
+    defaultVariants: {
+      size: "md",
+    },
+  }
+)
+
+const thumbVariants = cva(
+  "relative block shrink-0 rounded-full border border-ring bg-background ring-ring/50 transition-[color,box-shadow] select-none after:absolute after:-inset-2 focus-visible:ring-3 has-[:focus-visible]:ring-3 focus-visible:outline-none has-[:focus-visible]:outline-none disabled:pointer-events-none group-aria-invalid/slider:border-destructive group-aria-invalid/slider:focus-visible:border-destructive group-aria-invalid/slider:has-[:focus-visible]:border-destructive group-aria-invalid/slider:focus-visible:ring-destructive/20 group-aria-invalid/slider:has-[:focus-visible]:ring-destructive/20 dark:group-aria-invalid/slider:focus-visible:ring-destructive/40 dark:group-aria-invalid/slider:has-[:focus-visible]:ring-destructive/40",
+  {
+    variants: {
+      size: {
+        sm: "size-3",
+        md: "size-4",
+        lg: "size-5",
+      },
+    },
+    defaultVariants: {
+      size: "md",
+    },
+  }
+)
 
 function Slider({
   className,
@@ -8,8 +45,9 @@ function Slider({
   value,
   min = 0,
   max = 100,
+  size = "md",
   ...props
-}: SliderPrimitive.Root.Props) {
+}: SliderPrimitive.Root.Props & VariantProps<typeof thumbVariants>) {
   const _values = Array.isArray(value)
     ? value
     : Array.isArray(defaultValue)
@@ -18,7 +56,7 @@ function Slider({
 
   return (
     <SliderPrimitive.Root
-      className={cn("data-horizontal:w-full data-vertical:h-full", className)}
+      className={cn(sliderVariants({ className }))}
       data-slot="slider"
       defaultValue={defaultValue}
       value={value}
@@ -27,21 +65,21 @@ function Slider({
       thumbAlignment="edge"
       {...props}
     >
-      <SliderPrimitive.Control className="relative flex w-full touch-none items-center select-none data-disabled:opacity-50 data-vertical:h-full data-vertical:min-h-40 data-vertical:w-auto data-vertical:flex-col">
+      <SliderPrimitive.Control className="relative flex w-full touch-none items-center select-none data-disabled:opacity-50 data-disabled:cursor-not-allowed data-[orientation=vertical]:h-full data-[orientation=vertical]:min-h-40 data-[orientation=vertical]:w-auto data-[orientation=vertical]:flex-col">
         <SliderPrimitive.Track
           data-slot="slider-track"
-          className="relative grow overflow-hidden rounded-full bg-muted select-none data-horizontal:h-1 data-horizontal:w-full data-vertical:h-full data-vertical:w-1"
+          className={cn(trackVariants({ size }))}
         >
           <SliderPrimitive.Indicator
             data-slot="slider-range"
-            className="bg-primary select-none data-horizontal:h-full data-vertical:w-full"
+            className="group-aria-invalid/slider:bg-destructive bg-primary select-none data-[orientation=horizontal]:h-full data-[orientation=vertical]:w-full"
           />
         </SliderPrimitive.Track>
         {Array.from({ length: _values.length }, (_, index) => (
           <SliderPrimitive.Thumb
             data-slot="slider-thumb"
             key={index}
-            className="relative block size-3 shrink-0 rounded-full border border-ring bg-white ring-ring/50 transition-[color,box-shadow] select-none after:absolute after:-inset-2 hover:ring-3 focus-visible:ring-3 focus-visible:outline-hidden active:ring-3 disabled:pointer-events-none disabled:opacity-50"
+            className={cn(thumbVariants({ size }))}
           />
         ))}
       </SliderPrimitive.Control>

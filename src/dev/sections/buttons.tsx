@@ -1,90 +1,28 @@
-import { useState } from "react"
 import {
-  Button,
-  Badge,
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-  Input,
-  Label,
-  Switch,
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-  Separator,
+  AlertCircleIcon,
+  CheckCircle2Icon
+} from "lucide-react"
+import { useContext } from "react"
+import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-  Progress,
-  Skeleton,
-  Slider,
-  Checkbox,
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-  Textarea,
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
+  Badge,
+  Button,
   Tooltip,
   TooltipContent,
   TooltipProvider,
-  TooltipTrigger,
-  Alert,
-  AlertDescription,
-  RadioGroup,
-  RadioGroupItem,
-  Combobox,
-  ComboboxInput,
-  ComboboxContent,
-  ComboboxList,
-  ComboboxItem,
-  Calendar,
-  InputOTP,
-  InputOTPGroup,
-  InputOTPSlot,
-  InputOTPSeparator,
-  NativeSelect,
-  NativeSelectOption,
-  InputGroup,
-  InputGroupAddon,
-  InputGroupText,
-  InputGroupInput,
-  Field,
-  FieldTitle,
-  FieldDescription,
-  FieldError,
-  FieldContent,
+  TooltipTrigger
 } from "../../index"
-import {
-  SunIcon,
-  MoonIcon,
-  ZapIcon,
-  ShieldCheckIcon,
-  LayersIcon,
-  PaletteIcon,
-  BoxIcon,
-  ToggleLeftIcon,
-  TypeIcon,
-  AlertCircleIcon,
-  CheckCircle2Icon,
-  InfoIcon,
-  TriangleAlertIcon,
-  XCircleIcon,
-} from "lucide-react"
+import { ShowcaseSizeContext } from "../App"
 
 
-import { SectionHeader, ShowcaseBlock, ColorSwatch } from "../components/showcase"
-import { VARIANTS, COLORS, SIZES, STATS, COLOR_INFO } from "../data"
+import { SectionHeader, ShowcaseBlock } from "../components/showcase"
+import { COLOR_INFO, COLORS, SIZES, VARIANTS } from "../data"
 
 export default function ButtonsSection() {
+  const globalSize = useContext(ShowcaseSizeContext)
+
   return (
     <div className="space-y-5">
       <SectionHeader title="Buttons" description="variant controls visual style, color controls semantic meaning" />
@@ -104,7 +42,7 @@ export default function ButtonsSection() {
               <span className="w-20 shrink-0 text-right text-xs font-mono text-muted-foreground pr-2">{v}</span>
               {COLORS.map((c) => (
                 <div key={c} className="w-24 flex justify-center">
-                  <Button variant={v} color={c} size="sm">
+                  <Button variant={v} color={c} size={globalSize}>
                     {COLOR_INFO[c].label}
                   </Button>
                 </div>
@@ -115,40 +53,28 @@ export default function ButtonsSection() {
       </ShowcaseBlock>
 
       <div className="grid gap-5 sm:grid-cols-2">
-        <ShowcaseBlock title="Sizes & Icons">
+        <ShowcaseBlock title="Icons & Spacing">
           <div className="flex flex-col gap-4">
             <div className="flex flex-wrap items-center gap-3">
-              {SIZES.map((s) => (
-                <Button key={s} size={s}>{s}</Button>
-              ))}
-            </div>
-            {/* Auto Gap + Scale */}
-            <div className="flex flex-wrap items-center gap-3">
-              {SIZES.map((s) => (
-                <Button key={s + "-icon"} size={s}>
-                  <CheckCircle2Icon />
-                  <span>With Icon ({s})</span>
-                </Button>
-              ))}
-            </div>
-            {/* Auto Square */}
-            <div className="flex flex-wrap items-center gap-3">
-              {SIZES.map((s) => (
-                <Button key={s + "-only"} size={s} color="secondary" variant="soft">
-                  <AlertCircleIcon />
-                </Button>
-              ))}
+              <Button size={globalSize}>Default</Button>
+              <Button size={globalSize}>
+                <CheckCircle2Icon />
+                <span>With Icon</span>
+              </Button>
+              <Button size={globalSize} color="secondary" variant="soft">
+                <AlertCircleIcon />
+              </Button>
             </div>
           </div>
         </ShowcaseBlock>
 
         <ShowcaseBlock title="States">
           <div className="flex flex-wrap gap-2">
-            <Button>Normal</Button>
-            <Button disabled>Disabled</Button>
+            <Button size={globalSize}>Normal</Button>
+            <Button size={globalSize} disabled>Disabled</Button>
             <TooltipProvider>
               <Tooltip>
-                <TooltipTrigger render={<Button variant="outline">Tooltip</Button>} />
+                <TooltipTrigger render={<Button size={globalSize} variant="outline">Tooltip</Button>} />
                 <TooltipContent>Hey there!</TooltipContent>
               </Tooltip>
             </TooltipProvider>

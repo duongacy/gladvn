@@ -1,5 +1,5 @@
-import { useState } from "react"
-import { Badge, Switch, Separator, useTheme } from "../../src/index"
+import { useState, createContext } from "react"
+import { Badge, Switch, Separator, useTheme, NativeSelect, NativeSelectOption } from "../../src/index"
 import { LayersIcon } from "lucide-react"
 import { NAV } from "./data"
 import OverviewSection from "./sections/overview"
@@ -9,9 +9,12 @@ import FeedbackSection from "./sections/feedback"
 import DisplaySection from "./sections/display"
 import InteractiveSection from "./sections/interactive"
 
+export const ShowcaseSizeContext = createContext<"sm" | "md" | "lg">("md")
+
 export default function App() {
   const theme = useTheme()
   const [active, setActive] = useState("overview")
+  const [globalSize, setGlobalSize] = useState<"sm" | "md" | "lg">("md")
 
   const sections: Record<string, React.ReactNode> = {
     overview: <OverviewSection />,
@@ -35,6 +38,12 @@ export default function App() {
             <Badge variant="secondary" className="text-[10px]">v0.2.1</Badge>
           </div>
           <div className="flex items-center gap-2">
+            <NativeSelect value={globalSize} onChange={(e) => setGlobalSize(e.target.value as any)}>
+              <NativeSelectOption value="sm">Size: sm</NativeSelectOption>
+              <NativeSelectOption value="md">Size: md</NativeSelectOption>
+              <NativeSelectOption value="lg">Size: lg</NativeSelectOption>
+            </NativeSelect>
+            <Separator orientation="vertical" className="h-4 mx-2" />
             <span className="text-xs text-muted-foreground mr-1">Dark</span>
             <Switch
               checked={theme?.mode === "dark"}
@@ -93,7 +102,9 @@ export default function App() {
             ))}
           </div>
 
-          {sections[active]}
+          <ShowcaseSizeContext.Provider value={globalSize}>
+            {sections[active]}
+          </ShowcaseSizeContext.Provider>
         </main>
       </div>
     </div>

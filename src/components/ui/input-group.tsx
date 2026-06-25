@@ -13,9 +13,9 @@ const inputGroupVariants = cva(
   {
     variants: {
       size: {
-        sm: "min-h-7 text-xs",
-        md: "min-h-8 text-sm",
-        lg: "min-h-9 text-sm",
+        sm: "input-group-sm min-h-7 text-xs",
+        md: "input-group-md min-h-8 text-sm",
+        lg: "input-group-lg min-h-9 text-sm",
       },
     },
     defaultVariants: {
@@ -40,7 +40,7 @@ function InputGroup({
 }
 
 const inputGroupAddonVariants = cva(
-  "flex h-auto cursor-text items-center justify-center gap-2 py-1.5 text-sm font-medium text-muted-foreground select-none group-data-[disabled=true]/input-group:opacity-50 [&>kbd]:rounded-[calc(var(--radius)-5px)] [&>svg:not([class*='size-'])]:size-4",
+  "flex h-auto cursor-text items-center justify-center gap-2 font-medium text-muted-foreground select-none group-data-[disabled=true]/input-group:opacity-50 group-[.input-group-sm]/input-group:py-0.5 group-[.input-group-md]/input-group:py-1.5 group-[.input-group-lg]/input-group:py-1.5 [&>kbd]:rounded-[calc(var(--radius)-5px)] [&>svg:not([class*='size-'])]:size-4 group-[.input-group-sm]/input-group:[&>svg:not([class*='size-'])]:size-3.5",
   {
     variants: {
       align: {
@@ -125,7 +125,7 @@ function InputGroupText({ className, ...props }: React.ComponentProps<"span">) {
   return (
     <span
       className={cn(
-        "flex items-center gap-2 text-sm text-muted-foreground [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4",
+        "flex items-center gap-2 text-muted-foreground [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 group-[.input-group-sm]/input-group:[&>svg:not([class*='size-'])]:size-3.5",
         className
       )}
       {...props}
@@ -142,6 +142,9 @@ function InputGroupInput({
       data-slot="input-group-control"
       className={cn(
         "flex-1 rounded-none border-0 bg-transparent shadow-none ring-0 focus-visible:ring-0 disabled:bg-transparent disabled:opacity-100 aria-invalid:ring-0 dark:bg-transparent dark:disabled:bg-transparent",
+        "group-[.input-group-sm]/input-group:h-7 group-[.input-group-sm]/input-group:px-2 group-[.input-group-sm]/input-group:text-xs",
+        "group-[.input-group-md]/input-group:h-8 group-[.input-group-md]/input-group:px-2.5 group-[.input-group-md]/input-group:py-1 group-[.input-group-md]/input-group:text-sm",
+        "group-[.input-group-lg]/input-group:h-9 group-[.input-group-lg]/input-group:px-3 group-[.input-group-lg]/input-group:py-1.5 group-[.input-group-lg]/input-group:text-sm",
         className
       )}
       {...props}
@@ -158,6 +161,9 @@ function InputGroupTextarea({
       data-slot="input-group-control"
       className={cn(
         "flex-1 resize-none rounded-none border-0 bg-transparent py-2 shadow-none ring-0 focus-visible:ring-0 disabled:bg-transparent disabled:opacity-100 aria-invalid:ring-0 dark:bg-transparent dark:disabled:bg-transparent",
+        "group-[.input-group-sm]/input-group:text-xs group-[.input-group-sm]/input-group:px-2",
+        "group-[.input-group-md]/input-group:text-sm group-[.input-group-md]/input-group:px-2.5",
+        "group-[.input-group-lg]/input-group:text-sm group-[.input-group-lg]/input-group:px-3",
         className
       )}
       {...props}

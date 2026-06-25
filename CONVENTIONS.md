@@ -1,4 +1,4 @@
-# The 10 Commandments of Frontend Engineering
+# The Commandments of Frontend Engineering
 
 Đây là "Hiến pháp" của bộ UI Library **sadcn**. Bất kỳ ai đóng góp hoặc sử dụng bộ thư viện này đều **BẮT BUỘC** phải đọc và tuân thủ tuyệt đối các nguyên tắc dưới đây. Không có ngoại lệ.
 
@@ -63,3 +63,37 @@ Giá trị mặc định (default) của component chỉ được phép khai bá
 ### 12. Native DOM Flow (Tuân thủ luồng DOM nguyên bản)
 Component tuyệt đối không được tự ý thay đổi behavior hiển thị mặc định của thẻ HTML gốc nếu không có lý do thực sự đặc biệt.
 * **Khắt khe:** Thẻ `<input>` hay `<button>` gốc vốn là `inline-block`, do đó CẤM ép cứng class `w-full` vào component lõi. Nếu developer cần full-width, họ sẽ tự truyền `className="w-full"` ở lớp ứng dụng. Việc component tự ý phình to ra sẽ phá vỡ layout và gây cực hình cho người dùng khi muốn nó nhỏ lại.
+
+---
+
+## PHẦN V: ADVANCED ARCHITECTURE (Kiến trúc Nâng cao)
+
+### 13. "Macro Component" Law (Quy tắc 80/20)
+Nếu một component thuộc dạng Composition (ghép nối nhiều phần nhỏ như Select, Dropdown, Table...) cần hơn 5 dòng code để render một trường hợp sử dụng cơ bản nhất, **BẮT BUỘC** phải cung cấp thêm một bản thể Monolithic (ví dụ: `MonoSelect`).
+* **Khắt khe:** Bản Monolithic phải tái sử dụng 100% các thành phần của bản Composition, không được tự ý viết lại logic render hay định nghĩa lại CSS/Variants. Nó chỉ đóng vai trò là một "vỏ bọc" (wrapper).
+
+### 14. Flat Data First (Dữ liệu Phẳng là Chân ái)
+Khi thiết kế Props nhận vào data dạng danh sách (options, tree, menu), **LUÔN LUÔN** ưu tiên cấu trúc mảng phẳng (`Array<T>`) ở API public.
+* **Khắt khe:** Nếu cần chia nhóm, hãy thêm field `group?: string`. Tuyệt đối tránh ép user truyền nested array (ví dụ: `options` chứa mảng `options` con) trừ trường hợp dữ liệu đệ quy sâu (như Folder Tree). Component sẽ tự chịu trách nhiệm parse mảng phẳng thành cây lúc render.
+
+### 15. The Portal Tunneling Rule (Luật Bọc Cổng)
+Bất cứ khi nào sử dụng `Portal` (render DOM văng ra khỏi thẻ cha hiện tại, vd: Popover, Select, Dialog), **BẮT BUỘC** phải bọc nội dung bên trong Portal đó bằng `<ThemeWrapper>` (hoặc Context Provider tương đương).
+* **Khắt khe:** Portal chỉ được phép cắt đứt chuỗi DOM (để tránh lỗi layout), tuyệt đối không được phép cắt đứt chuỗi State hay Context của React. Nếu không bọc lại, component văng ra ngoài sẽ mất theme cục bộ.
+
+### 16. Local Theme Isolation (Cách ly Theme Cục bộ)
+Mọi CSS Token không được phép giả định nó luôn nằm ở thẻ `:root` hoặc `<html>`. Trạng thái theme phải có khả năng hoạt động cục bộ (local).
+* **Khắt khe:** Component đổi theme (`ThemeProvider`) không được can thiệp vào `<html>` trừ khi nó được truyền prop `isRoot={true}`. CSS Variables phải luôn được khai báo thành khối tường minh (`.light { ... }`, `.dark { ... }`) để có thể tái thiết lập (re-declare) ở bất kỳ đâu trên cây DOM bằng `display: contents`.
+
+### 17. The "AHA" Principle (Chống trừu tượng hoá vội vã - Avoid Hasty Abstractions)
+Sự lặp lại (Duplication) rẻ hơn rất nhiều so với sự trừu tượng hóa sai lầm (Wrong Abstraction).
+* **Khắt khe:** **TUYỆT ĐỐI CẤM** việc gom nhóm các utility class dài ngoằng (như animation class của Popup, Dropdown) thành một CSS class dùng chung (`@apply popup-animation`) chỉ vì lý do "nhìn cho gọn" hoặc "tránh lặp code". 
+* **Lý do:** Việc viết tường minh (inline) đảm bảo tính **minh bạch** (nhìn vào JSX là biết component làm gì) và tính **độc lập** (sửa animation của Select sẽ không làm hư Popover hay Tooltip). UI Component phải ưu tiên WET (Write Everything Twice) hơn là DRY (Don't Repeat Yourself) để chống lại hiệu ứng cánh bướm khi scale project.
+
+### 18. Form Control Parity (Sự đồng bộ tuyệt đối của Form)
+Các component dùng để nhập liệu (Form Controls) phải chia sẻ chung một "ngôn ngữ hình thể" (kích thước, trạng thái focus, hover, disabled).
+* **Khắt khe:** Một `Input`, `Select`, `NativeSelect`, `Combobox`, `Textarea` hoặc `DatePicker` khi đặt cạnh nhau phải thẳng hàng tuyệt đối từng pixel.
+* **Quy tắc:**
+  - Cùng chung class `h-8` (size md) hoặc `h-7` (size sm).
+  - Cùng chung mã màu border, background (cho cả Light/Dark mode).
+  - Cùng chung hiệu ứng focus (`focus-visible:ring-3`).
+  - Nếu sửa trạng thái `disabled:opacity-50` ở Input, bắt buộc phải đối chiếu và sửa tương tự ở Select và Combobox. Tính "tuyến tính" này không được phép đứt gãy.

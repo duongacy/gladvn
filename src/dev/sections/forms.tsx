@@ -28,6 +28,9 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
+  SelectGroup,
+  SelectLabel,
+  SelectSeparator,
   Textarea,
   Accordion,
   AccordionContent,
@@ -62,6 +65,8 @@ import {
   FieldDescription,
   FieldError,
   FieldContent,
+  ThemeProvider,
+  MonoSelect,
 } from "../../index"
 import {
   SunIcon,
@@ -129,20 +134,105 @@ export default function FormsSection() {
         <ShowcaseBlock title="Select & Checkbox">
           <div className="space-y-3">
             <div className="space-y-1.5">
-              <Label>Custom Select</Label>
+              <Label>Custom Select (w-full)</Label>
+              <ThemeProvider initialMode="light">
+                <Select>
+                  <SelectTrigger className="w-full">
+                    <SelectValue placeholder="Pick one..." />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="next">Next.js</SelectItem>
+                    <SelectItem value="vite">Vite</SelectItem>
+                    <SelectItem value="remix">Remix</SelectItem>
+                    <SelectItem value="astro">Astro</SelectItem>
+                  </SelectContent>
+                </Select>
+              </ThemeProvider>
+            </div>
+
+            <div className="space-y-1.5">
+              <Label>Composition (grouped)</Label>
               <Select>
-                <SelectTrigger>
-                  <SelectValue placeholder="Pick one..." />
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Pick a fruit..." />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="next">Next.js</SelectItem>
-                  <SelectItem value="vite">Vite</SelectItem>
-                  <SelectItem value="remix">Remix</SelectItem>
-                  <SelectItem value="astro">Astro</SelectItem>
+                  <SelectGroup>
+                    <SelectLabel>Citrus</SelectLabel>
+                    <SelectItem value="orange">Orange</SelectItem>
+                    <SelectItem value="lemon">Lemon</SelectItem>
+                  </SelectGroup>
+                  <SelectSeparator />
+                  <SelectGroup>
+                    <SelectLabel>Berry</SelectLabel>
+                    <SelectItem value="strawberry">Strawberry</SelectItem>
+                    <SelectItem value="blueberry">Blueberry</SelectItem>
+                  </SelectGroup>
                 </SelectContent>
               </Select>
             </div>
-            
+
+            <div className="space-y-1.5">
+              <Label>Select with error</Label>
+              <Select>
+                <SelectTrigger className="w-full" aria-invalid>
+                  <SelectValue placeholder="Invalid selection..." />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="1">Option 1</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div className="space-y-1.5">
+              <Label>Select Sizes</Label>
+              <div className="flex flex-col items-start gap-2">
+                <Select>
+                  <SelectTrigger size="sm">
+                    <SelectValue placeholder="Small (sm)..." />
+                  </SelectTrigger>
+                </Select>
+                <Select>
+                  <SelectTrigger size="md">
+                    <SelectValue placeholder="Medium (md)..." />
+                  </SelectTrigger>
+                </Select>
+                <Select>
+                  <SelectTrigger size="lg">
+                    <SelectValue placeholder="Large (lg)..." />
+                  </SelectTrigger>
+                </Select>
+              </div>
+            </div>
+
+            <div className="space-y-1.5">
+              <Label>MonoSelect (flat)</Label>
+              <MonoSelect
+                className="w-full"
+                placeholder="Pick a framework..."
+                options={[
+                  { value: "next", label: "Next.js" },
+                  { value: "vite", label: "Vite" },
+                  { value: "remix", label: "Remix" },
+                  { value: "astro", label: "Astro" },
+                ]}
+              />
+            </div>
+
+            <div className="space-y-1.5">
+              <Label>MonoSelect (grouped)</Label>
+              <MonoSelect
+                className="w-full"
+                placeholder="Pick a fruit..."
+                options={[
+                  { value: "orange", label: "Orange", group: "Citrus" },
+                  { value: "lemon", label: "Lemon", group: "Citrus" },
+                  { value: "strawberry", label: "Strawberry", group: "Berry" },
+                  { value: "blueberry", label: "Blueberry", group: "Berry" },
+                ]}
+              />
+            </div>
+
             <div className="space-y-1.5">
               <Label>Native Select</Label>
               <NativeSelect defaultValue="mac">
@@ -177,7 +267,7 @@ export default function FormsSection() {
                 </InputGroupAddon>
               </InputGroup>
             </div>
-            
+
             <div className="space-y-1.5">
               <Label>Input OTP</Label>
               <InputOTP maxLength={6}>
@@ -266,7 +356,7 @@ export default function FormsSection() {
                 </div>
               ))}
             </div>
-            
+
             <div className="pt-2">
               <Label className="mb-2 block">Calendar</Label>
               <div className="rounded-md border p-2 bg-background flex justify-center">

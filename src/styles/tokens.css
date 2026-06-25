@@ -25,9 +25,9 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
 
-  /* Primary */
-  --primary: oklch(54.6% 0.245 262.881);
-  --primary-foreground: oklch(97% 0.014 254.604);
+  /* Primary — Blue, hue 262°, L=0.54 → CR≥4.5:1 AA ✅ (Vibrant) */
+  --primary: oklch(0.54 0.245 262.881);
+  --primary-foreground: oklch(0.985 0 0);
 
   /* Secondary — dark neutral gray, readable as text/border/bg (CR≈7.4:1)
    * Consumers can override to any vivid brand color.
@@ -37,33 +37,30 @@
 
   /* Muted */
   --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
+  --muted-foreground: oklch(0.50 0 0); /* CR≈5.5:1 AA */
 
   /* Accent */
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
 
-  /* Destructive */
-  --destructive: oklch(0.577 0.245 27.325);
+  /* Destructive — Red, hue 27°, L=0.54 → CR≥4.5:1 AA ✅ (Vibrant) */
+  --destructive: oklch(0.54 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
 
-  /* Warning — Amber, hue 70°
-   * L=0.55 → Y_linear≈0.161 → CR≈5.0:1 vs white ✅ WCAG AA
-   * Works both as text (ghost/link/outline) and as bg with white text (solid)
-   * Light mode uses darker amber; dark mode stays bright (see .dark below) */
-  --warning: oklch(0.55 0.13 70);
-  --warning-foreground: oklch(0.985 0 0); /* white — CR≈5:1 on this bg ✅ */
+  /* Warning — Amber, hue 70°, L=0.54 → CR≥4.5:1 AA ✅ */
+  --warning: oklch(0.54 0.13 70);
+  --warning-foreground: oklch(0.985 0 0);
 
-  /* Success — Emerald, hue 150°, L≈0.53 → white text (contrast ~6:1) */
-  --success: oklch(0.527 0.154 150.0);
+  /* Success — Emerald, hue 150°, L=0.53 → CR≥4.5:1 AA ✅ */
+  --success: oklch(0.53 0.154 150.0);
   --success-foreground: oklch(0.985 0 0);
 
-  /* Info — Blue, hue 258°, L≈0.55 → white text (contrast ~5:1) */
-  --info: oklch(0.546 0.195 258.0);
+  /* Info — Blue, hue 258°, L=0.54 → CR≥4.5:1 AA ✅ */
+  --info: oklch(0.54 0.195 258.0);
   --info-foreground: oklch(0.985 0 0);
 
-  /* Tertiary — Violet, hue 293°, L≈0.54 → white text (contrast ~5.5:1) */
-  --tertiary: oklch(0.541 0.205 293.0);
+  /* Tertiary — Violet, hue 293°, L=0.54 → CR≥4.5:1 AA ✅ */
+  --tertiary: oklch(0.54 0.205 293.0);
   --tertiary-foreground: oklch(0.985 0 0);
 
   /* Border, Input, Ring */
@@ -92,6 +89,53 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
+/* ── Light Mode (explicit) ─────────────────────────────────────────────── */
+/* Used by ThemeProvider for partial light mode inside a dark context.
+ * Must mirror :root values exactly so CSS variables cascade correctly. */
+.light {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.54 0.245 262.881);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.45 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.50 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.54 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --warning: oklch(0.54 0.13 70);
+  --warning-foreground: oklch(0.985 0 0);
+  --success: oklch(0.53 0.154 150.0);
+  --success-foreground: oklch(0.985 0 0);
+  --info: oklch(0.54 0.195 258.0);
+  --info-foreground: oklch(0.985 0 0);
+  --tertiary: oklch(0.54 0.205 293.0);
+  --tertiary-foreground: oklch(0.985 0 0);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
 /* ── Dark Mode ──────────────────────────────────────────────────────────── */
 .dark {
   /* Background & Foreground */
@@ -110,22 +154,21 @@
   --primary: oklch(0.72 0.18 262.881);
   --primary-foreground: oklch(0.145 0 0);
 
-  /* Secondary — lighter gray for dark bg, readable as text (CR≈6.1:1)
-   * Contrast: oklch(0.65) on dark bg (0.145) → Y=(0.274+0.05)/(0.003+0.05)=6.1:1 ✅ */
-  --secondary: oklch(0.65 0 0);
+  /* Secondary — lighter gray for dark bg, CR≥7:1 AAA ✅ */
+  --secondary: oklch(0.685 0 0);
   --secondary-foreground: oklch(0.145 0 0);
 
   /* Muted */
   --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
+  --muted-foreground: oklch(0.759 0 0);
 
   /* Accent */
   --accent: oklch(0.269 0 0);
   --accent-foreground: oklch(0.985 0 0);
 
-  /* Destructive */
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.985 0 0);
+  /* Destructive — Red, L=0.716, CR≥7:1 AAA ✅ → near-black text */
+  --destructive: oklch(0.716 0.191 22.216);
+  --destructive-foreground: oklch(0.145 0 0);
 
   /* Warning — Lighter amber for dark bg → dark text */
   --warning: oklch(0.828 0.189 84.429);
@@ -139,8 +182,8 @@
   --info: oklch(0.707 0.165 258.0);
   --info-foreground: oklch(0.145 0 0);
 
-  /* Tertiary — L≈0.70, brighter on dark bg → near-black text */
-  --tertiary: oklch(0.702 0.183 293.0);
+  /* Tertiary — Violet, L=0.705, CR≥7:1 AAA ✅ → near-black text */
+  --tertiary: oklch(0.705 0.183 293.0);
   --tertiary-foreground: oklch(0.145 0 0);
 
   /* Border, Input, Ring */
@@ -158,7 +201,7 @@
   /* Sidebar */
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary: oklch(0.472 0.243 264.376);
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.269 0 0);
   --sidebar-accent-foreground: oklch(0.985 0 0);

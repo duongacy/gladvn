@@ -1,64 +1,41 @@
 import { useContext } from "react"
 import {
-  Alert,
-  AlertDescription,
-  Calendar,
-  Checkbox,
-  Combobox,
-  ComboboxContent,
-  ComboboxInput,
-  ComboboxItem,
-  ComboboxList,
-  Field,
-  FieldContent,
-  FieldDescription,
-  FieldError,
-  FieldTitle,
-  Input,
-  InputGroup,
-  InputGroupAddon,
-  InputGroupInput,
-  InputGroupText,
-  InputOTP,
-  InputOTPGroup,
-  InputOTPSeparator,
-  InputOTPSlot,
-  Label,
-  MonoSelect,
-  NativeSelect,
-  NativeSelectOption,
-  RadioGroup,
-  RadioGroupItem,
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectSeparator,
-  SelectTrigger,
-  SelectValue,
-  Separator,
-  Slider,
-  Switch,
-  Textarea
+  Alert, AlertDescription, Calendar, Checkbox, Combobox, ComboboxContent, ComboboxInput,
+  ComboboxItem, ComboboxList, Field, FieldContent, FieldDescription, FieldError, FieldTitle,
+  Input, InputGroup, InputGroupAddon, InputGroupInput, InputGroupText, InputOTP,
+  InputOTPGroup, InputOTPSeparator, InputOTPSlot, Label, MonoSelect, NativeSelect,
+  NativeSelectOption, RadioGroup, RadioGroupItem, Select, SelectContent, SelectGroup,
+  SelectItem, SelectLabel, SelectSeparator, SelectTrigger, SelectValue, Separator,
+  Slider, Switch, Textarea
 } from "../../index"
 import { ShowcaseSizeContext } from "../App"
-
-
-import { SectionHeader, ShowcaseBlock } from "../components/showcase"
+import { SectionHeader } from "../components/showcase"
+import {
+  TypeIcon, MousePointerClickIcon, ToggleLeftIcon, LayoutTemplateIcon, TriangleAlertIcon, CalendarIcon
+} from "lucide-react"
 
 export default function FormsSection() {
   const globalSize = useContext(ShowcaseSizeContext)
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-6">
       <SectionHeader title="Forms" description="Input, Select, Checkbox, Slider, Textarea and more" />
 
-      {/* Use CSS Columns for a Masonry-like layout so tall blocks don't leave empty spaces */}
-      <div className="columns-1 md:columns-2 gap-5 space-y-5 [&>div]:break-inside-avoid">
+      {/* Masonry layout */}
+      <div className="columns-1 md:columns-2 gap-6 space-y-6 [&>div]:break-inside-avoid">
 
         {/* 1. TEXT FIELDS */}
-        <ShowcaseBlock title="Text Fields">
+        <div className="rounded-2xl border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md flex flex-col gap-5">
+          <div className="flex items-center gap-3 mb-2">
+            <div className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+              <TypeIcon className="size-5" />
+            </div>
+            <div>
+              <h3 className="font-semibold text-base">Text Fields</h3>
+              <p className="text-xs text-muted-foreground">Standard text input and entry</p>
+            </div>
+          </div>
+          
           <div className="space-y-4">
             <div className="space-y-1.5">
               <Label>Default Input</Label>
@@ -66,11 +43,6 @@ export default function FormsSection() {
             </div>
 
             <Separator />
-
-            <div className="space-y-1.5">
-              <Label>Textarea</Label>
-              <Textarea size={globalSize} className="w-full" rows={3} placeholder="Write something..." />
-            </div>
 
             <div className="space-y-1.5">
               <Label>Textarea</Label>
@@ -109,10 +81,20 @@ export default function FormsSection() {
               </InputOTP>
             </div>
           </div>
-        </ShowcaseBlock>
+        </div>
 
         {/* 2. PICKERS & DROPDOWNS */}
-        <ShowcaseBlock title="Pickers & Dropdowns">
+        <div className="rounded-2xl border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md flex flex-col gap-5">
+          <div className="flex items-center gap-3 mb-2">
+            <div className="flex size-10 items-center justify-center rounded-xl bg-success/10 text-success">
+              <MousePointerClickIcon className="size-5" />
+            </div>
+            <div>
+              <h3 className="font-semibold text-base">Pickers & Dropdowns</h3>
+              <p className="text-xs text-muted-foreground">Selection controls and lists</p>
+            </div>
+          </div>
+
           <div className="space-y-4">
             <div className="space-y-1.5">
               <Label>Select (Custom)</Label>
@@ -150,8 +132,6 @@ export default function FormsSection() {
                 </SelectContent>
               </Select>
             </div>
-
-
 
             <div className="space-y-1.5">
               <Label>MonoSelect</Label>
@@ -191,10 +171,20 @@ export default function FormsSection() {
               </Combobox>
             </div>
           </div>
-        </ShowcaseBlock>
+        </div>
 
         {/* 3. TOGGLES & SELECTORS */}
-        <ShowcaseBlock title="Toggles & Selectors">
+        <div className="rounded-2xl border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md flex flex-col gap-5">
+          <div className="flex items-center gap-3 mb-2">
+            <div className="flex size-10 items-center justify-center rounded-xl bg-info/10 text-info">
+              <ToggleLeftIcon className="size-5" />
+            </div>
+            <div>
+              <h3 className="font-semibold text-base">Toggles & Selectors</h3>
+              <p className="text-xs text-muted-foreground">Switches, radios, and sliders</p>
+            </div>
+          </div>
+
           <div className="space-y-5">
             <div className="space-y-2">
               <Label className="mb-1 block">Checkboxes</Label>
@@ -251,30 +241,57 @@ export default function FormsSection() {
               </div>
             </div>
           </div>
-        </ShowcaseBlock>
+        </div>
 
-        {/* 4. FORM LAYOUT & CALENDAR */}
-        <div className="space-y-5 break-inside-avoid">
-          <ShowcaseBlock title="Form Field Layout">
-            <Field>
-              <FieldTitle>Email address</FieldTitle>
-              <FieldDescription>We will not share your email with anyone.</FieldDescription>
-              <FieldContent>
-                <Input size={globalSize} type="email" placeholder="you@example.com" />
-              </FieldContent>
-              <FieldError errors={[{ message: "Please enter a valid email address." }]} />
-            </Field>
-          </ShowcaseBlock>
-
-          <ShowcaseBlock title="Calendar">
-            <div className="flex justify-center rounded-md border p-2 bg-background">
-              <Calendar size={globalSize} mode="single" captionLayout="dropdown" startMonth={new Date(1990, 0)} endMonth={new Date(2050, 11)} />
+        {/* 4. FORM LAYOUT */}
+        <div className="rounded-2xl border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md flex flex-col gap-5">
+          <div className="flex items-center gap-3 mb-2">
+            <div className="flex size-10 items-center justify-center rounded-xl bg-secondary/30 text-secondary-foreground">
+              <LayoutTemplateIcon className="size-5" />
             </div>
-          </ShowcaseBlock>
+            <div>
+              <h3 className="font-semibold text-base">Form Field Layout</h3>
+              <p className="text-xs text-muted-foreground">Composition & structure</p>
+            </div>
+          </div>
+          <Field>
+            <FieldTitle>Email address</FieldTitle>
+            <FieldDescription>We will not share your email with anyone.</FieldDescription>
+            <FieldContent>
+              <Input size={globalSize} type="email" placeholder="you@example.com" />
+            </FieldContent>
+            <FieldError errors={[{ message: "Please enter a valid email address." }]} />
+          </Field>
+        </div>
+
+        {/* 4.5 CALENDAR */}
+        <div className="rounded-2xl border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md flex flex-col gap-5">
+          <div className="flex items-center gap-3 mb-2">
+            <div className="flex size-10 items-center justify-center rounded-xl bg-tertiary/10 text-tertiary">
+              <CalendarIcon className="size-5" />
+            </div>
+            <div>
+              <h3 className="font-semibold text-base">Calendar</h3>
+              <p className="text-xs text-muted-foreground">Date picker component</p>
+            </div>
+          </div>
+          <div className="flex justify-center rounded-xl border p-2 bg-card">
+            <Calendar size={globalSize} mode="single" captionLayout="dropdown" startMonth={new Date(1990, 0)} endMonth={new Date(2050, 11)} />
+          </div>
         </div>
 
         {/* 5. VALIDATION UX */}
-        <ShowcaseBlock title="Validation UX (Error States)">
+        <div className="rounded-2xl border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md flex flex-col gap-5">
+          <div className="flex items-center gap-3 mb-2">
+            <div className="flex size-10 items-center justify-center rounded-xl bg-destructive/10 text-destructive">
+              <TriangleAlertIcon className="size-5" />
+            </div>
+            <div>
+              <h3 className="font-semibold text-base">Validation UX</h3>
+              <p className="text-xs text-muted-foreground">Error states and feedback</p>
+            </div>
+          </div>
+
           <div className="space-y-5">
             <Alert variant="destructive" className="py-2.5">
               <AlertDescription className="text-xs">
@@ -342,7 +359,7 @@ export default function FormsSection() {
               </div>
             </div>
           </div>
-        </ShowcaseBlock>
+        </div>
 
       </div>
     </div>

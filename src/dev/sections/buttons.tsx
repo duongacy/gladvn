@@ -15,7 +15,8 @@ import {
   CreditCardIcon,
   BellIcon,
   PlusIcon,
-  BoxIcon
+  BoxIcon,
+  LayersIcon
 } from "lucide-react"
 import { useContext, useState } from "react"
 import {
@@ -57,14 +58,14 @@ export default function ButtonsSection() {
 
   return (
     <div className="space-y-6">
-      <SectionHeader 
-        title="Buttons & Badges" 
-        description="Comprehensive collection of interactive elements with full state management and accessibility." 
+      <SectionHeader
+        title="Buttons"
+        description="Comprehensive collection of interactive elements with full state management and accessibility."
       />
 
       {/* Real-world Contexts Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-        
+
         {/* Context 1: Danger Zone */}
         <div className="rounded-2xl border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md">
           <div className="flex items-center gap-3 mb-4">
@@ -84,15 +85,17 @@ export default function ButtonsSection() {
                 <Tooltip>
                   <TooltipTrigger
                     render={
-                      <Button 
-                        size={globalSize} 
-                        color="destructive" 
+                      <Button
+                        size={globalSize}
+                        color="destructive"
                         className="w-full"
                         disabled={isDeleting}
                         onClick={handleDelete}
                       >
-                        {isDeleting ? <Spinner /> : <Trash2Icon />}
-                        {isDeleting ? "Deleting..." : "Delete Permanently"}
+                        {isDeleting && <Spinner />}
+                        {!isDeleting && <Trash2Icon />}
+                        {isDeleting && "Deleting..."}
+                        {!isDeleting && "Delete Permanently"}
                       </Button>
                     }
                   />
@@ -117,7 +120,7 @@ export default function ButtonsSection() {
           <div className="rounded-xl border bg-card p-4 shadow-sm flex flex-col gap-4">
             <div className="flex items-center gap-3">
               <Avatar className="size-8">
-                <AvatarFallback className="bg-primary/10 text-primary"><UserIcon className="size-4"/></AvatarFallback>
+                <AvatarFallback className="bg-primary/10 text-primary"><UserIcon className="size-4" /></AvatarFallback>
               </Avatar>
               <div className="flex-1">
                 <div className="h-2 w-20 rounded-full bg-muted-foreground/20 mb-1" />
@@ -128,54 +131,36 @@ export default function ButtonsSection() {
               <Button size={globalSize} variant="ghost" color="secondary" className="px-2">
                 <SettingsIcon className="size-4" />
               </Button>
-              <Button 
-                size={globalSize} 
+              <Button
+                size={globalSize}
                 color="primary"
                 disabled={isSending}
                 onClick={handleSend}
               >
-                {isSending ? <Spinner /> : <CheckCircle2Icon />}
-                {isSending ? "Saving" : "Save Changes"}
+                {isSending && <Spinner />}
+                {!isSending && <CheckCircle2Icon />}
+                {isSending && "Saving"}
+                {!isSending && "Save Changes"}
               </Button>
             </div>
           </div>
         </div>
 
-        {/* Context 3: Profiles & Badges */}
+        {/* Context 3: Quick Actions */}
         <div className="rounded-2xl border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md">
           <div className="flex items-center gap-3 mb-4">
-            <div className="flex size-10 items-center justify-center rounded-xl bg-success/10 text-success">
-              <Badge variant="default" className="size-5 p-0 flex items-center justify-center rounded-full"><span className="sr-only">Pro</span></Badge>
+            <div className="flex size-10 items-center justify-center rounded-xl bg-info/10 text-info">
+              <LayersIcon className="size-5" />
             </div>
             <div>
-              <h3 className="font-semibold">Profiles & Status</h3>
-              <p className="text-xs text-muted-foreground">Avatars and Badges</p>
+              <h3 className="font-semibold">Quick Actions</h3>
+              <p className="text-xs text-muted-foreground">Icon-only buttons</p>
             </div>
           </div>
-          <div className="flex flex-col gap-4">
-            <div className="flex items-center justify-between p-3 rounded-xl border bg-card shadow-sm hover:border-primary/50 transition-colors cursor-pointer">
-              <div className="flex items-center gap-3">
-                <Avatar>
-                  <AvatarImage src="https://github.com/shadcn.png" />
-                  <AvatarFallback>SC</AvatarFallback>
-                </Avatar>
-                <div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm font-medium">shadcn</span>
-                    <Badge variant="default" className="h-4 text-[9px] px-1.5 py-0">PRO</Badge>
-                  </div>
-                  <span className="text-xs text-muted-foreground">Premium Plan</span>
-                </div>
-              </div>
-              <ChevronRightIcon className="size-4 text-muted-foreground" />
-            </div>
-            
-            <div className="flex flex-wrap gap-2">
-              <Badge variant="success">Active</Badge>
-              <Badge variant="secondary">Reviewing</Badge>
-              <Badge variant="destructive">Suspended</Badge>
-              <Badge variant="outline">Draft</Badge>
-            </div>
+          <div className="flex items-center gap-4 justify-center p-6 border rounded-xl bg-card shadow-sm mt-4">
+            <Button size={globalSize} variant="soft" color="primary"><PlusIcon /></Button>
+            <Button size={globalSize} variant="soft" color="secondary"><SettingsIcon /></Button>
+            <Button size={globalSize} variant="soft" color="destructive"><Trash2Icon /></Button>
           </div>
         </div>
       </div>
@@ -200,6 +185,9 @@ export default function ButtonsSection() {
                 <th className="pb-4 font-medium text-muted-foreground text-sm">Secondary</th>
                 <th className="pb-4 font-medium text-muted-foreground text-sm">Destructive</th>
                 <th className="pb-4 font-medium text-muted-foreground text-sm">Success</th>
+                <th className="pb-4 font-medium text-muted-foreground text-sm">Warning</th>
+                <th className="pb-4 font-medium text-muted-foreground text-sm">Info</th>
+                <th className="pb-4 font-medium text-muted-foreground text-sm">Tertiary</th>
               </tr>
             </thead>
             <tbody className="divide-y">
@@ -220,12 +208,22 @@ export default function ButtonsSection() {
                   <td className="py-4 pr-4">
                     <Button size={globalSize} variant={variant as any} color="success">Button</Button>
                   </td>
+                  <td className="py-4 pr-4">
+                    <Button size={globalSize} variant={variant as any} color="warning">Button</Button>
+                  </td>
+                  <td className="py-4 pr-4">
+                    <Button size={globalSize} variant={variant as any} color="info">Button</Button>
+                  </td>
+                  <td className="py-4 pr-4">
+                    <Button size={globalSize} variant={variant as any} color="tertiary">Button</Button>
+                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
       </div>
+
 
       {/* Toolbar & Groups */}
       <div className="rounded-2xl border bg-card/40 p-6 shadow-sm">
@@ -252,7 +250,7 @@ export default function ButtonsSection() {
           </ButtonGroup>
 
           <div className="w-px h-6 bg-border shrink-0" />
-          
+
           <Button size={globalSize} color="primary" variant="soft" className="shrink-0">
             <PlusIcon /> Insert
           </Button>

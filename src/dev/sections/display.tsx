@@ -1,93 +1,162 @@
-import { useState } from "react"
 import {
-  Button,
-  Badge,
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-  Input,
-  Label,
-  Switch,
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-  Separator,
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-  Progress,
-  Skeleton,
-  Slider,
-  Checkbox,
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-  Textarea,
+  BellIcon,
+  CheckCircle2Icon,
+  ShieldAlertIcon,
+  ShieldCheckIcon,
+  UserIcon,
+  ZapIcon
+} from "lucide-react"
+import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-  Alert,
-  AlertDescription,
-  RadioGroup,
-  RadioGroupItem,
-  Combobox,
-  ComboboxInput,
-  ComboboxContent,
-  ComboboxList,
-  ComboboxItem,
-  Calendar,
-  InputOTP,
-  InputOTPGroup,
-  InputOTPSlot,
-  InputOTPSeparator,
-  NativeSelect,
-  NativeSelectOption,
-  InputGroup,
-  InputGroupAddon,
-  InputGroupText,
-  InputGroupInput,
-  Field,
-  FieldTitle,
-  FieldDescription,
-  FieldError,
-  FieldContent,
+  Avatar,
+  AvatarBadge,
+  AvatarFallback,
+  AvatarGroup,
+  AvatarGroupCount,
+  AvatarImage,
+  Badge,
+  Button,
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle
 } from "../../index"
-import {
-  SunIcon,
-  MoonIcon,
-  ZapIcon,
-  ShieldCheckIcon,
-  LayersIcon,
-  PaletteIcon,
-  BoxIcon,
-  ToggleLeftIcon,
-  TypeIcon,
-  AlertCircleIcon,
-  CheckCircle2Icon,
-  InfoIcon,
-  TriangleAlertIcon,
-  XCircleIcon,
-} from "lucide-react"
 
 
-import { SectionHeader, ShowcaseBlock, ColorSwatch } from "../components/showcase"
-import { VARIANTS, COLORS, SIZES, STATS, COLOR_INFO } from "../data"
+import { SectionHeader, ShowcaseBlock } from "../components/showcase"
 
 export default function DisplaySection() {
   return (
     <div className="space-y-5">
-      <SectionHeader title="Data Display" description="Cards, Accordion, Tabs" />
+      <SectionHeader title="Data Display" description="Avatars, Cards, Accordion, and more" />
+
+      {/* Avatar Showcase */}
+      <div className="rounded-2xl border bg-card/40 p-6 shadow-sm">
+        <div className="flex items-center justify-between mb-6">
+          <div>
+            <h3 className="font-semibold text-lg flex items-center gap-2">
+              <UserIcon className="size-5 text-primary" />
+              Avatars & Groups
+            </h3>
+            <p className="text-sm text-muted-foreground mt-1">
+              Smart scaling, group overlaps, and status badges via CSS Delegated Logic.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Sizes & Fallbacks */}
+          <div className="rounded-xl border bg-card p-5 shadow-sm flex flex-col gap-4">
+            <h4 className="text-sm font-medium text-muted-foreground">Sizes & Fallbacks</h4>
+            <div className="flex items-center gap-6 h-12">
+              <Avatar size="sm">
+                <AvatarFallback>SM</AvatarFallback>
+              </Avatar>
+
+              <Avatar>
+                <AvatarImage src="https://github.com/shadcn.png" />
+                <AvatarFallback>MD</AvatarFallback>
+              </Avatar>
+
+              <Avatar size="lg">
+                <AvatarFallback className="bg-primary/10 text-primary">LG</AvatarFallback>
+              </Avatar>
+            </div>
+          </div>
+
+          {/* Group & Badge */}
+          <div className="rounded-xl border bg-card p-5 shadow-sm flex flex-col gap-4">
+            <h4 className="text-sm font-medium text-muted-foreground">Groups & Status Badges</h4>
+            <div className="flex items-center gap-8 h-12">
+              <AvatarGroup>
+                <Avatar size="lg">
+                  <AvatarImage src="https://github.com/shadcn.png" />
+                  <AvatarFallback>A1</AvatarFallback>
+                </Avatar>
+                <Avatar size="lg">
+                  <AvatarFallback className="bg-secondary text-secondary-foreground">B2</AvatarFallback>
+                </Avatar>
+                <Avatar size="lg">
+                  <AvatarFallback className="bg-destructive/10 text-destructive">C3</AvatarFallback>
+                </Avatar>
+                <AvatarGroupCount>+3</AvatarGroupCount>
+              </AvatarGroup>
+
+              <div className="w-px h-8 bg-border" />
+
+              <div className="flex items-center gap-4">
+                <Avatar>
+                  <AvatarImage src="https://github.com/shadcn.png" />
+                  <AvatarFallback>SC</AvatarFallback>
+                  <AvatarBadge className="bg-success" />
+                </Avatar>
+
+                <Avatar size="sm">
+                  <AvatarFallback>SM</AvatarFallback>
+                  <AvatarBadge className="bg-destructive" />
+                </Avatar>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* The Badge Matrix */}
+      <div className="rounded-2xl border bg-card/40 overflow-hidden shadow-sm">
+        <div className="border-b bg-muted/30 px-6 py-4">
+          <h3 className="font-semibold text-lg flex items-center gap-2">
+            <ShieldAlertIcon className="size-5 text-primary" />
+            The Badge Matrix
+          </h3>
+          <p className="text-sm text-muted-foreground mt-1">
+            All variants mapped against different usage contexts (Icons & Links).
+          </p>
+        </div>
+        <div className="p-6 overflow-x-auto">
+          <table className="w-full min-w-[600px] text-left border-collapse">
+            <thead>
+              <tr>
+                <th className="pb-4 font-medium text-muted-foreground text-sm">Variant</th>
+                <th className="pb-4 font-medium text-muted-foreground text-sm">Default</th>
+                <th className="pb-4 font-medium text-muted-foreground text-sm">Start Icon</th>
+                <th className="pb-4 font-medium text-muted-foreground text-sm">End Icon</th>
+                <th className="pb-4 font-medium text-muted-foreground text-sm">Interactive (Link)</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y">
+              {["default", "secondary", "destructive", "outline"].map((variant) => (
+                <tr key={variant} className="group hover:bg-muted/30 transition-colors">
+                  <td className="py-4 pr-4">
+                    <span className="text-sm font-medium capitalize">{variant}</span>
+                  </td>
+                  <td className="py-4 pr-4">
+                    <Badge variant={variant as any}>Badge</Badge>
+                  </td>
+                  <td className="py-4 pr-4">
+                    <Badge variant={variant as any}>
+                      <CheckCircle2Icon data-icon="inline-start" /> Status
+                    </Badge>
+                  </td>
+                  <td className="py-4 pr-4">
+                    <Badge variant={variant as any}>
+                      Updates <BellIcon data-icon="inline-end" />
+                    </Badge>
+                  </td>
+                  <td className="py-4 pr-4">
+                    <Badge variant={variant as any} render={<a href="#link" />}>
+                      Clickable
+                    </Badge>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
 
       <ShowcaseBlock title="Cards">
         <div className="grid gap-3 sm:grid-cols-2">

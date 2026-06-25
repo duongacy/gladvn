@@ -21,8 +21,6 @@ Tiến trình audit và refactor các UI components theo chuẩn thiết kế m�
 - [x] `slider.tsx`
 - [x] `input-otp.tsx`
 - [x] `combobox.tsx`
-- [x] `label.tsx`
-- [x] `field.tsx`
 - [x] `input-group.tsx`
 
 ### Actions
@@ -31,9 +29,17 @@ Tiến trình audit và refactor các UI components theo chuẩn thiết kế m�
 ### Core/Utilities
 - [x] `theme-provider.tsx` (Infrastructure, hỗ trợ light/dark mode explicit)
 
+### Data Display
+- [x] `avatar.tsx` (Kiệt tác CSS Delegated Logic)
+- [x] `badge.tsx` (Loại bỏ aria-invalid & 3 sizes, đồng bộ color/variant)
+
 ---
 
 ## 🔴 Chưa hoàn thành (Chưa audit)
+
+### Form Controls
+- [ ] `label.tsx`
+- [ ] `field.tsx`
 
 ### Actions & Toggles
 - [ ] `toggle.tsx`
@@ -59,8 +65,6 @@ Tiến trình audit và refactor các UI components theo chuẩn thiết kế m�
 ### Data Display
 - [ ] `card.tsx`
 - [ ] `table.tsx`
-- [ ] `avatar.tsx`
-- [ ] `badge.tsx`
 - [ ] `accordion.tsx`
 - [ ] `collapsible.tsx`
 - [ ] `carousel.tsx`

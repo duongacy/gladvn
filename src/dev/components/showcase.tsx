@@ -21,13 +21,22 @@ export function ShowcaseBlock({ title, children }: { title: string; children: Re
   )
 }
 
+const bgColorMap: Record<typeof COLORS[number], string> = {
+  primary: "bg-primary",
+  secondary: "bg-secondary",
+  destructive: "bg-destructive",
+  warning: "bg-warning",
+  success: "bg-success",
+  info: "bg-info",
+  tertiary: "bg-tertiary",
+}
+
 export function ColorSwatch({ color }: { color: typeof COLORS[number] }) {
   const info = COLOR_INFO[color]
   return (
     <div className="flex flex-col gap-1.5 items-center">
       <div
-        className="h-10 w-10 rounded-lg border shadow-sm"
-        style={{ background: `var(--color-${color})` }}
+        className={`h-10 w-10 rounded-lg border shadow-sm ${bgColorMap[color]}`}
       />
       <span className="text-[10px] font-medium text-muted-foreground">{info.label}</span>
     </div>

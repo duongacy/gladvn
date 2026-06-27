@@ -1,6 +1,6 @@
 /**
  * ✅ AUDITED & REFACTORED
- * - Design System Compliant (19 Commandments)
+ * - Design System Compliant (20 Commandments)
  * - WCAG AAA/AA
  * - Form Control Parity
  * - CSS Delegated Logic
@@ -152,7 +152,7 @@ function Button({
       data-slot="button"
       data-color={color}
       data-variant={variant}
-      data-icon-only={isIconOnly ? "true" : undefined}
+      {...(isIconOnly && { "data-icon-only": "true" })}
       className={cn(buttonVariants({ variant, color, size, className }))}
       {...props}
     >

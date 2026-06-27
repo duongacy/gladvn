@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import {
   Alert, AlertDescription, Calendar, Checkbox, Combobox, ComboboxContent, ComboboxInput,
-  ComboboxItem, ComboboxList, Field, FieldContent, FieldDescription, FieldError, FieldTitle,
+  ComboboxItem, ComboboxList, Field, FieldContent, FieldDescription, FieldError, FieldTitle, FieldLabel,
   Input, InputGroup, InputGroupAddon, InputGroupInput, InputGroupText, InputOTP,
   InputOTPGroup, InputOTPSeparator, InputOTPSlot, Label, MonoSelect, NativeSelect,
   NativeSelectOption, RadioGroup, RadioGroupItem, Select, SelectContent, SelectGroup,
@@ -37,49 +37,63 @@ export default function FormsSection() {
           </div>
           
           <div className="space-y-4">
-            <div className="space-y-1.5">
-              <Label>Default Input</Label>
-              <Input size={globalSize} className="w-full" placeholder="Enter value..." />
-            </div>
+            <Field size={globalSize}>
+              <FieldLabel htmlFor="tf-input">Default Input</FieldLabel>
+              <FieldDescription>A standard text input for short strings like names or titles.</FieldDescription>
+              <FieldContent>
+                <Input id="tf-input" size={globalSize} placeholder="Enter value..." />
+              </FieldContent>
+            </Field>
 
             <Separator />
 
-            <div className="space-y-1.5">
-              <Label>Textarea</Label>
-              <Textarea size={globalSize} className="w-full" rows={3} placeholder="Write something..." />
-            </div>
+            <Field size={globalSize}>
+              <FieldLabel htmlFor="tf-textarea">Textarea</FieldLabel>
+              <FieldDescription>Best suited for long-form content, feedback, or biographies.</FieldDescription>
+              <FieldContent>
+                <Textarea id="tf-textarea" size={globalSize} rows={3} placeholder="Write something..." />
+              </FieldContent>
+            </Field>
 
             <Separator />
 
-            <div className="space-y-1.5">
-              <Label>Input Group</Label>
-              <InputGroup size={globalSize}>
-                <InputGroupAddon>
-                  <InputGroupText>https://</InputGroupText>
-                </InputGroupAddon>
-                <InputGroupInput placeholder="sadcn.ui" />
-                <InputGroupAddon>
-                  <InputGroupText>.com</InputGroupText>
-                </InputGroupAddon>
-              </InputGroup>
-            </div>
+            <Field size={globalSize}>
+              <FieldLabel htmlFor="tf-group">Input Group</FieldLabel>
+              <FieldDescription>Combine text inputs with addons for things like URLs or prices.</FieldDescription>
+              <FieldContent>
+                <InputGroup size={globalSize}>
+                  <InputGroupAddon>
+                    <InputGroupText>https://</InputGroupText>
+                  </InputGroupAddon>
+                  <InputGroupInput id="tf-group" placeholder="sadcn.ui" />
+                  <InputGroupAddon>
+                    <InputGroupText>.com</InputGroupText>
+                  </InputGroupAddon>
+                </InputGroup>
+              </FieldContent>
+            </Field>
 
-            <div className="space-y-1.5">
-              <Label>Input OTP</Label>
-              <InputOTP size={globalSize} maxLength={6}>
-                <InputOTPGroup>
-                  <InputOTPSlot index={0} />
-                  <InputOTPSlot index={1} />
-                  <InputOTPSlot index={2} />
-                </InputOTPGroup>
-                <InputOTPSeparator />
-                <InputOTPGroup>
-                  <InputOTPSlot index={3} />
-                  <InputOTPSlot index={4} />
-                  <InputOTPSlot index={5} />
-                </InputOTPGroup>
-              </InputOTP>
-            </div>
+            <Separator />
+
+            <Field size={globalSize}>
+              <FieldLabel htmlFor="tf-otp-0">Input OTP</FieldLabel>
+              <FieldDescription>Enter the 6-digit code sent to your phone number.</FieldDescription>
+              <FieldContent>
+                <InputOTP id="tf-otp-0" size={globalSize} maxLength={6}>
+                  <InputOTPGroup>
+                    <InputOTPSlot index={0} />
+                    <InputOTPSlot index={1} />
+                    <InputOTPSlot index={2} />
+                  </InputOTPGroup>
+                  <InputOTPSeparator />
+                  <InputOTPGroup>
+                    <InputOTPSlot index={3} />
+                    <InputOTPSlot index={4} />
+                    <InputOTPSlot index={5} />
+                  </InputOTPGroup>
+                </InputOTP>
+              </FieldContent>
+            </Field>
           </div>
         </div>
 
@@ -96,80 +110,92 @@ export default function FormsSection() {
           </div>
 
           <div className="space-y-4">
-            <div className="space-y-1.5">
-              <Label>Select (Custom)</Label>
-              <Select>
-                <SelectTrigger size={globalSize} className="w-full">
-                  <SelectValue placeholder="Pick a framework..." />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="next">Next.js</SelectItem>
-                  <SelectItem value="vite">Vite</SelectItem>
-                  <SelectItem value="remix">Remix</SelectItem>
-                  <SelectItem value="astro">Astro</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
+            <Field size={globalSize}>
+              <FieldLabel>Select (Custom)</FieldLabel>
+              <FieldContent>
+                <Select>
+                  <SelectTrigger size={globalSize}>
+                    <SelectValue placeholder="Pick a framework..." />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="next">Next.js</SelectItem>
+                    <SelectItem value="vite">Vite</SelectItem>
+                    <SelectItem value="remix">Remix</SelectItem>
+                    <SelectItem value="astro">Astro</SelectItem>
+                  </SelectContent>
+                </Select>
+              </FieldContent>
+            </Field>
 
-            <div className="space-y-1.5">
-              <Label>Select (Grouped)</Label>
-              <Select>
-                <SelectTrigger size={globalSize} className="w-full">
-                  <SelectValue placeholder="Pick a fruit..." />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectGroup>
-                    <SelectLabel>Citrus</SelectLabel>
-                    <SelectItem value="orange">Orange</SelectItem>
-                    <SelectItem value="lemon">Lemon</SelectItem>
-                  </SelectGroup>
-                  <SelectSeparator />
-                  <SelectGroup>
-                    <SelectLabel>Berry</SelectLabel>
-                    <SelectItem value="strawberry">Strawberry</SelectItem>
-                    <SelectItem value="blueberry">Blueberry</SelectItem>
-                  </SelectGroup>
-                </SelectContent>
-              </Select>
-            </div>
+            <Field size={globalSize}>
+              <FieldLabel>Select (Grouped)</FieldLabel>
+              <FieldDescription>Options can be visually grouped with labels.</FieldDescription>
+              <FieldContent>
+                <Select>
+                  <SelectTrigger size={globalSize}>
+                    <SelectValue placeholder="Pick a fruit..." />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      <SelectLabel>Citrus</SelectLabel>
+                      <SelectItem value="orange">Orange</SelectItem>
+                      <SelectItem value="lemon">Lemon</SelectItem>
+                    </SelectGroup>
+                    <SelectSeparator />
+                    <SelectGroup>
+                      <SelectLabel>Berry</SelectLabel>
+                      <SelectItem value="strawberry">Strawberry</SelectItem>
+                      <SelectItem value="blueberry">Blueberry</SelectItem>
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
+              </FieldContent>
+            </Field>
 
-            <div className="space-y-1.5">
-              <Label>MonoSelect</Label>
-              <MonoSelect
-                size={globalSize}
-                className="w-full"
-                placeholder="Flat list..."
-                options={[
-                  { value: "1", label: "Option 1" },
-                  { value: "2", label: "Option 2" },
-                ]}
-              />
-            </div>
+            <Field size={globalSize}>
+              <FieldLabel>MonoSelect</FieldLabel>
+              <FieldContent>
+                <MonoSelect
+                  size={globalSize}
+                  placeholder="Flat list..."
+                  options={[
+                    { value: "1", label: "Option 1" },
+                    { value: "2", label: "Option 2" },
+                  ]}
+                />
+              </FieldContent>
+            </Field>
 
-            <div className="space-y-1.5">
-              <Label>Native Select</Label>
-              <NativeSelect size={globalSize} defaultValue="mac">
-                <NativeSelectOption value="mac">macOS</NativeSelectOption>
-                <NativeSelectOption value="win">Windows</NativeSelectOption>
-                <NativeSelectOption value="linux">Linux</NativeSelectOption>
-              </NativeSelect>
-            </div>
+            <Field size={globalSize}>
+              <FieldLabel htmlFor="id1">Native Select</FieldLabel>
+              <FieldDescription>Uses the browser's built-in dropdown menu. Great for mobile.</FieldDescription>
+              <FieldContent>
+                <NativeSelect id="id1" size={globalSize} defaultValue="mac">
+                  <NativeSelectOption value="mac">macOS</NativeSelectOption>
+                  <NativeSelectOption value="win">Windows</NativeSelectOption>
+                  <NativeSelectOption value="linux">Linux</NativeSelectOption>
+                </NativeSelect>
+              </FieldContent>
+            </Field>
 
             <Separator />
 
-            <div className="space-y-1.5">
-              <Label>Combobox</Label>
-              <Combobox>
-                <ComboboxInput size={globalSize} placeholder="Search framework..." />
-                <ComboboxContent>
-                  <ComboboxList>
-                    <ComboboxItem value="react">React</ComboboxItem>
-                    <ComboboxItem value="vue">Vue</ComboboxItem>
-                    <ComboboxItem value="svelte">Svelte</ComboboxItem>
-                  </ComboboxList>
-                </ComboboxContent>
-              </Combobox>
-            </div>
+            <Field size={globalSize}>
+              <FieldLabel>Combobox</FieldLabel>
+              <FieldDescription>A select input that allows searching through large datasets.</FieldDescription>
+              <FieldContent>
+                <Combobox>
+                  <ComboboxInput size={globalSize} placeholder="Search framework..." />
+                  <ComboboxContent>
+                    <ComboboxList>
+                      <ComboboxItem value="react">React</ComboboxItem>
+                      <ComboboxItem value="vue">Vue</ComboboxItem>
+                      <ComboboxItem value="svelte">Svelte</ComboboxItem>
+                    </ComboboxList>
+                  </ComboboxContent>
+                </Combobox>
+              </FieldContent>
+            </Field>
           </div>
         </div>
 
@@ -187,58 +213,67 @@ export default function FormsSection() {
 
           <div className="space-y-5">
             <div className="space-y-2">
-              <Label className="mb-1 block">Checkboxes</Label>
-              {["TypeScript", "ESLint", "Tailwind CSS"].map((item) => (
-                <div key={item} className="flex items-center gap-2">
-                  <Checkbox size={globalSize} id={`check-${item}`} defaultChecked={item === "TypeScript"} />
-                  <Label htmlFor={`check-${item}`}>{item}</Label>
-                </div>
-              ))}
+              <Label size={globalSize} className="mb-2 block text-muted-foreground">Checkboxes</Label>
+              <div className="space-y-3">
+                {["TypeScript", "ESLint", "Tailwind CSS"].map((item) => (
+                  <Field orientation="horizontal" size={globalSize} key={item}>
+                    <Checkbox size={globalSize} id={`check-${item}`} defaultChecked={item === "TypeScript"} />
+                    <FieldLabel htmlFor={`check-${item}`}>{item}</FieldLabel>
+                  </Field>
+                ))}
+              </div>
             </div>
 
             <Separator />
 
             <div className="space-y-2">
-              <Label className="mb-1 block">Radio Group</Label>
-              <RadioGroup defaultValue="comfortable">
-                <div className="flex items-center gap-2">
+              <Label size={globalSize} className="mb-2 block text-muted-foreground">Radio Group</Label>
+              <RadioGroup defaultValue="comfortable" className="space-y-1">
+                <Field orientation="horizontal" size={globalSize}>
                   <RadioGroupItem size={globalSize} value="default" id="r1" />
-                  <Label htmlFor="r1">Default</Label>
-                </div>
-                <div className="flex items-center gap-2">
+                  <FieldLabel htmlFor="r1">Default</FieldLabel>
+                </Field>
+                <Field orientation="horizontal" size={globalSize}>
                   <RadioGroupItem size={globalSize} value="comfortable" id="r2" />
-                  <Label htmlFor="r2">Comfortable</Label>
-                </div>
-                <div className="flex items-center gap-2">
+                  <FieldLabel htmlFor="r2">Comfortable</FieldLabel>
+                </Field>
+                <Field orientation="horizontal" size={globalSize}>
                   <RadioGroupItem size={globalSize} value="compact" id="r3" />
-                  <Label htmlFor="r3">Compact</Label>
-                </div>
+                  <FieldLabel htmlFor="r3">Compact</FieldLabel>
+                </Field>
               </RadioGroup>
             </div>
 
             <Separator />
 
             <div className="space-y-3">
-              <Label className="mb-1 block">Switches</Label>
-              {["Notifications", "Dark Mode", "Auto-save"].map((item, i) => (
-                <div key={item} className="flex items-center justify-between">
-                  <Label>{item}</Label>
-                  <Switch size={globalSize} defaultChecked={i === 0} />
-                </div>
-              ))}
+              <Label size={globalSize} className="mb-2 block text-muted-foreground">Switches</Label>
+              <div className="space-y-4">
+                {["Notifications", "Dark Mode", "Auto-save"].map((item, i) => (
+                  <Field orientation="horizontal" size={globalSize} key={item} className="justify-between">
+                    <FieldLabel htmlFor={`switch-${item}`}>{item}</FieldLabel>
+                    <Switch id={`switch-${item}`} size={globalSize} defaultChecked={i === 0} />
+                  </Field>
+                ))}
+              </div>
             </div>
 
             <Separator />
 
             <div className="space-y-4">
-              <div className="space-y-1.5">
-                <Label>Slider (Volume)</Label>
-                <Slider size={globalSize} defaultValue={[60]} max={100} step={1} />
-              </div>
-              <div className="space-y-1.5">
-                <Label>Slider (Range)</Label>
-                <Slider size={globalSize} defaultValue={[20, 80]} max={100} step={1} />
-              </div>
+              <Field size={globalSize}>
+                <FieldLabel>Slider (Volume)</FieldLabel>
+                <FieldContent>
+                  <Slider size={globalSize} defaultValue={[60]} max={100} step={1} />
+                </FieldContent>
+                <FieldDescription>Adjust the media volume globally.</FieldDescription>
+              </Field>
+              <Field size={globalSize}>
+                <FieldLabel>Slider (Range)</FieldLabel>
+                <FieldContent>
+                  <Slider size={globalSize} defaultValue={[20, 80]} max={100} step={1} />
+                </FieldContent>
+              </Field>
             </div>
           </div>
         </div>
@@ -254,11 +289,11 @@ export default function FormsSection() {
               <p className="text-xs text-muted-foreground">Composition & structure</p>
             </div>
           </div>
-          <Field>
-            <FieldTitle>Email address</FieldTitle>
+          <Field size={globalSize}>
+            <FieldLabel htmlFor="layout-email">Email address</FieldLabel>
             <FieldDescription>We will not share your email with anyone.</FieldDescription>
             <FieldContent>
-              <Input size={globalSize} type="email" placeholder="you@example.com" />
+              <Input id="layout-email" size={globalSize} type="email" placeholder="you@example.com" />
             </FieldContent>
             <FieldError errors={[{ message: "Please enter a valid email address." }]} />
           </Field>
@@ -299,63 +334,88 @@ export default function FormsSection() {
               </AlertDescription>
             </Alert>
 
-            <div className="space-y-3">
-              <div className="space-y-1.5">
-                <Label>Input</Label>
-                <Input size={globalSize} aria-invalid placeholder="Invalid text" />
-              </div>
+            <div className="space-y-6">
+              <Field size={globalSize}>
+                <FieldLabel htmlFor="err-input-username">Username</FieldLabel>
+                <FieldDescription>Choose a unique identifier for your profile.</FieldDescription>
+                <FieldContent>
+                  <Input id="err-input-username" size={globalSize} aria-invalid placeholder="e.g. john_doe" />
+                </FieldContent>
+                <FieldError errors={[{ message: "Username is already taken by another user." }]} />
+              </Field>
 
-              <div className="space-y-1.5">
-                <Label>InputGroup</Label>
-                <InputGroup size={globalSize}>
-                  <InputGroupAddon><InputGroupText>@</InputGroupText></InputGroupAddon>
-                  <InputGroupInput aria-invalid placeholder="username" />
-                </InputGroup>
-              </div>
+              <Field size={globalSize}>
+                <FieldLabel htmlFor="err-group">Social Handle</FieldLabel>
+                <FieldContent>
+                  <InputGroup size={globalSize}>
+                    <InputGroupAddon><InputGroupText>@</InputGroupText></InputGroupAddon>
+                    <InputGroupInput id="err-group" aria-invalid placeholder="username" />
+                  </InputGroup>
+                </FieldContent>
+                <FieldError errors={[{ message: "Invalid characters in handle." }]} />
+              </Field>
 
-              <div className="space-y-1.5">
-                <Label>Select</Label>
-                <Select>
-                  <SelectTrigger size={globalSize} aria-invalid><SelectValue placeholder="Invalid selection..." /></SelectTrigger>
-                  <SelectContent><SelectItem value="1">1</SelectItem></SelectContent>
-                </Select>
-              </div>
+              <Field size={globalSize}>
+                <FieldLabel>Subscription Plan</FieldLabel>
+                <FieldContent>
+                  <Select>
+                    <SelectTrigger size={globalSize} aria-invalid><SelectValue placeholder="Invalid selection..." /></SelectTrigger>
+                    <SelectContent><SelectItem value="1">Pro Plan</SelectItem></SelectContent>
+                  </Select>
+                </FieldContent>
+                <FieldError errors={[{ message: "This plan requires a valid credit card on file." }]} />
+              </Field>
 
-              <div className="space-y-1.5">
-                <Label>NativeSelect</Label>
-                <NativeSelect size={globalSize} aria-invalid defaultValue="">
-                  <NativeSelectOption value="" disabled>Select option...</NativeSelectOption>
-                </NativeSelect>
-              </div>
+              <Field size={globalSize}>
+                <FieldLabel htmlFor="err-native">Country</FieldLabel>
+                <FieldContent>
+                  <NativeSelect id="err-native" size={globalSize} aria-invalid defaultValue="">
+                    <NativeSelectOption value="" disabled>Select option...</NativeSelectOption>
+                  </NativeSelect>
+                </FieldContent>
+                <FieldError errors={[{ message: "Service is not available in the selected region." }]} />
+              </Field>
 
-              <div className="space-y-1.5">
-                <Label>InputOTP</Label>
-                <InputOTP size={globalSize} maxLength={3}>
-                  <InputOTPGroup>
-                    <InputOTPSlot aria-invalid index={0} />
-                    <InputOTPSlot aria-invalid index={1} />
-                    <InputOTPSlot aria-invalid index={2} />
-                  </InputOTPGroup>
-                </InputOTP>
-              </div>
+              <Field size={globalSize}>
+                <FieldLabel htmlFor="err-otp">Authentication Code</FieldLabel>
+                <FieldContent>
+                  <InputOTP id="err-otp" size={globalSize} maxLength={3}>
+                    <InputOTPGroup>
+                      <InputOTPSlot aria-invalid index={0} />
+                      <InputOTPSlot aria-invalid index={1} />
+                      <InputOTPSlot aria-invalid index={2} />
+                    </InputOTPGroup>
+                  </InputOTP>
+                </FieldContent>
+                <FieldError errors={[{ message: "The code you entered has expired." }]} />
+              </Field>
 
-              <div className="flex gap-6 pt-3">
-                <div className="flex items-center gap-2">
+              <div className="flex flex-col gap-4 pt-3">
+                <Field orientation="horizontal" size={globalSize}>
                   <Checkbox size={globalSize} aria-invalid id="err-check2" />
-                  <Label htmlFor="err-check2">Check</Label>
-                </div>
-                <div className="flex items-center gap-2">
-                  <RadioGroup defaultValue="">
-                    <div className="flex items-center gap-2">
-                      <RadioGroupItem size={globalSize} aria-invalid value="1" id="err-radio2" />
-                      <Label htmlFor="err-radio2">Radio</Label>
-                    </div>
-                  </RadioGroup>
-                </div>
-                <div className="flex items-center gap-2">
+                  <FieldContent>
+                    <FieldLabel htmlFor="err-check2">Accept Terms & Conditions</FieldLabel>
+                    <FieldError errors={[{ message: "You must accept the terms to proceed." }]} />
+                  </FieldContent>
+                </Field>
+                
+                <RadioGroup defaultValue="">
+                  <Field orientation="horizontal" size={globalSize}>
+                    <RadioGroupItem size={globalSize} aria-invalid value="1" id="err-radio2" />
+                    <FieldContent>
+                      <FieldLabel htmlFor="err-radio2">Agree to Marketing Emails</FieldLabel>
+                      <FieldError errors={[{ message: "Please make a valid selection." }]} />
+                    </FieldContent>
+                  </Field>
+                </RadioGroup>
+                
+                <Field orientation="horizontal" size={globalSize}>
                   <Switch size={globalSize} aria-invalid id="err-switch2" />
-                  <Label htmlFor="err-switch2">Switch</Label>
-                </div>
+                  <FieldContent>
+                    <FieldLabel htmlFor="err-switch2">Enable 2FA</FieldLabel>
+                    <FieldError errors={[{ message: "You cannot disable 2FA for admin accounts." }]} />
+                  </FieldContent>
+                </Field>
               </div>
             </div>
           </div>

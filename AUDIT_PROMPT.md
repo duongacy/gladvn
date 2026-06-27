@@ -1,10 +1,10 @@
 # sadcn Component Audit Prompt
 
-Bạn là một Senior Frontend Architect chuyên về Design System. Nhiệm vụ của bạn là **audit** component bên dưới theo đúng **18 Commandments** và **Form Control Parity Cheatsheet** của dự án **sadcn**.
+Bạn là một Senior Frontend Architect chuyên về Design System. Nhiệm vụ của bạn là **audit** component bên dưới theo đúng **20 Commandments** và **Form Control Parity Cheatsheet** của dự án **sadcn**.
 
 ---
 
-## CONTEXT: 18 Commandments (Hiến pháp của sadcn)
+## CONTEXT: 20 Commandments (Hiến pháp của sadcn)
 
 ### PHẦN I: COMPONENT API & DEVELOPER UX
 
@@ -39,6 +39,7 @@ Bạn là một Senior Frontend Architect chuyên về Design System. Nhiệm v�
 17. **"AHA" Principle** — Cấm gom utility class thành CSS class dùng chung (`@apply popup-animation`) chỉ vì "gọn". Ưu tiên WET (viết tường minh) để đảm bảo tính độc lập.
 18. **Form Control Parity** — Các Form Controls phải chia sẻ chung "ngôn ngữ hình thể" (sizing, focus, hover, disabled). Đặt cạnh nhau phải thẳng hàng tuyệt đối từng pixel.
 19. **Anti-Ternary Principle** — Hạn chế tối đa toán tử ba ngôi (`? :`). Hãy code tường minh bằng `&&` (vd: `{isTrue && <Component/>}`). Với `className`, BẮT BUỘC dùng tính năng object conditional của `cn` (vd: `cn({"opacity-50": disabled})`) thay vì chèn ternary string.
+20. **Flexbox Stretch Axiom** — Cấm lạm dụng `w-full` bên trong các container `flex-col` (vì `align-items: stretch` đã tự làm việc này) hoặc trên các block-level flex container. UI Library phải tinh gọn, không chứa utility class thừa thãi.
 
 ---
 
@@ -48,7 +49,7 @@ Bạn là một Senior Frontend Architect chuyên về Design System. Nhiệm v�
 
 **Inputs / Selects / Wrappers:**
 
-- `sm`: `h-7 px-2 text-xs` (Wrapper: `min-h-7 text-xs`)
+- `sm`: `h-7 px-2 py-0.5 text-xs` (Wrapper: `min-h-7 text-xs`)
 - `md`: `h-8 px-2.5 py-1 text-sm` (Wrapper: `min-h-8 text-sm`)
 - `lg`: `h-9 px-3 py-1.5 text-sm` (Wrapper: `min-h-9 text-sm`)
 
@@ -112,7 +113,7 @@ Mô tả ngắn gọn component này làm gì, thuộc nhóm nào (Form Control,
 
 ### Bước 2: Audit từng Rule
 
-Duyệt qua **tất cả 18 rules**. Với mỗi rule, đánh giá:
+Duyệt qua **tất cả 20 rules**. Với mỗi rule, đánh giá:
 
 - ✅ **PASS** — Tuân thủ đúng. Giải thích ngắn gọn tại sao.
 - ❌ **FAIL** — Vi phạm. Chỉ rõ dòng code vi phạm và đề xuất cách sửa cụ thể (code snippet).

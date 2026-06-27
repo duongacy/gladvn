@@ -3,8 +3,8 @@
 Tiến trình audit và refactor các UI components theo chuẩn thiết kế mới (WCAG AAA/AA, Form Control Parity, AHA Principle, Linear Design Axiom).
 
 ## Tổng quan tiến độ
-**Hoàn thành:** 15 / 56 components (~27%)
-**Chưa hoàn thành:** 41 / 56 components (~73%)
+**Hoàn thành:** 17 / 56 components (~30%)
+**Chưa hoàn thành:** 39 / 56 components (~70%)
 
 ---
 
@@ -21,6 +21,8 @@ Tiến trình audit và refactor các UI components theo chuẩn thiết kế m�
 - [x] `slider.tsx`
 - [x] `input-otp.tsx`
 - [x] `combobox.tsx`
+- [x] `label.tsx` (Đã bổ sung size variant để đồng bộ Parity)
+- [x] `field.tsx` (Refactor CSS Delegated Logic cho Tiêu đề & Mô tả)
 - [x] `input-group.tsx`
 
 ### Actions
@@ -36,10 +38,6 @@ Tiến trình audit và refactor các UI components theo chuẩn thiết kế m�
 ---
 
 ## 🔴 Chưa hoàn thành (Chưa audit)
-
-### Form Controls
-- [ ] `label.tsx`
-- [ ] `field.tsx`
 
 ### Actions & Toggles
 - [ ] `toggle.tsx`

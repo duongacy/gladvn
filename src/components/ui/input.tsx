@@ -1,6 +1,6 @@
 /**
  * ✅ AUDITED & REFACTORED
- * - Design System Compliant (19 Commandments)
+ * - Design System Compliant (20 Commandments)
  * - WCAG AAA/AA
  * - Form Control Parity
  * - CSS Delegated Logic
@@ -16,10 +16,13 @@ const inputVariants = cva(
   {
     variants: {
       size: {
-        sm: "h-7 px-2 text-xs",
+        sm: "h-7 px-2 py-0.5 text-xs",
         md: "h-8 px-2.5 py-1 text-sm",
         lg: "h-9 px-3 py-1.5 text-sm",
       },
+    },
+    defaultVariants: {
+      size: "md",
     },
   }
 )

@@ -1,6 +1,6 @@
 /**
  * ✅ AUDITED & REFACTORED
- * - Design System Compliant (19 Commandments)
+ * - Design System Compliant (20 Commandments)
  * - WCAG AAA/AA
  * - Form Control Parity
  * - CSS Delegated Logic
@@ -55,11 +55,11 @@ function Slider({
   size = "md",
   ...props
 }: SliderPrimitive.Root.Props & VariantProps<typeof thumbVariants>) {
-  const _values = Array.isArray(value)
-    ? value
-    : Array.isArray(defaultValue)
-      ? defaultValue
-      : [min, max]
+  const _values = (() => {
+    if (Array.isArray(value)) return value
+    if (Array.isArray(defaultValue)) return defaultValue
+    return [min, max]
+  })()
 
   return (
     <SliderPrimitive.Root

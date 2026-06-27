@@ -1,6 +1,6 @@
 /**
  * ✅ AUDITED & REFACTORED
- * - Design System Compliant (19 Commandments)
+ * - Design System Compliant (20 Commandments)
  * - WCAG AAA/AA
  * - Form Control Parity
  * - CSS Delegated Logic
@@ -38,7 +38,7 @@ function NativeSelect({
   return (
     <div
       className={cn(
-        "group/native-select relative w-full has-[select:disabled]:opacity-50",
+        "group/native-select relative has-[select:disabled]:opacity-50",
         className
       )}
       data-slot="native-select-wrapper"
@@ -47,7 +47,7 @@ function NativeSelect({
       <select
         data-slot="native-select"
         data-size={size}
-        className={cn(nativeSelectVariants({ size, className }))}
+        className={cn(nativeSelectVariants({ size }))}
         {...props}
       />
       <ChevronDownIcon className="pointer-events-none absolute top-1/2 right-2.5 size-4 -translate-y-1/2 text-muted-foreground select-none" aria-hidden="true" data-slot="native-select-icon" />

@@ -1,6 +1,6 @@
 /**
  * ✅ AUDITED & REFACTORED
- * - Design System Compliant (19 Commandments)
+ * - Design System Compliant (20 Commandments)
  * - WCAG AAA/AA
  * - Form Control Parity
  * - CSS Delegated Logic
@@ -14,7 +14,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "../../lib/utils"
 
 const switchVariants = cva(
-  "group/switch peer relative inline-flex shrink-0 items-center rounded-full border border-transparent p-px aria-invalid:data-unchecked:border-destructive dark:aria-invalid:data-unchecked:border-destructive/50 transition-all outline-none focus-visible:ring-3 focus-visible:ring-ring/50 aria-invalid:focus-visible:ring-3 aria-invalid:focus-visible:ring-destructive/20 dark:aria-invalid:focus-visible:ring-destructive/40 data-checked:bg-primary data-unchecked:bg-input dark:data-unchecked:bg-input/80 data-disabled:cursor-not-allowed data-disabled:opacity-50",
+  "group/switch peer relative inline-flex shrink-0 items-center rounded-full border border-transparent p-px aria-invalid:data-unchecked:border-destructive dark:aria-invalid:data-unchecked:border-destructive/50 transition-all outline-none focus-visible:ring-3 focus-visible:ring-ring/50 aria-invalid:focus-visible:ring-3 aria-invalid:focus-visible:ring-destructive/20 dark:aria-invalid:focus-visible:ring-destructive/40 data-checked:bg-primary data-unchecked:bg-input dark:data-unchecked:bg-input/80 data-disabled:pointer-events-none data-disabled:cursor-not-allowed data-disabled:opacity-50",
   {
     variants: {
       size: {

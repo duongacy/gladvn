@@ -1,6 +1,6 @@
 /**
  * ✅ AUDITED & REFACTORED
- * - Design System Compliant (19 Commandments)
+ * - Design System Compliant (20 Commandments)
  * - WCAG AAA/AA
  * - Form Control Parity
  * - CSS Delegated Logic
@@ -18,7 +18,7 @@ import { Textarea } from "./textarea"
 const inputGroupVariants = cva(
   [
     // Base layout
-    "group/input-group relative flex w-full min-w-0 items-center rounded-lg border border-input transition-colors outline-none",
+    "group/input-group relative flex min-w-0 items-center rounded-lg border border-input transition-colors outline-none",
     // Combobox focus delegation
     "in-data-[slot=combobox-content]:focus-within:border-inherit in-data-[slot=combobox-content]:focus-within:ring-0",
     // Disabled state
@@ -170,7 +170,7 @@ function InputGroupInput({
       data-slot="input-group-control"
       className={cn(
         "flex-1 rounded-none border-0 bg-transparent shadow-none ring-0 focus-visible:ring-0 disabled:bg-transparent disabled:opacity-100 aria-invalid:ring-0 aria-invalid:focus-visible:ring-0 dark:bg-transparent dark:disabled:bg-transparent",
-        "group-[.input-group-sm]/input-group:h-7 group-[.input-group-sm]/input-group:px-2 group-[.input-group-sm]/input-group:text-xs",
+        "group-[.input-group-sm]/input-group:h-7 group-[.input-group-sm]/input-group:px-2 group-[.input-group-sm]/input-group:py-0.5 group-[.input-group-sm]/input-group:text-xs",
         "group-[.input-group-md]/input-group:h-8 group-[.input-group-md]/input-group:px-2.5 group-[.input-group-md]/input-group:py-1 group-[.input-group-md]/input-group:text-sm",
         "group-[.input-group-lg]/input-group:h-9 group-[.input-group-lg]/input-group:px-3 group-[.input-group-lg]/input-group:py-1.5 group-[.input-group-lg]/input-group:text-sm",
         className

@@ -297,7 +297,7 @@ function CalendarDayButton({
         // Hover
         "hover:bg-accent hover:text-accent-foreground",
         // Focus ring (standard)
-        "focus-visible:ring-3 focus-visible:ring-ring/50",
+        "focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-offset-1 focus-visible:ring-offset-background",
         // Press feedback
         "active:translate-y-px",
         // Disabled

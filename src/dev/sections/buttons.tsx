@@ -1,8 +1,4 @@
 import {
-  AlignCenterIcon,
-  AlignJustifyIcon,
-  AlignLeftIcon,
-  AlignRightIcon,
   BoxIcon,
   CheckCircle2Icon,
   LayersIcon,
@@ -18,7 +14,6 @@ import {
   Avatar,
   AvatarFallback,
   Button,
-  ButtonGroup,
   MonoSelect,
   Spinner,
   Tooltip,
@@ -188,31 +183,31 @@ export default function ButtonsSection() {
               </tr>
             </thead>
             <tbody className="divide-y">
-              {["solid", "soft", "outline", "ghost", "link"].map((variant) => (
+              {(["solid", "soft", "outline", "ghost", "link"] as const).map((variant) => (
                 <tr key={variant} className="group hover:bg-muted/30 transition-colors">
                   <td className="py-4 pr-4">
                     <span className="text-sm font-medium capitalize">{variant}</span>
                   </td>
                   <td className="py-4 pr-4">
-                    <Button size={globalSize} variant={variant as any} color="primary">Button</Button>
+                    <Button size={globalSize} variant={variant} color="primary">Button</Button>
                   </td>
                   <td className="py-4 pr-4">
-                    <Button size={globalSize} variant={variant as any} color="secondary">Button</Button>
+                    <Button size={globalSize} variant={variant} color="secondary">Button</Button>
                   </td>
                   <td className="py-4 pr-4">
-                    <Button size={globalSize} variant={variant as any} color="destructive">Button</Button>
+                    <Button size={globalSize} variant={variant} color="destructive">Button</Button>
                   </td>
                   <td className="py-4 pr-4">
-                    <Button size={globalSize} variant={variant as any} color="success">Button</Button>
+                    <Button size={globalSize} variant={variant} color="success">Button</Button>
                   </td>
                   <td className="py-4 pr-4">
-                    <Button size={globalSize} variant={variant as any} color="warning">Button</Button>
+                    <Button size={globalSize} variant={variant} color="warning">Button</Button>
                   </td>
                   <td className="py-4 pr-4">
-                    <Button size={globalSize} variant={variant as any} color="info">Button</Button>
+                    <Button size={globalSize} variant={variant} color="info">Button</Button>
                   </td>
                   <td className="py-4 pr-4">
-                    <Button size={globalSize} variant={variant as any} color="tertiary">Button</Button>
+                    <Button size={globalSize} variant={variant} color="tertiary">Button</Button>
                   </td>
                 </tr>
               ))}
@@ -220,40 +215,6 @@ export default function ButtonsSection() {
           </table>
         </div>
       </div>
-
-
-      {/* Toolbar & Groups */}
-      <div className="rounded-2xl border bg-card/40 p-6 shadow-sm">
-        <div className="flex items-center justify-between mb-6">
-          <div>
-            <h3 className="font-semibold text-lg">Button Groups & Toolbars</h3>
-            <p className="text-sm text-muted-foreground mt-1">For rich text editors and action bars.</p>
-          </div>
-        </div>
-        <div className="flex items-center gap-4 p-2 rounded-xl border bg-muted/30 w-fit overflow-x-auto">
-          <ButtonGroup>
-            <Button size={globalSize} variant="outline" color="secondary"><AlignLeftIcon /></Button>
-            <Button size={globalSize} variant="outline" color="secondary"><AlignCenterIcon /></Button>
-            <Button size={globalSize} variant="outline" color="secondary"><AlignRightIcon /></Button>
-            <Button size={globalSize} variant="outline" color="secondary"><AlignJustifyIcon /></Button>
-          </ButtonGroup>
-
-          <div className="w-px h-6 bg-border shrink-0" />
-
-          <ButtonGroup>
-            <Button size={globalSize} variant="soft" color="secondary" className="font-bold">B</Button>
-            <Button size={globalSize} variant="soft" color="secondary" className="italic">I</Button>
-            <Button size={globalSize} variant="soft" color="secondary" className="underline">U</Button>
-          </ButtonGroup>
-
-          <div className="w-px h-6 bg-border shrink-0" />
-
-          <Button size={globalSize} color="primary" variant="soft" className="shrink-0">
-            <PlusIcon /> Insert
-          </Button>
-        </div>
-      </div>
-
     </div>
   )
 }

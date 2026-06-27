@@ -56,7 +56,7 @@ function InputOTPGroup({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="input-otp-group"
-      className={cn("flex items-center rounded-lg", className)}
+      className={cn("flex items-center gap-2", className)}
       {...props}
     />
   )
@@ -77,11 +77,11 @@ function InputOTPSlot({
       data-slot="input-otp-slot"
       data-active={isActive}
       className={cn(
-        "relative flex size-8 group-[.otp-sm]/otp:size-7 group-[.otp-lg]/otp:size-9 items-center justify-center border-y border-r border-input bg-transparent transition-colors outline-none first:rounded-l-lg first:border-l last:rounded-r-lg",
+        "relative flex size-8 group-[.otp-sm]/otp:size-7 group-[.otp-lg]/otp:size-9 items-center justify-center border border-input rounded-md bg-transparent transition-colors outline-none",
         "aria-invalid:border-destructive dark:aria-invalid:border-destructive/50",
-        "data-[active=true]:z-10 data-[active=true]:border-ring data-[active=true]:ring-3 data-[active=true]:ring-ring/50",
-        "data-[active=true]:aria-invalid:border-destructive data-[active=true]:aria-invalid:ring-3 data-[active=true]:aria-invalid:ring-destructive/20",
-        "dark:bg-input/30 dark:data-[active=true]:aria-invalid:ring-destructive/40",
+        "data-[active=true]:z-10 data-[active=true]:border-ring data-[active=true]:ring-3 data-[active=true]:ring-ring/50 data-[active=true]:ring-offset-1 data-[active=true]:ring-offset-background",
+        "data-[active=true]:aria-invalid:border-destructive data-[active=true]:aria-invalid:ring-3 data-[active=true]:aria-invalid:ring-destructive/50",
+        "dark:bg-input/30 dark:data-[active=true]:aria-invalid:ring-destructive/50",
         className
       )}
       {...props}

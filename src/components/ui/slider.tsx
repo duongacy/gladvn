@@ -31,7 +31,7 @@ const trackVariants = cva(
 )
 
 const thumbVariants = cva(
-  "relative block shrink-0 rounded-full border border-ring bg-background ring-ring/50 transition-[color,box-shadow] select-none after:absolute after:-inset-2 focus-visible:ring-3 has-[:focus-visible]:ring-3 focus-visible:outline-none has-[:focus-visible]:outline-none disabled:pointer-events-none group-aria-invalid/slider:border-destructive group-aria-invalid/slider:focus-visible:border-destructive group-aria-invalid/slider:has-[:focus-visible]:border-destructive group-aria-invalid/slider:focus-visible:ring-destructive/20 group-aria-invalid/slider:has-[:focus-visible]:ring-destructive/20 dark:group-aria-invalid/slider:focus-visible:ring-destructive/40 dark:group-aria-invalid/slider:has-[:focus-visible]:ring-destructive/40",
+  "relative block shrink-0 rounded-full border border-ring bg-background ring-ring/50 transition-[color,box-shadow] select-none after:absolute after:-inset-2 focus-visible:ring-3 focus-visible:ring-offset-1 focus-visible:ring-offset-background has-[:focus-visible]:ring-3 has-[:focus-visible]:ring-offset-1 has-[:focus-visible]:ring-offset-background focus-visible:outline-none has-[:focus-visible]:outline-none disabled:pointer-events-none group-aria-invalid/slider:border-destructive group-aria-invalid/slider:focus-visible:border-destructive group-aria-invalid/slider:has-[:focus-visible]:border-destructive group-aria-invalid/slider:focus-visible:ring-destructive/50 group-aria-invalid/slider:has-[:focus-visible]:ring-destructive/50 dark:group-aria-invalid/slider:focus-visible:ring-destructive/50 dark:group-aria-invalid/slider:has-[:focus-visible]:ring-destructive/50",
   {
     variants: {
       size: {

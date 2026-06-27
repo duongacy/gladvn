@@ -29,7 +29,7 @@ import { cn } from "../../lib/utils"
  */
 
 const buttonVariants = cva(
-  "group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-border text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:ring-3 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:ring-3 aria-invalid:focus-visible:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:focus-visible:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0",
+  "group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-border text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:ring-3 focus-visible:ring-offset-1 focus-visible:ring-offset-background active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:ring-3 aria-invalid:focus-visible:ring-destructive/50 dark:aria-invalid:border-destructive/50 dark:aria-invalid:focus-visible:ring-destructive/50 [&_svg]:pointer-events-none [&_svg]:shrink-0",
   {
     variants: {
       // ── Visual style ─────────────────────────────────────────────
@@ -107,14 +107,14 @@ const buttonVariants = cva(
       { variant: "link", color: "success", className: "text-success" },
       { variant: "link", color: "info", className: "text-info" },
       { variant: "link", color: "tertiary", className: "text-tertiary" },
-      // focus ring — semantic color at /30 opacity (applies to all variants)
-      { color: "primary", className: "focus-visible:ring-primary/30" },
-      { color: "secondary", className: "focus-visible:ring-secondary/30" },
-      { color: "destructive", className: "focus-visible:ring-destructive/30" },
-      { color: "warning", className: "focus-visible:ring-warning/30" },
-      { color: "success", className: "focus-visible:ring-success/30" },
-      { color: "info", className: "focus-visible:ring-info/30" },
-      { color: "tertiary", className: "focus-visible:ring-tertiary/30" },
+      // focus ring — semantic color at /15 opacity with offset
+      { color: "primary", className: "focus-visible:ring-primary/50" },
+      { color: "secondary", className: "focus-visible:ring-secondary/50" },
+      { color: "destructive", className: "focus-visible:ring-destructive/50" },
+      { color: "warning", className: "focus-visible:ring-warning/50" },
+      { color: "success", className: "focus-visible:ring-success/50" },
+      { color: "info", className: "focus-visible:ring-info/50" },
+      { color: "tertiary", className: "focus-visible:ring-tertiary/50" },
     ],
 
     defaultVariants: {

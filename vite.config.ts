@@ -5,7 +5,7 @@ import dts from "vite-plugin-dts"
 import { resolve } from "path"
 import pkg from "./package.json" with { type: "json" }
 
-// Externalize all dependencies + peerDependencies
+// Externalize all dependencies + peerDep endencies
 const external = [
   ...Object.keys(pkg.dependencies || {}),
   ...Object.keys(pkg.peerDependencies || {}),
@@ -21,11 +21,11 @@ export default defineConfig(({ command }) => ({
     // DTS only needed for build
     ...(command === "build"
       ? [
-          dts({
-            tsconfigPath: "./tsconfig.build.json",
-            rollupTypes: true,
-          }),
-        ]
+        dts({
+          tsconfigPath: "./tsconfig.build.json",
+          rollupTypes: true,
+        }),
+      ]
       : []),
   ],
   build: {

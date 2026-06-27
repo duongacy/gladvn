@@ -4,8 +4,8 @@ Tiến trình audit và refactor các UI components theo chuẩn thiết kế m�
 
 ## Tổng quan tiến độ
 
-**Hoàn thành:** 23 / 56 components (~41%)
-**Chưa hoàn thành:** 33 / 56 components (~59%)
+**Hoàn thành:** 25 / 56 components (~45%)
+**Chưa hoàn thành:** 31 / 56 components (~55%)
 
 ---
 
@@ -24,10 +24,14 @@ Tiến trình audit và refactor các UI components theo chuẩn thiết kế m�
 - [X] `input-otp.tsx`
 - [X] `combobox.tsx`
 - [X] `input-group.tsx`
+- [X] `label.tsx`
+- [X] `field.tsx`
 
-### Actions
+### Actions & Toggles
 
 - [X] `button.tsx` (Đạt chuẩn màu tự động nhờ Token)
+- [X] `toggle.tsx`
+- [X] `button-group.tsx`
 
 ### Core/Utilities
 
@@ -53,14 +57,9 @@ Tiến trình audit và refactor các UI components theo chuẩn thiết kế m�
 
 ### Form Controls
 
-- [X] `label.tsx`
-- [X] `field.tsx`
-
 ### Actions & Toggles
 
-- [ ] `toggle.tsx`
 - [ ] `toggle-group.tsx`
-- [ ] `button-group.tsx`
 
 ### Overlays (Modals & Popovers)
 

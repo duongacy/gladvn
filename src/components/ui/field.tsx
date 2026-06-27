@@ -100,8 +100,8 @@ const fieldVariants = cva(
 
 function Field({
   className,
-  orientation = "vertical",
-  size = "md",
+  orientation,
+  size,
   ...props
 }: React.ComponentProps<"div"> & VariantProps<typeof fieldVariants>) {
   return (
@@ -139,7 +139,7 @@ function FieldLabel({
       className={cn(
         "group/field-label peer/field-label flex w-fit gap-2 leading-snug group-data-[disabled=true]/field:opacity-50 has-data-checked:border-primary/30 has-data-checked:bg-primary/5 has-[>[data-slot=field]]:rounded-lg has-[>[data-slot=field]]:border *:data-[slot=field]:p-2.5 dark:has-data-checked:border-primary/20 dark:has-data-checked:bg-primary/10",
         "has-[>[data-slot=field]]:w-full has-[>[data-slot=field]]:flex-col",
-        "text-sm group-data-[size=sm]/field:text-xs group-data-[size=lg]/field:text-base",
+        "text-sm group-data-[size=sm]/field:text-xs",
         className
       )}
       {...props}
@@ -153,7 +153,7 @@ function FieldTitle({ className, ...props }: React.ComponentProps<"div">) {
       data-slot="field-label"
       className={cn(
         "flex w-fit items-center gap-2 font-medium group-data-[disabled=true]/field:opacity-50",
-        "text-sm group-data-[size=sm]/field:text-xs group-data-[size=lg]/field:text-base",
+        "text-sm group-data-[size=sm]/field:text-xs",
         className
       )}
       {...props}

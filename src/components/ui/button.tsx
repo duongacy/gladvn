@@ -127,6 +127,22 @@ const buttonVariants = cva(
 
 import * as React from "react"
 
+function flattenChildren(children: React.ReactNode): React.ReactNode[] {
+  const flat: React.ReactNode[] = []
+  React.Children.forEach(children, (child) => {
+    if (React.isValidElement(child) && child.type === React.Fragment) {
+      flat.push(
+        ...flattenChildren(
+          (child.props as { children?: React.ReactNode }).children
+        )
+      )
+    } else {
+      flat.push(child)
+    }
+  })
+  return flat
+}
+
 function Button({
   className,
   variant = "solid",
@@ -136,9 +152,10 @@ function Button({
   ...props
 }: ButtonPrimitive.Props & VariantProps<typeof buttonVariants>) {
   
-  // Auto-detect if the button contains exactly one element (like an icon) and no text
+  // Auto-detect if the button contains exactly one element (like an icon) and no text.
+  // Recursively flattens Fragments so <>{icon}{text}</> doesn't mistakenly trigger icon-only.
   const isIconOnly = React.useMemo(() => {
-    const childrenArray = React.Children.toArray(children)
+    const childrenArray = flattenChildren(children)
     const visibleChildren = childrenArray.filter((child) => {
       if (typeof child === "string") return child.trim() !== ""
       if (typeof child === "number") return true

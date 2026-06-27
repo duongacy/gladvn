@@ -63,7 +63,9 @@
   --tertiary: oklch(0.54 0.205 293.0);
   --tertiary-foreground: oklch(0.985 0 0);
 
-  /* Border, Input, Ring */
+  /* Border, Input, Ring
+   * Note: --input is specifically the BORDER color of inputs, mapped to border-input.
+   * Input backgrounds usually use bg-background or bg-transparent. */
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);

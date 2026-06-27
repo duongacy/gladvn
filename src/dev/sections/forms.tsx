@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useState } from "react"
 import {
   Alert, AlertDescription, Calendar, Checkbox, Combobox, ComboboxContent, ComboboxInput,
   ComboboxItem, ComboboxList, Field, FieldContent, FieldDescription, FieldError, FieldTitle, FieldLabel,
@@ -8,18 +8,28 @@ import {
   SelectItem, SelectLabel, SelectSeparator, SelectTrigger, SelectValue, Separator,
   Slider, Switch, Textarea
 } from "../../index"
-import { ShowcaseSizeContext } from "../App"
+
 import { SectionHeader } from "../components/showcase"
 import {
   TypeIcon, MousePointerClickIcon, ToggleLeftIcon, LayoutTemplateIcon, TriangleAlertIcon, CalendarIcon
 } from "lucide-react"
 
 export default function FormsSection() {
-  const globalSize = useContext(ShowcaseSizeContext)
+  const [globalSize, setGlobalSize] = useState<"sm" | "md" | "lg">("md")
 
   return (
     <div className="space-y-6">
-      <SectionHeader title="Forms" description="Input, Select, Checkbox, Slider, Textarea and more" />
+      <SectionHeader title="Forms" description="Input, Select, Checkbox, Slider, Textarea and more">
+        <MonoSelect 
+          value={globalSize} 
+          onValueChange={(v) => setGlobalSize(v as any)}
+          options={[
+            { value: "sm", label: "Size: sm" },
+            { value: "md", label: "Size: md" },
+            { value: "lg", label: "Size: lg" },
+          ]}
+        />
+      </SectionHeader>
 
       {/* Masonry layout */}
       <div className="columns-1 md:columns-2 gap-6 space-y-6 [&>div]:break-inside-avoid">

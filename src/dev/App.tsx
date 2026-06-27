@@ -1,20 +1,42 @@
-import { useState, createContext } from "react"
-import { Badge, Switch, Separator, useTheme, MonoSelect } from "../../src/index"
 import { LayersIcon } from "lucide-react"
+import { useEffect, useState } from "react"
+import { Badge, Separator, Switch, useTheme } from "../../src/index"
 import { NAV } from "./data"
-import OverviewSection from "./sections/overview"
 import ButtonsSection from "./sections/buttons"
-import FormsSection from "./sections/forms"
-import FeedbackSection from "./sections/feedback"
 import DisplaySection from "./sections/display"
+import FeedbackSection from "./sections/feedback"
+import FormsSection from "./sections/forms"
 import InteractiveSection from "./sections/interactive"
-
-export const ShowcaseSizeContext = createContext<"sm" | "md" | "lg">("md")
+import OverviewSection from "./sections/overview"
 
 export default function App() {
   const theme = useTheme()
-  const [active, setActive] = useState("overview")
-  const [globalSize, setGlobalSize] = useState<"sm" | "md" | "lg">("md")
+  const [active, setActiveState] = useState(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search)
+      return params.get("section") || "overview"
+    }
+    return "overview"
+  })
+
+  const setActive = (id: string) => {
+    setActiveState(id)
+    if (typeof window !== "undefined") {
+      const url = new URL(window.location.href)
+      url.searchParams.set("section", id)
+      window.history.pushState({}, "", url)
+    }
+  }
+
+  useEffect(() => {
+    const handlePopState = () => {
+      const params = new URLSearchParams(window.location.search)
+      setActiveState(params.get("section") || "overview")
+    }
+    window.addEventListener("popstate", handlePopState)
+    return () => window.removeEventListener("popstate", handlePopState)
+  }, [])
+
 
   const sections: Record<string, React.ReactNode> = {
     overview: <OverviewSection />,
@@ -38,16 +60,7 @@ export default function App() {
             <Badge variant="secondary" className="text-[10px]">v0.2.1</Badge>
           </div>
           <div className="flex items-center gap-2">
-            <MonoSelect 
-              value={globalSize} 
-              onValueChange={(v) => setGlobalSize(v as any)}
-              options={[
-                { value: "sm", label: "Size: sm" },
-                { value: "md", label: "Size: md" },
-                { value: "lg", label: "Size: lg" },
-              ]}
-            />
-            <Separator orientation="vertical" className="h-4 mx-2" />
+
             <span className="text-xs text-muted-foreground mr-1">Dark</span>
             <Switch
               checked={theme?.mode === "dark"}
@@ -61,16 +74,35 @@ export default function App() {
         {/* Sidebar */}
         <aside className="sticky top-14 h-[calc(100vh-3.5rem)] w-56 shrink-0 border-r pt-6 px-3 hidden md:block">
           <p className="mb-2 px-2 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
-            Components
+            Getting Started
           </p>
-          <nav className="space-y-0.5">
-            {NAV.map(({ id, label, icon: Icon }) => (
+          <nav className="space-y-0.5 mb-6">
+            {NAV.filter(n => n.id === "overview").map(({ id, label, icon: Icon }) => (
               <button
                 key={id}
                 onClick={() => setActive(id)}
                 className={`w-full flex items-center gap-2.5 rounded-md px-2.5 py-2 text-sm transition-colors text-left ${active === id
-                    ? "bg-primary/10 text-primary font-medium"
-                    : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                  ? "bg-primary/10 text-primary font-medium"
+                  : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                  }`}
+              >
+                <Icon className="size-4 shrink-0" />
+                {label}
+              </button>
+            ))}
+          </nav>
+
+          <p className="mb-2 px-2 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+            Components
+          </p>
+          <nav className="space-y-0.5">
+            {NAV.filter(n => n.id !== "overview").map(({ id, label, icon: Icon }) => (
+              <button
+                key={id}
+                onClick={() => setActive(id)}
+                className={`w-full flex items-center gap-2.5 rounded-md px-2.5 py-2 text-sm transition-colors text-left ${active === id
+                  ? "bg-primary/10 text-primary font-medium"
+                  : "text-muted-foreground hover:bg-muted hover:text-foreground"
                   }`}
               >
                 <Icon className="size-4 shrink-0" />
@@ -97,8 +129,8 @@ export default function App() {
                 key={id}
                 onClick={() => setActive(id)}
                 className={`shrink-0 rounded-full px-3 py-1 text-xs font-medium transition-colors ${active === id
-                    ? "bg-primary text-primary-foreground"
-                    : "bg-muted text-muted-foreground"
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-muted text-muted-foreground"
                   }`}
               >
                 {label}
@@ -106,9 +138,7 @@ export default function App() {
             ))}
           </div>
 
-          <ShowcaseSizeContext.Provider value={globalSize}>
-            {sections[active]}
-          </ShowcaseSizeContext.Provider>
+          {sections[active]}
         </main>
       </div>
     </div>

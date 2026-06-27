@@ -1,3 +1,5 @@
+compo
+
 # sadcn Component Audit Prompt
 
 Bạn là một Senior Frontend Architect chuyên về Design System. Nhiệm vụ của bạn là **audit** component bên dưới theo đúng **20 Commandments** và **Form Control Parity Cheatsheet** của dự án **sadcn**.

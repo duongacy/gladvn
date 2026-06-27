@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { toast, Toaster } from "sonner"
+import { toast } from "sonner"
 import {
   Alert,
   AlertTitle,
@@ -7,6 +7,8 @@ import {
   Progress,
   ProgressLabel,
   ProgressValue,
+  ProgressTrack,
+  ProgressIndicator,
   Skeleton,
   Spinner,
   Empty,
@@ -16,6 +18,7 @@ import {
   EmptyDescription,
   EmptyContent,
   Button,
+  Toaster,
 } from "../../index"
 import {
   CheckCircle2Icon,
@@ -71,18 +74,9 @@ export default function FeedbackSection() {
         {/* ── Progress ── */}
         <ShowcaseBlock title="Progress">
           <div className="space-y-4">
-            <Progress value={progress1}>
-              <ProgressLabel>Uploading</ProgressLabel>
-              <ProgressValue />
-            </Progress>
-            <Progress value={progress2}>
-              <ProgressLabel>Processing</ProgressLabel>
-              <ProgressValue />
-            </Progress>
-            <Progress value={progress3}>
-              <ProgressLabel>Almost done</ProgressLabel>
-              <ProgressValue />
-            </Progress>
+            <Progress value={progress1} label="Uploading" size="sm" />
+            <Progress value={progress2} label="Processing" size="md" />
+            <Progress value={progress3} label="Almost done" size="lg" />
             <div className="flex gap-2 pt-1">
               <Button
                 size="sm"
@@ -136,30 +130,34 @@ export default function FeedbackSection() {
           <div className="space-y-4">
             <div className="flex items-center gap-6">
               <div className="flex flex-col items-center gap-2">
-                <Spinner className="size-4" />
+                <Spinner size="sm" />
                 <span className="text-xs text-muted-foreground">sm</span>
               </div>
               <div className="flex flex-col items-center gap-2">
-                <Spinner className="size-5" />
+                <Spinner size="md" />
                 <span className="text-xs text-muted-foreground">md</span>
               </div>
               <div className="flex flex-col items-center gap-2">
-                <Spinner className="size-6" />
+                <Spinner size="lg" />
                 <span className="text-xs text-muted-foreground">lg</span>
               </div>
               <div className="flex flex-col items-center gap-2">
-                <Spinner className="size-8" />
-                <span className="text-xs text-muted-foreground">xl</span>
+                <Spinner className="size-8 text-primary" />
+                <span className="text-xs text-muted-foreground">custom</span>
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <Button size="sm" disabled>
-                <Spinner className="size-4" />
+              <Button size="sm" disabled variant="outline">
+                <Spinner size="sm" />
                 Loading…
               </Button>
-              <Button size="sm" variant="outline" disabled>
-                <Spinner className="size-4" />
+              <Button size="md" variant="outline" disabled>
+                <Spinner size="md" />
                 Please wait
+              </Button>
+              <Button size="lg" variant="outline" disabled>
+                <Spinner size="lg" />
+                Processing
               </Button>
             </div>
           </div>
@@ -167,59 +165,68 @@ export default function FeedbackSection() {
 
         {/* ── Sonner (Toast) ── */}
         <ShowcaseBlock title="Sonner (Toast)">
-          <div className="space-y-3">
-            <p className="text-xs text-muted-foreground">Click buttons to trigger toasts</p>
-            <div className="flex flex-wrap gap-2">
-              <Button
-                size="sm"
-                variant="outline"
-                onClick={() => toast("Event has been created")}
-              >
-                Default
-              </Button>
-              <Button
-                size="sm"
-                variant="outline"
-                onClick={() => toast.success("Changes saved successfully")}
-              >
-                Success
-              </Button>
-              <Button
-                size="sm"
-                variant="outline"
-                onClick={() => toast.info("Session expires in 10 minutes")}
-              >
-                Info
-              </Button>
-              <Button
-                size="sm"
-                variant="outline"
-                onClick={() => toast.warning("Disk space running low")}
-              >
-                Warning
-              </Button>
-              <Button
-                size="sm"
-                variant="outline"
-                onClick={() => toast.error("Failed to save changes")}
-              >
-                Error
-              </Button>
-              <Button
-                size="sm"
-                variant="outline"
-                onClick={() =>
-                  toast("File uploaded", {
-                    description: "image.png has been uploaded to your gallery.",
-                    action: {
-                      label: "View",
-                      onClick: () => {},
-                    },
-                  })
-                }
-              >
-                With Action
-              </Button>
+          <div className="space-y-6">
+            {/* States */}
+            <div className="space-y-3">
+              <div>
+                <h4 className="text-sm font-medium">States</h4>
+                <p className="text-xs text-muted-foreground">Basic toast variations for different intents.</p>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                <Button size="sm" variant="outline" onClick={() => toast("Event has been created")}>
+                  Default
+                </Button>
+                <Button size="sm" variant="outline" color="success" onClick={() => toast.success("Changes saved successfully")}>
+                  Success
+                </Button>
+                <Button size="sm" variant="outline" color="info" onClick={() => toast.info("Session expires in 10 minutes")}>
+                  Info
+                </Button>
+                <Button size="sm" variant="outline" color="warning" onClick={() => toast.warning("Disk space running low")}>
+                  Warning
+                </Button>
+                <Button size="sm" variant="outline" color="destructive" onClick={() => toast.error("Failed to save changes")}>
+                  Error
+                </Button>
+              </div>
+            </div>
+
+            {/* Interactivity */}
+            <div className="space-y-3">
+              <div>
+                <h4 className="text-sm font-medium">Interactivity</h4>
+                <p className="text-xs text-muted-foreground">Toasts with actions, cancel options, or explicit close buttons.</p>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                <Button size="sm" variant="outline" onClick={() => toast("You can close this toast manually", { closeButton: true })}>
+                  With Close Button
+                </Button>
+                <Button size="sm" variant="outline" onClick={() => toast("File uploaded", { description: "image.png has been uploaded to your gallery.", action: { label: "View", onClick: () => {} } })}>
+                  With Action
+                </Button>
+                <Button size="sm" variant="outline" onClick={() => toast("Confirm deletion", { description: "Are you sure you want to delete this file?", action: { label: "Delete", onClick: () => toast.error("File deleted") }, cancel: { label: "Cancel", onClick: () => toast.info("Action cancelled") } })}>
+                  With Cancel
+                </Button>
+              </div>
+            </div>
+
+            {/* Advanced */}
+            <div className="space-y-3">
+              <div>
+                <h4 className="text-sm font-medium">Advanced</h4>
+                <p className="text-xs text-muted-foreground">Promises and custom positions.</p>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                <Button size="sm" variant="outline" onClick={() => {
+                  const promise = new Promise((resolve) => setTimeout(resolve, 2000))
+                  toast.promise(promise, { loading: "Loading data...", success: "Data loaded successfully", error: "Failed to load data" })
+                }}>
+                  Promise
+                </Button>
+                <Button size="sm" variant="outline" onClick={() => toast("Top Center Toast", { position: "top-center" })}>
+                  Top Center Position
+                </Button>
+              </div>
             </div>
           </div>
         </ShowcaseBlock>

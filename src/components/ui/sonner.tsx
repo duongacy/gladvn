@@ -1,15 +1,17 @@
 "use client"
 
-import { useTheme } from "next-themes"
+import { CircleCheckIcon, InfoIcon, OctagonXIcon, TriangleAlertIcon } from "lucide-react"
 import { Toaster as Sonner, type ToasterProps } from "sonner"
-import { CircleCheckIcon, InfoIcon, TriangleAlertIcon, OctagonXIcon, Loader2Icon } from "lucide-react"
+import { Spinner } from "./spinner"
+import { useTheme } from "./theme-provider"
 
 const Toaster = ({ ...props }: ToasterProps) => {
-  const { theme = "system" } = useTheme()
+  const themeContext = useTheme()
+  const theme = themeContext?.mode
 
   return (
     <Sonner
-      theme={theme as ToasterProps["theme"]}
+      theme={theme}
       className="toaster group"
       icons={{
         success: (
@@ -25,20 +27,41 @@ const Toaster = ({ ...props }: ToasterProps) => {
           <OctagonXIcon className="size-4" />
         ),
         loading: (
-          <Loader2Icon className="size-4 animate-spin" />
+          <Spinner size="md" />
         ),
       }}
+      richColors
       style={
         {
           "--normal-bg": "var(--popover)",
           "--normal-text": "var(--popover-foreground)",
           "--normal-border": "var(--border)",
           "--border-radius": "var(--radius)",
+
+          /* Map Sonner's internal variables to our design system variables */
+          "--success-bg": "color-mix(in srgb, var(--success) 10%, var(--popover))",
+          "--success-text": "var(--success)",
+          "--success-border": "color-mix(in srgb, var(--success) 20%, var(--popover))",
+          
+          "--error-bg": "color-mix(in srgb, var(--destructive) 10%, var(--popover))",
+          "--error-text": "var(--destructive)",
+          "--error-border": "color-mix(in srgb, var(--destructive) 20%, var(--popover))",
+          
+          "--warning-bg": "color-mix(in srgb, var(--warning) 10%, var(--popover))",
+          "--warning-text": "var(--warning)",
+          "--warning-border": "color-mix(in srgb, var(--warning) 20%, var(--popover))",
+          
+          "--info-bg": "color-mix(in srgb, var(--info) 10%, var(--popover))",
+          "--info-text": "var(--info)",
+          "--info-border": "color-mix(in srgb, var(--info) 20%, var(--popover))",
         } as React.CSSProperties
       }
       toastOptions={{
         classNames: {
-          toast: "cn-toast",
+          toast: "group toast",
+          description: "group-[.toast]:text-muted-foreground",
+          actionButton: "group-[.toast]:bg-primary group-[.toast]:text-primary-foreground",
+          cancelButton: "group-[.toast]:bg-muted group-[.toast]:text-muted-foreground",
         },
       }}
       {...props}

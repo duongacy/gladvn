@@ -1,11 +1,14 @@
 import React from "react"
 import { COLORS, COLOR_INFO } from "../data"
 
-export function SectionHeader({ title, description }: { title: string; description?: string }) {
+export function SectionHeader({ title, description, children }: { title: string; description?: string; children?: React.ReactNode }) {
   return (
-    <div className="mb-6 border-b pb-4">
-      <h2 className="text-xl font-semibold tracking-tight">{title}</h2>
-      {description && <p className="mt-1 text-sm text-muted-foreground">{description}</p>}
+    <div className="mb-6 flex flex-col sm:flex-row sm:items-start justify-between gap-4 border-b pb-4">
+      <div>
+        <h2 className="text-xl font-semibold tracking-tight">{title}</h2>
+        {description && <p className="mt-1 text-sm text-muted-foreground">{description}</p>}
+      </div>
+      {children && <div className="shrink-0">{children}</div>}
     </div>
   )
 }

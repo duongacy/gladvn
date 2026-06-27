@@ -1,48 +1,35 @@
 import {
-  AlertCircleIcon,
-  CheckCircle2Icon,
-  ChevronRightIcon,
-  AlignLeftIcon,
   AlignCenterIcon,
-  AlignRightIcon,
   AlignJustifyIcon,
-  SendIcon,
-  Trash2Icon,
-  MailIcon,
-  SettingsIcon,
-  UserIcon,
-  ShieldAlertIcon,
-  CreditCardIcon,
-  BellIcon,
-  PlusIcon,
+  AlignLeftIcon,
+  AlignRightIcon,
   BoxIcon,
-  LayersIcon
+  CheckCircle2Icon,
+  LayersIcon,
+  PlusIcon,
+  SendIcon,
+  SettingsIcon,
+  ShieldAlertIcon,
+  Trash2Icon,
+  UserIcon
 } from "lucide-react"
-import { useContext, useState } from "react"
+import { useState } from "react"
 import {
   Avatar,
   AvatarFallback,
-  AvatarImage,
-  Badge,
   Button,
   ButtonGroup,
+  MonoSelect,
+  Spinner,
   Tooltip,
   TooltipContent,
   TooltipProvider,
-  TooltipTrigger,
-  Spinner,
-  Card,
-  CardHeader,
-  CardTitle,
-  CardContent,
-  CardDescription,
-  CardFooter
+  TooltipTrigger
 } from "../../index"
-import { ShowcaseSizeContext } from "../App"
 import { SectionHeader } from "../components/showcase"
 
 export default function ButtonsSection() {
-  const globalSize = useContext(ShowcaseSizeContext)
+  const [globalSize, setGlobalSize] = useState<"sm" | "md" | "lg">("md")
   const [isDeleting, setIsDeleting] = useState(false)
   const [isSending, setIsSending] = useState(false)
 
@@ -61,7 +48,17 @@ export default function ButtonsSection() {
       <SectionHeader
         title="Buttons"
         description="Comprehensive collection of interactive elements with full state management and accessibility."
-      />
+      >
+        <MonoSelect
+          value={globalSize}
+          onValueChange={(v) => setGlobalSize(v as any)}
+          options={[
+            { value: "sm", label: "Size: sm" },
+            { value: "md", label: "Size: md" },
+            { value: "lg", label: "Size: lg" },
+          ]}
+        />
+      </SectionHeader>
 
       {/* Real-world Contexts Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">

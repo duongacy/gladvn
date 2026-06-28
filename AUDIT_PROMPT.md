@@ -2,11 +2,11 @@ compo
 
 # sadcn Component Audit Prompt
 
-Bạn là một Senior Frontend Architect chuyên về Design System. Nhiệm vụ của bạn là **audit** component bên dưới theo đúng **20 Commandments** và **Form Control Parity Cheatsheet** của dự án **sadcn**.
+Bạn là một Senior Frontend Architect chuyên về Design System. Nhiệm vụ của bạn là **audit** component bên dưới theo đúng **21 Commandments** và **Form Control Parity Cheatsheet** của dự án **sadcn**.
 
 ---
 
-## CONTEXT: 20 Commandments (Hiến pháp của sadcn)
+## CONTEXT: 21 Commandments (Hiến pháp của sadcn)
 
 ### PHẦN I: COMPONENT API & DEVELOPER UX
 
@@ -42,6 +42,7 @@ Bạn là một Senior Frontend Architect chuyên về Design System. Nhiệm v�
 18. **Form Control Parity** — Các Form Controls phải chia sẻ chung "ngôn ngữ hình thể" (sizing, focus, hover, disabled). Đặt cạnh nhau phải thẳng hàng tuyệt đối từng pixel.
 19. **Anti-Ternary Principle** — Hạn chế tối đa toán tử ba ngôi (`? :`). Hãy code tường minh bằng `&&` (vd: `{isTrue && <Component/>}`). Với `className`, BẮT BUỘC dùng tính năng object conditional của `cn` (vd: `cn({"opacity-50": disabled})`) thay vì chèn ternary string.
 20. **Flexbox Stretch Axiom** — Cấm lạm dụng `w-full` bên trong các container `flex-col` (vì `align-items: stretch` đã tự làm việc này) hoặc trên các block-level flex container. UI Library phải tinh gọn, không chứa utility class thừa thãi.
+21. **CSS Depth Boundary** — Component CẤM "thò tay" CSS vào children quá sâu. Các selector như `[&_a]:underline`, `[&_p]:mb-4`, `*:[svg:not([class*='size-'])]:size-4`, `has-[>svg]:grid-cols-[auto_1fr]` đều vi phạm — component đang tự ý quyết định style cho content mà user nhét vào. **CHỈ ĐƯỢC PHÉP** dùng CSS query targeting `data-slot` của sub-component chính thức (vd: `[&_[data-slot=alert-title]]:text-info`) hoặc direct state selectors (`:hover`, `:focus`, `aria-*`). Nếu user nhét children vô, user tự style cho "ruột" của nó.
 
 ---
 
@@ -95,6 +96,54 @@ rounded-lg border border-input bg-transparent transition-colors outline-none dar
 
 ---
 
+## CONTEXT: Dark Mode Audit Checklist
+
+sadcn sử dụng semantic CSS tokens (không hardcode màu). Mỗi token (`--background`, `--foreground`, `--card`, ...) đều có giá trị riêng biệt cho light và dark. Khi audit, BẮT BUỘC kiểm tra các tiêu chí sau:
+
+### A. Nguyên tắc nền tảng
+- **Không hardcode màu** — Cấm dùng `bg-white`, `text-black`, `border-gray-200` trực tiếp. PHẢI dùng semantic token như `bg-background`, `text-foreground`, `border-border`.
+- **Tin tưởng vào token** — Nếu component chỉ dùng semantic tokens, nó tự động đúng ở dark mode mà không cần thêm class `dark:`.
+- **`dark:` class chỉ dùng cho edge case** — Ví dụ: `dark:bg-input/30` (input trên dark cần background khác), `dark:aria-invalid:border-destructive/50` (giảm cường độ màu lỗi trên nền tối).
+
+### B. Các hạng mục bắt buộc kiểm tra
+
+**1. Overlay / Backdrop**
+- `bg-black/10`, `bg-black/50`... trên dark background: backdrop có đủ tối để phân biệt modal với content không?
+- Không dùng `bg-white/80` cho overlay vì sẽ sáng loá trên dark mode.
+
+**2. Border Legibility**
+- `border-input`, `border-border` đều có dark mode variant — chỉ cần dùng đúng token là đủ.
+- Cảnh báo: `border-{color}/15` trên dark background có thể quá mờ, cần kiểm tra contrast thực tế.
+
+**3. Focus Ring (WCAG 2.4.7)**
+- `ring-ring/50` — `--ring` token có đủ contrast trên nền tối không?
+- Không ép hardcode `ring-white` chỉ để giải quyết dark mode — dùng token.
+
+**4. Severity Colors (Alert, Badge, Toast...)**
+- Màu `text-info`, `text-destructive`, `text-success`, `text-warning` trên `bg-{color}/5` ở dark mode:
+  - Background 5% opacity rất mỏng — phải đảm bảo text vẫn đạt contrast ratio 4.5:1 (WCAG 1.4.3).
+  - Nếu dùng `border-{color}/15` — kiểm tra viền có đủ visible trên dark background.
+
+**5. Glassmorphism / Blur Effects**
+- `bg-popover/80 backdrop-blur` — Màu popover trên dark phải đảm bảo text trong overlay đọc được.
+- `supports-backdrop-filter:backdrop-blur-xs` — Cần test thực tế trên trình duyệt không hỗ trợ backdrop-filter.
+
+### C. WCAG Success Criteria liên quan đến Dark Mode
+- **1.4.3 Contrast Minimum (AA):** Text contrast ≥ 4.5:1 (body), ≥ 3:1 (large text/headings).
+- **1.4.11 Non-text Contrast (AA):** Border, icon, focus ring ≥ 3:1 so với background.
+- **1.4.1 Use of Color (A):** Không chỉ dựa vào màu để truyền tải thông tin (áp dụng cả light lẫn dark).
+
+### D. Verdict Format cho Dark Mode
+Trong bảng audit (Bước 2), thêm một dòng riêng:
+
+| — | Dark Mode Compliance | ✅/❌/⚠️ | Note |
+
+- ✅ = Chỉ dùng semantic tokens, tự động đúng.
+- ⚠️ = Cần kiểm tra thêm contrast thực tế (đặc biệt `/5`, `/15` opacity).
+- ❌ = Hardcode màu hoặc dùng `dark:` sai cách.
+
+---
+
 ## COMPONENT TO AUDIT
 
 Dán toàn bộ source code của component cần audit vào đây:
@@ -115,7 +164,7 @@ Mô tả ngắn gọn component này làm gì, thuộc nhóm nào (Form Control,
 
 ### Bước 2: Audit từng Rule
 
-Duyệt qua **tất cả 20 rules**. Với mỗi rule, đánh giá:
+Duyệt qua **tất cả 21 rules**. Với mỗi rule, đánh giá:
 
 - ✅ **PASS** — Tuân thủ đúng. Giải thích ngắn gọn tại sao.
 - ❌ **FAIL** — Vi phạm. Chỉ rõ dòng code vi phạm và đề xuất cách sửa cụ thể (code snippet).

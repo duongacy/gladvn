@@ -335,7 +335,7 @@ export default function FormsSection() {
           </div>
 
           <div className="space-y-5">
-            <Alert variant="destructive" className="py-2.5">
+            <Alert color="destructive" className="py-2.5">
               <AlertDescription className="text-xs">
                 <strong>New Parity UX:</strong> Error states only show a red ring when the user focuses/tabs into the field. Otherwise, they just show a red border. Try clicking them below!
               </AlertDescription>

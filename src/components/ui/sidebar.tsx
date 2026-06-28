@@ -263,7 +263,7 @@ function SidebarTrigger({
       data-sidebar="trigger"
       data-slot="sidebar-trigger"
       variant="ghost"
-      size="icon-sm"
+      size="sm"
       className={cn(className)}
       onClick={(event) => {
         onClick?.(event)
@@ -503,22 +503,27 @@ function SidebarMenuButton({
   size = "default",
   tooltip,
   className,
+  asChild = false,
   ...props
 }: useRender.ComponentProps<"button"> &
   React.ComponentProps<"button"> & {
     isActive?: boolean
     tooltip?: string | React.ComponentProps<typeof TooltipContent>
+    asChild?: boolean
   } & VariantProps<typeof sidebarMenuButtonVariants>) {
   const { isMobile, state } = useSidebar()
+  const resolvedRender = asChild ? (props.children as React.ReactElement) : render
+  const finalProps = asChild ? { ...props, children: undefined } : props
+
   const comp = useRender({
     defaultTagName: "button",
     props: mergeProps<"button">(
       {
         className: cn(sidebarMenuButtonVariants({ variant, size }), className),
       },
-      props
+      finalProps
     ),
-    render: !tooltip ? render : <TooltipTrigger render={render} />,
+    render: !tooltip ? resolvedRender : <TooltipTrigger render={resolvedRender} />,
     state: {
       slot: "sidebar-menu-button",
       sidebar: "menu-button",

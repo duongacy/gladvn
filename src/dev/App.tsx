@@ -1,20 +1,21 @@
 import { LayersIcon } from "lucide-react"
 import { useEffect, useState } from "react"
 import { Badge, Separator, Switch, useTheme } from "../../src/index"
-import { NAV } from "./data"
-import ButtonsSection from "./sections/buttons"
-import DisplaySection from "./sections/display"
-import FeedbackSection from "./sections/feedback"
-import FormsSection from "./sections/forms"
-import InteractiveSection from "./sections/interactive"
-import OverviewSection from "./sections/overview"
+import { ALL_COMPONENTS, NAV } from "./data"
+import React, { Suspense, lazy } from "react"
+import OverviewSection from "./showcase/overview"
+
+const components: Record<string, React.LazyExoticComponent<any>> = {}
+ALL_COMPONENTS.forEach(comp => {
+  components[comp.id] = lazy(() => import(`./showcase/${comp.id}.tsx`))
+})
 
 export default function App() {
   const theme = useTheme()
   const [active, setActiveState] = useState(() => {
     if (typeof window !== "undefined") {
       const params = new URLSearchParams(window.location.search)
-      return params.get("section") || "overview"
+      return params.get("component") || "overview"
     }
     return "overview"
   })
@@ -23,41 +24,56 @@ export default function App() {
     setActiveState(id)
     if (typeof window !== "undefined") {
       const url = new URL(window.location.href)
-      url.searchParams.set("section", id)
+      url.searchParams.set("component", id)
       window.history.pushState({}, "", url)
+      
+      setTimeout(() => {
+        const el = document.getElementById(id)
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" })
+        }
+      }, 50)
     }
   }
 
   useEffect(() => {
+    // Initial scroll if URL has component
+    const params = new URLSearchParams(window.location.search)
+    const comp = params.get("component")
+    if (comp) {
+      setTimeout(() => {
+        const el = document.getElementById(comp)
+        if (el) el.scrollIntoView({ behavior: "smooth" })
+      }, 100)
+    }
+  }, [])
+
+  useEffect(() => {
     const handlePopState = () => {
       const params = new URLSearchParams(window.location.search)
-      setActiveState(params.get("section") || "overview")
+      const comp = params.get("component") || "overview"
+      setActiveState(comp)
+      const el = document.getElementById(comp)
+      if (el) el.scrollIntoView({ behavior: "smooth" })
     }
     window.addEventListener("popstate", handlePopState)
     return () => window.removeEventListener("popstate", handlePopState)
   }, [])
 
 
-  const sections: Record<string, React.ReactNode> = {
-    overview: <OverviewSection />,
-    buttons: <ButtonsSection />,
-    forms: <FormsSection />,
-    feedback: <FeedbackSection />,
-    display: <DisplaySection />,
-    interactive: <InteractiveSection />,
-  }
+  const ActiveComponent = active !== "overview" ? components[active] : null;
 
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Top nav */}
-      <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-md">
+      <header className="sticky top-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-md">
         <div className="mx-auto flex h-14 max-w-[1440px] items-center justify-between px-6">
           <div className="flex items-center gap-3">
-            <div className="size-7 rounded-lg bg-primary flex items-center justify-center">
+            <div className="size-7 rounded-[9px] bg-primary flex items-center justify-center shadow-sm border border-primary/20">
               <LayersIcon className="size-4 text-primary-foreground" />
             </div>
-            <span className="font-semibold text-sm">@duongy96/sadcn</span>
-            <Badge variant="secondary" className="text-[10px]">v0.2.1</Badge>
+            <span className="font-bold text-[15px] tracking-tight">sadcn.ui</span>
+            <Badge variant="secondary" className="text-[10px] px-1.5 py-0 font-medium">v0.2.1</Badge>
           </div>
           <div className="flex items-center gap-2">
 
@@ -72,40 +88,32 @@ export default function App() {
 
       <div className="mx-auto flex max-w-[1440px] gap-0">
         {/* Sidebar */}
-        <aside className="sticky top-14 h-[calc(100vh-3.5rem)] w-56 shrink-0 border-r pt-6 px-3 hidden md:block">
-          <p className="mb-2 px-2 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
-            Getting Started
-          </p>
-          <nav className="space-y-0.5 mb-6">
-            {NAV.filter(n => n.id === "overview").map(({ id, label, icon: Icon }) => (
-              <button
-                key={id}
-                onClick={() => setActive(id)}
-                className={`w-full flex items-center gap-2.5 rounded-md px-2.5 py-2 text-sm transition-colors text-left ${active === id
-                  ? "bg-primary/10 text-primary font-medium"
-                  : "text-muted-foreground hover:bg-muted hover:text-foreground"
-                  }`}
-              >
-                <Icon className="size-4 shrink-0" />
-                {label}
-              </button>
-            ))}
+        <aside className="sticky top-14 h-[calc(100vh-3.5rem)] w-56 shrink-0 border-r pt-6 px-3 hidden md:block overflow-y-auto">
+          <nav className="space-y-0.5">
+            <button
+              onClick={() => setActive("overview")}
+              className={`w-full flex items-center gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors text-left mb-2 ${active === "overview"
+                ? "bg-accent text-accent-foreground font-medium"
+                : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
+              }`}
+            >
+              <LayersIcon className="size-3.5" />
+              Overview
+            </button>
           </nav>
-
           <p className="mb-2 px-2 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
-            Components
+            Components (A-Z)
           </p>
           <nav className="space-y-0.5">
-            {NAV.filter(n => n.id !== "overview").map(({ id, label, icon: Icon }) => (
+            {ALL_COMPONENTS.map(({ id, label }) => (
               <button
                 key={id}
                 onClick={() => setActive(id)}
-                className={`w-full flex items-center gap-2.5 rounded-md px-2.5 py-2 text-sm transition-colors text-left ${active === id
-                  ? "bg-primary/10 text-primary font-medium"
-                  : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                className={`w-full flex items-center gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors text-left ${active === id
+                  ? "bg-accent text-accent-foreground font-medium"
+                  : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
                   }`}
               >
-                <Icon className="size-4 shrink-0" />
                 {label}
               </button>
             ))}
@@ -138,7 +146,15 @@ export default function App() {
             ))}
           </div>
 
-          {sections[active]}
+          <div className="pb-24">
+            {active === "overview" && <OverviewSection />}
+            
+            {active !== "overview" && ActiveComponent && (
+              <Suspense fallback={<div className="p-12 text-center text-muted-foreground animate-pulse">Loading component...</div>}>
+                <ActiveComponent />
+              </Suspense>
+            )}
+          </div>
         </main>
       </div>
     </div>

@@ -47,22 +47,22 @@ export default function FeedbackSection() {
       {/* ── Alert ── */}
       <ShowcaseBlock title="Alert">
         <div className="space-y-3">
-          <Alert variant="info">
+          <Alert color="info">
             <InfoIcon />
             <AlertTitle>Info</AlertTitle>
             <AlertDescription>Your session will expire in 10 minutes.</AlertDescription>
           </Alert>
-          <Alert variant="success">
+          <Alert color="success">
             <CheckCircle2Icon />
             <AlertTitle>Success</AlertTitle>
             <AlertDescription>Your changes have been saved successfully.</AlertDescription>
           </Alert>
-          <Alert variant="warning">
+          <Alert color="warning">
             <TriangleAlertIcon />
             <AlertTitle>Warning</AlertTitle>
             <AlertDescription>This action cannot be undone easily.</AlertDescription>
           </Alert>
-          <Alert variant="destructive">
+          <Alert color="destructive">
             <XCircleIcon />
             <AlertTitle>Error</AlertTitle>
             <AlertDescription>Failed to connect to the server.</AlertDescription>

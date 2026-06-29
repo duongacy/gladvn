@@ -1,14 +1,24 @@
 import { Badge } from "../../index";
-import { SectionHeader, ExampleSection, ExampleGrid } from "../components/showcase";
+import {
+  SectionHeader,
+  ExampleSection,
+  ExampleGrid,
+} from "../components/showcase";
 import { CheckIcon, XIcon, AlertTriangleIcon, InfoIcon } from "lucide-react";
 
 export default function BadgeShowcase() {
   return (
     <div className="space-y-10">
-      <SectionHeader title="Badge" description="Displays a badge or a component that looks like a badge." />
+      <SectionHeader
+        title="Badge"
+        description="Displays a badge or a component that looks like a badge."
+      />
 
       {/* ── Variants ── */}
-      <ExampleSection label="Variants" description="All available visual styles.">
+      <ExampleSection
+        label="Variants"
+        description="All available visual styles."
+      >
         <div className="flex flex-wrap gap-3">
           <Badge variant="default">Default</Badge>
           <Badge variant="secondary">Secondary</Badge>
@@ -18,7 +28,10 @@ export default function BadgeShowcase() {
       </ExampleSection>
 
       {/* ── With Icons ── */}
-      <ExampleSection label="With Icons" description="Badges with inline icons for added context.">
+      <ExampleSection
+        label="With Icons"
+        description="Badges with inline icons for added context."
+      >
         <div className="flex flex-wrap gap-3">
           <Badge variant="default">
             <CheckIcon data-icon="inline-start" />
@@ -40,10 +53,15 @@ export default function BadgeShowcase() {
       </ExampleSection>
 
       {/* ── Real-world Use Cases ── */}
-      <ExampleSection label="Use Cases" description="Common real-world badge patterns.">
+      <ExampleSection
+        label="Use Cases"
+        description="Common real-world badge patterns."
+      >
         <ExampleGrid columns={2}>
           <div className="flex flex-col gap-3">
-            <span className="text-sm text-muted-foreground font-medium">Status indicators</span>
+            <span className="text-sm text-muted-foreground font-medium">
+              Status indicators
+            </span>
             <div className="flex flex-wrap gap-2">
               <Badge variant="default">Active</Badge>
               <Badge variant="secondary">Inactive</Badge>
@@ -52,7 +70,9 @@ export default function BadgeShowcase() {
             </div>
           </div>
           <div className="flex flex-col gap-3">
-            <span className="text-sm text-muted-foreground font-medium">Tags & categories</span>
+            <span className="text-sm text-muted-foreground font-medium">
+              Tags & categories
+            </span>
             <div className="flex flex-wrap gap-2">
               <Badge variant="outline">React</Badge>
               <Badge variant="outline">TypeScript</Badge>
@@ -64,7 +84,10 @@ export default function BadgeShowcase() {
       </ExampleSection>
 
       {/* ── As Link ── */}
-      <ExampleSection label="As Link" description="Badge rendered as an anchor element using the render prop.">
+      <ExampleSection
+        label="As Link"
+        description="Badge rendered as an anchor element using the render prop."
+      >
         <div className="flex flex-wrap gap-3">
           <Badge variant="default" render={<a href="#" />}>
             Clickable Badge

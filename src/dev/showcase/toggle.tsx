@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { Toggle, MonoSelect } from "../../index";
-import { SectionHeader, ExampleSection, ExampleGrid } from "../components/showcase";
+import {
+  SectionHeader,
+  ExampleSection,
+  ExampleGrid,
+} from "../components/showcase";
 import { BoldIcon, ItalicIcon, UnderlineIcon } from "lucide-react";
 
 export default function ToggleShowcase() {
@@ -8,7 +12,10 @@ export default function ToggleShowcase() {
 
   return (
     <div className="space-y-10">
-      <SectionHeader title="Toggle" description="A two-state button that can be either on or off.">
+      <SectionHeader
+        title="Toggle"
+        description="A two-state button that can be either on or off."
+      >
         <MonoSelect
           value={globalSize}
           onValueChange={(v) => setGlobalSize(v as any)}
@@ -34,9 +41,16 @@ export default function ToggleShowcase() {
           </div>
         </ExampleSection>
 
-        <ExampleSection label="Outline Variant" description="Toggle with outline style.">
+        <ExampleSection
+          label="Outline Variant"
+          description="Toggle with outline style."
+        >
           <div className="flex gap-2">
-            <Toggle variant="outline" aria-label="Toggle underline" size={globalSize}>
+            <Toggle
+              variant="outline"
+              aria-label="Toggle underline"
+              size={globalSize}
+            >
               <UnderlineIcon className="size-4 mr-2" />
               Underline
             </Toggle>

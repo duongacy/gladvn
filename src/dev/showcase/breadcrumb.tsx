@@ -1,20 +1,31 @@
-import { SlashIcon } from "lucide-react"
+import { SlashIcon } from "lucide-react";
 import {
-    Breadcrumb,
-    BreadcrumbEllipsis,
-    BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator,
-    DropdownMenu,
-    DropdownMenuContent, DropdownMenuItem,
-    DropdownMenuTrigger
-} from "../../index"
+  Breadcrumb,
+  BreadcrumbEllipsis,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "../../index";
 import { SectionHeader, ExampleSection } from "../components/showcase";
 
 export default function BreadcrumbShowcase() {
   return (
     <div className="space-y-10">
-      <SectionHeader title="Breadcrumb" description="Displays the path to the current resource using a hierarchy of links." />
+      <SectionHeader
+        title="Breadcrumb"
+        description="Displays the path to the current resource using a hierarchy of links."
+      />
 
-      <ExampleSection label="Default" description="Standard breadcrumb with chevron separators.">
+      <ExampleSection
+        label="Default"
+        description="Standard breadcrumb with chevron separators."
+      >
         <div className="space-y-6 w-full max-w-lg">
           <Breadcrumb>
             <BreadcrumbList>
@@ -34,7 +45,10 @@ export default function BreadcrumbShowcase() {
         </div>
       </ExampleSection>
 
-      <ExampleSection label="Custom Separator" description="Using a slash icon as separator.">
+      <ExampleSection
+        label="Custom Separator"
+        description="Using a slash icon as separator."
+      >
         <div className="w-full max-w-lg">
           <Breadcrumb>
             <BreadcrumbList>
@@ -58,7 +72,10 @@ export default function BreadcrumbShowcase() {
         </div>
       </ExampleSection>
 
-      <ExampleSection label="With Ellipsis" description="Collapsed items with dropdown.">
+      <ExampleSection
+        label="With Ellipsis"
+        description="Collapsed items with dropdown."
+      >
         <div className="w-full max-w-lg">
           <Breadcrumb>
             <BreadcrumbList>
@@ -81,7 +98,9 @@ export default function BreadcrumbShowcase() {
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbLink href="/docs/components">Components</BreadcrumbLink>
+                <BreadcrumbLink href="/docs/components">
+                  Components
+                </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>

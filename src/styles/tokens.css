@@ -37,7 +37,7 @@
 
   /* Muted */
   --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.50 0 0); /* CR≈5.5:1 AA */
+  --muted-foreground: oklch(0.5 0 0); /* CR≈5.5:1 AA */
 
   /* Accent */
   --accent: oklch(0.97 0 0);
@@ -52,15 +52,15 @@
   --warning-foreground: oklch(0.985 0 0);
 
   /* Success — Emerald, hue 150°, L=0.53 → CR≥4.5:1 AA ✅ */
-  --success: oklch(0.53 0.154 150.0);
+  --success: oklch(0.53 0.154 150);
   --success-foreground: oklch(0.985 0 0);
 
   /* Info — Blue, hue 258°, L=0.54 → CR≥4.5:1 AA ✅ */
-  --info: oklch(0.54 0.195 258.0);
+  --info: oklch(0.54 0.195 258);
   --info-foreground: oklch(0.985 0 0);
 
   /* Tertiary — Violet, hue 293°, L=0.54 → CR≥4.5:1 AA ✅ */
-  --tertiary: oklch(0.54 0.205 293.0);
+  --tertiary: oklch(0.54 0.205 293);
   --tertiary-foreground: oklch(0.985 0 0);
 
   /* Border, Input, Ring
@@ -106,18 +106,18 @@
   --secondary: oklch(0.45 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.50 0 0);
+  --muted-foreground: oklch(0.5 0 0);
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.54 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
   --warning: oklch(0.54 0.13 70);
   --warning-foreground: oklch(0.985 0 0);
-  --success: oklch(0.53 0.154 150.0);
+  --success: oklch(0.53 0.154 150);
   --success-foreground: oklch(0.985 0 0);
-  --info: oklch(0.54 0.195 258.0);
+  --info: oklch(0.54 0.195 258);
   --info-foreground: oklch(0.985 0 0);
-  --tertiary: oklch(0.54 0.205 293.0);
+  --tertiary: oklch(0.54 0.205 293);
   --tertiary-foreground: oklch(0.985 0 0);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
@@ -177,15 +177,15 @@
   --warning-foreground: oklch(0.265 0.096 56.72);
 
   /* Success — L≈0.72, brighter on dark bg → near-black text */
-  --success: oklch(0.723 0.162 150.0);
+  --success: oklch(0.723 0.162 150);
   --success-foreground: oklch(0.145 0 0);
 
   /* Info — L≈0.71, brighter on dark bg → near-black text */
-  --info: oklch(0.707 0.165 258.0);
+  --info: oklch(0.707 0.165 258);
   --info-foreground: oklch(0.145 0 0);
 
   /* Tertiary — Violet, L=0.705, CR≥7:1 AAA ✅ → near-black text */
-  --tertiary: oklch(0.705 0.183 293.0);
+  --tertiary: oklch(0.705 0.183 293);
   --tertiary-foreground: oklch(0.145 0 0);
 
   /* Border, Input, Ring */

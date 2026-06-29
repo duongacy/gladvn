@@ -4,7 +4,11 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "../../index";
-import { SectionHeader, ExampleSection, ExampleGrid } from "../components/showcase";
+import {
+  SectionHeader,
+  ExampleSection,
+  ExampleGrid,
+} from "../components/showcase";
 
 const faqItems = [
   {
@@ -34,7 +38,10 @@ export default function AccordionShowcase() {
       />
 
       <ExampleGrid columns={2}>
-        <ExampleSection label="Single Expand" description="Only one item can be open at a time (default).">
+        <ExampleSection
+          label="Single Expand"
+          description="Only one item can be open at a time (default)."
+        >
           <div className="w-full">
             <Accordion defaultValue={[faqItems[0]!.q]}>
               {faqItems.slice(0, 3).map(({ q, a }) => (
@@ -47,7 +54,10 @@ export default function AccordionShowcase() {
           </div>
         </ExampleSection>
 
-        <ExampleSection label="Multiple Expand" description="Multiple items can be open simultaneously.">
+        <ExampleSection
+          label="Multiple Expand"
+          description="Multiple items can be open simultaneously."
+        >
           <div className="w-full">
             <Accordion multiple defaultValue={[faqItems[0]!.q, faqItems[1]!.q]}>
               {faqItems.slice(0, 3).map(({ q, a }) => (
@@ -61,13 +71,17 @@ export default function AccordionShowcase() {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleSection label="Disabled Items" description="Individual items can be disabled while others remain interactive.">
+      <ExampleSection
+        label="Disabled Items"
+        description="Individual items can be disabled while others remain interactive."
+      >
         <div className="w-full max-w-lg">
           <Accordion>
             <AccordionItem value="enabled-1">
               <AccordionTrigger>Available Feature</AccordionTrigger>
               <AccordionContent>
-                This feature is available and can be expanded normally. Click to see the details.
+                This feature is available and can be expanded normally. Click to
+                see the details.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="disabled-1" disabled>
@@ -86,7 +100,10 @@ export default function AccordionShowcase() {
         </div>
       </ExampleSection>
 
-      <ExampleSection label="Full FAQ" description="Complete FAQ section with all items.">
+      <ExampleSection
+        label="Full FAQ"
+        description="Complete FAQ section with all items."
+      >
         <div className="w-full max-w-lg">
           <Accordion>
             {faqItems.map(({ q, a }) => (

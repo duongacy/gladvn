@@ -3,9 +3,11 @@
 **Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
+
 Command (Command Palette / cmdk) là widget kết hợp search input với filterable list of actions/items. Tương tự Combobox nhưng focus vào actions hơn là data selection. BẮT BUỘC kiểm tra:
 
 ### A. Anatomy & WAI-ARIA Roles
+
 - **Dialog Wrapper (khi dùng như palette):**
   - Nếu mở qua keyboard shortcut (Cmd+K): bọc trong `role="dialog"` với `aria-modal="true"`.
   - `aria-label` mô tả (vd: "Command palette" hoặc "Search commands").
@@ -30,6 +32,7 @@ Command (Command Palette / cmdk) là widget kết hợp search input với filte
 - **Separator:** `role="separator"`.
 
 ### B. Keyboard Navigation & Focus
+
 - `Cmd/Ctrl + K`: Mở command palette (convention phổ biến).
 - **Input Focused:**
   - Gõ ký tự: Filter items.
@@ -40,12 +43,14 @@ Command (Command Palette / cmdk) là widget kết hợp search input với filte
 - **Focus Management:** Focus LUÔN ở search input, dùng `aria-activedescendant` cho virtual focus trên items.
 
 ### C. Standard API & Props
+
 - Composition: Command, Input, List, Empty, Group, Item, Separator, Loading.
 - `filter`: Custom filter function.
 - `value` / `onValueChange`: Selected/highlighted value.
 - Thường bọc trong Dialog khi dùng như command palette.
 
 ### D. WCAG 2.2 Success Criteria
+
 - **1.3.1 Info and Relationships (A):** Input-list relationship, group-heading association.
 - **2.1.1 Keyboard (A):** Full keyboard navigation.
 - **2.4.7 Focus Visible (AA):** Highlight indicator trên item đang active.
@@ -61,12 +66,14 @@ Command (Command Palette / cmdk) là widget kết hợp search input với filte
 - **Readability (Rule #10):** Filter algorithm phải có comment giải thích.
 
 ## 3. Nhiệm vụ của bạn (AI)
+
 1. Đóng vai một W3C Auditor và Senior UI Architect.
 2. Đọc và phân tích file source code `src/components/ui/command.tsx`.
 3. Kiểm tra chéo, đặc biệt: **`aria-activedescendant`** (virtual focus), **Filter result announcement** (status messages), **Dialog integration** (khi dùng Cmd+K), và **Empty state** accessibility.
 4. Cung cấp một báo cáo chi tiết. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff**.
 
 ### Kiểm tra Showcase (Bắt buộc)
+
 1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
@@ -74,14 +81,15 @@ Command (Command Palette / cmdk) là widget kết hợp search input với filte
 
 ## Audit Result — 2026-06-28
 
-| Rule/Tiêu chí | Verdict | Note |
-|---------------|---------|------|
-| W3C APG / ARIA | ✅ | Combobox + listbox pattern được `cmdk` xử lý xuất sắc (`aria-activedescendant`). |
-| 21. CSS Depth Boundary | ❌ | Vi phạm nhiều chỗ: `**:[[cmdk-group-heading]]` ở L129, `[&_svg]` và `*:[svg]` ở L159. Cần refactor để tránh deep selector. |
-| Form Control Parity | ✅ | Search input tái sử dụng `InputGroup` và đảm bảo height/border chuẩn. |
-| Dark Mode Compliance | ✅ | Semantic colors (`bg-popover`, `text-popover-foreground`) render tốt. |
+| Rule/Tiêu chí          | Verdict | Note                                                                                                                       |
+| ---------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------- |
+| W3C APG / ARIA         | ✅      | Combobox + listbox pattern được `cmdk` xử lý xuất sắc (`aria-activedescendant`).                                           |
+| 21. CSS Depth Boundary | ❌      | Vi phạm nhiều chỗ: `**:[[cmdk-group-heading]]` ở L129, `[&_svg]` và `*:[svg]` ở L159. Cần refactor để tránh deep selector. |
+| Form Control Parity    | ✅      | Search input tái sử dụng `InputGroup` và đảm bảo height/border chuẩn.                                                      |
+| Dark Mode Compliance   | ✅      | Semantic colors (`bg-popover`, `text-popover-foreground`) render tốt.                                                      |
 
 ### Diffs cần fix
+
 ```diff
 - "**:[[cmdk-group-heading]]:px-2 **:[[cmdk-group-heading]]:py-1.5 **:[[cmdk-group-heading]]:text-xs **:[[cmdk-group-heading]]:font-medium **:[[cmdk-group-heading]]:text-muted-foreground"
 + "[&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted-foreground"

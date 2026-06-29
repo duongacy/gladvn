@@ -1,6 +1,21 @@
 import { useState } from "react";
-import { Input, MonoSelect, Field, FieldLabel, FieldDescription, FieldContent, InputGroup, InputGroupAddon, InputGroupText, InputGroupInput } from "../../index";
-import { SectionHeader, ExampleSection, ExampleGrid } from "../components/showcase";
+import {
+  Input,
+  MonoSelect,
+  Field,
+  FieldLabel,
+  FieldDescription,
+  FieldContent,
+  InputGroup,
+  InputGroupAddon,
+  InputGroupText,
+  InputGroupInput,
+} from "../../index";
+import {
+  SectionHeader,
+  ExampleSection,
+  ExampleGrid,
+} from "../components/showcase";
 
 export default function InputShowcase() {
   const [globalSize, setGlobalSize] = useState<"sm" | "md" | "lg">("md");
@@ -23,13 +38,20 @@ export default function InputShowcase() {
       </SectionHeader>
 
       {/* ── Default ───────────────────────────────── */}
-      <ExampleSection label="Default" description="Basic text input with label and description.">
+      <ExampleSection
+        label="Default"
+        description="Basic text input with label and description."
+      >
         <div className="w-full max-w-sm">
           <Field size={globalSize}>
             <FieldLabel htmlFor="tf-input">Email</FieldLabel>
             <FieldDescription>We'll never share your email.</FieldDescription>
             <FieldContent>
-              <Input id="tf-input" size={globalSize} placeholder="you@example.com" />
+              <Input
+                id="tf-input"
+                size={globalSize}
+                placeholder="you@example.com"
+              />
             </FieldContent>
           </Field>
         </div>
@@ -37,7 +59,10 @@ export default function InputShowcase() {
 
       <ExampleGrid columns={2}>
         {/* ── Input Group ──────────────────────────── */}
-        <ExampleSection label="Input Group" description="Input with prefix and suffix addons.">
+        <ExampleSection
+          label="Input Group"
+          description="Input with prefix and suffix addons."
+        >
           <div className="w-full max-w-sm">
             <Field size={globalSize}>
               <FieldLabel htmlFor="tf-group">Website</FieldLabel>
@@ -57,12 +82,20 @@ export default function InputShowcase() {
         </ExampleSection>
 
         {/* ── Disabled ─────────────────────────────── */}
-        <ExampleSection label="Disabled" description="Non-interactive input state.">
+        <ExampleSection
+          label="Disabled"
+          description="Non-interactive input state."
+        >
           <div className="w-full max-w-sm">
             <Field size={globalSize}>
               <FieldLabel htmlFor="tf-disabled">Locked</FieldLabel>
               <FieldContent>
-                <Input id="tf-disabled" disabled size={globalSize} value="Readonly content" />
+                <Input
+                  id="tf-disabled"
+                  disabled
+                  size={globalSize}
+                  value="Readonly content"
+                />
               </FieldContent>
             </Field>
           </div>

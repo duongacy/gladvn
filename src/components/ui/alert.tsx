@@ -1,7 +1,7 @@
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "../../lib/utils"
+import { cn } from "../../lib/utils";
 
 // CSS Delegated Logic:
 // - has-[>svg]: Tự động chuyển layout grid 2 cột nếu phát hiện Icon được truyền vào
@@ -13,14 +13,13 @@ const alertVariants = cva(
     variants: {
       color: {
         default: "bg-card text-card-foreground",
-        info:
-          "border-info/15 bg-info/5 text-info *:data-[slot=alert-description]:text-info/90 *:[svg]:text-current",
+        info: "border-info/15 bg-info/5 text-info [&>[data-slot=alert-description]]:text-info/90 [&>svg]:text-current",
         destructive:
-          "border-destructive/15 bg-destructive/5 text-destructive *:data-[slot=alert-description]:text-destructive/90 *:[svg]:text-current",
+          "border-destructive/15 bg-destructive/5 text-destructive [&>[data-slot=alert-description]]:text-destructive/90 [&>svg]:text-current",
         success:
-          "border-success/15 bg-success/5 text-success *:data-[slot=alert-description]:text-success/90 *:[svg]:text-current",
+          "border-success/15 bg-success/5 text-success [&>[data-slot=alert-description]]:text-success/90 [&>svg]:text-current",
         warning:
-          "border-warning/15 bg-warning/5 text-warning *:data-[slot=alert-description]:text-warning/90 *:[svg]:text-current",
+          "border-warning/15 bg-warning/5 text-warning [&>[data-slot=alert-description]]:text-warning/90 [&>svg]:text-current",
       },
       size: {
         sm: "px-2 py-1.5 text-xs has-[>svg]:gap-x-1.5 *:[svg:not([class*='size-'])]:size-3.5",
@@ -32,15 +31,16 @@ const alertVariants = cva(
       color: "default",
       size: "md",
     },
-  }
-)
+  },
+);
 
 function Alert({
   className,
   color,
   size,
   ...props
-}: Omit<React.ComponentProps<"div">, "color"> & VariantProps<typeof alertVariants>) {
+}: Omit<React.ComponentProps<"div">, "color"> &
+  VariantProps<typeof alertVariants>) {
   return (
     <div
       data-slot="alert"
@@ -48,7 +48,7 @@ function Alert({
       className={cn(alertVariants({ color, size }), className)}
       {...props}
     />
-  )
+  );
 }
 
 function AlertTitle({ className, ...props }: React.ComponentProps<"div">) {
@@ -56,12 +56,12 @@ function AlertTitle({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="alert-title"
       className={cn(
-        "font-medium group-has-[>svg]/alert:col-start-2 [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-foreground",
-        className
+        "font-medium group-has-[>svg]/alert:col-start-2",
+        className,
       )}
       {...props}
     />
-  )
+  );
 }
 
 function AlertDescription({
@@ -72,12 +72,12 @@ function AlertDescription({
     <div
       data-slot="alert-description"
       className={cn(
-        "text-sm text-balance text-muted-foreground md:text-pretty [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-foreground [&_p:not(:last-child)]:mb-4",
-        className
+        "text-sm text-balance text-muted-foreground md:text-pretty",
+        className,
       )}
       {...props}
     />
-  )
+  );
 }
 
 function AlertAction({ className, ...props }: React.ComponentProps<"div">) {
@@ -87,7 +87,7 @@ function AlertAction({ className, ...props }: React.ComponentProps<"div">) {
       className={cn("absolute top-2 right-2", className)}
       {...props}
     />
-  )
+  );
 }
 
-export { Alert, AlertTitle, AlertDescription, AlertAction }
+export { Alert, AlertTitle, AlertDescription, AlertAction };

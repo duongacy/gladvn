@@ -1,6 +1,6 @@
-import React from "react"
-import { cn } from "../../lib/utils"
-import { COLORS, COLOR_INFO } from "../data"
+import React from "react";
+import { cn } from "../../lib/utils";
+import { COLORS, COLOR_INFO } from "../data";
 
 /* ─────────────────────────────────────────────────────────────────
    SectionHeader  –  page‐level title bar
@@ -11,21 +11,23 @@ export function SectionHeader({
   description,
   children,
 }: {
-  title: string
-  description?: string
-  children?: React.ReactNode
+  title: string;
+  description?: string;
+  children?: React.ReactNode;
 }) {
   return (
     <div className="mb-8 flex flex-col gap-1">
       <div className="flex items-end justify-between gap-4">
-        <h2 className="text-2xl font-bold tracking-tight">{title}</h2>
+        <h2 className="text-3xl font-bold tracking-tight bg-gradient-to-br from-foreground to-foreground/60 bg-clip-text text-transparent">
+          {title}
+        </h2>
         {children && <div className="shrink-0 pb-0.5">{children}</div>}
       </div>
       {description && (
         <p className="text-[15px] text-muted-foreground">{description}</p>
       )}
     </div>
-  )
+  );
 }
 
 /* ─────────────────────────────────────────────────────────────────
@@ -50,11 +52,11 @@ export function ExampleSection({
   className,
   fullWidth = false,
 }: {
-  label?: string
-  description?: string
-  children: React.ReactNode
-  className?: string
-  fullWidth?: boolean
+  label?: string;
+  description?: string;
+  children: React.ReactNode;
+  className?: string;
+  fullWidth?: boolean;
 }) {
   return (
     <div className="flex flex-col gap-3">
@@ -70,16 +72,19 @@ export function ExampleSection({
       )}
       <div
         className={cn(
-          "relative flex items-center justify-center rounded-xl border bg-background p-8",
+          "relative flex items-center justify-center rounded-2xl border border-border/80 bg-background/50 backdrop-blur-sm p-8 shadow-sm transition-all duration-300 hover:shadow-md hover:border-ring/30",
           "min-h-[120px]",
           fullWidth && "[&>*]:w-full",
           className,
         )}
       >
-        {children}
+        <div className="absolute inset-0 -z-10 opacity-[0.03] dark:opacity-[0.05] [background-size:24px_24px] [background-image:radial-gradient(circle_at_center,var(--color-foreground)_1.5px,transparent_1.5px)]" />
+        <div className="relative z-10 flex w-full items-center justify-center">
+          {children}
+        </div>
       </div>
     </div>
-  )
+  );
 }
 
 /* ─────────────────────────────────────────────────────────────────
@@ -90,38 +95,38 @@ export function ExampleGrid({
   columns = 2,
   className,
 }: {
-  children: React.ReactNode
-  columns?: 1 | 2 | 3
-  className?: string
+  children: React.ReactNode;
+  columns?: 1 | 2 | 3;
+  className?: string;
 }) {
   const colClasses = {
     1: "grid-cols-1",
     2: "grid-cols-1 md:grid-cols-2",
     3: "grid-cols-1 md:grid-cols-2 xl:grid-cols-3",
-  }
+  };
   return (
     <div className={cn("grid gap-6", colClasses[columns], className)}>
       {children}
     </div>
-  )
+  );
 }
 
 /* ─────────────────────────────────────────────────────────────────
    Legacy compat – keep old names working during migration
    ────────────────────────────────────────────────────────── */
-export const ComponentGrid = ExampleGrid
+export const ComponentGrid = ExampleGrid;
 export function ComponentPreview({
   title,
   description,
   children,
   className,
 }: {
-  title?: string
-  description?: string
-  icon?: React.ElementType
-  color?: string
-  children: React.ReactNode
-  className?: string
+  title?: string;
+  description?: string;
+  icon?: React.ElementType;
+  color?: string;
+  children: React.ReactNode;
+  className?: string;
 }) {
   return (
     <ExampleSection
@@ -131,7 +136,7 @@ export function ComponentPreview({
     >
       {children}
     </ExampleSection>
-  )
+  );
 }
 
 /* ─────────────────────────────────────────────────────────────────
@@ -141,20 +146,16 @@ export function ShowcaseBlock({
   title,
   children,
 }: {
-  title: string
-  children: React.ReactNode
+  title: string;
+  children: React.ReactNode;
 }) {
-  return (
-    <ExampleSection label={title}>
-      {children}
-    </ExampleSection>
-  )
+  return <ExampleSection label={title}>{children}</ExampleSection>;
 }
 
 /* ─────────────────────────────────────────────────────────────────
    ColorSwatch  –  design‑token preview
    ────────────────────────────────────────────────────────── */
-const bgColorMap: Record<typeof COLORS[number], string> = {
+const bgColorMap: Record<(typeof COLORS)[number], string> = {
   primary: "bg-primary",
   secondary: "bg-secondary",
   destructive: "bg-destructive",
@@ -162,10 +163,10 @@ const bgColorMap: Record<typeof COLORS[number], string> = {
   success: "bg-success",
   info: "bg-info",
   tertiary: "bg-tertiary",
-}
+};
 
-export function ColorSwatch({ color }: { color: typeof COLORS[number] }) {
-  const info = COLOR_INFO[color]
+export function ColorSwatch({ color }: { color: (typeof COLORS)[number] }) {
+  const info = COLOR_INFO[color];
   return (
     <div className="flex flex-col gap-1.5 items-center">
       <div
@@ -175,5 +176,5 @@ export function ColorSwatch({ color }: { color: typeof COLORS[number] }) {
         {info.label}
       </span>
     </div>
-  )
+  );
 }

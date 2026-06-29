@@ -1,16 +1,22 @@
 import {
-    ResizableHandle,
-    ResizablePanel,
-    ResizablePanelGroup
-} from "../../index"
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "../../index";
 import { SectionHeader, ExampleSection } from "../components/showcase";
 
 export default function ResizableShowcase() {
   return (
     <div className="space-y-10">
-      <SectionHeader title="Resizable" description="Accessible resizable panel groups and layouts with keyboard support." />
+      <SectionHeader
+        title="Resizable"
+        description="Accessible resizable panel groups and layouts with keyboard support."
+      />
 
-      <ExampleSection label="Horizontal Split" description="Drag the handle to resize panels.">
+      <ExampleSection
+        label="Horizontal Split"
+        description="Drag the handle to resize panels."
+      >
         <ResizablePanelGroup
           orientation="horizontal"
           className="max-w-md rounded-xl border bg-card"
@@ -29,7 +35,10 @@ export default function ResizableShowcase() {
         </ResizablePanelGroup>
       </ExampleSection>
 
-      <ExampleSection label="Nested Layout" description="Complex layout with nested resizable groups.">
+      <ExampleSection
+        label="Nested Layout"
+        description="Complex layout with nested resizable groups."
+      >
         <ResizablePanelGroup
           orientation="horizontal"
           className="max-w-md rounded-xl border bg-card"

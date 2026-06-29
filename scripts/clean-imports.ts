@@ -4,7 +4,9 @@ const project = new Project({
   tsConfigFilePath: "/Users/y/Desktop/github/sadcn/tsconfig.json",
 });
 
-const sourceFiles = project.getSourceFiles("/Users/y/Desktop/github/sadcn/src/dev/showcase/**/*.tsx");
+const sourceFiles = project.getSourceFiles(
+  "/Users/y/Desktop/github/sadcn/src/dev/showcase/**/*.tsx",
+);
 console.log(`Found ${sourceFiles.length} showcase files to process.`);
 
 for (const sourceFile of sourceFiles) {

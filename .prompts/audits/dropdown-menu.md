@@ -3,9 +3,11 @@
 **Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
+
 Dropdown Menu (Menu Button pattern) hiển thị danh sách actions khi user click trigger button. BẮT BUỘC kiểm tra:
 
 ### A. Anatomy & WAI-ARIA Roles
+
 - **Trigger (Menu Button):**
   - Phải có `aria-haspopup="menu"`.
   - Phải có `aria-expanded="true"` (open) hoặc `"false"` (closed).
@@ -28,6 +30,7 @@ Dropdown Menu (Menu Button pattern) hiển thị danh sách actions khi user cli
   - `role="separator"`.
 
 ### B. Keyboard Navigation & Focus
+
 - **Trigger Focused (Menu Closed):**
   - `Enter` / `Space`: Mở menu, focus item đầu tiên.
   - `Arrow Down`: Mở menu, focus item đầu tiên.
@@ -47,11 +50,13 @@ Dropdown Menu (Menu Button pattern) hiển thị danh sách actions khi user cli
   - Roving tabindex pattern.
 
 ### C. Standard API & Props
+
 - Composition: Root, Trigger, Portal, Content, Item, Sub, SubTrigger, SubContent, CheckboxItem, RadioItem, RadioGroup, Separator, Label.
 - `open` / `onOpenChange`.
 - `modal`: Boolean (mặc định true — focus trapped).
 
 ### D. WCAG 2.2 Success Criteria
+
 - **1.3.1 Info and Relationships (A):** Trigger-menu relationship, item grouping.
 - **2.1.1 Keyboard (A):** Full keyboard navigation.
 - **2.4.3 Focus Order (A):** Logical focus order.
@@ -67,12 +72,14 @@ Dropdown Menu (Menu Button pattern) hiển thị danh sách actions khi user cli
 - **Linear Design (Rule #5):** Item styling phải đồng bộ hoàn toàn với Context Menu (cùng pattern, cùng token).
 
 ## 3. Nhiệm vụ của bạn (AI)
+
 1. Đóng vai một W3C Auditor và Senior UI Architect.
 2. Đọc và phân tích file source code `src/components/ui/dropdown-menu.tsx`.
 3. Kiểm tra chéo từng tiêu chí, đặc biệt: **Menu Button ARIA pattern** (aria-haspopup, aria-expanded, aria-controls), **Full keyboard navigation** (type-ahead, submenu arrows), **Parity với Context Menu**, và **CSS animation**.
 4. Cung cấp một báo cáo chi tiết. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff**.
 
 ### Kiểm tra Showcase (Bắt buộc)
+
 1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
@@ -80,14 +87,15 @@ Dropdown Menu (Menu Button pattern) hiển thị danh sách actions khi user cli
 
 ## Audit Result — 2026-06-28
 
-| Rule/Tiêu chí | Verdict | Note |
-|---------------|---------|------|
-| W3C APG / ARIA | ✅ | Menu Button pattern, type-ahead và focus management hoạt động tuyệt vời |
-| 21. CSS Depth Boundary | ❌ | Giống Context Menu, vi phạm ở các Items (`DropdownMenuItem`, `SubTrigger`, `CheckboxItem`, `RadioItem`): dùng `[&_svg]` thay vì `[&>svg]` |
-| Form Control Parity | ✅ | Parity hoàn hảo với Context Menu (Rule #5 Linear Design) |
-| Dark Mode Compliance | ✅ | Semantic tokens tốt, hover và focus state hiển thị chuẩn |
+| Rule/Tiêu chí          | Verdict | Note                                                                                                                                      |
+| ---------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| W3C APG / ARIA         | ✅      | Menu Button pattern, type-ahead và focus management hoạt động tuyệt vời                                                                   |
+| 21. CSS Depth Boundary | ❌      | Giống Context Menu, vi phạm ở các Items (`DropdownMenuItem`, `SubTrigger`, `CheckboxItem`, `RadioItem`): dùng `[&_svg]` thay vì `[&>svg]` |
+| Form Control Parity    | ✅      | Parity hoàn hảo với Context Menu (Rule #5 Linear Design)                                                                                  |
+| Dark Mode Compliance   | ✅      | Semantic tokens tốt, hover và focus state hiển thị chuẩn                                                                                  |
 
 ### Diffs cần fix
+
 ```diff
 - "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 data-[variant=destructive]:*:[svg]:text-destructive"
 + "[&>svg]:pointer-events-none [&>svg]:shrink-0 [&>svg:not([class*='size-'])]:size-4 data-[variant=destructive]:[&>svg]:text-destructive"

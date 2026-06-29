@@ -1,5 +1,5 @@
-import { useState } from "react"
-import { toast } from "sonner"
+import { useState } from "react";
+import { toast } from "sonner";
 import {
   Alert,
   AlertTitle,
@@ -19,7 +19,7 @@ import {
   EmptyContent,
   Button,
   Toaster,
-} from "../../index"
+} from "../../index";
 import {
   CheckCircle2Icon,
   InfoIcon,
@@ -28,18 +28,21 @@ import {
   InboxIcon,
   SearchIcon,
   FileX2Icon,
-} from "lucide-react"
+} from "lucide-react";
 
-import { SectionHeader, ShowcaseBlock } from "../components/showcase"
+import { SectionHeader, ShowcaseBlock } from "../components/showcase";
 
 export default function FeedbackSection() {
-  const [progress1, setProgress1] = useState(25)
-  const [progress2, setProgress2] = useState(60)
-  const [progress3, setProgress3] = useState(90)
+  const [progress1, setProgress1] = useState(25);
+  const [progress2, setProgress2] = useState(60);
+  const [progress3, setProgress3] = useState(90);
 
   return (
     <div className="space-y-5">
-      <SectionHeader title="Feedback" description="Alert, Progress, Skeleton, Spinner, Sonner, Empty" />
+      <SectionHeader
+        title="Feedback"
+        description="Alert, Progress, Skeleton, Spinner, Sonner, Empty"
+      />
 
       {/* Toaster provider for this section */}
       <Toaster position="bottom-right" />
@@ -50,22 +53,30 @@ export default function FeedbackSection() {
           <Alert color="info">
             <InfoIcon />
             <AlertTitle>Info</AlertTitle>
-            <AlertDescription>Your session will expire in 10 minutes.</AlertDescription>
+            <AlertDescription>
+              Your session will expire in 10 minutes.
+            </AlertDescription>
           </Alert>
           <Alert color="success">
             <CheckCircle2Icon />
             <AlertTitle>Success</AlertTitle>
-            <AlertDescription>Your changes have been saved successfully.</AlertDescription>
+            <AlertDescription>
+              Your changes have been saved successfully.
+            </AlertDescription>
           </Alert>
           <Alert color="warning">
             <TriangleAlertIcon />
             <AlertTitle>Warning</AlertTitle>
-            <AlertDescription>This action cannot be undone easily.</AlertDescription>
+            <AlertDescription>
+              This action cannot be undone easily.
+            </AlertDescription>
           </Alert>
           <Alert color="destructive">
             <XCircleIcon />
             <AlertTitle>Error</AlertTitle>
-            <AlertDescription>Failed to connect to the server.</AlertDescription>
+            <AlertDescription>
+              Failed to connect to the server.
+            </AlertDescription>
           </Alert>
         </div>
       </ShowcaseBlock>
@@ -82,9 +93,9 @@ export default function FeedbackSection() {
                 size="sm"
                 variant="outline"
                 onClick={() => {
-                  setProgress1(Math.max(0, progress1 - 10))
-                  setProgress2(Math.max(0, progress2 - 10))
-                  setProgress3(Math.max(0, progress3 - 10))
+                  setProgress1(Math.max(0, progress1 - 10));
+                  setProgress2(Math.max(0, progress2 - 10));
+                  setProgress3(Math.max(0, progress3 - 10));
                 }}
               >
                 − 10%
@@ -93,9 +104,9 @@ export default function FeedbackSection() {
                 size="sm"
                 variant="outline"
                 onClick={() => {
-                  setProgress1(Math.min(100, progress1 + 10))
-                  setProgress2(Math.min(100, progress2 + 10))
-                  setProgress3(Math.min(100, progress3 + 10))
+                  setProgress1(Math.min(100, progress1 + 10));
+                  setProgress2(Math.min(100, progress2 + 10));
+                  setProgress3(Math.min(100, progress3 + 10));
                 }}
               >
                 + 10%
@@ -170,22 +181,48 @@ export default function FeedbackSection() {
             <div className="space-y-3">
               <div>
                 <h4 className="text-sm font-medium">States</h4>
-                <p className="text-xs text-muted-foreground">Basic toast variations for different intents.</p>
+                <p className="text-xs text-muted-foreground">
+                  Basic toast variations for different intents.
+                </p>
               </div>
               <div className="flex flex-wrap gap-2">
-                <Button size="sm" variant="outline" onClick={() => toast("Event has been created")}>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={() => toast("Event has been created")}
+                >
                   Default
                 </Button>
-                <Button size="sm" variant="outline" color="success" onClick={() => toast.success("Changes saved successfully")}>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  color="success"
+                  onClick={() => toast.success("Changes saved successfully")}
+                >
                   Success
                 </Button>
-                <Button size="sm" variant="outline" color="info" onClick={() => toast.info("Session expires in 10 minutes")}>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  color="info"
+                  onClick={() => toast.info("Session expires in 10 minutes")}
+                >
                   Info
                 </Button>
-                <Button size="sm" variant="outline" color="warning" onClick={() => toast.warning("Disk space running low")}>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  color="warning"
+                  onClick={() => toast.warning("Disk space running low")}
+                >
                   Warning
                 </Button>
-                <Button size="sm" variant="outline" color="destructive" onClick={() => toast.error("Failed to save changes")}>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  color="destructive"
+                  onClick={() => toast.error("Failed to save changes")}
+                >
                   Error
                 </Button>
               </div>
@@ -195,16 +232,53 @@ export default function FeedbackSection() {
             <div className="space-y-3">
               <div>
                 <h4 className="text-sm font-medium">Interactivity</h4>
-                <p className="text-xs text-muted-foreground">Toasts with actions, cancel options, or explicit close buttons.</p>
+                <p className="text-xs text-muted-foreground">
+                  Toasts with actions, cancel options, or explicit close
+                  buttons.
+                </p>
               </div>
               <div className="flex flex-wrap gap-2">
-                <Button size="sm" variant="outline" onClick={() => toast("You can close this toast manually", { closeButton: true })}>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={() =>
+                    toast("You can close this toast manually", {
+                      closeButton: true,
+                    })
+                  }
+                >
                   With Close Button
                 </Button>
-                <Button size="sm" variant="outline" onClick={() => toast("File uploaded", { description: "image.png has been uploaded to your gallery.", action: { label: "View", onClick: () => {} } })}>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={() =>
+                    toast("File uploaded", {
+                      description:
+                        "image.png has been uploaded to your gallery.",
+                      action: { label: "View", onClick: () => {} },
+                    })
+                  }
+                >
                   With Action
                 </Button>
-                <Button size="sm" variant="outline" onClick={() => toast("Confirm deletion", { description: "Are you sure you want to delete this file?", action: { label: "Delete", onClick: () => toast.error("File deleted") }, cancel: { label: "Cancel", onClick: () => toast.info("Action cancelled") } })}>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={() =>
+                    toast("Confirm deletion", {
+                      description: "Are you sure you want to delete this file?",
+                      action: {
+                        label: "Delete",
+                        onClick: () => toast.error("File deleted"),
+                      },
+                      cancel: {
+                        label: "Cancel",
+                        onClick: () => toast.info("Action cancelled"),
+                      },
+                    })
+                  }
+                >
                   With Cancel
                 </Button>
               </div>
@@ -214,16 +288,34 @@ export default function FeedbackSection() {
             <div className="space-y-3">
               <div>
                 <h4 className="text-sm font-medium">Advanced</h4>
-                <p className="text-xs text-muted-foreground">Promises and custom positions.</p>
+                <p className="text-xs text-muted-foreground">
+                  Promises and custom positions.
+                </p>
               </div>
               <div className="flex flex-wrap gap-2">
-                <Button size="sm" variant="outline" onClick={() => {
-                  const promise = new Promise((resolve) => setTimeout(resolve, 2000))
-                  toast.promise(promise, { loading: "Loading data...", success: "Data loaded successfully", error: "Failed to load data" })
-                }}>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={() => {
+                    const promise = new Promise((resolve) =>
+                      setTimeout(resolve, 2000),
+                    );
+                    toast.promise(promise, {
+                      loading: "Loading data...",
+                      success: "Data loaded successfully",
+                      error: "Failed to load data",
+                    });
+                  }}
+                >
                   Promise
                 </Button>
-                <Button size="sm" variant="outline" onClick={() => toast("Top Center Toast", { position: "top-center" })}>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={() =>
+                    toast("Top Center Toast", { position: "top-center" })
+                  }
+                >
                   Top Center Position
                 </Button>
               </div>
@@ -241,7 +333,9 @@ export default function FeedbackSection() {
                 <InboxIcon />
               </EmptyMedia>
               <EmptyTitle>No messages</EmptyTitle>
-              <EmptyDescription>Your inbox is empty. New messages will appear here.</EmptyDescription>
+              <EmptyDescription>
+                Your inbox is empty. New messages will appear here.
+              </EmptyDescription>
             </EmptyHeader>
           </Empty>
 
@@ -251,10 +345,14 @@ export default function FeedbackSection() {
                 <SearchIcon />
               </EmptyMedia>
               <EmptyTitle>No results found</EmptyTitle>
-              <EmptyDescription>Try adjusting your search or filter criteria.</EmptyDescription>
+              <EmptyDescription>
+                Try adjusting your search or filter criteria.
+              </EmptyDescription>
             </EmptyHeader>
             <EmptyContent>
-              <Button size="sm" variant="outline">Clear filters</Button>
+              <Button size="sm" variant="outline">
+                Clear filters
+              </Button>
             </EmptyContent>
           </Empty>
 
@@ -264,7 +362,9 @@ export default function FeedbackSection() {
                 <FileX2Icon />
               </EmptyMedia>
               <EmptyTitle>No documents</EmptyTitle>
-              <EmptyDescription>Get started by creating your first document.</EmptyDescription>
+              <EmptyDescription>
+                Get started by creating your first document.
+              </EmptyDescription>
             </EmptyHeader>
             <EmptyContent>
               <Button size="sm">Create document</Button>
@@ -273,5 +373,5 @@ export default function FeedbackSection() {
         </div>
       </ShowcaseBlock>
     </div>
-  )
+  );
 }

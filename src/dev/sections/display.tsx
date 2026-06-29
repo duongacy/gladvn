@@ -4,8 +4,8 @@ import {
   ShieldAlertIcon,
   ShieldCheckIcon,
   UserIcon,
-  ZapIcon
-} from "lucide-react"
+  ZapIcon,
+} from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -23,16 +23,18 @@ import {
   CardContent,
   CardFooter,
   CardHeader,
-  CardTitle
-} from "../../index"
+  CardTitle,
+} from "../../index";
 
-
-import { SectionHeader, ShowcaseBlock } from "../components/showcase"
+import { SectionHeader, ShowcaseBlock } from "../components/showcase";
 
 export default function DisplaySection() {
   return (
     <div className="space-y-5">
-      <SectionHeader title="Data Display" description="Avatars, Cards, Accordion, and more" />
+      <SectionHeader
+        title="Data Display"
+        description="Avatars, Cards, Accordion, and more"
+      />
 
       {/* Avatar Showcase */}
       <div className="rounded-2xl border bg-card/40 p-6 shadow-sm">
@@ -43,7 +45,8 @@ export default function DisplaySection() {
               Avatars & Groups
             </h3>
             <p className="text-sm text-muted-foreground mt-1">
-              Smart scaling, group overlaps, and status badges via CSS Delegated Logic.
+              Smart scaling, group overlaps, and status badges via CSS Delegated
+              Logic.
             </p>
           </div>
         </div>
@@ -51,7 +54,9 @@ export default function DisplaySection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Sizes & Fallbacks */}
           <div className="rounded-xl border bg-card p-5 shadow-sm flex flex-col gap-4">
-            <h4 className="text-sm font-medium text-muted-foreground">Sizes & Fallbacks</h4>
+            <h4 className="text-sm font-medium text-muted-foreground">
+              Sizes & Fallbacks
+            </h4>
             <div className="flex items-center gap-6 h-12">
               <Avatar size="sm">
                 <AvatarFallback>SM</AvatarFallback>
@@ -63,14 +68,18 @@ export default function DisplaySection() {
               </Avatar>
 
               <Avatar size="lg">
-                <AvatarFallback className="bg-primary/10 text-primary">LG</AvatarFallback>
+                <AvatarFallback className="bg-primary/10 text-primary">
+                  LG
+                </AvatarFallback>
               </Avatar>
             </div>
           </div>
 
           {/* Group & Badge */}
           <div className="rounded-xl border bg-card p-5 shadow-sm flex flex-col gap-4">
-            <h4 className="text-sm font-medium text-muted-foreground">Groups & Status Badges</h4>
+            <h4 className="text-sm font-medium text-muted-foreground">
+              Groups & Status Badges
+            </h4>
             <div className="flex items-center gap-8 h-12">
               <AvatarGroup>
                 <Avatar size="lg">
@@ -78,10 +87,14 @@ export default function DisplaySection() {
                   <AvatarFallback>A1</AvatarFallback>
                 </Avatar>
                 <Avatar size="lg">
-                  <AvatarFallback className="bg-secondary text-secondary-foreground">B2</AvatarFallback>
+                  <AvatarFallback className="bg-secondary text-secondary-foreground">
+                    B2
+                  </AvatarFallback>
                 </Avatar>
                 <Avatar size="lg">
-                  <AvatarFallback className="bg-destructive/10 text-destructive">C3</AvatarFallback>
+                  <AvatarFallback className="bg-destructive/10 text-destructive">
+                    C3
+                  </AvatarFallback>
                 </Avatar>
                 <AvatarGroupCount>+3</AvatarGroupCount>
               </AvatarGroup>
@@ -113,46 +126,67 @@ export default function DisplaySection() {
             The Badge Matrix
           </h3>
           <p className="text-sm text-muted-foreground mt-1">
-            All variants mapped against different usage contexts (Icons & Links).
+            All variants mapped against different usage contexts (Icons &
+            Links).
           </p>
         </div>
         <div className="p-6 overflow-x-auto">
           <table className="w-full min-w-[600px] text-left border-collapse">
             <thead>
               <tr>
-                <th className="pb-4 font-medium text-muted-foreground text-sm">Variant</th>
-                <th className="pb-4 font-medium text-muted-foreground text-sm">Default</th>
-                <th className="pb-4 font-medium text-muted-foreground text-sm">Start Icon</th>
-                <th className="pb-4 font-medium text-muted-foreground text-sm">End Icon</th>
-                <th className="pb-4 font-medium text-muted-foreground text-sm">Interactive (Link)</th>
+                <th className="pb-4 font-medium text-muted-foreground text-sm">
+                  Variant
+                </th>
+                <th className="pb-4 font-medium text-muted-foreground text-sm">
+                  Default
+                </th>
+                <th className="pb-4 font-medium text-muted-foreground text-sm">
+                  Start Icon
+                </th>
+                <th className="pb-4 font-medium text-muted-foreground text-sm">
+                  End Icon
+                </th>
+                <th className="pb-4 font-medium text-muted-foreground text-sm">
+                  Interactive (Link)
+                </th>
               </tr>
             </thead>
             <tbody className="divide-y">
-              {["default", "secondary", "destructive", "outline"].map((variant) => (
-                <tr key={variant} className="group hover:bg-muted/30 transition-colors">
-                  <td className="py-4 pr-4">
-                    <span className="text-sm font-medium capitalize">{variant}</span>
-                  </td>
-                  <td className="py-4 pr-4">
-                    <Badge variant={variant as any}>Badge</Badge>
-                  </td>
-                  <td className="py-4 pr-4">
-                    <Badge variant={variant as any}>
-                      <CheckCircle2Icon data-icon="inline-start" /> Status
-                    </Badge>
-                  </td>
-                  <td className="py-4 pr-4">
-                    <Badge variant={variant as any}>
-                      Updates <BellIcon data-icon="inline-end" />
-                    </Badge>
-                  </td>
-                  <td className="py-4 pr-4">
-                    <Badge variant={variant as any} render={<a href="#link" />}>
-                      Clickable
-                    </Badge>
-                  </td>
-                </tr>
-              ))}
+              {["default", "secondary", "destructive", "outline"].map(
+                (variant) => (
+                  <tr
+                    key={variant}
+                    className="group hover:bg-muted/30 transition-colors"
+                  >
+                    <td className="py-4 pr-4">
+                      <span className="text-sm font-medium capitalize">
+                        {variant}
+                      </span>
+                    </td>
+                    <td className="py-4 pr-4">
+                      <Badge variant={variant as any}>Badge</Badge>
+                    </td>
+                    <td className="py-4 pr-4">
+                      <Badge variant={variant as any}>
+                        <CheckCircle2Icon data-icon="inline-start" /> Status
+                      </Badge>
+                    </td>
+                    <td className="py-4 pr-4">
+                      <Badge variant={variant as any}>
+                        Updates <BellIcon data-icon="inline-end" />
+                      </Badge>
+                    </td>
+                    <td className="py-4 pr-4">
+                      <Badge
+                        variant={variant as any}
+                        render={<a href="#link" />}
+                      >
+                        Clickable
+                      </Badge>
+                    </td>
+                  </tr>
+                ),
+              )}
             </tbody>
           </table>
         </div>
@@ -170,10 +204,14 @@ export default function DisplaySection() {
               </div>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">Optimized bundle with tree-shaking support.</p>
+              <p className="text-sm text-muted-foreground">
+                Optimized bundle with tree-shaking support.
+              </p>
             </CardContent>
             <CardFooter>
-              <Button variant="ghost" size="sm" color="primary">Learn more →</Button>
+              <Button variant="ghost" size="sm" color="primary">
+                Learn more →
+              </Button>
             </CardFooter>
           </Card>
           <Card>
@@ -186,10 +224,14 @@ export default function DisplaySection() {
               </div>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">Full TypeScript support with auto-complete.</p>
+              <p className="text-sm text-muted-foreground">
+                Full TypeScript support with auto-complete.
+              </p>
             </CardContent>
             <CardFooter>
-              <Button variant="ghost" size="sm" color="success">Learn more →</Button>
+              <Button variant="ghost" size="sm" color="success">
+                Learn more →
+              </Button>
             </CardFooter>
           </Card>
         </div>
@@ -198,9 +240,18 @@ export default function DisplaySection() {
       <ShowcaseBlock title="Accordion">
         <Accordion>
           {[
-            { q: "How do I install?", a: "Run npm install @duongy96/sadcn in your project." },
-            { q: "Can I customize colors?", a: "Yes — copy tokens.css and override any CSS variable." },
-            { q: "Does it support dark mode?", a: "Yes — add the .dark class to your <html> element." },
+            {
+              q: "How do I install?",
+              a: "Run npm install @duongy96/sadcn in your project.",
+            },
+            {
+              q: "Can I customize colors?",
+              a: "Yes — copy tokens.css and override any CSS variable.",
+            },
+            {
+              q: "Does it support dark mode?",
+              a: "Yes — add the .dark class to your <html> element.",
+            },
           ].map(({ q, a }) => (
             <AccordionItem key={q} value={q}>
               <AccordionTrigger>{q}</AccordionTrigger>
@@ -210,5 +261,5 @@ export default function DisplaySection() {
         </Accordion>
       </ShowcaseBlock>
     </div>
-  )
+  );
 }

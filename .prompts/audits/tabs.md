@@ -3,9 +3,11 @@
 **Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
+
 Tabs cho phép user chuyển đổi giữa các content panels mà không navigate away. BẮT BUỘC kiểm tra:
 
 ### A. Anatomy & WAI-ARIA Roles
+
 - **Tab List (Container chứa các tab triggers):**
   - Phải có `role="tablist"`.
   - Phải có `aria-label` hoặc `aria-labelledby` mô tả nhóm tabs.
@@ -23,6 +25,7 @@ Tabs cho phép user chuyển đổi giữa các content panels mà không naviga
   - Panel không active: phải ẩn hoàn toàn (`hidden`, `display: none`, hoặc unmount) — KHÔNG chỉ visually hidden.
 
 ### B. Keyboard Navigation & Focus (Roving Tabindex)
+
 - **Automatic Activation (Recommended):**
   - `Arrow Right` / `Arrow Down`: Di chuyển focus VÀ activate tab tiếp theo.
   - `Arrow Left` / `Arrow Up`: Di chuyển focus VÀ activate tab trước đó.
@@ -35,12 +38,14 @@ Tabs cho phép user chuyển đổi giữa các content panels mà không naviga
 - **Wrap-around:** Arrow keys NÊN wrap around (từ tab cuối sang tab đầu và ngược lại).
 
 ### C. Standard API & Props
+
 - `value` / `defaultValue` / `onValueChange`: Pattern Controlled & Uncontrolled.
 - `orientation`: Horizontal/Vertical — ảnh hưởng arrow key behavior.
 - `activationMode`: `"automatic"` (arrow key = activate) hoặc `"manual"` (arrow key = focus only).
 - Composition: Root, List, Trigger, Content.
 
 ### D. WCAG 2.2 Success Criteria
+
 - **1.3.1 Info and Relationships (A):** Tab-tabpanel relationship phải programmatic qua `aria-controls` + `aria-labelledby`.
 - **2.1.1 Keyboard (A):** Full keyboard navigation (arrow keys, Home/End, Tab into panel).
 - **2.4.3 Focus Order (A):** Tab → TabPanel flow phải logical.
@@ -56,12 +61,14 @@ Tabs cho phép user chuyển đổi giữa các content panels mà không naviga
 - **Anti-Ternary (Rule #19):** Active state rendering dùng CSS `data-[state=active]`, không ternary.
 
 ## 3. Nhiệm vụ của bạn (AI)
+
 1. Đóng vai một W3C Auditor và Senior UI Architect.
 2. Đọc và phân tích file source code `src/components/ui/tabs.tsx`.
 3. Kiểm tra chéo, đặc biệt: **Roving Tabindex** (chỉ active tab `tabindex="0"`), **Tab → TabPanel focus flow** (Tab key vào panel, không qua các tab khác), **`aria-controls` + `aria-labelledby` wiring**, và **CSS active indicator**.
 4. Cung cấp một báo cáo chi tiết. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff**.
 
 ### Kiểm tra Showcase (Bắt buộc)
+
 1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
@@ -69,14 +76,15 @@ Tabs cho phép user chuyển đổi giữa các content panels mà không naviga
 
 ## Audit Result — 2026-06-28
 
-| Rule/Tiêu chí | Verdict | Note |
-|---------------|---------|------|
-| W3C APG / ARIA | ✅ | Hỗ trợ full ARIA `role`, `aria-selected` từ `@base-ui`. Keyboard navigation (roving tabindex) hoàn hảo. |
-| 21. CSS Depth Boundary | ❌ | Vi phạm nhỏ ở L61 (TabsTrigger): `[&_svg:...]`. Đổi sang direct child `[&>svg]`. |
-| Form Control Parity | ✅ | Kế thừa `ring` states. |
-| Dark Mode Compliance | ✅ | Semantic colors hoàn chỉnh cho variant default/line. |
+| Rule/Tiêu chí          | Verdict | Note                                                                                                    |
+| ---------------------- | ------- | ------------------------------------------------------------------------------------------------------- |
+| W3C APG / ARIA         | ✅      | Hỗ trợ full ARIA `role`, `aria-selected` từ `@base-ui`. Keyboard navigation (roving tabindex) hoàn hảo. |
+| 21. CSS Depth Boundary | ❌      | Vi phạm nhỏ ở L61 (TabsTrigger): `[&_svg:...]`. Đổi sang direct child `[&>svg]`.                        |
+| Form Control Parity    | ✅      | Kế thừa `ring` states.                                                                                  |
+| Dark Mode Compliance   | ✅      | Semantic colors hoàn chỉnh cho variant default/line.                                                    |
 
 ### Diffs cần fix
+
 ```diff
 - "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
 + "[&>svg]:pointer-events-none [&>svg]:shrink-0 [&>svg:not([class*='size-'])]:size-4"

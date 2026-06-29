@@ -5,15 +5,15 @@
  * - Form Control Parity
  * - CSS Delegated Logic
  */
-"use client"
+"use client";
 
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "../../lib/utils"
-import { Button } from "./button"
-import { Input } from "./input"
-import { Textarea } from "./textarea"
+import { cn } from "../../lib/utils";
+import { Button } from "./button";
+import { Input } from "./input";
+import { Textarea } from "./textarea";
 
 const inputGroupVariants = cva(
   [
@@ -46,8 +46,8 @@ const inputGroupVariants = cva(
         lg: "input-group-lg min-h-9 text-sm",
       },
     },
-  }
-)
+  },
+);
 
 function InputGroup({
   className,
@@ -61,7 +61,7 @@ function InputGroup({
       className={cn(inputGroupVariants({ size }), className)}
       {...props}
     />
-  )
+  );
 }
 
 const inputGroupAddonVariants = cva(
@@ -88,8 +88,8 @@ const inputGroupAddonVariants = cva(
           "order-last w-full justify-start px-2.5 pb-2 group-has-[>input]/input-group:pb-2 [.border-t]:pt-2",
       },
     },
-  }
-)
+  },
+);
 
 function InputGroupAddon({
   className,
@@ -104,13 +104,13 @@ function InputGroupAddon({
       className={cn(inputGroupAddonVariants({ align }), className)}
       onClick={(e) => {
         if ((e.target as HTMLElement).closest("button")) {
-          return
+          return;
         }
-        e.currentTarget.parentElement?.querySelector("input")?.focus()
+        e.currentTarget.parentElement?.querySelector("input")?.focus();
       }}
       {...props}
     />
-  )
+  );
 }
 
 const inputGroupButtonVariants = cva(
@@ -125,8 +125,8 @@ const inputGroupButtonVariants = cva(
         "icon-sm": "size-8 p-0 has-[>svg]:p-0",
       },
     },
-  }
-)
+  },
+);
 
 function InputGroupButton({
   className,
@@ -136,7 +136,7 @@ function InputGroupButton({
   ...props
 }: Omit<React.ComponentProps<typeof Button>, "size" | "type"> &
   VariantProps<typeof inputGroupButtonVariants> & {
-    type?: "button" | "submit" | "reset"
+    type?: "button" | "submit" | "reset";
   }) {
   return (
     <Button
@@ -146,19 +146,19 @@ function InputGroupButton({
       className={cn(inputGroupButtonVariants({ size }), className)}
       {...props}
     />
-  )
+  );
 }
 
 function InputGroupText({ className, ...props }: React.ComponentProps<"span">) {
   return (
     <span
       className={cn(
-        "flex items-center gap-2 text-muted-foreground [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 group-[.input-group-sm]/input-group:[&>svg:not([class*='size-'])]:size-3.5",
-        className
+        "flex items-center gap-2 text-muted-foreground [&>svg]:pointer-events-none [&>svg:not([class*='size-'])]:size-4 group-[.input-group-sm]/input-group:[&>svg:not([class*='size-'])]:size-3.5",
+        className,
       )}
       {...props}
     />
-  )
+  );
 }
 
 function InputGroupInput({
@@ -173,11 +173,11 @@ function InputGroupInput({
         "group-[.input-group-sm]/input-group:h-7 group-[.input-group-sm]/input-group:px-2 group-[.input-group-sm]/input-group:py-0.5 group-[.input-group-sm]/input-group:text-xs",
         "group-[.input-group-md]/input-group:h-8 group-[.input-group-md]/input-group:px-2.5 group-[.input-group-md]/input-group:py-1 group-[.input-group-md]/input-group:text-sm",
         "group-[.input-group-lg]/input-group:h-9 group-[.input-group-lg]/input-group:px-3 group-[.input-group-lg]/input-group:py-1.5 group-[.input-group-lg]/input-group:text-sm",
-        className
+        className,
       )}
       {...props}
     />
-  )
+  );
 }
 
 function InputGroupTextarea({
@@ -192,11 +192,11 @@ function InputGroupTextarea({
         "group-[.input-group-sm]/input-group:text-xs group-[.input-group-sm]/input-group:px-2",
         "group-[.input-group-md]/input-group:text-sm group-[.input-group-md]/input-group:px-2.5",
         "group-[.input-group-lg]/input-group:text-sm group-[.input-group-lg]/input-group:px-3",
-        className
+        className,
       )}
       {...props}
     />
-  )
+  );
 }
 
 export {
@@ -206,4 +206,4 @@ export {
   InputGroupText,
   InputGroupInput,
   InputGroupTextarea,
-}
+};

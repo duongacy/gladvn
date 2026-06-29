@@ -1,16 +1,40 @@
-import { CalculatorIcon, CalendarIcon, CreditCardIcon, SettingsIcon, SmileIcon, UserIcon } from "lucide-react"
 import {
-  Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator, CommandShortcut
-} from "../../index"
-import { SectionHeader, ExampleSection, ExampleGrid } from "../components/showcase";
+  CalculatorIcon,
+  CalendarIcon,
+  CreditCardIcon,
+  SettingsIcon,
+  SmileIcon,
+  UserIcon,
+} from "lucide-react";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandSeparator,
+  CommandShortcut,
+} from "../../index";
+import {
+  SectionHeader,
+  ExampleSection,
+  ExampleGrid,
+} from "../components/showcase";
 
 export default function CommandShowcase() {
   return (
     <div className="space-y-10">
-      <SectionHeader title="Command" description="Fast, composable, unstyled command menu for React." />
+      <SectionHeader
+        title="Command"
+        description="Fast, composable, unstyled command menu for React."
+      />
 
       <ExampleGrid columns={2}>
-        <ExampleSection label="Default" description="Searchable command palette with grouped items.">
+        <ExampleSection
+          label="Default"
+          description="Searchable command palette with grouped items."
+        >
           <div className="border rounded-xl shadow-sm overflow-hidden bg-background w-full">
             <Command>
               <CommandInput placeholder="Type a command or search..." />
@@ -53,7 +77,10 @@ export default function CommandShowcase() {
           </div>
         </ExampleSection>
 
-        <ExampleSection label="Flat List" description="Single group without heading.">
+        <ExampleSection
+          label="Flat List"
+          description="Single group without heading."
+        >
           <div className="border rounded-xl shadow-sm overflow-hidden bg-background w-full">
             <Command>
               <CommandInput placeholder="Search actions..." />

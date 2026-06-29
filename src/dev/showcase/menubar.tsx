@@ -1,26 +1,40 @@
-import { useState } from "react";
-import { Menubar, MenubarMenu, MenubarTrigger, MenubarContent, MenubarItem, MenubarSeparator, MenubarShortcut, MonoSelect } from "../../index";
+import {
+  Menubar,
+  MenubarCheckboxItem,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarRadioGroup,
+  MenubarRadioItem,
+  MenubarSeparator,
+  MenubarShortcut,
+  MenubarSub,
+  MenubarSubContent,
+  MenubarSubTrigger,
+  MenubarTrigger,
+  MenubarGroup,
+  MenubarLabel,
+} from "../../index";
 import { SectionHeader, ExampleSection } from "../components/showcase";
+import { useState } from "react";
 
 export default function MenubarShowcase() {
-  const [globalSize, setGlobalSize] = useState<"sm" | "md" | "lg">("md");
+  const [showBookmarks, setShowBookmarks] = useState(true);
+  const [showFullUrls, setShowFullUrls] = useState(false);
+  const [profile, setProfile] = useState("pedro");
 
   return (
     <div className="space-y-10">
-      <SectionHeader title="Menubar" description="A visually persistent menu common in desktop applications.">
-        <MonoSelect
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as any)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-        />
-      </SectionHeader>
+      <SectionHeader
+        title="Menubar"
+        description="A visually persistent menu common in desktop applications."
+      />
 
-      <ExampleSection label="Desktop Menubar" description="Typically placed at the top of the app.">
-        <Menubar>
+      <ExampleSection
+        label="Full Menubar"
+        description="Menubar with submenus, checkboxes, and radio items."
+      >
+        <Menubar className="w-fit">
           <MenubarMenu>
             <MenubarTrigger>File</MenubarTrigger>
             <MenubarContent>
@@ -32,7 +46,14 @@ export default function MenubarShowcase() {
               </MenubarItem>
               <MenubarItem disabled>New Incognito Window</MenubarItem>
               <MenubarSeparator />
-              <MenubarItem>Share...</MenubarItem>
+              <MenubarSub>
+                <MenubarSubTrigger>Share</MenubarSubTrigger>
+                <MenubarSubContent>
+                  <MenubarItem>Email link</MenubarItem>
+                  <MenubarItem>Messages</MenubarItem>
+                  <MenubarItem>Notes</MenubarItem>
+                </MenubarSubContent>
+              </MenubarSub>
               <MenubarSeparator />
               <MenubarItem>
                 Print... <MenubarShortcut>⌘P</MenubarShortcut>
@@ -40,27 +61,45 @@ export default function MenubarShowcase() {
             </MenubarContent>
           </MenubarMenu>
           <MenubarMenu>
-            <MenubarTrigger>Edit</MenubarTrigger>
+            <MenubarTrigger>View</MenubarTrigger>
             <MenubarContent>
-              <MenubarItem>
-                Undo <MenubarShortcut>⌘Z</MenubarShortcut>
-              </MenubarItem>
-              <MenubarItem>
-                Redo <MenubarShortcut>⇧⌘Z</MenubarShortcut>
-              </MenubarItem>
+              <MenubarCheckboxItem
+                checked={showBookmarks}
+                onCheckedChange={setShowBookmarks}
+              >
+                Always Show Bookmarks Bar
+              </MenubarCheckboxItem>
+              <MenubarCheckboxItem
+                checked={showFullUrls}
+                onCheckedChange={setShowFullUrls}
+              >
+                Always Show Full URLs
+              </MenubarCheckboxItem>
               <MenubarSeparator />
-              <MenubarItem>Cut</MenubarItem>
-              <MenubarItem>Copy</MenubarItem>
-              <MenubarItem>Paste</MenubarItem>
+              <MenubarItem inset>
+                Reload <MenubarShortcut>⌘R</MenubarShortcut>
+              </MenubarItem>
+              <MenubarItem disabled inset>
+                Force Reload <MenubarShortcut>⇧⌘R</MenubarShortcut>
+              </MenubarItem>
             </MenubarContent>
           </MenubarMenu>
           <MenubarMenu>
-            <MenubarTrigger>View</MenubarTrigger>
+            <MenubarTrigger>Profiles</MenubarTrigger>
             <MenubarContent>
-              <MenubarItem>Always Show Bookmarks Bar</MenubarItem>
-              <MenubarItem>Always Show Full URLs</MenubarItem>
+              <MenubarGroup>
+                <MenubarLabel inset>Select Profile</MenubarLabel>
+                <MenubarSeparator />
+                <MenubarRadioGroup value={profile} onValueChange={setProfile}>
+                  <MenubarRadioItem value="pedro">Pedro</MenubarRadioItem>
+                  <MenubarRadioItem value="colm">Colm</MenubarRadioItem>
+                  <MenubarRadioItem value="andy">Andy</MenubarRadioItem>
+                </MenubarRadioGroup>
+              </MenubarGroup>
               <MenubarSeparator />
-              <MenubarItem inset>Toggle Fullscreen</MenubarItem>
+              <MenubarItem inset>Edit...</MenubarItem>
+              <MenubarSeparator />
+              <MenubarItem inset>Add Profile...</MenubarItem>
             </MenubarContent>
           </MenubarMenu>
         </Menubar>

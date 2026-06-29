@@ -1,17 +1,27 @@
-import { CalendarIcon } from "lucide-react"
+import { CalendarIcon } from "lucide-react";
 import {
-    Avatar, AvatarFallback, AvatarImage,
-    Button,
-    HoverCard, HoverCardContent, HoverCardTrigger
-} from "../../index"
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+  Button,
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "../../index";
 import { SectionHeader, ExampleSection } from "../components/showcase";
 
 export default function HoverCardShowcase() {
   return (
     <div className="space-y-10">
-      <SectionHeader title="Hover Card" description="For sighted users to preview content available behind a link." />
+      <SectionHeader
+        title="Hover Card"
+        description="For sighted users to preview content available behind a link."
+      />
 
-      <ExampleSection label="Default" description="Hover over the link to see a preview.">
+      <ExampleSection
+        label="Default"
+        description="Hover over the link to see a preview."
+      >
         <HoverCard>
           <HoverCardTrigger render={<Button variant="link" />}>
             @nextjs

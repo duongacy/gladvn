@@ -3,9 +3,11 @@
 **Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
+
 Carousel hiển thị một tập hợp items có thể scroll/navigate qua lại. BẮT BUỘC kiểm tra:
 
 ### A. Anatomy & WAI-ARIA Roles
+
 - **Carousel Container:**
   - Phải có `role="region"` hoặc `role="group"`.
   - Phải có `aria-label` mô tả carousel (vd: "Product images" hoặc "Testimonials").
@@ -24,6 +26,7 @@ Carousel hiển thị một tập hợp items có thể scroll/navigate qua lạ
   - Active dot: `aria-current="true"` hoặc `aria-pressed="true"`.
 
 ### B. Keyboard Navigation & Focus
+
 - `Tab`: Focus vào carousel controls (prev/next buttons, dots).
 - `Enter` / `Space`: Activate control.
 - **Auto-rotation:**
@@ -33,12 +36,14 @@ Carousel hiển thị một tập hợp items có thể scroll/navigate qua lạ
 - Arrow keys (nếu carousel dùng tablist pattern cho dots): roving tabindex.
 
 ### C. Standard API & Props
+
 - `orientation`: Horizontal/Vertical.
 - `autoplay` / `interval`: Auto-rotation config.
 - `loop`: Wrap-around navigation.
 - Composition: Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext.
 
 ### D. WCAG 2.2 Success Criteria
+
 - **1.3.1 Info and Relationships (A):** Carousel-slide structure.
 - **2.1.1 Keyboard (A):** Controls keyboard-accessible.
 - **2.2.1 Timing Adjustable (A):** Auto-rotation phải pausable.
@@ -53,12 +58,14 @@ Carousel hiển thị một tập hợp items có thể scroll/navigate qua lạ
 - **Readability (Rule #10):** Auto-rotation logic, scroll-snap config phải có comment.
 
 ## 3. Nhiệm vụ của bạn (AI)
+
 1. Đóng vai một W3C Auditor và Senior UI Architect.
 2. Đọc và phân tích file source code `src/components/ui/carousel.tsx`.
 3. Kiểm tra chéo, đặc biệt: **`aria-roledescription="carousel"`**, **Slide labels** ("1 of 5"), **Auto-rotation pause** (hover/focus), **Hidden slides** (aria-hidden), và **Control accessible names**.
 4. Cung cấp một báo cáo chi tiết. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff**.
 
 ### Kiểm tra Showcase (Bắt buộc)
+
 1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
@@ -66,9 +73,9 @@ Carousel hiển thị một tập hợp items có thể scroll/navigate qua lạ
 
 ## Audit Result — 2026-06-28
 
-| Rule/Tiêu chí | Verdict | Note |
-|---------------|---------|------|
-| W3C APG / ARIA | ✅ | Cấu trúc `role="region"`, `aria-roledescription="carousel"`, `role="group"` trên slide cực chuẩn. Controls có `aria-label`. |
-| 21. CSS Depth Boundary | ✅ | Không dùng deep selector, styling trực tiếp trên wrapper. |
-| Form Control Parity | ✅ | Re-use component `<Button>` cho prev/next buttons (Rule #13) |
-| Dark Mode Compliance | ✅ | Kế thừa style từ parent và Button variant, hoạt động tốt. |
+| Rule/Tiêu chí          | Verdict | Note                                                                                                                        |
+| ---------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------- |
+| W3C APG / ARIA         | ✅      | Cấu trúc `role="region"`, `aria-roledescription="carousel"`, `role="group"` trên slide cực chuẩn. Controls có `aria-label`. |
+| 21. CSS Depth Boundary | ✅      | Không dùng deep selector, styling trực tiếp trên wrapper.                                                                   |
+| Form Control Parity    | ✅      | Re-use component `<Button>` cho prev/next buttons (Rule #13)                                                                |
+| Dark Mode Compliance   | ✅      | Kế thừa style từ parent và Button variant, hoạt động tốt.                                                                   |

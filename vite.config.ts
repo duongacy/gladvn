@@ -1,9 +1,9 @@
-import { defineConfig } from "vite"
-import react from "@vitejs/plugin-react"
-import tailwindcss from "@tailwindcss/vite"
-import dts from "vite-plugin-dts"
-import { resolve } from "path"
-import pkg from "./package.json" with { type: "json" }
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
+import dts from "vite-plugin-dts";
+import { resolve } from "path";
+import pkg from "./package.json" with { type: "json" };
 
 // Externalize all dependencies + peerDep endencies
 const external = [
@@ -11,7 +11,7 @@ const external = [
   ...Object.keys(pkg.peerDependencies || {}),
   "react/jsx-runtime",
   "next-themes",
-]
+];
 
 export default defineConfig(({ command }) => ({
   plugins: [
@@ -21,11 +21,11 @@ export default defineConfig(({ command }) => ({
     // DTS only needed for build
     ...(command === "build"
       ? [
-        dts({
-          tsconfigPath: "./tsconfig.build.json",
-          rollupTypes: true,
-        }),
-      ]
+          dts({
+            tsconfigPath: "./tsconfig.build.json",
+            rollupTypes: true,
+          }),
+        ]
       : []),
   ],
   build: {
@@ -52,5 +52,4 @@ export default defineConfig(({ command }) => ({
     // Don't minify - let consumer's bundler handle it
     minify: false,
   },
-}))
-
+}));

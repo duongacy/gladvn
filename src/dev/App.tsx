@@ -1,65 +1,64 @@
-import { LayersIcon } from "lucide-react"
-import { useEffect, useState } from "react"
-import { Badge, Separator, Switch, useTheme } from "../../src/index"
-import { ALL_COMPONENTS, NAV } from "./data"
-import React, { Suspense, lazy } from "react"
-import OverviewSection from "./showcase/overview"
+import { LayersIcon } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Badge, Separator, Switch, useTheme } from "../../src/index";
+import { ALL_COMPONENTS, NAV } from "./data";
+import React, { Suspense, lazy } from "react";
+import OverviewSection from "./showcase/overview";
 
-const components: Record<string, React.LazyExoticComponent<any>> = {}
-ALL_COMPONENTS.forEach(comp => {
-  components[comp.id] = lazy(() => import(`./showcase/${comp.id}.tsx`))
-})
+const components: Record<string, React.LazyExoticComponent<any>> = {};
+ALL_COMPONENTS.forEach((comp) => {
+  components[comp.id] = lazy(() => import(`./showcase/${comp.id}.tsx`));
+});
 
 export default function App() {
-  const theme = useTheme()
+  const theme = useTheme();
   const [active, setActiveState] = useState(() => {
     if (typeof window !== "undefined") {
-      const params = new URLSearchParams(window.location.search)
-      return params.get("component") || "overview"
+      const params = new URLSearchParams(window.location.search);
+      return params.get("component") || "overview";
     }
-    return "overview"
-  })
+    return "overview";
+  });
 
   const setActive = (id: string) => {
-    setActiveState(id)
+    setActiveState(id);
     if (typeof window !== "undefined") {
-      const url = new URL(window.location.href)
-      url.searchParams.set("component", id)
-      window.history.pushState({}, "", url)
-      
+      const url = new URL(window.location.href);
+      url.searchParams.set("component", id);
+      window.history.pushState({}, "", url);
+
       setTimeout(() => {
-        const el = document.getElementById(id)
+        const el = document.getElementById(id);
         if (el) {
-          el.scrollIntoView({ behavior: "smooth" })
+          el.scrollIntoView({ behavior: "smooth" });
         }
-      }, 50)
+      }, 50);
     }
-  }
+  };
 
   useEffect(() => {
     // Initial scroll if URL has component
-    const params = new URLSearchParams(window.location.search)
-    const comp = params.get("component")
+    const params = new URLSearchParams(window.location.search);
+    const comp = params.get("component");
     if (comp) {
       setTimeout(() => {
-        const el = document.getElementById(comp)
-        if (el) el.scrollIntoView({ behavior: "smooth" })
-      }, 100)
+        const el = document.getElementById(comp);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 100);
     }
-  }, [])
+  }, []);
 
   useEffect(() => {
     const handlePopState = () => {
-      const params = new URLSearchParams(window.location.search)
-      const comp = params.get("component") || "overview"
-      setActiveState(comp)
-      const el = document.getElementById(comp)
-      if (el) el.scrollIntoView({ behavior: "smooth" })
-    }
-    window.addEventListener("popstate", handlePopState)
-    return () => window.removeEventListener("popstate", handlePopState)
-  }, [])
-
+      const params = new URLSearchParams(window.location.search);
+      const comp = params.get("component") || "overview";
+      setActiveState(comp);
+      const el = document.getElementById(comp);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    };
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
 
   const ActiveComponent = active !== "overview" ? components[active] : null;
 
@@ -72,11 +71,17 @@ export default function App() {
             <div className="size-7 rounded-[9px] bg-primary flex items-center justify-center shadow-sm border border-primary/20">
               <LayersIcon className="size-4 text-primary-foreground" />
             </div>
-            <span className="font-bold text-[15px] tracking-tight">sadcn.ui</span>
-            <Badge variant="secondary" className="text-[10px] px-1.5 py-0 font-medium">v0.2.1</Badge>
+            <span className="font-bold text-[15px] tracking-tight">
+              sadcn.ui
+            </span>
+            <Badge
+              variant="secondary"
+              className="text-[10px] px-1.5 py-0 font-medium"
+            >
+              v0.2.1
+            </Badge>
           </div>
           <div className="flex items-center gap-2">
-
             <span className="text-xs text-muted-foreground mr-1">Dark</span>
             <Switch
               checked={theme?.mode === "dark"}
@@ -92,9 +97,10 @@ export default function App() {
           <nav className="space-y-0.5">
             <button
               onClick={() => setActive("overview")}
-              className={`w-full flex items-center gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors text-left mb-2 ${active === "overview"
-                ? "bg-accent text-accent-foreground font-medium"
-                : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
+              className={`w-full flex items-center gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors text-left mb-2 ${
+                active === "overview"
+                  ? "bg-accent text-accent-foreground font-medium"
+                  : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
               }`}
             >
               <LayersIcon className="size-3.5" />
@@ -109,10 +115,11 @@ export default function App() {
               <button
                 key={id}
                 onClick={() => setActive(id)}
-                className={`w-full flex items-center gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors text-left ${active === id
-                  ? "bg-accent text-accent-foreground font-medium"
-                  : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
-                  }`}
+                className={`w-full flex items-center gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors text-left ${
+                  active === id
+                    ? "bg-accent text-accent-foreground font-medium"
+                    : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
+                }`}
               >
                 {label}
               </button>
@@ -121,7 +128,9 @@ export default function App() {
 
           <Separator className="my-4" />
           <div className="px-2 space-y-1">
-            <p className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground mb-2">Install</p>
+            <p className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground mb-2">
+              Install
+            </p>
             <div className="rounded-md bg-muted px-2.5 py-2 font-mono text-[10px] text-muted-foreground break-all">
               npm i @duongy96/sadcn
             </div>
@@ -136,10 +145,11 @@ export default function App() {
               <button
                 key={id}
                 onClick={() => setActive(id)}
-                className={`shrink-0 rounded-full px-3 py-1 text-xs font-medium transition-colors ${active === id
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-muted text-muted-foreground"
-                  }`}
+                className={`shrink-0 rounded-full px-3 py-1 text-xs font-medium transition-colors ${
+                  active === id
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-muted text-muted-foreground"
+                }`}
               >
                 {label}
               </button>
@@ -148,9 +158,15 @@ export default function App() {
 
           <div className="pb-24">
             {active === "overview" && <OverviewSection />}
-            
+
             {active !== "overview" && ActiveComponent && (
-              <Suspense fallback={<div className="p-12 text-center text-muted-foreground animate-pulse">Loading component...</div>}>
+              <Suspense
+                fallback={
+                  <div className="p-12 text-center text-muted-foreground animate-pulse">
+                    Loading component...
+                  </div>
+                }
+              >
                 <ActiveComponent />
               </Suspense>
             )}
@@ -158,5 +174,5 @@ export default function App() {
         </main>
       </div>
     </div>
-  )
+  );
 }

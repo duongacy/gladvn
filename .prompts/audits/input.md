@@ -3,9 +3,11 @@
 **Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
+
 Input (text field) là form control cơ bản nhất cho phép user nhập text. BẮT BUỘC kiểm tra:
 
 ### A. Anatomy & WAI-ARIA Roles
+
 - **Native Element:** BẮT BUỘC dùng `<input>` (hoặc base component render ra `<input>`). KHÔNG dùng `<div contenteditable>` trừ khi là rich text editor.
 - **`type` Attribute:** Phải hỗ trợ pass-through `type` prop (text, email, password, number, tel, url, search, date, etc.).
 - **Label Association:**
@@ -21,11 +23,13 @@ Input (text field) là form control cơ bản nhất cho phép user nhập text.
   - Visual indicator (dấu *) phải đi kèm programmatic indicator.
 
 ### B. Keyboard Navigation & Focus
+
 - **Auto-focus:** KHÔNG auto-focus input trừ khi nằm trong modal/dialog (WCAG 3.2.1 — On Focus).
 - **Focus Ring:** Phải hiển thị rõ ràng khi focused.
 - **Password Visibility Toggle:** Nếu có show/hide password button, button đó phải keyboard-accessible.
 
 ### C. Standard API & Props
+
 - `value` / `defaultValue` / `onChange`: Pattern Controlled & Uncontrolled chuẩn.
 - `disabled` / `readOnly`: Hai trạng thái khác nhau — disabled = không interact được, readOnly = đọc được, copy được, không sửa được.
 - `type`: HTML5 input types.
@@ -34,6 +38,7 @@ Input (text field) là form control cơ bản nhất cho phép user nhập text.
 - Forward `ref` đến native `<input>` element.
 
 ### D. WCAG 2.2 Success Criteria
+
 - **1.3.1 Info and Relationships (A):** Label phải programmatically associated, không chỉ visual.
 - **1.3.5 Identify Input Purpose (AA):** Input nên có `autocomplete` attribute khi applicable (name, email, tel, address, etc.).
 - **1.4.3 Contrast Minimum (AA):** Text trong input phải đạt 4.5:1 contrast. Placeholder text nên đạt 4.5:1 (AA) nhưng PHẢI đạt ít nhất 3:1.
@@ -54,12 +59,14 @@ Input (text field) là form control cơ bản nhất cho phép user nhập text.
 - **Base Aesthetics:** `rounded-lg border border-input bg-transparent transition-colors outline-none dark:bg-input/30`.
 
 ## 3. Nhiệm vụ của bạn (AI)
+
 1. Đóng vai một W3C Auditor và Senior UI Architect.
 2. Đọc và phân tích file source code `src/components/ui/input.tsx`.
 3. Kiểm tra chéo từng tiêu chí, đặc biệt: **Form Control Parity** (sizing chính xác pixel-perfect), **Invalid state styling** (CSS-only via `aria-invalid`), và **ref forwarding**.
 4. Cung cấp một báo cáo chi tiết về mức độ đạt chuẩn của component. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff** để hướng dẫn Refactor.
 
 ### Kiểm tra Showcase (Bắt buộc)
+
 1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo ra một block showcase chuẩn chỉnh (sử dụng `<ShowcaseBlock>` hoặc `<SectionHeader>`) và chèn vào file phù hợp nhất.
 
@@ -67,9 +74,9 @@ Input (text field) là form control cơ bản nhất cho phép user nhập text.
 
 ## Audit Result — 2026-06-28
 
-| Rule/Tiêu chí | Verdict | Note |
-|---------------|---------|------|
-| W3C APG / ARIA | ✅ | Sử dụng Base UI Input, native flow và aria attributes passthrough |
-| 21. CSS Depth Boundary | ✅ | Không có deep CSS selectors |
-| Form Control Parity | ✅ | Sizing (h-7, h-8, h-9) khớp chính xác với cheatsheet |
-| Dark Mode Compliance | ✅ | `dark:bg-input/30` và các invalid states có dark variant đầy đủ |
+| Rule/Tiêu chí          | Verdict | Note                                                              |
+| ---------------------- | ------- | ----------------------------------------------------------------- |
+| W3C APG / ARIA         | ✅      | Sử dụng Base UI Input, native flow và aria attributes passthrough |
+| 21. CSS Depth Boundary | ✅      | Không có deep CSS selectors                                       |
+| Form Control Parity    | ✅      | Sizing (h-7, h-8, h-9) khớp chính xác với cheatsheet              |
+| Dark Mode Compliance   | ✅      | `dark:bg-input/30` và các invalid states có dark variant đầy đủ   |

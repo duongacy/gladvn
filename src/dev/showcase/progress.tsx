@@ -1,47 +1,85 @@
-import { useState } from "react"
-import { Button, Progress } from "../../index"
-import { SectionHeader, ExampleSection } from "../components/showcase";
+import { useState } from "react";
+import {
+  MonoSelect,
+  Field,
+  FieldLabel,
+  FieldDescription,
+  FieldContent,
+  Progress,
+  ProgressTrack,
+  ProgressIndicator,
+  ProgressLabel,
+  ProgressValue,
+} from "../../index";
+import { Progress as MonolithicProgress } from "../../components/monolithic/progress";
+import {
+  SectionHeader,
+  ExampleSection,
+  ExampleGrid,
+} from "../components/showcase";
 
 export default function ProgressShowcase() {
-  const [progress1, setProgress1] = useState(25)
-  const [progress2, setProgress2] = useState(60)
-  const [progress3, setProgress3] = useState(90)
+  const [globalSize, setGlobalSize] = useState<"sm" | "md" | "lg">("md");
 
   return (
     <div className="space-y-10">
-      <SectionHeader title="Progress" description="Displays an indicator showing the completion progress of a task." />
+      <SectionHeader
+        title="Progress"
+        description="Displays an indicator showing the completion progress of a task."
+      >
+        <MonoSelect
+          value={globalSize}
+          onValueChange={(v) => setGlobalSize(v as any)}
+          options={[
+            { value: "sm", label: "Size: sm" },
+            { value: "md", label: "Size: md" },
+            { value: "lg", label: "Size: lg" },
+          ]}
+        />
+      </SectionHeader>
 
-      <ExampleSection label="Sizes" description="Progress bars in sm, md, and lg sizes.">
-        <div className="w-full max-w-md space-y-4">
-          <Progress value={progress1} label="Uploading" size="sm" />
-          <Progress value={progress2} label="Processing" size="md" />
-          <Progress value={progress3} label="Almost done" size="lg" />
-          <div className="flex gap-2 pt-1">
-            <Button
-              size="sm"
-              variant="outline"
-              onClick={() => {
-                setProgress1(Math.max(0, progress1 - 10))
-                setProgress2(Math.max(0, progress2 - 10))
-                setProgress3(Math.max(0, progress3 - 10))
-              }}
-            >
-              − 10%
-            </Button>
-            <Button
-              size="sm"
-              variant="outline"
-              onClick={() => {
-                setProgress1(Math.min(100, progress1 + 10))
-                setProgress2(Math.min(100, progress2 + 10))
-                setProgress3(Math.min(100, progress3 + 10))
-              }}
-            >
-              + 10%
-            </Button>
-          </div>
-        </div>
-      </ExampleSection>
+      <ExampleGrid columns={2}>
+        {/* COMPOSITIONAL */}
+        <ExampleSection
+          label="Compositional (Core)"
+          description="Standard progress bar using pure compositional API."
+        >
+          <Progress value={60} size={globalSize} className="w-[60%]">
+            <ProgressTrack>
+              <ProgressIndicator />
+            </ProgressTrack>
+          </Progress>
+        </ExampleSection>
+
+        <ExampleSection
+          label="Compositional with Label"
+          description="Using compositional parts to show label and value."
+        >
+          <Progress value={45} size={globalSize} className="w-[80%]">
+            <div className="flex items-center justify-between mb-1">
+              <ProgressLabel>Downloading...</ProgressLabel>
+              <ProgressValue />
+            </div>
+            <ProgressTrack>
+              <ProgressIndicator className="bg-primary" />
+            </ProgressTrack>
+          </Progress>
+        </ExampleSection>
+
+        {/* MONOLITHIC */}
+        <ExampleSection
+          label="Monolithic Wrapper"
+          description="Using the monolithic component for faster development."
+        >
+          <MonolithicProgress
+            value={75}
+            size={globalSize}
+            className="w-[80%]"
+            label="Uploading..."
+            showValue
+          />
+        </ExampleSection>
+      </ExampleGrid>
     </div>
   );
 }

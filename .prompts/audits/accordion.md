@@ -58,9 +58,9 @@ Khi đánh giá Accordion, BẮT BUỘC phải kiểm tra các tiêu chuẩn qu�
 
 ## Audit Result — 2026-06-28
 
-| Rule/Tiêu chí        | Verdict | Note                                                                              |
-| ---------------------- | ------- | --------------------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Base UI hỗ trợ Accordion pattern hoàn hảo, gồm header, button, region.       |
+| Rule/Tiêu chí          | Verdict | Note                                                                      |
+| ---------------------- | ------- | ------------------------------------------------------------------------- |
+| W3C APG / ARIA         | ✅      | Base UI hỗ trợ Accordion pattern hoàn hảo, gồm header, button, region.    |
 | 21. CSS Depth Boundary | ✅      | Không vi phạm. Icon xoay bằng CSS thông qua`group-aria-expanded` rất tốt. |
-| Form Control Parity    | ✅      | Focus ring đồng bộ với Button.                                                |
-| Dark Mode Compliance   | ✅      | `border`, `bg` hỗ trợ dark mode tốt.                                       |
+| Form Control Parity    | ✅      | Focus ring đồng bộ với Button.                                            |
+| Dark Mode Compliance   | ✅      | `border`, `bg` hỗ trợ dark mode tốt.                                      |

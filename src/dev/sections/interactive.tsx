@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState } from "react";
 import {
   Button,
   Badge,
@@ -62,7 +62,7 @@ import {
   FieldDescription,
   FieldError,
   FieldContent,
-} from "../../index"
+} from "../../index";
 import {
   SunIcon,
   MoonIcon,
@@ -78,14 +78,17 @@ import {
   InfoIcon,
   TriangleAlertIcon,
   XCircleIcon,
-} from "lucide-react"
+} from "lucide-react";
 
-
-import { SectionHeader, ShowcaseBlock, ColorSwatch } from "../components/showcase"
-import { VARIANTS, COLORS, SIZES, STATS, COLOR_INFO } from "../data"
+import {
+  SectionHeader,
+  ShowcaseBlock,
+  ColorSwatch,
+} from "../components/showcase";
+import { VARIANTS, COLORS, SIZES, STATS, COLOR_INFO } from "../data";
 
 export default function InteractiveSection() {
-  const [tab, setTab] = useState("preview")
+  const [tab, setTab] = useState("preview");
   return (
     <div className="space-y-5">
       <SectionHeader title="Interactive" description="Tabs, Tooltips, Switch" />
@@ -107,13 +110,20 @@ export default function InteractiveSection() {
           </TabsContent>
           <TabsContent value="props" className="pt-4">
             <div className="text-xs text-muted-foreground space-y-1">
-              <div><code>variant</code> — solid | outline | soft | ghost | link</div>
-              <div><code>color</code> — primary | secondary | destructive | warning | success | info | tertiary</div>
-              <div><code>size</code> — sm | md | lg</div>
+              <div>
+                <code>variant</code> — solid | outline | soft | ghost | link
+              </div>
+              <div>
+                <code>color</code> — primary | secondary | destructive | warning
+                | success | info | tertiary
+              </div>
+              <div>
+                <code>size</code> — sm | md | lg
+              </div>
             </div>
           </TabsContent>
         </Tabs>
       </ShowcaseBlock>
     </div>
-  )
+  );
 }

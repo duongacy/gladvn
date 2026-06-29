@@ -4,12 +4,20 @@ import { SectionHeader, ExampleSection } from "../components/showcase";
 export default function SeparatorShowcase() {
   return (
     <div className="space-y-10">
-      <SectionHeader title="Separator" description="Visually or semantically separates content." />
+      <SectionHeader
+        title="Separator"
+        description="Visually or semantically separates content."
+      />
 
-      <ExampleSection label="Default" description="Horizontal and vertical separators.">
+      <ExampleSection
+        label="Default"
+        description="Horizontal and vertical separators."
+      >
         <div className="w-full max-w-sm">
           <div className="space-y-1">
-            <h4 className="text-sm font-medium leading-none">Radix Primitives</h4>
+            <h4 className="text-sm font-medium leading-none">
+              Radix Primitives
+            </h4>
             <p className="text-sm text-muted-foreground">
               An open-source UI component library.
             </p>

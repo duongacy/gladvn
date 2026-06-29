@@ -1,27 +1,70 @@
-import { useState } from "react"
+import { useState } from "react";
 import {
-  Alert, AlertDescription, Calendar, Checkbox, Combobox, ComboboxContent, ComboboxInput,
-  ComboboxItem, ComboboxList, Field, FieldContent, FieldDescription, FieldError, FieldTitle, FieldLabel,
-  Input, InputGroup, InputGroupAddon, InputGroupInput, InputGroupText, InputOTP,
-  InputOTPGroup, InputOTPSeparator, InputOTPSlot, Label, MonoSelect, NativeSelect,
-  NativeSelectOption, RadioGroup, RadioGroupItem, Select, SelectContent, SelectGroup,
-  SelectItem, SelectLabel, SelectSeparator, SelectTrigger, SelectValue, Separator,
-  Slider, Switch, Textarea
-} from "../../index"
+  Alert,
+  AlertDescription,
+  Calendar,
+  Checkbox,
+  Combobox,
+  ComboboxContent,
+  ComboboxInput,
+  ComboboxItem,
+  ComboboxList,
+  Field,
+  FieldContent,
+  FieldDescription,
+  FieldError,
+  FieldTitle,
+  FieldLabel,
+  Input,
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+  InputGroupText,
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSeparator,
+  InputOTPSlot,
+  Label,
+  MonoSelect,
+  NativeSelect,
+  NativeSelectOption,
+  RadioGroup,
+  RadioGroupItem,
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectSeparator,
+  SelectTrigger,
+  SelectValue,
+  Separator,
+  Slider,
+  Switch,
+  Textarea,
+} from "../../index";
 
-import { SectionHeader } from "../components/showcase"
+import { SectionHeader } from "../components/showcase";
 import {
-  TypeIcon, MousePointerClickIcon, ToggleLeftIcon, LayoutTemplateIcon, TriangleAlertIcon, CalendarIcon
-} from "lucide-react"
+  TypeIcon,
+  MousePointerClickIcon,
+  ToggleLeftIcon,
+  LayoutTemplateIcon,
+  TriangleAlertIcon,
+  CalendarIcon,
+} from "lucide-react";
 
 export default function FormsSection() {
-  const [globalSize, setGlobalSize] = useState<"sm" | "md" | "lg">("md")
+  const [globalSize, setGlobalSize] = useState<"sm" | "md" | "lg">("md");
 
   return (
     <div className="space-y-6">
-      <SectionHeader title="Forms" description="Input, Select, Checkbox, Slider, Textarea and more">
-        <MonoSelect 
-          value={globalSize} 
+      <SectionHeader
+        title="Forms"
+        description="Input, Select, Checkbox, Slider, Textarea and more"
+      >
+        <MonoSelect
+          value={globalSize}
           onValueChange={(v) => setGlobalSize(v as any)}
           options={[
             { value: "sm", label: "Size: sm" },
@@ -33,7 +76,6 @@ export default function FormsSection() {
 
       {/* Masonry layout */}
       <div className="columns-1 md:columns-2 gap-6 space-y-6 [&>div]:break-inside-avoid">
-
         {/* 1. TEXT FIELDS */}
         <div className="rounded-2xl border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md flex flex-col gap-5">
           <div className="flex items-center gap-3 mb-2">
@@ -42,16 +84,24 @@ export default function FormsSection() {
             </div>
             <div>
               <h3 className="font-semibold text-base">Text Fields</h3>
-              <p className="text-xs text-muted-foreground">Standard text input and entry</p>
+              <p className="text-xs text-muted-foreground">
+                Standard text input and entry
+              </p>
             </div>
           </div>
-          
+
           <div className="space-y-4">
             <Field size={globalSize}>
               <FieldLabel htmlFor="tf-input">Default Input</FieldLabel>
-              <FieldDescription>A standard text input for short strings like names or titles.</FieldDescription>
+              <FieldDescription>
+                A standard text input for short strings like names or titles.
+              </FieldDescription>
               <FieldContent>
-                <Input id="tf-input" size={globalSize} placeholder="Enter value..." />
+                <Input
+                  id="tf-input"
+                  size={globalSize}
+                  placeholder="Enter value..."
+                />
               </FieldContent>
             </Field>
 
@@ -59,9 +109,16 @@ export default function FormsSection() {
 
             <Field size={globalSize}>
               <FieldLabel htmlFor="tf-textarea">Textarea</FieldLabel>
-              <FieldDescription>Best suited for long-form content, feedback, or biographies.</FieldDescription>
+              <FieldDescription>
+                Best suited for long-form content, feedback, or biographies.
+              </FieldDescription>
               <FieldContent>
-                <Textarea id="tf-textarea" size={globalSize} rows={3} placeholder="Write something..." />
+                <Textarea
+                  id="tf-textarea"
+                  size={globalSize}
+                  rows={3}
+                  placeholder="Write something..."
+                />
               </FieldContent>
             </Field>
 
@@ -69,7 +126,9 @@ export default function FormsSection() {
 
             <Field size={globalSize}>
               <FieldLabel htmlFor="tf-group">Input Group</FieldLabel>
-              <FieldDescription>Combine text inputs with addons for things like URLs or prices.</FieldDescription>
+              <FieldDescription>
+                Combine text inputs with addons for things like URLs or prices.
+              </FieldDescription>
               <FieldContent>
                 <InputGroup size={globalSize}>
                   <InputGroupAddon>
@@ -87,7 +146,9 @@ export default function FormsSection() {
 
             <Field size={globalSize}>
               <FieldLabel htmlFor="tf-otp-0">Input OTP</FieldLabel>
-              <FieldDescription>Enter the 6-digit code sent to your phone number.</FieldDescription>
+              <FieldDescription>
+                Enter the 6-digit code sent to your phone number.
+              </FieldDescription>
               <FieldContent>
                 <InputOTP id="tf-otp-0" size={globalSize} maxLength={6}>
                   <InputOTPGroup>
@@ -112,7 +173,9 @@ export default function FormsSection() {
             </div>
             <div>
               <h3 className="font-semibold text-base">Pickers & Dropdowns</h3>
-              <p className="text-xs text-muted-foreground">Selection controls and lists</p>
+              <p className="text-xs text-muted-foreground">
+                Selection controls and lists
+              </p>
             </div>
           </div>
 
@@ -136,7 +199,9 @@ export default function FormsSection() {
 
             <Field size={globalSize}>
               <FieldLabel>Select (Grouped)</FieldLabel>
-              <FieldDescription>Options can be visually grouped with labels.</FieldDescription>
+              <FieldDescription>
+                Options can be visually grouped with labels.
+              </FieldDescription>
               <FieldContent>
                 <Select>
                   <SelectTrigger size={globalSize}>
@@ -175,7 +240,9 @@ export default function FormsSection() {
 
             <Field size={globalSize}>
               <FieldLabel htmlFor="id1">Native Select</FieldLabel>
-              <FieldDescription>Uses the browser's built-in dropdown menu. Great for mobile.</FieldDescription>
+              <FieldDescription>
+                Uses the browser's built-in dropdown menu. Great for mobile.
+              </FieldDescription>
               <FieldContent>
                 <NativeSelect id="id1" size={globalSize} defaultValue="mac">
                   <NativeSelectOption value="mac">macOS</NativeSelectOption>
@@ -189,10 +256,15 @@ export default function FormsSection() {
 
             <Field size={globalSize}>
               <FieldLabel>Combobox</FieldLabel>
-              <FieldDescription>A select input that allows searching through large datasets.</FieldDescription>
+              <FieldDescription>
+                A select input that allows searching through large datasets.
+              </FieldDescription>
               <FieldContent>
                 <Combobox>
-                  <ComboboxInput size={globalSize} placeholder="Search framework..." />
+                  <ComboboxInput
+                    size={globalSize}
+                    placeholder="Search framework..."
+                  />
                   <ComboboxContent>
                     <ComboboxList>
                       <ComboboxItem value="react">React</ComboboxItem>
@@ -214,17 +286,28 @@ export default function FormsSection() {
             </div>
             <div>
               <h3 className="font-semibold text-base">Toggles & Selectors</h3>
-              <p className="text-xs text-muted-foreground">Switches, radios, and sliders</p>
+              <p className="text-xs text-muted-foreground">
+                Switches, radios, and sliders
+              </p>
             </div>
           </div>
 
           <div className="space-y-5">
             <div className="space-y-2">
-              <Label size={globalSize} className="mb-2 block text-muted-foreground">Checkboxes</Label>
+              <Label
+                size={globalSize}
+                className="mb-2 block text-muted-foreground"
+              >
+                Checkboxes
+              </Label>
               <div className="space-y-3">
                 {["TypeScript", "ESLint", "Tailwind CSS"].map((item) => (
                   <Field orientation="horizontal" size={globalSize} key={item}>
-                    <Checkbox size={globalSize} id={`check-${item}`} defaultChecked={item === "TypeScript"} />
+                    <Checkbox
+                      size={globalSize}
+                      id={`check-${item}`}
+                      defaultChecked={item === "TypeScript"}
+                    />
                     <FieldLabel htmlFor={`check-${item}`}>{item}</FieldLabel>
                   </Field>
                 ))}
@@ -234,14 +317,23 @@ export default function FormsSection() {
             <Separator />
 
             <div className="space-y-2">
-              <Label size={globalSize} className="mb-2 block text-muted-foreground">Radio Group</Label>
+              <Label
+                size={globalSize}
+                className="mb-2 block text-muted-foreground"
+              >
+                Radio Group
+              </Label>
               <RadioGroup defaultValue="comfortable" className="space-y-1">
                 <Field orientation="horizontal" size={globalSize}>
                   <RadioGroupItem size={globalSize} value="default" id="r1" />
                   <FieldLabel htmlFor="r1">Default</FieldLabel>
                 </Field>
                 <Field orientation="horizontal" size={globalSize}>
-                  <RadioGroupItem size={globalSize} value="comfortable" id="r2" />
+                  <RadioGroupItem
+                    size={globalSize}
+                    value="comfortable"
+                    id="r2"
+                  />
                   <FieldLabel htmlFor="r2">Comfortable</FieldLabel>
                 </Field>
                 <Field orientation="horizontal" size={globalSize}>
@@ -254,12 +346,26 @@ export default function FormsSection() {
             <Separator />
 
             <div className="space-y-3">
-              <Label size={globalSize} className="mb-2 block text-muted-foreground">Switches</Label>
+              <Label
+                size={globalSize}
+                className="mb-2 block text-muted-foreground"
+              >
+                Switches
+              </Label>
               <div className="space-y-4">
                 {["Notifications", "Dark Mode", "Auto-save"].map((item, i) => (
-                  <Field orientation="horizontal" size={globalSize} key={item} className="justify-between">
+                  <Field
+                    orientation="horizontal"
+                    size={globalSize}
+                    key={item}
+                    className="justify-between"
+                  >
                     <FieldLabel htmlFor={`switch-${item}`}>{item}</FieldLabel>
-                    <Switch id={`switch-${item}`} size={globalSize} defaultChecked={i === 0} />
+                    <Switch
+                      id={`switch-${item}`}
+                      size={globalSize}
+                      defaultChecked={i === 0}
+                    />
                   </Field>
                 ))}
               </div>
@@ -271,14 +377,26 @@ export default function FormsSection() {
               <Field size={globalSize}>
                 <FieldLabel>Slider (Volume)</FieldLabel>
                 <FieldContent>
-                  <Slider size={globalSize} defaultValue={[60]} max={100} step={1} />
+                  <Slider
+                    size={globalSize}
+                    defaultValue={[60]}
+                    max={100}
+                    step={1}
+                  />
                 </FieldContent>
-                <FieldDescription>Adjust the media volume globally.</FieldDescription>
+                <FieldDescription>
+                  Adjust the media volume globally.
+                </FieldDescription>
               </Field>
               <Field size={globalSize}>
                 <FieldLabel>Slider (Range)</FieldLabel>
                 <FieldContent>
-                  <Slider size={globalSize} defaultValue={[20, 80]} max={100} step={1} />
+                  <Slider
+                    size={globalSize}
+                    defaultValue={[20, 80]}
+                    max={100}
+                    step={1}
+                  />
                 </FieldContent>
               </Field>
             </div>
@@ -293,16 +411,27 @@ export default function FormsSection() {
             </div>
             <div>
               <h3 className="font-semibold text-base">Form Field Layout</h3>
-              <p className="text-xs text-muted-foreground">Composition & structure</p>
+              <p className="text-xs text-muted-foreground">
+                Composition & structure
+              </p>
             </div>
           </div>
           <Field size={globalSize}>
             <FieldLabel htmlFor="layout-email">Email address</FieldLabel>
-            <FieldDescription>We will not share your email with anyone.</FieldDescription>
+            <FieldDescription>
+              We will not share your email with anyone.
+            </FieldDescription>
             <FieldContent>
-              <Input id="layout-email" size={globalSize} type="email" placeholder="you@example.com" />
+              <Input
+                id="layout-email"
+                size={globalSize}
+                type="email"
+                placeholder="you@example.com"
+              />
             </FieldContent>
-            <FieldError errors={[{ message: "Please enter a valid email address." }]} />
+            <FieldError
+              errors={[{ message: "Please enter a valid email address." }]}
+            />
           </Field>
         </div>
 
@@ -314,11 +443,19 @@ export default function FormsSection() {
             </div>
             <div>
               <h3 className="font-semibold text-base">Calendar</h3>
-              <p className="text-xs text-muted-foreground">Date picker component</p>
+              <p className="text-xs text-muted-foreground">
+                Date picker component
+              </p>
             </div>
           </div>
           <div className="flex justify-center rounded-xl border p-2 bg-card">
-            <Calendar size={globalSize} mode="single" captionLayout="dropdown" startMonth={new Date(1990, 0)} endMonth={new Date(2050, 11)} />
+            <Calendar
+              size={globalSize}
+              mode="single"
+              captionLayout="dropdown"
+              startMonth={new Date(1990, 0)}
+              endMonth={new Date(2050, 11)}
+            />
           </div>
         </div>
 
@@ -330,57 +467,105 @@ export default function FormsSection() {
             </div>
             <div>
               <h3 className="font-semibold text-base">Validation UX</h3>
-              <p className="text-xs text-muted-foreground">Error states and feedback</p>
+              <p className="text-xs text-muted-foreground">
+                Error states and feedback
+              </p>
             </div>
           </div>
 
           <div className="space-y-5">
             <Alert color="destructive" className="py-2.5">
               <AlertDescription className="text-xs">
-                <strong>New Parity UX:</strong> Error states only show a red ring when the user focuses/tabs into the field. Otherwise, they just show a red border. Try clicking them below!
+                <strong>New Parity UX:</strong> Error states only show a red
+                ring when the user focuses/tabs into the field. Otherwise, they
+                just show a red border. Try clicking them below!
               </AlertDescription>
             </Alert>
 
             <div className="space-y-6">
               <Field size={globalSize}>
                 <FieldLabel htmlFor="err-input-username">Username</FieldLabel>
-                <FieldDescription>Choose a unique identifier for your profile.</FieldDescription>
+                <FieldDescription>
+                  Choose a unique identifier for your profile.
+                </FieldDescription>
                 <FieldContent>
-                  <Input id="err-input-username" size={globalSize} aria-invalid placeholder="e.g. john_doe" />
+                  <Input
+                    id="err-input-username"
+                    size={globalSize}
+                    aria-invalid
+                    placeholder="e.g. john_doe"
+                  />
                 </FieldContent>
-                <FieldError errors={[{ message: "Username is already taken by another user." }]} />
+                <FieldError
+                  errors={[
+                    { message: "Username is already taken by another user." },
+                  ]}
+                />
               </Field>
 
               <Field size={globalSize}>
                 <FieldLabel htmlFor="err-group">Social Handle</FieldLabel>
                 <FieldContent>
                   <InputGroup size={globalSize}>
-                    <InputGroupAddon><InputGroupText>@</InputGroupText></InputGroupAddon>
-                    <InputGroupInput id="err-group" aria-invalid placeholder="username" />
+                    <InputGroupAddon>
+                      <InputGroupText>@</InputGroupText>
+                    </InputGroupAddon>
+                    <InputGroupInput
+                      id="err-group"
+                      aria-invalid
+                      placeholder="username"
+                    />
                   </InputGroup>
                 </FieldContent>
-                <FieldError errors={[{ message: "Invalid characters in handle." }]} />
+                <FieldError
+                  errors={[{ message: "Invalid characters in handle." }]}
+                />
               </Field>
 
               <Field size={globalSize}>
                 <FieldLabel>Subscription Plan</FieldLabel>
                 <FieldContent>
                   <Select>
-                    <SelectTrigger size={globalSize} aria-invalid><SelectValue placeholder="Invalid selection..." /></SelectTrigger>
-                    <SelectContent><SelectItem value="1">Pro Plan</SelectItem></SelectContent>
+                    <SelectTrigger size={globalSize} aria-invalid>
+                      <SelectValue placeholder="Invalid selection..." />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="1">Pro Plan</SelectItem>
+                    </SelectContent>
                   </Select>
                 </FieldContent>
-                <FieldError errors={[{ message: "This plan requires a valid credit card on file." }]} />
+                <FieldError
+                  errors={[
+                    {
+                      message:
+                        "This plan requires a valid credit card on file.",
+                    },
+                  ]}
+                />
               </Field>
 
               <Field size={globalSize}>
                 <FieldLabel htmlFor="err-native">Country</FieldLabel>
                 <FieldContent>
-                  <NativeSelect id="err-native" size={globalSize} aria-invalid defaultValue="">
-                    <NativeSelectOption value="" disabled>Select option...</NativeSelectOption>
+                  <NativeSelect
+                    id="err-native"
+                    size={globalSize}
+                    aria-invalid
+                    defaultValue=""
+                  >
+                    <NativeSelectOption value="" disabled>
+                      Select option...
+                    </NativeSelectOption>
                   </NativeSelect>
                 </FieldContent>
-                <FieldError errors={[{ message: "Service is not available in the selected region." }]} />
+                <FieldError
+                  errors={[
+                    {
+                      message:
+                        "Service is not available in the selected region.",
+                    },
+                  ]}
+                />
               </Field>
 
               <Field size={globalSize}>
@@ -394,41 +579,63 @@ export default function FormsSection() {
                     </InputOTPGroup>
                   </InputOTP>
                 </FieldContent>
-                <FieldError errors={[{ message: "The code you entered has expired." }]} />
+                <FieldError
+                  errors={[{ message: "The code you entered has expired." }]}
+                />
               </Field>
 
               <div className="flex flex-col gap-4 pt-3">
                 <Field orientation="horizontal" size={globalSize}>
                   <Checkbox size={globalSize} aria-invalid id="err-check2" />
                   <FieldContent>
-                    <FieldLabel htmlFor="err-check2">Accept Terms & Conditions</FieldLabel>
-                    <FieldError errors={[{ message: "You must accept the terms to proceed." }]} />
+                    <FieldLabel htmlFor="err-check2">
+                      Accept Terms & Conditions
+                    </FieldLabel>
+                    <FieldError
+                      errors={[
+                        { message: "You must accept the terms to proceed." },
+                      ]}
+                    />
                   </FieldContent>
                 </Field>
-                
+
                 <RadioGroup defaultValue="">
                   <Field orientation="horizontal" size={globalSize}>
-                    <RadioGroupItem size={globalSize} aria-invalid value="1" id="err-radio2" />
+                    <RadioGroupItem
+                      size={globalSize}
+                      aria-invalid
+                      value="1"
+                      id="err-radio2"
+                    />
                     <FieldContent>
-                      <FieldLabel htmlFor="err-radio2">Agree to Marketing Emails</FieldLabel>
-                      <FieldError errors={[{ message: "Please make a valid selection." }]} />
+                      <FieldLabel htmlFor="err-radio2">
+                        Agree to Marketing Emails
+                      </FieldLabel>
+                      <FieldError
+                        errors={[{ message: "Please make a valid selection." }]}
+                      />
                     </FieldContent>
                   </Field>
                 </RadioGroup>
-                
+
                 <Field orientation="horizontal" size={globalSize}>
                   <Switch size={globalSize} aria-invalid id="err-switch2" />
                   <FieldContent>
                     <FieldLabel htmlFor="err-switch2">Enable 2FA</FieldLabel>
-                    <FieldError errors={[{ message: "You cannot disable 2FA for admin accounts." }]} />
+                    <FieldError
+                      errors={[
+                        {
+                          message: "You cannot disable 2FA for admin accounts.",
+                        },
+                      ]}
+                    />
                   </FieldContent>
                 </Field>
               </div>
             </div>
           </div>
         </div>
-
       </div>
     </div>
-  )
+  );
 }

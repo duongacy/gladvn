@@ -13,43 +13,43 @@ Tiến trình audit và refactor các UI components theo chuẩn thiết kế m�
 
 ### Form Controls (Đã chuẩn hoá Parity & Error Ring)
 
-- [X] `input.tsx`
-- [X] `textarea.tsx`
-- [X] `select.tsx`
-- [X] `native-select.tsx`
-- [X] `checkbox.tsx`
-- [X] `radio-group.tsx`
-- [X] `switch.tsx`
-- [X] `slider.tsx`
-- [X] `input-otp.tsx`
-- [X] `combobox.tsx`
-- [X] `input-group.tsx`
-- [X] `label.tsx`
-- [X] `field.tsx`
+- [x] `input.tsx`
+- [x] `textarea.tsx`
+- [x] `select.tsx`
+- [x] `native-select.tsx`
+- [x] `checkbox.tsx`
+- [x] `radio-group.tsx`
+- [x] `switch.tsx`
+- [x] `slider.tsx`
+- [x] `input-otp.tsx`
+- [x] `combobox.tsx`
+- [x] `input-group.tsx`
+- [x] `label.tsx`
+- [x] `field.tsx`
 
 ### Actions & Toggles
 
-- [X] `button.tsx` (Đạt chuẩn màu tự động nhờ Token)
-- [X] `toggle.tsx`
-- [X] `button-group.tsx`
+- [x] `button.tsx` (Đạt chuẩn màu tự động nhờ Token)
+- [x] `toggle.tsx`
+- [x] `button-group.tsx`
 
 ### Core/Utilities
 
-- [X] `theme-provider.tsx` (Infrastructure, hỗ trợ light/dark mode explicit)
+- [x] `theme-provider.tsx` (Infrastructure, hỗ trợ light/dark mode explicit)
 
 ### Data Display
 
-- [X] `avatar.tsx` (Kiệt tác CSS Delegated Logic)
-- [X] `badge.tsx` (Loại bỏ aria-invalid & 3 sizes, đồng bộ color/variant)
-- [X] `accordion.tsx`
+- [x] `avatar.tsx` (Kiệt tác CSS Delegated Logic)
+- [x] `badge.tsx` (Loại bỏ aria-invalid & 3 sizes, đồng bộ color/variant)
+- [x] `accordion.tsx`
 
 ### Feedback & Loading
 
-- [X] `alert.tsx`
-- [X] `progress.tsx`
-- [X] `skeleton.tsx`
-- [X] `spinner.tsx`
-- [X] `sonner.tsx`
+- [x] `alert.tsx`
+- [x] `progress.tsx`
+- [x] `skeleton.tsx`
+- [x] `spinner.tsx`
+- [x] `sonner.tsx`
 
 ---
 

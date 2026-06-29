@@ -5,20 +5,20 @@
  * - Form Control Parity
  * - CSS Delegated Logic
  */
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-type ThemeMode = "light" | "dark"
+type ThemeMode = "light" | "dark";
 
 interface ThemeContextValue {
-  mode: ThemeMode
-  setMode: (mode: ThemeMode) => void
+  mode: ThemeMode;
+  setMode: (mode: ThemeMode) => void;
 }
 
 const ThemeContext = React.createContext<ThemeContextValue | undefined>(
-  undefined
-)
+  undefined,
+);
 
 /**
  * Read the current theme context from the nearest ThemeProvider.
@@ -32,7 +32,7 @@ const ThemeContext = React.createContext<ThemeContextValue | undefined>(
  * ```
  */
 function useTheme(): ThemeContextValue | undefined {
-  return React.useContext(ThemeContext)
+  return React.useContext(ThemeContext);
 }
 
 /**
@@ -68,24 +68,24 @@ function ThemeProvider({
   isRoot = false,
   children,
 }: {
-  initialMode?: ThemeMode
-  isRoot?: boolean
-  children: React.ReactNode
+  initialMode?: ThemeMode;
+  isRoot?: boolean;
+  children: React.ReactNode;
 }) {
-  const [mode, setMode] = React.useState<ThemeMode>(initialMode)
+  const [mode, setMode] = React.useState<ThemeMode>(initialMode);
 
   // Only sync to <html> when this is the root provider
   React.useEffect(() => {
-    if (!isRoot) return
-    const root = document.documentElement
-    root.classList.toggle("dark", mode === "dark")
-    root.classList.toggle("light", mode === "light")
-  }, [mode, isRoot])
+    if (!isRoot) return;
+    const root = document.documentElement;
+    root.classList.toggle("dark", mode === "dark");
+    root.classList.toggle("light", mode === "light");
+  }, [mode, isRoot]);
 
   const value = React.useMemo<ThemeContextValue>(
     () => ({ mode, setMode }),
-    [mode]
-  )
+    [mode],
+  );
 
   return (
     <ThemeContext.Provider value={value}>
@@ -93,7 +93,7 @@ function ThemeProvider({
         {children}
       </div>
     </ThemeContext.Provider>
-  )
+  );
 }
 
 /**
@@ -104,18 +104,18 @@ function ThemeProvider({
  * (no wrapper div), falling back to the global theme on <html>.
  */
 function ThemeWrapper({ children }: { children: React.ReactNode }) {
-  const theme = useTheme()
+  const theme = useTheme();
 
   if (!theme) {
-    return <>{children}</>
+    return <>{children}</>;
   }
 
   return (
     <div className={theme.mode} style={{ display: "contents" }}>
       {children}
     </div>
-  )
+  );
 }
 
-export { ThemeProvider, ThemeWrapper, useTheme }
-export type { ThemeMode }
+export { ThemeProvider, ThemeWrapper, useTheme };
+export type { ThemeMode };

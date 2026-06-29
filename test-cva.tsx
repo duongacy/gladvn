@@ -12,5 +12,5 @@ const inputOTPVariants = cva(
     defaultVariants: {
       size: "md",
     },
-  }
+  },
 );

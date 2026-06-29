@@ -101,6 +101,7 @@ rounded-lg border border-input bg-transparent transition-colors outline-none dar
 sadcn sử dụng semantic CSS tokens (không hardcode màu). Mỗi token (`--background`, `--foreground`, `--card`, ...) đều có giá trị riêng biệt cho light và dark. Khi audit, BẮT BUỘC kiểm tra các tiêu chí sau:
 
 ### A. Nguyên tắc nền tảng
+
 - **Không hardcode màu** — Cấm dùng `bg-white`, `text-black`, `border-gray-200` trực tiếp. PHẢI dùng semantic token như `bg-background`, `text-foreground`, `border-border`.
 - **Tin tưởng vào token** — Nếu component chỉ dùng semantic tokens, nó tự động đúng ở dark mode mà không cần thêm class `dark:`.
 - **`dark:` class chỉ dùng cho edge case** — Ví dụ: `dark:bg-input/30` (input trên dark cần background khác), `dark:aria-invalid:border-destructive/50` (giảm cường độ màu lỗi trên nền tối).
@@ -108,32 +109,39 @@ sadcn sử dụng semantic CSS tokens (không hardcode màu). Mỗi token (`--ba
 ### B. Các hạng mục bắt buộc kiểm tra
 
 **1. Overlay / Backdrop**
+
 - `bg-black/10`, `bg-black/50`... trên dark background: backdrop có đủ tối để phân biệt modal với content không?
 - Không dùng `bg-white/80` cho overlay vì sẽ sáng loá trên dark mode.
 
 **2. Border Legibility**
+
 - `border-input`, `border-border` đều có dark mode variant — chỉ cần dùng đúng token là đủ.
 - Cảnh báo: `border-{color}/15` trên dark background có thể quá mờ, cần kiểm tra contrast thực tế.
 
 **3. Focus Ring (WCAG 2.4.7)**
+
 - `ring-ring/50` — `--ring` token có đủ contrast trên nền tối không?
 - Không ép hardcode `ring-white` chỉ để giải quyết dark mode — dùng token.
 
 **4. Severity Colors (Alert, Badge, Toast...)**
+
 - Màu `text-info`, `text-destructive`, `text-success`, `text-warning` trên `bg-{color}/5` ở dark mode:
   - Background 5% opacity rất mỏng — phải đảm bảo text vẫn đạt contrast ratio 4.5:1 (WCAG 1.4.3).
   - Nếu dùng `border-{color}/15` — kiểm tra viền có đủ visible trên dark background.
 
 **5. Glassmorphism / Blur Effects**
+
 - `bg-popover/80 backdrop-blur` — Màu popover trên dark phải đảm bảo text trong overlay đọc được.
 - `supports-backdrop-filter:backdrop-blur-xs` — Cần test thực tế trên trình duyệt không hỗ trợ backdrop-filter.
 
 ### C. WCAG Success Criteria liên quan đến Dark Mode
+
 - **1.4.3 Contrast Minimum (AA):** Text contrast ≥ 4.5:1 (body), ≥ 3:1 (large text/headings).
 - **1.4.11 Non-text Contrast (AA):** Border, icon, focus ring ≥ 3:1 so với background.
 - **1.4.1 Use of Color (A):** Không chỉ dựa vào màu để truyền tải thông tin (áp dụng cả light lẫn dark).
 
 ### D. Verdict Format cho Dark Mode
+
 Trong bảng audit (Bước 2), thêm một dòng riêng:
 
 | — | Dark Mode Compliance | ✅/❌/⚠️ | Note |

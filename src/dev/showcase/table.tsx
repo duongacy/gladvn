@@ -1,20 +1,27 @@
 import {
-    Table,
-    TableBody,
-    TableCaption,
-    TableCell,
-    TableHead,
-    TableHeader,
-    TableRow
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+  TableFooter,
 } from "../../index";
 import { SectionHeader, ExampleSection } from "../components/showcase";
 
 export default function TableShowcase() {
   return (
     <div className="space-y-10">
-      <SectionHeader title="Table" description="A responsive table component." />
+      <SectionHeader
+        title="Table"
+        description="A responsive table component."
+      />
 
-      <ExampleSection label="Default" description="Standard table with caption.">
+      <ExampleSection
+        label="Default"
+        description="Standard table with caption."
+      >
         <Table>
           <TableCaption>A list of your recent invoices.</TableCaption>
           <TableHeader>
@@ -39,6 +46,12 @@ export default function TableShowcase() {
               <TableCell className="text-right">$150.00</TableCell>
             </TableRow>
           </TableBody>
+          <TableFooter>
+            <TableRow>
+              <TableCell colSpan={3}>Total</TableCell>
+              <TableCell className="text-right">$2,500.00</TableCell>
+            </TableRow>
+          </TableFooter>
         </Table>
       </ExampleSection>
     </div>

@@ -3,9 +3,11 @@
 **Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
+
 Collapsible (Disclosure) cho phép user toggle visibility của một content section. BẮT BUỘC kiểm tra:
 
 ### A. Anatomy & WAI-ARIA Roles
+
 - **Trigger (Button):**
   - Phải dùng `<button>` element.
   - Phải có `aria-expanded="true"` (open) hoặc `"false"` (closed).
@@ -17,16 +19,19 @@ Collapsible (Disclosure) cho phép user toggle visibility của một content se
   - KHÔNG cần `role="region"` (khác Accordion — Collapsible là standalone, không thuộc group).
 
 ### B. Keyboard Navigation & Focus
+
 - `Enter` / `Space` trên trigger: Toggle content.
 - `Tab`: Focus di chuyển tự nhiên. Khi content open, Tab di chuyển vào content. Khi closed, Tab skip qua content.
 - KHÔNG cần arrow key navigation (đây là single disclosure, không phải group).
 
 ### C. Standard API & Props
+
 - `open` / `defaultOpen` / `onOpenChange`: Pattern Controlled & Uncontrolled.
 - `disabled`: Vô hiệu hoá toggle.
 - Composition: Root, Trigger, Content.
 
 ### D. WCAG 2.2 Success Criteria
+
 - **1.3.1 Info and Relationships (A):** Trigger-content relationship qua `aria-expanded` + `aria-controls`.
 - **2.1.1 Keyboard (A):** Enter/Space toggle.
 - **2.4.7 Focus Visible (AA):** Focus ring trên trigger.
@@ -40,12 +45,14 @@ Collapsible (Disclosure) cho phép user toggle visibility của một content se
 - **Zero-Prop Defaults (Rule #1):** `<Collapsible>` mặc định closed.
 
 ## 3. Nhiệm vụ của bạn (AI)
+
 1. Đóng vai một W3C Auditor và Senior UI Architect.
 2. Đọc và phân tích file source code `src/components/ui/collapsible.tsx`.
 3. Kiểm tra chéo, đặc biệt: **`aria-expanded` + `aria-controls` wiring**, **CSS animation** (grid-template-rows hoặc max-height), **Content hiding** (hoàn toàn ẩn khi closed), và **Chevron rotation CSS**.
 4. Cung cấp một báo cáo chi tiết. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff**.
 
 ### Kiểm tra Showcase (Bắt buộc)
+
 1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
@@ -53,9 +60,9 @@ Collapsible (Disclosure) cho phép user toggle visibility của một content se
 
 ## Audit Result — 2026-06-28
 
-| Rule/Tiêu chí | Verdict | Note |
-|---------------|---------|------|
-| W3C APG / ARIA | ✅ | Base UI hỗ trợ `aria-expanded` và focus management hoàn hảo. |
-| 21. CSS Depth Boundary | ✅ | Không vi phạm. |
-| Form Control Parity | ✅ | Kế thừa trực tiếp cấu trúc HTML/CSS chuẩn. |
-| Dark Mode Compliance | ✅ | Hoàn toàn tương thích do không áp đặt màu sắc cứng. |
+| Rule/Tiêu chí          | Verdict | Note                                                         |
+| ---------------------- | ------- | ------------------------------------------------------------ |
+| W3C APG / ARIA         | ✅      | Base UI hỗ trợ `aria-expanded` và focus management hoàn hảo. |
+| 21. CSS Depth Boundary | ✅      | Không vi phạm.                                               |
+| Form Control Parity    | ✅      | Kế thừa trực tiếp cấu trúc HTML/CSS chuẩn.                   |
+| Dark Mode Compliance   | ✅      | Hoàn toàn tương thích do không áp đặt màu sắc cứng.          |

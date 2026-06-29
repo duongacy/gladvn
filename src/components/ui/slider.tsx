@@ -5,14 +5,15 @@
  * - Form Control Parity
  * - CSS Delegated Logic
  */
-import { Slider as SliderPrimitive } from "@base-ui/react/slider"
-import { cva, type VariantProps } from "class-variance-authority"
+import * as React from "react";
+import { Slider as SliderPrimitive } from "@base-ui/react/slider";
+import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "../../lib/utils"
+import { cn } from "../../lib/utils";
 
 const sliderVariants = cva(
-  "peer group/slider data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full"
-)
+  "peer group/slider data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full",
+);
 
 const trackVariants = cva(
   "relative grow overflow-hidden rounded-full bg-muted select-none data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full",
@@ -27,8 +28,8 @@ const trackVariants = cva(
     defaultVariants: {
       size: "md",
     },
-  }
-)
+  },
+);
 
 const thumbVariants = cva(
   "relative block shrink-0 rounded-full border border-ring bg-background ring-ring/50 transition-[color,box-shadow] select-none after:absolute after:-inset-2 focus-visible:ring-3 focus-visible:ring-offset-1 focus-visible:ring-offset-background has-[:focus-visible]:ring-3 has-[:focus-visible]:ring-offset-1 has-[:focus-visible]:ring-offset-background focus-visible:outline-none has-[:focus-visible]:outline-none disabled:pointer-events-none group-aria-invalid/slider:border-destructive group-aria-invalid/slider:focus-visible:border-destructive group-aria-invalid/slider:has-[:focus-visible]:border-destructive group-aria-invalid/slider:focus-visible:ring-destructive/50 group-aria-invalid/slider:has-[:focus-visible]:ring-destructive/50 dark:group-aria-invalid/slider:focus-visible:ring-destructive/50 dark:group-aria-invalid/slider:has-[:focus-visible]:ring-destructive/50",
@@ -43,55 +44,79 @@ const thumbVariants = cva(
     defaultVariants: {
       size: "md",
     },
-  }
-)
+  },
+);
+
+const SliderContext = React.createContext<{ size: "sm" | "md" | "lg" }>({
+  size: "md",
+});
 
 function Slider({
   className,
-  defaultValue,
-  value,
-  min = 0,
-  max = 100,
   size = "md",
   ...props
-}: SliderPrimitive.Root.Props & VariantProps<typeof thumbVariants>) {
-  const _values = (() => {
-    if (Array.isArray(value)) return value
-    if (Array.isArray(defaultValue)) return defaultValue
-    return [min, max]
-  })()
-
+}: SliderPrimitive.Root.Props & { size?: "sm" | "md" | "lg" }) {
   return (
-    <SliderPrimitive.Root
-      className={cn(sliderVariants({ className }))}
-      data-slot="slider"
-      defaultValue={defaultValue}
-      value={value}
-      min={min}
-      max={max}
-      thumbAlignment="edge"
-      {...props}
-    >
-      <SliderPrimitive.Control className="relative flex w-full touch-none items-center select-none data-disabled:opacity-50 data-disabled:cursor-not-allowed data-[orientation=vertical]:h-full data-[orientation=vertical]:min-h-40 data-[orientation=vertical]:w-auto data-[orientation=vertical]:flex-col">
-        <SliderPrimitive.Track
-          data-slot="slider-track"
-          className={cn(trackVariants({ size }))}
-        >
-          <SliderPrimitive.Indicator
-            data-slot="slider-range"
-            className="group-aria-invalid/slider:bg-destructive bg-primary select-none data-[orientation=horizontal]:h-full data-[orientation=vertical]:w-full"
-          />
-        </SliderPrimitive.Track>
-        {Array.from({ length: _values.length }, (_, index) => (
-          <SliderPrimitive.Thumb
-            data-slot="slider-thumb"
-            key={index}
-            className={cn(thumbVariants({ size }))}
-          />
-        ))}
-      </SliderPrimitive.Control>
-    </SliderPrimitive.Root>
-  )
+    <SliderContext.Provider value={{ size }}>
+      <SliderPrimitive.Root
+        className={cn(sliderVariants({ className }))}
+        data-slot="slider"
+        thumbAlignment="edge"
+        {...props}
+      />
+    </SliderContext.Provider>
+  );
 }
 
-export { Slider }
+function SliderControl({ className, ...props }: SliderPrimitive.Control.Props) {
+  return (
+    <SliderPrimitive.Control
+      data-slot="slider-control"
+      className={cn(
+        "relative flex w-full touch-none items-center select-none data-disabled:opacity-50 data-disabled:cursor-not-allowed data-[orientation=vertical]:h-full data-[orientation=vertical]:min-h-40 data-[orientation=vertical]:w-auto data-[orientation=vertical]:flex-col",
+        className,
+      )}
+      {...props}
+    />
+  );
+}
+
+function SliderTrack({ className, ...props }: SliderPrimitive.Track.Props) {
+  const { size } = React.useContext(SliderContext);
+  return (
+    <SliderPrimitive.Track
+      data-slot="slider-track"
+      className={cn(trackVariants({ size }), className)}
+      {...props}
+    />
+  );
+}
+
+function SliderIndicator({
+  className,
+  ...props
+}: SliderPrimitive.Indicator.Props) {
+  return (
+    <SliderPrimitive.Indicator
+      data-slot="slider-indicator"
+      className={cn(
+        "group-aria-invalid/slider:bg-destructive bg-primary select-none data-[orientation=horizontal]:h-full data-[orientation=vertical]:w-full",
+        className,
+      )}
+      {...props}
+    />
+  );
+}
+
+function SliderThumb({ className, ...props }: SliderPrimitive.Thumb.Props) {
+  const { size } = React.useContext(SliderContext);
+  return (
+    <SliderPrimitive.Thumb
+      data-slot="slider-thumb"
+      className={cn(thumbVariants({ size }), className)}
+      {...props}
+    />
+  );
+}
+
+export { Slider, SliderControl, SliderTrack, SliderIndicator, SliderThumb };

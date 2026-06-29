@@ -1,59 +1,62 @@
+import { useState } from "react";
 import {
-    Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink,
-    PaginationNext, PaginationPrevious
-} from "../../index"
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+  MonoSelect,
+} from "../../index";
 import { SectionHeader, ExampleSection } from "../components/showcase";
 
 export default function PaginationShowcase() {
+  const [globalSize, setGlobalSize] = useState<"sm" | "md" | "lg">("md");
+
   return (
     <div className="space-y-10">
-      <SectionHeader title="Pagination" description="Pagination with page navigation, next and previous links." />
+      <SectionHeader
+        title="Pagination"
+        description="Pagination with page navigation, next and previous links."
+      >
+        <MonoSelect
+          value={globalSize}
+          onValueChange={(v) => setGlobalSize(v as any)}
+          options={[
+            { value: "sm", label: "Size: sm" },
+            { value: "md", label: "Size: md" },
+            { value: "lg", label: "Size: lg" },
+          ]}
+        />
+      </SectionHeader>
 
-      <ExampleSection label="Standard" description="Full pagination with ellipsis.">
+      <ExampleSection label="Default" description="Standard pagination layout.">
         <Pagination>
           <PaginationContent>
             <PaginationItem>
-              <PaginationPrevious href="#" />
+              <PaginationPrevious href="#" size={globalSize} />
             </PaginationItem>
             <PaginationItem>
-              <PaginationLink href="#">1</PaginationLink>
+              <PaginationLink href="#" size={globalSize}>
+                1
+              </PaginationLink>
             </PaginationItem>
             <PaginationItem>
-              <PaginationLink href="#" isActive>
+              <PaginationLink href="#" isActive size={globalSize}>
                 2
               </PaginationLink>
             </PaginationItem>
             <PaginationItem>
-              <PaginationLink href="#">3</PaginationLink>
+              <PaginationLink href="#" size={globalSize}>
+                3
+              </PaginationLink>
             </PaginationItem>
             <PaginationItem>
               <PaginationEllipsis />
             </PaginationItem>
             <PaginationItem>
-              <PaginationNext href="#" />
-            </PaginationItem>
-          </PaginationContent>
-        </Pagination>
-      </ExampleSection>
-
-      <ExampleSection label="Minimal" description="Simple prev/next with page numbers.">
-        <Pagination>
-          <PaginationContent>
-            <PaginationItem>
-              <PaginationPrevious href="#" />
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationLink href="#" isActive>
-                2
-              </PaginationLink>
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationLink href="#">
-                3
-              </PaginationLink>
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationNext href="#" />
+              <PaginationNext href="#" size={globalSize} />
             </PaginationItem>
           </PaginationContent>
         </Pagination>

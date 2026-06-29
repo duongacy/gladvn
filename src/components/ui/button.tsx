@@ -5,10 +5,10 @@
  * - Form Control Parity
  * - CSS Delegated Logic
  */
-import { Button as ButtonPrimitive } from "@base-ui/react/button"
-import { cva, type VariantProps } from "class-variance-authority"
+import { Button as ButtonPrimitive } from "@base-ui/react/button";
+import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "../../lib/utils"
+import { cn } from "../../lib/utils";
 
 /**
  * variant = visual style (HOW it looks)
@@ -29,7 +29,7 @@ import { cn } from "../../lib/utils"
  */
 
 const buttonVariants = cva(
-  "group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-border text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:ring-3 focus-visible:ring-offset-1 focus-visible:ring-offset-background active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:ring-3 aria-invalid:focus-visible:ring-destructive/50 dark:aria-invalid:border-destructive/50 dark:aria-invalid:focus-visible:ring-destructive/50 [&_svg]:pointer-events-none [&_svg]:shrink-0",
+  "group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-border text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:ring-3 focus-visible:ring-offset-1 focus-visible:ring-offset-background active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:ring-3 aria-invalid:focus-visible:ring-destructive/50 dark:aria-invalid:border-destructive/50 dark:aria-invalid:focus-visible:ring-destructive/50 [&>svg]:pointer-events-none [&>svg]:shrink-0",
   {
     variants: {
       // ── Visual style ─────────────────────────────────────────────
@@ -64,40 +64,160 @@ const buttonVariants = cva(
     // ── variant × color combinations ─────────────────────────────
     compoundVariants: [
       // solid — filled background, foreground text
-      { variant: "solid", color: "primary", className: "bg-primary     text-primary-foreground     hover:bg-primary/85" },
-      { variant: "solid", color: "secondary", className: "bg-secondary   text-secondary-foreground   hover:bg-secondary/85" },
-      { variant: "solid", color: "destructive", className: "bg-destructive text-destructive-foreground hover:bg-destructive/85" },
-      { variant: "solid", color: "warning", className: "bg-warning     text-warning-foreground     hover:bg-warning/85" },
-      { variant: "solid", color: "success", className: "bg-success     text-success-foreground     hover:bg-success/85" },
-      { variant: "solid", color: "info", className: "bg-info        text-info-foreground        hover:bg-info/85" },
-      { variant: "solid", color: "tertiary", className: "bg-tertiary    text-tertiary-foreground    hover:bg-tertiary/85" },
+      {
+        variant: "solid",
+        color: "primary",
+        className:
+          "bg-primary     text-primary-foreground     hover:bg-primary/85",
+      },
+      {
+        variant: "solid",
+        color: "secondary",
+        className:
+          "bg-secondary   text-secondary-foreground   hover:bg-secondary/85",
+      },
+      {
+        variant: "solid",
+        color: "destructive",
+        className:
+          "bg-destructive text-destructive-foreground hover:bg-destructive/85",
+      },
+      {
+        variant: "solid",
+        color: "warning",
+        className:
+          "bg-warning     text-warning-foreground     hover:bg-warning/85",
+      },
+      {
+        variant: "solid",
+        color: "success",
+        className:
+          "bg-success     text-success-foreground     hover:bg-success/85",
+      },
+      {
+        variant: "solid",
+        color: "info",
+        className:
+          "bg-info        text-info-foreground        hover:bg-info/85",
+      },
+      {
+        variant: "solid",
+        color: "tertiary",
+        className:
+          "bg-tertiary    text-tertiary-foreground    hover:bg-tertiary/85",
+      },
 
       // outline — border + semantic text, tinted hover
-      { variant: "outline", color: "primary", className: "border-primary     text-primary     hover:bg-primary/10" },
-      { variant: "outline", color: "secondary", className: "border-secondary text-secondary hover:bg-secondary/10" },
-      { variant: "outline", color: "destructive", className: "border-destructive text-destructive hover:bg-destructive/10" },
-      { variant: "outline", color: "warning", className: "border-warning     text-warning     hover:bg-warning/10" },
-      { variant: "outline", color: "success", className: "border-success     text-success     hover:bg-success/10" },
-      { variant: "outline", color: "info", className: "border-info        text-info        hover:bg-info/10" },
-      { variant: "outline", color: "tertiary", className: "border-tertiary    text-tertiary    hover:bg-tertiary/10" },
+      {
+        variant: "outline",
+        color: "primary",
+        className: "border-primary     text-primary     hover:bg-primary/10",
+      },
+      {
+        variant: "outline",
+        color: "secondary",
+        className: "border-secondary text-secondary hover:bg-secondary/10",
+      },
+      {
+        variant: "outline",
+        color: "destructive",
+        className:
+          "border-destructive text-destructive hover:bg-destructive/10",
+      },
+      {
+        variant: "outline",
+        color: "warning",
+        className: "border-warning     text-warning     hover:bg-warning/10",
+      },
+      {
+        variant: "outline",
+        color: "success",
+        className: "border-success     text-success     hover:bg-success/10",
+      },
+      {
+        variant: "outline",
+        color: "info",
+        className: "border-info        text-info        hover:bg-info/10",
+      },
+      {
+        variant: "outline",
+        color: "tertiary",
+        className: "border-tertiary    text-tertiary    hover:bg-tertiary/10",
+      },
 
       // soft — tinted background, semantic text
-      { variant: "soft", color: "primary", className: "bg-primary/15     text-primary     hover:bg-primary/25" },
-      { variant: "soft", color: "secondary", className: "bg-secondary/15 text-secondary hover:bg-secondary/25" },
-      { variant: "soft", color: "destructive", className: "bg-destructive/15 text-destructive hover:bg-destructive/25" },
-      { variant: "soft", color: "warning", className: "bg-warning/15     text-warning     hover:bg-warning/25" },
-      { variant: "soft", color: "success", className: "bg-success/15     text-success     hover:bg-success/25" },
-      { variant: "soft", color: "info", className: "bg-info/15        text-info        hover:bg-info/25" },
-      { variant: "soft", color: "tertiary", className: "bg-tertiary/15    text-tertiary    hover:bg-tertiary/25" },
+      {
+        variant: "soft",
+        color: "primary",
+        className: "bg-primary/15     text-primary     hover:bg-primary/25",
+      },
+      {
+        variant: "soft",
+        color: "secondary",
+        className: "bg-secondary/15 text-secondary hover:bg-secondary/25",
+      },
+      {
+        variant: "soft",
+        color: "destructive",
+        className: "bg-destructive/15 text-destructive hover:bg-destructive/25",
+      },
+      {
+        variant: "soft",
+        color: "warning",
+        className: "bg-warning/15     text-warning     hover:bg-warning/25",
+      },
+      {
+        variant: "soft",
+        color: "success",
+        className: "bg-success/15     text-success     hover:bg-success/25",
+      },
+      {
+        variant: "soft",
+        color: "info",
+        className: "bg-info/15        text-info        hover:bg-info/25",
+      },
+      {
+        variant: "soft",
+        color: "tertiary",
+        className: "bg-tertiary/15    text-tertiary    hover:bg-tertiary/25",
+      },
 
       // ghost — transparent, semantic text, tinted hover
-      { variant: "ghost", color: "primary", className: "text-primary     hover:bg-primary/10" },
-      { variant: "ghost", color: "secondary", className: "text-secondary hover:bg-secondary/10" },
-      { variant: "ghost", color: "destructive", className: "text-destructive hover:bg-destructive/10" },
-      { variant: "ghost", color: "warning", className: "text-warning     hover:bg-warning/10" },
-      { variant: "ghost", color: "success", className: "text-success     hover:bg-success/10" },
-      { variant: "ghost", color: "info", className: "text-info        hover:bg-info/10" },
-      { variant: "ghost", color: "tertiary", className: "text-tertiary    hover:bg-tertiary/10" },
+      {
+        variant: "ghost",
+        color: "primary",
+        className: "text-primary     hover:bg-primary/10",
+      },
+      {
+        variant: "ghost",
+        color: "secondary",
+        className: "text-secondary hover:bg-secondary/10",
+      },
+      {
+        variant: "ghost",
+        color: "destructive",
+        className: "text-destructive hover:bg-destructive/10",
+      },
+      {
+        variant: "ghost",
+        color: "warning",
+        className: "text-warning     hover:bg-warning/10",
+      },
+      {
+        variant: "ghost",
+        color: "success",
+        className: "text-success     hover:bg-success/10",
+      },
+      {
+        variant: "ghost",
+        color: "info",
+        className: "text-info        hover:bg-info/10",
+      },
+      {
+        variant: "ghost",
+        color: "tertiary",
+        className: "text-tertiary    hover:bg-tertiary/10",
+      },
 
       // link — just semantic text + underline on hover
       { variant: "link", color: "primary", className: "text-primary" },
@@ -122,25 +242,25 @@ const buttonVariants = cva(
       color: "primary",
       size: "md",
     },
-  }
-)
+  },
+);
 
-import * as React from "react"
+import * as React from "react";
 
 function flattenChildren(children: React.ReactNode): React.ReactNode[] {
-  const flat: React.ReactNode[] = []
+  const flat: React.ReactNode[] = [];
   React.Children.forEach(children, (child) => {
     if (React.isValidElement(child) && child.type === React.Fragment) {
       flat.push(
         ...flattenChildren(
-          (child.props as { children?: React.ReactNode }).children
-        )
-      )
+          (child.props as { children?: React.ReactNode }).children,
+        ),
+      );
     } else {
-      flat.push(child)
+      flat.push(child);
     }
-  })
-  return flat
+  });
+  return flat;
 }
 
 function Button({
@@ -151,18 +271,19 @@ function Button({
   children,
   ...props
 }: ButtonPrimitive.Props & VariantProps<typeof buttonVariants>) {
-  
   // Auto-detect if the button contains exactly one element (like an icon) and no text.
   // Recursively flattens Fragments so <>{icon}{text}</> doesn't mistakenly trigger icon-only.
   const isIconOnly = React.useMemo(() => {
-    const childrenArray = flattenChildren(children)
+    const childrenArray = flattenChildren(children);
     const visibleChildren = childrenArray.filter((child) => {
-      if (typeof child === "string") return child.trim() !== ""
-      if (typeof child === "number") return true
-      return child
-    })
-    return visibleChildren.length === 1 && React.isValidElement(visibleChildren[0])
-  }, [children])
+      if (typeof child === "string") return child.trim() !== "";
+      if (typeof child === "number") return true;
+      return child;
+    });
+    return (
+      visibleChildren.length === 1 && React.isValidElement(visibleChildren[0])
+    );
+  }, [children]);
 
   return (
     <ButtonPrimitive
@@ -175,7 +296,7 @@ function Button({
     >
       {children}
     </ButtonPrimitive>
-  )
+  );
 }
 
-export { Button, buttonVariants }
+export { Button, buttonVariants };

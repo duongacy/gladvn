@@ -1,7 +1,7 @@
-import * as React from "react"
-import { cn } from "../../lib/utils"
-import { VariantProps, cva } from "class-variance-authority"
-import { Loader2Icon } from "lucide-react"
+import * as React from "react";
+import { cn } from "../../lib/utils";
+import { VariantProps, cva } from "class-variance-authority";
+import { Loader2Icon } from "lucide-react";
 
 const spinnerVariants = cva("animate-spin", {
   variants: {
@@ -14,22 +14,21 @@ const spinnerVariants = cva("animate-spin", {
   defaultVariants: {
     size: "md",
   },
-})
+});
 
-export interface SpinnerProps 
-  extends React.ComponentProps<"svg">, 
-    VariantProps<typeof spinnerVariants> {}
+export interface SpinnerProps
+  extends React.ComponentProps<"svg">, VariantProps<typeof spinnerVariants> {}
 
 function Spinner({ className, size, ...props }: SpinnerProps) {
   return (
-    <Loader2Icon 
-      data-slot="spinner" 
-      role="status" 
-      aria-label="Loading" 
-      className={cn(spinnerVariants({ size, className }))} 
-      {...props} 
+    <Loader2Icon
+      data-slot="spinner"
+      role="status"
+      aria-label="Loading"
+      className={cn(spinnerVariants({ size, className }))}
+      {...props}
     />
-  )
+  );
 }
 
-export { Spinner }
+export { Spinner };

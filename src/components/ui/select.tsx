@@ -5,17 +5,17 @@
  * - Form Control Parity
  * - CSS Delegated Logic
  */
-"use client"
+"use client";
 
-import * as React from "react"
-import { Select as SelectPrimitive } from "@base-ui/react/select"
-import { cva, type VariantProps } from "class-variance-authority"
+import * as React from "react";
+import { Select as SelectPrimitive } from "@base-ui/react/select";
+import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "../../lib/utils"
-import { ThemeWrapper } from "./theme-provider"
-import { ChevronDownIcon, CheckIcon, ChevronUpIcon } from "lucide-react"
+import { cn } from "../../lib/utils";
+import { ThemeWrapper } from "./theme-provider";
+import { ChevronDownIcon, CheckIcon, ChevronUpIcon } from "lucide-react";
 
-const Select = SelectPrimitive.Root
+const Select = SelectPrimitive.Root;
 
 function SelectGroup({ className, ...props }: SelectPrimitive.Group.Props) {
   return (
@@ -24,7 +24,7 @@ function SelectGroup({ className, ...props }: SelectPrimitive.Group.Props) {
       className={cn("scroll-my-1", className)}
       {...props}
     />
-  )
+  );
 }
 
 function SelectValue({ className, ...props }: SelectPrimitive.Value.Props) {
@@ -34,11 +34,11 @@ function SelectValue({ className, ...props }: SelectPrimitive.Value.Props) {
       className={cn("flex flex-1 text-left", className)}
       {...props}
     />
-  )
+  );
 }
 
 const selectTriggerVariants = cva(
-  "inline-flex items-center justify-between gap-1.5 rounded-lg border border-input bg-transparent text-sm whitespace-nowrap transition-colors outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-offset-1 focus-visible:ring-offset-background disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:ring-3 aria-invalid:focus-visible:ring-destructive/50 data-placeholder:text-muted-foreground *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-1.5 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 dark:bg-input/30 dark:aria-invalid:border-destructive/50 dark:aria-invalid:focus-visible:ring-destructive/50",
+  "inline-flex items-center justify-between gap-1.5 rounded-lg border border-input bg-transparent text-sm whitespace-nowrap transition-colors outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-offset-1 focus-visible:ring-offset-background disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:ring-3 aria-invalid:focus-visible:ring-destructive/50 data-placeholder:text-muted-foreground *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-1.5 [&>svg]:pointer-events-none [&>svg]:shrink-0 [&>svg:not([class*='size-'])]:size-4 dark:bg-input/30 dark:aria-invalid:border-destructive/50 dark:aria-invalid:focus-visible:ring-destructive/50",
   {
     variants: {
       size: {
@@ -50,8 +50,8 @@ const selectTriggerVariants = cva(
     defaultVariants: {
       size: "md",
     },
-  }
-)
+  },
+);
 
 function SelectTrigger({
   className,
@@ -72,7 +72,7 @@ function SelectTrigger({
         }
       />
     </SelectPrimitive.Trigger>
-  )
+  );
 }
 
 function SelectContent({
@@ -106,10 +106,10 @@ function SelectContent({
             className={cn(
               "relative isolate z-50 max-h-(--available-height) overflow-x-hidden overflow-y-auto rounded-lg bg-popover text-popover-foreground shadow-md ring-1 ring-foreground/10 data-[align-trigger=true]:animate-none data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
               !alignItemWithTrigger &&
-              "mt-[calc(-1*var(--anchor-height)-4px)] w-[calc(var(--anchor-width)+8px)] p-1",
+                "mt-[calc(-1*var(--anchor-height)-4px)] w-[calc(var(--anchor-width)+8px)] p-1",
               alignItemWithTrigger &&
-              "w-[calc(var(--anchor-width)+8px)] origin-(--transform-origin) p-1",
-              className
+                "w-[calc(var(--anchor-width)+8px)] origin-(--transform-origin) p-1",
+              className,
             )}
             {...props}
           >
@@ -120,7 +120,7 @@ function SelectContent({
         </SelectPrimitive.Positioner>
       </ThemeWrapper>
     </SelectPrimitive.Portal>
-  )
+  );
 }
 
 function SelectLabel({
@@ -133,7 +133,7 @@ function SelectLabel({
       className={cn("px-1.5 py-1 text-xs text-muted-foreground", className)}
       {...props}
     />
-  )
+  );
 }
 
 function SelectItem({
@@ -145,8 +145,8 @@ function SelectItem({
     <SelectPrimitive.Item
       data-slot="select-item"
       className={cn(
-        "relative flex w-full cursor-default items-center gap-1.5 rounded-md py-1 pr-8 pl-1.5 text-sm outline-hidden select-none focus:bg-accent focus:text-accent-foreground not-data-[variant=destructive]:focus:**:text-accent-foreground data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 *:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-2",
-        className
+        "relative flex w-full cursor-default items-center gap-1.5 rounded-md py-1 pr-8 pl-1.5 text-sm outline-hidden select-none focus:bg-accent focus:text-accent-foreground not-data-[variant=destructive]:focus:[&>svg]:text-accent-foreground data-disabled:pointer-events-none data-disabled:opacity-50 [&>svg]:pointer-events-none [&>svg]:shrink-0 [&>svg:not([class*='size-'])]:size-4 [&>[data-slot=select-item-indicator]]:flex [&>[data-slot=select-item-indicator]]:items-center [&>[data-slot=select-item-indicator]]:gap-2",
+        className,
       )}
       {...props}
     >
@@ -161,7 +161,7 @@ function SelectItem({
         <CheckIcon className="pointer-events-none" />
       </SelectPrimitive.ItemIndicator>
     </SelectPrimitive.Item>
-  )
+  );
 }
 
 function SelectSeparator({
@@ -174,7 +174,7 @@ function SelectSeparator({
       className={cn("pointer-events-none -mx-1 my-1 h-px bg-border", className)}
       {...props}
     />
-  )
+  );
 }
 
 function SelectScrollUpButton({
@@ -186,13 +186,13 @@ function SelectScrollUpButton({
       data-slot="select-scroll-up-button"
       className={cn(
         "top-0 z-10 flex cursor-default items-center justify-center bg-popover py-1 [&_svg:not([class*='size-'])]:size-4",
-        className
+        className,
       )}
       {...props}
     >
       <ChevronUpIcon />
     </SelectPrimitive.ScrollUpArrow>
-  )
+  );
 }
 
 function SelectScrollDownButton({
@@ -204,45 +204,45 @@ function SelectScrollDownButton({
       data-slot="select-scroll-down-button"
       className={cn(
         "bottom-0 z-10 flex cursor-default items-center justify-center bg-popover py-1 [&_svg:not([class*='size-'])]:size-4",
-        className
+        className,
       )}
       {...props}
     >
       <ChevronDownIcon />
     </SelectPrimitive.ScrollDownArrow>
-  )
+  );
 }
 
 // ─── MonoSelect (monolithic) ──────────────────────────────────────────────
 
 interface MonoSelectOption {
-  value: string
-  label: string
+  value: string;
+  label: string;
   /** Optional label to display inside the dropdown menu (if different from the trigger label) */
-  dropdownLabel?: React.ReactNode
-  disabled?: boolean
-  group?: string
+  dropdownLabel?: React.ReactNode;
+  disabled?: boolean;
+  group?: string;
 }
 
 interface MonoSelectProps {
   /** Flat list of options. Use the `group` field to group items. */
-  options: MonoSelectOption[]
+  options: MonoSelectOption[];
   /** Placeholder text when no value is selected. */
-  placeholder?: string
+  placeholder?: string;
   /** Controlled value. */
-  value?: string
+  value?: string;
   /** Uncontrolled default value. */
-  defaultValue?: string
+  defaultValue?: string;
   /** Called when the value changes. */
-  onValueChange?: (value: string) => void
+  onValueChange?: (value: string) => void;
   /** Trigger size variant. */
-  size?: VariantProps<typeof selectTriggerVariants>["size"]
+  size?: VariantProps<typeof selectTriggerVariants>["size"];
   /** Mark as invalid. */
-  invalid?: boolean
+  invalid?: boolean;
   /** Disable the select. */
-  disabled?: boolean
+  disabled?: boolean;
   /** Additional className for the trigger. */
-  className?: string
+  className?: string;
 }
 
 /**
@@ -277,7 +277,10 @@ function MonoSelect({
       value={value}
       defaultValue={defaultValue}
       onValueChange={
-        onValueChange && ((v: string | null) => { if (v !== null) onValueChange(v) })
+        onValueChange &&
+        ((v: string | null) => {
+          if (v !== null) onValueChange(v);
+        })
       }
       disabled={disabled}
       items={Object.fromEntries(options.map((opt) => [opt.value, opt.label]))}
@@ -291,14 +294,14 @@ function MonoSelect({
       </SelectTrigger>
       <SelectContent>
         {(() => {
-          const groups = new Map<string | undefined, MonoSelectOption[]>()
+          const groups = new Map<string | undefined, MonoSelectOption[]>();
           options.forEach((opt) => {
-            const key = opt.group
+            const key = opt.group;
             if (!groups.has(key)) {
-              groups.set(key, [])
+              groups.set(key, []);
             }
-            groups.get(key)!.push(opt)
-          })
+            groups.get(key)!.push(opt);
+          });
 
           return Array.from(groups.entries()).map(([groupLabel, opts]) => {
             if (groupLabel) {
@@ -315,7 +318,7 @@ function MonoSelect({
                     </SelectItem>
                   ))}
                 </SelectGroup>
-              )
+              );
             }
             // Items without a group
             return opts.map((opt) => (
@@ -326,12 +329,12 @@ function MonoSelect({
               >
                 {opt.dropdownLabel || opt.label}
               </SelectItem>
-            ))
-          })
+            ));
+          });
         })()}
       </SelectContent>
     </Select>
-  )
+  );
 }
 
 export {
@@ -347,6 +350,6 @@ export {
   SelectValue,
   selectTriggerVariants,
   MonoSelect,
-}
+};
 
-export type { MonoSelectProps, MonoSelectOption }
+export type { MonoSelectProps, MonoSelectOption };

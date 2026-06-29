@@ -1,5 +1,9 @@
 import { AspectRatio } from "../../index";
-import { SectionHeader, ExampleSection, ExampleGrid } from "../components/showcase";
+import {
+  SectionHeader,
+  ExampleSection,
+  ExampleGrid,
+} from "../components/showcase";
 
 const commonRatios = [
   { label: "16:9", ratio: 16 / 9, desc: "Widescreen — video, hero banners" },
@@ -19,7 +23,10 @@ export default function AspectRatioShowcase() {
       />
 
       {/* ── Common Ratios ── */}
-      <ExampleSection label="Common Ratios" description="Frequently used aspect ratios with labels.">
+      <ExampleSection
+        label="Common Ratios"
+        description="Frequently used aspect ratios with labels."
+      >
         <ExampleGrid columns={3}>
           {commonRatios.map(({ label, ratio, desc }) => (
             <div key={label} className="flex flex-col gap-2">
@@ -28,8 +35,12 @@ export default function AspectRatioShowcase() {
                 className="bg-muted rounded-xl overflow-hidden flex items-center justify-center border border-border"
               >
                 <div className="flex flex-col items-center gap-1">
-                  <span className="text-foreground font-mono text-lg font-semibold">{label}</span>
-                  <span className="text-muted-foreground text-xs text-center px-4">{desc}</span>
+                  <span className="text-foreground font-mono text-lg font-semibold">
+                    {label}
+                  </span>
+                  <span className="text-muted-foreground text-xs text-center px-4">
+                    {desc}
+                  </span>
                 </div>
               </AspectRatio>
             </div>
@@ -38,10 +49,15 @@ export default function AspectRatioShowcase() {
       </ExampleSection>
 
       {/* ── With Image ── */}
-      <ExampleSection label="With Image" description="Aspect ratio constraining an image — the image fills the container via object-cover.">
+      <ExampleSection
+        label="With Image"
+        description="Aspect ratio constraining an image — the image fills the container via object-cover."
+      >
         <ExampleGrid columns={2}>
           <div className="flex flex-col gap-2">
-            <span className="text-sm text-muted-foreground font-medium">16:9</span>
+            <span className="text-sm text-muted-foreground font-medium">
+              16:9
+            </span>
             <AspectRatio ratio={16 / 9} className="rounded-xl overflow-hidden">
               <img
                 src="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80"
@@ -51,7 +67,9 @@ export default function AspectRatioShowcase() {
             </AspectRatio>
           </div>
           <div className="flex flex-col gap-2">
-            <span className="text-sm text-muted-foreground font-medium">1:1</span>
+            <span className="text-sm text-muted-foreground font-medium">
+              1:1
+            </span>
             <AspectRatio ratio={1} className="rounded-xl overflow-hidden">
               <img
                 src="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80"
@@ -64,13 +82,30 @@ export default function AspectRatioShowcase() {
       </ExampleSection>
 
       {/* ── Map / Embed placeholder ── */}
-      <ExampleSection label="Embedded Content" description="Maintaining ratio for maps, iframes, or video embeds.">
+      <ExampleSection
+        label="Embedded Content"
+        description="Maintaining ratio for maps, iframes, or video embeds."
+      >
         <ExampleGrid columns={2}>
           <div className="flex flex-col gap-2">
-            <span className="text-sm text-muted-foreground font-medium">Video embed (16:9)</span>
-            <AspectRatio ratio={16 / 9} className="rounded-xl overflow-hidden bg-muted border border-border">
+            <span className="text-sm text-muted-foreground font-medium">
+              Video embed (16:9)
+            </span>
+            <AspectRatio
+              ratio={16 / 9}
+              className="rounded-xl overflow-hidden bg-muted border border-border"
+            >
               <div className="w-full h-full flex flex-col items-center justify-center gap-2 text-muted-foreground">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <svg
+                  width="48"
+                  height="48"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
                   <polygon points="5 3 19 12 5 21 5 3" />
                 </svg>
                 <span className="text-xs font-mono">iframe / video</span>
@@ -78,10 +113,24 @@ export default function AspectRatioShowcase() {
             </AspectRatio>
           </div>
           <div className="flex flex-col gap-2">
-            <span className="text-sm text-muted-foreground font-medium">Map embed (4:3)</span>
-            <AspectRatio ratio={4 / 3} className="rounded-xl overflow-hidden bg-muted border border-border">
+            <span className="text-sm text-muted-foreground font-medium">
+              Map embed (4:3)
+            </span>
+            <AspectRatio
+              ratio={4 / 3}
+              className="rounded-xl overflow-hidden bg-muted border border-border"
+            >
               <div className="w-full h-full flex flex-col items-center justify-center gap-2 text-muted-foreground">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <svg
+                  width="48"
+                  height="48"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
                   <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6" />
                   <line x1="8" y1="2" x2="8" y2="18" />
                   <line x1="16" y1="6" x2="16" y2="22" />
@@ -94,7 +143,10 @@ export default function AspectRatioShowcase() {
       </ExampleSection>
 
       {/* ── Custom Ratio ── */}
-      <ExampleSection label="Custom Ratio" description="Any numeric value works — not limited to standard ratios.">
+      <ExampleSection
+        label="Custom Ratio"
+        description="Any numeric value works — not limited to standard ratios."
+      >
         <ExampleGrid columns={3}>
           {[2.35, 1.85, 0.8].map((ratio) => (
             <div key={ratio} className="flex flex-col gap-2">
@@ -102,7 +154,9 @@ export default function AspectRatioShowcase() {
                 ratio={ratio}
                 className="bg-muted rounded-xl overflow-hidden flex items-center justify-center border border-dashed border-border"
               >
-                <span className="text-muted-foreground font-mono text-sm">ratio={ratio}</span>
+                <span className="text-muted-foreground font-mono text-sm">
+                  ratio={ratio}
+                </span>
               </AspectRatio>
             </div>
           ))}

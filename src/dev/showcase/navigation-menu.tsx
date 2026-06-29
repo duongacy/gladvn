@@ -1,9 +1,16 @@
-import React from "react"
+import React from "react";
 import {
-    NavigationMenu, NavigationMenuContent, NavigationMenuItem,
-    NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle
-} from "../../index"
-import { cn } from "../../lib/utils"
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+  NavigationMenuIndicator,
+  NavigationMenuPositioner,
+} from "../../index";
+import { cn } from "../../lib/utils";
 import { SectionHeader, ExampleSection } from "../components/showcase";
 
 const ListItem = React.forwardRef<
@@ -18,7 +25,7 @@ const ListItem = React.forwardRef<
             ref={ref}
             className={cn(
               "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-              className
+              className,
             )}
             {...props}
           >
@@ -30,16 +37,22 @@ const ListItem = React.forwardRef<
         }
       />
     </li>
-  )
-})
-ListItem.displayName = "ListItem"
+  );
+});
+ListItem.displayName = "ListItem";
 
 export default function NavigationMenuShowcase() {
   return (
     <div className="space-y-10">
-      <SectionHeader title="Navigation Menu" description="A collection of links for navigating websites." />
+      <SectionHeader
+        title="Navigation Menu"
+        description="A collection of links for navigating websites."
+      />
 
-      <ExampleSection label="Default" description="Multi-level navigation with dropdown panels.">
+      <ExampleSection
+        label="Default"
+        description="Multi-level navigation with dropdown panels."
+      >
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
@@ -55,9 +68,12 @@ export default function NavigationMenuShowcase() {
                         />
                       }
                     >
-                      <div className="mb-2 mt-4 text-lg font-medium">sadcn/ui</div>
+                      <div className="mb-2 mt-4 text-lg font-medium">
+                        sadcn/ui
+                      </div>
                       <p className="text-sm leading-tight text-muted-foreground">
-                        Beautifully designed components built with Radix UI and Tailwind CSS.
+                        Beautifully designed components built with Radix UI and
+                        Tailwind CSS.
                       </p>
                     </NavigationMenuLink>
                   </li>
@@ -67,7 +83,10 @@ export default function NavigationMenuShowcase() {
                   <ListItem href="/docs/installation" title="Installation">
                     How to install dependencies and structure your app.
                   </ListItem>
-                  <ListItem href="/docs/primitives/typography" title="Typography">
+                  <ListItem
+                    href="/docs/primitives/typography"
+                    title="Typography"
+                  >
                     Styles for headings, paragraphs, lists...etc
                   </ListItem>
                 </ul>
@@ -77,27 +96,45 @@ export default function NavigationMenuShowcase() {
               <NavigationMenuTrigger>Components</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                  <ListItem title="Alert Dialog" href="/docs/primitives/alert-dialog">
-                    A modal dialog that interrupts the user with important content and expects a response.
+                  <ListItem
+                    title="Alert Dialog"
+                    href="/docs/primitives/alert-dialog"
+                  >
+                    A modal dialog that interrupts the user with important
+                    content and expects a response.
                   </ListItem>
-                  <ListItem title="Hover Card" href="/docs/primitives/hover-card">
-                    For sighted users to preview content available behind a link.
+                  <ListItem
+                    title="Hover Card"
+                    href="/docs/primitives/hover-card"
+                  >
+                    For sighted users to preview content available behind a
+                    link.
                   </ListItem>
                   <ListItem title="Progress" href="/docs/primitives/progress">
-                    Displays an indicator showing the completion progress of a task.
+                    Displays an indicator showing the completion progress of a
+                    task.
                   </ListItem>
-                  <ListItem title="Scroll-area" href="/docs/primitives/scroll-area">
+                  <ListItem
+                    title="Scroll-area"
+                    href="/docs/primitives/scroll-area"
+                  >
                     Visually or semantically separates content.
                   </ListItem>
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink href="/docs" className={navigationMenuTriggerStyle()}>
+              <NavigationMenuLink
+                href="/docs"
+                className={navigationMenuTriggerStyle()}
+              >
                 Documentation
               </NavigationMenuLink>
             </NavigationMenuItem>
           </NavigationMenuList>
+          <NavigationMenuPositioner>
+            <NavigationMenuIndicator />
+          </NavigationMenuPositioner>
         </NavigationMenu>
       </ExampleSection>
     </div>

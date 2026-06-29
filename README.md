@@ -41,7 +41,7 @@ Make sure Tailwind scans the sadcn components:
 ## Usage
 
 ```tsx
-import { Button, Card, CardHeader, CardTitle, CardContent } from "sadcn"
+import { Button, Card, CardHeader, CardTitle, CardContent } from "sadcn";
 
 export function MyComponent() {
   return (
@@ -53,7 +53,7 @@ export function MyComponent() {
         <Button variant="destructive">Click me</Button>
       </CardContent>
     </Card>
-  )
+  );
 }
 ```
 
@@ -61,44 +61,44 @@ export function MyComponent() {
 
 All 55 shadcn/ui components are included:
 
-| Component | Component | Component |
-|-----------|-----------|-----------|
-| Accordion | Alert | Alert Dialog |
-| Aspect Ratio | Avatar | Badge |
-| Breadcrumb | Button | Button Group |
-| Calendar | Card | Carousel |
-| Chart | Checkbox | Collapsible |
-| Combobox | Command | Context Menu |
-| Dialog | Direction | Drawer |
-| Dropdown Menu | Empty | Field |
-| Hover Card | Input | Input Group |
-| Input OTP | Item | Kbd |
-| Label | Menubar | Native Select |
-| Navigation Menu | Pagination | Popover |
-| Progress | Radio Group | Resizable |
-| Scroll Area | Select | Separator |
-| Sheet | Sidebar | Skeleton |
-| Slider | Sonner | Spinner |
-| Switch | Table | Tabs |
-| Textarea | Toggle | Toggle Group |
-| Tooltip | | |
+| Component       | Component   | Component     |
+| --------------- | ----------- | ------------- |
+| Accordion       | Alert       | Alert Dialog  |
+| Aspect Ratio    | Avatar      | Badge         |
+| Breadcrumb      | Button      | Button Group  |
+| Calendar        | Card        | Carousel      |
+| Chart           | Checkbox    | Collapsible   |
+| Combobox        | Command     | Context Menu  |
+| Dialog          | Direction   | Drawer        |
+| Dropdown Menu   | Empty       | Field         |
+| Hover Card      | Input       | Input Group   |
+| Input OTP       | Item        | Kbd           |
+| Label           | Menubar     | Native Select |
+| Navigation Menu | Pagination  | Popover       |
+| Progress        | Radio Group | Resizable     |
+| Scroll Area     | Select      | Separator     |
+| Sheet           | Sidebar     | Skeleton      |
+| Slider          | Sonner      | Spinner       |
+| Switch          | Table       | Tabs          |
+| Textarea        | Toggle      | Toggle Group  |
+| Tooltip         |             |               |
 
 ## Utilities
 
 ```tsx
-import { cn } from "sadcn"
+import { cn } from "sadcn";
 
 // Merge Tailwind classes with conflict resolution
-cn("px-4 py-2", "px-8") // → "px-8 py-2"
+cn("px-4 py-2", "px-8"); // → "px-8 py-2"
 ```
 
 ## Hooks
 
 ```tsx
-import { useIsMobile } from "sadcn"
+import { useIsMobile } from "sadcn";
 
 function MyComponent() {
-  const isMobile = useIsMobile()
+  const isMobile = useIsMobile();
   // ...
 }
 ```
@@ -108,17 +108,17 @@ function MyComponent() {
 Add the `dark` class to your `<html>` element to enable dark mode:
 
 ```html
-<html class="dark">
+<html class="dark"></html>
 ```
 
 Or use `next-themes` for automatic dark mode:
 
 ```tsx
-import { ThemeProvider } from "next-themes"
+import { ThemeProvider } from "next-themes";
 
 <ThemeProvider attribute="class">
   <App />
-</ThemeProvider>
+</ThemeProvider>;
 ```
 
 ## Customization

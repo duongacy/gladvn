@@ -1,70 +1,66 @@
 import {
-    FileX2Icon,
-    InboxIcon,
-    SearchIcon
-} from "lucide-react"
+  Empty,
+  EmptyTitle,
+  EmptyDescription,
+  EmptyAction,
+  EmptyHeader,
+  EmptyContent,
+  EmptyMedia,
+  Button,
+} from "../../index";
 import {
-    Button,
-    Empty,
-    EmptyContent,
-    EmptyDescription,
-    EmptyHeader,
-    EmptyMedia,
-    EmptyTitle
-} from "../../index"
-import { SectionHeader, ExampleSection, ExampleGrid } from "../components/showcase";
+  SectionHeader,
+  ExampleSection,
+  ExampleGrid,
+} from "../components/showcase";
+import { PlusIcon, FolderOpenIcon } from "lucide-react";
 
 export default function EmptyShowcase() {
   return (
     <div className="space-y-10">
-      <SectionHeader title="Empty States" description="Placeholder content for when there's no data to display." />
+      <SectionHeader
+        title="Empty"
+        description="A component for displaying empty states (e.g. no data, no results)."
+      />
 
-      <ExampleSection label="With Action" description="Empty state with a call-to-action button.">
-        <div className="rounded-xl border border-dashed bg-muted/10 p-2 w-full max-w-md">
-          <Empty>
+      <ExampleGrid columns={2}>
+        <ExampleSection
+          label="Default"
+          description="Standard empty state with action."
+        >
+          <Empty className="w-full h-full min-h-[300px]">
             <EmptyHeader>
-              <EmptyMedia>
-                <InboxIcon className="size-8 text-muted-foreground" />
-              </EmptyMedia>
-              <EmptyTitle>No messages yet</EmptyTitle>
+              <EmptyTitle>No customers found</EmptyTitle>
               <EmptyDescription>
-                When you receive a new message, it will appear here.
+                Get started by adding your first customer.
               </EmptyDescription>
             </EmptyHeader>
             <EmptyContent>
-              <Button size="sm" color="primary">Send Message</Button>
+              <EmptyAction>
+                <Button>
+                  <PlusIcon className="mr-2" />
+                  Add Customer
+                </Button>
+              </EmptyAction>
             </EmptyContent>
           </Empty>
-        </div>
-      </ExampleSection>
-
-      <ExampleGrid columns={2}>
-        <ExampleSection label="Search Empty" description="No results for search query.">
-          <div className="rounded-xl border border-dashed bg-muted/10 p-2 w-full">
-            <Empty>
-              <EmptyHeader>
-                <EmptyMedia className="size-12 rounded-xl bg-primary/10">
-                  <SearchIcon className="size-6 text-primary" />
-                </EmptyMedia>
-                <EmptyTitle>No results found</EmptyTitle>
-                <EmptyDescription>Try adjusting your search filters.</EmptyDescription>
-              </EmptyHeader>
-            </Empty>
-          </div>
         </ExampleSection>
-        
-        <ExampleSection label="Error State" description="Resource not found.">
-          <div className="rounded-xl border border-dashed bg-muted/10 p-2 w-full">
-            <Empty>
-              <EmptyHeader>
-                <EmptyMedia className="size-12 rounded-full bg-destructive/10">
-                  <FileX2Icon className="size-6 text-destructive" />
-                </EmptyMedia>
-                <EmptyTitle>File not found</EmptyTitle>
-                <EmptyDescription>The document you requested does not exist.</EmptyDescription>
-              </EmptyHeader>
-            </Empty>
-          </div>
+
+        <ExampleSection
+          label="Icon Variant"
+          description="Empty state with media and content slots."
+        >
+          <Empty className="w-full h-full min-h-[300px]">
+            <EmptyHeader>
+              <EmptyMedia variant="icon">
+                <FolderOpenIcon className="size-10 text-muted-foreground" />
+              </EmptyMedia>
+              <EmptyTitle>No projects</EmptyTitle>
+              <EmptyDescription>
+                You don't have any active projects.
+              </EmptyDescription>
+            </EmptyHeader>
+          </Empty>
         </ExampleSection>
       </ExampleGrid>
     </div>

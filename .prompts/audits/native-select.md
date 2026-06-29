@@ -3,9 +3,11 @@
 **Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
+
 Native Select sử dụng `<select>` element gốc của browser, kế thừa toàn bộ accessibility behavior built-in. BẮT BUỘC kiểm tra:
 
 ### A. Anatomy & WAI-ARIA Roles
+
 - **Native Element:** BẮT BUỘC dùng `<select>` gốc. Đây là ưu điểm lớn nhất — browser tự xử lý ARIA roles, keyboard, và mobile UX.
 - **Label Association:**
   - `<select>` BẮT BUỘC có `<label htmlFor="id">` hoặc `aria-label`.
@@ -19,6 +21,7 @@ Native Select sử dụng `<select>` element gốc của browser, kế thừa to
   - `aria-describedby` cho error message.
 
 ### B. Keyboard Navigation & Focus
+
 - Native `<select>` tự hỗ trợ đầy đủ:
   - `Space` / `Enter` / `Arrow keys`: Mở dropdown và navigate options.
   - `Tab`: Di chuyển focus.
@@ -27,6 +30,7 @@ Native Select sử dụng `<select>` element gốc của browser, kế thừa to
 - **Custom Arrow Icon:** Nếu ẩn native arrow và thay bằng custom icon, icon phải có `pointer-events-none` để không chặn click.
 
 ### C. Standard API & Props
+
 - `value` / `defaultValue` / `onChange`: Pattern Controlled & Uncontrolled.
 - `disabled` / `required`.
 - `name`: Native form submission.
@@ -34,6 +38,7 @@ Native Select sử dụng `<select>` element gốc của browser, kế thừa to
 - Forward `ref` đến native `<select>`.
 
 ### D. WCAG 2.2 Success Criteria
+
 - **1.3.1 Info and Relationships (A):** Label association.
 - **1.4.3 Contrast Minimum (AA):** Selected text contrast.
 - **1.4.11 Non-text Contrast (AA):** Border contrast, arrow icon contrast.
@@ -49,12 +54,14 @@ Native Select sử dụng `<select>` element gốc của browser, kế thừa to
 - **Native DOM Flow (Rule #12):** Không ép `w-full` mặc định.
 
 ## 3. Nhiệm vụ của bạn (AI)
+
 1. Đóng vai một W3C Auditor và Senior UI Architect.
 2. Đọc và phân tích file source code `src/components/ui/native-select.tsx`.
 3. Kiểm tra chéo từng tiêu chí, đặc biệt: **Form Control Parity** (sizing chính xác với Input), **Custom arrow icon** (có chặn click không?), và **Placeholder option** (disabled + selected + value="").
 4. Cung cấp một báo cáo chi tiết về mức độ đạt chuẩn của component. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff** để hướng dẫn Refactor.
 
 ### Kiểm tra Showcase (Bắt buộc)
+
 1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo ra một block showcase chuẩn chỉnh (sử dụng `<ShowcaseBlock>` hoặc `<SectionHeader>`) và chèn vào file phù hợp nhất.
 
@@ -62,9 +69,9 @@ Native Select sử dụng `<select>` element gốc của browser, kế thừa to
 
 ## Audit Result — 2026-06-28
 
-| Rule/Tiêu chí | Verdict | Note |
-|---------------|---------|------|
-| W3C APG / ARIA | ✅ | Dùng native `<select>` nên toàn bộ ARIA hoàn hảo |
-| 21. CSS Depth Boundary | ✅ | Không có deep CSS selectors |
-| Form Control Parity | ✅ | Kích thước và focus-visible khớp hoàn toàn với Input |
-| Dark Mode Compliance | ✅ | Icon dùng `pointer-events-none`, `dark:bg-input/30` hiển thị tốt |
+| Rule/Tiêu chí          | Verdict | Note                                                             |
+| ---------------------- | ------- | ---------------------------------------------------------------- |
+| W3C APG / ARIA         | ✅      | Dùng native `<select>` nên toàn bộ ARIA hoàn hảo                 |
+| 21. CSS Depth Boundary | ✅      | Không có deep CSS selectors                                      |
+| Form Control Parity    | ✅      | Kích thước và focus-visible khớp hoàn toàn với Input             |
+| Dark Mode Compliance   | ✅      | Icon dùng `pointer-events-none`, `dark:bg-input/30` hiển thị tốt |

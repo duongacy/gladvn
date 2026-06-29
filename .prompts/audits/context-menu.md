@@ -3,9 +3,11 @@
 **Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
+
 Context Menu xuất hiện khi user right-click (hoặc long-press trên mobile) lên trigger area. BẮT BUỘC kiểm tra:
 
 ### A. Anatomy & WAI-ARIA Roles
+
 - **Trigger Area:**
   - Trigger KHÔNG cần `aria-haspopup` (context menu là implicit behavior, không cần announce trước).
   - Trigger có thể là bất kỳ element nào (text area, card, etc.).
@@ -25,6 +27,7 @@ Context Menu xuất hiện khi user right-click (hoặc long-press trên mobile)
   - `role="separator"`.
 
 ### B. Keyboard Navigation & Focus
+
 - **Open:** Right-click hoặc `Shift+F10` (Windows convention). Trên macOS: `Ctrl+Click`.
 - **Navigation (Menu Open):**
   - `Arrow Down`: Focus menuitem tiếp theo.
@@ -41,10 +44,12 @@ Context Menu xuất hiện khi user right-click (hoặc long-press trên mobile)
   - Roving tabindex: Chỉ item đang focused có `tabindex="0"`.
 
 ### C. Standard API & Props
+
 - Composition: Root, Trigger, Portal, Content, Item, Sub, SubTrigger, SubContent, CheckboxItem, RadioItem, RadioGroup, Separator, Label.
 - `onOpenChange`.
 
 ### D. WCAG 2.2 Success Criteria
+
 - **2.1.1 Keyboard (A):** Full keyboard navigation (Shift+F10, arrow keys, type-ahead).
 - **2.4.3 Focus Order (A):** Logical focus order trong menu.
 - **4.1.2 Name, Role, Value (A):** Screen reader phải announce role ("menu"), item role ("menuitem"/"menuitemcheckbox"/"menuitemradio"), state.
@@ -57,12 +62,14 @@ Context Menu xuất hiện khi user right-click (hoặc long-press trên mobile)
 - **Linear Design (Rule #5):** Item styling (highlight, disabled) phải đồng bộ với Dropdown Menu.
 
 ## 3. Nhiệm vụ của bạn (AI)
+
 1. Đóng vai một W3C Auditor và Senior UI Architect.
 2. Đọc và phân tích file source code `src/components/ui/context-menu.tsx`.
 3. Kiểm tra chéo từng tiêu chí, đặc biệt: **ARIA roles** (menu, menuitem, menuitemcheckbox, menuitemradio), **Keyboard navigation** (Shift+F10, type-ahead, submenu arrow keys), và **Focus management**.
 4. Cung cấp một báo cáo chi tiết. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff**.
 
 ### Kiểm tra Showcase (Bắt buộc)
+
 1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
@@ -70,14 +77,15 @@ Context Menu xuất hiện khi user right-click (hoặc long-press trên mobile)
 
 ## Audit Result — 2026-06-28
 
-| Rule/Tiêu chí | Verdict | Note |
-|---------------|---------|------|
-| W3C APG / ARIA | ✅ | Menu button ARIA roles và full keyboard navigation được Base UI hỗ trợ hoàn hảo |
-| 21. CSS Depth Boundary | ❌ | Vi phạm ở nhiều Items (`ContextMenuItem`, `SubTrigger`, `CheckboxItem`, `RadioItem`): lạm dụng `[&_svg]` và `*:[svg]`. Cần đổi sang `[&>svg]`. |
-| Form Control Parity | ✅ | Sizing (h-7, h-8, h-9) không trực tiếp áp dụng nhưng base styling đồng nhất với DropdownMenu |
-| Dark Mode Compliance | ✅ | Semantic tokens tốt, hover và focus state hiển thị chuẩn |
+| Rule/Tiêu chí          | Verdict | Note                                                                                                                                           |
+| ---------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| W3C APG / ARIA         | ✅      | Menu button ARIA roles và full keyboard navigation được Base UI hỗ trợ hoàn hảo                                                                |
+| 21. CSS Depth Boundary | ❌      | Vi phạm ở nhiều Items (`ContextMenuItem`, `SubTrigger`, `CheckboxItem`, `RadioItem`): lạm dụng `[&_svg]` và `*:[svg]`. Cần đổi sang `[&>svg]`. |
+| Form Control Parity    | ✅      | Sizing (h-7, h-8, h-9) không trực tiếp áp dụng nhưng base styling đồng nhất với DropdownMenu                                                   |
+| Dark Mode Compliance   | ✅      | Semantic tokens tốt, hover và focus state hiển thị chuẩn                                                                                       |
 
 ### Diffs cần fix
+
 ```diff
 - "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 focus:*:[svg]:text-accent-foreground data-[variant=destructive]:*:[svg]:text-destructive"
 + "[&>svg]:pointer-events-none [&>svg]:shrink-0 [&>svg:not([class*='size-'])]:size-4 focus:[&>svg]:text-accent-foreground data-[variant=destructive]:[&>svg]:text-destructive"

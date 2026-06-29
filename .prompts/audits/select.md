@@ -3,9 +3,11 @@
 **Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
+
 Select (custom dropdown) cho phép user chọn một giá trị từ danh sách options. Đây là một trong những component phức tạp nhất về accessibility. BẮT BUỘC kiểm tra:
 
 ### A. Anatomy & WAI-ARIA Roles
+
 - **Trigger (Button):**
   - Phải có `role="combobox"` hoặc dùng pattern listbox-trigger.
   - Phải có `aria-haspopup="listbox"`.
@@ -27,6 +29,7 @@ Select (custom dropdown) cho phép user chọn một giá trị từ danh sách 
   - Phải có `role="separator"`.
 
 ### B. Keyboard Navigation & Focus
+
 - **Trigger Focused (Listbox Closed):**
   - `Enter` / `Space`: Mở listbox.
   - `Arrow Down`: Mở listbox và focus option đầu tiên (hoặc selected option).
@@ -42,6 +45,7 @@ Select (custom dropdown) cho phép user chọn một giá trị từ danh sách 
 - **Focus Management:** Khi mở listbox, focus phải nhảy vào listbox. Khi đóng, focus phải quay về trigger.
 
 ### C. Standard API & Props
+
 - `value` / `defaultValue` / `onValueChange`: Pattern Controlled & Uncontrolled.
 - `open` / `defaultOpen` / `onOpenChange`: Control popup state.
 - `disabled`: Vô hiệu hoá select.
@@ -51,6 +55,7 @@ Select (custom dropdown) cho phép user chọn một giá trị từ danh sách 
 - Composition: Root, Trigger, Value, Content, Group, Label, Item, Separator.
 
 ### D. WCAG 2.2 Success Criteria
+
 - **1.3.1 Info and Relationships (A):** Trigger-listbox relationship, option-group relationship phải programmatic.
 - **1.4.3 Contrast Minimum (AA):** Selected option highlight, option text contrast.
 - **1.4.11 Non-text Contrast (AA):** Trigger border, dropdown border, focus indicator trên option.
@@ -68,12 +73,14 @@ Select (custom dropdown) cho phép user chọn một giá trị từ danh sách 
 - **Flat Data First (Rule #14):** Nếu nhận data prop, phải là `Array<T>` phẳng.
 
 ## 3. Nhiệm vụ của bạn (AI)
+
 1. Đóng vai một W3C Auditor và Senior UI Architect.
 2. Đọc và phân tích file source code `src/components/ui/select.tsx`.
 3. Kiểm tra chéo từng tiêu chí, đặc biệt: **ARIA attributes** (combobox/listbox pattern), **Keyboard navigation** (type-ahead, arrow keys, Esc), **Focus management** (focus trap trong popup), và **Form Control Parity** (trigger sizing alignment).
 4. Cung cấp một báo cáo chi tiết về mức độ đạt chuẩn của component. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff** để hướng dẫn Refactor.
 
 ### Kiểm tra Showcase (Bắt buộc)
+
 1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo ra một block showcase chuẩn chỉnh (sử dụng `<ShowcaseBlock>` hoặc `<SectionHeader>`) và chèn vào file phù hợp nhất.
 
@@ -81,14 +88,15 @@ Select (custom dropdown) cho phép user chọn một giá trị từ danh sách 
 
 ## Audit Result — 2026-06-28
 
-| Rule/Tiêu chí | Verdict | Note |
-|---------------|---------|------|
-| W3C APG / ARIA | ✅ | Cấu trúc listbox chuẩn, hỗ trợ type-ahead và arrow keys từ Base UI |
-| 21. CSS Depth Boundary | ❌ | Vi phạm nhiều chỗ: `SelectTrigger`, `SelectItem`, `SelectScrollUpButton`, `SelectScrollDownButton` lạm dụng `[&_svg]`. Đặc biệt `SelectItem` có `*:[span]:last:...` cực kỳ sâu. Nên đổi thành `[&>svg]` hoặc class tương ứng. |
-| Form Control Parity | ✅ | Trigger sizing (h-7, h-8, h-9) và focus ring hoàn toàn khớp |
-| Dark Mode Compliance | ✅ | Semantic tokens tốt, dark variants hoạt động đúng |
+| Rule/Tiêu chí          | Verdict | Note                                                                                                                                                                                                                          |
+| ---------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| W3C APG / ARIA         | ✅      | Cấu trúc listbox chuẩn, hỗ trợ type-ahead và arrow keys từ Base UI                                                                                                                                                            |
+| 21. CSS Depth Boundary | ❌      | Vi phạm nhiều chỗ: `SelectTrigger`, `SelectItem`, `SelectScrollUpButton`, `SelectScrollDownButton` lạm dụng `[&_svg]`. Đặc biệt `SelectItem` có `*:[span]:last:...` cực kỳ sâu. Nên đổi thành `[&>svg]` hoặc class tương ứng. |
+| Form Control Parity    | ✅      | Trigger sizing (h-7, h-8, h-9) và focus ring hoàn toàn khớp                                                                                                                                                                   |
+| Dark Mode Compliance   | ✅      | Semantic tokens tốt, dark variants hoạt động đúng                                                                                                                                                                             |
 
 ### Diffs cần fix
+
 ```diff
 - "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
 + "[&>svg]:pointer-events-none [&>svg]:shrink-0 [&>svg:not([class*='size-'])]:size-4"

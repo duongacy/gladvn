@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Card,
   CardContent,
@@ -6,16 +7,39 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  MonoSelect,
 } from "../../index";
-import { SectionHeader, ExampleSection, ExampleGrid } from "../components/showcase";
+import {
+  SectionHeader,
+  ExampleSection,
+  ExampleGrid,
+} from "../components/showcase";
 
 export default function CarouselShowcase() {
+  const [globalSize, setGlobalSize] = useState<"sm" | "md" | "lg">("md");
+
   return (
     <div className="space-y-10">
-      <SectionHeader title="Carousel" description="A carousel with motion and swipe built using Embla." />
+      <SectionHeader
+        title="Carousel"
+        description="A carousel with motion and swipe built using Embla."
+      >
+        <MonoSelect
+          value={globalSize}
+          onValueChange={(v) => setGlobalSize(v as any)}
+          options={[
+            { value: "sm", label: "Size: sm" },
+            { value: "md", label: "Size: md" },
+            { value: "lg", label: "Size: lg" },
+          ]}
+        />
+      </SectionHeader>
 
       {/* ── Default ── */}
-      <ExampleSection label="Default" description="Swipeable carousel with navigation arrows.">
+      <ExampleSection
+        label="Default"
+        description="Swipeable carousel with navigation arrows."
+      >
         <Carousel className="w-full max-w-sm mx-auto">
           <CarouselContent>
             {Array.from({ length: 5 }).map((_, index) => (
@@ -23,20 +47,25 @@ export default function CarouselShowcase() {
                 <div className="p-1">
                   <Card>
                     <CardContent className="flex aspect-square items-center justify-center p-6">
-                      <span className="text-4xl font-semibold">{index + 1}</span>
+                      <span className="text-4xl font-semibold">
+                        {index + 1}
+                      </span>
                     </CardContent>
                   </Card>
                 </div>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious size={globalSize} />
+          <CarouselNext size={globalSize} />
         </Carousel>
       </ExampleSection>
 
       {/* ── Multiple Items ── */}
-      <ExampleSection label="Multiple Items" description="Show 3 items at once using basis-1/3.">
+      <ExampleSection
+        label="Multiple Items"
+        description="Show 3 items at once using basis-1/3."
+      >
         <Carousel className="w-full max-w-lg mx-auto">
           <CarouselContent className="-ml-2">
             {Array.from({ length: 8 }).map((_, index) => (
@@ -49,13 +78,16 @@ export default function CarouselShowcase() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious size={globalSize} />
+          <CarouselNext size={globalSize} />
         </Carousel>
       </ExampleSection>
 
       {/* ── Two Per Row ── */}
-      <ExampleSection label="Two Per Row" description="Show 2 items at once using basis-1/2.">
+      <ExampleSection
+        label="Two Per Row"
+        description="Show 2 items at once using basis-1/2."
+      >
         <Carousel className="w-full max-w-md mx-auto">
           <CarouselContent className="-ml-4">
             {Array.from({ length: 6 }).map((_, index) => (
@@ -68,8 +100,8 @@ export default function CarouselShowcase() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious size={globalSize} />
+          <CarouselNext size={globalSize} />
         </Carousel>
       </ExampleSection>
     </div>

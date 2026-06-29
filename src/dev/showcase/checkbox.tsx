@@ -1,6 +1,12 @@
 import { useState } from "react";
-import { Checkbox, Label, MonoSelect } from "../../index";
-import { SectionHeader, ExampleSection, ExampleGrid } from "../components/showcase";
+import { Checkbox, CheckboxIndicator, Label, MonoSelect } from "../../index";
+import { Checkbox as MonolithicCheckbox } from "../../components/monolithic/checkbox";
+import { CheckIcon, MinusIcon } from "lucide-react";
+import {
+  SectionHeader,
+  ExampleSection,
+  ExampleGrid,
+} from "../components/showcase";
 
 export default function CheckboxShowcase() {
   const [globalSize, setGlobalSize] = useState<"sm" | "md" | "lg">("md");
@@ -22,10 +28,59 @@ export default function CheckboxShowcase() {
         />
       </SectionHeader>
 
-      {/* ── Basic ─────────────────────────────────── */}
-      <ExampleSection label="Default" description="Single checkbox with a label.">
+      {/* ── Monolithic ─────────────────────────────────── */}
+      <ExampleSection
+        label="Monolithic"
+        description="Single checkbox component without needing to import Indicator."
+      >
         <div className="flex items-center space-x-3">
-          <Checkbox id="terms" size={globalSize} />
+          <MonolithicCheckbox id="terms" size={globalSize} />
+          <Label htmlFor="terms" className="font-normal cursor-pointer">
+            Accept terms and conditions
+          </Label>
+        </div>
+      </ExampleSection>
+
+      {/* ── Compositional ──────────────────────────────── */}
+      <ExampleSection
+        label="Compositional"
+        description="Using the core API to fully customize the checkbox icon."
+      >
+        <div className="flex items-center space-x-3">
+          <Checkbox id="terms-custom" size={globalSize}>
+            <CheckboxIndicator>
+              <MinusIcon className="size-3" />
+            </CheckboxIndicator>
+          </Checkbox>
+          <Label htmlFor="terms-custom" className="font-normal cursor-pointer">
+            Indeterminate state (custom icon)
+          </Label>
+        </div>
+      </ExampleSection>
+
+      {/* ── Disabled ──────────────────────────────── */}
+      <ExampleSection
+        label="Disabled"
+        description="Checkbox in a disabled state."
+      >
+        <div className="flex items-center space-x-3">
+          <MonolithicCheckbox id="terms-disabled" disabled size={globalSize} />
+          <Label
+            htmlFor="terms-disabled"
+            className="font-normal cursor-pointer opacity-50"
+          >
+            Accept terms and conditions
+          </Label>
+        </div>
+      </ExampleSection>
+
+      {/* ── Basic ─────────────────────────────────── */}
+      <ExampleSection
+        label="Default"
+        description="Single checkbox with a label."
+      >
+        <div className="flex items-center space-x-3">
+          <MonolithicCheckbox id="terms" size={globalSize} />
           <Label htmlFor="terms" className="font-normal cursor-pointer">
             Accept terms and conditions
           </Label>
@@ -33,7 +88,10 @@ export default function CheckboxShowcase() {
       </ExampleSection>
 
       {/* ── With Description ──────────────────────── */}
-      <ExampleSection label="With Description" description="Checkbox accompanied by helper text.">
+      <ExampleSection
+        label="With Description"
+        description="Checkbox accompanied by helper text."
+      >
         <div className="items-top flex space-x-3">
           <Checkbox id="terms1" size={globalSize} />
           <div className="grid gap-1.5 leading-none">
@@ -53,32 +111,50 @@ export default function CheckboxShowcase() {
           <div className="flex flex-col gap-4">
             <div className="flex items-center space-x-3">
               <Checkbox id="terms2" disabled size={globalSize} />
-              <Label htmlFor="terms2" className="font-normal text-muted-foreground">
+              <Label
+                htmlFor="terms2"
+                className="font-normal text-muted-foreground"
+              >
                 Unchecked & disabled
               </Label>
             </div>
             <div className="flex items-center space-x-3">
               <Checkbox id="terms3" disabled defaultChecked size={globalSize} />
-              <Label htmlFor="terms3" className="font-normal text-muted-foreground">
+              <Label
+                htmlFor="terms3"
+                className="font-normal text-muted-foreground"
+              >
                 Checked & disabled
               </Label>
             </div>
           </div>
         </ExampleSection>
 
-        <ExampleSection label="Form Group" description="Multiple related options.">
+        <ExampleSection
+          label="Form Group"
+          description="Multiple related options."
+        >
           <div className="flex flex-col gap-3">
             <div className="flex items-center space-x-3">
               <Checkbox id="recents" defaultChecked size={globalSize} />
-              <Label htmlFor="recents" className="font-normal cursor-pointer">Recents</Label>
+              <Label htmlFor="recents" className="font-normal cursor-pointer">
+                Recents
+              </Label>
             </div>
             <div className="flex items-center space-x-3">
               <Checkbox id="home" defaultChecked size={globalSize} />
-              <Label htmlFor="home" className="font-normal cursor-pointer">Home</Label>
+              <Label htmlFor="home" className="font-normal cursor-pointer">
+                Home
+              </Label>
             </div>
             <div className="flex items-center space-x-3">
               <Checkbox id="applications" size={globalSize} />
-              <Label htmlFor="applications" className="font-normal cursor-pointer">Applications</Label>
+              <Label
+                htmlFor="applications"
+                className="font-normal cursor-pointer"
+              >
+                Applications
+              </Label>
             </div>
           </div>
         </ExampleSection>

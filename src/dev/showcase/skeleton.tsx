@@ -1,13 +1,23 @@
-import { Skeleton } from "../../index"
-import { SectionHeader, ExampleSection, ExampleGrid } from "../components/showcase";
+import { Skeleton } from "../../index";
+import {
+  SectionHeader,
+  ExampleSection,
+  ExampleGrid,
+} from "../components/showcase";
 
 export default function SkeletonShowcase() {
   return (
     <div className="space-y-10">
-      <SectionHeader title="Skeleton" description="Use to show a placeholder while content is loading." />
+      <SectionHeader
+        title="Skeleton"
+        description="Use to show a placeholder while content is loading."
+      />
 
       <ExampleGrid columns={2}>
-        <ExampleSection label="Card Skeleton" description="User profile card loading state.">
+        <ExampleSection
+          label="Card Skeleton"
+          description="User profile card loading state."
+        >
           <div className="space-y-6 w-full max-w-sm">
             <div className="flex items-center space-x-4">
               <Skeleton className="h-12 w-12 rounded-full" />
@@ -23,7 +33,10 @@ export default function SkeletonShowcase() {
           </div>
         </ExampleSection>
 
-        <ExampleSection label="Article Skeleton" description="Blog post or content loading state.">
+        <ExampleSection
+          label="Article Skeleton"
+          description="Blog post or content loading state."
+        >
           <div className="space-y-4 w-full max-w-sm">
             <Skeleton className="h-5 w-3/4" />
             <Skeleton className="h-4 w-full" />

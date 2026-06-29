@@ -8,7 +8,10 @@ export default function ToastShowcase() {
 
   return (
     <div className="space-y-10">
-      <SectionHeader title="Toast" description="A succinct message that is displayed temporarily.">
+      <SectionHeader
+        title="Toast"
+        description="A succinct message that is displayed temporarily."
+      >
         <MonoSelect
           value={globalSize}
           onValueChange={(v) => setGlobalSize(v as any)}
@@ -20,7 +23,10 @@ export default function ToastShowcase() {
         />
       </SectionHeader>
 
-      <ExampleSection label="Toast Notifications" description="Click to trigger different toasts.">
+      <ExampleSection
+        label="Toast Notifications"
+        description="Click to trigger different toasts."
+      >
         <div className="flex flex-wrap gap-3">
           <Button
             variant="outline"

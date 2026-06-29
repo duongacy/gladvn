@@ -1,14 +1,44 @@
 import { useState } from "react";
-import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuGroup, DropdownMenuShortcut, Button, MonoSelect } from "../../index";
-import { SectionHeader, ExampleSection, ExampleGrid } from "../components/showcase";
-import { UserIcon, SettingsIcon, LogOutIcon, CreditCardIcon, HelpCircleIcon } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuGroup,
+  DropdownMenuShortcut,
+  DropdownMenuCheckboxItem,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuSub,
+  DropdownMenuSubTrigger,
+  DropdownMenuSubContent,
+  Button,
+  MonoSelect,
+} from "../../index";
+import {
+  SectionHeader,
+  ExampleSection,
+  ExampleGrid,
+} from "../components/showcase";
+import {
+  UserIcon,
+  SettingsIcon,
+  LogOutIcon,
+  CreditCardIcon,
+  HelpCircleIcon,
+} from "lucide-react";
 
 export default function DropdownMenuShowcase() {
   const [globalSize, setGlobalSize] = useState<"sm" | "md" | "lg">("md");
 
   return (
     <div className="space-y-10">
-      <SectionHeader title="Dropdown Menu" description="Displays a menu to the user—such as a set of actions or functions—triggered by a button.">
+      <SectionHeader
+        title="Dropdown Menu"
+        description="Displays a menu to the user—such as a set of actions or functions—triggered by a button."
+      >
         <MonoSelect
           value={globalSize}
           onValueChange={(v) => setGlobalSize(v as any)}
@@ -21,9 +51,18 @@ export default function DropdownMenuShowcase() {
       </SectionHeader>
 
       <ExampleGrid columns={2}>
-        <ExampleSection label="Standard Dropdown" description="Basic menu with shortcuts.">
+        <ExampleSection
+          label="Standard Dropdown"
+          description="Basic menu with shortcuts."
+        >
           <DropdownMenu>
-            <DropdownMenuTrigger render={<Button variant="outline" size={globalSize}>Open Menu</Button>} />
+            <DropdownMenuTrigger
+              render={
+                <Button variant="outline" size={globalSize}>
+                  Open Menu
+                </Button>
+              }
+            />
             <DropdownMenuContent className="w-56">
               <DropdownMenuLabel>My Account</DropdownMenuLabel>
               <DropdownMenuSeparator />
@@ -54,9 +93,18 @@ export default function DropdownMenuShowcase() {
           </DropdownMenu>
         </ExampleSection>
 
-        <ExampleSection label="With Disabled Items" description="Some items are non-interactive.">
+        <ExampleSection
+          label="With Disabled Items"
+          description="Some items are non-interactive."
+        >
           <DropdownMenu>
-            <DropdownMenuTrigger render={<Button variant="outline" size={globalSize}>Actions</Button>} />
+            <DropdownMenuTrigger
+              render={
+                <Button variant="outline" size={globalSize}>
+                  Actions
+                </Button>
+              }
+            />
             <DropdownMenuContent className="w-56">
               <DropdownMenuLabel>Actions</DropdownMenuLabel>
               <DropdownMenuSeparator />
@@ -77,6 +125,50 @@ export default function DropdownMenuShowcase() {
                 <LogOutIcon className="mr-2 h-4 w-4" />
                 <span>Log out</span>
               </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </ExampleSection>
+        <ExampleSection
+          label="Advanced Dropdown"
+          description="Menu with checkboxes, radio items, and submenus."
+        >
+          <DropdownMenu>
+            <DropdownMenuTrigger
+              render={
+                <Button variant="outline" size={globalSize}>
+                  Advanced
+                </Button>
+              }
+            />
+            <DropdownMenuContent className="w-56">
+              <DropdownMenuLabel>Appearance</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuCheckboxItem checked>
+                Show Status Bar
+              </DropdownMenuCheckboxItem>
+              <DropdownMenuCheckboxItem disabled>
+                Show Activity Bar
+              </DropdownMenuCheckboxItem>
+              <DropdownMenuCheckboxItem>Show Panel</DropdownMenuCheckboxItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuSub>
+                <DropdownMenuSubTrigger>Theme</DropdownMenuSubTrigger>
+                <DropdownMenuSubContent>
+                  <DropdownMenuItem>Light</DropdownMenuItem>
+                  <DropdownMenuItem>Dark</DropdownMenuItem>
+                  <DropdownMenuItem>System</DropdownMenuItem>
+                </DropdownMenuSubContent>
+              </DropdownMenuSub>
+              <DropdownMenuSeparator />
+              <DropdownMenuRadioGroup value="bottom">
+                <DropdownMenuRadioItem value="top">Top</DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="bottom">
+                  Bottom
+                </DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="right">
+                  Right
+                </DropdownMenuRadioItem>
+              </DropdownMenuRadioGroup>
             </DropdownMenuContent>
           </DropdownMenu>
         </ExampleSection>

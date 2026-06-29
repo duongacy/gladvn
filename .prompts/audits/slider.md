@@ -3,9 +3,11 @@
 **Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
+
 Slider cho phép user chọn một giá trị (hoặc khoảng giá trị) từ một range bằng cách kéo thumb dọc theo track. BẮT BUỘC kiểm tra:
 
 ### A. Anatomy & WAI-ARIA Roles
+
 - **Slider Container:**
   - Phải có accessible name thông qua `aria-label` hoặc `aria-labelledby`.
 - **Thumb (Knob):**
@@ -22,6 +24,7 @@ Slider cho phép user chọn một giá trị (hoặc khoảng giá trị) từ 
   - Track và fill bar là decorative — có thể có `aria-hidden="true"`.
 
 ### B. Keyboard Navigation & Focus
+
 - `Arrow Right` / `Arrow Up`: Tăng giá trị 1 step.
 - `Arrow Left` / `Arrow Down`: Giảm giá trị 1 step.
 - `Page Up`: Tăng giá trị một bước lớn (thường 10 steps hoặc 10%).
@@ -32,6 +35,7 @@ Slider cho phép user chọn một giá trị (hoặc khoảng giá trị) từ 
 - **Range Slider:** `Tab` di chuyển focus giữa 2 thumbs.
 
 ### C. Standard API & Props
+
 - `value` / `defaultValue` / `onValueChange`: Pattern Controlled & Uncontrolled. Hỗ trợ cả single value và array (range).
 - `min` / `max` / `step`: Range configuration.
 - `disabled`: Vô hiệu hoá slider.
@@ -39,6 +43,7 @@ Slider cho phép user chọn một giá trị (hoặc khoảng giá trị) từ 
 - `name`: Native form submission support.
 
 ### D. WCAG 2.2 Success Criteria
+
 - **1.3.1 Info and Relationships (A):** Slider phải có label programmatically associated.
 - **1.4.1 Use of Color (A):** Fill bar không được là indicator duy nhất — thumb position và `aria-valuenow` phải đủ.
 - **1.4.11 Non-text Contrast (AA):** Track, fill bar, thumb, và focus ring đều phải đạt 3:1 contrast.
@@ -56,12 +61,14 @@ Slider cho phép user chọn một giá trị (hoặc khoảng giá trị) từ 
 - **Native DOM Flow (Rule #12):** Slider KHÔNG có `w-full` mặc định — để developer tự quyết width.
 
 ## 3. Nhiệm vụ của bạn (AI)
+
 1. Đóng vai một W3C Auditor và Senior UI Architect.
 2. Đọc và phân tích file source code `src/components/ui/slider.tsx`.
 3. Kiểm tra chéo từng tiêu chí, đặc biệt: **ARIA attributes trên thumb** (`aria-valuenow`, `aria-valuemin`, `aria-valuemax`), **Keyboard interactions** (Page Up/Down, Home/End), và **Range slider** support.
 4. Cung cấp một báo cáo chi tiết về mức độ đạt chuẩn của component. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff** để hướng dẫn Refactor.
 
 ### Kiểm tra Showcase (Bắt buộc)
+
 1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo ra một block showcase chuẩn chỉnh (sử dụng `<ShowcaseBlock>` hoặc `<SectionHeader>`) và chèn vào file phù hợp nhất.
 
@@ -69,9 +76,9 @@ Slider cho phép user chọn một giá trị (hoặc khoảng giá trị) từ 
 
 ## Audit Result — 2026-06-28
 
-| Rule/Tiêu chí | Verdict | Note |
-|---------------|---------|------|
-| W3C APG / ARIA | ✅ | Các thuộc tính ARIA (`aria-valuenow`, `aria-valuemin`, `aria-valuemax`) trên thumb đầy đủ |
-| 21. CSS Depth Boundary | ✅ | Không có deep CSS selectors, thumb được style trực tiếp bằng variant |
-| Form Control Parity | ✅ | Focus ring token khớp chuẩn Form Control |
-| Dark Mode Compliance | ✅ | Có đầy đủ dark variants cho invalid/focus state |
+| Rule/Tiêu chí          | Verdict | Note                                                                                      |
+| ---------------------- | ------- | ----------------------------------------------------------------------------------------- |
+| W3C APG / ARIA         | ✅      | Các thuộc tính ARIA (`aria-valuenow`, `aria-valuemin`, `aria-valuemax`) trên thumb đầy đủ |
+| 21. CSS Depth Boundary | ✅      | Không có deep CSS selectors, thumb được style trực tiếp bằng variant                      |
+| Form Control Parity    | ✅      | Focus ring token khớp chuẩn Form Control                                                  |
+| Dark Mode Compliance   | ✅      | Có đầy đủ dark variants cho invalid/focus state                                           |

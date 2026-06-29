@@ -1,17 +1,33 @@
 import { useState } from "react";
 import {
-  Field, FieldContent, FieldDescription, FieldError,
+  Field,
   FieldLabel,
-  Input, MonoSelect, Checkbox,
+  FieldDescription,
+  FieldContent,
+  FieldError,
+  Input,
+  FieldGroup,
+  FieldLegend,
+  FieldSeparator,
+  FieldSet,
+  FieldTitle,
+  MonoSelect,
 } from "../../index";
-import { SectionHeader, ExampleSection, ExampleGrid } from "../components/showcase";
+import {
+  SectionHeader,
+  ExampleSection,
+  ExampleGrid,
+} from "../components/showcase";
 
 export default function FieldShowcase() {
-  const [globalSize, setGlobalSize] = useState<"sm" | "md" | "lg">("md")
+  const [globalSize, setGlobalSize] = useState<"sm" | "md" | "lg">("md");
 
   return (
     <div className="space-y-10">
-      <SectionHeader title="Field" description="A form field wrapper that manages label, description, and error states.">
+      <SectionHeader
+        title="Field"
+        description="Wrapper component to manage form field state, labels, and errors."
+      >
         <MonoSelect
           value={globalSize}
           onValueChange={(v) => setGlobalSize(v as any)}
@@ -23,48 +39,68 @@ export default function FieldShowcase() {
         />
       </SectionHeader>
 
-      {/* ── Standard ── */}
-      <ExampleSection label="Standard" description="Normal field with label, description, and input.">
-        <div className="w-full max-w-sm">
-          <Field size={globalSize}>
-            <FieldLabel htmlFor="tf-standard">Email</FieldLabel>
-            <FieldDescription>We'll never share your email with anyone else.</FieldDescription>
-            <FieldContent>
-              <Input id="tf-standard" size={globalSize} placeholder="you@example.com" />
-            </FieldContent>
-          </Field>
-        </div>
-      </ExampleSection>
-
       <ExampleGrid columns={2}>
-        {/* ── Validation State ── */}
-        <ExampleSection label="Validation State" description="The field handles its own invalid state automatically.">
-          <div className="w-full max-w-sm">
-            <Field data-invalid="true" size={globalSize}>
-              <FieldLabel htmlFor="tf-error">Email</FieldLabel>
-              <FieldDescription>The field handles its own invalid state automatically.</FieldDescription>
-              <FieldContent>
-                <Input id="tf-error" size={globalSize} defaultValue="wrong@email" />
-              </FieldContent>
-              <FieldError>Invalid email address format.</FieldError>
-            </Field>
-          </div>
+        <ExampleSection
+          label="Basic"
+          description="A standard field with label and description."
+        >
+          <Field size={globalSize} className="max-w-sm">
+            <FieldLabel>Username</FieldLabel>
+            <FieldContent>
+              <Input placeholder="Enter username..." size={globalSize} />
+            </FieldContent>
+            <FieldDescription>
+              This is your public display name.
+            </FieldDescription>
+          </Field>
         </ExampleSection>
 
-        {/* ── Horizontal ── */}
-        <ExampleSection label="Horizontal" description='orientation="horizontal" places label beside the control.'>
-          <div className="w-full max-w-sm space-y-4">
-            <Field orientation="horizontal" size={globalSize} className="justify-between">
-              <FieldLabel htmlFor="tf-horizontal">Notifications</FieldLabel>
-              <Checkbox id="tf-horizontal" size={globalSize} />
-            </Field>
-            <Field orientation="horizontal" size={globalSize} className="justify-between">
-              <FieldLabel htmlFor="tf-horizontal2">Dark Mode</FieldLabel>
-              <Checkbox id="tf-horizontal2" size={globalSize} defaultChecked />
-            </Field>
-          </div>
+        <ExampleSection
+          label="With Error"
+          description="Field displaying validation error."
+        >
+          <Field size={globalSize} className="max-w-sm" data-invalid={true}>
+            <FieldLabel>Username</FieldLabel>
+            <FieldContent>
+              <Input
+                defaultValue="pedro"
+                size={globalSize}
+                aria-invalid={true}
+              />
+            </FieldContent>
+            <FieldError>Username is already taken.</FieldError>
+          </Field>
         </ExampleSection>
       </ExampleGrid>
+
+      <ExampleSection
+        label="Fieldset and Group"
+        description="Grouping multiple related fields together."
+      >
+        <FieldSet className="max-w-md border p-6 rounded-xl">
+          <FieldLegend>
+            <FieldTitle>Personal Information</FieldTitle>
+            <FieldDescription>
+              Please enter your contact details.
+            </FieldDescription>
+          </FieldLegend>
+          <FieldSeparator />
+          <FieldGroup>
+            <Field size={globalSize}>
+              <FieldLabel>First Name</FieldLabel>
+              <FieldContent>
+                <Input placeholder="John" size={globalSize} />
+              </FieldContent>
+            </Field>
+            <Field size={globalSize}>
+              <FieldLabel>Last Name</FieldLabel>
+              <FieldContent>
+                <Input placeholder="Doe" size={globalSize} />
+              </FieldContent>
+            </Field>
+          </FieldGroup>
+        </FieldSet>
+      </ExampleSection>
     </div>
   );
 }

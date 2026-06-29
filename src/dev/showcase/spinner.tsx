@@ -1,20 +1,26 @@
-import { Spinner } from "../../index"
+import { useState } from "react";
+import { Spinner, MonoSelect } from "../../index";
 import { SectionHeader, ExampleSection } from "../components/showcase";
 
 export default function SpinnerShowcase() {
+  const [globalSize, setGlobalSize] = useState<"sm" | "md" | "lg">("md");
+
   return (
     <div className="space-y-10">
-      <SectionHeader title="Spinner" description="A loading spinner indicator." />
+      <SectionHeader title="Spinner" description="A loading spinner indicator.">
+        <MonoSelect
+          value={globalSize}
+          onValueChange={(v) => setGlobalSize(v as any)}
+          options={[
+            { value: "sm", label: "Size: sm" },
+            { value: "md", label: "Size: md" },
+            { value: "lg", label: "Size: lg" },
+          ]}
+        />
+      </SectionHeader>
 
-      <ExampleSection label="Sizes & Colors" description="Spinner in different sizes and colors.">
-        <div className="flex items-center gap-6">
-          <Spinner size="sm" />
-          <Spinner size="md" />
-          <Spinner size="lg" />
-          <Spinner size="lg" color="primary" />
-          <Spinner size="lg" color="destructive" />
-          <Spinner size="lg" color="success" />
-        </div>
+      <ExampleSection label="Default" description="Standard spinner.">
+        <Spinner size={globalSize} />
       </ExampleSection>
     </div>
   );

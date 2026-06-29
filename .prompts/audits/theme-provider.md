@@ -3,9 +3,11 @@
 **Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
+
 Theme Provider quản lý light/dark/system theme cho component library. Không có W3C APG pattern riêng nhưng ảnh hưởng accessibility. BẮT BUỘC kiểm tra:
 
 ### A. Anatomy & WAI-ARIA Roles
+
 - **Theme Application:**
   - Theme PHẢI được áp dụng qua CSS class trên root element (vd: `class="dark"`) hoặc `data-theme` attribute.
   - KHÔNG dùng inline styles cho theming — CSS variables phải cascade từ parent.
@@ -21,16 +23,19 @@ Theme Provider quản lý light/dark/system theme cho component library. Không 
   - Không giả định chỉ test light theme — dark theme cũng phải audit.
 
 ### B. Keyboard Navigation & Focus
+
 - Theme Provider bản thân không focusable — nó là context provider.
 - Theme toggle (nếu có) phải keyboard-accessible.
 
 ### C. Standard API & Props
+
 - `theme` / `defaultTheme`: "light" | "dark" | "system".
 - `storageKey`: LocalStorage key để persist choice.
 - `attribute`: CSS attribute cho theme (`class` hoặc `data-theme`).
 - `disableTransitionOnChange`: Tắt CSS transition khi switch theme (tránh flash).
 
 ### D. WCAG 2.2 Success Criteria
+
 - **1.4.3 Contrast Minimum (AA):** Both themes phải đạt.
 - **1.4.6 Contrast Enhanced (AAA):** Nên aim cho 7:1.
 - **1.4.11 Non-text Contrast (AA):** Borders, icons, focus rings trong cả hai themes.
@@ -43,12 +48,14 @@ Theme Provider quản lý light/dark/system theme cho component library. Không 
 - **No Magic Number (Rule #4):** Tất cả color values phải qua CSS variables.
 
 ## 3. Nhiệm vụ của bạn (AI)
+
 1. Đóng vai một W3C Auditor và Senior UI Architect.
 2. Đọc và phân tích file source code `src/components/ui/theme-provider.tsx`.
 3. Kiểm tra chéo, đặc biệt: **System preference detection** (`prefers-color-scheme`), **Theme persistence** (localStorage), **Portal theme tunneling**, **Flash prevention** (disableTransitionOnChange hoặc script injection), và **Local theme isolation** (can re-declare on any subtree).
 4. Cung cấp một báo cáo chi tiết. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff**.
 
 ### Kiểm tra Showcase (Bắt buộc)
+
 1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
@@ -56,9 +63,9 @@ Theme Provider quản lý light/dark/system theme cho component library. Không 
 
 ## Audit Result — 2026-06-28
 
-| Rule/Tiêu chí | Verdict | Note |
-|---------------|---------|------|
-| W3C APG / ARIA | ✅ | Không có pattern ARIA trực tiếp, nhưng việc không can thiệp DOM là tốt. |
-| 21. CSS Depth Boundary | ✅ | Không vi phạm. Code siêu sạch. |
-| Form Control Parity | ✅ | Hỗ trợ ThemeWrapper cho Portals rất tinh tế. |
-| Dark Mode Compliance | ✅ | Component chịu trách nhiệm cấp phát CSS variables. |
+| Rule/Tiêu chí          | Verdict | Note                                                                    |
+| ---------------------- | ------- | ----------------------------------------------------------------------- |
+| W3C APG / ARIA         | ✅      | Không có pattern ARIA trực tiếp, nhưng việc không can thiệp DOM là tốt. |
+| 21. CSS Depth Boundary | ✅      | Không vi phạm. Code siêu sạch.                                          |
+| Form Control Parity    | ✅      | Hỗ trợ ThemeWrapper cho Portals rất tinh tế.                            |
+| Dark Mode Compliance   | ✅      | Component chịu trách nhiệm cấp phát CSS variables.                      |

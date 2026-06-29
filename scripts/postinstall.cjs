@@ -35,7 +35,7 @@ function isSelfInstall() {
   const projectRoot = findProjectRoot();
   try {
     const pkg = JSON.parse(
-      fs.readFileSync(path.join(projectRoot, "package.json"), "utf8")
+      fs.readFileSync(path.join(projectRoot, "package.json"), "utf8"),
     );
     return pkg.name === "@duongy96/sadcn";
   } catch {
@@ -45,7 +45,13 @@ function isSelfInstall() {
 
 // Copy tokens.css to the target directory
 function copyTokens(projectRoot, targetDir) {
-  const tokensSource = path.join(__dirname, "..", "src", "styles", "tokens.css");
+  const tokensSource = path.join(
+    __dirname,
+    "..",
+    "src",
+    "styles",
+    "tokens.css",
+  );
   const targetPath = path.join(projectRoot, targetDir, "tokens.css");
 
   // Create directory if it doesn't exist
@@ -57,14 +63,14 @@ function copyTokens(projectRoot, targetDir) {
   // Don't overwrite if already exists
   if (fs.existsSync(targetPath)) {
     console.log(
-      `${dim}   ⏭  tokens.css already exists at ${targetDir}/tokens.css — skipped${reset}`
+      `${dim}   ⏭  tokens.css already exists at ${targetDir}/tokens.css — skipped${reset}`,
     );
     return targetPath;
   }
 
   fs.copyFileSync(tokensSource, targetPath);
   console.log(
-    `${green}   ✅ Copied tokens.css → ${targetDir}/tokens.css${reset}`
+    `${green}   ✅ Copied tokens.css → ${targetDir}/tokens.css${reset}`,
   );
   return targetPath;
 }
@@ -81,7 +87,7 @@ function injectImports(cssFilePath, tokensRelPath) {
   // Check if already configured
   if (content.includes("@duongy96/sadcn/globals.css")) {
     console.log(
-      `${dim}   ⏭  @duongy96/sadcn already configured in this file — skipped${reset}`
+      `${dim}   ⏭  @duongy96/sadcn already configured in this file — skipped${reset}`,
     );
     return true;
   }
@@ -104,8 +110,8 @@ function injectImports(cssFilePath, tokensRelPath) {
   fs.writeFileSync(cssFilePath, content);
   console.log(
     `${green}   ✅ Injected sadcn imports into ${path.basename(
-      cssFilePath
-    )}${reset}`
+      cssFilePath,
+    )}${reset}`,
   );
   return true;
 }
@@ -121,25 +127,25 @@ async function interactiveSetup(projectRoot) {
     new Promise((resolve) => rl.question(question, resolve));
 
   console.log(
-    `\n${cyan}╔══════════════════════════════════════════════════════════════════╗${reset}`
+    `\n${cyan}╔══════════════════════════════════════════════════════════════════╗${reset}`,
   );
   console.log(
-    `${cyan}║  ${bold}@duongy96/sadcn${reset}${cyan} — Interactive Setup                          ║${reset}`
+    `${cyan}║  ${bold}@duongy96/sadcn${reset}${cyan} — Interactive Setup                          ║${reset}`,
   );
   console.log(
-    `${cyan}╚══════════════════════════════════════════════════════════════════╝${reset}\n`
+    `${cyan}╚══════════════════════════════════════════════════════════════════╝${reset}\n`,
   );
 
   // Step 1: Ask where to put tokens.css
   const tokensDir = await ask(
-    `${yellow}   📁 Where to copy tokens.css? ${dim}(default: src/styles)${reset}\n   > `
+    `${yellow}   📁 Where to copy tokens.css? ${dim}(default: src/styles)${reset}\n   > `,
   );
   const targetDir = tokensDir.trim() || "src/styles";
   const tokensPath = copyTokens(projectRoot, targetDir);
 
   // Step 2: Ask for main CSS file
   const cssFile = await ask(
-    `\n${yellow}   📄 Path to your main CSS file? ${dim}(e.g. src/app/globals.css)${reset}\n   > `
+    `\n${yellow}   📄 Path to your main CSS file? ${dim}(e.g. src/app/globals.css)${reset}\n   > `,
   );
   const cssFileTrimmed = cssFile.trim();
 
@@ -154,14 +160,12 @@ async function interactiveSetup(projectRoot) {
     console.log(`${dim}   ⏭  Skipped CSS injection${reset}`);
   }
 
+  console.log(`\n${cyan}   🎉 Setup complete! Use components:${reset}`);
   console.log(
-    `\n${cyan}   🎉 Setup complete! Use components:${reset}`
+    `${green}   import { Button, Card } from "@duongy96/sadcn"${reset}`,
   );
   console.log(
-    `${green}   import { Button, Card } from "@duongy96/sadcn"${reset}`
-  );
-  console.log(
-    `\n${dim}   💡 Edit ${targetDir}/tokens.css to customize colors, radius, etc.${reset}\n`
+    `\n${dim}   💡 Edit ${targetDir}/tokens.css to customize colors, radius, etc.${reset}\n`,
   );
 
   rl.close();

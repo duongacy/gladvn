@@ -1,13 +1,19 @@
-import { toast } from "sonner"
-import { Button } from "../../index"
+import { toast } from "sonner";
+import { Button } from "../../index";
 import { SectionHeader, ExampleSection } from "../components/showcase";
 
 export default function SonnerShowcase() {
   return (
     <div className="space-y-10">
-      <SectionHeader title="Sonner" description="An opinionated toast component for React." />
+      <SectionHeader
+        title="Sonner"
+        description="An opinionated toast component for React."
+      />
 
-      <ExampleSection label="Toast Types" description="Click each button to trigger a different toast type.">
+      <ExampleSection
+        label="Toast Types"
+        description="Click each button to trigger a different toast type."
+      >
         <div className="flex flex-wrap gap-2">
           <Button
             variant="outline"
@@ -20,16 +26,32 @@ export default function SonnerShowcase() {
           >
             Default Toast
           </Button>
-          <Button variant="outline" color="success" onClick={() => toast.success("Successfully saved!")}>
+          <Button
+            variant="outline"
+            color="success"
+            onClick={() => toast.success("Successfully saved!")}
+          >
             Success
           </Button>
-          <Button variant="outline" color="destructive" onClick={() => toast.error("An error occurred.")}>
+          <Button
+            variant="outline"
+            color="destructive"
+            onClick={() => toast.error("An error occurred.")}
+          >
             Error
           </Button>
-          <Button variant="outline" color="warning" onClick={() => toast.warning("Connection is unstable.")}>
+          <Button
+            variant="outline"
+            color="warning"
+            onClick={() => toast.warning("Connection is unstable.")}
+          >
             Warning
           </Button>
-          <Button variant="outline" color="info" onClick={() => toast.info("Update is available.")}>
+          <Button
+            variant="outline"
+            color="info"
+            onClick={() => toast.info("Update is available.")}
+          >
             Info
           </Button>
         </div>

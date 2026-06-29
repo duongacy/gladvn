@@ -3,9 +3,11 @@
 **Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
+
 Kbd hiển thị keyboard key hoặc shortcut. BẮT BUỘC kiểm tra:
 
 ### A. Anatomy & WAI-ARIA Roles
+
 - **Native Element:**
   - BẮT BUỘC dùng `<kbd>` element — semantic HTML cho keyboard input.
   - `<kbd>` tự có semantic meaning cho screen reader ("keyboard input").
@@ -17,14 +19,17 @@ Kbd hiển thị keyboard key hoặc shortcut. BẮT BUỘC kiểm tra:
   - Nếu Kbd standalone: phải có context (vd: "Press `Ctrl+K` to open search").
 
 ### B. Keyboard Navigation & Focus
+
 - Kbd KHÔNG focusable — display-only element.
 
 ### C. Standard API & Props
+
 - `className`: Styling.
 - Children: Key text content.
 - Forward `ref`.
 
 ### D. WCAG 2.2 Success Criteria
+
 - **1.3.1 Info and Relationships (A):** `<kbd>` semantic element.
 - **1.4.3 Contrast Minimum (AA):** Kbd text contrast.
 - **1.4.11 Non-text Contrast (AA):** Kbd border/background contrast.
@@ -36,12 +41,14 @@ Kbd hiển thị keyboard key hoặc shortcut. BẮT BUỘC kiểm tra:
 - **Native DOM Flow (Rule #12):** Kbd là inline element.
 
 ## 3. Nhiệm vụ của bạn (AI)
+
 1. Đóng vai một W3C Auditor và Senior UI Architect.
 2. Đọc và phân tích file source code `src/components/ui/kbd.tsx`.
 3. Kiểm tra: **`<kbd>` semantic element**, **Contrast** (text + border), và **Design tokens** (padding, font-size).
 4. Cung cấp một báo cáo chi tiết. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff**.
 
 ### Kiểm tra Showcase (Bắt buộc)
+
 1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
@@ -49,14 +56,15 @@ Kbd hiển thị keyboard key hoặc shortcut. BẮT BUỘC kiểm tra:
 
 ## Audit Result — 2026-06-28
 
-| Rule/Tiêu chí | Verdict | Note |
-|---------------|---------|------|
-| W3C APG / ARIA | ✅ | Semantic `<kbd>` được áp dụng cho cả leaf và group, 100% chuẩn xác. |
-| 21. CSS Depth Boundary | ❌ | Vi phạm ở L8: `[&_svg:not([class*='size-'])]:size-3` dùng deep selector. Cần đổi sang `[&>svg...]`. |
-| Form Control Parity | ✅ | Design tokens kích thước (`h-5`) đồng bộ tốt. |
-| Dark Mode Compliance | ✅ | CSS theme nesting `dark:in-data-...` rất tinh tế. |
+| Rule/Tiêu chí          | Verdict | Note                                                                                                |
+| ---------------------- | ------- | --------------------------------------------------------------------------------------------------- |
+| W3C APG / ARIA         | ✅      | Semantic `<kbd>` được áp dụng cho cả leaf và group, 100% chuẩn xác.                                 |
+| 21. CSS Depth Boundary | ❌      | Vi phạm ở L8: `[&_svg:not([class*='size-'])]:size-3` dùng deep selector. Cần đổi sang `[&>svg...]`. |
+| Form Control Parity    | ✅      | Design tokens kích thước (`h-5`) đồng bộ tốt.                                                       |
+| Dark Mode Compliance   | ✅      | CSS theme nesting `dark:in-data-...` rất tinh tế.                                                   |
 
 ### Diffs cần fix
+
 ```diff
 - "[&_svg:not([class*='size-'])]:size-3"
 + "[&>svg:not([class*='size-'])]:size-3"

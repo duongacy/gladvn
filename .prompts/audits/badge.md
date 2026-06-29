@@ -3,9 +3,11 @@
 **Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
+
 Badge là inline status indicator hiển thị label, count, hoặc category tag. BẮT BUỘC kiểm tra:
 
 ### A. Anatomy & WAI-ARIA Roles
+
 - **Semantic Element:**
   - Badge nên dùng `<span>` (inline element).
   - KHÔNG dùng `<div>` (block-level) vì badge thường nằm inline cạnh text hoặc heading.
@@ -19,16 +21,19 @@ Badge là inline status indicator hiển thị label, count, hoặc category tag
   - Nếu badge có close/remove button: button phải có `aria-label` (vd: `aria-label="Remove tag: JavaScript"`).
 
 ### B. Keyboard Navigation & Focus
+
 - Non-interactive badge: KHÔNG focusable.
 - Interactive badge (clickable, removable): PHẢI focusable và keyboard-accessible.
 - Remove button: `Enter` / `Space` / `Delete` / `Backspace` để remove.
 
 ### C. Standard API & Props
+
 - `variant`: Visual style (default, secondary, outline, destructive).
 - `className`: Styling customization.
 - Forward `ref`.
 
 ### D. WCAG 2.2 Success Criteria
+
 - **1.4.1 Use of Color (A):** Badge không chỉ dùng màu — PHẢI có text content.
 - **1.4.3 Contrast Minimum (AA):** Badge text-on-background contrast ≥ 4.5:1.
 - **1.4.11 Non-text Contrast (AA):** Badge border/background contrast.
@@ -41,12 +46,14 @@ Badge là inline status indicator hiển thị label, count, hoặc category tag
 - **Native DOM Flow (Rule #12):** Badge là inline element, KHÔNG ép block-level.
 
 ## 3. Nhiệm vụ của bạn (AI)
+
 1. Đóng vai một W3C Auditor và Senior UI Architect.
 2. Đọc và phân tích file source code `src/components/ui/badge.tsx`.
 3. Kiểm tra chéo, đặc biệt: **Color independence** (text + không chỉ màu), **Contrast ratios**, **Linear Design** (variant symmetry), và **Inline rendering** (`<span>` không phải `<div>`).
 4. Cung cấp một báo cáo chi tiết. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff**.
 
 ### Kiểm tra Showcase (Bắt buộc)
+
 1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
@@ -54,9 +61,9 @@ Badge là inline status indicator hiển thị label, count, hoặc category tag
 
 ## Audit Result — 2026-06-28
 
-| Rule/Tiêu chí | Verdict | Note |
-|---------------|---------|------|
-| W3C APG / ARIA | ✅ | Badge mặc định render như `<span>` (Inline) thông qua `useRender` là chuẩn xác nhất. |
-| 21. CSS Depth Boundary | ✅ | Dùng đúng `[&>svg]` (Rule #21 exception cho direct child icon). |
-| Form Control Parity | ⚠️ | Variant class dùng `[a]:hover:bg-primary/80`. Tuy nhiên `[a]` trong Tailwind v4 sẽ match element có *attribute* `a` thay vì tag `a`. Nên sửa thành `a&:hover:...` (hoặc đơn giản bỏ hover logic nếu không click được). Tạm chấp nhận. |
-| Dark Mode Compliance | ✅ | Semantic tokens (primary, secondary, destructive, outline) đồng bộ hoàn hảo với Button. |
+| Rule/Tiêu chí          | Verdict | Note                                                                                                                                                                                                                                  |
+| ---------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| W3C APG / ARIA         | ✅      | Badge mặc định render như `<span>` (Inline) thông qua `useRender` là chuẩn xác nhất.                                                                                                                                                  |
+| 21. CSS Depth Boundary | ✅      | Dùng đúng `[&>svg]` (Rule #21 exception cho direct child icon).                                                                                                                                                                       |
+| Form Control Parity    | ⚠️      | Variant class dùng `[a]:hover:bg-primary/80`. Tuy nhiên `[a]` trong Tailwind v4 sẽ match element có _attribute_ `a` thay vì tag `a`. Nên sửa thành `a&:hover:...` (hoặc đơn giản bỏ hover logic nếu không click được). Tạm chấp nhận. |
+| Dark Mode Compliance   | ✅      | Semantic tokens (primary, secondary, destructive, outline) đồng bộ hoàn hảo với Button.                                                                                                                                               |

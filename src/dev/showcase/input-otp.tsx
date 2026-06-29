@@ -1,13 +1,30 @@
 import { useState } from "react";
-import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot, MonoSelect, Field, FieldLabel, FieldDescription, FieldContent } from "../../index";
-import { SectionHeader, ExampleSection, ExampleGrid } from "../components/showcase";
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSeparator,
+  InputOTPSlot,
+  MonoSelect,
+  Field,
+  FieldLabel,
+  FieldDescription,
+  FieldContent,
+} from "../../index";
+import {
+  SectionHeader,
+  ExampleSection,
+  ExampleGrid,
+} from "../components/showcase";
 
 export default function InputOTPShowcase() {
   const [globalSize, setGlobalSize] = useState<"sm" | "md" | "lg">("md");
 
   return (
     <div className="space-y-10">
-      <SectionHeader title="Input OTP" description="Accessible one-time password component with copy paste functionality.">
+      <SectionHeader
+        title="Input OTP"
+        description="Accessible one-time password component with copy paste functionality."
+      >
         <MonoSelect
           value={globalSize}
           onValueChange={(v) => setGlobalSize(v as any)}
@@ -20,10 +37,15 @@ export default function InputOTPShowcase() {
       </SectionHeader>
 
       <ExampleGrid columns={2}>
-        <ExampleSection label="Standard" description="Standard 6-digit verification code.">
+        <ExampleSection
+          label="Standard"
+          description="Standard 6-digit verification code."
+        >
           <Field size={globalSize}>
             <FieldLabel htmlFor="tf-otp-0">Verification Code</FieldLabel>
-            <FieldDescription>Enter the 6-digit code sent to your phone number.</FieldDescription>
+            <FieldDescription>
+              Enter the 6-digit code sent to your phone number.
+            </FieldDescription>
             <FieldContent>
               <InputOTP id="tf-otp-0" size={globalSize} maxLength={6}>
                 <InputOTPGroup>
@@ -39,10 +61,15 @@ export default function InputOTPShowcase() {
           </Field>
         </ExampleSection>
 
-        <ExampleSection label="Separated Format" description="OTP with visual separator.">
+        <ExampleSection
+          label="Separated Format"
+          description="OTP with visual separator."
+        >
           <Field size={globalSize}>
             <FieldLabel htmlFor="tf-otp-1">Security Key</FieldLabel>
-            <FieldDescription>Enter your two-factor recovery key.</FieldDescription>
+            <FieldDescription>
+              Enter your two-factor recovery key.
+            </FieldDescription>
             <FieldContent>
               <InputOTP id="tf-otp-1" size={globalSize} maxLength={6}>
                 <InputOTPGroup>

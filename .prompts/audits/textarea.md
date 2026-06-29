@@ -3,9 +3,11 @@
 **Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
+
 Textarea cho phép user nhập multi-line text. Kế thừa hầu hết tiêu chuẩn của Input nhưng có thêm các yêu cầu riêng. BẮT BUỘC kiểm tra:
 
 ### A. Anatomy & WAI-ARIA Roles
+
 - **Native Element:** BẮT BUỘC dùng `<textarea>` (hoặc base component render ra `<textarea>`).
 - **Label Association:** Tương tự Input — BẮT BUỘC có label programmatically associated.
 - **Error/Description Association:** `aria-invalid`, `aria-describedby`, `aria-errormessage` — tương tự Input.
@@ -17,12 +19,14 @@ Textarea cho phép user nhập multi-line text. Kế thừa hầu hết tiêu ch
   - Auto-resize nên dùng CSS (`field-sizing: content` nếu supported, hoặc `resize: vertical`).
 
 ### B. Keyboard Navigation & Focus
+
 - **Enter:** Xuống dòng mới (khác với Input — Enter trong textarea KHÔNG submit form).
 - `Tab`: Di chuyển focus RA KHỎI textarea (không insert tab character). Nếu cần insert tab, phải có explicit toggle.
 - **Focus Ring:** Tương tự Input — `focus-visible:border-ring focus-visible:ring-3`.
 - **Resize Handle:** Nếu có resize handle, phải keyboard accessible hoặc có alternative (CSS `resize: vertical`).
 
 ### C. Standard API & Props
+
 - `value` / `defaultValue` / `onChange`: Pattern Controlled & Uncontrolled.
 - `rows` / `cols`: Kích thước mặc định.
 - `maxLength` / `minLength`: Validation.
@@ -32,6 +36,7 @@ Textarea cho phép user nhập multi-line text. Kế thừa hầu hết tiêu ch
 - Forward `ref` đến native `<textarea>`.
 
 ### D. WCAG 2.2 Success Criteria
+
 - **1.3.1 Info and Relationships (A):** Label phải programmatically associated.
 - **1.4.3 Contrast Minimum (AA):** Text và placeholder contrast.
 - **1.4.11 Non-text Contrast (AA):** Border contrast.
@@ -48,12 +53,14 @@ Textarea cho phép user nhập multi-line text. Kế thừa hầu hết tiêu ch
 - **Native DOM Flow (Rule #12):** Không ép `w-full` mặc định.
 
 ## 3. Nhiệm vụ của bạn (AI)
+
 1. Đóng vai một W3C Auditor và Senior UI Architect.
 2. Đọc và phân tích file source code `src/components/ui/textarea.tsx`.
 3. Kiểm tra chéo từng tiêu chí, đặc biệt: **Form Control Parity alignment** với Input (border, focus ring, invalid state phải đồng nhất), **Auto-resize approach** (CSS vs JS), và **ref forwarding**.
 4. Cung cấp một báo cáo chi tiết về mức độ đạt chuẩn của component. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff** để hướng dẫn Refactor.
 
 ### Kiểm tra Showcase (Bắt buộc)
+
 1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo ra một block showcase chuẩn chỉnh (sử dụng `<ShowcaseBlock>` hoặc `<SectionHeader>`) và chèn vào file phù hợp nhất.
 
@@ -61,9 +68,9 @@ Textarea cho phép user nhập multi-line text. Kế thừa hầu hết tiêu ch
 
 ## Audit Result — 2026-06-28
 
-| Rule/Tiêu chí | Verdict | Note |
-|---------------|---------|------|
-| W3C APG / ARIA | ✅ | Dùng thẻ native `<textarea>`, aria handle đầy đủ |
-| 21. CSS Depth Boundary | ✅ | Không vi phạm rule 21 |
-| Form Control Parity | ✅ | Dùng CSS `field-sizing-content` cho auto-resize, focus/invalid state đồng nhất với Input |
-| Dark Mode Compliance | ✅ | `dark:bg-input/30` chuẩn xác |
+| Rule/Tiêu chí          | Verdict | Note                                                                                     |
+| ---------------------- | ------- | ---------------------------------------------------------------------------------------- |
+| W3C APG / ARIA         | ✅      | Dùng thẻ native `<textarea>`, aria handle đầy đủ                                         |
+| 21. CSS Depth Boundary | ✅      | Không vi phạm rule 21                                                                    |
+| Form Control Parity    | ✅      | Dùng CSS `field-sizing-content` cho auto-resize, focus/invalid state đồng nhất với Input |
+| Dark Mode Compliance   | ✅      | `dark:bg-input/30` chuẩn xác                                                             |

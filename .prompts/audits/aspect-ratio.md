@@ -53,9 +53,9 @@ Aspect Ratio là pure layout utility duy trì tỷ lệ width:height cho contain
 
 ## Audit Result — 2026-06-28
 
-| Rule/Tiêu chí        | Verdict | Note                                                                                                     |
-| ---------------------- | ------- | -------------------------------------------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Là thẻ div thuần tuý không ARIA roles, chuẩn chỉ (pure CSS layout utility).                       |
-| 21. CSS Depth Boundary | ✅      | Không có deep selector.                                                                                |
+| Rule/Tiêu chí          | Verdict | Note                                                                                          |
+| ---------------------- | ------- | --------------------------------------------------------------------------------------------- |
+| W3C APG / ARIA         | ✅      | Là thẻ div thuần tuý không ARIA roles, chuẩn chỉ (pure CSS layout utility).                   |
+| 21. CSS Depth Boundary | ✅      | Không có deep selector.                                                                       |
 | Form Control Parity    | ✅      | CSS Custom Properties (CSS variable) kết hợp CSS modern`aspect-ratio` được cấu hình xuất sắc. |
-| Dark Mode Compliance   | ✅      | Không áp dụng màu sắc nên không ảnh hưởng.                                                     |
+| Dark Mode Compliance   | ✅      | Không áp dụng màu sắc nên không ảnh hưởng.                                                    |

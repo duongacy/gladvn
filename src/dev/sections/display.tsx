@@ -152,33 +152,36 @@ export default function DisplaySection() {
               </tr>
             </thead>
             <tbody className="divide-y">
-              {(["secondary", "destructive", "outline"] as const).map(
-                (variant) => (
+              {([
+                { label: "Secondary", props: { color: "secondary" } },
+                { label: "Destructive", props: { color: "destructive" } },
+                { label: "Outline", props: { variant: "outline" } },
+              ] as const).map(({ label, props }) => (
                   <tr
-                    key={variant}
+                    key={label}
                     className="group hover:bg-muted/30 transition-colors"
                   >
                     <td className="py-4 pr-4">
                       <span className="text-sm font-medium capitalize">
-                        {variant}
+                        {label}
                       </span>
                     </td>
                     <td className="py-4 pr-4">
-                      <Badge variant={variant}>Badge</Badge>
+                      <Badge {...props as any}>Badge</Badge>
                     </td>
                     <td className="py-4 pr-4">
-                      <Badge variant={variant}>
+                      <Badge {...props as any}>
                         <CheckCircle2Icon data-icon="inline-start" /> Status
                       </Badge>
                     </td>
                     <td className="py-4 pr-4">
-                      <Badge variant={variant}>
+                      <Badge {...props as any}>
                         Updates <BellIcon data-icon="inline-end" />
                       </Badge>
                     </td>
                     <td className="py-4 pr-4">
                       <Badge
-                        variant={variant}
+                        {...props as any}
                         render={<a href="#link" />}
                       >
                         Clickable

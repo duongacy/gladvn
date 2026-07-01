@@ -6,6 +6,7 @@ import {
   FieldLabel,
   FieldDescription,
   FieldContent,
+  SliderPreset,
 } from "@/index";
 
 import {
@@ -75,7 +76,7 @@ export default function SliderShowcase() {
             <Field size={globalSize}>
               <FieldLabel>Price Range</FieldLabel>
               <FieldContent>
-                <Slider
+                <SliderPreset
                   size={globalSize}
                   defaultValue={[20, 80]}
                   max={100}
@@ -117,7 +118,7 @@ export default function SliderShowcase() {
           <Field size={globalSize}>
             <FieldLabel>Fixed Value</FieldLabel>
             <FieldContent>
-              <Slider
+              <SliderPreset
                 disabled
                 size={globalSize}
                 defaultValue={[40]}

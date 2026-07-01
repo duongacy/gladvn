@@ -75,7 +75,7 @@ export default function App() {
               sadcn.ui
             </span>
             <Badge
-              variant="secondary"
+              color="secondary"
               className="text-[10px] px-1.5 py-0 font-medium"
             >
               v0.2.1

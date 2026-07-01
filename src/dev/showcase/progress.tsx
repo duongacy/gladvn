@@ -11,6 +11,7 @@ import {
   ProgressIndicator,
   ProgressLabel,
   ProgressValue,
+  ProgressPreset,
 } from "@/index";
 
 import {

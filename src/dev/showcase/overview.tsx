@@ -65,7 +65,7 @@ export default function OverviewSection() {
           <div className="relative z-10 flex flex-col h-full">
             <div>
               <Badge
-                variant="secondary"
+                color="secondary"
                 className="mb-3 px-2.5 py-0.5 shadow-sm"
               >
                 ✨ sadcn UI v0.2.1

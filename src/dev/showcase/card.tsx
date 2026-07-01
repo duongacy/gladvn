@@ -96,7 +96,7 @@ export default function CardShowcase() {
             <CardHeader>
               <div className="flex items-center justify-between">
                 <CardTitle>Notifications</CardTitle>
-                <Badge variant="secondary">3 new</Badge>
+                <Badge color="secondary">3 new</Badge>
               </div>
               <CardDescription>You have 3 unread messages.</CardDescription>
               <CardAction>

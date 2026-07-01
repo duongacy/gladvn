@@ -6,25 +6,7 @@ import {
   UserIcon,
   ZapIcon,
 } from "lucide-react";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-  Avatar,
-  AvatarBadge,
-  AvatarFallback,
-  AvatarGroup,
-  AvatarGroupCount,
-  AvatarImage,
-  Badge,
-  Button,
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/index";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Avatar, AvatarBadge, AvatarFallback, AvatarGroup, AvatarGroupCount, AvatarImage, Badge, Button, Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/index";;
 
 import { SectionHeader, ShowcaseBlock } from "@/dev/components/showcase";
 
@@ -245,7 +227,7 @@ export default function DisplaySection() {
           {[
             {
               q: "How do I install?",
-              a: "Run npm install @duongy96/sadcn in your project.",
+              a: "Run npm install @duongy96/gladcn in your project.",
             },
             {
               q: "Can I customize colors?",

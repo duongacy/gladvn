@@ -1,5 +1,5 @@
 import { ScrollBar } from "@/components/ui/scroll-area";
-import { ScrollArea } from "@/index";
+import { ScrollArea } from "@/index";;
 import {
   SectionHeader,
   ExampleSection,

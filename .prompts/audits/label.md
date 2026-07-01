@@ -1,6 +1,6 @@
 # Audit Prompt: Label
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -39,7 +39,7 @@ Label cung cấp accessible name cho form controls. Mặc dù đơn giản về 
 - **3.3.2 Labels or Instructions (A):** Form controls phải có visible labels.
 - **1.4.3 Contrast Minimum (AA):** Label text phải đạt 4.5:1 contrast.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **Form Control Parity (Rule #18):** Label font-size phải đồng bộ. Khi đặt cạnh form controls, phải tạo visual hierarchy rõ ràng. Label mặc định nên là `text-sm font-medium`.
 - **CSS Delegated Logic (Rule #2):** Disabled state styling PHẢI dùng CSS (`peer-disabled:opacity-50` hoặc `has-[:disabled]:opacity-50`), KHÔNG dùng React state.

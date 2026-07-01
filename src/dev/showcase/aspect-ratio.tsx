@@ -1,4 +1,4 @@
-import { AspectRatio } from "@/index";
+import { AspectRatio } from "@/index";;
 import {
   SectionHeader,
   ExampleSection,

@@ -28,6 +28,11 @@ const labelVariants = cva(
   },
 );
 
+/**
+ * @description Renders an accessible label associated with controls.
+ * @example
+ * <Label htmlFor="email">Email</Label>
+ */
 function Label({
   className,
   size,

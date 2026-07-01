@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Calendar ,
-  SelectPreset} from "@/index";
+import { Calendar } from "@/index";
+import { SelectPreset } from "@/preset";;
 import {
   SectionHeader,
   ExampleSection,

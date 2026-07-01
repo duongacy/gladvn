@@ -1,6 +1,6 @@
 import { LayersIcon } from "lucide-react";
 import { useEffect, useState } from "react";
-import { Badge, Separator, Switch, SwitchThumb, useTheme } from "@/index";
+import { Badge, Separator, Switch, SwitchThumb, useTheme } from "@/index";;
 import { ALL_COMPONENTS, NAV } from "@/dev/data";
 import React, { Suspense, lazy } from "react";
 import OverviewSection from "@/dev/showcase/overview";
@@ -72,7 +72,7 @@ export default function App() {
               <LayersIcon className="size-4 text-primary-foreground" />
             </div>
             <span className="font-bold text-[15px] tracking-tight">
-              sadcn.ui
+              gladcn.ui
             </span>
             <Badge
               color="secondary"
@@ -134,7 +134,7 @@ export default function App() {
               Install
             </p>
             <div className="rounded-md bg-muted px-2.5 py-2 font-mono text-[10px] text-muted-foreground break-all">
-              npm i @duongy96/sadcn
+              npm i @duongy96/gladcn
             </div>
           </div>
         </aside>

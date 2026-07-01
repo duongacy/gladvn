@@ -1,6 +1,6 @@
 # Audit Prompt: Carousel
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -51,7 +51,7 @@ Carousel hiển thị một tập hợp items có thể scroll/navigate qua lạ
 - **2.3.1 Three Flashes (A):** Carousel transitions không flash.
 - **2.4.7 Focus Visible (AA):** Focus ring trên controls.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **CSS Delegated Logic (Rule #2):** Slide transitions dùng CSS (transform, scroll-snap). Auto-play logic cần JS nhưng visual transitions phải CSS.
 - **No Magic Number (Rule #4):** Slide dimensions, gap, transition duration phải dùng tokens.

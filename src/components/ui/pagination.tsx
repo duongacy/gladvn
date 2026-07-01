@@ -15,6 +15,10 @@ import {
   MoreHorizontalIcon,
 } from "lucide-react";
 
+/**
+ * @description Pagination with page navigation, next and previous links.
+ * @requires PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious
+ */
 function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
   return (
     <nav

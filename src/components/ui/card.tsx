@@ -10,6 +10,15 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 import { type Size } from "@/lib/types";
 
+/**
+ * @description Displays a card with header, content, and footer.
+ * @requires CardHeader, CardTitle, CardDescription, CardContent, CardFooter
+ * @example
+ * <Card>
+ *   <CardHeader><CardTitle>Title</CardTitle></CardHeader>
+ *   <CardContent>Content here</CardContent>
+ * </Card>
+ */
 function Card({
   className,
   size = "md",

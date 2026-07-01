@@ -1,6 +1,6 @@
 # Audit Prompt: Drawer
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -37,7 +37,7 @@ Drawer là biến thể Dialog, thường slide lên từ bottom (mobile pattern
 - **2.5.1 Pointer Gestures (A):** Drag gestures phải có single-point alternative.
 - **2.5.7 Dragging Movements (AA):** Nếu drag-to-dismiss, phải có non-dragging alternative (close button, Esc).
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **CSS Delegated Logic (Rule #2):** Slide animation PHẢI dùng CSS. Drag interaction có thể cần JS (third-party lib như vaul) nhưng visual feedback phải CSS transform.
 - **Portal Tunneling (Rule #15):** Portal phải giữ theme context.

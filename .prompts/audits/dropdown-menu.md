@@ -1,6 +1,6 @@
 # Audit Prompt: Dropdown Menu
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -63,7 +63,7 @@ Dropdown Menu (Menu Button pattern) hiển thị danh sách actions khi user cli
 - **2.4.7 Focus Visible (AA):** Focus indicators trên trigger và menu items.
 - **4.1.2 Name, Role, Value (A):** Screen reader announce: role, state, item roles.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **CSS Delegated Logic (Rule #2):** Animation, highlight state dùng CSS (`data-[state=open]`, `data-[highlighted]`).
 - **Portal Tunneling (Rule #15):** Menu trong Portal phải giữ theme.

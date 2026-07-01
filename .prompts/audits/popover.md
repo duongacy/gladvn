@@ -1,6 +1,6 @@
 # Audit Prompt: Popover
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -43,7 +43,7 @@ Popover là non-modal dialog xuất hiện cạnh trigger element, chứa nội 
 - **2.4.7 Focus Visible (AA):** Focus indicators cho trigger và interactive content.
 - **1.4.13 Content on Hover or Focus (AA):** Popover content phải: (1) Dismissable bằng Esc, (2) Hoverable — user phải hover được lên popover mà nó không biến mất, (3) Persistent — không tự biến mất trừ khi user dismiss.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **CSS Delegated Logic (Rule #2):** Open/close animation PHẢI dùng CSS (`data-[state=open]`, `data-starting-style`).
 - **Portal Tunneling (Rule #15):** Content trong Portal phải giữ theme context.

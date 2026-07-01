@@ -1,6 +1,6 @@
 # Audit Prompt: Sonner (Toast)
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -52,7 +52,7 @@ Sonner (Toast/Notification) hiển thị thông báo tạm thời. Toast là ARI
 - **2.2.4 Interruptions (AAA):** Non-critical toasts KHÔNG nên dùng `role="alert"` (quá intrusive cho screen reader).
 - **4.1.3 Status Messages (AA):** Toast content PHẢI được announce bởi assistive technology qua live region.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **CSS Delegated Logic (Rule #2):** Toast enter/exit animation PHẢI dùng CSS.
 - **Portal Tunneling (Rule #15):** Toast container render ở root level — phải đảm bảo nhận đúng theme (truyền `theme` prop).

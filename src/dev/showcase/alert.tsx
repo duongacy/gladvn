@@ -1,11 +1,6 @@
 import { useState } from "react";
-import {
-  Alert,
-  AlertDescription,
-  AlertTitle,
-  AlertAction, AlertIcon,
-  Button,
-  SelectPreset} from "@/index";
+import { Alert, AlertDescription, AlertTitle, AlertAction, AlertIcon, Button } from "@/index";
+import { SelectPreset } from "@/preset";;
 import {
   SectionHeader,
   ExampleSection,

@@ -7,18 +7,7 @@ import {
   SmileIcon,
   UserIcon,
 } from "lucide-react";
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-  CommandSeparator,
-  CommandShortcut,
-  CommandDialog,
-  Button,
-} from "@/index";
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator, CommandShortcut, CommandDialog, Button } from "@/index";;
 import {
   SectionHeader,
   ExampleSection,

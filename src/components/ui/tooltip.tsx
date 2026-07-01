@@ -11,6 +11,17 @@ import { Tooltip as TooltipPrimitive } from "@base-ui/react/tooltip";
 
 import { cn } from "@/lib/utils";
 
+/**
+ * @description A popup that displays information related to an element.
+ * @requires TooltipTrigger, TooltipContent, TooltipProvider
+ * @example
+ * <TooltipProvider>
+ *   <Tooltip>
+ *     <TooltipTrigger>Hover</TooltipTrigger>
+ *     <TooltipContent>Add to library</TooltipContent>
+ *   </Tooltip>
+ * </TooltipProvider>
+ */
 function TooltipProvider({
   delay = 0,
   ...props

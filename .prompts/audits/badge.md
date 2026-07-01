@@ -1,6 +1,6 @@
 # Audit Prompt: Badge
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -38,7 +38,7 @@ Badge là inline status indicator hiển thị label, count, hoặc category tag
 - **1.4.3 Contrast Minimum (AA):** Badge text-on-background contrast ≥ 4.5:1.
 - **1.4.11 Non-text Contrast (AA):** Badge border/background contrast.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **Linear Design Axiom (Rule #5):** Tất cả variants phải dùng cùng công thức sizing/padding. Chỉ khác color token.
 - **No Magic Number (Rule #4):** Padding, font-size, border-radius phải dùng tokens.

@@ -14,6 +14,17 @@ import { cn } from "@/lib/utils";
 import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react";
 import { type Variant } from "@/lib/types";
 
+/**
+ * @description Displays a menu to the user — triggered by a right-click.
+ * @requires ContextMenuTrigger, ContextMenuContent, ContextMenuItem
+ * @example
+ * <ContextMenu>
+ *   <ContextMenuTrigger>Right click here</ContextMenuTrigger>
+ *   <ContextMenuContent>
+ *     <ContextMenuItem>Profile</ContextMenuItem>
+ *   </ContextMenuContent>
+ * </ContextMenu>
+ */
 function ContextMenu({ ...props }: ContextMenuPrimitive.Root.Props) {
   return <ContextMenuPrimitive.Root data-slot="context-menu" {...props} />;
 }

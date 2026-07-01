@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Checkbox, CheckboxIndicator, Label ,
-  SelectPreset} from "@/index";
+import { Checkbox, CheckboxIndicator, Label } from "@/index";
+import { SelectPreset } from "@/preset";;
 
 import { CheckIcon, MinusIcon } from "lucide-react";
 import {

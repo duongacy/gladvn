@@ -2,7 +2,7 @@ git sta
 
 # Audit Prompt: Aspect Ratio
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -31,7 +31,7 @@ Aspect Ratio là pure layout utility duy trì tỷ lệ width:height cho contain
 - **1.4.4 Resize Text (AA):** Aspect ratio container KHÔNG nên prevent text resize.
 - **1.4.10 Reflow (AA):** Container phải responsive — không gây horizontal scroll.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **CSS Delegated Logic (Rule #2):** Aspect ratio PHẢI dùng CSS `aspect-ratio` property (modern CSS). Fallback `padding-bottom` trick chỉ nếu cần support cũ.
 - **No Magic Number (Rule #4):** Ratio values nên qua prop, không hardcode.

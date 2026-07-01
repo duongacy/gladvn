@@ -11,6 +11,10 @@ import { cva } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import { ChevronDownIcon } from "lucide-react";
 
+/**
+ * @description A collection of links for navigating websites.
+ * @requires NavigationMenuList, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuContent
+ */
 function NavigationMenu({
   align = "start",
   className,

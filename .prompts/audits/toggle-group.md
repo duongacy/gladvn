@@ -1,6 +1,6 @@
 # Audit Prompt: Toggle Group
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -44,7 +44,7 @@ Toggle Group là nhóm Toggle buttons cho phép single hoặc multiple selection
 - **2.1.1 Keyboard (A):** Full keyboard navigation.
 - **4.1.2 Name, Role, Value (A):** Screen reader announce: group name, item role, pressed state.
 
-## 2. sadcn "20 Commandments" Integration & Architecture Rules
+## 2. gladcn "20 Commandments" Integration & Architecture Rules
 
 - **Pure Composition Only (CRITICAL):** Các component trong `src/components/ui` CHỈ được phép là Compositional Primitives (ví dụ: phải chia tách rạch ròi `ToggleGroup` và `ToggleGroupItem`). Tuyệt đối KHÔNG chứa bất kỳ monolithic logic nào (như nhận prop `items` dạng mảng rồi tự render loop bên trong UI). Bất cứ monolithic behavior nào bị phát hiện BẮT BUỘC phải bị reject và di dời sang `src/components/monolithic/`.
 - **CSS Delegated Logic (Rule #2):** Pressed state styling dùng CSS (`data-[state=on]`). Group border merging (nếu visual connected buttons) dùng CSS (`:first-child`, `:last-child` border-radius removal).

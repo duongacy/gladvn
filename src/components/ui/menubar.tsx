@@ -29,6 +29,17 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { CheckIcon } from "lucide-react";
 
+/**
+ * @description A visually persistent menu common in desktop applications.
+ * @requires MenubarMenu, MenubarTrigger, MenubarContent, MenubarItem
+ * @example
+ * <Menubar>
+ *   <MenubarMenu>
+ *     <MenubarTrigger>File</MenubarTrigger>
+ *     <MenubarContent><MenubarItem>New</MenubarItem></MenubarContent>
+ *   </MenubarMenu>
+ * </Menubar>
+ */
 function Menubar({ className, ...props }: MenubarPrimitive.Props) {
   return (
     <MenubarPrimitive

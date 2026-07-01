@@ -1,11 +1,6 @@
 import { useState } from "react";
-import {
-  Textarea,
-  Field,
-  FieldLabel,
-  FieldDescription,
-  FieldContent,
-  SelectPreset} from "@/index";
+import { Textarea, Field, FieldLabel, FieldDescription, FieldContent } from "@/index";
+import { SelectPreset } from "@/preset";;
 import {
   SectionHeader,
   ExampleSection,

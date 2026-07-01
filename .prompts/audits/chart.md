@@ -1,6 +1,6 @@
 # Audit Prompt: Chart
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -46,7 +46,7 @@ Chart hiển thị data visualization (bar chart, line chart, pie chart, etc.). 
 - **1.4.3 Contrast Minimum (AA):** Text labels, axis labels contrast.
 - **1.4.11 Non-text Contrast (AA):** Data bars/lines contrast với background.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **CSS Delegated Logic (Rule #2):** Chart colors PHẢI dùng CSS variables/tokens, không hardcode.
 - **No Magic Number (Rule #4):** Chart dimensions, padding, font sizes phải configurable.

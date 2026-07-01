@@ -1,6 +1,6 @@
 # Audit Prompt: Resizable
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -48,7 +48,7 @@ Resizable (Window Splitter) cho phép user thay đổi kích thước các panel
 - **2.5.7 Dragging Movements (AA):** Drag-to-resize phải có keyboard alternative.
 - **4.1.2 Name, Role, Value (A):** Screen reader announce: role ("separator"), orientation, position.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **CSS Delegated Logic (Rule #2):** Handle hover/active state dùng CSS. Panel sizes dùng CSS custom properties (flex-basis hoặc CSS variables).
 - **No Magic Number (Rule #4):** Handle width/height, minimum panel sizes phải dùng tokens.

@@ -1,6 +1,6 @@
 # Audit Prompt: Progress
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -44,7 +44,7 @@ Progress hiển thị tiến trình hoàn thành của một task. Có thể là
 - **4.1.2 Name, Role, Value (A):** Screen reader phải announce: role ("progressbar"), name, current value.
 - **4.1.3 Status Messages (AA):** Progress updates phải announce (live region).
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **CSS Delegated Logic (Rule #2):** Fill bar width PHẢI dùng CSS custom property (`--progress-value`) set qua inline style, KHÔNG re-render component cho visual update. Indeterminate animation dùng CSS `@keyframes`.
 - **No Magic Number (Rule #4):** Track height, border-radius phải dùng tokens.

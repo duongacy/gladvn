@@ -37,7 +37,7 @@ function isSelfInstall() {
     const pkg = JSON.parse(
       fs.readFileSync(path.join(projectRoot, "package.json"), "utf8"),
     );
-    return pkg.name === "@duongy96/sadcn";
+    return pkg.name === "@duongy96/gladcn";
   } catch {
     return false;
   }
@@ -85,19 +85,19 @@ function injectImports(cssFilePath, tokensRelPath) {
   let content = fs.readFileSync(cssFilePath, "utf8");
 
   // Check if already configured
-  if (content.includes("@duongy96/sadcn/globals.css")) {
+  if (content.includes("@duongy96/gladcn/globals.css")) {
     console.log(
-      `${dim}   ⏭  @duongy96/sadcn already configured in this file — skipped${reset}`,
+      `${dim}   ⏭  @duongy96/gladcn already configured in this file — skipped${reset}`,
     );
     return true;
   }
 
   // Build the import lines
-  const sourceDirective = `@source "../node_modules/@duongy96/sadcn/dist";`;
+  const sourceDirective = `@source "../node_modules/@duongy96/gladcn/dist";`;
   const tokensImport = `@import "${tokensRelPath}";`;
-  const globalsImport = `@import "@duongy96/sadcn/globals.css";`;
+  const globalsImport = `@import "@duongy96/gladcn/globals.css";`;
 
-  const imports = `\n/* @duongy96/sadcn */\n${sourceDirective}\n${tokensImport}\n${globalsImport}\n`;
+  const imports = `\n/* @duongy96/gladcn */\n${sourceDirective}\n${tokensImport}\n${globalsImport}\n`;
 
   // Insert after @import "tailwindcss" if it exists, otherwise append
   const tailwindPattern = /@import\s+["']tailwindcss["'];?\s*\n?/;
@@ -109,7 +109,7 @@ function injectImports(cssFilePath, tokensRelPath) {
 
   fs.writeFileSync(cssFilePath, content);
   console.log(
-    `${green}   ✅ Injected sadcn imports into ${path.basename(
+    `${green}   ✅ Injected gladcn imports into ${path.basename(
       cssFilePath,
     )}${reset}`,
   );
@@ -130,7 +130,7 @@ async function interactiveSetup(projectRoot) {
     `\n${cyan}╔══════════════════════════════════════════════════════════════════╗${reset}`,
   );
   console.log(
-    `${cyan}║  ${bold}@duongy96/sadcn${reset}${cyan} — Interactive Setup                          ║${reset}`,
+    `${cyan}║  ${bold}@duongy96/gladcn${reset}${cyan} — Interactive Setup                          ║${reset}`,
   );
   console.log(
     `${cyan}╚══════════════════════════════════════════════════════════════════╝${reset}\n`,
@@ -162,7 +162,7 @@ async function interactiveSetup(projectRoot) {
 
   console.log(`\n${cyan}   🎉 Setup complete! Use components:${reset}`);
   console.log(
-    `${green}   import { Button, Card } from "@duongy96/sadcn"${reset}`,
+    `${green}   import { Button, Card } from "@duongy96/gladcn"${reset}`,
   );
   console.log(
     `\n${dim}   💡 Edit ${targetDir}/tokens.css to customize colors, radius, etc.${reset}\n`,
@@ -176,23 +176,23 @@ function showStaticMessage() {
   console.log(`
 ${cyan}╔══════════════════════════════════════════════════════════════════╗
 ║                                                                  ║
-║   ${bold}@duongy96/sadcn${reset}${cyan} installed successfully! 🎉                   ║
+║   ${bold}@duongy96/gladcn${reset}${cyan} installed successfully! 🎉                   ║
 ║                                                                  ║
 ║   ${yellow}1. Copy the default tokens into your CSS:${cyan}                      ║
 ║                                                                  ║
-║      ${dim}cp node_modules/@duongy96/sadcn/src/styles/tokens.css \\${cyan}    ║
+║      ${dim}cp node_modules/@duongy96/gladcn/src/styles/tokens.css \\${cyan}    ║
 ║      ${dim}   src/styles/tokens.css${cyan}                                    ║
 ║                                                                  ║
 ║   ${yellow}2. Set up your main CSS file (e.g. globals.css):${cyan}               ║
 ║                                                                  ║
 ║      ${green}@import "tailwindcss";${cyan}                                      ║
-║      ${green}@source "../node_modules/@duongy96/sadcn/dist";${cyan}             ║
+║      ${green}@source "../node_modules/@duongy96/gladcn/dist";${cyan}             ║
 ║      ${green}@import "./tokens.css";${cyan}                                     ║
-║      ${green}@import "@duongy96/sadcn/globals.css";${cyan}                      ║
+║      ${green}@import "@duongy96/gladcn/globals.css";${cyan}                      ║
 ║                                                                  ║
 ║   ${yellow}3. Use components:${cyan}                                             ║
 ║                                                                  ║
-║      ${green}import { Button, Card } from "@duongy96/sadcn"${cyan}             ║
+║      ${green}import { Button, Card } from "@duongy96/gladcn"${cyan}             ║
 ║                                                                  ║
 ║   ${dim}💡 Customize tokens.css to change colors, radius, etc.${cyan}        ║
 ║                                                                  ║

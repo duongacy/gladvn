@@ -1,27 +1,7 @@
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem ,
-  SelectPreset} from "@/index";
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/index";
+import { SelectPreset } from "@/preset";;
 import { useState } from "react";
-import {
-  Combobox,
-  ComboboxInput,
-  ComboboxContent,
-  ComboboxList,
-  ComboboxItem,
-  ComboboxGroup,
-  ComboboxLabel,
-  ComboboxEmpty,
-  ComboboxSeparator,
-  ComboboxChips,
-  ComboboxChip,
-  ComboboxChipsInput,
-  ComboboxTrigger,
-  ComboboxValue,
-  ComboboxCollection,
-  Field,
-  FieldLabel,
-  FieldDescription,
-  FieldContent,
-} from "@/index";
+import { Combobox, ComboboxInput, ComboboxContent, ComboboxList, ComboboxItem, ComboboxGroup, ComboboxLabel, ComboboxEmpty, ComboboxSeparator, ComboboxChips, ComboboxChip, ComboboxChipsInput, ComboboxTrigger, ComboboxValue, ComboboxCollection, Field, FieldLabel, FieldDescription, FieldContent } from "@/index";;
 import {
   SectionHeader,
   ExampleSection,

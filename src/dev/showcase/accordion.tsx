@@ -1,9 +1,4 @@
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/index";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/index";;
 import {
   SectionHeader,
   ExampleSection,

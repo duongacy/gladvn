@@ -1,13 +1,5 @@
 import { CalendarIcon } from "lucide-react";
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-  Button,
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "@/index";
+import { Avatar, AvatarFallback, AvatarImage, Button, HoverCard, HoverCardContent, HoverCardTrigger } from "@/index";;
 import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
 
 export default function HoverCardShowcase() {

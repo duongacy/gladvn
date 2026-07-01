@@ -26,6 +26,11 @@ const spinnerVariants = cva("animate-spin", {
 export interface SpinnerProps
   extends React.ComponentProps<"svg">, VariantProps<typeof spinnerVariants> {}
 
+/**
+ * @description A loading indicator component.
+ * @example
+ * <Spinner size="md" color="primary" />
+ */
 function Spinner({ className, size, ...props }: SpinnerProps) {
   return (
     <Loader2Icon

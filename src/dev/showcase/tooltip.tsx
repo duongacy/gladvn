@@ -1,11 +1,6 @@
 import { useState } from "react";
-import {
-  Tooltip,
-  TooltipTrigger,
-  TooltipContent,
-  TooltipProvider,
-  Button,
-  SelectPreset} from "@/index";
+import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider, Button } from "@/index";
+import { SelectPreset } from "@/preset";;
 import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
 import { PlusIcon, HeartIcon } from "lucide-react";
 

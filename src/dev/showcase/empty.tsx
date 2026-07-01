@@ -1,13 +1,4 @@
-import {
-  Empty,
-  EmptyTitle,
-  EmptyDescription,
-  EmptyAction,
-  EmptyHeader,
-  EmptyContent,
-  EmptyMedia,
-  Button,
-} from "@/index";
+import { Empty, EmptyTitle, EmptyDescription, EmptyAction, EmptyHeader, EmptyContent, EmptyMedia, Button } from "@/index";;
 import {
   SectionHeader,
   ExampleSection,

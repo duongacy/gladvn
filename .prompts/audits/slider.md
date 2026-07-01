@@ -1,6 +1,6 @@
 # Audit Prompt: Slider
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -52,7 +52,7 @@ Slider cho phép user chọn một giá trị (hoặc khoảng giá trị) từ 
 - **2.5.8 Target Size Minimum (AA):** Thumb clickable area phải ≥ 24×24 CSS pixels.
 - **4.1.2 Name, Role, Value (A):** Screen reader phải announce: name, role ("slider"), value, min, max.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **CSS Delegated Logic (Rule #2):** Fill bar width/height PHẢI dùng CSS custom properties (vd: `--slider-value`) được set qua inline style, KHÔNG dùng React re-render cho visual feedback.
 - **Form Control Parity (Rule #18):** Focus ring trên thumb phải dùng chung token: `focus-visible:ring-3 focus-visible:ring-ring/50`.

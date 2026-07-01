@@ -1,6 +1,6 @@
 # Audit Prompt: Select
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -63,7 +63,7 @@ Select (custom dropdown) cho phép user chọn một giá trị từ danh sách 
 - **2.4.7 Focus Visible (AA):** Focus indicator trên trigger và trên option đang focused.
 - **4.1.2 Name, Role, Value (A):** Screen reader phải announce: trigger name, role, expanded state, selected value.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **Form Control Parity (Rule #18):** Trigger sizing PHẢI align với Input: `sm: h-7`, `md: h-8`, `lg: h-9`. Focus ring: `focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50`. Base aesthetics: `rounded-lg border border-input bg-transparent dark:bg-input/30`.
 - **CSS Delegated Logic (Rule #2):** Open/close animation PHẢI dùng CSS (`data-[state=open]`, `data-starting-style`). Selected state styling dùng `data-[state=checked]` hoặc `aria-selected`.

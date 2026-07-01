@@ -1,6 +1,6 @@
 # Audit Prompt: Table
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -47,7 +47,7 @@ Table hiển thị data có cấu trúc dạng hàng-cột. BẮT BUỘC kiểm 
 - **2.1.1 Keyboard (A):** Sort buttons, row checkboxes keyboard-accessible.
 - **2.4.7 Focus Visible (AA):** Focus indicators trên interactive cells.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **CSS Delegated Logic (Rule #2):** Hover row, selected row, striped rows PHẢI dùng CSS (`:nth-child`, `aria-selected`, `:hover`). Sort indicator dùng `data-[sorted]`.
 - **No Magic Number (Rule #4):** Cell padding, row height, border styles phải dùng tokens.

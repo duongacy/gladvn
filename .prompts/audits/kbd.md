@@ -1,6 +1,6 @@
 # Audit Prompt: Kbd
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -34,7 +34,7 @@ Kbd hiển thị keyboard key hoặc shortcut. BẮT BUỘC kiểm tra:
 - **1.4.3 Contrast Minimum (AA):** Kbd text contrast.
 - **1.4.11 Non-text Contrast (AA):** Kbd border/background contrast.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **No Magic Number (Rule #4):** Padding, font-size, border-radius phải dùng tokens.
 - **Zero-Prop Defaults (Rule #1):** `<Kbd>` mặc định styling inline-block.

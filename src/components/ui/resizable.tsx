@@ -11,6 +11,10 @@ import * as ResizablePrimitive from "react-resizable-panels";
 
 import { cn } from "@/lib/utils";
 
+/**
+ * @description Accessible resizable panel groups and layouts.
+ * @requires ResizablePanel, ResizableHandle
+ */
 function ResizablePanelGroup({
   className,
   ...props

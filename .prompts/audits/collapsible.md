@@ -1,6 +1,6 @@
 # Audit Prompt: Collapsible
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -37,7 +37,7 @@ Collapsible (Disclosure) cho phép user toggle visibility của một content se
 - **2.4.7 Focus Visible (AA):** Focus ring trên trigger.
 - **4.1.2 Name, Role, Value (A):** Screen reader announce: role ("button"), expanded state.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **CSS Delegated Logic (Rule #2):** Open/close animation PHẢI dùng CSS grid (`grid-template-rows: 0fr → 1fr`) hoặc `data-[state=open]`. Cấm đo height bằng JS.
 - **Icon Rendering (Rule #3 & #10):** Chevron icon quay 180° khi open phải dùng CSS rotation (`data-[state=open]:rotate-180`).

@@ -32,6 +32,13 @@ const toggleVariants = cva(
   },
 );
 
+/**
+ * @description A two-state button that can be either on or off.
+ * @example
+ * <Toggle aria-label="Toggle italic">
+ *   <Italic className="h-4 w-4" />
+ * </Toggle>
+ */
 function Toggle({
   className,
   variant,

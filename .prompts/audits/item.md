@@ -1,6 +1,6 @@
 # Audit Prompt: Item
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -45,7 +45,7 @@ Item là generic list item component dùng trong nhiều context (menu item, lis
 - **2.4.7 Focus Visible (AA):** Focus ring visible.
 - **2.5.8 Target Size (AA):** Item clickable area ≥ 24×24px.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **CSS Delegated Logic (Rule #2):** Hover, active, selected states dùng CSS.
 - **Strict Polymorphism (Rule #3):** Item phải hỗ trợ render as different elements (asChild pattern).

@@ -1,17 +1,6 @@
 import { useState } from "react";
-import {
-  AlertDialog,
-  AlertDialogTrigger,
-  AlertDialogContent,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogCancel,
-  AlertDialogAction,
-  AlertDialogMedia,
-  Button,
-  SelectPreset} from "@/index";
+import { AlertDialog, AlertDialogTrigger, AlertDialogContent, AlertDialogHeader, AlertDialogTitle, AlertDialogDescription, AlertDialogFooter, AlertDialogCancel, AlertDialogAction, AlertDialogMedia, Button } from "@/index";
+import { SelectPreset } from "@/preset";;
 import {
   SectionHeader,
   ExampleSection,

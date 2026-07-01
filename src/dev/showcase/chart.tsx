@@ -1,12 +1,5 @@
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
-import {
-  ChartConfig,
-  ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
-  ChartLegend,
-  ChartLegendContent,
-} from "@/index";
+import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent, ChartLegend, ChartLegendContent } from "@/index";;
 import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
 
 const chartData = [

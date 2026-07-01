@@ -26,6 +26,11 @@ const textareaVariants = cva(
   },
 );
 
+/**
+ * @description Displays a form textarea.
+ * @example
+ * <Textarea placeholder="Type your message here." />
+ */
 function Textarea({
   className,
   size = "md",

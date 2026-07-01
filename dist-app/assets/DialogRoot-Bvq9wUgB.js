@@ -1,0 +1,1 @@
+import{or as e,rr as t}from"./showcase-BdjDino7.js";import{c as n,l as r}from"./DialogTrigger-BZ_8xCVD.js";var i=e(t(),1);function a(e){return n(e,i.useContext(r)?`drawer`:`dialog`)}export{a as t};

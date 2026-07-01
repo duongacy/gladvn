@@ -1,49 +1,6 @@
 import { useState } from "react";
-import {
-  Alert,
-  AlertDescription,
-  Calendar,
-  Checkbox,
-  Combobox,
-  ComboboxContent,
-  ComboboxInput,
-  ComboboxItem,
-  ComboboxList,
-  Field,
-  FieldContent,
-  FieldDescription,
-  FieldError,
-  FieldTitle,
-  FieldLabel,
-  Input,
-  InputGroup,
-  InputGroupAddon,
-  InputGroupInput,
-  InputGroupText,
-  InputOTP,
-  InputOTPGroup,
-  InputOTPSeparator,
-  InputOTPSlot,
-  Label,
-  SelectPreset,
-  NativeSelect,
-  NativeSelectOption,
-  RadioGroup,
-  RadioGroupItem,
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectSeparator,
-  SelectTrigger,
-  SelectValue,
-  Separator,
-  Slider,
-  Switch,
-  Textarea,
-  Size,
-} from "@/index";
+import { Alert, AlertDescription, Calendar, Checkbox, Combobox, ComboboxContent, ComboboxInput, ComboboxItem, ComboboxList, Field, FieldContent, FieldDescription, FieldError, FieldTitle, FieldLabel, Input, InputGroup, InputGroupAddon, InputGroupInput, InputGroupText, InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot, Label, NativeSelect, NativeSelectOption, RadioGroup, RadioGroupItem, Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectSeparator, SelectTrigger, SelectValue, Separator, Slider, Switch, Textarea, Size } from "@/index";
+import { SelectPreset } from "@/preset";;
 
 import { SectionHeader } from "@/dev/components/showcase";
 import {
@@ -135,7 +92,7 @@ export default function FormsSection() {
                   <InputGroupAddon>
                     <InputGroupText>https://</InputGroupText>
                   </InputGroupAddon>
-                  <InputGroupInput id="tf-group" placeholder="sadcn.ui" />
+                  <InputGroupInput id="tf-group" placeholder="gladcn.ui" />
                   <InputGroupAddon>
                     <InputGroupText>.com</InputGroupText>
                   </InputGroupAddon>

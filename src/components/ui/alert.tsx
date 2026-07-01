@@ -39,6 +39,15 @@ const alertVariants = cva(
   },
 );
 
+/**
+ * @description Displays a callout for user attention.
+ * @requires AlertTitle, AlertDescription
+ * @example
+ * <Alert variant="destructive">
+ *   <AlertTitle>Error</AlertTitle>
+ *   <AlertDescription>Something went wrong.</AlertDescription>
+ * </Alert>
+ */
 function Alert({
   className,
   color,

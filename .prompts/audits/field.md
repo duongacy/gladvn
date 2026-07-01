@@ -1,6 +1,6 @@
 # Audit Prompt: Field
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -46,7 +46,7 @@ Field là wrapper component quản lý mối quan hệ giữa Label, Form Contro
 - **3.3.3 Error Suggestion (AA):** Error message nên gợi ý cách sửa.
 - **4.1.3 Status Messages (AA):** Error message xuất hiện phải được announce bởi assistive technology.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **CSS Delegated Logic (Rule #2):** Error state styling (red border, error text color) PHẢI driven by CSS `aria-invalid` selector, KHÔNG dùng React className toggle.
 - **Isolation (Rule #8):** Field là "infrastructure" — KHÔNG chứa business logic, chỉ wire accessibility relationships.

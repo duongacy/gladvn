@@ -1,6 +1,6 @@
 # Audit Prompt: Button
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -45,7 +45,7 @@ Button là thành phần tương tác cơ bản nhất, BẮT BUỘC kiểm tra 
 - **2.4.7 Focus Visible (AA):** Focus indicator phải visible.
 - **2.5.8 Target Size Minimum (AA):** Touch target tối thiểu 24×24 CSS pixels. Target size `sm` (h-7 = 28px) đạt, nhưng icon-only button cần verify width.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 Áp dụng các luật riêng của dự án vào Button:
 

@@ -1,6 +1,6 @@
 # Audit Prompt: Alert
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -43,7 +43,7 @@ Alert hiển thị thông báo quan trọng (inline, không phải toast). Khác
 - **1.4.11 Non-text Contrast (AA):** Alert border/background contrast.
 - **4.1.3 Status Messages (AA):** Alert content phải announce qua assistive technology.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **CSS Delegated Logic (Rule #2):** Severity styling PHẢI dùng CSS variant class (via cva/cn). Icon visibility/type dùng CSS.
 - **Linear Design Axiom (Rule #5):** Tất cả variants (info, success, warning, destructive) phải dùng cùng công thức: same border width, same padding, same icon size. Chỉ khác color token.

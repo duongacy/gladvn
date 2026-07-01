@@ -1,25 +1,6 @@
 import { useState } from "react";
 import { toast } from "sonner";
-import {
-  Button,
-  Badge,
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-  Label,
-  Switch,
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-  Progress,
-  Accordion,
-  AccordionItem,
-  AccordionTrigger,
-  AccordionContent,
-} from "@/index";
+import { Button, Badge, Card, CardContent, CardHeader, CardTitle, Label, Switch, Select, SelectContent, SelectItem, SelectTrigger, SelectValue, Progress, Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/index";;
 import {
   BoxIcon,
   PaletteIcon,
@@ -38,7 +19,7 @@ export default function OverviewSection() {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText("npm i @duongy96/sadcn");
+    navigator.clipboard.writeText("npm i @duongy96/gladcn");
     setCopied(true);
     toast.success("Command copied to clipboard");
     setTimeout(() => setCopied(false), 2000);
@@ -68,7 +49,7 @@ export default function OverviewSection() {
                 color="secondary"
                 className="mb-3 px-2.5 py-0.5 shadow-sm"
               >
-                ✨ sadcn UI v0.2.1
+                ✨ gladcn UI v0.2.1
               </Badge>
               <h2 className="text-3xl font-bold tracking-tight mb-2">
                 Crafted for Perfection
@@ -142,10 +123,10 @@ export default function OverviewSection() {
               <h3 className="font-semibold">Quick Install</h3>
             </div>
             <p className="text-sm text-muted-foreground mb-4">
-              Available on npm. Add sadcn to your project in seconds.
+              Available on npm. Add gladcn to your project in seconds.
             </p>
             <div className="rounded-lg bg-muted/50 px-3 py-2.5 font-mono text-xs border flex items-center justify-between">
-              <span className="truncate">npm i @duongy96/sadcn</span>
+              <span className="truncate">npm i @duongy96/gladcn</span>
             </div>
           </div>
           <Button

@@ -1,4 +1,4 @@
-import { Kbd, KbdGroup } from "@/index";
+import { Kbd, KbdGroup } from "@/index";;
 import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
 
 export default function KbdShowcase() {

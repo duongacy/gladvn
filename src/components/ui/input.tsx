@@ -27,6 +27,11 @@ const inputVariants = cva(
   },
 );
 
+/**
+ * @description Displays a form input field or a component that looks like an input field.
+ * @example
+ * <Input type="email" placeholder="Email" />
+ */
 function Input({
   className,
   size = "md",

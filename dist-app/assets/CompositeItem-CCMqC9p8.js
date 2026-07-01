@@ -1,0 +1,1 @@
+import{Bn as e,Un as t,Wn as n,h as r}from"./showcase-BdjDino7.js";function i(i){let{render:a,className:o,style:s,state:c=n,props:l=t,refs:u=t,metadata:d,stateAttributesMapping:f,tag:p=`div`,...m}=i,{compositeProps:h,compositeRef:g}=r({metadata:d});return e(p,i,{state:c,ref:[...u,g],props:[h,...l,m],stateAttributesMapping:f})}export{i as t};

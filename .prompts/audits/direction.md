@@ -1,6 +1,6 @@
 # Audit Prompt: Direction
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -36,7 +36,7 @@ Direction Provider quản lý text direction (LTR/RTL) cho internationalization.
 - **3.1.1 Language of Page (A):** `lang` attribute phải đúng.
 - **3.1.2 Language of Parts (AA):** Parts trong ngôn ngữ khác phải có `lang` riêng.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **CSS Delegated Logic (Rule #2):** RTL layout PHẢI dùng CSS logical properties, KHÔNG dùng JS class toggle.
 - **Local Theme Isolation (Rule #16):** Direction phải hoạt động locally — sub-tree có thể override direction.

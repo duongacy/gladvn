@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import reactElementToJSXString from "react-element-to-jsx-string";
-import { Tabs, TabsList, TabsTrigger, TabsContent, Button } from "@/index";
+import { Tabs, TabsList, TabsTrigger, TabsContent, Button } from "@/index";;
 import { CopyIcon, CheckIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { COLORS, COLOR_INFO } from "@/dev/data";

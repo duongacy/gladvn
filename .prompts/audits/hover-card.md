@@ -1,6 +1,6 @@
 # Audit Prompt: Hover Card
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -43,7 +43,7 @@ Hover Card hiển thị preview content khi user hover lên trigger (thường l
 - **2.1.1 Keyboard (A):** Nếu chứa interactive content, phải keyboard accessible.
 - **1.3.1 Info and Relationships (A):** Content phải accessible qua alternative means (navigate to page).
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **CSS Delegated Logic (Rule #2):** Animation dùng CSS (`data-[state=open]`).
 - **Portal Tunneling (Rule #15):** Portal phải giữ theme.

@@ -1,6 +1,6 @@
 # Audit Prompt: Alert Dialog
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -27,7 +27,7 @@ Khác với Dialog thông thường, Alert Dialog là một thành phần gián 
 - Các thành phần cấu tạo chuẩn: `Root`, `Trigger`, `Portal`, `Overlay`, `Content`, `Header`, `Footer`, `Title`, `Description`, `Action`, `Cancel`.
 - `open` / `defaultOpen` / `onOpenChange`: Pattern chuẩn cho việc sử dụng theo kiểu Controlled & Uncontrolled.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 Áp dụng các luật riêng của dự án vào Alert Dialog:
 

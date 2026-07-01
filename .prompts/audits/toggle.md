@@ -1,6 +1,6 @@
 # Audit Prompt: Toggle
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -36,7 +36,7 @@ Toggle (Toggle Button) là button có hai trạng thái: pressed/not pressed. B�
 - **2.1.1 Keyboard (A):** Enter/Space toggle.
 - **4.1.2 Name, Role, Value (A):** Screen reader announce: name, role ("button"), state ("pressed"/"not pressed").
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **CSS Delegated Logic (Rule #2):** Pressed state styling PHẢI dùng CSS (`aria-pressed="true"` selector hoặc `data-[state=on]`).
 - **Form Control Parity (Rule #18):** Toggle sizing align với Button: `sm: h-7`, `md: h-8`, `lg: h-9`. Focus ring: `focus-visible:ring-3 focus-visible:ring-ring/50`.

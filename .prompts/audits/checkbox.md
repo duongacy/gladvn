@@ -1,6 +1,6 @@
 # Audit Prompt: Checkbox
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -44,7 +44,7 @@ Checkbox cho phép user chọn một hoặc nhiều option từ một danh sách
 - **3.3.2 Labels or Instructions (A):** Phải có label rõ ràng cho mỗi checkbox.
 - **4.1.2 Name, Role, Value (A):** Screen reader phải announce đúng: name, role ("checkbox"), và state ("checked"/"not checked"/"mixed").
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **CSS Delegated Logic (Rule #2):** Checkmark icon và indeterminate indicator PHẢI xuất hiện/ẩn thông qua CSS (`data-[state=checked]`, `data-[state=indeterminate]`) thay vì React conditional rendering.
 - **Form Control Parity (Rule #18):** Checkbox sizing phải tương thích khi đặt cạnh Input/Button. Focus ring phải dùng chung token: `focus-visible:ring-3 focus-visible:ring-ring/50`.

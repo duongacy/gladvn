@@ -1,6 +1,6 @@
 # The Commandments of Frontend Engineering
 
-Đây là "Hiến pháp" của bộ UI Library **sadcn**. Bất kỳ ai đóng góp hoặc sử dụng bộ thư viện này đều **BẮT BUỘC** phải đọc và tuân thủ tuyệt đối các nguyên tắc dưới đây. Không có ngoại lệ.
+Đây là "Hiến pháp" của bộ UI Library **gladcn**. Bất kỳ ai đóng góp hoặc sử dụng bộ thư viện này đều **BẮT BUỘC** phải đọc và tuân thủ tuyệt đối các nguyên tắc dưới đây. Không có ngoại lệ.
 
 ## PHẦN I: COMPONENT API & DEVELOPER UX (Triết lý thiết kế)
 

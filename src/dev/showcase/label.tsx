@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Label ,
-  SelectPreset} from "@/index";
+import { Label } from "@/index";
+import { SelectPreset } from "@/preset";;
 import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
 
 import { type Size } from "@/lib/types";

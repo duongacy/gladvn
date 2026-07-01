@@ -1,6 +1,6 @@
 # Audit Prompt: Input
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -48,7 +48,7 @@ Input (text field) là form control cơ bản nhất cho phép user nhập text.
 - **3.3.2 Labels or Instructions (A):** Input phải có label hoặc instructions.
 - **3.3.3 Error Suggestion (AA):** Nếu lỗi được detect, phải gợi ý cách sửa.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **Form Control Parity (Rule #18):** Input sizing PHẢI chính xác: `sm: h-7 px-2 text-xs`, `md: h-8 px-2.5 text-sm`, `lg: h-9 px-3 text-sm`. Focus ring: `focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50`.
 - **CSS Delegated Logic (Rule #2):** Invalid state border/ring PHẢI dùng CSS (`aria-invalid:border-destructive`), không dùng React state.

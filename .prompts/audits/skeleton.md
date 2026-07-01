@@ -1,6 +1,6 @@
 # Audit Prompt: Skeleton
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -36,7 +36,7 @@ Skeleton hiển thị loading placeholder thay thế content đang load. BẮT B
 - **2.2.1 Timing Adjustable (A):** Skeleton không gây timing issue (nó ở cho đến khi content load).
 - **2.3.1 Three Flashes (A):** Shimmer animation KHÔNG được flash quá 3 lần/giây.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **CSS Delegated Logic (Rule #2):** Shimmer/pulse animation PHẢI dùng CSS animation. Respect `prefers-reduced-motion`.
 - **No Magic Number (Rule #4):** Border-radius, height phải dùng tokens.

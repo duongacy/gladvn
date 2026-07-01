@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Toggle ,
-  SelectPreset} from "@/index";
+import { Toggle } from "@/index";
+import { SelectPreset } from "@/preset";;
 import {
   SectionHeader,
   ExampleSection,

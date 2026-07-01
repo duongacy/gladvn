@@ -1,6 +1,6 @@
 # Audit Prompt: Navigation Menu
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -45,7 +45,7 @@ Navigation Menu là horizontal navigation component với disclosure panels (meg
 - **2.4.7 Focus Visible (AA):** Focus indicators trên links và triggers.
 - **2.4.8 Location (AAA):** `aria-current="page"` cho current page.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **CSS Delegated Logic (Rule #2):** Panel animation, active indicator PHẢI dùng CSS (`data-[state=open]`).
 - **Portal Tunneling (Rule #15):** Panel content trong viewport/Portal phải giữ theme.

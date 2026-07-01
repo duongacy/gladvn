@@ -1,11 +1,6 @@
 import { useState } from "react";
-import {
-  RadioGroup,
-  RadioGroupItem,
-  Field,
-  FieldLabel,
-  Label,
-  SelectPreset} from "@/index";
+import { RadioGroup, RadioGroupItem, Field, FieldLabel, Label } from "@/index";
+import { SelectPreset } from "@/preset";;
 import {
   SectionHeader,
   ExampleSection,

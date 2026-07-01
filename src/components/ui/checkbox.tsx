@@ -29,6 +29,12 @@ const checkboxVariants = cva(
   },
 );
 
+/**
+ * @description A control that allows the user to toggle between checked and not checked.
+ * @example
+ * <Checkbox id="terms" />
+ * <label htmlFor="terms">Accept terms</label>
+ */
 function Checkbox({
   className,
   size = "md",

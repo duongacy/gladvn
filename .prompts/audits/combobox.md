@@ -1,6 +1,6 @@
 # Audit Prompt: Combobox
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -64,7 +64,7 @@ Combobox kết hợp text input với popup listbox, cho phép user vừa gõ đ
 - **4.1.2 Name, Role, Value (A):** Screen reader phải announce: role ("combobox"), expanded state, selected value, activedescendant change.
 - **4.1.3 Status Messages (AA):** Khi kết quả filter thay đổi, nên announce số lượng results qua `aria-live` region (vd: "5 results available").
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **Form Control Parity (Rule #18):** Input sizing align với Input component. Focus ring: `focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50`.
 - **CSS Delegated Logic (Rule #2):** Popup animation, highlight state PHẢI dùng CSS. Filter logic bắt buộc dùng JS nhưng visual feedback phải CSS-driven.

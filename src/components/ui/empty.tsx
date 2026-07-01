@@ -9,6 +9,14 @@ import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
 
+/**
+ * @description A placeholder state component for empty data.
+ * @requires EmptyImage, EmptyTitle, EmptyDescription
+ * @example
+ * <Empty>
+ *   <EmptyTitle>No data</EmptyTitle>
+ * </Empty>
+ */
 function Empty({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div

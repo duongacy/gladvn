@@ -14,6 +14,9 @@ import { cn } from "@/lib/utils";
 import { Separator } from "@/components/ui/separator";
 import { Size } from "@/lib/types";
 
+/**
+ * @description Base flex container for listing items consistently.
+ */
 function ItemGroup({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div

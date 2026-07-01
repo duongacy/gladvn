@@ -26,6 +26,11 @@ const switchVariants = cva(
   },
 );
 
+/**
+ * @description A control that allows the user to toggle between checked and not checked.
+ * @example
+ * <Switch id="airplane-mode" />
+ */
 function Switch({
   className,
   size = "md",

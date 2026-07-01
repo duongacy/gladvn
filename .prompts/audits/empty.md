@@ -1,6 +1,6 @@
 # Audit Prompt: Empty
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -37,7 +37,7 @@ Empty State hiển thị khi không có data/content. BẮT BUỘC kiểm tra:
 - **1.1.1 Non-text Content (A):** Illustration phải có alt text hoặc aria-hidden.
 - **4.1.3 Status Messages (AA):** Dynamic empty state phải announce qua assistive technology.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **No Magic Number (Rule #4):** Spacing, icon size phải dùng tokens.
 - **Zero-Prop Defaults (Rule #1):** `<Empty>` mặc định hiển thị generic message nếu không truyền content.

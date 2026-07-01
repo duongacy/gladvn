@@ -62,19 +62,3 @@ export * from "@/components/ui/toggle";
 export * from "@/components/ui/toggle-group";
 export * from "@/components/ui/tooltip";
 
-// Presets
-export * from "@/components/preset/accordion-preset";
-export * from "@/components/preset/avatar-preset";
-export * from "@/components/preset/breadcrumb-preset";
-export * from "@/components/preset/carousel-preset";
-export * from "@/components/preset/checkbox-preset";
-export * from "@/components/preset/combobox-preset";
-export * from "@/components/preset/field-preset";
-export * from "@/components/preset/input-otp-preset";
-export * from "@/components/preset/pagination-preset";
-export * from "@/components/preset/progress-preset";
-export * from "@/components/preset/radio-group-preset";
-export * from "@/components/preset/select-preset";
-export * from "@/components/preset/slider-preset";
-export * from "@/components/preset/switch-preset";
-export * from "@/components/preset/tabs-preset";

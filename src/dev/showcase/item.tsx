@@ -1,17 +1,6 @@
 import { useState } from "react";
-import {
-  Item,
-  ItemGroup,
-  ItemHeader,
-  ItemFooter,
-  ItemSeparator,
-  ItemMedia,
-  ItemActions,
-  ItemContent,
-  ItemTitle,
-  ItemDescription,
-  Button,
-  SelectPreset} from "@/index";
+import { Item, ItemGroup, ItemHeader, ItemFooter, ItemSeparator, ItemMedia, ItemActions, ItemContent, ItemTitle, ItemDescription, Button } from "@/index";
+import { SelectPreset } from "@/preset";;
 import {
   SectionHeader,
   ExampleSection,

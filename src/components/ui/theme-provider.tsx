@@ -63,6 +63,9 @@ function useTheme(): ThemeContextValue | undefined {
  * </ThemeProvider>
  * ```
  */
+/**
+ * @description Context provider for managing light/dark themes.
+ */
 function ThemeProvider({
   initialMode = "light",
   isRoot = false,

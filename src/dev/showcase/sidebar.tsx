@@ -1,29 +1,6 @@
 import { useState } from "react";
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarGroupLabel,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-  SidebarProvider,
-  SidebarHeader,
-  SidebarFooter,
-  SidebarInput,
-  SidebarMenuAction,
-  SidebarMenuBadge,
-  SidebarMenuSub,
-  SidebarMenuSubItem,
-  SidebarMenuSubButton,
-  SidebarRail,
-  SidebarTrigger,
-  SidebarSeparator,
-  SidebarInset,
-  SidebarGroupAction,
-  SidebarMenuSkeleton,
-  SelectPreset} from "@/index";
+import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider, SidebarHeader, SidebarFooter, SidebarInput, SidebarMenuAction, SidebarMenuBadge, SidebarMenuSub, SidebarMenuSubItem, SidebarMenuSubButton, SidebarRail, SidebarTrigger, SidebarSeparator, SidebarInset, SidebarGroupAction, SidebarMenuSkeleton } from "@/index";
+import { SelectPreset } from "@/preset";;
 import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
 import { MoreHorizontalIcon, ChevronRightIcon, PlusIcon } from "lucide-react";
 

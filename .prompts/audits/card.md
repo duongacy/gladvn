@@ -1,6 +1,6 @@
 # Audit Prompt: Card
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -40,7 +40,7 @@ Card là container component nhóm related content. KHÔNG có W3C APG pattern r
 - **2.4.6 Headings and Labels (AA):** Card title phải descriptive.
 - **2.5.8 Target Size (AA):** Interactive elements trong card phải đạt minimum target size.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **No Magic Number (Rule #4):** Padding, border-radius, shadow phải dùng tokens.
 - **Zero-Prop Defaults (Rule #1):** `<Card>` không prop phải render container hợp lý.

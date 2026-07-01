@@ -1,6 +1,6 @@
 # Audit Prompt: Switch
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -44,7 +44,7 @@ Switch là widget cho phép user toggle giữa hai trạng thái mutually exclus
 - **2.5.8 Target Size Minimum (AA):** Switch clickable area phải ≥ 24×24 CSS pixels.
 - **4.1.2 Name, Role, Value (A):** Screen reader phải announce: name, role ("switch"), state ("on"/"off").
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **CSS Delegated Logic (Rule #2):** Thumb slide animation PHẢI dùng CSS transition (`data-[state=checked]:translate-x-*`). Cấm dùng React state để animate.
 - **Form Control Parity (Rule #18):** Focus ring dùng chung token: `focus-visible:ring-3 focus-visible:ring-ring/50`. Disabled state: `disabled:opacity-50`.

@@ -1,6 +1,6 @@
 # Audit Prompt: Tabs
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -52,7 +52,7 @@ Tabs cho phép user chuyển đổi giữa các content panels mà không naviga
 - **2.4.7 Focus Visible (AA):** Focus ring trên tab đang focused.
 - **4.1.2 Name, Role, Value (A):** Screen reader phải announce: role ("tab"), state ("selected"), position ("1 of 4").
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **CSS Delegated Logic (Rule #2):** Active tab indicator (underline, background) PHẢI dùng CSS (`data-[state=active]`). Tab panel show/hide dùng CSS hoặc conditional mount.
 - **Form Control Parity (Rule #18):** Tab trigger focus ring dùng chung token: `focus-visible:ring-3 focus-visible:ring-ring/50`.

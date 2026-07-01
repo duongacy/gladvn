@@ -1,6 +1,6 @@
 # Audit Prompt: Radio Group
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -48,7 +48,7 @@ Radio Group cho phép user chọn DUY NHẤT một option từ một danh sách.
 - **3.3.2 Labels or Instructions (A):** Mỗi radio phải có label, group phải có group label.
 - **4.1.2 Name, Role, Value (A):** Screen reader phải announce: name, role ("radio"), state ("checked"/"not checked"), và position ("1 of 3").
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **CSS Delegated Logic (Rule #2):** Selected indicator (filled circle) PHẢI xuất hiện/ẩn thông qua CSS (`data-[state=checked]`) thay vì React conditional rendering.
 - **Form Control Parity (Rule #18):** Focus ring phải dùng chung token: `focus-visible:ring-3 focus-visible:ring-ring/50`. Khi đặt trong form cạnh Input/Checkbox phải đồng bộ visual language.

@@ -1,6 +1,6 @@
 # Audit Prompt: Menubar
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -49,7 +49,7 @@ Menubar là horizontal navigation menu (giống menu bar của desktop apps). B�
 - **2.4.3 Focus Order (A):** Logical focus flow giữa menubar items và submenus.
 - **4.1.2 Name, Role, Value (A):** Screen reader announce: menubar role, menuitem role, expanded state.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **CSS Delegated Logic (Rule #2):** Animation, highlight dùng CSS.
 - **Portal Tunneling (Rule #15):** Submenu Portals phải giữ theme.

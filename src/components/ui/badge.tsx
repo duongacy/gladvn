@@ -73,6 +73,11 @@ const badgeVariants = cva(
   },
 );
 
+/**
+ * @description Displays a badge or a component that looks like a badge.
+ * @example
+ * <Badge variant="outline">Badge</Badge>
+ */
 function Badge({
   className,
   variant,

@@ -2,16 +2,8 @@ import {
   ExampleSection,
   SectionHeader
 } from "@/dev/components/showcase";
-import {
-  Card,
-  CardContent,
-  Carousel,
-  CarouselContent,
-  CarouselDots,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-  SelectPreset} from "@/index";
+import { Card, CardContent, Carousel, CarouselContent, CarouselDots, CarouselItem, CarouselNext, CarouselPrevious } from "@/index";
+import { SelectPreset } from "@/preset";;
 import { type Size } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { useState } from "react";

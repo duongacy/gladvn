@@ -1,6 +1,6 @@
 # Audit Prompt: Sidebar
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -47,7 +47,7 @@ Sidebar là navigation panel thường nằm bên cạnh main content, có thể
 - **2.4.1 Bypass Blocks (A):** Navigation landmark cho phép skip navigation.
 - **2.4.7 Focus Visible (AA):** Focus ring trên tất cả interactive elements.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **CSS Delegated Logic (Rule #2):** Collapse animation PHẢI dùng CSS (`data-[state=collapsed]`, `translate-x-*`). Active item highlighting dùng CSS.
 - **Portal Tunneling (Rule #15):** Nếu mobile sidebar dùng overlay/portal, phải giữ theme.

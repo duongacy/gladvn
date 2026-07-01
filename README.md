@@ -1,11 +1,11 @@
-# sadcn
+# gladcn
 
 A custom component library built on top of [shadcn/ui](https://ui.shadcn.com/). All 55+ components bundled and ready to use.
 
 ## Installation
 
 ```bash
-npm install sadcn
+npm install @duongy96/gladcn
 ```
 
 ### Prerequisites
@@ -20,34 +20,34 @@ npm install tailwindcss @tailwindcss/postcss
 
 ### 1. Import the CSS preset
 
-Add the sadcn globals CSS to your main CSS file:
+Add the gladcn globals CSS to your main CSS file:
 
 ```css
 /* app/globals.css or src/index.css */
-@import "sadcn/globals.css";
+@import "@duongy96/gladcn/globals.css";
 ```
 
 ### 2. Configure Tailwind content
 
-Make sure Tailwind scans the sadcn components:
+Make sure Tailwind scans the gladcn components:
 
 ```css
 /* In your main CSS file */
 @import "tailwindcss";
-@source "../node_modules/sadcn/dist";
-@import "sadcn/globals.css";
+@source "../node_modules/gladcn/dist";
+@import "@duongy96/gladcn/globals.css";
 ```
 
 ## Usage
 
 ```tsx
-import { Button, Card, CardHeader, CardTitle, CardContent } from "sadcn";
+import { Button, Card, CardHeader, CardTitle, CardContent } from "gladcn";
 
 export function MyComponent() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Hello from sadcn!</CardTitle>
+        <CardTitle>Hello from gladcn!</CardTitle>
       </CardHeader>
       <CardContent>
         <Button variant="destructive">Click me</Button>
@@ -86,7 +86,7 @@ All 55 shadcn/ui components are included:
 ## Utilities
 
 ```tsx
-import { cn } from "sadcn";
+import { cn } from "gladcn";
 
 // Merge Tailwind classes with conflict resolution
 cn("px-4 py-2", "px-8"); // → "px-8 py-2"
@@ -95,7 +95,7 @@ cn("px-4 py-2", "px-8"); // → "px-8 py-2"
 ## Hooks
 
 ```tsx
-import { useIsMobile } from "sadcn";
+import { useIsMobile } from "gladcn";
 
 function MyComponent() {
   const isMobile = useIsMobile();

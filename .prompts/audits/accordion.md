@@ -1,6 +1,6 @@
 # Audit Prompt: Accordion
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -33,7 +33,7 @@ Khi đánh giá Accordion, BẮT BUỘC phải kiểm tra các tiêu chuẩn qu�
 - `value` / `defaultValue` / `onValueChange`: Pattern chuẩn cho việc sử dụng component theo kiểu Controlled & Uncontrolled.
 - `disabled`: Cần hỗ trợ disabled ở cấp `Root` (vô hiệu hoá toàn bộ Accordion) và cấp `Item` (chỉ vô hiệu hoá một nhánh cụ thể).
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 Áp dụng các luật riêng của dự án vào Accordion:
 

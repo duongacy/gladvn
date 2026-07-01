@@ -1,6 +1,6 @@
 # Audit Prompt: Sheet
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -34,7 +34,7 @@ Sheet là biến thể của Dialog, slide vào từ cạnh màn hình (top/righ
 - **Kế thừa tất cả Dialog criteria.**
 - **2.5.1 Pointer Gestures (A):** Nếu swipe-to-dismiss, phải có single-point alternative (close button).
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **CSS Delegated Logic (Rule #2):** Slide animation PHẢI dùng CSS (`data-[state=open]`, `translate-x-*`, `translate-y-*`). Các hướng slide phải dùng `data-[side=right]:translate-x-full` pattern.
 - **Portal Tunneling (Rule #15):** Giống Dialog — Portal phải giữ theme context.

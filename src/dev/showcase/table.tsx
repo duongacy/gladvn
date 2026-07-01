@@ -1,13 +1,4 @@
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-  TableFooter,
-} from "@/index";
+import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow, TableFooter } from "@/index";;
 import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
 
 export default function TableShowcase() {

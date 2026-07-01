@@ -1,6 +1,6 @@
 # Audit Prompt: Tooltip
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -45,7 +45,7 @@ Tooltip hiển thị text mô tả bổ sung khi user hover hoặc focus vào tr
 - **2.1.1 Keyboard (A):** Tooltip phải hiện khi focus trigger.
 - **4.1.2 Name, Role, Value (A):** Screen reader phải announce tooltip content khi trigger focused.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **CSS Delegated Logic (Rule #2):** Appear/disappear animation PHẢI dùng CSS (`data-[state=delayed-open]`, `data-[state=closed]`).
 - **Portal Tunneling (Rule #15):** Content trong Portal phải giữ theme context.

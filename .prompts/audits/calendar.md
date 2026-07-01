@@ -1,6 +1,6 @@
 # Audit Prompt: Calendar
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -60,7 +60,7 @@ Calendar cho phép user chọn date hoặc date range. Dùng Grid pattern phức
 - **2.4.7 Focus Visible (AA):** Focus ring trên date đang focused.
 - **4.1.2 Name, Role, Value (A):** Screen reader announce: role, date, selected state, disabled state.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **CSS Delegated Logic (Rule #2):** Selected date, today highlight, range highlight PHẢI dùng CSS (`aria-selected`, `data-[today]`, `data-[in-range]`).
 - **No Magic Number (Rule #4):** Cell size, gap, padding phải dùng tokens.

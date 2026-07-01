@@ -1,15 +1,7 @@
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem ,
-  SelectPreset} from "@/index";
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/index";
+import { SelectPreset } from "@/preset";;
 import { useState } from "react";
-import {
-  Pagination,
-  PaginationContent,
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from "@/index";
+import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/index";;
 import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
 
 import { type Size } from "@/lib/types";

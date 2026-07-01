@@ -1,14 +1,6 @@
 import { useState } from "react";
-import {
-  InputOTP,
-  InputOTPGroup,
-  InputOTPSeparator,
-  InputOTPSlot,
-  Field,
-  FieldLabel,
-  FieldDescription,
-  FieldContent,
-  SelectPreset} from "@/index";
+import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot, Field, FieldLabel, FieldDescription, FieldContent } from "@/index";
+import { SelectPreset } from "@/preset";;
 import {
   SectionHeader,
   ExampleSection,

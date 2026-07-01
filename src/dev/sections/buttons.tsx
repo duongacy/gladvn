@@ -10,18 +10,8 @@ import {
   UserIcon,
 } from "lucide-react";
 import { useState } from "react";
-import {
-  Avatar,
-  AvatarFallback,
-  Button,
-  SelectPreset,
-  Size,
-  Spinner,
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/index";
+import { Avatar, AvatarFallback, Button, Size, Spinner, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/index";
+import { SelectPreset } from "@/preset";;
 import { SectionHeader } from "@/dev/components/showcase";
 
 export default function ButtonsSection() {

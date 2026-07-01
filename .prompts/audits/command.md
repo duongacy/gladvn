@@ -1,6 +1,6 @@
 # Audit Prompt: Command
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -57,7 +57,7 @@ Command (Command Palette / cmdk) là widget kết hợp search input với filte
 - **4.1.2 Name, Role, Value (A):** Combobox role, activedescendant, expanded state.
 - **4.1.3 Status Messages (AA):** Khi filter results thay đổi, announce số lượng (vd: "3 results").
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **CSS Delegated Logic (Rule #2):** Item highlight dùng CSS (`data-[selected]`, `aria-selected`). Filter logic phải JS nhưng visual feedback CSS.
 - **Portal Tunneling (Rule #15):** Nếu bọc trong Dialog Portal, phải giữ theme.

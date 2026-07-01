@@ -41,6 +41,11 @@ const calendarVariants = cva(
   },
 );
 
+/**
+ * @description A date field component that allows users to enter and edit date.
+ * @example
+ * <Calendar mode="single" selected={date} onSelect={setDate} />
+ */
 function Calendar({
   className,
   classNames,

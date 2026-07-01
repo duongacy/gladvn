@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Button ,
-  SelectPreset} from "@/index";
+import { Button } from "@/index";
+import { SelectPreset } from "@/preset";;
 import { toast } from "sonner";
 import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
 

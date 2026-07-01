@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Spinner ,
-  SelectPreset} from "@/index";
+import { Spinner } from "@/index";
+import { SelectPreset } from "@/preset";;
 import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
 
 import { type Size } from "@/lib/types";

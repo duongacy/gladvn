@@ -1,17 +1,6 @@
 import { useState } from "react";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardContent,
-  CardFooter,
-  CardAction,
-  Button,
-  Input,
-  Label,
-  Badge,
-  SelectPreset} from "@/index";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, CardAction, Button, Input, Label, Badge } from "@/index";
+import { SelectPreset } from "@/preset";;
 import {
   SectionHeader,
   ExampleSection,

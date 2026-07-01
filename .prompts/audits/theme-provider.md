@@ -1,6 +1,6 @@
 # Audit Prompt: Theme Provider
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -40,7 +40,7 @@ Theme Provider quản lý light/dark/system theme cho component library. Không 
 - **1.4.6 Contrast Enhanced (AAA):** Nên aim cho 7:1.
 - **1.4.11 Non-text Contrast (AA):** Borders, icons, focus rings trong cả hai themes.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **Local Theme Isolation (Rule #16):** CSS tokens PHẢI hoạt động locally — sub-tree có thể override theme. Variables phải re-declare được ở bất kỳ đâu trên DOM.
 - **Portal Tunneling (Rule #15):** ThemeProvider phải wrap Portal containers — hoặc Portal components phải inject theme class.

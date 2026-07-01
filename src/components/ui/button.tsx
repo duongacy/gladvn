@@ -311,6 +311,11 @@ function flattenChildren(children: React.ReactNode): React.ReactNode[] {
   return flat;
 }
 
+/**
+ * @description Displays a button or a component that looks like a button.
+ * @example
+ * <Button variant="solid" color="primary">Click me</Button>
+ */
 function Button({
   className,
   variant = "solid",

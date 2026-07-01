@@ -7,6 +7,11 @@
  */
 import { cn } from "@/lib/utils";
 
+/**
+ * @description Displays a keyboard shortcut.
+ * @example
+ * <Kbd>⌘K</Kbd>
+ */
 function Kbd({ className, ...props }: React.ComponentProps<"kbd">) {
   return (
     <kbd

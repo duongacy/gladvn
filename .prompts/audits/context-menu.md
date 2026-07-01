@@ -1,6 +1,6 @@
 # Audit Prompt: Context Menu
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -54,7 +54,7 @@ Context Menu xuất hiện khi user right-click (hoặc long-press trên mobile)
 - **2.4.3 Focus Order (A):** Logical focus order trong menu.
 - **4.1.2 Name, Role, Value (A):** Screen reader phải announce role ("menu"), item role ("menuitem"/"menuitemcheckbox"/"menuitemradio"), state.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **CSS Delegated Logic (Rule #2):** Animation dùng CSS. Highlighted item dùng `data-[highlighted]`.
 - **Portal Tunneling (Rule #15):** Portal phải giữ theme.

@@ -21,6 +21,11 @@ export interface ProgressProps extends ProgressPrimitive.Root.Props {
   size?: Size;
 }
 
+/**
+ * @description Displays an indicator showing the completion progress of a task.
+ * @example
+ * <Progress value={33} />
+ */
 function Progress({
   className,
   children,

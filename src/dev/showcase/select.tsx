@@ -1,20 +1,6 @@
 import { useState } from "react";
-import {
-  Select,
-  SelectTrigger,
-  SelectValue,
-  SelectContent,
-  SelectItem,
-  SelectGroup,
-  SelectLabel,
-  SelectSeparator,
-  SelectScrollDownButton,
-  SelectScrollUpButton,
-  Field,
-  FieldLabel,
-  FieldDescription,
-  FieldContent,
-  SelectPreset} from "@/index";
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem, SelectGroup, SelectLabel, SelectSeparator, SelectScrollDownButton, SelectScrollUpButton, Field, FieldLabel, FieldDescription, FieldContent } from "@/index";
+import { SelectPreset } from "@/preset";;
 import {
   SectionHeader,
   ExampleSection,

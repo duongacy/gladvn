@@ -1,17 +1,6 @@
 import { useState } from "react";
-import {
-  
-  Field,
-  FieldLabel,
-  FieldDescription,
-  FieldContent,
-  Progress,
-  ProgressTrack,
-  ProgressIndicator,
-  ProgressLabel,
-  ProgressValue,
-  ProgressPreset,
-  SelectPreset} from "@/index";
+import { Field, FieldLabel, FieldDescription, FieldContent, Progress, ProgressTrack, ProgressIndicator, ProgressLabel, ProgressValue } from "@/index";
+import { ProgressPreset, SelectPreset } from "@/preset";;
 
 import {
   SectionHeader,

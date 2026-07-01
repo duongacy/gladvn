@@ -1,6 +1,6 @@
 # Audit Prompt: Breadcrumb
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -41,7 +41,7 @@ Breadcrumb hiển thị vị trí hiện tại trong cấu trúc trang web. BẮ
 - **2.4.4 Link Purpose (A):** Breadcrumb links phải có descriptive text.
 - **2.4.8 Location (AAA):** Breadcrumb cung cấp location information — trực tiếp satisfy criterion này.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **CSS Delegated Logic (Rule #2):** Separator rendering NÊN dùng CSS pseudo-element. Current page styling dùng `aria-current` selector.
 - **No Magic Number (Rule #4):** Gap, separator spacing phải dùng tokens.

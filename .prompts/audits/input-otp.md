@@ -1,6 +1,6 @@
 # Audit Prompt: Input OTP
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -52,7 +52,7 @@ Input OTP (One-Time Password) cho phép user nhập mã xác thực gồm nhiề
 - **3.3.2 Labels or Instructions (A):** Phải có label mô tả rõ ràng.
 - **3.3.3 Error Suggestion (AA):** Khi OTP sai, gợi ý (vd: "Code expired, request a new one").
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **Form Control Parity (Rule #18):** OTP slots PHẢI dùng chung base aesthetics: `rounded-lg border border-input`. Focus ring: `focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50`.
 - **CSS Delegated Logic (Rule #2):** Active slot indicator, caret animation PHẢI dùng CSS.

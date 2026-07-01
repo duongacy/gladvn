@@ -1,6 +1,6 @@
 # Audit Prompt: Avatar
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -39,7 +39,7 @@ Avatar hiển thị hình đại diện của user/entity. BẮT BUỘC kiểm t
 - **1.1.1 Non-text Content (A):** Image phải có alt text (hoặc alt="" nếu decorative).
 - **1.4.11 Non-text Contrast (AA):** Avatar border/outline contrast (nếu có).
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **CSS Delegated Logic (Rule #2):** Fallback visibility dùng CSS (`:not([src])`, hoặc `data-[state=loaded]`).
 - **No Magic Number (Rule #4):** Avatar sizes phải dùng tokens.

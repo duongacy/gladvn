@@ -1,6 +1,6 @@
 # Audit Prompt: Textarea
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -44,7 +44,7 @@ Textarea cho phép user nhập multi-line text. Kế thừa hầu hết tiêu ch
 - **3.3.1 Error Identification (A):** Lỗi mô tả bằng text.
 - **3.3.2 Labels or Instructions (A):** Phải có label.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **Form Control Parity (Rule #18):** Textarea PHẢI dùng chung base aesthetics với Input: `rounded-lg border border-input bg-transparent dark:bg-input/30`. Focus ring: `focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50`. Invalid state: `aria-invalid:border-destructive`.
 - **CSS Delegated Logic (Rule #2):** Auto-resize (nếu có) ưu tiên CSS (`field-sizing: content`). Invalid/focus state dùng CSS.

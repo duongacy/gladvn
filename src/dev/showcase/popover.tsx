@@ -1,13 +1,6 @@
 import { useState } from "react";
-import {
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
-  PopoverHeader,
-  PopoverTitle,
-  PopoverDescription,
-  Button,
-  SelectPreset} from "@/index";
+import { Popover, PopoverTrigger, PopoverContent, PopoverHeader, PopoverTitle, PopoverDescription, Button } from "@/index";
+import { SelectPreset } from "@/preset";;
 import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
 
 import { type Size } from "@/lib/types";

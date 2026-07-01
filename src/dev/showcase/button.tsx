@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Button, Spinner ,
-  SelectPreset} from "@/index";
+import { Button, Spinner } from "@/index";
+import { SelectPreset } from "@/preset";;
 import {
   SectionHeader,
   ExampleSection,

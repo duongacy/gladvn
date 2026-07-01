@@ -7,6 +7,18 @@ import { cn } from "@/lib/utils";
 import { type Size } from "@/lib/types";
 import { Button } from "@/components/ui/button";
 
+/**
+ * @description A modal dialog that interrupts the user with important content and expects a response.
+ * @requires AlertDialogTrigger, AlertDialogContent, AlertDialogHeader, AlertDialogFooter
+ * @example
+ * <AlertDialog>
+ *   <AlertDialogTrigger>Open</AlertDialogTrigger>
+ *   <AlertDialogContent>
+ *     <AlertDialogHeader><AlertDialogTitle>Are you sure?</AlertDialogTitle></AlertDialogHeader>
+ *     <AlertDialogFooter><AlertDialogCancel>Cancel</AlertDialogCancel><AlertDialogAction>Continue</AlertDialogAction></AlertDialogFooter>
+ *   </AlertDialogContent>
+ * </AlertDialog>
+ */
 function AlertDialog({ ...props }: AlertDialogPrimitive.Root.Props) {
   return <AlertDialogPrimitive.Root data-slot="alert-dialog" {...props} />;
 }

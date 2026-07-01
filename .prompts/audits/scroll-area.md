@@ -1,6 +1,6 @@
 # Audit Prompt: Scroll Area
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -39,7 +39,7 @@ Scroll Area cung cấp custom-styled scrollbar thay thế native scrollbar. BẮ
 - **2.4.7 Focus Visible (AA):** Focus ring trên viewport khi focused.
 - **1.4.4 Resize Text (AA):** Scroll area phải handle text resize without breaking.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **CSS Delegated Logic (Rule #2):** Scrollbar visibility, thumb sizing dùng CSS.
 - **No Magic Number (Rule #4):** Scrollbar width, thumb border-radius phải dùng tokens.

@@ -1,6 +1,6 @@
 # Form Control Parity Cheatsheet (Rule 18)
 
-This document is the **Single Source of Truth** for extracting the exact CSS utilities required to achieve perfect "Linearity" (Parity) across all Form Controls (`Input`, `Select`, `Button`, `Checkbox`, `Switch`, etc.) in the **sadcn** project.
+This document is the **Single Source of Truth** for extracting the exact CSS utilities required to achieve perfect "Linearity" (Parity) across all Form Controls (`Input`, `Select`, `Button`, `Checkbox`, `Switch`, etc.) in the **gladcn** project.
 
 Before auditing or creating a new Form Component, reference these exact classes to ensure it is 100% linear with the rest of the library.
 

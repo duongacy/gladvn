@@ -26,6 +26,14 @@ const ToggleGroupContext = React.createContext<
   orientation: "horizontal",
 });
 
+/**
+ * @description A set of two-state buttons that can be toggled on or off.
+ * @requires ToggleGroupItem
+ * @example
+ * <ToggleGroup type="single">
+ *   <ToggleGroupItem value="a">A</ToggleGroupItem>
+ * </ToggleGroup>
+ */
 function ToggleGroup({
   className,
   variant,

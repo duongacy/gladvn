@@ -1,6 +1,6 @@
 # Audit Prompt: Dialog
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -47,7 +47,7 @@ Dialog (Modal) là overlay yêu cầu user tương tác trước khi quay lại 
 - **2.4.7 Focus Visible (AA):** Focus indicators cho tất cả interactive elements bên trong.
 - **4.1.2 Name, Role, Value (A):** Screen reader phải announce: role ("dialog"), title, description.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **CSS Delegated Logic (Rule #2):** Animation xuất hiện/biến mất (fade, zoom, slide) PHẢI dùng CSS thuần (`data-[state=open]`, `data-starting-style`, `@starting-style`). Cấm framer-motion.
 - **Portal Tunneling (Rule #15):** Dialog Content render trong Portal — PHẢI đảm bảo theme context (light/dark) không bị mất.

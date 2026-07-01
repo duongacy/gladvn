@@ -13,6 +13,15 @@ import { Avatar as AvatarPrimitive } from "@base-ui/react/avatar";
 import { cn } from "@/lib/utils";
 import { type Size } from "@/lib/types";
 
+/**
+ * @description An image element with a fallback for representing the user.
+ * @requires AvatarImage, AvatarFallback
+ * @example
+ * <Avatar>
+ *   <AvatarImage src="https://github.com/shadcn.png" />
+ *   <AvatarFallback>CN</AvatarFallback>
+ * </Avatar>
+ */
 function Avatar({
   className,
   size = "md",

@@ -1,12 +1,6 @@
 import { useState } from "react";
-import {
-  
-  Field,
-  FieldLabel,
-  FieldDescription,
-  FieldContent,
-  SliderPreset,
-  SelectPreset} from "@/index";
+import { Field, FieldLabel, FieldDescription, FieldContent } from "@/index";
+import { SliderPreset, SelectPreset } from "@/preset";;
 
 import {
   Slider as CompositionalSlider,

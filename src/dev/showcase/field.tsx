@@ -1,17 +1,6 @@
 import { useState } from "react";
-import {
-  Field,
-  FieldLabel,
-  FieldDescription,
-  FieldContent,
-  FieldError,
-  Input,
-  FieldGroup,
-  FieldLegend,
-  FieldSeparator,
-  FieldSet,
-  FieldTitle,
-  SelectPreset} from "@/index";
+import { Field, FieldLabel, FieldDescription, FieldContent, FieldError, Input, FieldGroup, FieldLegend, FieldSeparator, FieldSet, FieldTitle } from "@/index";
+import { SelectPreset } from "@/preset";;
 import {
   SectionHeader,
   ExampleSection,

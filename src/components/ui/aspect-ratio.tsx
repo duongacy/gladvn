@@ -7,6 +7,13 @@
  */
 import { cn } from "@/lib/utils";
 
+/**
+ * @description Displays content within a desired ratio.
+ * @example
+ * <AspectRatio ratio={16 / 9}>
+ *   <img src="..." alt="..." />
+ * </AspectRatio>
+ */
 function AspectRatio({
   ratio,
   className,

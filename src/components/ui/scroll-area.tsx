@@ -12,6 +12,13 @@ import { ScrollArea as ScrollAreaPrimitive } from "@base-ui/react/scroll-area";
 
 import { cn } from "@/lib/utils";
 
+/**
+ * @description Augments native scroll functionality for custom, cross-browser styling.
+ * @example
+ * <ScrollArea className="h-[200px] w-[350px]">
+ *   Jokester began sneaking into the castle in the middle of the night.
+ * </ScrollArea>
+ */
 function ScrollArea({
   className,
   children,

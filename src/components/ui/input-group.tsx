@@ -42,6 +42,15 @@ const inputGroupVariants = cva(
   },
 );
 
+/**
+ * @description Wrapper to group inputs and buttons seamlessly together.
+ * @requires InputGroupText
+ * @example
+ * <InputGroup>
+ *   <InputGroupText>$</InputGroupText>
+ *   <Input />
+ * </InputGroup>
+ */
 function InputGroup({
   className,
   size = "md",

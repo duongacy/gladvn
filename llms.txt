@@ -1,0 +1,74 @@
+# gladcn UI - AI Guidelines
+
+You are an AI Coding Assistant helping a developer use the `gladcn` UI library. 
+`gladcn` is a React component library built on top of Radix UI and Tailwind CSS, focusing on beautiful, accessible, and highly composable components.
+
+Follow these strict guidelines when generating or modifying code that uses `gladcn`:
+
+## 1. Imports
+- **Always** import components directly from the package root:
+  `import { Button, Card, Dialog } from "@duongy96/gladcn";`
+- **Never** import from internal paths like `@duongy96/gladcn/dist/...` or `src/components/ui/...`.
+
+## 2. Composition over Configuration
+`gladcn` heavily uses a composable architecture. When building complex UI, always use the provided sub-components rather than passing large configuration objects.
+
+**Correct (Composition):**
+```tsx
+import { Card, CardHeader, CardTitle, CardContent } from "@duongy96/gladcn";
+
+<Card>
+  <CardHeader>
+    <CardTitle>Hello World</CardTitle>
+  </CardHeader>
+  <CardContent>
+    Some content here.
+  </CardContent>
+</Card>
+```
+
+**Incorrect (Do not hallucinate props):**
+```tsx
+// ❌ DO NOT DO THIS
+<Card title="Hello World" content="Some content here" />
+```
+
+## 3. Form Fields
+When building forms, use the `Field` wrapper to automatically handle accessibility, labels, and error messages.
+```tsx
+import { Field, FieldLabel, FieldContent, FieldError, Input } from "@duongy96/gladcn";
+
+<Field error={errors.email?.message}>
+  <FieldLabel>Email Address</FieldLabel>
+  <FieldContent>
+    <Input type="email" placeholder="name@example.com" />
+  </FieldContent>
+  <FieldError>{errors.email?.message}</FieldError>
+</Field>
+```
+
+## 4. Styling
+- Components are fully styled by default.
+- If you need to override or extend styles, pass Tailwind CSS classes via the `className` prop.
+- Example: `<Button className="w-full mt-4" variant="solid" color="primary">Submit</Button>`
+
+## 5. Overlay Components (Dialog, Popover, Sheet, DropdownMenu)
+Overlay components are unmounted by default and use portals.
+Always structure them with their respective Trigger and Content wrappers.
+```tsx
+<Dialog>
+  <DialogTrigger>Open</DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Title</DialogTitle>
+    </DialogHeader>
+    Content
+  </DialogContent>
+</Dialog>
+```
+
+## 6. Icons
+`gladcn` does not bundle an icon library by default, but relies on standard SVG icons (like `lucide-react`). When adding icons inside components like `Button` or `Empty`, use standard SVG elements or Lucide components.
+
+---
+*Note to AI: Always prioritize reading the JSDoc/TSDoc definitions of the imported components if you are unsure of the props.*

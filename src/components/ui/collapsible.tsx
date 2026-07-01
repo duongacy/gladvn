@@ -9,6 +9,15 @@
 
 import { Collapsible as CollapsiblePrimitive } from "@base-ui/react/collapsible";
 
+/**
+ * @description An interactive component which expands/collapses a panel.
+ * @requires CollapsibleTrigger, CollapsibleContent
+ * @example
+ * <Collapsible>
+ *   <CollapsibleTrigger>Toggle</CollapsibleTrigger>
+ *   <CollapsibleContent>Content</CollapsibleContent>
+ * </Collapsible>
+ */
 function Collapsible({ ...props }: CollapsiblePrimitive.Root.Props) {
   return <CollapsiblePrimitive.Root data-slot="collapsible" {...props} />;
 }

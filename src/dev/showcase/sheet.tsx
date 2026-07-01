@@ -1,15 +1,4 @@
-import {
-  Button,
-  Input,
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger
-} from "@/index";
+import { Button, Input, Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "@/index";;
 import { ExampleSection, SectionHeader } from "@/dev/components/showcase";
 
 export default function SheetShowcase() {

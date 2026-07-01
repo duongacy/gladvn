@@ -1,4 +1,4 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/index";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/index";;
 import {
   SectionHeader,
   ExampleSection,

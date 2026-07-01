@@ -1,6 +1,6 @@
 # Audit Prompt: Separator
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -35,7 +35,7 @@ Separator phân chia visual content thành các sections. BẮT BUỘC kiểm tr
 - **1.3.1 Info and Relationships (A):** Semantic separator phải có `role="separator"`.
 - **1.4.11 Non-text Contrast (AA):** Separator line phải đạt 3:1 contrast nếu nó conveys meaning.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **CSS Delegated Logic (Rule #2):** Separator rendering dùng CSS (border, `<hr>`).
 - **No Magic Number (Rule #4):** Color, thickness phải dùng tokens.

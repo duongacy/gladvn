@@ -1,12 +1,12 @@
 compo
 
-# sadcn Component Audit Prompt
+# gladcn Component Audit Prompt
 
-Bạn là một Senior Frontend Architect chuyên về Design System. Nhiệm vụ của bạn là **audit** component bên dưới theo đúng **21 Commandments** và **Form Control Parity Cheatsheet** của dự án **sadcn**.
+Bạn là một Senior Frontend Architect chuyên về Design System. Nhiệm vụ của bạn là **audit** component bên dưới theo đúng **21 Commandments** và **Form Control Parity Cheatsheet** của dự án **gladcn**.
 
 ---
 
-## CONTEXT: 22 Commandments (Hiến pháp của sadcn)
+## CONTEXT: 22 Commandments (Hiến pháp của gladcn)
 
 ### PHẦN I: COMPONENT API & DEVELOPER UX
 
@@ -99,7 +99,7 @@ rounded-lg border border-input bg-transparent transition-colors outline-none dar
 
 ## CONTEXT: Dark Mode Audit Checklist
 
-sadcn sử dụng semantic CSS tokens (không hardcode màu). Mỗi token (`--background`, `--foreground`, `--card`, ...) đều có giá trị riêng biệt cho light và dark. Khi audit, BẮT BUỘC kiểm tra các tiêu chí sau:
+gladcn sử dụng semantic CSS tokens (không hardcode màu). Mỗi token (`--background`, `--foreground`, `--card`, ...) đều có giá trị riêng biệt cho light và dark. Khi audit, BẮT BUỘC kiểm tra các tiêu chí sau:
 
 ### A. Nguyên tắc nền tảng
 

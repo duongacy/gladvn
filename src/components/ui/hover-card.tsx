@@ -11,6 +11,15 @@ import { PreviewCard as PreviewCardPrimitive } from "@base-ui/react/preview-card
 
 import { cn } from "@/lib/utils";
 
+/**
+ * @description For sighted users to preview content available behind a link.
+ * @requires HoverCardTrigger, HoverCardContent
+ * @example
+ * <HoverCard>
+ *   <HoverCardTrigger>Hover me</HoverCardTrigger>
+ *   <HoverCardContent>Details</HoverCardContent>
+ * </HoverCard>
+ */
 function HoverCard({ ...props }: PreviewCardPrimitive.Root.Props) {
   return <PreviewCardPrimitive.Root data-slot="hover-card" {...props} />;
 }

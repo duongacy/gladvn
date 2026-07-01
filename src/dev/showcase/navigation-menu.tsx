@@ -1,15 +1,5 @@
 import React from "react";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-  NavigationMenuIndicator,
-  NavigationMenuPositioner,
-} from "@/index";
+import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle, NavigationMenuIndicator, NavigationMenuPositioner } from "@/index";;
 import { cn } from "@/lib/utils";
 import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
 
@@ -69,7 +59,7 @@ export default function NavigationMenuShowcase() {
                       }
                     >
                       <div className="mb-2 mt-4 text-lg font-medium">
-                        sadcn/ui
+                        gladcn/ui
                       </div>
                       <p className="text-sm leading-tight text-muted-foreground">
                         Beautifully designed components built with Radix UI and

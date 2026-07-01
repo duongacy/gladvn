@@ -30,6 +30,13 @@ const nativeSelectVariants = cva(
 type NativeSelectProps = Omit<React.ComponentProps<"select">, "size"> &
   VariantProps<typeof nativeSelectVariants>;
 
+/**
+ * @description A styled wrapper around the native HTML select element.
+ * @example
+ * <NativeSelect>
+ *   <option value="1">Option 1</option>
+ * </NativeSelect>
+ */
 function NativeSelect({ className, size = "md", ...props }: NativeSelectProps) {
   return (
     <div

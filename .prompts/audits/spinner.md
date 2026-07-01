@@ -1,6 +1,6 @@
 # Audit Prompt: Spinner
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -36,7 +36,7 @@ Spinner hiển thị loading indicator. BẮT BUỘC kiểm tra:
 - **2.3.1 Three Flashes (A):** Spinner animation KHÔNG flash quá 3 lần/giây.
 - **2.3.3 Animation from Interactions (AAA):** Respect `prefers-reduced-motion`.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **CSS Delegated Logic (Rule #2):** Spinner animation PHẢI dùng CSS `@keyframes`. Respect `prefers-reduced-motion`.
 - **No Magic Number (Rule #4):** Spinner size, stroke-width phải dùng tokens.

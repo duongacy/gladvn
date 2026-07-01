@@ -1,6 +1,6 @@
 # Audit Prompt: Input Group
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -42,7 +42,7 @@ Input Group là wrapper component kết hợp Input với các addon elements (p
 - **2.1.1 Keyboard (A):** Addon buttons phải keyboard accessible.
 - **2.4.7 Focus Visible (AA):** Focus ring trên wrapper khi input focused.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **Form Control Parity (Rule #18):** Wrapper sizing PHẢI dùng `min-h-*` (không phải `h-*`): `sm: min-h-7 text-xs`, `md: min-h-8 text-sm`, `lg: min-h-9 text-sm`. Focus ring từ `:focus-within`: `has-[:focus-visible]:border-ring has-[:focus-visible]:ring-3 has-[:focus-visible]:ring-ring/50`.
 - **CSS Delegated Logic (Rule #2):** Focus state PHẢI dùng CSS `:focus-within` trên wrapper. Disabled state dùng `:has(:disabled)`. KHÔNG dùng React state.

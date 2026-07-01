@@ -1,15 +1,6 @@
 import { useState } from "react";
-import {
-  Input,
-  Field,
-  FieldLabel,
-  FieldDescription,
-  FieldContent,
-  InputGroup,
-  InputGroupAddon,
-  InputGroupText,
-  InputGroupInput,
-  SelectPreset} from "@/index";
+import { Input, Field, FieldLabel, FieldDescription, FieldContent, InputGroup, InputGroupAddon, InputGroupText, InputGroupInput } from "@/index";
+import { SelectPreset } from "@/preset";;
 import {
   SectionHeader,
   ExampleSection,

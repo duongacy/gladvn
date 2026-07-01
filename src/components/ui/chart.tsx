@@ -46,6 +46,10 @@ function useChart() {
   return context;
 }
 
+/**
+ * @description Recharts wrapper for theming and tooltips.
+ * @requires ChartTooltip, ChartTooltipContent
+ */
 function ChartContainer({
   id,
   className,

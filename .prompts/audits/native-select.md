@@ -1,6 +1,6 @@
 # Audit Prompt: Native Select
 
-**Base rules:** Tuân thủ tuyệt đối `AUDIT_PROMPT.md` và `PARITY_CHEATSHEET.md`.
+**Base rules:** Tuân thủ tuyệt đối `AUDIT_TEMPLATE.md` và `docs/architecture/PARITY_CHEATSHEET.md`.
 
 ## 1. Global Best Practices & W3C APG (ARIA)
 
@@ -45,7 +45,7 @@ Native Select sử dụng `<select>` element gốc của browser, kế thừa to
 - **2.4.7 Focus Visible (AA):** Focus ring visible.
 - **3.3.2 Labels or Instructions (A):** Phải có label.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. gladcn "20 Commandments" Integration
 
 - **Form Control Parity (Rule #18):** Native Select sizing PHẢI align chính xác với Input: `sm: h-7 px-2 text-xs`, `md: h-8 px-2.5 text-sm`, `lg: h-9 px-3 text-sm`. Base aesthetics: `rounded-lg border border-input bg-transparent dark:bg-input/30`.
 - **CSS Delegated Logic (Rule #2):** Custom arrow icon positioning PHẢI dùng CSS (`appearance-none` + background-image hoặc `::after` pseudo-element).

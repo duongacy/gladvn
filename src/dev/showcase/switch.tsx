@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Label, Field, FieldLabel ,
-  SelectPreset} from "@/index";
+import { Label, Field, FieldLabel } from "@/index";
+import { SelectPreset } from "@/preset";;
 
-import { Switch, SwitchThumb } from "@/index";
+import { Switch, SwitchThumb } from "@/index";;
 import {
   SectionHeader,
   ExampleSection,

@@ -1,17 +1,6 @@
 import { useState } from "react";
-import {
-  Field,
-  FieldContent,
-  FieldDescription,
-  FieldLabel,
-  InputGroup,
-  InputGroupAddon,
-  InputGroupInput,
-  InputGroupText,
-  InputGroupButton,
-  InputGroupTextarea,
-  Button,
-  SelectPreset} from "@/index";
+import { Field, FieldContent, FieldDescription, FieldLabel, InputGroup, InputGroupAddon, InputGroupInput, InputGroupText, InputGroupButton, InputGroupTextarea, Button } from "@/index";
+import { SelectPreset } from "@/preset";;
 import {
   SectionHeader,
   ExampleSection,
@@ -58,7 +47,7 @@ export default function InputGroupShowcase() {
                   <InputGroupAddon>
                     <InputGroupText>https://</InputGroupText>
                   </InputGroupAddon>
-                  <InputGroupInput id="tf-group" placeholder="sadcn.ui" />
+                  <InputGroupInput id="tf-group" placeholder="gladcn.ui" />
                   <InputGroupAddon>
                     <InputGroupText>.com</InputGroupText>
                   </InputGroupAddon>

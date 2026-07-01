@@ -37,7 +37,8 @@
 
   /* Muted */
   --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.5 0 0); /* CR≈5.5:1 AA */
+  --muted-foreground: oklch(0.5 0 0);
+  /* CR≈5.5:1 AA */
 
   /* Accent */
   --accent: oklch(0.97 0 0);

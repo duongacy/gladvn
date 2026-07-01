@@ -60,23 +60,7 @@ Pagination cho phép user navigate giữa các trang kết quả. BẮT BUỘC k
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                                                    |
-| ---------------------- | ------- | ------------------------------------------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Semantic tags `<nav aria-label="pagination">`, `<ul>`, `<li>`. Link support `aria-current="page"`.      |
-| 21. CSS Depth Boundary | ❌      | Vi phạm nhỏ ở L110 (PaginationEllipsis): `[&_svg:not([class*='size-'])]:size-4`. Đổi sang direct child. |
-| Form Control Parity    | ✅      | Polymorphism `Button` thông qua `render={<a />}` hoàn hảo, kế thừa style/variant từ hệ thống Button.    |
-| Dark Mode Compliance   | ✅      | Kế thừa từ Button nên tương thích tự động.                                                              |
-
-### Diffs cần fix
-
-```diff
-- "[&_svg:not([class*='size-'])]:size-4"
-+ "[&>svg:not([class*='size-'])]:size-4"
-```

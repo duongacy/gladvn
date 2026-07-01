@@ -82,23 +82,7 @@ Combobox kết hợp text input với popup listbox, cho phép user vừa gõ đ
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo ra một block showcase chuẩn chỉnh (sử dụng `<ShowcaseBlock>` hoặc `<SectionHeader>`) và chèn vào file phù hợp nhất.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                                         |
-| ---------------------- | ------- | -------------------------------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Base UI Combobox sử dụng virtual focus và aria-activedescendant chuẩn                        |
-| 21. CSS Depth Boundary | ❌      | Vi phạm ở `ComboboxTrigger` (L37) và `ComboboxItem` (L153): dùng `[&_svg]` thay vì `[&>svg]` |
-| Form Control Parity    | ✅      | Tái sử dụng `InputGroup`, kế thừa form control parity hoàn hảo                               |
-| Dark Mode Compliance   | ✅      | Dùng semantic tokens tốt, Popup có shadow và border-ring rõ ràng                             |
-
-### Diffs cần fix
-
-```diff
-- className={cn("[&_svg:not([class*='size-'])]:size-4", className)}
-+ className={cn("[&>svg:not([class*='size-'])]:size-4", className)}
-```

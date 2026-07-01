@@ -70,23 +70,7 @@ Context Menu xuất hiện khi user right-click (hoặc long-press trên mobile)
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                                                                                           |
-| ---------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Menu button ARIA roles và full keyboard navigation được Base UI hỗ trợ hoàn hảo                                                                |
-| 21. CSS Depth Boundary | ❌      | Vi phạm ở nhiều Items (`ContextMenuItem`, `SubTrigger`, `CheckboxItem`, `RadioItem`): lạm dụng `[&_svg]` và `*:[svg]`. Cần đổi sang `[&>svg]`. |
-| Form Control Parity    | ✅      | Sizing (h-7, h-8, h-9) không trực tiếp áp dụng nhưng base styling đồng nhất với DropdownMenu                                                   |
-| Dark Mode Compliance   | ✅      | Semantic tokens tốt, hover và focus state hiển thị chuẩn                                                                                       |
-
-### Diffs cần fix
-
-```diff
-- "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 focus:*:[svg]:text-accent-foreground data-[variant=destructive]:*:[svg]:text-destructive"
-+ "[&>svg]:pointer-events-none [&>svg]:shrink-0 [&>svg:not([class*='size-'])]:size-4 focus:[&>svg]:text-accent-foreground data-[variant=destructive]:[&>svg]:text-destructive"
-```

@@ -1,6 +1,9 @@
-import React from "react";
-import { cn } from "../../lib/utils";
-import { COLORS, COLOR_INFO } from "../data";
+import React, { useState } from "react";
+import reactElementToJSXString from "react-element-to-jsx-string";
+import { Tabs, TabsList, TabsTrigger, TabsContent, Button } from "@/index";
+import { CopyIcon, CheckIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { COLORS, COLOR_INFO } from "@/dev/data";
 
 /* ─────────────────────────────────────────────────────────────────
    SectionHeader  –  page‐level title bar
@@ -58,6 +61,21 @@ export function ExampleSection({
   className?: string;
   fullWidth?: boolean;
 }) {
+  const [copied, setCopied] = useState(false);
+
+  const codeString = (typeof reactElementToJSXString === 'function' ? reactElementToJSXString : (reactElementToJSXString as any).default)(children, {
+    showFunctions: true,
+    showDefaultProps: false,
+    useBooleanShorthandSyntax: true,
+    maxInlineAttributesLineLength: 80,
+  });
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(codeString);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <div className="flex flex-col gap-3">
       {(label || description) && (
@@ -70,19 +88,49 @@ export function ExampleSection({
           )}
         </div>
       )}
-      <div
-        className={cn(
-          "relative flex items-center justify-center rounded-2xl border border-border/80 bg-background/50 backdrop-blur-sm p-8 shadow-sm transition-all duration-300 hover:shadow-md hover:border-ring/30",
-          "min-h-[120px]",
-          fullWidth && "[&>*]:w-full",
-          className,
-        )}
-      >
-        <div className="absolute inset-0 -z-10 opacity-[0.03] dark:opacity-[0.05] [background-size:24px_24px] [background-image:radial-gradient(circle_at_center,var(--color-foreground)_1.5px,transparent_1.5px)]" />
-        <div className="relative z-10 flex w-full items-center justify-center">
-          {children}
+      
+      <Tabs defaultValue="preview" className="w-full relative">
+        <div className="flex items-center justify-end mb-2 absolute -top-10 right-0">
+          <TabsList className="h-8">
+            <TabsTrigger value="preview" className="text-xs px-3 py-1">Preview</TabsTrigger>
+            <TabsTrigger value="code" className="text-xs px-3 py-1">Code</TabsTrigger>
+          </TabsList>
         </div>
-      </div>
+
+        <TabsContent value="preview" className="mt-0 outline-none">
+          <div
+            className={cn(
+              "relative flex items-center justify-center rounded-2xl border border-border/80 bg-background/50 backdrop-blur-sm p-8 shadow-sm transition-all duration-300 hover:shadow-md hover:border-ring/30",
+              "min-h-[120px]",
+              fullWidth && "[&>*]:w-full",
+              className,
+            )}
+          >
+            <div className="absolute inset-0 -z-10 opacity-[0.03] dark:opacity-[0.05] [background-size:24px_24px] [background-image:radial-gradient(circle_at_center,var(--color-foreground)_1.5px,transparent_1.5px)]" />
+            <div className="relative z-10 flex w-full items-center justify-center">
+              {children}
+            </div>
+          </div>
+        </TabsContent>
+
+        <TabsContent value="code" className="mt-0 outline-none">
+          <div className="relative rounded-2xl border border-border/80 bg-muted/50 p-4 text-foreground shadow-sm overflow-hidden">
+            <Button
+              size="sm"
+              variant="ghost"
+              className="absolute top-3 right-3 h-7 w-7 text-muted-foreground hover:text-foreground hover:bg-muted"
+              onClick={copyToClipboard}
+            >
+              {copied ? <CheckIcon className="size-3.5" /> : <CopyIcon className="size-3.5" />}
+            </Button>
+            <div className="overflow-x-auto text-[13px] leading-relaxed font-mono">
+              <pre className="!bg-transparent !p-0 !m-0 whitespace-pre-wrap break-words">
+                <code>{codeString}</code>
+              </pre>
+            </div>
+          </div>
+        </TabsContent>
+      </Tabs>
     </div>
   );
 }

@@ -52,26 +52,7 @@ Empty State hiển thị khi không có data/content. BẮT BUỘC kiểm tra:
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                                                              |
-| ---------------------- | ------- | ----------------------------------------------------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Cấu trúc rành mạch. Để empty state có accessibility cao, user cần thêm `role="status"` vào component lúc sử dụng. |
-| 21. CSS Depth Boundary | ❌      | `EmptyMedia` có sử dụng `[&_svg]` (L29, L34) vi phạm strict depth. Nên chuyển về `[&>svg]`.                       |
-| Form Control Parity    | ✅      | Kế thừa spacing system chuẩn.                                                                                     |
-| Dark Mode Compliance   | ✅      | Semantic tokens tốt (`text-muted-foreground`, `bg-muted`).                                                        |
-
-### Diffs cần fix
-
-```diff
-- "mb-2 flex shrink-0 items-center justify-center [&_svg]:pointer-events-none [&_svg]:shrink-0"
-+ "mb-2 flex shrink-0 items-center justify-center [&>svg]:pointer-events-none [&>svg]:shrink-0"
-
-- "icon: "flex size-8 shrink-0 items-center justify-center rounded-lg bg-muted text-foreground [&_svg:not([class*='size-'])]:size-4""
-+ "icon: "flex size-8 shrink-0 items-center justify-center rounded-lg bg-muted text-foreground [&>svg:not([class*='size-'])]:size-4""
-```

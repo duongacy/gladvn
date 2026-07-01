@@ -69,16 +69,7 @@ Slider cho phép user chọn một giá trị (hoặc khoảng giá trị) từ 
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo ra một block showcase chuẩn chỉnh (sử dụng `<ShowcaseBlock>` hoặc `<SectionHeader>`) và chèn vào file phù hợp nhất.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                                      |
-| ---------------------- | ------- | ----------------------------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Các thuộc tính ARIA (`aria-valuenow`, `aria-valuemin`, `aria-valuemax`) trên thumb đầy đủ |
-| 21. CSS Depth Boundary | ✅      | Không có deep CSS selectors, thumb được style trực tiếp bằng variant                      |
-| Form Control Parity    | ✅      | Focus ring token khớp chuẩn Form Control                                                  |
-| Dark Mode Compliance   | ✅      | Có đầy đủ dark variants cho invalid/focus state                                           |

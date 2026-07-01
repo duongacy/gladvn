@@ -39,3 +39,11 @@ When creating or modifying showcase files in `src/dev/showcase/*.tsx`, you MUST 
 - DO NOT invent custom wrappers or styles unless absolutely necessary. Rely entirely on `ExampleSection`.
 - DO NOT mix `color` and `variant` arbitrarily if they are supposed to be orthogonal. Show them clearly.
 - DO NOT leave any exported component un-demoed.
+
+## 7. Component Styling Philosophy (No Magic CSS)
+
+- **Good (Permitted)**: Leverage data-attributes provided by headless UI libraries (e.g., `data-[state=open]`, `data-disabled`, `data-[slot=...]`) for state-driven styling. Querying descendant elements via these attributes (e.g., `[&_[data-slot=icon]]`) or standard icons (e.g., `[&_svg]`, `[&>svg]`) is perfectly valid and aligns with the intended component architecture.
+- **Bad (Prohibited - Overthinking)**: Do NOT use complex CSS descendant combinators or "magic CSS" (like `*:[a]`, `[&_p]`, `has-[>div]`, or deeply nested `group-has-[...]`) to forcibly access and override arbitrary HTML child elements' styles. Intervening too deeply into specific generic tags should be avoided.
+- **Reasoning**: Overriding arbitrary child tags violates the encapsulation of a component library. It creates unexpected overriding behaviors ("bị đè") that are highly confusing to consumers and makes the CSS architecture feel "dirty" and unmaintainable. Data-slots and semantic states are the correct contract for cross-element styling.
+- Keep component CSS strictly isolated to the component's own boundaries and predefined slots.
+- **CSS Variables Restriction**: Strictly limit the use of arbitrary CSS variables (`var(--...)`) within Tailwind classes. Only use them when consuming values dynamically calculated and exposed by underlying headless UI libraries (e.g., `--radix-accordion-content-height`, `--radix-collapsible-content-width`). For all other styling, use standard, built-in Tailwind CSS utility classes to maintain consistency and a predictable design system.

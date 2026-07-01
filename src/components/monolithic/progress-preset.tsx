@@ -5,19 +5,19 @@ import {
   ProgressIndicator,
   ProgressLabel,
   ProgressValue,
-} from "../ui/progress";
+} from "@/components/ui/progress";
 
-export interface ProgressProps extends React.ComponentProps<typeof UIProgress> {
+export interface ProgressPresetProps extends React.ComponentProps<typeof UIProgress> {
   label?: React.ReactNode;
   showValue?: boolean;
 }
 
-export function Progress({
+export function ProgressPreset({
   children,
   label,
   showValue = true,
   ...props
-}: ProgressProps) {
+}: ProgressPresetProps) {
   if (children) {
     return <UIProgress {...props}>{children}</UIProgress>;
   }

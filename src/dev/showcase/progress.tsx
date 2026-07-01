@@ -1,6 +1,7 @@
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/index";
 import { useState } from "react";
 import {
-  MonoSelect,
+  
   Field,
   FieldLabel,
   FieldDescription,
@@ -10,16 +11,18 @@ import {
   ProgressIndicator,
   ProgressLabel,
   ProgressValue,
-} from "../../index";
-import { Progress as MonolithicProgress } from "../../components/monolithic/progress";
+} from "@/index";
+
 import {
   SectionHeader,
   ExampleSection,
   ExampleGrid,
-} from "../components/showcase";
+} from "@/dev/components/showcase";
+
+import { type Size } from "@/lib/types";
 
 export default function ProgressShowcase() {
-  const [globalSize, setGlobalSize] = useState<"sm" | "md" | "lg">("md");
+  const [globalSize, setGlobalSize] = useState<Size>("md");
 
   return (
     <div className="space-y-10">
@@ -27,15 +30,16 @@ export default function ProgressShowcase() {
         title="Progress"
         description="Displays an indicator showing the completion progress of a task."
       >
-        <MonoSelect
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as any)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-        />
+        <Select value={globalSize} onValueChange={(v) => setGlobalSize(v as Size)}>
+          <SelectTrigger className="w-[120px] h-8 text-xs bg-background">
+            <SelectValue placeholder="Size" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="sm">Size: sm</SelectItem>
+            <SelectItem value="md">Size: md</SelectItem>
+            <SelectItem value="lg">Size: lg</SelectItem>
+          </SelectContent>
+        </Select>
       </SectionHeader>
 
       <ExampleGrid columns={2}>
@@ -71,7 +75,7 @@ export default function ProgressShowcase() {
           label="Monolithic Wrapper"
           description="Using the monolithic component for faster development."
         >
-          <MonolithicProgress
+          <ProgressPreset
             value={75}
             size={globalSize}
             className="w-[80%]"

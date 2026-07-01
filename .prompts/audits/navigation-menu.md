@@ -61,26 +61,7 @@ Navigation Menu là horizontal navigation component với disclosure panels (meg
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                                                                                           |
-| ---------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | NavigationMenu của `@base-ui` lo liệu ARIA state cực tốt (có `<nav>`, `aria-expanded`).                                                        |
-| 21. CSS Depth Boundary | ❌      | Vi phạm ở L87: `**:data-[slot=navigation-menu-link]...`. Vi phạm ở L132: `[&_svg:...]`. Cần refactor để loại bỏ deep selector `**:` và `_svg`. |
-| Form Control Parity    | ✅      | Animation duration/easing sync tốt thông qua custom properties.                                                                                |
-| Dark Mode Compliance   | ✅      | Background và popover colors match với theme.                                                                                                  |
-
-### Diffs cần fix
-
-```diff
-- "**:data-[slot=navigation-menu-link]:focus:ring-0 **:data-[slot=navigation-menu-link]:focus:outline-none"
-+ "[&_data-[slot=navigation-menu-link]]:focus:ring-0 [&_data-[slot=navigation-menu-link]]:focus:outline-none"
-
-- "[&_svg:not([class*='size-'])]:size-4"
-+ "[&>svg:not([class*='size-'])]:size-4"
-```

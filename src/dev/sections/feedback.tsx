@@ -19,7 +19,7 @@ import {
   EmptyContent,
   Button,
   Toaster,
-} from "../../index";
+} from "@/index";
 import {
   CheckCircle2Icon,
   InfoIcon,
@@ -30,7 +30,7 @@ import {
   FileX2Icon,
 } from "lucide-react";
 
-import { SectionHeader, ShowcaseBlock } from "../components/showcase";
+import { SectionHeader, ShowcaseBlock } from "@/dev/components/showcase";
 
 export default function FeedbackSection() {
   const [progress1, setProgress1] = useState(25);
@@ -85,9 +85,9 @@ export default function FeedbackSection() {
         {/* ── Progress ── */}
         <ShowcaseBlock title="Progress">
           <div className="space-y-4">
-            <Progress value={progress1} label="Uploading" size="sm" />
-            <Progress value={progress2} label="Processing" size="md" />
-            <Progress value={progress3} label="Almost done" size="lg" />
+            <Progress value={progress1} size="sm" />
+            <Progress value={progress2} size="md" />
+            <Progress value={progress3} size="lg" />
             <div className="flex gap-2 pt-1">
               <Button
                 size="sm"

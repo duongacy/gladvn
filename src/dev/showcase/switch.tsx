@@ -1,14 +1,18 @@
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/index";
 import { useState } from "react";
-import { Label, MonoSelect, Field, FieldLabel } from "../../index";
-import { Switch } from "../../components/monolithic/switch";
+import { Label, Field, FieldLabel } from "@/index";
+
+import { Switch, SwitchThumb } from "@/index";
 import {
   SectionHeader,
   ExampleSection,
   ExampleGrid,
-} from "../components/showcase";
+} from "@/dev/components/showcase";
+
+import { type Size } from "@/lib/types";
 
 export default function SwitchShowcase() {
-  const [globalSize, setGlobalSize] = useState<"sm" | "md" | "lg">("md");
+  const [globalSize, setGlobalSize] = useState<Size>("md");
 
   return (
     <div className="space-y-10">
@@ -16,15 +20,16 @@ export default function SwitchShowcase() {
         title="Switch"
         description="A control that allows the user to toggle between checked and not checked."
       >
-        <MonoSelect
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as any)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-        />
+        <Select value={globalSize} onValueChange={(v) => setGlobalSize(v as Size)}>
+          <SelectTrigger className="w-[120px] h-8 text-xs bg-background">
+            <SelectValue placeholder="Size" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="sm">Size: sm</SelectItem>
+            <SelectItem value="md">Size: md</SelectItem>
+            <SelectItem value="lg">Size: lg</SelectItem>
+          </SelectContent>
+        </Select>
       </SectionHeader>
 
       <ExampleGrid columns={2}>
@@ -41,11 +46,7 @@ export default function SwitchShowcase() {
                 className="justify-between"
               >
                 <FieldLabel htmlFor={`switch-${item}`}>{item}</FieldLabel>
-                <Switch
-                  id={`switch-${item}`}
-                  size={globalSize}
-                  defaultChecked={i === 0}
-                />
+                <Switch id={`switch-${item}`} size={globalSize} defaultChecked={i === 0}><SwitchThumb /></Switch>
               </Field>
             ))}
           </div>
@@ -80,6 +81,17 @@ export default function SwitchShowcase() {
           </div>
         </ExampleSection>
       </ExampleGrid>
+
+      <ExampleSection
+        label="Compositional Usage"
+        description="Building a switch using its base primitives for custom behavior or styling."
+      >
+        <div className="flex items-center gap-4">
+          <Switch size={globalSize}>
+            <SwitchThumb />
+          </Switch>
+        </div>
+      </ExampleSection>
     </div>
   );
 }

@@ -1,14 +1,17 @@
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/index";
 import { useState } from "react";
-import { Button, MonoSelect, Spinner } from "../../index";
+import { Button, Spinner } from "@/index";
 import {
   SectionHeader,
   ExampleSection,
   ExampleGrid,
-} from "../components/showcase";
+} from "@/dev/components/showcase";
 import { MailIcon, DownloadIcon, PlusIcon } from "lucide-react";
 
+import { type Size } from "@/lib/types";
+
 export default function ButtonShowcase() {
-  const [globalSize, setGlobalSize] = useState<"sm" | "md" | "lg">("md");
+  const [globalSize, setGlobalSize] = useState<Size>("md");
   const [isDeleting, setIsDeleting] = useState(false);
   const [isSending, setIsSending] = useState(false);
 
@@ -28,15 +31,16 @@ export default function ButtonShowcase() {
         title="Button"
         description="Triggers an action or event, such as submitting a form or opening a dialog."
       >
-        <MonoSelect
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as any)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-        />
+        <Select value={globalSize} onValueChange={(v) => setGlobalSize(v as Size)}>
+          <SelectTrigger className="w-[120px] h-8 text-xs bg-background">
+            <SelectValue placeholder="Size" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="sm">Size: sm</SelectItem>
+            <SelectItem value="md">Size: md</SelectItem>
+            <SelectItem value="lg">Size: lg</SelectItem>
+          </SelectContent>
+        </Select>
       </SectionHeader>
 
       {/* ── Variants ── */}
@@ -89,6 +93,12 @@ export default function ButtonShowcase() {
           </Button>
           <Button size={globalSize} color="tertiary">
             Tertiary
+          </Button>
+          <Button size={globalSize} color="muted">
+            Muted
+          </Button>
+          <Button size={globalSize} color="accent">
+            Accent
           </Button>
         </div>
       </ExampleSection>

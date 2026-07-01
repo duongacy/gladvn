@@ -1,3 +1,4 @@
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/index";
 import { useState } from "react";
 import {
   Item,
@@ -11,18 +12,18 @@ import {
   ItemTitle,
   ItemDescription,
   Button,
-  MonoSelect,
-} from "../../index";
+} from "@/index";
 import {
   SectionHeader,
   ExampleSection,
   ExampleGrid,
-} from "../components/showcase";
+} from "@/dev/components/showcase";
 import { CheckIcon, HeartIcon, MoreVerticalIcon, UserIcon } from "lucide-react";
+import { type Size } from "@/lib/types";
 
 export default function ItemShowcase() {
-  const [globalSize, setGlobalSize] = useState<"default" | "sm" | "xs">(
-    "default",
+  const [globalSize, setGlobalSize] = useState<Size>(
+    "md",
   );
 
   return (
@@ -31,15 +32,16 @@ export default function ItemShowcase() {
         title="Item"
         description="A flexible container for list items or structured content blocks."
       >
-        <MonoSelect
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as any)}
-          options={[
-            { value: "xs", label: "Size: xs" },
-            { value: "sm", label: "Size: sm" },
-            { value: "default", label: "Size: default" },
-          ]}
-        />
+        <Select value={globalSize} onValueChange={(v) => setGlobalSize(v as Size)}>
+          <SelectTrigger className="w-[120px] h-8 text-xs bg-background">
+            <SelectValue placeholder="Size" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="sm">Size: sm</SelectItem>
+            <SelectItem value="md">Size: md</SelectItem>
+            <SelectItem value="lg">Size: lg</SelectItem>
+          </SelectContent>
+        </Select>
       </SectionHeader>
 
       <ExampleGrid columns={2}>
@@ -87,6 +89,30 @@ export default function ItemShowcase() {
             <Item variant="muted" size={globalSize}>
               <ItemContent>
                 <ItemTitle>Muted Variant</ItemTitle>
+              </ItemContent>
+            </Item>
+          </div>
+        </ExampleSection>
+
+        <ExampleSection
+          label="Media Variants"
+          description="Item can be styled for specific media like icons or images."
+        >
+          <div className="flex flex-col gap-3 w-full">
+            <Item size={globalSize}>
+              <ItemMedia variant="icon" className="bg-primary/10 text-primary">
+                <CheckIcon className="size-4" />
+              </ItemMedia>
+              <ItemContent>
+                <ItemTitle>Icon Variant</ItemTitle>
+              </ItemContent>
+            </Item>
+            <Item size={globalSize}>
+              <ItemMedia variant="image" className="bg-muted">
+                <UserIcon className="size-4 text-muted-foreground" />
+              </ItemMedia>
+              <ItemContent>
+                <ItemTitle>Image Variant</ItemTitle>
               </ItemContent>
             </Item>
           </div>

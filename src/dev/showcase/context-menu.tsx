@@ -13,8 +13,8 @@ import {
   ContextMenuSub,
   ContextMenuSubContent,
   ContextMenuSubTrigger,
-} from "../../index";
-import { SectionHeader, ExampleSection } from "../components/showcase";
+} from "@/index";
+import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
 import { useState } from "react";
 
 export default function ContextMenuShowcase() {

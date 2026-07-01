@@ -68,25 +68,7 @@ Button là thành phần tương tác cơ bản nhất, BẮT BUỘC kiểm tra 
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo ra một block showcase chuẩn chỉnh (sử dụng `<ShowcaseBlock>` hoặc `<SectionHeader>`) và chèn vào file phù hợp nhất.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                                                          |
-| ---------------------- | ------- | ------------------------------------------------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Sử dụng Base UI Button, handle space/enter và ARIA roles tốt                                                  |
-| 21. CSS Depth Boundary | ❌      | Vi phạm ở L32 và L58-L60: sử dụng `[&_svg]` sâu vào children. Nên đổi thành `[&>svg]` hoặc class composition. |
-| Form Control Parity    | ✅      | Sizing (h-7, h-8, h-9) khớp chính xác                                                                         |
-| Dark Mode Compliance   | ✅      | Semantic tokens hoạt động tốt, focus rings và states tuân thủ parity cheatsheet                               |
-
-### Diffs cần fix
-
-```diff
-- "[&_svg]:pointer-events-none [&_svg]:shrink-0"
-+ "[&>svg]:pointer-events-none [&>svg]:shrink-0"
-- "[&_svg:not([class*='size-'])]:size-3.5"
-+ "[&>svg:not([class*='size-'])]:size-3.5"
-```

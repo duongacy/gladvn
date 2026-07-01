@@ -66,16 +66,7 @@ Carousel hiển thị một tập hợp items có thể scroll/navigate qua lạ
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                                                                        |
-| ---------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Cấu trúc `role="region"`, `aria-roledescription="carousel"`, `role="group"` trên slide cực chuẩn. Controls có `aria-label`. |
-| 21. CSS Depth Boundary | ✅      | Không dùng deep selector, styling trực tiếp trên wrapper.                                                                   |
-| Form Control Parity    | ✅      | Re-use component `<Button>` cho prev/next buttons (Rule #13)                                                                |
-| Dark Mode Compliance   | ✅      | Kế thừa style từ parent và Button variant, hoạt động tốt.                                                                   |

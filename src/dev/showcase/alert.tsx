@@ -1,17 +1,17 @@
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/index";
 import { useState } from "react";
 import {
   Alert,
   AlertDescription,
   AlertTitle,
-  AlertAction,
+  AlertAction, AlertIcon,
   Button,
-  MonoSelect,
-} from "../../index";
+} from "@/index";
 import {
   SectionHeader,
   ExampleSection,
   ExampleGrid,
-} from "../components/showcase";
+} from "@/dev/components/showcase";
 import {
   InfoIcon,
   TriangleAlertIcon,
@@ -20,8 +20,10 @@ import {
   XIcon,
 } from "lucide-react";
 
+import { type Size } from "@/lib/types";
+
 export default function AlertShowcase() {
-  const [globalSize, setGlobalSize] = useState<"sm" | "md" | "lg">("md");
+  const [globalSize, setGlobalSize] = useState<Size>("md");
 
   return (
     <div className="space-y-10">
@@ -29,15 +31,16 @@ export default function AlertShowcase() {
         title="Alert"
         description="Displays a callout for user attention."
       >
-        <MonoSelect
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as any)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-        />
+        <Select value={globalSize} onValueChange={(v) => setGlobalSize(v as Size)}>
+          <SelectTrigger className="w-[120px] h-8 text-xs bg-background">
+            <SelectValue placeholder="Size" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="sm">Size: sm</SelectItem>
+            <SelectItem value="md">Size: md</SelectItem>
+            <SelectItem value="lg">Size: lg</SelectItem>
+          </SelectContent>
+        </Select>
       </SectionHeader>
 
       {/* ── Semantic Colors ──────────────────────── */}
@@ -47,7 +50,7 @@ export default function AlertShowcase() {
       >
         <div className="flex w-full flex-col gap-4 max-w-xl">
           <Alert color="info" size={globalSize}>
-            <InfoIcon />
+            <AlertIcon render={<InfoIcon />} />
             <AlertTitle>Update Available</AlertTitle>
             <AlertDescription>
               A new software update is available. See what's new in version
@@ -56,7 +59,7 @@ export default function AlertShowcase() {
           </Alert>
 
           <Alert color="success" size={globalSize}>
-            <CheckCircle2Icon />
+            <AlertIcon render={<CheckCircle2Icon />} />
             <AlertTitle>Saved</AlertTitle>
             <AlertDescription>
               Your changes have been successfully saved to the cloud.
@@ -64,7 +67,7 @@ export default function AlertShowcase() {
           </Alert>
 
           <Alert color="warning" size={globalSize}>
-            <TriangleAlertIcon />
+            <AlertIcon render={<TriangleAlertIcon />} />
             <AlertTitle>Session Expiring</AlertTitle>
             <AlertDescription>
               Your session is about to expire in 5 minutes. Please save your
@@ -73,7 +76,7 @@ export default function AlertShowcase() {
           </Alert>
 
           <Alert color="destructive" size={globalSize}>
-            <XCircleIcon />
+            <AlertIcon render={<XCircleIcon />} />
             <AlertTitle>Connection Failed</AlertTitle>
             <AlertDescription>
               Failed to connect to the database. Please check your connection
@@ -91,7 +94,7 @@ export default function AlertShowcase() {
         >
           <div className="w-full">
             <Alert size={globalSize}>
-              <InfoIcon />
+              <AlertIcon render={<InfoIcon />} />
               <AlertTitle>Heads up!</AlertTitle>
               <AlertDescription>
                 You can add components to your app using the CLI.
@@ -107,7 +110,7 @@ export default function AlertShowcase() {
         >
           <div className="w-full">
             <Alert color="info" size={globalSize}>
-              <InfoIcon />
+              <AlertIcon render={<InfoIcon />} />
               <AlertTitle>New feature available</AlertTitle>
               <AlertDescription>
                 Check out the new dashboard analytics page.
@@ -129,13 +132,13 @@ export default function AlertShowcase() {
       >
         <div className="flex w-full flex-col gap-3 max-w-xl">
           <Alert color="info" size={globalSize}>
-            <InfoIcon />
+            <AlertIcon render={<InfoIcon />} />
             <AlertDescription>
               You can add components to your app using the CLI.
             </AlertDescription>
           </Alert>
           <Alert color="warning" size={globalSize}>
-            <TriangleAlertIcon />
+            <AlertIcon render={<TriangleAlertIcon />} />
             <AlertDescription>
               Your trial will expire in 3 days.
             </AlertDescription>

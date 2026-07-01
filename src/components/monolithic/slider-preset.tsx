@@ -5,9 +5,9 @@ import {
   SliderTrack,
   SliderIndicator,
   SliderThumb,
-} from "../ui/slider";
+} from "@/components/ui/slider";
 
-export function Slider({
+export function SliderPreset({
   defaultValue,
   value,
   min = 0,

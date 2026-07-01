@@ -59,16 +59,7 @@ Hover Card hiển thị preview content khi user hover lên trigger (thường l
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                  |
-| ---------------------- | ------- | --------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Base UI xử lý PreviewCard (HoverCard) hoàn hảo với hover/focus delays |
-| 21. CSS Depth Boundary | ✅      | Không có deep CSS selectors vi phạm                                   |
-| Form Control Parity    | ✅      | Animation và shadow khớp đồng bộ với Popover                          |
-| Dark Mode Compliance   | ✅      | Kế thừa từ `bg-popover`, hiển thị tốt                                 |

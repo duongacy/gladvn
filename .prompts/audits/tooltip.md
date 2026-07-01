@@ -62,23 +62,7 @@ Tooltip hiển thị text mô tả bổ sung khi user hover hoặc focus vào tr
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo ra một block showcase chuẩn chỉnh (sử dụng `<ShowcaseBlock>` hoặc `<SectionHeader>`) và chèn vào file phù hợp nhất.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                                                                                         |
-| ---------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | WCAG 1.4.13 (Dismissable, Hoverable, Persistent) được support chuẩn                                                                          |
-| 21. CSS Depth Boundary | ❌      | Vi phạm ở `TooltipContent` (L53): dùng `**:` (deep descendant) để style kbd. Cần đổi sang `[&>[data-slot=kbd]]` hoặc truyền class trực tiếp. |
-| Form Control Parity    | ✅      | Animation delay và offset đồng bộ với các overlay khác                                                                                       |
-| Dark Mode Compliance   | ✅      | Inverse color (`bg-foreground text-background`) xử lý tooltip rất nổi bật                                                                    |
-
-### Diffs cần fix
-
-```diff
-- "**:data-[slot=kbd]:relative **:data-[slot=kbd]:isolate **:data-[slot=kbd]:z-50 **:data-[slot=kbd]:rounded-sm"
-+ "[&>[data-slot=kbd]]:relative [&>[data-slot=kbd]]:isolate [&>[data-slot=kbd]]:z-50 [&>[data-slot=kbd]]:rounded-sm"
-```

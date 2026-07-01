@@ -69,23 +69,7 @@ Tabs cho phép user chuyển đổi giữa các content panels mà không naviga
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                                                    |
-| ---------------------- | ------- | ------------------------------------------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Hỗ trợ full ARIA `role`, `aria-selected` từ `@base-ui`. Keyboard navigation (roving tabindex) hoàn hảo. |
-| 21. CSS Depth Boundary | ❌      | Vi phạm nhỏ ở L61 (TabsTrigger): `[&_svg:...]`. Đổi sang direct child `[&>svg]`.                        |
-| Form Control Parity    | ✅      | Kế thừa `ring` states.                                                                                  |
-| Dark Mode Compliance   | ✅      | Semantic colors hoàn chỉnh cho variant default/line.                                                    |
-
-### Diffs cần fix
-
-```diff
-- "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
-+ "[&>svg]:pointer-events-none [&>svg]:shrink-0 [&>svg:not([class*='size-'])]:size-4"
-```

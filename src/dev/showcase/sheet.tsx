@@ -2,16 +2,15 @@ import {
   Button,
   Input,
   Sheet,
+  SheetClose,
   SheetContent,
   SheetDescription,
   SheetFooter,
   SheetHeader,
   SheetTitle,
-  SheetTrigger,
-  SheetClose,
-  MonoSelect,
-} from "../../index";
-import { SectionHeader, ExampleSection } from "../components/showcase";
+  SheetTrigger
+} from "@/index";
+import { ExampleSection, SectionHeader } from "@/dev/components/showcase";
 
 export default function SheetShowcase() {
   return (
@@ -26,14 +25,14 @@ export default function SheetShowcase() {
         description="Sheet can slide from any edge."
       >
         <div className="grid grid-cols-2 gap-2">
-          {["top", "right", "bottom", "left"].map((side) => (
+          {(["top", "right", "bottom", "left"] as const).map((side) => (
             <Sheet key={side}>
               <SheetTrigger
                 render={<Button variant="outline" className="capitalize" />}
               >
                 {side}
               </SheetTrigger>
-              <SheetContent side={side as any}>
+              <SheetContent side={side}>
                 <SheetHeader>
                   <SheetTitle>Edit profile</SheetTitle>
                   <SheetDescription>

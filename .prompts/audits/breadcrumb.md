@@ -56,16 +56,7 @@ Breadcrumb hiển thị vị trí hiện tại trong cấu trúc trang web. BẮ
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                                                                   |
-| ---------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Cấu trúc `<nav aria-label>` -> `<ol>` -> `<li>` -> `aria-current="page"` và `aria-hidden="true"` ở separator hoàn hảo. |
-| 21. CSS Depth Boundary | ✅      | Các icon bên trong Separator và Ellipsis được style an toàn bằng `[&>svg]`.                                            |
-| Form Control Parity    | ✅      | Polymorphism xuất sắc ở `BreadcrumbLink` thông qua `useRender`.                                                        |
-| Dark Mode Compliance   | ✅      | Màu `text-muted-foreground` chuyển sang `text-foreground` rất mượt mà trên cả 2 themes.                                |

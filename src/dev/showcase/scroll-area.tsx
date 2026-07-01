@@ -1,10 +1,10 @@
-import { ScrollBar } from "../../components/ui/scroll-area";
-import { ScrollArea } from "../../index";
+import { ScrollBar } from "@/components/ui/scroll-area";
+import { ScrollArea } from "@/index";
 import {
   SectionHeader,
   ExampleSection,
   ExampleGrid,
-} from "../components/showcase";
+} from "@/dev/components/showcase";
 
 export default function ScrollAreaShowcase() {
   return (

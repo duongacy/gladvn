@@ -7,12 +7,12 @@ import {
   EmptyContent,
   EmptyMedia,
   Button,
-} from "../../index";
+} from "@/index";
 import {
   SectionHeader,
   ExampleSection,
   ExampleGrid,
-} from "../components/showcase";
+} from "@/dev/components/showcase";
 import { PlusIcon, FolderOpenIcon } from "lucide-react";
 
 export default function EmptyShowcase() {

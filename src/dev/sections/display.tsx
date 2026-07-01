@@ -24,9 +24,9 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "../../index";
+} from "@/index";
 
-import { SectionHeader, ShowcaseBlock } from "../components/showcase";
+import { SectionHeader, ShowcaseBlock } from "@/dev/components/showcase";
 
 export default function DisplaySection() {
   return (
@@ -152,7 +152,7 @@ export default function DisplaySection() {
               </tr>
             </thead>
             <tbody className="divide-y">
-              {["default", "secondary", "destructive", "outline"].map(
+              {(["secondary", "destructive", "outline"] as const).map(
                 (variant) => (
                   <tr
                     key={variant}
@@ -164,21 +164,21 @@ export default function DisplaySection() {
                       </span>
                     </td>
                     <td className="py-4 pr-4">
-                      <Badge variant={variant as any}>Badge</Badge>
+                      <Badge variant={variant}>Badge</Badge>
                     </td>
                     <td className="py-4 pr-4">
-                      <Badge variant={variant as any}>
+                      <Badge variant={variant}>
                         <CheckCircle2Icon data-icon="inline-start" /> Status
                       </Badge>
                     </td>
                     <td className="py-4 pr-4">
-                      <Badge variant={variant as any}>
+                      <Badge variant={variant}>
                         Updates <BellIcon data-icon="inline-end" />
                       </Badge>
                     </td>
                     <td className="py-4 pr-4">
                       <Badge
-                        variant={variant as any}
+                        variant={variant}
                         render={<a href="#link" />}
                       >
                         Clickable

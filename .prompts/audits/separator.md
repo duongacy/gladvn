@@ -50,16 +50,7 @@ Separator phân chia visual content thành các sections. BẮT BUỘC kiểm tr
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                        |
-| ---------------------- | ------- | ----------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Được handle bởi `@base-ui` hỗ trợ 100% (role, orientation). |
-| 21. CSS Depth Boundary | ✅      | Không vi phạm. Code sạch.                                   |
-| Form Control Parity    | ✅      | Không áp dụng trực tiếp.                                    |
-| Dark Mode Compliance   | ✅      | Màu `bg-border` tự động thích ứng với theme.                |

@@ -46,16 +46,7 @@ Khác với Dialog thông thường, Alert Dialog là một thành phần gián 
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo ra một block showcase chuẩn chỉnh (sử dụng `<ShowcaseBlock>` hoặc `<SectionHeader>`) và chèn vào file phù hợp nhất.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                           |
-| ---------------------- | ------- | -------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Focus Trap và Focus Restoration được Base UI xử lý xuất sắc.   |
-| 21. CSS Depth Boundary | ✅      | Không có vi phạm.                                              |
-| Form Control Parity    | ✅      | Dùng lại `<Button>` component cho Action và Cancel đúng chuẩn. |
-| Dark Mode Compliance   | ✅      | Semantic tokens tốt, background/backdrop chuẩn.                |

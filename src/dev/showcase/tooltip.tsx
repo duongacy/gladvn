@@ -1,3 +1,4 @@
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/index";
 import { useState } from "react";
 import {
   Tooltip,
@@ -5,13 +6,14 @@ import {
   TooltipContent,
   TooltipProvider,
   Button,
-  MonoSelect,
-} from "../../index";
-import { SectionHeader, ExampleSection } from "../components/showcase";
+} from "@/index";
+import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
 import { PlusIcon, HeartIcon } from "lucide-react";
 
+import { type Size } from "@/lib/types";
+
 export default function TooltipShowcase() {
-  const [globalSize, setGlobalSize] = useState<"sm" | "md" | "lg">("md");
+  const [globalSize, setGlobalSize] = useState<Size>("md");
 
   return (
     <div className="space-y-10">
@@ -19,15 +21,16 @@ export default function TooltipShowcase() {
         title="Tooltip"
         description="A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it."
       >
-        <MonoSelect
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as any)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-        />
+        <Select value={globalSize} onValueChange={(v) => setGlobalSize(v as Size)}>
+          <SelectTrigger className="w-[120px] h-8 text-xs bg-background">
+            <SelectValue placeholder="Size" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="sm">Size: sm</SelectItem>
+            <SelectItem value="md">Size: md</SelectItem>
+            <SelectItem value="lg">Size: lg</SelectItem>
+          </SelectContent>
+        </Select>
       </SectionHeader>
 
       <ExampleSection

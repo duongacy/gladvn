@@ -44,8 +44,9 @@ Toggle Group là nhóm Toggle buttons cho phép single hoặc multiple selection
 - **2.1.1 Keyboard (A):** Full keyboard navigation.
 - **4.1.2 Name, Role, Value (A):** Screen reader announce: group name, item role, pressed state.
 
-## 2. sadcn "20 Commandments" Integration
+## 2. sadcn "20 Commandments" Integration & Architecture Rules
 
+- **Pure Composition Only (CRITICAL):** Các component trong `src/components/ui` CHỈ được phép là Compositional Primitives (ví dụ: phải chia tách rạch ròi `ToggleGroup` và `ToggleGroupItem`). Tuyệt đối KHÔNG chứa bất kỳ monolithic logic nào (như nhận prop `items` dạng mảng rồi tự render loop bên trong UI). Bất cứ monolithic behavior nào bị phát hiện BẮT BUỘC phải bị reject và di dời sang `src/components/monolithic/`.
 - **CSS Delegated Logic (Rule #2):** Pressed state styling dùng CSS (`data-[state=on]`). Group border merging (nếu visual connected buttons) dùng CSS (`:first-child`, `:last-child` border-radius removal).
 - **Form Control Parity (Rule #18):** Item sizing align với Toggle/Button.
 - **Linear Design (Rule #5):** Tất cả items phải đồng bộ styling.
@@ -60,16 +61,7 @@ Toggle Group là nhóm Toggle buttons cho phép single hoặc multiple selection
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                                  |
-| ---------------------- | ------- | ------------------------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Base UI xử lý Toolbar roving tabindex hoàn hảo cho single/multiple modes              |
-| 21. CSS Depth Boundary | ✅      | Kế thừa từ Toggle, bản thân component này không định nghĩa thêm deep selector vi phạm |
-| Form Control Parity    | ✅      | Group border-radius removal hoạt động tốt (`data-[spacing=0]:first:rounded-l-lg`)     |
-| Dark Mode Compliance   | ✅      | Kế thừa từ Toggle, hoạt động tốt                                                      |

@@ -60,25 +60,7 @@ Alert hiển thị thông báo quan trọng (inline, không phải toast). Khác
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                                                                               |
-| ---------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Cấu trúc alert với `role="alert"` chuẩn xác.                                                                                       |
-| 21. CSS Depth Boundary | ❌      | Dùng `[&_[data-slot=...]]` ở L12, L14, L16, L18 là deep selector. Có thể cải thiện bằng `[&>[data-slot=...]]` nếu child trực tiếp. |
-| Form Control Parity    | ✅      | Kích thước đồng đều giữa các variant (Rule #5 Linear Design).                                                                      |
-| Dark Mode Compliance   | ✅      | Semantic color tokens (bg-info/5, text-info) hiển thị tốt cả 2 theme.                                                              |
-
-### Diffs cần fix
-
-```diff
-- "border-info/15 bg-info/5 text-info [&_[data-slot=alert-title]]:text-info [&_[data-slot=alert-description]]:text-info/90"
-+ "border-info/15 bg-info/5 text-info [&>[data-slot=alert-title]]:text-info [&>[data-slot=alert-description]]:text-info/90"
-```
-
-_(Lặp lại cho tất cả variants)_

@@ -51,16 +51,7 @@ Skeleton hiển thị loading placeholder thay thế content đang load. BẮT B
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                          |
-| ---------------------- | ------- | ----------------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Cung cấp UI thuần túy, ARIA roles/busy nên được thêm ở user land tuỳ context. |
-| 21. CSS Depth Boundary | ✅      | Không vi phạm. Code sạch.                                                     |
-| Form Control Parity    | ✅      | Không vi phạm.                                                                |
-| Dark Mode Compliance   | ✅      | Màu `bg-muted` tự động thích ứng với theme.                                   |

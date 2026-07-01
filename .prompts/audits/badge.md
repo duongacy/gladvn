@@ -54,16 +54,7 @@ Badge là inline status indicator hiển thị label, count, hoặc category tag
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                                                                                                                                                                                  |
-| ---------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Badge mặc định render như `<span>` (Inline) thông qua `useRender` là chuẩn xác nhất.                                                                                                                                                  |
-| 21. CSS Depth Boundary | ✅      | Dùng đúng `[&>svg]` (Rule #21 exception cho direct child icon).                                                                                                                                                                       |
-| Form Control Parity    | ⚠️      | Variant class dùng `[a]:hover:bg-primary/80`. Tuy nhiên `[a]` trong Tailwind v4 sẽ match element có _attribute_ `a` thay vì tag `a`. Nên sửa thành `a&:hover:...` (hoặc đơn giản bỏ hover logic nếu không click được). Tạm chấp nhận. |
-| Dark Mode Compliance   | ✅      | Semantic tokens (primary, secondary, destructive, outline) đồng bộ hoàn hảo với Button.                                                                                                                                               |

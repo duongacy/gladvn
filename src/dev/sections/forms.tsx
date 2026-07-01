@@ -42,9 +42,10 @@ import {
   Slider,
   Switch,
   Textarea,
-} from "../../index";
+  Size,
+} from "@/index";
 
-import { SectionHeader } from "../components/showcase";
+import { SectionHeader } from "@/dev/components/showcase";
 import {
   TypeIcon,
   MousePointerClickIcon,
@@ -55,7 +56,7 @@ import {
 } from "lucide-react";
 
 export default function FormsSection() {
-  const [globalSize, setGlobalSize] = useState<"sm" | "md" | "lg">("md");
+  const [globalSize, setGlobalSize] = useState<Size>("md");
 
   return (
     <div className="space-y-6">
@@ -65,7 +66,7 @@ export default function FormsSection() {
       >
         <MonoSelect
           value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as any)}
+          onValueChange={(v) => setGlobalSize(v as Size)}
           options={[
             { value: "sm", label: "Size: sm" },
             { value: "md", label: "Size: md" },

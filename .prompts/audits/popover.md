@@ -59,16 +59,7 @@ Popover là non-modal dialog xuất hiện cạnh trigger element, chứa nội 
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo ra một block showcase chuẩn chỉnh (sử dụng `<ShowcaseBlock>` hoặc `<SectionHeader>`) và chèn vào file phù hợp nhất.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                                    |
-| ---------------------- | ------- | --------------------------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Focus NOT Trapped (Non-modal) và Light Dismiss hoạt động chuẩn xác qua Base UI          |
-| 21. CSS Depth Boundary | ✅      | Không có deep CSS selectors                                                             |
-| Form Control Parity    | ✅      | Animation và transform sử dụng CSS thuần qua data state                                 |
-| Dark Mode Compliance   | ✅      | Shadow và border `ring-foreground/10` kết hợp `bg-popover` hoạt động tốt trên dark mode |

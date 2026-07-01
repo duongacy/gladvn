@@ -8,12 +8,12 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "../../index";
+} from "@/index";
 import {
   SectionHeader,
   ExampleSection,
   ExampleGrid,
-} from "../components/showcase";
+} from "@/dev/components/showcase";
 
 export default function DrawerShowcase() {
   return (

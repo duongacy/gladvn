@@ -74,26 +74,7 @@ Command (Command Palette / cmdk) là widget kết hợp search input với filte
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                                                                       |
-| ---------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Combobox + listbox pattern được `cmdk` xử lý xuất sắc (`aria-activedescendant`).                                           |
-| 21. CSS Depth Boundary | ❌      | Vi phạm nhiều chỗ: `**:[[cmdk-group-heading]]` ở L129, `[&_svg]` và `*:[svg]` ở L159. Cần refactor để tránh deep selector. |
-| Form Control Parity    | ✅      | Search input tái sử dụng `InputGroup` và đảm bảo height/border chuẩn.                                                      |
-| Dark Mode Compliance   | ✅      | Semantic colors (`bg-popover`, `text-popover-foreground`) render tốt.                                                      |
-
-### Diffs cần fix
-
-```diff
-- "**:[[cmdk-group-heading]]:px-2 **:[[cmdk-group-heading]]:py-1.5 **:[[cmdk-group-heading]]:text-xs **:[[cmdk-group-heading]]:font-medium **:[[cmdk-group-heading]]:text-muted-foreground"
-+ "[&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted-foreground"
-
-- "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 data-selected:*:[svg]:text-foreground"
-+ "[&>svg]:pointer-events-none [&>svg]:shrink-0 [&>svg:not([class*='size-'])]:size-4 data-selected:[&>svg]:text-foreground"
-```

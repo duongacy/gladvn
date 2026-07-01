@@ -51,16 +51,7 @@ Direction Provider quản lý text direction (LTR/RTL) cho internationalization.
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                        |
-| ---------------------- | ------- | ----------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Cung cấp text direction context chuẩn qua `@base-ui/react`. |
-| 21. CSS Depth Boundary | ✅      | Không áp dụng.                                              |
-| Form Control Parity    | ✅      | Không áp dụng.                                              |
-| Dark Mode Compliance   | ✅      | Không áp dụng.                                              |

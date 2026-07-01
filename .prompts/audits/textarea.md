@@ -61,16 +61,7 @@ Textarea cho phép user nhập multi-line text. Kế thừa hầu hết tiêu ch
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo ra một block showcase chuẩn chỉnh (sử dụng `<ShowcaseBlock>` hoặc `<SectionHeader>`) và chèn vào file phù hợp nhất.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                                     |
-| ---------------------- | ------- | ---------------------------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Dùng thẻ native `<textarea>`, aria handle đầy đủ                                         |
-| 21. CSS Depth Boundary | ✅      | Không vi phạm rule 21                                                                    |
-| Form Control Parity    | ✅      | Dùng CSS `field-sizing-content` cho auto-resize, focus/invalid state đồng nhất với Input |
-| Dark Mode Compliance   | ✅      | `dark:bg-input/30` chuẩn xác                                                             |

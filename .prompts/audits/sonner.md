@@ -69,16 +69,7 @@ Sonner (Toast/Notification) hiển thị thông báo tạm thời. Toast là ARI
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                                                                          |
-| ---------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | `sonner` xử lý live region cực tốt (polite/assertive).                                                                        |
-| 21. CSS Depth Boundary | ✅      | Không vi phạm. Dùng CSS Custom Properties mapping xuất sắc.                                                                   |
-| Form Control Parity    | ✅      | Không vi phạm.                                                                                                                |
-| Dark Mode Compliance   | ✅      | Sử dụng `theme-provider` để sync mode với system/app rất chuẩn, custom palette `popover`, `success`, `error`... rất chi tiết. |

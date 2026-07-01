@@ -76,25 +76,7 @@ Calendar cho phép user chọn date hoặc date range. Dùng Grid pattern phức
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                                                                                 |
-| ---------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| W3C APG / ARIA         | ✅      | React Day Picker v9 xử lý hoàn hảo ARIA grid pattern và keyboard navigation                                                          |
-| 21. CSS Depth Boundary | ❌      | Vi phạm ở L55, L56 (`rtl:**:[...]` dùng `**:` deep selector). Ở L127, L129, L130 (`_button` deep selector, nên đổi thành `>button`). |
-| Form Control Parity    | ✅      | Focus ring đồng bộ với Button. Sizes được kiểm soát cực tốt qua `[--cell-size]`.                                                     |
-| Dark Mode Compliance   | ✅      | Semantic tokens tốt, hover và focus state hiển thị chuẩn                                                                             |
-
-### Diffs cần fix
-
-```diff
-- "rtl:**:[.rdp-button\_next>svg]:rotate-180"
-+ "rtl:[&_.rdp-button\_next>svg]:rotate-180"
-- "[&:last-child[data-selected=true]_button]:rounded-r-(--cell-radius)"
-+ "[&:last-child[data-selected=true]>button]:rounded-r-(--cell-radius)"
-```

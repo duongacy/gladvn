@@ -10,14 +10,15 @@
 import * as React from "react";
 import { Avatar as AvatarPrimitive } from "@base-ui/react/avatar";
 
-import { cn } from "../../lib/utils";
+import { cn } from "@/lib/utils";
+import { type Size } from "@/lib/types";
 
 function Avatar({
   className,
   size = "md",
   ...props
 }: AvatarPrimitive.Root.Props & {
-  size?: "sm" | "md" | "lg";
+  size?: Size;
 }) {
   return (
     <AvatarPrimitive.Root
@@ -25,6 +26,7 @@ function Avatar({
       data-size={size}
       className={cn(
         "group/avatar relative flex size-8 shrink-0 rounded-full select-none after:absolute after:inset-0 after:rounded-full after:border after:border-border after:mix-blend-darken data-[size=lg]:size-10 data-[size=sm]:size-6 dark:after:mix-blend-lighten",
+        "group-data-[slot=avatar-group]/avatar-group:ring-2 group-data-[slot=avatar-group]/avatar-group:ring-background",
         className,
       )}
       {...props}
@@ -82,7 +84,7 @@ function AvatarGroup({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="avatar-group"
       className={cn(
-        "group/avatar-group flex -space-x-2 *:data-[slot=avatar]:ring-2 *:data-[slot=avatar]:ring-background",
+        "group/avatar-group flex -space-x-2",
         className,
       )}
       {...props}

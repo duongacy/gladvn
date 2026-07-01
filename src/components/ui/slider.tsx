@@ -1,6 +1,6 @@
 /**
  * ✅ AUDITED & REFACTORED
- * - Design System Compliant (20 Commandments)
+ * - Design System Compliant (22 Commandments)
  * - WCAG AAA/AA
  * - Form Control Parity
  * - CSS Delegated Logic
@@ -9,7 +9,8 @@ import * as React from "react";
 import { Slider as SliderPrimitive } from "@base-ui/react/slider";
 import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "../../lib/utils";
+import { cn } from "@/lib/utils";
+import { type Size } from "@/lib/types";
 
 const sliderVariants = cva(
   "peer group/slider data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full",
@@ -47,7 +48,7 @@ const thumbVariants = cva(
   },
 );
 
-const SliderContext = React.createContext<{ size: "sm" | "md" | "lg" }>({
+const SliderContext = React.createContext<{ size: Size }>({
   size: "md",
 });
 
@@ -55,7 +56,7 @@ function Slider({
   className,
   size = "md",
   ...props
-}: SliderPrimitive.Root.Props & { size?: "sm" | "md" | "lg" }) {
+}: SliderPrimitive.Root.Props & { size?: Size }) {
   return (
     <SliderContext.Provider value={{ size }}>
       <SliderPrimitive.Root

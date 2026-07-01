@@ -65,25 +65,7 @@ Menubar là horizontal navigation menu (giống menu bar của desktop apps). B�
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                                                                                                                                                   |
-| ---------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| W3C APG / ARIA         | ✅      | Cấu trúc menubar cực tốt thông qua `@base-ui`.                                                                                                                                                         |
-| 21. CSS Depth Boundary | ❌      | Giống hệt DropdownMenu, vi phạm tại `MenubarItem`, `MenubarCheckboxItem`, `MenubarRadioItem` (L101, L123, L159, L242) với các selector `**:`, `*:`, và `[&_svg]`. Cần đổi sang direct child `[&>svg]`. |
-| Form Control Parity    | ✅      | Kế thừa sizing/padding chuẩn của Menu pattern.                                                                                                                                                         |
-| Dark Mode Compliance   | ✅      | Semantic colors hoàn chỉnh.                                                                                                                                                                            |
-
-### Diffs cần fix
-
-```diff
-- "not-data-[variant=destructive]:focus:**:text-accent-foreground data-[variant=destructive]:*:[svg]:text-destructive! [&_svg:not([class*='size-'])]:size-4"
-+ "not-data-[variant=destructive]:focus:[&>svg]:text-accent-foreground data-[variant=destructive]:[&>svg]:text-destructive! [&>svg:not([class*='size-'])]:size-4"
-```
-
-_(Áp dụng tương tự cho CheckboxItem, RadioItem, SubTrigger)_

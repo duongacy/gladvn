@@ -1,9 +1,9 @@
 import { LayersIcon } from "lucide-react";
 import { useEffect, useState } from "react";
-import { Badge, Separator, Switch, useTheme } from "../../src/index";
-import { ALL_COMPONENTS, NAV } from "./data";
+import { Badge, Separator, Switch, SwitchThumb, useTheme } from "@/index";
+import { ALL_COMPONENTS, NAV } from "@/dev/data";
 import React, { Suspense, lazy } from "react";
-import OverviewSection from "./showcase/overview";
+import OverviewSection from "@/dev/showcase/overview";
 
 const components: Record<string, React.LazyExoticComponent<any>> = {};
 ALL_COMPONENTS.forEach((comp) => {
@@ -86,7 +86,9 @@ export default function App() {
             <Switch
               checked={theme?.mode === "dark"}
               onCheckedChange={(v) => theme?.setMode(v ? "dark" : "light")}
-            />
+            >
+              <SwitchThumb />
+            </Switch>
           </div>
         </div>
       </header>

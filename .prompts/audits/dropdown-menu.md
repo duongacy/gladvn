@@ -80,23 +80,7 @@ Dropdown Menu (Menu Button pattern) hiển thị danh sách actions khi user cli
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                                                                                      |
-| ---------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Menu Button pattern, type-ahead và focus management hoạt động tuyệt vời                                                                   |
-| 21. CSS Depth Boundary | ❌      | Giống Context Menu, vi phạm ở các Items (`DropdownMenuItem`, `SubTrigger`, `CheckboxItem`, `RadioItem`): dùng `[&_svg]` thay vì `[&>svg]` |
-| Form Control Parity    | ✅      | Parity hoàn hảo với Context Menu (Rule #5 Linear Design)                                                                                  |
-| Dark Mode Compliance   | ✅      | Semantic tokens tốt, hover và focus state hiển thị chuẩn                                                                                  |
-
-### Diffs cần fix
-
-```diff
-- "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 data-[variant=destructive]:*:[svg]:text-destructive"
-+ "[&>svg]:pointer-events-none [&>svg]:shrink-0 [&>svg:not([class*='size-'])]:size-4 data-[variant=destructive]:[&>svg]:text-destructive"
-```

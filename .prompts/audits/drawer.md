@@ -53,16 +53,7 @@ Drawer là biến thể Dialog, thường slide lên từ bottom (mobile pattern
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo ra một block showcase chuẩn chỉnh (sử dụng `<ShowcaseBlock>` hoặc `<SectionHeader>`) và chèn vào file phù hợp nhất.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                   |
-| ---------------------- | ------- | ---------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Vaul handle drag alternative (esc) và focus trap chuẩn xác             |
-| 21. CSS Depth Boundary | ✅      | Không có vi phạm deep selector, styling trực tiếp bằng data attributes |
-| Form Control Parity    | ✅      | Animation và transform sử dụng CSS thuần qua data state                |
-| Dark Mode Compliance   | ✅      | Kế thừa từ popover text/bg, tương thích dark mode                      |

@@ -1,20 +1,30 @@
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/index";
 import { useState } from "react";
 import {
-  MonoSelect,
+  
   Field,
   FieldLabel,
   FieldDescription,
   FieldContent,
-} from "../../index";
-import { Slider } from "../../components/monolithic/slider";
+} from "@/index";
+
+import {
+  Slider as CompositionalSlider,
+  SliderControl,
+  SliderTrack,
+  SliderIndicator,
+  SliderThumb,
+} from "@/components/ui/slider";
 import {
   SectionHeader,
   ExampleSection,
   ExampleGrid,
-} from "../components/showcase";
+} from "@/dev/components/showcase";
+
+import { type Size } from "@/lib/types";
 
 export default function SliderShowcase() {
-  const [globalSize, setGlobalSize] = useState<"sm" | "md" | "lg">("md");
+  const [globalSize, setGlobalSize] = useState<Size>("md");
 
   return (
     <div className="space-y-10">
@@ -22,15 +32,16 @@ export default function SliderShowcase() {
         title="Slider"
         description="An input where the user selects a value from within a given range."
       >
-        <MonoSelect
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as any)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-        />
+        <Select value={globalSize} onValueChange={(v) => setGlobalSize(v as Size)}>
+          <SelectTrigger className="w-[120px] h-8 text-xs bg-background">
+            <SelectValue placeholder="Size" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="sm">Size: sm</SelectItem>
+            <SelectItem value="md">Size: md</SelectItem>
+            <SelectItem value="lg">Size: lg</SelectItem>
+          </SelectContent>
+        </Select>
       </SectionHeader>
 
       <ExampleGrid columns={2}>
@@ -42,7 +53,7 @@ export default function SliderShowcase() {
             <Field size={globalSize}>
               <FieldLabel>Volume</FieldLabel>
               <FieldContent>
-                <Slider
+                <SliderPreset
                   size={globalSize}
                   defaultValue={[60]}
                   max={100}
@@ -76,6 +87,27 @@ export default function SliderShowcase() {
           </div>
         </ExampleSection>
       </ExampleGrid>
+
+      <ExampleSection
+        label="Compositional Usage"
+        description="Building a slider using its base primitives for ultimate control."
+      >
+        <div className="w-full max-w-sm">
+          <CompositionalSlider
+            size={globalSize}
+            defaultValue={[40]}
+            max={100}
+            step={1}
+          >
+            <SliderControl>
+              <SliderTrack>
+                <SliderIndicator />
+              </SliderTrack>
+              <SliderThumb />
+            </SliderControl>
+          </CompositionalSlider>
+        </div>
+      </ExampleSection>
 
       <ExampleSection
         label="Disabled"

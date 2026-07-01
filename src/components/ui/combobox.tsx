@@ -10,14 +10,15 @@
 import * as React from "react";
 import { Combobox as ComboboxPrimitive } from "@base-ui/react";
 
-import { cn } from "../../lib/utils";
+import { cn } from "@/lib/utils";
+import { type Size } from "@/lib/types";
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupButton,
   InputGroupInput,
-} from "./input-group";
-import { ThemeWrapper } from "./theme-provider";
+} from "@/components/ui/input-group";
+import { ThemeWrapper } from "@/components/ui/theme-provider";
 import { ChevronDownIcon, XIcon, CheckIcon } from "lucide-react";
 
 const Combobox = ComboboxPrimitive.Root;
@@ -47,7 +48,7 @@ function ComboboxClear({ className, ...props }: ComboboxPrimitive.Clear.Props) {
   return (
     <ComboboxPrimitive.Clear
       data-slot="combobox-clear"
-      render={<InputGroupButton variant="ghost" size="icon-xs" />}
+      render={<InputGroupButton variant="ghost" size="icon-sm" />}
       className={cn(className)}
       {...props}
     >
@@ -71,7 +72,7 @@ function ComboboxInput({
 }: DistributiveOmit<ComboboxPrimitive.Input.Props, "size"> & {
   showTrigger?: boolean;
   showClear?: boolean;
-  size?: "sm" | "md" | "lg";
+  size?: Size;
 }) {
   return (
     <InputGroup size={size} className={cn("w-auto", className)}>
@@ -155,7 +156,7 @@ function ComboboxItem({
     <ComboboxPrimitive.Item
       data-slot="combobox-item"
       className={cn(
-        "relative flex w-full cursor-default items-center gap-2 rounded-md py-1 pr-8 pl-1.5 text-sm outline-hidden select-none data-highlighted:bg-accent data-highlighted:text-accent-foreground not-data-[variant=destructive]:data-highlighted:**:text-accent-foreground data-disabled:pointer-events-none data-disabled:opacity-50 [&>svg]:pointer-events-none [&>svg]:shrink-0 [&>svg:not([class*='size-'])]:size-4",
+        "relative flex w-full cursor-default items-center gap-2 rounded-md py-1 pr-8 pl-1.5 text-sm outline-hidden select-none data-highlighted:bg-accent data-highlighted:text-accent-foreground not-data-[variant=destructive]:data-highlighted:[&>*]:text-accent-foreground data-disabled:pointer-events-none data-disabled:opacity-50 [&>svg]:pointer-events-none [&>svg]:shrink-0 [&>svg:not([class*='size-'])]:size-4",
         className,
       )}
       {...props}

@@ -61,16 +61,7 @@ Checkbox cho phép user chọn một hoặc nhiều option từ một danh sách
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo ra một block showcase chuẩn chỉnh (sử dụng `<ShowcaseBlock>` hoặc `<SectionHeader>`) và chèn vào file phù hợp nhất.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                                   |
-| ---------------------- | ------- | -------------------------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Base UI Checkbox hỗ trợ đầy đủ aria-checked="mixed" và space toggle                    |
-| 21. CSS Depth Boundary | ✅      | Dùng `[&>svg]` trực tiếp tại CheckboxPrimitive.Indicator, không lạm dụng deep selector |
-| Form Control Parity    | ✅      | Kích thước size-3.5, size-4, size-5 và focus-visible hoàn toàn khớp                    |
-| Dark Mode Compliance   | ✅      | `dark:bg-input/30` và `dark:aria-invalid...` dùng chuẩn xác                            |

@@ -52,25 +52,7 @@ Toggle (Toggle Button) là button có hai trạng thái: pressed/not pressed. B�
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                                |
-| ---------------------- | ------- | ----------------------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Base UI xử lý `aria-pressed` cực kỳ tốt                                             |
-| 21. CSS Depth Boundary | ❌      | Vi phạm ở `toggleVariants` (L9 và L17): lạm dụng `[&_svg]`. Cần đổi sang `[&>svg]`. |
-| Form Control Parity    | ✅      | Sizing (h-7, h-8, h-9) khớp chính xác, focus vòng ngoài xử lý xuất sắc bằng CSS     |
-| Dark Mode Compliance   | ✅      | Semantic tokens tốt, dark variants hoạt động đúng                                   |
-
-### Diffs cần fix
-
-```diff
-- "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
-+ "[&>svg]:pointer-events-none [&>svg]:shrink-0 [&>svg:not([class*='size-'])]:size-4"
-- "h-7 min-w-7 px-2.5 text-xs [&_svg:not([class*='size-'])]:size-3.5"
-+ "h-7 min-w-7 px-2.5 text-xs [&>svg:not([class*='size-'])]:size-3.5"
-```

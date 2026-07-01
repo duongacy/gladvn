@@ -6,7 +6,7 @@ Bạn là một Senior Frontend Architect chuyên về Design System. Nhiệm v�
 
 ---
 
-## CONTEXT: 21 Commandments (Hiến pháp của sadcn)
+## CONTEXT: 22 Commandments (Hiến pháp của sadcn)
 
 ### PHẦN I: COMPONENT API & DEVELOPER UX
 
@@ -43,6 +43,7 @@ Bạn là một Senior Frontend Architect chuyên về Design System. Nhiệm v�
 19. **Anti-Ternary Principle** — Hạn chế tối đa toán tử ba ngôi (`? :`). Hãy code tường minh bằng `&&` (vd: `{isTrue && <Component/>}`). Với `className`, BẮT BUỘC dùng tính năng object conditional của `cn` (vd: `cn({"opacity-50": disabled})`) thay vì chèn ternary string.
 20. **Flexbox Stretch Axiom** — Cấm lạm dụng `w-full` bên trong các container `flex-col` (vì `align-items: stretch` đã tự làm việc này) hoặc trên các block-level flex container. UI Library phải tinh gọn, không chứa utility class thừa thãi.
 21. **CSS Depth Boundary** — Component CẤM "thò tay" CSS vào children quá sâu. Các selector như `[&_a]:underline`, `[&_p]:mb-4`, `*:[svg:not([class*='size-'])]:size-4`, `has-[>svg]:grid-cols-[auto_1fr]` đều vi phạm — component đang tự ý quyết định style cho content mà user nhét vào. **CHỈ ĐƯỢC PHÉP** dùng CSS query targeting `data-slot` của sub-component chính thức (vd: `[&_[data-slot=alert-title]]:text-info`) hoặc direct state selectors (`:hover`, `:focus`, `aria-*`). Nếu user nhét children vô, user tự style cho "ruột" của nó.
+22. **Pure Composition Only (CRITICAL)** — Các component trong thư mục `src/components/ui/` CHỈ được phép là Compositional Primitives (chia tách rạch ròi thành các thành phần nhỏ nhất). Tuyệt đối KHÔNG chứa bất kỳ monolithic logic nào (ví dụ: nhận prop `items` dạng mảng rồi tự render vòng lặp bên trong component UI). Bất cứ monolithic wrapper/behavior nào bị phát hiện BẮT BUỘC phải bị reject và di dời sang thư mục `src/components/monolithic/`.
 
 ---
 
@@ -172,7 +173,7 @@ Mô tả ngắn gọn component này làm gì, thuộc nhóm nào (Form Control,
 
 ### Bước 2: Audit từng Rule
 
-Duyệt qua **tất cả 21 rules**. Với mỗi rule, đánh giá:
+Duyệt qua **tất cả 22 rules**. Với mỗi rule, đánh giá:
 
 - ✅ **PASS** — Tuân thủ đúng. Giải thích ngắn gọn tại sao.
 - ❌ **FAIL** — Vi phạm. Chỉ rõ dòng code vi phạm và đề xuất cách sửa cụ thể (code snippet).

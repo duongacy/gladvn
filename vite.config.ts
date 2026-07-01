@@ -14,6 +14,11 @@ const external = [
 ];
 
 export default defineConfig(({ command }) => ({
+  resolve: {
+    alias: {
+      "@": resolve(__dirname, "./src"),
+    },
+  },
   plugins: [
     react(),
     // Tailwind only needed for dev mode (playground)
@@ -23,7 +28,6 @@ export default defineConfig(({ command }) => ({
       ? [
           dts({
             tsconfigPath: "./tsconfig.build.json",
-            rollupTypes: true,
           }),
         ]
       : []),

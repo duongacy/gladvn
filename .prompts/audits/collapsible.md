@@ -53,16 +53,7 @@ Collapsible (Disclosure) cho phép user toggle visibility của một content se
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                         |
-| ---------------------- | ------- | ------------------------------------------------------------ |
-| W3C APG / ARIA         | ✅      | Base UI hỗ trợ `aria-expanded` và focus management hoàn hảo. |
-| 21. CSS Depth Boundary | ✅      | Không vi phạm.                                               |
-| Form Control Parity    | ✅      | Kế thừa trực tiếp cấu trúc HTML/CSS chuẩn.                   |
-| Dark Mode Compliance   | ✅      | Hoàn toàn tương thích do không áp đặt màu sắc cứng.          |

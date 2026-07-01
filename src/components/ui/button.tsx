@@ -8,7 +8,7 @@
 import { Button as ButtonPrimitive } from "@base-ui/react/button";
 import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "../../lib/utils";
+import { cn } from "@/lib/utils";
 
 /**
  * variant = visual style (HOW it looks)
@@ -51,11 +51,13 @@ const buttonVariants = cva(
         success: "",
         info: "",
         tertiary: "",
+        muted: "",
+        accent: "",
       },
 
       // ── Size ─────────────────────────────────────────────────────
       size: {
-        sm: "h-7 gap-1.5 px-3 text-xs [&_svg:not([class*='size-'])]:size-3.5 data-[icon-only=true]:w-7 data-[icon-only=true]:px-0",
+        sm: "h-7 gap-1.5 px-3 text-xs [&>svg:not([class*='size-'])]:size-3.5 data-[icon-only=true]:w-7 data-[icon-only=true]:px-0",
         md: "h-8 gap-2 px-4 [&_svg:not([class*='size-'])]:size-4 data-[icon-only=true]:w-8 data-[icon-only=true]:px-0",
         lg: "h-9 gap-2 px-5 [&_svg:not([class*='size-'])]:size-5 data-[icon-only=true]:w-9 data-[icon-only=true]:px-0",
       },
@@ -106,6 +108,18 @@ const buttonVariants = cva(
         className:
           "bg-tertiary    text-tertiary-foreground    hover:bg-tertiary/85",
       },
+      {
+        variant: "solid",
+        color: "muted",
+        className:
+          "bg-muted       text-muted-foreground       hover:bg-muted/85",
+      },
+      {
+        variant: "solid",
+        color: "accent",
+        className:
+          "bg-accent      text-accent-foreground      hover:bg-accent/85",
+      },
 
       // outline — border + semantic text, tinted hover
       {
@@ -144,6 +158,16 @@ const buttonVariants = cva(
         color: "tertiary",
         className: "border-tertiary    text-tertiary    hover:bg-tertiary/10",
       },
+      {
+        variant: "outline",
+        color: "muted",
+        className: "border-muted       text-muted-foreground hover:bg-muted/10",
+      },
+      {
+        variant: "outline",
+        color: "accent",
+        className: "border-accent      text-accent-foreground hover:bg-accent/10",
+      },
 
       // soft — tinted background, semantic text
       {
@@ -180,6 +204,16 @@ const buttonVariants = cva(
         variant: "soft",
         color: "tertiary",
         className: "bg-tertiary/15    text-tertiary    hover:bg-tertiary/25",
+      },
+      {
+        variant: "soft",
+        color: "muted",
+        className: "bg-muted/50       text-muted-foreground hover:bg-muted/80",
+      },
+      {
+        variant: "soft",
+        color: "accent",
+        className: "bg-accent/50      text-accent-foreground hover:bg-accent/80",
       },
 
       // ghost — transparent, semantic text, tinted hover
@@ -218,6 +252,16 @@ const buttonVariants = cva(
         color: "tertiary",
         className: "text-tertiary    hover:bg-tertiary/10",
       },
+      {
+        variant: "ghost",
+        color: "muted",
+        className: "text-muted-foreground hover:bg-muted/10",
+      },
+      {
+        variant: "ghost",
+        color: "accent",
+        className: "text-accent-foreground hover:bg-accent/10",
+      },
 
       // link — just semantic text + underline on hover
       { variant: "link", color: "primary", className: "text-primary" },
@@ -227,6 +271,8 @@ const buttonVariants = cva(
       { variant: "link", color: "success", className: "text-success" },
       { variant: "link", color: "info", className: "text-info" },
       { variant: "link", color: "tertiary", className: "text-tertiary" },
+      { variant: "link", color: "muted", className: "text-muted-foreground" },
+      { variant: "link", color: "accent", className: "text-accent-foreground" },
       // focus ring — semantic color at /15 opacity with offset
       { color: "primary", className: "focus-visible:ring-primary/50" },
       { color: "secondary", className: "focus-visible:ring-secondary/50" },
@@ -235,6 +281,8 @@ const buttonVariants = cva(
       { color: "success", className: "focus-visible:ring-success/50" },
       { color: "info", className: "focus-visible:ring-info/50" },
       { color: "tertiary", className: "focus-visible:ring-tertiary/50" },
+      { color: "muted", className: "focus-visible:ring-muted/50" },
+      { color: "accent", className: "focus-visible:ring-accent/50" },
     ],
 
     defaultVariants: {

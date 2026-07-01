@@ -64,25 +64,7 @@ Dialog (Modal) là overlay yêu cầu user tương tác trước khi quay lại 
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo ra một block showcase chuẩn chỉnh (sử dụng `<ShowcaseBlock>` hoặc `<SectionHeader>`) và chèn vào file phù hợp nhất.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                                                                                         |
-| ---------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Focus Trap, Focus Restoration và ARIA attributes đều được Base UI xử lý tốt                                                                  |
-| 21. CSS Depth Boundary | ❌      | Vi phạm ở `DialogDescription` (L141): dùng `*:[a]` để style thẻ a bên trong. Cần cẩn trọng khi dùng deep selector, có thể đổi thành `[&>a]`. |
-| Form Control Parity    | ✅      | Close Button tái sử dụng `<Button variant="ghost">` rất chuẩn xác (Rule #3)                                                                  |
-| Dark Mode Compliance   | ✅      | Overlay `bg-black/10` và content dùng `bg-popover` hiển thị tốt trên cả 2 themes                                                             |
-
-### Diffs cần fix
-
-```diff
-- "text-sm text-muted-foreground *:[a]:underline *:[a]:underline-offset-3 *:[a]:hover:text-foreground"
-+ "text-sm text-muted-foreground [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-foreground"
-```
-
-_(Ghi chú: Text link thường nằm sâu trong p nên `[&_a]` có thể chấp nhận tạm thời thay vì `[&>a]`, nhưng lý tưởng nhất là dùng variant chuyên biệt)_

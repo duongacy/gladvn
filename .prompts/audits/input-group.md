@@ -59,23 +59,7 @@ Input Group là wrapper component kết hợp Input với các addon elements (p
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo ra một block showcase chuẩn chỉnh (sử dụng `<ShowcaseBlock>` hoặc `<SectionHeader>`) và chèn vào file phù hợp nhất.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                                                 |
-| ---------------------- | ------- | ---------------------------------------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Wrapper xử lý aria tốt, focus được pass through chuẩn                                                |
-| 21. CSS Depth Boundary | ❌      | Vi phạm ở `InputGroupText` (L156): sử dụng `[&_svg]`. Cần đổi sang `[&>svg]`.                        |
-| Form Control Parity    | ✅      | Sizing (min-h-7, min-h-8, min-h-9) khớp chính xác, focus vòng ngoài xử lý xuất sắc bằng CSS `:has()` |
-| Dark Mode Compliance   | ✅      | `dark:bg-input/30` áp dụng chuẩn, shadow và border đúng                                              |
-
-### Diffs cần fix
-
-```diff
-- "flex items-center gap-2 text-muted-foreground [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 group-[.input-group-sm]/input-group:[&>svg:not([class*='size-'])]:size-3.5"
-+ "flex items-center gap-2 text-muted-foreground [&>svg]:pointer-events-none [&>svg:not([class*='size-'])]:size-4 group-[.input-group-sm]/input-group:[&>svg:not([class*='size-'])]:size-3.5"
-```

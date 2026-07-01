@@ -61,26 +61,7 @@ Item là generic list item component dùng trong nhiều context (menu item, lis
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                                                                                         |
-| ---------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Strict Polymorphism (`useRender`) giúp render ra đúng semantic tag cần thiết.                                                                |
-| 21. CSS Depth Boundary | ❌      | `Item` (L159) dùng deep selector `[&_svg]` và `*:[svg]`. Cần đổi sang direct child. `ItemMedia` (L84, L89, L90) dùng `[&_svg]` và `[&_img]`. |
-| Form Control Parity    | ⚠️      | Variant `[a]:hover:bg-muted` (L38) trong Tailwind v4 match element có attribute `a`. Nên sửa thành component class hoặc `a&:hover`.          |
-| Dark Mode Compliance   | ✅      | Semantic colors hoạt động tốt.                                                                                                               |
-
-### Diffs cần fix
-
-```diff
-- "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 data-selected:*:[svg]:text-foreground"
-+ "[&>svg]:pointer-events-none [&>svg]:shrink-0 [&>svg:not([class*='size-'])]:size-4 data-selected:[&>svg]:text-foreground"
-
-- "[&_img]:size-full [&_img]:object-cover"
-+ "[&>img]:size-full [&>img]:object-cover"
-```

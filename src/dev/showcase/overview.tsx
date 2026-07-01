@@ -29,10 +29,10 @@ import {
   SelectTrigger,
   SelectValue,
   Switch,
-} from "../../index";
+} from "@/index";
 
-import { ColorSwatch } from "../components/showcase";
-import { COLORS, STATS } from "../data";
+import { ColorSwatch } from "@/dev/components/showcase";
+import { COLORS, STATS } from "@/dev/data";
 
 export default function OverviewSection() {
   const [copied, setCopied] = useState(false);

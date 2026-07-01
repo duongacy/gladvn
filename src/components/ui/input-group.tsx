@@ -1,6 +1,6 @@
 /**
  * ✅ AUDITED & REFACTORED
- * - Design System Compliant (20 Commandments)
+ * - Design System Compliant (22 Commandments)
  * - WCAG AAA/AA
  * - Form Control Parity
  * - CSS Delegated Logic
@@ -10,10 +10,10 @@
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "../../lib/utils";
-import { Button } from "./button";
-import { Input } from "./input";
-import { Textarea } from "./textarea";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 const inputGroupVariants = cva(
   [
@@ -28,13 +28,6 @@ const inputGroupVariants = cva(
     // Invalid state (delegated from inner input)
     "has-[[data-slot][aria-invalid=true]]:border-destructive",
     "has-[[data-slot][aria-invalid=true]:focus-visible]:border-destructive has-[[data-slot][aria-invalid=true]:focus-visible]:ring-3 has-[[data-slot][aria-invalid=true]:focus-visible]:ring-destructive/50 dark:has-[[data-slot][aria-invalid=true]:focus-visible]:ring-destructive/50",
-    // Auto-height for block addons and textarea
-    "has-[>[data-align=block-end]]:h-auto has-[>[data-align=block-end]]:flex-col",
-    "has-[>[data-align=block-start]]:h-auto has-[>[data-align=block-start]]:flex-col",
-    "has-[>textarea]:h-auto",
-    // Padding adjustments for different addon alignments
-    "has-[>[data-align=block-end]]:[&>input]:pt-3 has-[>[data-align=block-start]]:[&>input]:pb-3",
-    "has-[>[data-align=inline-end]]:[&>input]:pr-1.5 has-[>[data-align=inline-start]]:[&>input]:pl-1.5",
     // Dark mode background
     "dark:bg-input/30",
   ],
@@ -73,19 +66,15 @@ const inputGroupAddonVariants = cva(
     // Padding based on wrapper size
     "group-[.input-group-sm]/input-group:py-0.5 group-[.input-group-md]/input-group:py-1.5 group-[.input-group-lg]/input-group:py-1.5",
     // Inner elements styling
-    "[&>kbd]:rounded-[calc(var(--radius)-5px)] [&>svg:not([class*='size-'])]:size-4 group-[.input-group-sm]/input-group:[&>svg:not([class*='size-'])]:size-3.5",
+    "[&>kbd]:rounded-sm [&>svg:not([class*='size-'])]:size-4 group-[.input-group-sm]/input-group:[&>svg:not([class*='size-'])]:size-3.5",
   ],
   {
     variants: {
       align: {
-        "inline-start":
-          "order-first pl-2 has-[>button]:ml-[-0.3rem] has-[>kbd]:ml-[-0.15rem]",
-        "inline-end":
-          "order-last pr-2 has-[>button]:mr-[-0.3rem] has-[>kbd]:mr-[-0.15rem]",
-        "block-start":
-          "order-first w-full justify-start px-2.5 pt-2 group-has-[>input]/input-group:pt-2 [.border-b]:pb-2",
-        "block-end":
-          "order-last w-full justify-start px-2.5 pb-2 group-has-[>input]/input-group:pb-2 [.border-t]:pt-2",
+        "inline-start": "order-first pl-2",
+        "inline-end": "order-last pr-2",
+        "block-start": "order-first w-full justify-start px-2.5 pt-2 [.border-b]:pb-2",
+        "block-end": "order-last w-full justify-start px-2.5 pb-2 [.border-t]:pt-2",
       },
     },
   },
@@ -118,11 +107,12 @@ const inputGroupButtonVariants = cva(
   {
     variants: {
       size: {
-        xs: "h-6 gap-1 rounded-[calc(var(--radius)-3px)] px-1.5 [&>svg:not([class*='size-'])]:size-3.5",
-        sm: "",
-        "icon-xs":
-          "size-6 rounded-[calc(var(--radius)-3px)] p-0 has-[>svg]:p-0",
-        "icon-sm": "size-8 p-0 has-[>svg]:p-0",
+        sm: "h-7 gap-1.5 rounded-sm px-2 [&>svg:not([class*='size-'])]:size-3.5",
+        md: "h-8 gap-2 rounded-md px-3 [&>svg:not([class*='size-'])]:size-4",
+        lg: "h-9 gap-2 rounded-md px-4 [&>svg:not([class*='size-'])]:size-5",
+        xs: "h-6 gap-1 rounded-sm px-1.5 [&>svg:not([class*='size-'])]:size-3.5",
+        icon: "size-8 rounded-md p-0",
+        "icon-sm": "size-8 p-0",
       },
     },
   },

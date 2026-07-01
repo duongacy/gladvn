@@ -54,16 +54,7 @@ Avatar hiển thị hình đại diện của user/entity. BẮT BUỘC kiểm t
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                                              |
-| ---------------------- | ------- | ------------------------------------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Base UI hỗ trợ đầy đủ các trạng thái loading/fallback và accessible text.                         |
-| 21. CSS Depth Boundary | ✅      | Sử dụng chính xác `[&>svg]` cho direct child thay vì deep selector. Cấu trúc rất sạch.            |
-| Form Control Parity    | ✅      | Avatar Badge và Group dùng `ring-2 ring-background` chuẩn. Kích thước linh hoạt theo prop `size`. |
-| Dark Mode Compliance   | ✅      | Sử dụng `dark:after:mix-blend-lighten` rất sáng tạo để xử lý contrast ở dark mode.                |

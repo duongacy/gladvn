@@ -56,23 +56,7 @@ Card là container component nhóm related content. KHÔNG có W3C APG pattern r
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                                                                                                                                  |
-| ---------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Cấu trúc semantic cơ bản (dùng div cho layout utility container)                                                                                                                      |
-| 21. CSS Depth Boundary | ❌      | Vi phạm ở L15: `*:[img:first-child]:rounded-t-xl` dùng deep descendant selector `*:` để style img tuỳ ý bên trong. Cần đổi sang `[&>img:first-child]` hoặc tạo `CardImage` component. |
-| Form Control Parity    | ✅      | CSS Custom Properties `[--card-spacing]` xử lý responsive padding tuyệt vời.                                                                                                          |
-| Dark Mode Compliance   | ✅      | `bg-card text-card-foreground` tự động scale theo theme.                                                                                                                              |
-
-### Diffs cần fix
-
-```diff
-- "*:[img:first-child]:rounded-t-xl *:[img:last-child]:rounded-b-xl"
-+ "[&>img:first-child]:rounded-t-xl [&>img:last-child]:rounded-b-xl"
-```

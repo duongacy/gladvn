@@ -65,16 +65,7 @@ Radio Group cho phép user chọn DUY NHẤT một option từ một danh sách.
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo ra một block showcase chuẩn chỉnh (sử dụng `<ShowcaseBlock>` hoặc `<SectionHeader>`) và chèn vào file phù hợp nhất.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                          |
-| ---------------------- | ------- | ----------------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Base UI xử lý roving tabindex (arrow keys navigation) cực chuẩn               |
-| 21. CSS Depth Boundary | ✅      | Selected indicator được render trực tiếp thông qua CSS/span, không có vi phạm |
-| Form Control Parity    | ✅      | Base dimensions và focus rings đồng bộ tốt                                    |
-| Dark Mode Compliance   | ✅      | `dark:bg-input/30` và các invalid states có dark variant đầy đủ               |

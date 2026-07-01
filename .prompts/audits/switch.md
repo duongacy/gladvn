@@ -61,16 +61,7 @@ Switch là widget cho phép user toggle giữa hai trạng thái mutually exclus
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo ra một block showcase chuẩn chỉnh (sử dụng `<ShowcaseBlock>` hoặc `<SectionHeader>`) và chèn vào file phù hợp nhất.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                                          |
-| ---------------------- | ------- | --------------------------------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Sử dụng `role="switch"` chuẩn, hỗ trợ space toggle qua Base UI                                |
-| 21. CSS Depth Boundary | ✅      | Không vi phạm rule 21                                                                         |
-| Form Control Parity    | ✅      | Focus ring bọc track, track height đúng token                                                 |
-| Dark Mode Compliance   | ✅      | Màu `dark:data-unchecked:bg-secondary` và `dark:data-checked:bg-primary-foreground` rất tỉ mỉ |

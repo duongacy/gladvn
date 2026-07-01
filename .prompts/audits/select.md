@@ -81,25 +81,7 @@ Select (custom dropdown) cho phép user chọn một giá trị từ danh sách 
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo ra một block showcase chuẩn chỉnh (sử dụng `<ShowcaseBlock>` hoặc `<SectionHeader>`) và chèn vào file phù hợp nhất.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                                                                                                                                                                          |
-| ---------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Cấu trúc listbox chuẩn, hỗ trợ type-ahead và arrow keys từ Base UI                                                                                                                                                            |
-| 21. CSS Depth Boundary | ❌      | Vi phạm nhiều chỗ: `SelectTrigger`, `SelectItem`, `SelectScrollUpButton`, `SelectScrollDownButton` lạm dụng `[&_svg]`. Đặc biệt `SelectItem` có `*:[span]:last:...` cực kỳ sâu. Nên đổi thành `[&>svg]` hoặc class tương ứng. |
-| Form Control Parity    | ✅      | Trigger sizing (h-7, h-8, h-9) và focus ring hoàn toàn khớp                                                                                                                                                                   |
-| Dark Mode Compliance   | ✅      | Semantic tokens tốt, dark variants hoạt động đúng                                                                                                                                                                             |
-
-### Diffs cần fix
-
-```diff
-- "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
-+ "[&>svg]:pointer-events-none [&>svg]:shrink-0 [&>svg:not([class*='size-'])]:size-4"
-- "*:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-2"
-+ "[&>[data-slot=select-item-indicator]]:flex [&>[data-slot=select-item-indicator]]:items-center [&>[data-slot=select-item-indicator]]:gap-2"
-```

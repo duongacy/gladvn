@@ -1,10 +1,11 @@
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/index";
 import { useState } from "react";
-import { ToggleGroup, ToggleGroupItem, MonoSelect } from "../../index";
+import { ToggleGroup, ToggleGroupItem } from "@/index";
 import {
   SectionHeader,
   ExampleSection,
   ExampleGrid,
-} from "../components/showcase";
+} from "@/dev/components/showcase";
 import {
   AlignLeftIcon,
   AlignCenterIcon,
@@ -14,8 +15,10 @@ import {
   UnderlineIcon,
 } from "lucide-react";
 
+import { type Size } from "@/lib/types";
+
 export default function ToggleGroupShowcase() {
-  const [globalSize, setGlobalSize] = useState<"sm" | "md" | "lg">("md");
+  const [globalSize, setGlobalSize] = useState<Size>("md");
 
   return (
     <div className="space-y-10">
@@ -23,15 +26,16 @@ export default function ToggleGroupShowcase() {
         title="Toggle Group"
         description="A set of two-state buttons that can be toggled on or off."
       >
-        <MonoSelect
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as any)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-        />
+        <Select value={globalSize} onValueChange={(v) => setGlobalSize(v as Size)}>
+          <SelectTrigger className="w-[120px] h-8 text-xs bg-background">
+            <SelectValue placeholder="Size" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="sm">Size: sm</SelectItem>
+            <SelectItem value="md">Size: md</SelectItem>
+            <SelectItem value="lg">Size: lg</SelectItem>
+          </SelectContent>
+        </Select>
       </SectionHeader>
 
       <ExampleGrid columns={2}>
@@ -39,7 +43,7 @@ export default function ToggleGroupShowcase() {
           label="Single Selection"
           description="Only one item can be active."
         >
-          <ToggleGroup type="single" defaultValue="center" size={globalSize}>
+          <ToggleGroup defaultValue={["center"]} size={globalSize}>
             <ToggleGroupItem value="left" aria-label="Align left">
               <AlignLeftIcon className="size-4" />
             </ToggleGroupItem>
@@ -57,7 +61,6 @@ export default function ToggleGroupShowcase() {
           description="Multiple items can be active."
         >
           <ToggleGroup
-            type="multiple"
             defaultValue={["bold", "italic"]}
             size={globalSize}
           >

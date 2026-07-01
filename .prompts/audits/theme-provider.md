@@ -56,16 +56,7 @@ Theme Provider quản lý light/dark/system theme cho component library. Không 
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                    |
-| ---------------------- | ------- | ----------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Không có pattern ARIA trực tiếp, nhưng việc không can thiệp DOM là tốt. |
-| 21. CSS Depth Boundary | ✅      | Không vi phạm. Code siêu sạch.                                          |
-| Form Control Parity    | ✅      | Hỗ trợ ThemeWrapper cho Portals rất tinh tế.                            |
-| Dark Mode Compliance   | ✅      | Component chịu trách nhiệm cấp phát CSS variables.                      |

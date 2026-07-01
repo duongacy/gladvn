@@ -1,6 +1,6 @@
 import { toast } from "sonner";
-import { Button } from "../../index";
-import { SectionHeader, ExampleSection } from "../components/showcase";
+import { Button } from "@/index";
+import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
 
 export default function SonnerShowcase() {
   return (

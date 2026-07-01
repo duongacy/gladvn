@@ -62,7 +62,7 @@ import {
   FieldDescription,
   FieldError,
   FieldContent,
-} from "../../index";
+} from "@/index";
 import {
   SunIcon,
   MoonIcon,
@@ -84,8 +84,8 @@ import {
   SectionHeader,
   ShowcaseBlock,
   ColorSwatch,
-} from "../components/showcase";
-import { VARIANTS, COLORS, SIZES, STATS, COLOR_INFO } from "../data";
+} from "@/dev/components/showcase";
+import { VARIANTS, COLORS, SIZES, STATS, COLOR_INFO } from "@/dev/data";
 
 export default function InteractiveSection() {
   const [tab, setTab] = useState("preview");

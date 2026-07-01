@@ -63,23 +63,7 @@ Sidebar là navigation panel thường nằm bên cạnh main content, có thể
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                                                                                |
-| ---------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Cấu trúc rất phức tạp nhưng semantic, hỗ trợ keyboard navigation tốt thông qua custom context và HTML native elements.              |
-| 21. CSS Depth Boundary | ❌      | Vi phạm nhỏ tại `sidebarMenuButtonVariants` (L478) sử dụng `[&_svg]`. Cần sửa thành `[&>svg]`. Các chỗ khác đều đã chuẩn `[&>svg]`. |
-| Form Control Parity    | ✅      | Tích hợp tốt với Button, Input, Sheet, Tooltip, Skeleton, Separator.                                                                |
-| Dark Mode Compliance   | ✅      | Semantic colors hoàn chỉnh.                                                                                                         |
-
-### Diffs cần fix
-
-```diff
-- "[&_svg]:size-4 [&_svg]:shrink-0 [&>span:last-child]:truncate"
-+ "[&>svg]:size-4 [&>svg]:shrink-0 [&>span:last-child]:truncate"
-```

@@ -62,25 +62,7 @@ Field là wrapper component quản lý mối quan hệ giữa Label, Form Contro
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo ra một block showcase chuẩn chỉnh (sử dụng `<ShowcaseBlock>` hoặc `<SectionHeader>`) và chèn vào file phù hợp nhất.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                                                                                                                                                                  |
-| ---------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Wrapper cho Field component cung cấp đầy đủ slot ID. (Phụ thuộc vào component mẹ hoặc user manual wiring).                                                                                                            |
-| 21. CSS Depth Boundary | ❌      | Vi phạm ở nhiều nơi: `*:data-[slot=...]` (L53, L70, L73, L140). Trong Tailwind v4, variant `*:` tương đương descendant selector (`& * { ... }`). Cần thay bằng direct child `[&>*]:...` hoặc class utility trực tiếp. |
-| Form Control Parity    | ✅      | Logic layout cực kỳ mạnh mẽ để render control ngang/dọc/responsive. Đạt chuẩn cao.                                                                                                                                    |
-| Dark Mode Compliance   | ✅      | Tokens chuẩn xác.                                                                                                                                                                                                     |
-
-### Diffs cần fix
-
-```diff
-- "*:data-[slot=field-group]:gap-4"
-+ "[&>*]:data-[slot=field-group]:gap-4"
-```
-
-_(Tương tự cho các chỗ dùng `*:data-...`)_

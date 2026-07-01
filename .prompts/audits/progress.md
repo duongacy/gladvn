@@ -60,16 +60,7 @@ Progress hiển thị tiến trình hoàn thành của một task. Có thể là
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                                                 |
-| ---------------------- | ------- | ---------------------------------------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Component từ `@base-ui` hỗ trợ ARIA đầy đủ (`role="progressbar"`, `aria-valuemax`, `aria-valuenow`). |
-| 21. CSS Depth Boundary | ✅      | Không vi phạm. Code sạch.                                                                            |
-| Form Control Parity    | ✅      | Context chia sẻ variant `size` giữa Track, Indicator, Value và Label xuất sắc.                       |
-| Dark Mode Compliance   | ✅      | Semantic colors (`bg-muted`, `bg-primary`) tương thích tốt.                                          |

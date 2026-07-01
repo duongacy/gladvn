@@ -1,3 +1,4 @@
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/index";
 import { useState } from "react";
 import {
   Combobox,
@@ -12,20 +13,24 @@ import {
   ComboboxChips,
   ComboboxChip,
   ComboboxChipsInput,
-  MonoSelect,
+  ComboboxTrigger,
+  ComboboxValue,
+  ComboboxCollection,
   Field,
   FieldLabel,
   FieldDescription,
   FieldContent,
-} from "../../index";
+} from "@/index";
 import {
   SectionHeader,
   ExampleSection,
   ExampleGrid,
-} from "../components/showcase";
+} from "@/dev/components/showcase";
+
+import { type Size } from "@/lib/types";
 
 export default function ComboboxShowcase() {
-  const [globalSize, setGlobalSize] = useState<"sm" | "md" | "lg">("md");
+  const [globalSize, setGlobalSize] = useState<Size>("md");
 
   return (
     <div className="space-y-10">
@@ -33,15 +38,16 @@ export default function ComboboxShowcase() {
         title="Combobox"
         description="A select input that allows searching through large datasets."
       >
-        <MonoSelect
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as any)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-        />
+        <Select value={globalSize} onValueChange={(v) => setGlobalSize(v as Size)}>
+          <SelectTrigger className="w-[120px] h-8 text-xs bg-background">
+            <SelectValue placeholder="Size" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="sm">Size: sm</SelectItem>
+            <SelectItem value="md">Size: md</SelectItem>
+            <SelectItem value="lg">Size: lg</SelectItem>
+          </SelectContent>
+        </Select>
       </SectionHeader>
 
       <ExampleGrid columns={2}>
@@ -138,6 +144,32 @@ export default function ComboboxShowcase() {
                 </Combobox>
               </FieldContent>
               <FieldDescription>This combobox is disabled.</FieldDescription>
+            </Field>
+          </div>
+        </ExampleSection>
+
+        <ExampleSection
+          label="With Trigger"
+          description="Combobox using a button trigger instead of just an input."
+        >
+          <div className="w-full max-w-sm">
+            <Field size={globalSize}>
+              <FieldLabel>Select Engine</FieldLabel>
+              <FieldContent>
+                <Combobox>
+                  <ComboboxTrigger className="w-full justify-between flex items-center border rounded-md p-2">
+                    <ComboboxValue placeholder="Select an engine" />
+                  </ComboboxTrigger>
+                  <ComboboxContent>
+                    <ComboboxInput placeholder="Search engine..." size={globalSize} />
+                    <ComboboxEmpty>No results.</ComboboxEmpty>
+                    <ComboboxList>
+                      <ComboboxItem value="v8">V8</ComboboxItem>
+                      <ComboboxItem value="spidermonkey">SpiderMonkey</ComboboxItem>
+                    </ComboboxList>
+                  </ComboboxContent>
+                </Combobox>
+              </FieldContent>
             </Field>
           </div>
         </ExampleSection>

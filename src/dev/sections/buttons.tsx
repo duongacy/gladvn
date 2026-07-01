@@ -15,16 +15,17 @@ import {
   AvatarFallback,
   Button,
   MonoSelect,
+  Size,
   Spinner,
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "../../index";
-import { SectionHeader } from "../components/showcase";
+} from "@/index";
+import { SectionHeader } from "@/dev/components/showcase";
 
 export default function ButtonsSection() {
-  const [globalSize, setGlobalSize] = useState<"sm" | "md" | "lg">("md");
+  const [globalSize, setGlobalSize] = useState<Size>("md");
   const [isDeleting, setIsDeleting] = useState(false);
   const [isSending, setIsSending] = useState(false);
 
@@ -46,7 +47,7 @@ export default function ButtonsSection() {
       >
         <MonoSelect
           value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as any)}
+          onValueChange={(v) => setGlobalSize(v as Size)}
           options={[
             { value: "sm", label: "Size: sm" },
             { value: "md", label: "Size: md" },

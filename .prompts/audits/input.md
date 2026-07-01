@@ -67,16 +67,7 @@ Input (text field) là form control cơ bản nhất cho phép user nhập text.
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo ra một block showcase chuẩn chỉnh (sử dụng `<ShowcaseBlock>` hoặc `<SectionHeader>`) và chèn vào file phù hợp nhất.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                              |
-| ---------------------- | ------- | ----------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Sử dụng Base UI Input, native flow và aria attributes passthrough |
-| 21. CSS Depth Boundary | ✅      | Không có deep CSS selectors                                       |
-| Form Control Parity    | ✅      | Sizing (h-7, h-8, h-9) khớp chính xác với cheatsheet              |
-| Dark Mode Compliance   | ✅      | `dark:bg-input/30` và các invalid states có dark variant đầy đủ   |

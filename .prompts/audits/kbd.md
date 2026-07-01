@@ -49,23 +49,7 @@ Kbd hiển thị keyboard key hoặc shortcut. BẮT BUỘC kiểm tra:
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                                                |
-| ---------------------- | ------- | --------------------------------------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Semantic `<kbd>` được áp dụng cho cả leaf và group, 100% chuẩn xác.                                 |
-| 21. CSS Depth Boundary | ❌      | Vi phạm ở L8: `[&_svg:not([class*='size-'])]:size-3` dùng deep selector. Cần đổi sang `[&>svg...]`. |
-| Form Control Parity    | ✅      | Design tokens kích thước (`h-5`) đồng bộ tốt.                                                       |
-| Dark Mode Compliance   | ✅      | CSS theme nesting `dark:in-data-...` rất tinh tế.                                                   |
-
-### Diffs cần fix
-
-```diff
-- "[&_svg:not([class*='size-'])]:size-3"
-+ "[&>svg:not([class*='size-'])]:size-3"
-```

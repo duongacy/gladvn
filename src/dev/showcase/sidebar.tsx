@@ -1,3 +1,4 @@
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/index";
 import { useState } from "react";
 import {
   Sidebar,
@@ -20,13 +21,17 @@ import {
   SidebarRail,
   SidebarTrigger,
   SidebarSeparator,
-  MonoSelect,
-} from "../../index";
-import { SectionHeader, ExampleSection } from "../components/showcase";
-import { MoreHorizontalIcon, ChevronRightIcon } from "lucide-react";
+  SidebarInset,
+  SidebarGroupAction,
+  SidebarMenuSkeleton,
+} from "@/index";
+import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
+import { MoreHorizontalIcon, ChevronRightIcon, PlusIcon } from "lucide-react";
+
+import { type Size } from "@/lib/types";
 
 export default function SidebarShowcase() {
-  const [globalSize, setGlobalSize] = useState<"sm" | "md" | "lg">("md");
+  const [globalSize, setGlobalSize] = useState<Size>("md");
 
   return (
     <div className="space-y-10">
@@ -34,15 +39,16 @@ export default function SidebarShowcase() {
         title="Sidebar"
         description="A composable, accessible sidebar component."
       >
-        <MonoSelect
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as any)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-        />
+        <Select value={globalSize} onValueChange={(v) => setGlobalSize(v as Size)}>
+          <SelectTrigger className="w-[120px] h-8 text-xs bg-background">
+            <SelectValue placeholder="Size" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="sm">Size: sm</SelectItem>
+            <SelectItem value="md">Size: md</SelectItem>
+            <SelectItem value="lg">Size: lg</SelectItem>
+          </SelectContent>
+        </Select>
       </SectionHeader>
 
       <ExampleSection
@@ -61,11 +67,14 @@ export default function SidebarShowcase() {
                 </div>
                 <SidebarGroup>
                   <SidebarGroupLabel>Main Menu</SidebarGroupLabel>
+                  <SidebarGroupAction title="Add">
+                    <PlusIcon />
+                  </SidebarGroupAction>
                   <SidebarGroupContent>
                     <SidebarMenu>
                       <SidebarMenuItem>
                         <SidebarMenuButton
-                          size={globalSize === "md" ? "default" : globalSize}
+                          size={globalSize}
                           isActive
                         >
                           <span>Dashboard</span>
@@ -77,7 +86,8 @@ export default function SidebarShowcase() {
                       </SidebarMenuItem>
                       <SidebarMenuItem>
                         <SidebarMenuButton
-                          size={globalSize === "md" ? "default" : globalSize}
+                          variant="outline"
+                          size={globalSize}
                         >
                           <span>Projects</span>
                         </SidebarMenuButton>
@@ -96,10 +106,23 @@ export default function SidebarShowcase() {
                       </SidebarMenuItem>
                       <SidebarMenuItem>
                         <SidebarMenuButton
-                          size={globalSize === "md" ? "default" : globalSize}
+                          size={globalSize}
                         >
                           <span>Settings</span>
                         </SidebarMenuButton>
+                      </SidebarMenuItem>
+                    </SidebarMenu>
+                  </SidebarGroupContent>
+                </SidebarGroup>
+                <SidebarGroup>
+                  <SidebarGroupLabel>Recent</SidebarGroupLabel>
+                  <SidebarGroupContent>
+                    <SidebarMenu>
+                      <SidebarMenuItem>
+                        <SidebarMenuSkeleton showIcon />
+                      </SidebarMenuItem>
+                      <SidebarMenuItem>
+                        <SidebarMenuSkeleton showIcon />
                       </SidebarMenuItem>
                     </SidebarMenu>
                   </SidebarGroupContent>
@@ -110,7 +133,7 @@ export default function SidebarShowcase() {
               </SidebarFooter>
               <SidebarRail />
             </Sidebar>
-            <main className="flex-1 flex flex-col">
+            <SidebarInset>
               <header className="h-14 border-b px-4 flex items-center gap-4">
                 <SidebarTrigger />
                 <SidebarSeparator orientation="vertical" className="h-6" />
@@ -119,7 +142,7 @@ export default function SidebarShowcase() {
               <div className="flex-1 p-6 flex flex-col items-center justify-center text-muted-foreground bg-muted/10">
                 Main content area
               </div>
-            </main>
+            </SidebarInset>
           </SidebarProvider>
         </div>
       </ExampleSection>

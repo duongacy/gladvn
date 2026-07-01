@@ -63,26 +63,7 @@ Table hiển thị data có cấu trúc dạng hàng-cột. BẮT BUỘC kiểm 
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                                   |
-| ---------------------- | ------- | -------------------------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Semantic `<table/>` chuẩn, hỗ trợ `caption`.                                           |
-| 21. CSS Depth Boundary | ❌      | Vi phạm nhỏ tại `TableHeader` và `TableBody` sử dụng `[&_tr]`. Cần sửa thành `[&>tr]`. |
-| Form Control Parity    | ✅      | Kế thừa styling padding hợp lý.                                                        |
-| Dark Mode Compliance   | ✅      | Kế thừa các màu semantic tốt (`bg-muted`, v.v.).                                       |
-
-### Diffs cần fix
-
-```diff
-- className={cn("[&_tr]:border-b", className)}
-+ className={cn("[&>tr]:border-b", className)}
-
-- className={cn("[&_tr:last-child]:border-0", className)}
-+ className={cn("[&>tr:last-child]:border-0", className)}
-```

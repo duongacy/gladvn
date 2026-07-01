@@ -9,9 +9,9 @@ import {
   navigationMenuTriggerStyle,
   NavigationMenuIndicator,
   NavigationMenuPositioner,
-} from "../../index";
-import { cn } from "../../lib/utils";
-import { SectionHeader, ExampleSection } from "../components/showcase";
+} from "@/index";
+import { cn } from "@/lib/utils";
+import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
 
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,

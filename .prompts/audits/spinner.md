@@ -51,16 +51,7 @@ Spinner hiển thị loading indicator. BẮT BUỘC kiểm tra:
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                      |
-| ---------------------- | ------- | --------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Cung cấp `role="status"` và `aria-label="Loading"` chuẩn. |
-| 21. CSS Depth Boundary | ✅      | Không vi phạm. Code sạch.                                 |
-| Form Control Parity    | ✅      | Kế thừa sizing `sm`, `md`, `lg`.                          |
-| Dark Mode Compliance   | ✅      | Kế thừa text color tự động.                               |

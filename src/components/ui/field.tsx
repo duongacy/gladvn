@@ -1,6 +1,6 @@
 /**
  * ✅ AUDITED & REFACTORED
- * - Design System Compliant (20 Commandments)
+ * - Design System Compliant (22 Commandments)
  * - WCAG AAA/AA
  * - Form Control Parity
  * - CSS Delegated Logic
@@ -10,18 +10,15 @@
 import { useMemo } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "../../lib/utils";
-import { Label } from "./label";
-import { Separator } from "./separator";
+import { cn } from "@/lib/utils";
+import { Label } from "@/components/ui/label";
+import { Separator } from "@/components/ui/separator";
 
 function FieldSet({ className, ...props }: React.ComponentProps<"fieldset">) {
   return (
     <fieldset
       data-slot="field-set"
-      className={cn(
-        "flex flex-col gap-4 has-[>[data-slot=checkbox-group]]:gap-3 has-[>[data-slot=radio-group]]:gap-3",
-        className,
-      )}
+      className={cn("flex flex-col gap-4", className)}
       {...props}
     />
   );
@@ -64,13 +61,11 @@ const fieldVariants = cva(
     variants: {
       orientation: {
         vertical: "flex-col [&>.sr-only]:w-auto",
-        // When FieldContent is present, switch to items-start so label aligns to top.
-        // Checkbox/Radio get mt-px nudge to align with first line of text in FieldContent.
         horizontal:
-          "flex-row items-center has-[>[data-slot=field-content]]:items-start [&>*]:data-[slot=field-label]:flex-auto has-[>[data-slot=field-content]]:[&>[role=checkbox],[role=radio]]:mt-px",
-        // Responsive: vertical on mobile, horizontal on @md breakpoint. Same logic as horizontal.
+          "flex-row items-center [&>*]:data-[slot=field-label]:flex-auto",
+        // Responsive: vertical on mobile, horizontal on @md breakpoint.
         responsive:
-          "flex-col @md/field-group:flex-row @md/field-group:items-center @md/field-group:has-[>[data-slot=field-content]]:items-start @md/field-group:[&>*]:data-[slot=field-label]:flex-auto [&>.sr-only]:w-auto @md/field-group:has-[>[data-slot=field-content]]:[&>[role=checkbox],[role=radio]]:mt-px",
+          "flex-col @md/field-group:flex-row @md/field-group:items-center @md/field-group:[&>*]:data-[slot=field-label]:flex-auto [&>.sr-only]:w-auto",
       },
       size: {
         sm: "",
@@ -149,8 +144,7 @@ function FieldLabel({
     <Label
       data-slot="field-label"
       className={cn(
-        "group/field-label peer/field-label flex w-fit gap-2 leading-snug group-data-[disabled=true]/field:opacity-50 has-data-checked:border-primary/30 has-data-checked:bg-primary/5 has-[>[data-slot=field]]:rounded-lg has-[>[data-slot=field]]:border [&>*]:data-[slot=field]:p-2.5 dark:has-data-checked:border-primary/20 dark:has-data-checked:bg-primary/10",
-        "has-[>[data-slot=field]]:w-full has-[>[data-slot=field]]:flex-col",
+        "group/field-label peer/field-label flex w-fit gap-2 leading-snug group-data-[disabled=true]/field:opacity-50",
         "text-sm group-data-[size=sm]/field:text-xs",
         className,
       )}

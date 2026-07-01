@@ -1,15 +1,18 @@
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/index";
 import { useState } from "react";
-import { Checkbox, CheckboxIndicator, Label, MonoSelect } from "../../index";
-import { Checkbox as MonolithicCheckbox } from "../../components/monolithic/checkbox";
+import { Checkbox, CheckboxIndicator, Label } from "@/index";
+
 import { CheckIcon, MinusIcon } from "lucide-react";
 import {
   SectionHeader,
   ExampleSection,
   ExampleGrid,
-} from "../components/showcase";
+} from "@/dev/components/showcase";
+
+import { type Size } from "@/lib/types";
 
 export default function CheckboxShowcase() {
-  const [globalSize, setGlobalSize] = useState<"sm" | "md" | "lg">("md");
+  const [globalSize, setGlobalSize] = useState<Size>("md");
 
   return (
     <div className="space-y-10">
@@ -17,15 +20,16 @@ export default function CheckboxShowcase() {
         title="Checkbox"
         description="A control that allows the user to toggle between checked and not checked."
       >
-        <MonoSelect
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as any)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-        />
+        <Select value={globalSize} onValueChange={(v) => setGlobalSize(v as Size)}>
+          <SelectTrigger className="w-[120px] h-8 text-xs bg-background">
+            <SelectValue placeholder="Size" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="sm">Size: sm</SelectItem>
+            <SelectItem value="md">Size: md</SelectItem>
+            <SelectItem value="lg">Size: lg</SelectItem>
+          </SelectContent>
+        </Select>
       </SectionHeader>
 
       {/* ── Monolithic ─────────────────────────────────── */}
@@ -34,7 +38,7 @@ export default function CheckboxShowcase() {
         description="Single checkbox component without needing to import Indicator."
       >
         <div className="flex items-center space-x-3">
-          <MonolithicCheckbox id="terms" size={globalSize} />
+          <Checkbox id="terms" size={globalSize}><CheckboxIndicator><CheckIcon className="size-3.5" /></CheckboxIndicator></Checkbox>
           <Label htmlFor="terms" className="font-normal cursor-pointer">
             Accept terms and conditions
           </Label>
@@ -64,7 +68,7 @@ export default function CheckboxShowcase() {
         description="Checkbox in a disabled state."
       >
         <div className="flex items-center space-x-3">
-          <MonolithicCheckbox id="terms-disabled" disabled size={globalSize} />
+          <Checkbox id="terms-disabled" disabled size={globalSize}><CheckboxIndicator><CheckIcon className="size-3.5" /></CheckboxIndicator></Checkbox>
           <Label
             htmlFor="terms-disabled"
             className="font-normal cursor-pointer opacity-50"
@@ -80,7 +84,7 @@ export default function CheckboxShowcase() {
         description="Single checkbox with a label."
       >
         <div className="flex items-center space-x-3">
-          <MonolithicCheckbox id="terms" size={globalSize} />
+          <Checkbox id="terms" size={globalSize}><CheckboxIndicator><CheckIcon className="size-3.5" /></CheckboxIndicator></Checkbox>
           <Label htmlFor="terms" className="font-normal cursor-pointer">
             Accept terms and conditions
           </Label>

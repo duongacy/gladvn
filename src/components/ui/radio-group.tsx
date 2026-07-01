@@ -1,6 +1,6 @@
 /**
  * ✅ AUDITED & REFACTORED
- * - Design System Compliant (20 Commandments)
+ * - Design System Compliant (22 Commandments)
  * - WCAG AAA/AA
  * - Form Control Parity
  * - CSS Delegated Logic
@@ -12,7 +12,7 @@ import { RadioGroup as RadioGroupPrimitive } from "@base-ui/react/radio-group";
 
 import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "../../lib/utils";
+import { cn } from "@/lib/utils";
 
 function RadioGroup({ className, ...props }: RadioGroupPrimitive.Props) {
   return (

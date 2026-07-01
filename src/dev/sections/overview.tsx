@@ -19,7 +19,7 @@ import {
   AccordionItem,
   AccordionTrigger,
   AccordionContent,
-} from "../../index";
+} from "@/index";
 import {
   BoxIcon,
   PaletteIcon,
@@ -31,8 +31,8 @@ import {
   CheckIcon,
 } from "lucide-react";
 
-import { ColorSwatch } from "../components/showcase";
-import { COLORS, STATS } from "../data";
+import { ColorSwatch } from "@/dev/components/showcase";
+import { COLORS, STATS } from "@/dev/data";
 
 export default function OverviewSection() {
   const [copied, setCopied] = useState(false);

@@ -62,16 +62,7 @@ Chart hiển thị data visualization (bar chart, line chart, pie chart, etc.). 
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa.
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa.
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo showcase.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                                                                                                      |
-| ---------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| W3C APG / ARIA         | ⚠️      | Component chỉ lo phần UI/Tooltip. Việc bổ sung data table alternative và `aria-label` phụ thuộc vào người dùng component.                                 |
-| 21. CSS Depth Boundary | ✅      | Có sử dụng hàng loạt deep selector (`[&_.recharts-...]`) ở L68, nhưng HỢP LỆ do đây là ngoại lệ của Rule #21 dành cho third-party SVG library (Recharts). |
-| Form Control Parity    | ✅      | Không áp dụng trực tiếp, nhưng Legend và Tooltip sử dụng các text token của hệ thống.                                                                     |
-| Dark Mode Compliance   | ✅      | `ChartStyle` inject CSS custom properties cực kỳ thông minh để xử lý color config theo theme `light`/`dark`.                                              |

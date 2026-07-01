@@ -69,23 +69,7 @@ Input OTP (One-Time Password) cho phép user nhập mã xác thực gồm nhiề
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo ra một block showcase chuẩn chỉnh (sử dụng `<ShowcaseBlock>` hoặc `<SectionHeader>`) và chèn vào file phù hợp nhất.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                                             |
-| ---------------------- | ------- | -------------------------------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | OTPInput handle hidden input và autocomplete="one-time-code" rất tốt             |
-| 21. CSS Depth Boundary | ❌      | Vi phạm ở `InputOTPSeparator` (L103): sử dụng `[&_svg]`. Cần đổi sang `[&>svg]`. |
-| Form Control Parity    | ✅      | Sizing và focus ring chuẩn xác                                                   |
-| Dark Mode Compliance   | ✅      | `dark:bg-input/30` và các invalid states hoạt động tốt                           |
-
-### Diffs cần fix
-
-```diff
-- "flex items-center text-muted-foreground [&_svg:not([class*='size-'])]:size-4 group-[.otp-sm]/otp:[&_svg:not([class*='size-'])]:size-3.5"
-+ "flex items-center text-muted-foreground [&>svg:not([class*='size-'])]:size-4 group-[.otp-sm]/otp:[&>svg:not([class*='size-'])]:size-3.5"
-```

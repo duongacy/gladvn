@@ -14,8 +14,8 @@ import {
   MenubarTrigger,
   MenubarGroup,
   MenubarLabel,
-} from "../../index";
-import { SectionHeader, ExampleSection } from "../components/showcase";
+} from "@/index";
+import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
 import { useState } from "react";
 
 export default function MenubarShowcase() {

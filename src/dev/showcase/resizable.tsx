@@ -2,8 +2,8 @@ import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
-} from "../../index";
-import { SectionHeader, ExampleSection } from "../components/showcase";
+} from "@/index";
+import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
 
 export default function ResizableShowcase() {
   return (

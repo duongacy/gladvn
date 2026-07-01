@@ -56,16 +56,7 @@ Label cung cấp accessible name cho form controls. Mặc dù đơn giản về 
 
 ### Kiểm tra Showcase (Bắt buộc)
 
-1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/sections/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
+1. Hãy tìm kiếm xem component này đã được render demo trong thư mục `src/dev/showcase/` chưa (vd: `interactive.tsx`, `display.tsx`, `forms.tsx`...).
 2. Nếu CHƯA CÓ, bạn BẮT BUỘC phải viết code tạo ra một block showcase chuẩn chỉnh (sử dụng `<ShowcaseBlock>` hoặc `<SectionHeader>`) và chèn vào file phù hợp nhất.
 
 ---
-
-## Audit Result — 2026-06-28
-
-| Rule/Tiêu chí          | Verdict | Note                                                     |
-| ---------------------- | ------- | -------------------------------------------------------- |
-| W3C APG / ARIA         | ✅      | Semantic `<label>` nguyên thuỷ. Sẵn sàng nhận `htmlFor`. |
-| 21. CSS Depth Boundary | ✅      | KHÔNG vi phạm. Clean CSS.                                |
-| Form Control Parity    | ✅      | Kích thước, margin, font-weight match với form controls. |
-| Dark Mode Compliance   | ✅      | Kế thừa text color tốt.                                  |

@@ -1,3 +1,4 @@
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/index";
 import { useState } from "react";
 import {
   Field,
@@ -11,16 +12,17 @@ import {
   FieldSeparator,
   FieldSet,
   FieldTitle,
-  MonoSelect,
-} from "../../index";
+} from "@/index";
 import {
   SectionHeader,
   ExampleSection,
   ExampleGrid,
-} from "../components/showcase";
+} from "@/dev/components/showcase";
+
+import { type Size } from "@/lib/types";
 
 export default function FieldShowcase() {
-  const [globalSize, setGlobalSize] = useState<"sm" | "md" | "lg">("md");
+  const [globalSize, setGlobalSize] = useState<Size>("md");
 
   return (
     <div className="space-y-10">
@@ -28,15 +30,16 @@ export default function FieldShowcase() {
         title="Field"
         description="Wrapper component to manage form field state, labels, and errors."
       >
-        <MonoSelect
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as any)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-        />
+        <Select value={globalSize} onValueChange={(v) => setGlobalSize(v as Size)}>
+          <SelectTrigger className="w-[120px] h-8 text-xs bg-background">
+            <SelectValue placeholder="Size" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="sm">Size: sm</SelectItem>
+            <SelectItem value="md">Size: md</SelectItem>
+            <SelectItem value="lg">Size: lg</SelectItem>
+          </SelectContent>
+        </Select>
       </SectionHeader>
 
       <ExampleGrid columns={2}>
@@ -100,6 +103,26 @@ export default function FieldShowcase() {
             </Field>
           </FieldGroup>
         </FieldSet>
+      </ExampleSection>
+
+      <ExampleSection
+        label="Orientations"
+        description="Fields can be laid out vertically, horizontally, or responsively based on screen size."
+      >
+        <div className="flex flex-col gap-8 w-full max-w-sm">
+          <Field size={globalSize} orientation="vertical">
+            <FieldLabel>Vertical</FieldLabel>
+            <FieldContent><Input placeholder="Vertical field..." size={globalSize} /></FieldContent>
+          </Field>
+          <Field size={globalSize} orientation="horizontal">
+            <FieldLabel>Horizontal</FieldLabel>
+            <FieldContent><Input placeholder="Horizontal field..." size={globalSize} /></FieldContent>
+          </Field>
+          <Field size={globalSize} orientation="responsive">
+            <FieldLabel>Responsive</FieldLabel>
+            <FieldContent><Input placeholder="Stack on mobile, inline on md..." size={globalSize} /></FieldContent>
+          </Field>
+        </div>
       </ExampleSection>
     </div>
   );

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   CalculatorIcon,
   CalendarIcon,
@@ -15,14 +16,18 @@ import {
   CommandList,
   CommandSeparator,
   CommandShortcut,
-} from "../../index";
+  CommandDialog,
+  Button,
+} from "@/index";
 import {
   SectionHeader,
   ExampleSection,
   ExampleGrid,
-} from "../components/showcase";
+} from "@/dev/components/showcase";
 
 export default function CommandShowcase() {
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="space-y-10">
       <SectionHeader
@@ -109,6 +114,29 @@ export default function CommandShowcase() {
           </div>
         </ExampleSection>
       </ExampleGrid>
+
+      <ExampleSection
+        label="Dialog Menu"
+        description="Command menu rendered inside a dialog."
+      >
+        <Button onClick={() => setOpen(true)}>Open Command Palette</Button>
+        <CommandDialog open={open} onOpenChange={setOpen}>
+          <CommandInput placeholder="Type a command or search..." />
+          <CommandList>
+            <CommandEmpty>No results found.</CommandEmpty>
+            <CommandGroup heading="Suggestions">
+              <CommandItem>
+                <CalendarIcon className="mr-2 h-4 w-4" />
+                <span>Calendar</span>
+              </CommandItem>
+              <CommandItem>
+                <SmileIcon className="mr-2 h-4 w-4" />
+                <span>Search Emoji</span>
+              </CommandItem>
+            </CommandGroup>
+          </CommandList>
+        </CommandDialog>
+      </ExampleSection>
     </div>
   );
 }

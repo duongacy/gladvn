@@ -109,14 +109,16 @@ function Field({
   className,
   orientation,
   size,
+  error,
   ...props
-}: React.ComponentProps<"div"> & VariantProps<typeof fieldVariants>) {
+}: React.ComponentProps<"div"> & VariantProps<typeof fieldVariants> & { error?: boolean | string }) {
   return (
     <div
       role="group"
       data-slot="field"
       data-orientation={orientation}
       data-size={size}
+      data-invalid={!!error}
       className={cn(fieldVariants({ orientation, size }), className)}
       {...props}
     />

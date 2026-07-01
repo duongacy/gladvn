@@ -1,4 +1,5 @@
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/index";
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem ,
+  SelectPreset} from "@/index";
 import { useState } from "react";
 import {
   Field,
@@ -26,16 +27,16 @@ export default function NativeSelectShowcase() {
         title="Native Select"
         description="Uses the browser's built-in dropdown menu. Great for mobile environments."
       >
-        <Select value={globalSize} onValueChange={(v) => setGlobalSize(v as Size)}>
-          <SelectTrigger className="w-[120px] h-8 text-xs bg-background">
-            <SelectValue placeholder="Size" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="sm">Size: sm</SelectItem>
-            <SelectItem value="md">Size: md</SelectItem>
-            <SelectItem value="lg">Size: lg</SelectItem>
-          </SelectContent>
-        </Select>
+        <SelectPreset
+          value={globalSize}
+          onValueChange={(v) => setGlobalSize(v as Size)}
+          options={[
+            { value: "sm", label: "Size: sm" },
+            { value: "md", label: "Size: md" },
+            { value: "lg", label: "Size: lg" },
+          ]}
+          className="w-[120px] h-8 text-xs bg-background"
+        />
       </SectionHeader>
 
       <ExampleGrid columns={2}>

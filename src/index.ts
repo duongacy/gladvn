@@ -71,7 +71,6 @@ export * from "@/components/preset/checkbox-preset";
 export * from "@/components/preset/combobox-preset";
 export * from "@/components/preset/field-preset";
 export * from "@/components/preset/input-otp-preset";
-export * from "@/components/preset/mono-select";
 export * from "@/components/preset/pagination-preset";
 export * from "@/components/preset/progress-preset";
 export * from "@/components/preset/radio-group-preset";

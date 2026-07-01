@@ -14,7 +14,7 @@ import {
   Avatar,
   AvatarFallback,
   Button,
-  MonoSelect,
+  SelectPreset,
   Size,
   Spinner,
   Tooltip,
@@ -45,7 +45,7 @@ export default function ButtonsSection() {
         title="Buttons"
         description="Comprehensive collection of interactive elements with full state management and accessibility."
       >
-        <MonoSelect
+        <SelectPreset
           value={globalSize}
           onValueChange={(v) => setGlobalSize(v as Size)}
           options={[

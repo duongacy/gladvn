@@ -18,7 +18,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
-import { MonoSelect } from "@/components/monolithic/mono-select";
+import { SelectPreset } from "@/components/preset/select-preset";
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
@@ -181,7 +181,7 @@ function Calendar({
           name,
         }) => {
           return (
-            <MonoSelect
+            <SelectPreset
               size={size}
               value={value?.toString()}
               disabled={disabled}

@@ -25,7 +25,7 @@ import {
   InputOTPSeparator,
   InputOTPSlot,
   Label,
-  MonoSelect,
+  SelectPreset,
   NativeSelect,
   NativeSelectOption,
   RadioGroup,
@@ -64,7 +64,7 @@ export default function FormsSection() {
         title="Forms"
         description="Input, Select, Checkbox, Slider, Textarea and more"
       >
-        <MonoSelect
+        <SelectPreset
           value={globalSize}
           onValueChange={(v) => setGlobalSize(v as Size)}
           options={[
@@ -226,9 +226,9 @@ export default function FormsSection() {
             </Field>
 
             <Field size={globalSize}>
-              <FieldLabel>MonoSelect</FieldLabel>
+              <FieldLabel>SelectPreset</FieldLabel>
               <FieldContent>
-                <MonoSelect
+                <SelectPreset
                   size={globalSize}
                   placeholder="Flat list..."
                   options={[

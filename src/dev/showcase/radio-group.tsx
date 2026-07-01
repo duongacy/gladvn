@@ -1,4 +1,3 @@
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/index";
 import { useState } from "react";
 import {
   RadioGroup,
@@ -6,7 +5,7 @@ import {
   Field,
   FieldLabel,
   Label,
-} from "@/index";
+  SelectPreset} from "@/index";
 import {
   SectionHeader,
   ExampleSection,
@@ -24,16 +23,16 @@ export default function RadioGroupShowcase() {
         title="Radio Group"
         description="A set of checkable buttons—known as radio buttons—where no more than one of the buttons can be checked at a time."
       >
-        <Select value={globalSize} onValueChange={(v) => setGlobalSize(v as Size)}>
-          <SelectTrigger className="w-[120px] h-8 text-xs bg-background">
-            <SelectValue placeholder="Size" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="sm">Size: sm</SelectItem>
-            <SelectItem value="md">Size: md</SelectItem>
-            <SelectItem value="lg">Size: lg</SelectItem>
-          </SelectContent>
-        </Select>
+        <SelectPreset
+          value={globalSize}
+          onValueChange={(v) => setGlobalSize(v as Size)}
+          options={[
+            { value: "sm", label: "Size: sm" },
+            { value: "md", label: "Size: md" },
+            { value: "lg", label: "Size: lg" },
+          ]}
+          className="w-[120px] h-8 text-xs bg-background"
+        />
       </SectionHeader>
 
       <ExampleGrid columns={2}>

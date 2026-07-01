@@ -1,6 +1,6 @@
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/index";
 import { useState } from "react";
-import { Button } from "@/index";
+import { Button ,
+  SelectPreset} from "@/index";
 import { toast } from "sonner";
 import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
 
@@ -15,16 +15,16 @@ export default function ToastShowcase() {
         title="Toast"
         description="A succinct message that is displayed temporarily."
       >
-        <Select value={globalSize} onValueChange={(v) => setGlobalSize(v as Size)}>
-          <SelectTrigger className="w-[120px] h-8 text-xs bg-background">
-            <SelectValue placeholder="Size" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="sm">Size: sm</SelectItem>
-            <SelectItem value="md">Size: md</SelectItem>
-            <SelectItem value="lg">Size: lg</SelectItem>
-          </SelectContent>
-        </Select>
+        <SelectPreset
+          value={globalSize}
+          onValueChange={(v) => setGlobalSize(v as Size)}
+          options={[
+            { value: "sm", label: "Size: sm" },
+            { value: "md", label: "Size: md" },
+            { value: "lg", label: "Size: lg" },
+          ]}
+          className="w-[120px] h-8 text-xs bg-background"
+        />
       </SectionHeader>
 
       <ExampleSection

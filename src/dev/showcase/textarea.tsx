@@ -1,4 +1,3 @@
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/index";
 import { useState } from "react";
 import {
   Textarea,
@@ -6,7 +5,7 @@ import {
   FieldLabel,
   FieldDescription,
   FieldContent,
-} from "@/index";
+  SelectPreset} from "@/index";
 import {
   SectionHeader,
   ExampleSection,
@@ -24,16 +23,16 @@ export default function TextareaShowcase() {
         title="Textarea"
         description="Best suited for long-form content, feedback, or biographies."
       >
-        <Select value={globalSize} onValueChange={(v) => setGlobalSize(v as Size)}>
-          <SelectTrigger className="w-[120px] h-8 text-xs bg-background">
-            <SelectValue placeholder="Size" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="sm">Size: sm</SelectItem>
-            <SelectItem value="md">Size: md</SelectItem>
-            <SelectItem value="lg">Size: lg</SelectItem>
-          </SelectContent>
-        </Select>
+        <SelectPreset
+          value={globalSize}
+          onValueChange={(v) => setGlobalSize(v as Size)}
+          options={[
+            { value: "sm", label: "Size: sm" },
+            { value: "md", label: "Size: md" },
+            { value: "lg", label: "Size: lg" },
+          ]}
+          className="w-[120px] h-8 text-xs bg-background"
+        />
       </SectionHeader>
 
       <ExampleGrid columns={2}>

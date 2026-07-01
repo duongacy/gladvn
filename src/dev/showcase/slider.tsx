@@ -1,4 +1,3 @@
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/index";
 import { useState } from "react";
 import {
   
@@ -7,7 +6,7 @@ import {
   FieldDescription,
   FieldContent,
   SliderPreset,
-} from "@/index";
+  SelectPreset} from "@/index";
 
 import {
   Slider as CompositionalSlider,
@@ -33,16 +32,16 @@ export default function SliderShowcase() {
         title="Slider"
         description="An input where the user selects a value from within a given range."
       >
-        <Select value={globalSize} onValueChange={(v) => setGlobalSize(v as Size)}>
-          <SelectTrigger className="w-[120px] h-8 text-xs bg-background">
-            <SelectValue placeholder="Size" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="sm">Size: sm</SelectItem>
-            <SelectItem value="md">Size: md</SelectItem>
-            <SelectItem value="lg">Size: lg</SelectItem>
-          </SelectContent>
-        </Select>
+        <SelectPreset
+          value={globalSize}
+          onValueChange={(v) => setGlobalSize(v as Size)}
+          options={[
+            { value: "sm", label: "Size: sm" },
+            { value: "md", label: "Size: md" },
+            { value: "lg", label: "Size: lg" },
+          ]}
+          className="w-[120px] h-8 text-xs bg-background"
+        />
       </SectionHeader>
 
       <ExampleGrid columns={2}>

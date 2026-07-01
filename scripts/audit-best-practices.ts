@@ -18,8 +18,8 @@ interface Violation {
 const violations: Violation[] = [];
 
 // Regular expressions for anti-patterns
-const MAGIC_CSS_REGEX = /\[&_?[a-zA-Z0-9\-\>\+~]\]|\*:\[?[a-zA-Z0-9\-\>\+~]\]?|has-\[>?[a-zA-Z0-9\-\>\+~]\]/;
-const ARBITRARY_VAR_REGEX = /var\(--[a-zA-Z0-9\-]+\)|-\[--[a-zA-Z0-9\-]+\]/;
+const MAGIC_CSS_REGEX = /\[&_?[a-zA-Z0-9\->\+~]\]|\*:\[?[a-zA-Z0-9\->\+~]\]?|has-\[>?[a-zA-Z0-9\->\+~]\]/;
+const ARBITRARY_VAR_REGEX = /var\(--[a-zA-Z0-9-]+\)|-\[--[a-zA-Z0-9-]+\]/;
 // Exclude semantic colors (primary, muted, etc.), find raw colors
 const HARDCODED_COLOR_REGEX = /(bg|text|border|ring)-(slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-[1-9]00/;
 

@@ -1,4 +1,5 @@
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/index";
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem ,
+  SelectPreset} from "@/index";
 import { useState } from "react";
 import {
   Pagination,
@@ -22,16 +23,16 @@ export default function PaginationShowcase() {
         title="Pagination"
         description="Pagination with page navigation, next and previous links."
       >
-        <Select value={globalSize} onValueChange={(v) => setGlobalSize(v as Size)}>
-          <SelectTrigger className="w-[120px] h-8 text-xs bg-background">
-            <SelectValue placeholder="Size" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="sm">Size: sm</SelectItem>
-            <SelectItem value="md">Size: md</SelectItem>
-            <SelectItem value="lg">Size: lg</SelectItem>
-          </SelectContent>
-        </Select>
+        <SelectPreset
+          value={globalSize}
+          onValueChange={(v) => setGlobalSize(v as Size)}
+          options={[
+            { value: "sm", label: "Size: sm" },
+            { value: "md", label: "Size: md" },
+            { value: "lg", label: "Size: lg" },
+          ]}
+          className="w-[120px] h-8 text-xs bg-background"
+        />
       </SectionHeader>
 
       <ExampleSection label="Default" description="Standard pagination layout.">

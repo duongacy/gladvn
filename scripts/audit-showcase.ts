@@ -184,12 +184,12 @@ for (const res of results) {
 
   md += `## ⚠️ ${res.name}\n`;
   if (hasMissingComps) {
-    md += `- **Thiếu Sub-components:** ${res.missingComponents.map(c => "\`" + c + "\`").join(", ")}\n`;
+    md += `- **Thiếu Sub-components:** ${res.missingComponents.map(c => "`" + c + "`").join(", ")}\n`;
   }
   if (hasMissingVars) {
     md += `- **Thiếu Variants:**\n`;
     for (const [vName, vVals] of Object.entries(res.missingVariants)) {
-      md += `  - \`${vName}\`: ${vVals.map(v => "\`" + v + "\`").join(", ")}\n`;
+      md += `  - \`${vName}\`: ${vVals.map(v => "`" + v + "`").join(", ")}\n`;
     }
   }
   md += "\n";

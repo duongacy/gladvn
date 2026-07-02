@@ -6,7 +6,7 @@ const project = new Project({
   tsConfigFilePath: "tsconfig.json",
 });
 
-const uiSourceFiles = project.getSourceFiles("src/components/ui/*.tsx");
+const uiSourceFiles = project.getSourceFiles("src/components/micro/*.tsx");
 const monolithicSourceFiles = project.getSourceFiles("src/components/monolithic/*.tsx");
 const showcaseSourceFiles = project.getSourceFiles("src/dev/showcase/*.tsx");
 
@@ -160,7 +160,7 @@ for (const uiFile of uiSourceFiles) {
 let md = `# Báo Cáo Mức Độ Phủ Sóng Của Showcase (AST Auditing)
 *Tạo lúc: ${new Date().toLocaleString()}*
 
-Mục tiêu: Đảm bảo toàn bộ Component, Sub-component, Variant, Color, Size được export từ \`src/components/ui/*\` đều có ít nhất một ví dụ trong \`src/dev/showcase/*\`.
+Mục tiêu: Đảm bảo toàn bộ Component, Sub-component, Variant, Color, Size được export từ \`src/components/micro/*\` đều có ít nhất một ví dụ trong \`src/dev/showcase/*\`.
 
 `;
 

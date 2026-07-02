@@ -44,7 +44,7 @@ Separator phân chia visual content thành các sections. BẮT BUỘC kiểm tr
 ## 3. Nhiệm vụ của bạn (AI)
 
 1. Đóng vai một W3C Auditor và Senior UI Architect.
-2. Đọc và phân tích file source code `src/components/ui/separator.tsx`.
+2. Đọc và phân tích file source code `src/components/micro/separator.tsx`.
 3. Kiểm tra chéo, đặc biệt: **`role="separator"` vs `aria-hidden`** (decorative vs semantic), **Orientation** (horizontal/vertical support), và **Contrast**.
 4. Cung cấp một báo cáo chi tiết. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff**.
 

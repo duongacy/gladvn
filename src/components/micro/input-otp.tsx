@@ -1,0 +1,114 @@
+/**
+ * ✅ AUDITED & REFACTORED
+ * - Design System Compliant (20 Commandments)
+ * - WCAG AAA/AA
+ * - Form Control Parity
+ * - CSS Delegated Logic
+ */
+"use client";
+
+import * as React from "react";
+import { OTPInput, OTPInputContext } from "input-otp";
+import { cva, type VariantProps } from "class-variance-authority";
+
+import { cn } from "@/lib/utils";
+import { MinusIcon } from "lucide-react";
+
+const inputOTPVariants = cva(
+  "cn-input-otp group/otp flex items-center has-disabled:opacity-50 has-disabled:cursor-not-allowed has-disabled:pointer-events-none",
+  {
+    variants: {
+      size: {
+        sm: "otp-sm min-h-7 text-xs",
+        md: "otp-md min-h-8 text-sm",
+        lg: "otp-lg min-h-9 text-sm",
+      },
+    },
+  },
+);
+
+type DistributiveOmit<T, K extends keyof any> = T extends any
+  ? Omit<T, K>
+  : never;
+
+function InputOTP({
+  className,
+  containerClassName,
+  size = "md",
+  ...props
+}: DistributiveOmit<React.ComponentProps<typeof OTPInput>, "size"> &
+  VariantProps<typeof inputOTPVariants> & {
+    containerClassName?: string;
+  }) {
+  return (
+    <OTPInput
+      data-slot="input-otp"
+      containerClassName={cn(inputOTPVariants({ size }), containerClassName)}
+      spellCheck={false}
+      className={cn(
+        "disabled:cursor-not-allowed disabled:opacity-100",
+        className,
+      )}
+      {...(props as React.ComponentProps<typeof OTPInput>)}
+    />
+  );
+}
+
+function InputOTPGroup({ className, ...props }: React.ComponentProps<"div">) {
+  return (
+    <div
+      data-slot="input-otp-group"
+      className={cn("flex items-center gap-2", className)}
+      {...props}
+    />
+  );
+}
+
+function InputOTPSlot({
+  index,
+  className,
+  ...props
+}: React.ComponentProps<"div"> & {
+  index: number;
+}) {
+  const inputOTPContext = React.useContext(OTPInputContext);
+  const { char, hasFakeCaret, isActive } = inputOTPContext?.slots[index] ?? {};
+
+  return (
+    <div
+      data-slot="input-otp-slot"
+      data-active={isActive}
+      className={cn(
+        "relative flex size-8 group-[.otp-sm]/otp:size-7 group-[.otp-lg]/otp:size-9 items-center justify-center border border-input rounded-md bg-transparent transition-colors outline-none",
+        "aria-invalid:border-destructive dark:aria-invalid:border-destructive/50",
+        "data-[active=true]:z-10 data-[active=true]:border-ring data-[active=true]:ring-3 data-[active=true]:ring-ring/50 data-[active=true]:ring-offset-1 data-[active=true]:ring-offset-background",
+        "data-[active=true]:aria-invalid:border-destructive data-[active=true]:aria-invalid:ring-3 data-[active=true]:aria-invalid:ring-destructive/50",
+        "dark:bg-input/30 dark:data-[active=true]:aria-invalid:ring-destructive/50",
+        className,
+      )}
+      {...props}
+    >
+      {char}
+      {hasFakeCaret && (
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+          <div className="h-4 w-px animate-caret-blink bg-foreground duration-1000" />
+        </div>
+      )}
+    </div>
+  );
+}
+
+function InputOTPSeparator({ ...props }: React.ComponentProps<"div">) {
+  return (
+    <div
+      data-slot="input-otp-separator"
+      className="flex items-center text-muted-foreground [&>svg:not([class*='size-'])]:size-4 group-[.otp-sm]/otp:[&>svg:not([class*='size-'])]:size-3.5"
+      role="separator"
+      {...props}
+    >
+      <MinusIcon />
+    </div>
+  );
+}
+
+export { InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator };

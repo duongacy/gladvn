@@ -45,7 +45,7 @@ Spinner hiển thị loading indicator. BẮT BUỘC kiểm tra:
 ## 3. Nhiệm vụ của bạn (AI)
 
 1. Đóng vai một W3C Auditor và Senior UI Architect.
-2. Đọc và phân tích file source code `src/components/ui/spinner.tsx`.
+2. Đọc và phân tích file source code `src/components/micro/spinner.tsx`.
 3. Kiểm tra chéo, đặc biệt: **`role="status"`** + **`aria-label`**, **`prefers-reduced-motion`** respect, **CSS animation** (không JS), và **Flash rate** (< 3/s).
 4. Cung cấp một báo cáo chi tiết. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff**.
 

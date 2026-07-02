@@ -45,7 +45,7 @@ Skeleton hiển thị loading placeholder thay thế content đang load. BẮT B
 ## 3. Nhiệm vụ của bạn (AI)
 
 1. Đóng vai một W3C Auditor và Senior UI Architect.
-2. Đọc và phân tích file source code `src/components/ui/skeleton.tsx`.
+2. Đọc và phân tích file source code `src/components/micro/skeleton.tsx`.
 3. Kiểm tra chéo, đặc biệt: **`aria-hidden`** (skeleton ẩn khỏi screen reader), **`prefers-reduced-motion`** respect, **Shimmer animation** CSS-only, và **`aria-busy`** pattern.
 4. Cung cấp một báo cáo chi tiết. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff**.
 

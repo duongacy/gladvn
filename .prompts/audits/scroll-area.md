@@ -48,7 +48,7 @@ Scroll Area cung cấp custom-styled scrollbar thay thế native scrollbar. BẮ
 ## 3. Nhiệm vụ của bạn (AI)
 
 1. Đóng vai một W3C Auditor và Senior UI Architect.
-2. Đọc và phân tích file source code `src/components/ui/scroll-area.tsx`.
+2. Đọc và phân tích file source code `src/components/micro/scroll-area.tsx`.
 3. Kiểm tra chéo, đặc biệt: **Keyboard scrolling** (Arrow, Page, Home/End), **Viewport focusable** (`tabindex="0"`), **Native scroll behavior** preservation, và **Custom scrollbar decorative** (aria-hidden).
 4. Cung cấp một báo cáo chi tiết. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff**.
 

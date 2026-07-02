@@ -555,7 +555,7 @@ npm install shadcn-ui
 npx shadcn-ui init
 
 # Import components
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/micro/button';
 ```
 
 **Replace:** `{{INSTALLATION_INSTRUCTIONS}}`, `{{USAGE_EXAMPLE}}`

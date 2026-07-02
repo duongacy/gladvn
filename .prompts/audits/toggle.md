@@ -46,7 +46,7 @@ Toggle (Toggle Button) là button có hai trạng thái: pressed/not pressed. B�
 ## 3. Nhiệm vụ của bạn (AI)
 
 1. Đóng vai một W3C Auditor và Senior UI Architect.
-2. Đọc và phân tích file source code `src/components/ui/toggle.tsx`.
+2. Đọc và phân tích file source code `src/components/micro/toggle.tsx`.
 3. Kiểm tra chéo, đặc biệt: **`aria-pressed`** (không phải `aria-checked`), **CSS pressed state** (data-state selector), **Sizing parity** với Button, và **Pressed visual indicator** (không chỉ color).
 4. Cung cấp một báo cáo chi tiết. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff**.
 

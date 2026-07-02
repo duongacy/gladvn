@@ -55,7 +55,7 @@ Item là generic list item component dùng trong nhiều context (menu item, lis
 ## 3. Nhiệm vụ của bạn (AI)
 
 1. Đóng vai một W3C Auditor và Senior UI Architect.
-2. Đọc và phân tích file source code `src/components/ui/item.tsx`.
+2. Đọc và phân tích file source code `src/components/micro/item.tsx`.
 3. Kiểm tra chéo, đặc biệt: **Semantic flexibility** (renders correct element per context), **Polymorphism** (asChild), **Disabled vs aria-disabled**, và **Interactive states CSS**.
 4. Cung cấp một báo cáo chi tiết. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff**.
 

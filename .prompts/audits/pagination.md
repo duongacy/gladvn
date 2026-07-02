@@ -54,7 +54,7 @@ Pagination cho phép user navigate giữa các trang kết quả. BẮT BUỘC k
 ## 3. Nhiệm vụ của bạn (AI)
 
 1. Đóng vai một W3C Auditor và Senior UI Architect.
-2. Đọc và phân tích file source code `src/components/ui/pagination.tsx`.
+2. Đọc và phân tích file source code `src/components/micro/pagination.tsx`.
 3. Kiểm tra chéo, đặc biệt: **`<nav aria-label="Pagination">`**, **`aria-current="page"`**, **Page link accessible names** (không chỉ hiển thị số), **Ellipsis `aria-hidden`**, và **Disabled previous/next**.
 4. Cung cấp một báo cáo chi tiết. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff**.
 

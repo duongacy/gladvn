@@ -8,7 +8,7 @@ import {
   SliderTrack,
   SliderIndicator,
   SliderThumb,
-} from "@/components/ui/slider";
+} from "@/components/micro/slider";
 import {
   SectionHeader,
   ExampleSection,

@@ -46,7 +46,7 @@ Toggle Group là nhóm Toggle buttons cho phép single hoặc multiple selection
 
 ## 2. gladcn "20 Commandments" Integration & Architecture Rules
 
-- **Pure Composition Only (CRITICAL):** Các component trong `src/components/ui` CHỈ được phép là Compositional Primitives (ví dụ: phải chia tách rạch ròi `ToggleGroup` và `ToggleGroupItem`). Tuyệt đối KHÔNG chứa bất kỳ monolithic logic nào (như nhận prop `items` dạng mảng rồi tự render loop bên trong UI). Bất cứ monolithic behavior nào bị phát hiện BẮT BUỘC phải bị reject và di dời sang `src/components/monolithic/`.
+- **Pure Composition Only (CRITICAL):** Các component trong `src/components/micro` CHỈ được phép là Compositional Primitives (ví dụ: phải chia tách rạch ròi `ToggleGroup` và `ToggleGroupItem`). Tuyệt đối KHÔNG chứa bất kỳ monolithic logic nào (như nhận prop `items` dạng mảng rồi tự render loop bên trong UI). Bất cứ monolithic behavior nào bị phát hiện BẮT BUỘC phải bị reject và di dời sang `src/components/monolithic/`.
 - **CSS Delegated Logic (Rule #2):** Pressed state styling dùng CSS (`data-[state=on]`). Group border merging (nếu visual connected buttons) dùng CSS (`:first-child`, `:last-child` border-radius removal).
 - **Form Control Parity (Rule #18):** Item sizing align với Toggle/Button.
 - **Linear Design (Rule #5):** Tất cả items phải đồng bộ styling.
@@ -55,7 +55,7 @@ Toggle Group là nhóm Toggle buttons cho phép single hoặc multiple selection
 ## 3. Nhiệm vụ của bạn (AI)
 
 1. Đóng vai một W3C Auditor và Senior UI Architect.
-2. Đọc và phân tích file source code `src/components/ui/toggle-group.tsx`.
+2. Đọc và phân tích file source code `src/components/micro/toggle-group.tsx`.
 3. Kiểm tra chéo, đặc biệt: **`role="group"`** + **`aria-label`**, **Single vs Multiple mode** behavior, **Keyboard navigation** (toolbar vs group), và **CSS pressed state** parity với Toggle.
 4. Cung cấp một báo cáo chi tiết. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff**.
 

@@ -46,7 +46,7 @@ Empty State hiển thị khi không có data/content. BẮT BUỘC kiểm tra:
 ## 3. Nhiệm vụ của bạn (AI)
 
 1. Đóng vai một W3C Auditor và Senior UI Architect.
-2. Đọc và phân tích file source code `src/components/ui/empty.tsx`.
+2. Đọc và phân tích file source code `src/components/micro/empty.tsx`.
 3. Kiểm tra chéo, đặc biệt: **Icon aria-hidden**, **Descriptive messaging** (không chỉ "No data"), và **Dynamic announcement** (role="status").
 4. Cung cấp một báo cáo chi tiết. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff**.
 

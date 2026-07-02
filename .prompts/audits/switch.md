@@ -55,7 +55,7 @@ Switch là widget cho phép user toggle giữa hai trạng thái mutually exclus
 ## 3. Nhiệm vụ của bạn (AI)
 
 1. Đóng vai một W3C Auditor và Senior UI Architect.
-2. Đọc và phân tích file source code `src/components/ui/switch.tsx`.
+2. Đọc và phân tích file source code `src/components/micro/switch.tsx`.
 3. Kiểm tra chéo từng tiêu chí, đặc biệt: **`role="switch"`** (không phải checkbox), **Thumb animation bằng CSS**, và **Focus ring placement** (trên track, không phải thumb).
 4. Cung cấp một báo cáo chi tiết về mức độ đạt chuẩn của component. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff** để hướng dẫn Refactor.
 

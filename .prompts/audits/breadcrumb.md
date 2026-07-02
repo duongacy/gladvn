@@ -50,7 +50,7 @@ Breadcrumb hiển thị vị trí hiện tại trong cấu trúc trang web. BẮ
 ## 3. Nhiệm vụ của bạn (AI)
 
 1. Đóng vai một W3C Auditor và Senior UI Architect.
-2. Đọc và phân tích file source code `src/components/ui/breadcrumb.tsx`.
+2. Đọc và phân tích file source code `src/components/micro/breadcrumb.tsx`.
 3. Kiểm tra chéo, đặc biệt: **`<nav aria-label="Breadcrumb">`**, **`<ol>` ordered list**, **`aria-current="page"`** trên current item, **Separator `aria-hidden`**, và **Polymorphism** (asChild cho Link).
 4. Cung cấp một báo cáo chi tiết. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff**.
 

@@ -75,7 +75,7 @@ Select (custom dropdown) cho phép user chọn một giá trị từ danh sách 
 ## 3. Nhiệm vụ của bạn (AI)
 
 1. Đóng vai một W3C Auditor và Senior UI Architect.
-2. Đọc và phân tích file source code `src/components/ui/select.tsx`.
+2. Đọc và phân tích file source code `src/components/micro/select.tsx`.
 3. Kiểm tra chéo từng tiêu chí, đặc biệt: **ARIA attributes** (combobox/listbox pattern), **Keyboard navigation** (type-ahead, arrow keys, Esc), **Focus management** (focus trap trong popup), và **Form Control Parity** (trigger sizing alignment).
 4. Cung cấp một báo cáo chi tiết về mức độ đạt chuẩn của component. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff** để hướng dẫn Refactor.
 

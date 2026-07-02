@@ -74,7 +74,7 @@ Dropdown Menu (Menu Button pattern) hiển thị danh sách actions khi user cli
 ## 3. Nhiệm vụ của bạn (AI)
 
 1. Đóng vai một W3C Auditor và Senior UI Architect.
-2. Đọc và phân tích file source code `src/components/ui/dropdown-menu.tsx`.
+2. Đọc và phân tích file source code `src/components/micro/dropdown-menu.tsx`.
 3. Kiểm tra chéo từng tiêu chí, đặc biệt: **Menu Button ARIA pattern** (aria-haspopup, aria-expanded, aria-controls), **Full keyboard navigation** (type-ahead, submenu arrows), **Parity với Context Menu**, và **CSS animation**.
 4. Cung cấp một báo cáo chi tiết. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff**.
 

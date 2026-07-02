@@ -50,7 +50,7 @@ Label cung cấp accessible name cho form controls. Mặc dù đơn giản về 
 ## 3. Nhiệm vụ của bạn (AI)
 
 1. Đóng vai một W3C Auditor và Senior UI Architect.
-2. Đọc và phân tích file source code `src/components/ui/label.tsx`.
+2. Đọc và phân tích file source code `src/components/micro/label.tsx`.
 3. Kiểm tra chéo từng tiêu chí, đặc biệt: **Native `<label>` rendering**, **`htmlFor` support**, **Disabled state CSS** (peer-disabled pattern), và **Form Control Parity** (font-size consistency).
 4. Cung cấp một báo cáo chi tiết về mức độ đạt chuẩn của component. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff** để hướng dẫn Refactor.
 

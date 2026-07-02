@@ -76,7 +76,7 @@ Combobox kết hợp text input với popup listbox, cho phép user vừa gõ đ
 ## 3. Nhiệm vụ của bạn (AI)
 
 1. Đóng vai một W3C Auditor và Senior UI Architect.
-2. Đọc và phân tích file source code `src/components/ui/combobox.tsx`.
+2. Đọc và phân tích file source code `src/components/micro/combobox.tsx`.
 3. Kiểm tra chéo từng tiêu chí, đặc biệt: **`aria-activedescendant` pattern** (virtual focus), **`aria-autocomplete` attribute**, **Keyboard interactions** (Home/End behavior — phải khác Select), và **Status messages** cho filter results.
 4. Cung cấp một báo cáo chi tiết về mức độ đạt chuẩn của component. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff** để hướng dẫn Refactor.
 

@@ -1,5 +1,5 @@
 {
-  "name": "@duongy96/gladcn",
+  "name": "@duongy96/hybridcn",
   "version": "0.2.2",
   "type": "module",
   "description": "A highly composable React component library built with Tailwind CSS, optimized for both human developers and AI coding assistants.",

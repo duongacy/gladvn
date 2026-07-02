@@ -63,7 +63,7 @@ Input OTP (One-Time Password) cho phép user nhập mã xác thực gồm nhiề
 ## 3. Nhiệm vụ của bạn (AI)
 
 1. Đóng vai một W3C Auditor và Senior UI Architect.
-2. Đọc và phân tích file source code `src/components/ui/input-otp.tsx`.
+2. Đọc và phân tích file source code `src/components/micro/input-otp.tsx`.
 3. Kiểm tra chéo từng tiêu chí, đặc biệt: **`autocomplete="one-time-code"`** (có hay không?), **Paste behavior** (paste toàn bộ OTP), **Keyboard navigation** (backspace/arrow), và **Accessible name** cho từng slot.
 4. Cung cấp một báo cáo chi tiết về mức độ đạt chuẩn của component. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff** để hướng dẫn Refactor.
 

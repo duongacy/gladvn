@@ -55,7 +55,7 @@ Checkbox cho phép user chọn một hoặc nhiều option từ một danh sách
 ## 3. Nhiệm vụ của bạn (AI)
 
 1. Đóng vai một W3C Auditor và Senior UI Architect.
-2. Đọc và phân tích file source code `src/components/ui/checkbox.tsx`.
+2. Đọc và phân tích file source code `src/components/micro/checkbox.tsx`.
 3. Kiểm tra chéo từng tiêu chí, đặc biệt: **Label association** (có đúng programmatic không?), **Indeterminate state** (có hỗ trợ đúng `aria-checked="mixed"` không?), và **CSS Delegated Logic** cho icon rendering.
 4. Cung cấp một báo cáo chi tiết về mức độ đạt chuẩn của component. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff** để hướng dẫn Refactor.
 

@@ -47,7 +47,7 @@ Drawer là biến thể Dialog, thường slide lên từ bottom (mobile pattern
 ## 3. Nhiệm vụ của bạn (AI)
 
 1. Đóng vai một W3C Auditor và Senior UI Architect.
-2. Đọc và phân tích file source code `src/components/ui/drawer.tsx`.
+2. Đọc và phân tích file source code `src/components/micro/drawer.tsx`.
 3. Kiểm tra chéo từng tiêu chí Dialog + **Drag gesture alternative** (WCAG 2.5.7), **Handle accessibility**, và **Snap point keyboard navigation**.
 4. Cung cấp một báo cáo chi tiết về mức độ đạt chuẩn của component. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff** để hướng dẫn Refactor.
 

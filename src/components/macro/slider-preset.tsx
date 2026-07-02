@@ -1,0 +1,65 @@
+import * as React from "react";
+import {
+  Slider,
+  SliderControl,
+  SliderTrack,
+  SliderIndicator,
+  SliderThumb,
+} from "@/components/micro/slider";
+import { FieldPreset } from "./field-preset";
+
+export interface SliderPresetProps extends Omit<React.ComponentProps<typeof Slider>, "className"> {
+  className?: string;
+  label?: React.ReactNode;
+  description?: React.ReactNode;
+  errorMessage?: React.ReactNode;
+  showError?: boolean;
+}
+
+const SliderPreset = React.forwardRef<
+  React.ElementRef<typeof Slider>,
+  SliderPresetProps
+>(({
+  defaultValue,
+  value,
+  min = 0,
+  max = 100,
+  label,
+  description,
+  errorMessage,
+  showError = true,
+  className,
+  ...sliderProps
+}, ref) => {
+  const _values = (() => {
+    if (Array.isArray(value)) return value;
+    if (Array.isArray(defaultValue)) return defaultValue;
+    return [min, max];
+  })();
+
+  return (
+    <FieldPreset label={label} description={description} errorMessage={errorMessage} showError={showError} className={className} orientation="vertical">
+      <Slider
+        ref={ref}
+        defaultValue={defaultValue}
+        value={value}
+        min={min}
+        max={max}
+        aria-invalid={!!errorMessage}
+        {...sliderProps}
+      >
+        <SliderControl>
+          <SliderTrack>
+            <SliderIndicator />
+          </SliderTrack>
+          {Array.from({ length: _values.length }, (_, index) => (
+            <SliderThumb key={index} />
+          ))}
+        </SliderControl>
+      </Slider>
+    </FieldPreset>
+  );
+});
+SliderPreset.displayName = "SliderPreset";
+
+export { SliderPreset };

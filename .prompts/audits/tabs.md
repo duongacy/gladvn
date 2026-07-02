@@ -63,7 +63,7 @@ Tabs cho phép user chuyển đổi giữa các content panels mà không naviga
 ## 3. Nhiệm vụ của bạn (AI)
 
 1. Đóng vai một W3C Auditor và Senior UI Architect.
-2. Đọc và phân tích file source code `src/components/ui/tabs.tsx`.
+2. Đọc và phân tích file source code `src/components/micro/tabs.tsx`.
 3. Kiểm tra chéo, đặc biệt: **Roving Tabindex** (chỉ active tab `tabindex="0"`), **Tab → TabPanel focus flow** (Tab key vào panel, không qua các tab khác), **`aria-controls` + `aria-labelledby` wiring**, và **CSS active indicator**.
 4. Cung cấp một báo cáo chi tiết. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff**.
 

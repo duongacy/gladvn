@@ -58,7 +58,7 @@ Dialog (Modal) là overlay yêu cầu user tương tác trước khi quay lại 
 ## 3. Nhiệm vụ của bạn (AI)
 
 1. Đóng vai một W3C Auditor và Senior UI Architect.
-2. Đọc và phân tích file source code `src/components/ui/dialog.tsx`.
+2. Đọc và phân tích file source code `src/components/micro/dialog.tsx`.
 3. Kiểm tra chéo từng tiêu chí, đặc biệt: **Focus Trap** (có hoạt động đúng không?), **Focus Restoration** (focus có quay về trigger khi đóng?), **ARIA attributes** (aria-modal, aria-labelledby, aria-describedby), và **CSS animation**.
 4. Cung cấp một báo cáo chi tiết về mức độ đạt chuẩn của component. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff** để hướng dẫn Refactor.
 

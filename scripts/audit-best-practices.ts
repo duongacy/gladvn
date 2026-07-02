@@ -6,7 +6,7 @@ const project = new Project({
   tsConfigFilePath: "tsconfig.json",
 });
 
-const sourceFiles = project.getSourceFiles("src/components/ui/*.tsx");
+const sourceFiles = project.getSourceFiles("src/components/micro/*.tsx");
 
 interface Violation {
   file: string;

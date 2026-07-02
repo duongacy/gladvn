@@ -53,7 +53,7 @@ Popover là non-modal dialog xuất hiện cạnh trigger element, chứa nội 
 ## 3. Nhiệm vụ của bạn (AI)
 
 1. Đóng vai một W3C Auditor và Senior UI Architect.
-2. Đọc và phân tích file source code `src/components/ui/popover.tsx`.
+2. Đọc và phân tích file source code `src/components/micro/popover.tsx`.
 3. Kiểm tra chéo từng tiêu chí, đặc biệt: **Non-modal behavior** (focus NOT trapped), **Light dismiss**, **ARIA attributes** (aria-haspopup, aria-expanded, NOT aria-modal), và **WCAG 1.4.13** (content hoverable and persistent).
 4. Cung cấp một báo cáo chi tiết về mức độ đạt chuẩn của component. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff** để hướng dẫn Refactor.
 

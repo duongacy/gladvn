@@ -61,7 +61,7 @@ Button là thành phần tương tác cơ bản nhất, BẮT BUỘC kiểm tra 
 ## 3. Nhiệm vụ của bạn (AI)
 
 1. Đóng vai một W3C Auditor và Senior UI Architect.
-2. Đọc và phân tích file source code `src/components/ui/button.tsx`.
+2. Đọc và phân tích file source code `src/components/micro/button.tsx`.
 3. Kiểm tra chéo từng tiêu chí được định nghĩa trong file này kết hợp với 20 Commandments.
 4. Đặc biệt kiểm tra: **Icon-only detection** (có dùng CSS hay JS?), **CompoundVariants symmetry**, và **Form Control Parity alignment**.
 5. Cung cấp một báo cáo chi tiết về mức độ đạt chuẩn của component. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff** để hướng dẫn Refactor.

@@ -53,7 +53,7 @@ Input Group là wrapper component kết hợp Input với các addon elements (p
 ## 3. Nhiệm vụ của bạn (AI)
 
 1. Đóng vai một W3C Auditor và Senior UI Architect.
-2. Đọc và phân tích file source code `src/components/ui/input-group.tsx`.
+2. Đọc và phân tích file source code `src/components/micro/input-group.tsx`.
 3. Kiểm tra chéo từng tiêu chí, đặc biệt: **Focus ring on wrapper** (`:focus-within` CSS), **Double-dimming prevention** (disabled opacity), và **Form Control Parity** (sizing alignment).
 4. Cung cấp một báo cáo chi tiết về mức độ đạt chuẩn của component. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff** để hướng dẫn Refactor.
 

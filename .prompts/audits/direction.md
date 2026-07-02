@@ -45,7 +45,7 @@ Direction Provider quản lý text direction (LTR/RTL) cho internationalization.
 ## 3. Nhiệm vụ của bạn (AI)
 
 1. Đóng vai một W3C Auditor và Senior UI Architect.
-2. Đọc và phân tích file source code `src/components/ui/direction.tsx`.
+2. Đọc và phân tích file source code `src/components/micro/direction.tsx`.
 3. Kiểm tra chéo, đặc biệt: **HTML `dir` attribute** (không chỉ CSS direction), **CSS logical properties** usage trong library, **Arrow key direction** adaptation, và **Context propagation**.
 4. Cung cấp một báo cáo chi tiết. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff**.
 

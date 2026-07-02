@@ -40,7 +40,7 @@ Aspect Ratio là pure layout utility duy trì tỷ lệ width:height cho contain
 ## 3. Nhiệm vụ của bạn (AI)
 
 1. Đóng vai một W3C Auditor và Senior UI Architect.
-2. Đọc và phân tích file source code `src/components/ui/aspect-ratio.tsx`.
+2. Đọc và phân tích file source code `src/components/micro/aspect-ratio.tsx`.
 3. Kiểm tra: **CSS `aspect-ratio` property usage** (modern CSS vs padding hack), **Responsive behavior**, và **Props design**.
 4. Cung cấp một báo cáo chi tiết. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff**.
 

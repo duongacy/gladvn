@@ -56,7 +56,7 @@ Native Select sử dụng `<select>` element gốc của browser, kế thừa to
 ## 3. Nhiệm vụ của bạn (AI)
 
 1. Đóng vai một W3C Auditor và Senior UI Architect.
-2. Đọc và phân tích file source code `src/components/ui/native-select.tsx`.
+2. Đọc và phân tích file source code `src/components/micro/native-select.tsx`.
 3. Kiểm tra chéo từng tiêu chí, đặc biệt: **Form Control Parity** (sizing chính xác với Input), **Custom arrow icon** (có chặn click không?), và **Placeholder option** (disabled + selected + value="").
 4. Cung cấp một báo cáo chi tiết về mức độ đạt chuẩn của component. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff** để hướng dẫn Refactor.
 

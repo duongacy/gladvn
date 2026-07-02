@@ -1,6 +1,6 @@
 # The Commandments of Frontend Engineering
 
-Đây là "Hiến pháp" của bộ UI Library **gladcn**. Bất kỳ ai đóng góp hoặc sử dụng bộ thư viện này đều **BẮT BUỘC** phải đọc và tuân thủ tuyệt đối các nguyên tắc dưới đây. Không có ngoại lệ.
+Đây là "Hiến pháp" của bộ UI Library **hybridcn**. Bất kỳ ai đóng góp hoặc sử dụng bộ thư viện này đều **BẮT BUỘC** phải đọc và tuân thủ tuyệt đối các nguyên tắc dưới đây. Không có ngoại lệ.
 
 ## PHẦN I: COMPONENT API & DEVELOPER UX (Triết lý thiết kế)
 
@@ -133,3 +133,9 @@ Các component dùng để nhập liệu (Form Controls) phải chia sẻ chung 
   - Cùng chung mã màu border, background (cho cả Light/Dark mode).
   - Cùng chung hiệu ứng focus (`focus-visible:ring-3`).
   - Nếu sửa trạng thái `disabled:opacity-50` ở Input, bắt buộc phải đối chiếu và sửa tương tự ở Select và Combobox. Tính "tuyến tính" này không được phép đứt gãy.
+
+### 19. Single Source of Truth for Variants (Mặc định của Biến thể)
+
+Cấm tuyệt đối việc sử dụng `defaultVariants` bên trong cấu hình `cva()`.
+
+- **Khắt khe:** Mọi giá trị mặc định của component (ví dụ: `size = "md"`, `variant = "default"`) phải được định nghĩa duy nhất ở **Component Signature** (đầu vào của hàm). Việc định nghĩa thêm ở `defaultVariants` của CVA gây ra sự nhập nhằng (2 nguồn sự thật), làm khó debug và làm yếu khả năng suy luận (inference) của TypeScript. Thư viện chỉ tin tưởng một nơi duy nhất là tham số của Component.

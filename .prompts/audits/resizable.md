@@ -57,7 +57,7 @@ Resizable (Window Splitter) cho phép user thay đổi kích thước các panel
 ## 3. Nhiệm vụ của bạn (AI)
 
 1. Đóng vai một W3C Auditor và Senior UI Architect.
-2. Đọc và phân tích file source code `src/components/ui/resizable.tsx`.
+2. Đọc và phân tích file source code `src/components/micro/resizable.tsx`.
 3. Kiểm tra chéo, đặc biệt: **`role="separator"` trên handle**, **ARIA value** attributes, **Keyboard resize** (arrow keys), và **WCAG 2.5.7** (keyboard alternative cho drag).
 4. Cung cấp một báo cáo chi tiết. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff**.
 

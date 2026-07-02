@@ -59,7 +59,7 @@ Menubar là horizontal navigation menu (giống menu bar của desktop apps). B�
 ## 3. Nhiệm vụ của bạn (AI)
 
 1. Đóng vai một W3C Auditor và Senior UI Architect.
-2. Đọc và phân tích file source code `src/components/ui/menubar.tsx`.
+2. Đọc và phân tích file source code `src/components/micro/menubar.tsx`.
 3. Kiểm tra chéo, đặc biệt: **`role="menubar"`**, **Horizontal arrow key navigation**, **Submenu open/close keyboard flow**, và **Parity với DropdownMenu item styling**.
 4. Cung cấp một báo cáo chi tiết. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff**.
 

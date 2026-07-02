@@ -53,7 +53,7 @@ Hover Card hiển thị preview content khi user hover lên trigger (thường l
 ## 3. Nhiệm vụ của bạn (AI)
 
 1. Đóng vai một W3C Auditor và Senior UI Architect.
-2. Đọc và phân tích file source code `src/components/ui/hover-card.tsx`.
+2. Đọc và phân tích file source code `src/components/micro/hover-card.tsx`.
 3. Kiểm tra chéo từng tiêu chí, đặc biệt: **WCAG 1.4.13** (hoverable, persistent, dismissable), **Supplementary content** (có chứa critical info không?), và **Touch device fallback**.
 4. Cung cấp một báo cáo chi tiết. Nếu có vi phạm, bắt buộc phải đưa ra **Code Diff**.
 

@@ -1,7 +1,9 @@
+import { useState } from "react";
 import {
   SectionHeader,
   ExampleSection,
   ExampleGrid,
+  ShowcaseDocs,
 } from "@/dev/components/showcase";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/micro/accordion";
 
@@ -24,21 +26,88 @@ const faqItems = [
   },
 ];
 
+const firstQ = faqItems[0]?.q ?? "";
+const secondQ = faqItems[1]?.q ?? "";
+
 export default function AccordionShowcase() {
+  const [controlledValue, setControlledValue] = useState<string[]>([]);
+
   return (
     <div className="space-y-10">
       <SectionHeader
         title="Accordion"
-        description="A vertically stacked set of interactive headings that each reveal a section of content."
+        description="Tập hợp các tiêu đề có thể tương tác xếp chồng lên nhau theo chiều dọc, mỗi tiêu đề sẽ mở ra một phần nội dung."
       />
+
+      <ShowcaseDocs>
+        <h3>Khi nào nên dùng</h3>
+        <p>Dùng để gom nhóm các khối nội dung lớn nhằm tiết kiệm không gian hiển thị (ví dụ: FAQ, Advanced Settings). Không nên dùng Accordion nếu nội dung bên trong quá quan trọng và cần user phải nhìn thấy ngay lập tức.</p>
+        
+        <h3>Micro vs Macro</h3>
+        <ul>
+          <li>Hãy dùng bản <code>Macro (AccordionPreset)</code> cho 90% các trường hợp thông thường (truyền array data).</li>
+          <li>Chỉ dùng bản <code>Micro</code> này khi bạn cần tuỳ biến giao diện cực sâu hoặc nhét Form/Component phức tạp vào trong từng Panel.</li>
+        </ul>
+
+
+
+        <h3>Controlled vs Uncontrolled</h3>
+        <ul>
+          <li><b>Uncontrolled (Mặc định):</b> Tự quản lý state. Phù hợp cho 80% trường hợp như trang FAQ cơ bản. Dùng <code>defaultValue</code> để gán state ban đầu.</li>
+          <li><b>Controlled:</b> Phải dùng <code>value</code> và <code>onValueChange</code>. Bắt buộc dùng khi cần: (1) Đồng bộ trạng thái mở với URL (ví dụ <code>?faq=1</code>), (2) Làm Form dạng Wizard (chặn user qua bước tiếp theo nếu form lỗi), (3) Điều khiển mở/đóng từ một nút bấm nằm ngoài Accordion, (4) Bắn event Tracking/Analytics khi user mở tab.</li>
+        </ul>
+      </ShowcaseDocs>
 
       <ExampleGrid columns={2}>
         <ExampleSection
-          label="Single Expand"
-          description="Only one item can be open at a time (default)."
+          label="Mở Đơn (Single Expand)"
+          description="Chỉ một mục được phép mở tại một thời điểm (mặc định)."
         >
-          <div className="w-full">
-            <Accordion defaultValue={[faqItems[0]!.q]}>
+          <Accordion className="w-full" defaultValue={[firstQ]}>
+            {faqItems.slice(0, 3).map(({ q, a }) => (
+              <AccordionItem key={q} value={q}>
+                <AccordionTrigger>{q}</AccordionTrigger>
+                <AccordionContent>{a}</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </ExampleSection>
+
+        <ExampleSection
+          label="Mở Nhiều (Multiple Expand)"
+          description="Cho phép mở nhiều mục cùng lúc."
+        >
+          <Accordion className="w-full" multiple defaultValue={[firstQ, secondQ]}>
+            {faqItems.slice(0, 3).map(({ q, a }) => (
+              <AccordionItem key={q} value={q}>
+                <AccordionTrigger>{q}</AccordionTrigger>
+                <AccordionContent>{a}</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </ExampleSection>
+      </ExampleGrid>
+
+      <ExampleGrid columns={2}>
+        <ExampleSection
+          label="Controlled"
+          description="Trạng thái mở được quản lý bằng state. Click vào các mục để xem state thay đổi."
+        >
+          <div className="flex w-full flex-col gap-3">
+            <p className="text-xs text-muted-foreground">
+              Open:{" "}
+              <code className="rounded bg-muted px-1.5 py-0.5 text-xs font-mono">
+                {controlledValue.length > 0
+                  ? controlledValue.map((v) => `"${v}"`).join(", ")
+                  : "(none)"}
+              </code>
+            </p>
+            <Accordion
+              className="w-full"
+              multiple
+              value={controlledValue}
+              onValueChange={setControlledValue}
+            >
               {faqItems.slice(0, 3).map(({ q, a }) => (
                 <AccordionItem key={q} value={q}>
                   <AccordionTrigger>{q}</AccordionTrigger>
@@ -50,28 +119,10 @@ export default function AccordionShowcase() {
         </ExampleSection>
 
         <ExampleSection
-          label="Multiple Expand"
-          description="Multiple items can be open simultaneously."
+          label="Disabled (Vô hiệu hoá)"
+          description="Từng mục riêng lẻ có thể bị vô hiệu hóa trong khi các mục khác vẫn tương tác bình thường."
         >
-          <div className="w-full">
-            <Accordion multiple defaultValue={[faqItems[0]!.q, faqItems[1]!.q]}>
-              {faqItems.slice(0, 3).map(({ q, a }) => (
-                <AccordionItem key={q} value={q}>
-                  <AccordionTrigger>{q}</AccordionTrigger>
-                  <AccordionContent>{a}</AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-        </ExampleSection>
-      </ExampleGrid>
-
-      <ExampleSection
-        label="Disabled Items"
-        description="Individual items can be disabled while others remain interactive."
-      >
-        <div className="w-full max-w-lg">
-          <Accordion>
+          <Accordion className="w-full">
             <AccordionItem value="enabled-1">
               <AccordionTrigger>Available Feature</AccordionTrigger>
               <AccordionContent>
@@ -92,23 +143,68 @@ export default function AccordionShowcase() {
               </AccordionContent>
             </AccordionItem>
           </Accordion>
-        </div>
+        </ExampleSection>
+      </ExampleGrid>
+
+      <ExampleSection
+        label="Lồng Nhau (Nested Accordions)"
+        description="Nội dung bên trong có thể chứa một Accordion khác để tạo cấu trúc nhiều cấp."
+      >
+        <Accordion className="w-full max-w-lg">
+          <AccordionItem value="getting-started">
+            <AccordionTrigger>Getting Started</AccordionTrigger>
+            <AccordionContent>
+              <Accordion>
+                <AccordionItem value="installation">
+                  <AccordionTrigger>Installation</AccordionTrigger>
+                  <AccordionContent>
+                    Run npm install to add the component to your project.
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="configuration">
+                  <AccordionTrigger>Configuration</AccordionTrigger>
+                  <AccordionContent>
+                    Import and wrap your content with the Accordion component.
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="advanced">
+            <AccordionTrigger>Advanced Usage</AccordionTrigger>
+            <AccordionContent>
+              <Accordion>
+                <AccordionItem value="controlled">
+                  <AccordionTrigger>Controlled Mode</AccordionTrigger>
+                  <AccordionContent>
+                    Use the value and onValueChange props to control which items
+                    are open.
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="animation">
+                  <AccordionTrigger>Custom Animation</AccordionTrigger>
+                  <AccordionContent>
+                    Override transition duration and easing via className.
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
       </ExampleSection>
 
       <ExampleSection
-        label="Full FAQ"
-        description="Complete FAQ section with all items."
+        label="FAQ Hoàn Chỉnh"
+        description="Ví dụ một phần hỏi đáp FAQ hoàn chỉnh."
       >
-        <div className="w-full max-w-lg">
-          <Accordion>
-            {faqItems.map(({ q, a }) => (
-              <AccordionItem key={q} value={q}>
-                <AccordionTrigger>{q}</AccordionTrigger>
-                <AccordionContent>{a}</AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
+        <Accordion className="w-full max-w-lg">
+          {faqItems.map(({ q, a }) => (
+            <AccordionItem key={q} value={q}>
+              <AccordionTrigger>{q}</AccordionTrigger>
+              <AccordionContent>{a}</AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
       </ExampleSection>
     </div>
   );

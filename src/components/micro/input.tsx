@@ -24,9 +24,8 @@ const inputVariants = cva(
   },
 );
 
-export interface InputProps
-  extends Omit<React.ComponentPropsWithoutRef<typeof InputPrimitive>, "size">,
-    VariantProps<typeof inputVariants> {}
+export type InputProps = Omit<React.ComponentPropsWithoutRef<typeof InputPrimitive>, "size"> &
+  VariantProps<typeof inputVariants>;
 
 /**
  * @description Displays a form input field or a component that looks like an input field.

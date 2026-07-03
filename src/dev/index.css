@@ -1,3 +1,37 @@
 @import "tailwindcss";
 @import "../styles/tokens.css";
 @import "../styles/globals.css";
+
+/* ── Shiki dual-theme (github-light / github-dark) ────────────────────
+   When defaultColor: false is set in codeToHtml(), Shiki outputs
+   --shiki-light and --shiki-dark CSS variables on each token.
+   We map them to `color` based on the active theme class.
+   ─────────────────────────────────────────────────────────────────── */
+.shiki {
+  background-color: var(--shiki-light-bg);
+}
+
+.shiki span {
+  color: var(--shiki-light);
+}
+
+.dark .shiki {
+  background-color: var(--shiki-dark-bg);
+}
+
+.dark .shiki span {
+  color: var(--shiki-dark);
+}
+
+/* Reset shiki's default pre/code styling to blend with our card */
+.code-highlighter .shiki {
+  background-color: transparent !important;
+  padding: 0;
+  margin: 0;
+  overflow-x: auto;
+}
+
+.code-highlighter .shiki code {
+  white-space: pre-wrap;
+  word-break: break-word;
+}

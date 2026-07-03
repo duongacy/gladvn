@@ -74,3 +74,21 @@ When creating or modifying showcase files in `src/dev/showcase/*.tsx`, you MUST 
 - **Tailwind v4 `calc()` Subtraction**: When subtracting a custom CSS variable inside a `calc()` function in Tailwind, ALWAYS wrap the subtracted variable in parentheses to prevent the minus operator from blending with the variable prefix (`--`).
   - **Good**: `calc(--spacing(72) - (--spacing(9)))` or `calc(var(--height) - (var(--spacing-9)))`
   - **Bad**: `calc(--spacing(72)---spacing(9))` (The `---` can be misparsed as a single invalid token).
+
+## 11. Component API & Layout Encapsulation
+
+- **No Hardcoded Root Dimensions**: Primitive components MUST NOT dictate their own overall width or height (e.g., do not hardcode `w-full` on the root element). Let the consumer or the parent layout container decide the dimensions.
+- **Defensive Flexbox**: When building flex containers that contain text alongside icons or actions, ALWAYS apply a `gap` (e.g., `gap-2`, `gap-4`) to prevent text from colliding with the icon when content overflows or wraps.
+- **Outermost Prop Forwarding**: For composite structural primitives (e.g., an `AccordionTrigger` that renders a `<button>` wrapped inside an `<h3>`), the `className` prop MUST be forwarded to the **outermost wrapper** (the `<h3>`). 
+  - **Why**: This allows the component to correctly participate in parent flex/grid contexts (e.g., if a user passes `flex-1`, it applies to the wrapper).
+  - **Encapsulation**: Do NOT forward the user's `className` directly to the inner interactive element (the `<button>`). Instead, style the inner element to naturally fill the wrapper (e.g., `w-full flex-1`). This prevents consumers from accidentally breaking the carefully crafted focus rings, hover states, and structural integrity of the inner element. If consumers explicitly need to style the inner element, they should use CSS descendant selectors (e.g., `[&_[data-slot=accordion-trigger]]:bg-red-500`).
+
+## 12. Data Attributes & Documentation Verification
+
+- **Never Guess State Attributes**: Different Headless UI libraries use completely different data-attributes to expose component state (e.g., Radix uses `data-[state=open]`, Base UI uses `data-panel-open` or `data-ending-style`).
+- **Read the Docs**: You MUST verify the exact data-attributes exposed by the underlying headless UI component by either reading its official documentation or inspecting its source code before writing CSS selectors (e.g., `group-data-panel-open/trigger:rotate-180`). Do NOT assume conventions from other libraries.
+
+## 13. React `displayName` Requirement
+
+- **Mandatory for `forwardRef`**: Whenever you define a component using `React.forwardRef`, you MUST explicitly assign a `displayName` to it immediately after its declaration (e.g., `MyComponent.displayName = "MyComponent";`).
+- **Why**: `React.forwardRef` creates an anonymous component in the React DevTools tree (often displaying as `ForwardRef` or `Anonymous`), making debugging extremely difficult for consumers of the library. Explicitly setting the `displayName` ensures the component is easily identifiable in the tree.

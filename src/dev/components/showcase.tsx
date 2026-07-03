@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { COLORS, COLOR_INFO } from "@/dev/data";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/micro/tabs";
 import { Button } from "@/components/micro/button";
+import { CodeHighlighter } from "@/dev/components/code-highlighter";
 
 /* ─────────────────────────────────────────────────────────────────
    SectionHeader  –  page‐level title bar
@@ -33,6 +34,31 @@ export function SectionHeader({
     </div>
   );
 }
+
+/* ─────────────────────────────────────────────────────────────────
+   ShowcaseDocs  –  Documentation block
+   ────────────────────────────────────────────────────────────── */
+import { BookOpenIcon } from "lucide-react";
+
+export function ShowcaseDocs({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="mb-12 overflow-hidden rounded-2xl border border-border/60 bg-background shadow-sm">
+      <div className="flex items-center gap-2 border-b border-border/50 bg-muted/30 px-6 py-3.5">
+        <BookOpenIcon className="size-4 text-muted-foreground" />
+        <h3 className="text-sm font-semibold text-foreground">Usage Guidelines</h3>
+      </div>
+      <div className="px-6 py-5 text-[15px] leading-relaxed text-muted-foreground 
+        [&>h3]:mt-8 [&>h3:first-child]:mt-1 [&>h3]:mb-3 [&>h3]:text-base [&>h3]:font-semibold [&>h3]:text-foreground 
+        [&>ul]:mb-6 [&>ul]:list-inside [&>ul]:list-disc [&>ul]:space-y-2 [&>ul>li>b]:text-foreground [&>ul>li>b]:font-medium
+        [&>p]:mb-6 [&>p:last-child]:mb-1
+        [&_code]:rounded-md [&_code]:border [&_code]:border-border/50 [&_code]:bg-muted/30 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-[13px] [&_code]:text-foreground"
+      >
+        {children}
+      </div>
+    </div>
+  );
+}
+
 
 /* ─────────────────────────────────────────────────────────────────
    ExampleSection  –  a single demo block (replaces ComponentPreview)
@@ -74,12 +100,13 @@ export function ExampleSection({
     if (value === "code" && codeString === null) {
       try {
         const stringifier = typeof reactElementToJSXString === 'function' ? reactElementToJSXString : (reactElementToJSXString as any).default;
-        setCodeString(stringifier(children, {
+        const raw = stringifier(children, {
           showFunctions: true,
           showDefaultProps: false,
           useBooleanShorthandSyntax: true,
           maxInlineAttributesLineLength: 80,
-        }));
+        });
+        setCodeString(raw);
       } catch (e) {
         setCodeString("// Code snippet generation failed");
       }
@@ -95,26 +122,23 @@ export function ExampleSection({
   };
 
   return (
-    <div className="flex flex-col gap-3">
-      {(label || description) && (
+    <Tabs value={activeTab} onValueChange={handleTabChange} className="flex w-full flex-col gap-3">
+      <div className="flex items-start justify-between gap-4">
         <div className="flex flex-col gap-0.5">
           {label && (
             <h3 className="text-sm font-semibold text-foreground">{label}</h3>
           )}
           {description && (
-            <p className="text-[13px] text-muted-foreground">{description}</p>
+            <p className="text-[13px] text-muted-foreground leading-relaxed pr-4">{description}</p>
           )}
         </div>
-      )}
-      
-      <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full relative">
-        <div className="flex items-center justify-end mb-2 absolute -top-10 right-0">
-          <TabsList className="h-8">
-            <TabsTrigger value="preview" className="text-xs px-3 py-1">Preview</TabsTrigger>
-            <TabsTrigger value="code" className="text-xs px-3 py-1">Code</TabsTrigger>
-          </TabsList>
-        </div>
+        <TabsList className="h-8 shrink-0">
+          <TabsTrigger value="preview" className="text-xs px-3 py-1">Preview</TabsTrigger>
+          <TabsTrigger value="code" className="text-xs px-3 py-1">Code</TabsTrigger>
+        </TabsList>
+      </div>
 
+      <div className="relative w-full">
         <TabsContent value="preview" className="mt-0 outline-none">
           <div
             className={cn(
@@ -132,7 +156,7 @@ export function ExampleSection({
         </TabsContent>
 
         <TabsContent value="code" className="mt-0 outline-none">
-          <div className="relative rounded-2xl border border-border/80 bg-muted/50 p-4 text-foreground shadow-sm overflow-hidden">
+          <div className="relative rounded-2xl border border-border/80 bg-muted/50 p-4 text-foreground shadow-sm overflow-clip">
             <Button
               size="sm"
               variant="ghost"
@@ -141,15 +165,11 @@ export function ExampleSection({
             >
               {copied ? <CheckIcon className="size-3.5" /> : <CopyIcon className="size-3.5" />}
             </Button>
-            <div className="overflow-x-auto text-[13px] leading-relaxed font-mono">
-              <pre className="!bg-transparent !p-0 !m-0 whitespace-pre-wrap break-words">
-                <code>{codeString || "Loading..."}</code>
-              </pre>
-            </div>
+            <CodeHighlighter code={codeString || "// Loading..."} />
           </div>
         </TabsContent>
-      </Tabs>
-    </div>
+      </div>
+    </Tabs>
   );
 }
 

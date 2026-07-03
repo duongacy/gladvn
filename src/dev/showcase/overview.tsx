@@ -13,6 +13,7 @@ import {
   ZapIcon,
   ArrowRightIcon,
   SparklesIcon,
+  ChevronDownIcon
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { toast } from "sonner";
@@ -26,7 +27,6 @@ import { Label } from "@/components/micro/label";
 import { ProgressPreset as Progress } from "@/components/macro/progress-preset";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/micro/select";
 import { Switch } from "@/components/micro/switch";
-
 export default function OverviewSection() {
   const [copied, setCopied] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -65,15 +65,15 @@ export default function OverviewSection() {
           </Badge>
           
           <h1 className="max-w-4xl text-5xl md:text-7xl font-extrabold tracking-tighter mb-8 animate-fade-up" style={{ animationDelay: '100ms', animationFillMode: 'both' }}>
-            <span className="block text-foreground drop-shadow-sm">Chế tác Hoàn hảo.</span>
+            <span className="block text-foreground drop-shadow-sm">Đơn giản. Chặt chẽ.</span>
             <span className="block mt-2 bg-gradient-to-r from-primary via-info to-primary bg-[length:200%_auto] bg-clip-text text-transparent animate-[spin_8s_linear_infinite] [animation-name:gradient] [animation-duration:8s] [animation-timing-function:linear] [animation-iteration-count:infinite]">
-              Xây dựng trên Triết lý.
+              Dễ mở rộng.
             </span>
           </h1>
           
           <p className="max-w-2xl text-lg md:text-xl text-muted-foreground leading-relaxed mb-10 animate-fade-up" style={{ animationDelay: '200ms', animationFillMode: 'both' }}>
-            Hệ thống component vượt ra khỏi giới hạn thông thường. Tối ưu hiệu năng xuất sắc, 
-            kiến trúc dữ liệu chặt chẽ và khả năng mở rộng không giới hạn dành cho những nhà phát triển khắt khe nhất.
+            Thư viện UI component được thiết kế tối giản, loại bỏ hoàn toàn các cấu trúc rườm rà. 
+            Tập trung tối đa vào hiệu năng, trải nghiệm developer (DX) và khả năng tuỳ biến linh hoạt.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto animate-fade-up" style={{ animationDelay: '300ms', animationFillMode: 'both' }}>
@@ -183,8 +183,8 @@ export default function OverviewSection() {
                       <ShieldCheckIcon className="size-6" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-sm">Bảo vệ Cấu trúc</h4>
-                      <p className="text-xs text-muted-foreground font-medium mt-1">Tuyệt đối không dùng Magic CSS</p>
+                      <h4 className="font-bold text-sm">Strict Styling</h4>
+                      <p className="text-xs text-muted-foreground font-medium mt-1">Nói không với Magic CSS</p>
                     </div>
                   </div>
                 </div>
@@ -214,9 +214,9 @@ export default function OverviewSection() {
       {/* 🧠 BENTO BOX PHILOSOPHIES */}
       <section className="container max-w-6xl mx-auto space-y-12 px-4">
         <div className="text-center max-w-2xl mx-auto space-y-4">
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">Triết lý Kiến trúc Tối thượng</h2>
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">Nguyên tắc thiết kế cốt lõi</h2>
           <p className="text-muted-foreground text-lg">
-            Chúng tôi không chỉ viết component; chúng tôi thiết kế hệ thống. Mỗi dòng code đều tuân thủ 4 nguyên tắc cốt lõi bất khả xâm phạm.
+            Toàn bộ thư viện được xây dựng dựa trên <strong className="text-foreground">12 nguyên tắc (Design Principles)</strong> khắt khe để đảm bảo tính nhất quán, dễ bảo trì và mang lại DX tốt nhất.
           </p>
         </div>
 
@@ -230,10 +230,10 @@ export default function OverviewSection() {
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
                 <BlocksIcon className="size-3.5" /> Nguyên tắc 1
               </div>
-              <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">Cộng sinh Micro/Macro</h3>
+              <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">Micro & Macro Architecture</h3>
               <p className="text-muted-foreground max-w-lg text-lg leading-relaxed">
-                Ranh giới tuyệt đối giữa primitives linh hoạt và presets tiện dụng. 
-                Macro preset tái sử dụng 100% logic của Micro. Không viết lại, không sao chép, không lách luật.
+                Tách biệt rõ ràng giữa Core components linh hoạt (Micro) và các pattern tiện dụng (Macro). 
+                Macro luôn tái sử dụng 100% logic từ Micro, không duplicate code.
               </p>
             </div>
             <div className="relative z-10 mt-auto p-5 rounded-2xl border border-warning/30 bg-warning/5 backdrop-blur-md shadow-sm">
@@ -241,7 +241,7 @@ export default function OverviewSection() {
                 <div className="p-2 bg-warning/20 rounded-full">
                   <ZapIcon className="size-4" />
                 </div>
-                Nếu Macro cần một tính năng, Micro phải hỗ trợ tính năng đó trước tiên.
+                Tính năng mới luôn được implement ở tầng Micro trước khi apply vào Macro.
               </div>
             </div>
           </div>
@@ -257,7 +257,7 @@ export default function OverviewSection() {
               </div>
               <h3 className="text-2xl font-extrabold tracking-tight">Data-Driven Design</h3>
               <p className="text-muted-foreground text-base leading-relaxed">
-                Bộ nhớ nội bộ luôn ổn định. Props <code className="text-foreground bg-foreground/10 px-1 rounded">items</code> là bắt buộc đối với danh sách Headless.
+                Các component danh sách (như Select, Combobox) luôn nhận data array qua prop <code className="text-foreground bg-foreground/10 px-1 rounded">items</code> thay vì tự loop <code>map()</code> HTML.
               </p>
             </div>
             <div className="relative z-10 mt-auto pt-8">
@@ -278,9 +278,9 @@ export default function OverviewSection() {
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-destructive/10 text-destructive text-xs font-bold uppercase tracking-wider">
                 <ShieldCheckIcon className="size-3.5" /> Nguyên tắc 3
               </div>
-              <h3 className="text-2xl font-extrabold tracking-tight">Không Magic CSS</h3>
+              <h3 className="text-2xl font-extrabold tracking-tight">No Magic CSS</h3>
               <p className="text-muted-foreground text-base leading-relaxed">
-                Tôn trọng tính đóng gói. Dùng headless data attributes thay vì selector CSS lồng ghép phức tạp.
+                Giữ tính encapsulation. Style thông qua <code>data-[slot]</code> hoặc <code>data-[state]</code>, tuyệt đối không viết CSS selector lồng nhau.
               </p>
             </div>
             <div className="relative z-10 mt-auto pt-6 space-y-3">
@@ -304,9 +304,9 @@ export default function OverviewSection() {
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 text-secondary text-xs font-bold uppercase tracking-wider">
                 <SlidersHorizontalIcon className="size-3.5" /> Nguyên tắc 4
               </div>
-              <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">Styling Độc lập (Orthogonal)</h3>
+              <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">Orthogonal Styling</h3>
               <p className="text-muted-foreground text-lg leading-relaxed max-w-lg">
-                Tách biệt hoàn toàn Ý nghĩa hình ảnh (Color) và Cấu trúc vật lý (Variant) để ngăn chặn bùng nổ tổ hợp CSS.
+                Tách biệt rõ ràng trục cấu trúc (Variant) và trục màu sắc (Color) thành các style độc lập, giúp tránh bùng nổ tổ hợp CSS class.
               </p>
             </div>
             <div className="relative z-10 mt-auto pt-8 grid sm:grid-cols-2 gap-4">
@@ -322,6 +322,151 @@ export default function OverviewSection() {
                   </strong>
                   <span className="text-sm text-muted-foreground leading-relaxed">primary, secondary, destructive. Quyết định dải màu sắc (hue).</span>
                 </div>
+            </div>
+          </div>
+
+          {/* Zero-Prop Defaults (Spans 2 columns) */}
+          <div className="md:col-span-2 rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
+            <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:-rotate-12 duration-700">
+              <ComponentIcon className="w-80 h-80" />
+            </div>
+            <div className="relative z-10 space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
+                <ComponentIcon className="size-3.5" /> Nguyên tắc 5
+              </div>
+              <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">Zero-prop Defaults</h3>
+              <p className="text-muted-foreground text-lg leading-relaxed max-w-lg">
+                Component phải hoạt động mượt mà và render đúng UI chuẩn kể cả khi dev không truyền bất kỳ prop nào vào.
+              </p>
+            </div>
+            <div className="relative z-10 mt-auto pt-8 flex flex-col gap-4">
+               <div className="flex items-center justify-between gap-4 p-4 rounded-xl border border-success/20 bg-success/5 shadow-sm">
+                 <Button>Click Me</Button>
+                 <span className="text-[11px] sm:text-xs font-mono text-success font-medium">{"<Button>Click Me</Button>"}</span>
+               </div>
+               <div className="flex items-center justify-between gap-4 p-4 rounded-xl border border-destructive/20 bg-destructive/5 shadow-sm opacity-60">
+                 <Button size="md" color="primary">Click Me</Button>
+                 <span className="text-[11px] sm:text-xs font-mono text-destructive font-medium line-through">{"<Button size=\"md\" color=\"primary\">..."}</span>
+               </div>
+            </div>
+          </div>
+
+          {/* AHA Principle (Spans 1 column) */}
+          <div className="rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
+             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
+              <LayersIcon className="w-56 h-56" />
+            </div>
+            <div className="relative z-10 space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-warning/10 text-warning text-xs font-bold uppercase tracking-wider">
+                <LayersIcon className="size-3.5" /> Nguyên tắc 6
+              </div>
+              <h3 className="text-2xl font-extrabold tracking-tight">AHA Principle</h3>
+              <p className="text-muted-foreground text-base leading-relaxed">
+                Tránh trừu tượng hóa quá sớm (Avoid Hasty Abstractions). Code lặp lại (WET) một chút còn hơn cố DRY rồi sinh ra đống prop phức tạp.
+              </p>
+            </div>
+            <div className="relative z-10 mt-auto pt-8">
+              <div className="p-4 rounded-xl bg-foreground/5 border border-border/50 text-[11px] sm:text-xs overflow-hidden text-muted-foreground font-mono shadow-inner">
+                <span className="text-foreground font-semibold">{"className="}</span>
+                <span className="text-success">{"\"animate-in fade-in zoom-in\""}</span>
+                <br /><br />
+                <span className="text-destructive line-through">{"className=\"popup-animation\""}</span>
+              </div>
+            </div>
+          </div>
+          {/* CSS Delegated Logic */}
+          <div className="md:col-span-2 rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
+             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
+              <PaintbrushIcon className="w-56 h-56" />
+            </div>
+            <div className="relative z-10 space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-info/10 text-info text-xs font-bold uppercase tracking-wider">
+                <PaintbrushIcon className="size-3.5" /> Nguyên tắc 7
+              </div>
+              <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">CSS Delegated Logic</h3>
+              <p className="text-muted-foreground text-lg leading-relaxed max-w-lg">
+                Ưu tiên xử lý UI state bằng CSS thuần (ví dụ: hover, focus-within, data-state) thay vì quản lý cồng kềnh qua state của React.
+              </p>
+            </div>
+          </div>
+
+          {/* Strict Polymorphism */}
+          <div className="rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
+             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
+              <CopyIcon className="w-56 h-56" />
+            </div>
+            <div className="relative z-10 space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
+                <CopyIcon className="size-3.5" /> Nguyên tắc 8
+              </div>
+              <h3 className="text-2xl font-extrabold tracking-tight">Strict Polymorphism</h3>
+              <p className="text-muted-foreground text-base leading-relaxed">
+                Dùng pattern <code>asChild</code> hoặc <code>render</code> prop để thay đổi thẻ HTML root, không đẻ bừa các prop lồng nhau.
+              </p>
+            </div>
+          </div>
+
+          {/* Exhaustive Union Types */}
+          <div className="rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
+             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
+              <BoxIcon className="w-56 h-56" />
+            </div>
+            <div className="relative z-10 space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 text-secondary text-xs font-bold uppercase tracking-wider">
+                <BoxIcon className="size-3.5" /> Nguyên tắc 9
+              </div>
+              <h3 className="text-2xl font-extrabold tracking-tight">Exhaustive Union Types</h3>
+              <p className="text-muted-foreground text-base leading-relaxed">
+                Khai báo tường minh Union Types cho các config prop thay vì dùng kiểu <code>string</code> chung chung để tận dụng autocomplete.
+              </p>
+            </div>
+          </div>
+
+          {/* Readability is Maintainability */}
+          <div className="md:col-span-2 rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
+             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
+              <SparklesIcon className="w-56 h-56" />
+            </div>
+            <div className="relative z-10 space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-success/10 text-success text-xs font-bold uppercase tracking-wider">
+                <SparklesIcon className="size-3.5" /> Nguyên tắc 10
+              </div>
+              <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">Code Self-documenting</h3>
+              <p className="text-muted-foreground text-lg leading-relaxed max-w-lg">
+                Code phải tự nói lên được ý nghĩa của nó. Comment chỉ dành riêng cho việc giải thích business context hoặc lý do "tại sao lại code thế này".
+              </p>
+            </div>
+          </div>
+
+          {/* Single Source of Truth for Variants */}
+          <div className="md:col-span-2 rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
+             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
+              <SlidersHorizontalIcon className="w-56 h-56" />
+            </div>
+            <div className="relative z-10 space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-warning/10 text-warning text-xs font-bold uppercase tracking-wider">
+                <SlidersHorizontalIcon className="size-3.5" /> Nguyên tắc 11
+              </div>
+              <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">No Default Variants</h3>
+              <p className="text-muted-foreground text-lg leading-relaxed max-w-lg">
+                Không dùng <code>defaultVariants</code> ẩn bên trong cấu hình <code>cva()</code>. Đưa mọi prop mặc định ra ngoài component interface để dễ tracking và override.
+              </p>
+            </div>
+          </div>
+
+          {/* Pure Composition */}
+          <div className="rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
+             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
+              <BlocksIcon className="w-56 h-56" />
+            </div>
+            <div className="relative z-10 space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-destructive/10 text-destructive text-xs font-bold uppercase tracking-wider">
+                <BlocksIcon className="size-3.5" /> Nguyên tắc 12
+              </div>
+              <h3 className="text-2xl font-extrabold tracking-tight">Pure Composition</h3>
+              <p className="text-muted-foreground text-base leading-relaxed">
+                Design component theo dạng lắp ghép (ví dụ: Root, Trigger, Content) thay vì ôm đồm nhận vào một mảng data rồi tự <code>map()</code> bên trong.
+              </p>
             </div>
           </div>
         </div>

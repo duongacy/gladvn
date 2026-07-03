@@ -1,0 +1,5 @@
+{
+  "name": "gladcn",
+  "buildCommand": "npm run build:app",
+  "outputDirectory": "dist-app"
+}

@@ -11,14 +11,16 @@ import * as React from "react";
 import { Progress as ProgressPrimitive } from "@base-ui/react/progress";
 
 import { cn } from "@/lib/utils";
-import { type Size } from "@/lib/types";
+import { type Size, type Color } from "@/lib/types";
 
-const ProgressContext = React.createContext<{ size: Size }>({
+const ProgressContext = React.createContext<{ size: Size; color: Color }>({
   size: "md",
+  color: "primary",
 });
 
 export interface ProgressProps extends ProgressPrimitive.Root.Props {
   size?: Size;
+  color?: Color;
 }
 
 /**
@@ -30,10 +32,11 @@ function Progress({
   className,
   children,
   size = "md",
+  color = "primary",
   ...props
 }: ProgressProps) {
   return (
-    <ProgressContext.Provider value={{ size }}>
+    <ProgressContext.Provider value={{ size, color }}>
       <ProgressPrimitive.Root
         data-slot="progress"
         className={cn("flex flex-wrap gap-x-3 gap-y-1.5", className)}
@@ -71,10 +74,24 @@ function ProgressIndicator({
   className,
   ...props
 }: ProgressPrimitive.Indicator.Props) {
+  const { color } = React.useContext(ProgressContext);
+
+  const bgColors: Record<Color, string> = {
+    primary: "bg-primary",
+    secondary: "bg-secondary",
+    destructive: "bg-destructive",
+    success: "bg-success",
+    warning: "bg-warning",
+    info: "bg-info",
+    tertiary: "bg-tertiary",
+    muted: "bg-muted",
+    accent: "bg-accent",
+  };
+
   return (
     <ProgressPrimitive.Indicator
       data-slot="progress-indicator"
-      className={cn("h-full bg-primary transition-all", className)}
+      className={cn("h-full transition-all", bgColors[color], className)}
       {...props}
     />
   );

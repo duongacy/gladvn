@@ -234,13 +234,18 @@ const bgColorMap: Record<(typeof COLORS)[number], string> = {
 export function ColorSwatch({ color }: { color: (typeof COLORS)[number] }) {
   const info = COLOR_INFO[color];
   return (
-    <div className="flex flex-col gap-1.5 items-center">
+    <div className="flex flex-col items-center gap-3 p-3.5 sm:p-5 rounded-[2rem] bg-background/40 border border-border/50 shadow-sm backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/30 group">
       <div
-        className={`h-10 w-10 rounded-lg border shadow-sm ${bgColorMap[color]}`}
+        className={cn(
+          "h-12 w-12 sm:h-16 sm:w-16 rounded-2xl border shadow-inner transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 group-hover:rounded-[2rem]",
+          bgColorMap[color]
+        )}
       />
-      <span className="text-[10px] font-medium text-muted-foreground">
-        {info.label}
-      </span>
+      <div className="flex flex-col items-center">
+        <span className="text-xs sm:text-sm font-bold text-foreground capitalize tracking-tight">
+          {info.label}
+        </span>
+      </div>
     </div>
   );
 }

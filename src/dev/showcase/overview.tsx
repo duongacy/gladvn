@@ -1,383 +1,362 @@
 import {
+  BlocksIcon,
   BoxIcon,
   CheckIcon,
   ComponentIcon,
   CopyIcon,
+  DatabaseIcon,
   LayersIcon,
   PaintbrushIcon,
   PaletteIcon,
+  ShieldCheckIcon,
+  SlidersHorizontalIcon,
   ZapIcon,
+  ArrowRightIcon,
+  SparklesIcon,
 } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { toast } from "sonner";
 
 import { ColorSwatch } from "@/dev/components/showcase";
 import { COLORS, STATS } from "@/dev/data";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/micro/accordion";
 import { Badge } from "@/components/micro/badge";
 import { Button } from "@/components/micro/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/micro/card";
 import { Label } from "@/components/micro/label";
-import { Progress } from "@/components/micro/progress";
+import { ProgressPreset as Progress } from "@/components/macro/progress-preset";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/micro/select";
 import { Switch } from "@/components/micro/switch";
 
 export default function OverviewSection() {
   const [copied, setCopied] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleCopy = () => {
     navigator.clipboard.writeText("npm i @duongy96/gladcn");
     setCopied(true);
-    toast.success("Command copied to clipboard");
+    toast.success("Đã copy lệnh vào clipboard");
     setTimeout(() => setCopied(false), 2000);
   };
 
   return (
-    <div className="space-y-6 overflow-hidden">
-      {/* Bento Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-        {/* 🌟 Hero Banner - Span 2 cols */}
-        <div
-          className="md:col-span-2 row-span-2 relative overflow-hidden rounded-2xl border bg-card/40 p-6 md:p-8 shadow-sm transition-all hover:shadow-md hover:bg-card/60 group opacity-0 animate-fade-up"
-          style={{ animationDelay: "0ms" }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-50 group-hover:opacity-70 transition-opacity duration-500" />
-          <div
-            className="absolute inset-0 opacity-[0.03] group-hover:opacity-[0.05] transition-opacity duration-500"
-            style={{
-              backgroundImage:
-                "radial-gradient(circle at center, var(--foreground) 1px, transparent 1px)",
-              backgroundSize: "24px 24px",
-            }}
-          />
-          <div className="relative z-10 flex flex-col h-full">
-            <div>
-              <Badge
-                color="secondary"
-                className="mb-3 px-2.5 py-0.5 shadow-sm"
-              >
-                ✨ gladcn UI v0.2.1
-              </Badge>
-              <h2 className="text-3xl font-bold tracking-tight mb-2">
-                Crafted for Perfection
-              </h2>
-              <p className="text-muted-foreground max-w-[400px]">
-                A premium collection of components designed for modern,
-                highly-interactive web applications. Focus on building your
-                product, we handle the pixels.
-              </p>
-            </div>
+    <div className="space-y-24 overflow-hidden pb-24 font-sans">
+      {/* 🌌 HERO SECTION - Breathtaking Aurora / Glassmorphism */}
+      <section className="relative pt-20 pb-32">
+        {/* Animated Background Mesh */}
+        <div className="absolute inset-0 -z-10 h-full w-full bg-background bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(var(--primary-rgb),0.2),rgba(255,255,255,0))] dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(var(--primary-rgb),0.15),rgba(255,255,255,0))]" />
+        
+        <div className="absolute top-0 inset-x-0 flex justify-center -z-10 pointer-events-none opacity-50 dark:opacity-40 blur-[100px]">
+          <div className="w-[30rem] h-[20rem] bg-primary/40 rounded-full mix-blend-multiply animate-pulse" style={{ animationDuration: '8s' }} />
+          <div className="w-[20rem] h-[15rem] bg-info/30 rounded-full mix-blend-multiply animate-pulse absolute top-10" style={{ animationDuration: '10s' }} />
+        </div>
 
-            {/* Component Collage */}
-            <div className="relative h-[240px] mt-8 w-full">
-              {/* Floating elements */}
-              <div className="absolute top-0 right-4 lg:right-12 hover:-translate-y-1 transition-transform duration-300 animate-float-slow">
-                <Card className="w-[220px] shadow-xl bg-background/80 backdrop-blur-md border-primary/20">
-                  <CardHeader className="p-4 pb-2">
+        <div className="container relative z-10 flex flex-col items-center text-center px-4">
+          <Badge 
+            color="secondary" 
+            variant="soft"
+            className="px-4 py-1.5 mb-8 text-sm font-medium rounded-full border border-primary/20 bg-background/50 backdrop-blur-md shadow-sm animate-fade-up"
+          >
+            <SparklesIcon className="w-4 h-4 mr-2 text-primary animate-pulse" />
+            <span>gladcn UI v0.2.3 ra mắt</span>
+          </Badge>
+          
+          <h1 className="max-w-4xl text-5xl md:text-7xl font-extrabold tracking-tighter mb-8 animate-fade-up" style={{ animationDelay: '100ms', animationFillMode: 'both' }}>
+            <span className="block text-foreground drop-shadow-sm">Chế tác Hoàn hảo.</span>
+            <span className="block mt-2 bg-gradient-to-r from-primary via-info to-primary bg-[length:200%_auto] bg-clip-text text-transparent animate-[spin_8s_linear_infinite] [animation-name:gradient] [animation-duration:8s] [animation-timing-function:linear] [animation-iteration-count:infinite]">
+              Xây dựng trên Triết lý.
+            </span>
+          </h1>
+          
+          <p className="max-w-2xl text-lg md:text-xl text-muted-foreground leading-relaxed mb-10 animate-fade-up" style={{ animationDelay: '200ms', animationFillMode: 'both' }}>
+            Hệ thống component vượt ra khỏi giới hạn thông thường. Tối ưu hiệu năng xuất sắc, 
+            kiến trúc dữ liệu chặt chẽ và khả năng mở rộng không giới hạn dành cho những nhà phát triển khắt khe nhất.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto animate-fade-up" style={{ animationDelay: '300ms', animationFillMode: 'both' }}>
+            <Button size="lg" className="rounded-full px-8 h-12 shadow-xl shadow-primary/25 hover:shadow-primary/40 transition-all hover:-translate-y-0.5 group">
+              Khám phá Component
+              <ArrowRightIcon className="size-4 ml-2 group-hover:translate-x-1 transition-transform" />
+            </Button>
+            <Button 
+              size="lg" 
+              variant="outline" 
+              color="secondary" 
+              className="rounded-full px-8 h-12 bg-background/50 backdrop-blur-md border-border hover:bg-muted/50 transition-all"
+              onClick={handleCopy}
+            >
+              {copied ? <CheckIcon className="size-4 mr-2 text-success" /> : <CopyIcon className="size-4 mr-2" />}
+              <span className="font-mono text-sm font-semibold">npm i @duongy96/gladcn</span>
+            </Button>
+          </div>
+        </div>
+
+        {/* 3D Floating Showcase Dashboard */}
+        <div className="mt-20 relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 animate-fade-up" style={{ animationDelay: '500ms', animationFillMode: 'both' }}>
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-20 pointer-events-none h-full w-full" />
+          
+          <div className="relative rounded-2xl border bg-card/40 backdrop-blur-2xl shadow-2xl overflow-hidden [transform:perspective(1200px)_rotateX(5deg)] [transform-origin:top_center] hover:[transform:perspective(1200px)_rotateX(0deg)] transition-transform duration-700 ease-out">
+            <div className="h-12 bg-muted/30 border-b flex items-center px-4 gap-2">
+              <div className="flex gap-2">
+                <div className="size-3.5 rounded-full bg-destructive/80 shadow-sm" />
+                <div className="size-3.5 rounded-full bg-warning/80 shadow-sm" />
+                <div className="size-3.5 rounded-full bg-success/80 shadow-sm" />
+              </div>
+            </div>
+            
+            <div className="p-8 grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+              <div className="space-y-6 md:col-span-1 z-10">
+                <Card className="bg-background/80 shadow-lg border-border/50 backdrop-blur-xl group hover:border-primary/50 transition-colors">
+                  <CardHeader className="pb-3">
                     <CardTitle className="text-sm font-medium flex items-center gap-2">
-                      <div className="size-2 rounded-full bg-success animate-pulse" />
-                      Systems Online
+                      <div className="size-2 rounded-full bg-success animate-pulse shadow-[0_0_8px_var(--success)]" />
+                      Hệ thống Thời gian thực
                     </CardTitle>
                   </CardHeader>
-                  <CardContent className="p-4 pt-0">
-                    <Progress value={85} className="h-1.5" />
-                    <p className="text-[10px] text-muted-foreground mt-2">
-                      All services are operating normally.
-                    </p>
+                  <CardContent>
+                    <div className="space-y-5">
+                      <div className="space-y-2">
+                        <div className="flex justify-between text-xs font-medium">
+                          <span className="text-muted-foreground">Tải CPU</span>
+                          <span className="text-primary font-mono">{mounted ? "24%" : "0%"}</span>
+                        </div>
+                        <Progress value={mounted ? 24 : 0} className="h-1.5" />
+                      </div>
+                      <div className="space-y-2">
+                        <div className="flex justify-between text-xs font-medium">
+                          <span className="text-muted-foreground">Bộ nhớ</span>
+                          <span className="text-warning font-mono">{mounted ? "82%" : "0%"}</span>
+                        </div>
+                        <Progress value={mounted ? 82 : 0} color="warning" className="h-1.5" />
+                      </div>
+                    </div>
                   </CardContent>
                 </Card>
-              </div>
-
-              <div className="absolute bottom-4 left-0 hover:-translate-y-1 transition-transform duration-300 animate-float-fast">
-                <div className="flex flex-col gap-3 p-4 rounded-xl border bg-card/50 backdrop-blur-md shadow-lg w-[260px]">
+                
+                <div className="flex flex-col gap-4 p-5 rounded-xl border border-border/50 bg-background/60 backdrop-blur-xl shadow-lg">
                   <div className="flex items-center justify-between">
-                    <Label className="text-sm font-medium">Dark Mode</Label>
+                    <Label className="text-sm font-medium cursor-pointer">Auto-scaling</Label>
                     <Switch defaultChecked />
                   </div>
-                  <Select defaultValue="system">
-                    <SelectTrigger size="sm">
-                      <SelectValue placeholder="Theme" />
+                  <Select defaultValue="edge">
+                    <SelectTrigger className="w-full bg-background/50">
+                      <SelectValue placeholder="Chọn vùng" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="light">Light</SelectItem>
-                      <SelectItem value="dark">Dark</SelectItem>
-                      <SelectItem value="system">System</SelectItem>
+                      <SelectItem value="edge">Edge Network (Toàn cầu)</SelectItem>
+                      <SelectItem value="us-east">US East (Virginia)</SelectItem>
+                      <SelectItem value="ap-se">AP South East (Sing)</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
               </div>
-
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 hover:scale-105 transition-transform duration-300 animate-float">
-                <Button size="lg" className="shadow-xl shadow-primary/20">
-                  <ZapIcon className="size-4 mr-2" />
-                  Get Started
-                </Button>
+              
+              <div className="md:col-span-2 rounded-xl border border-border/50 bg-muted/20 p-6 flex items-center justify-center relative overflow-hidden group/canvas">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(var(--primary-rgb),0.1)_0,transparent_100%)] opacity-0 group-hover/canvas:opacity-100 transition-opacity duration-700" />
+                
+                <div className="relative z-10 w-full max-w-md space-y-4 perspective-1000">
+                  <div className="flex items-center gap-4 p-5 rounded-xl bg-background shadow-xl border border-border/50 transform group-hover/canvas:-translate-y-2 group-hover/canvas:rotate-1 transition-all duration-500 delay-75">
+                    <div className="p-3 bg-primary/10 rounded-lg text-primary shadow-inner">
+                      <LayersIcon className="size-6" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-sm">Kiến trúc Micro/Macro</h4>
+                      <p className="text-xs text-muted-foreground font-medium mt-1">Lắp ráp từ những mảnh ghép tối giản</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center gap-4 p-5 rounded-xl bg-background shadow-xl border border-border/50 transform group-hover/canvas:translate-x-2 group-hover/canvas:-rotate-1 transition-all duration-500 delay-150">
+                    <div className="p-3 bg-info/10 rounded-lg text-info shadow-inner">
+                      <DatabaseIcon className="size-6" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-sm">Data-Driven Design</h4>
+                      <p className="text-xs text-muted-foreground font-medium mt-1">Dữ liệu quyết định cấu trúc UI</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center gap-4 p-5 rounded-xl bg-background shadow-xl border border-border/50 transform group-hover/canvas:-translate-y-1 transition-all duration-500 delay-200">
+                    <div className="p-3 bg-success/10 rounded-lg text-success shadow-inner">
+                      <ShieldCheckIcon className="size-6" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-sm">Bảo vệ Cấu trúc</h4>
+                      <p className="text-xs text-muted-foreground font-medium mt-1">Tuyệt đối không dùng Magic CSS</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
+      </section>
 
-        {/* 📦 Quick Example - Span 1 col */}
-        <div
-          className="md:col-span-1 rounded-2xl border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md hover:-translate-y-1 group flex flex-col justify-between opacity-0 animate-fade-up"
-          style={{ animationDelay: "100ms" }}
-        >
-          <div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform group-hover:scale-110 group-hover:rotate-3">
-                <BoxIcon className="size-5" />
+      {/* 📈 STATS STRIP */}
+      <section className="container max-w-6xl mx-auto border-y bg-muted/5 py-12 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent animate-[pulse_4s_ease-in-out_infinite]" />
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 divide-x-0 md:divide-x relative z-10">
+          {STATS.map((s) => (
+            <div key={s.label} className="flex flex-col items-center justify-center text-center space-y-2 group">
+              <div className="text-4xl md:text-5xl font-black tracking-tighter text-foreground group-hover:text-primary group-hover:scale-110 transition-all duration-300">
+                {s.value}
               </div>
-              <h3 className="font-semibold">Quick Install</h3>
+              <div className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-muted-foreground">
+                {s.label}
+              </div>
             </div>
-            <p className="text-sm text-muted-foreground mb-4">
-              Available on npm. Add gladcn to your project in seconds.
-            </p>
-            <div className="rounded-lg bg-muted/50 px-3 py-2.5 font-mono text-xs border flex items-center justify-between">
-              <span className="truncate">npm i @duongy96/gladcn</span>
-            </div>
-          </div>
-          <Button
-            className="w-full mt-6"
-            color={copied ? "success" : "secondary"}
-            variant="soft"
-            onClick={handleCopy}
-          >
-            {copied ? (
-              <>
-                <CheckIcon className="size-4 mr-2" />
-                Copied!
-              </>
-            ) : (
-              <>
-                <CopyIcon className="size-4 mr-2" />
-                Copy Command
-              </>
-            )}
-          </Button>
+          ))}
+        </div>
+      </section>
+
+      {/* 🧠 BENTO BOX PHILOSOPHIES */}
+      <section className="container max-w-6xl mx-auto space-y-12 px-4">
+        <div className="text-center max-w-2xl mx-auto space-y-4">
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">Triết lý Kiến trúc Tối thượng</h2>
+          <p className="text-muted-foreground text-lg">
+            Chúng tôi không chỉ viết component; chúng tôi thiết kế hệ thống. Mỗi dòng code đều tuân thủ 4 nguyên tắc cốt lõi bất khả xâm phạm.
+          </p>
         </div>
 
-        {/* 📊 Stats Grid - Span 1 col, 2x2 grid inside */}
-        <div
-          className="md:col-span-1 grid grid-cols-2 gap-4 opacity-0 animate-fade-up"
-          style={{ animationDelay: "200ms" }}
-        >
-          {STATS.map((s, i) => {
-            const icons = [
-              <ComponentIcon />,
-              <LayersIcon />,
-              <PaintbrushIcon />,
-              <ZapIcon />,
-            ];
-            return (
-              <div
-                key={s.label}
-                className="rounded-2xl border bg-card/40 p-4 flex flex-col items-center justify-center text-center shadow-sm transition-all hover:shadow-md hover:bg-muted/50 group"
-              >
-                <div className="text-muted-foreground/50 mb-2 group-hover:text-primary/50 transition-colors [&>svg]:size-5">
-                  {icons[i % icons.length]}
-                </div>
-                <div className="text-3xl font-bold tracking-tighter group-hover:text-primary transition-colors">
-                  {s.value}
-                </div>
-                <div className="mt-1 text-[10px] uppercase font-medium tracking-wider text-muted-foreground">
-                  {s.label}
-                </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(320px,auto)]">
+          {/* Micro/Macro (Spans 2 columns) */}
+          <div className="md:col-span-2 rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col justify-between group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
+            <div className="absolute -top-10 -right-10 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:-rotate-12 duration-700">
+              <BlocksIcon className="w-80 h-80" />
+            </div>
+            <div className="relative z-10 space-y-4 mb-10">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
+                <BlocksIcon className="size-3.5" /> Nguyên tắc 1
               </div>
-            );
-          })}
-        </div>
-
-        {/* 🎨 Color Tokens - Span 3 cols */}
-        <div
-          className="md:col-span-3 rounded-2xl border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md group opacity-0 animate-fade-up"
-          style={{ animationDelay: "300ms" }}
-        >
-          <div className="flex items-center justify-between mb-6 border-b border-border/50 pb-4">
-            <div>
-              <h3 className="font-semibold text-lg flex items-center gap-2">
-                <PaletteIcon className="size-5 text-primary" />
-                Color Tokens
-              </h3>
-              <p className="text-sm text-muted-foreground mt-1">
-                Beautifully crafted semantic colors that adapt to any theme.
+              <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">Cộng sinh Micro/Macro</h3>
+              <p className="text-muted-foreground max-w-lg text-lg leading-relaxed">
+                Ranh giới tuyệt đối giữa primitives linh hoạt và presets tiện dụng. 
+                Macro preset tái sử dụng 100% logic của Micro. Không viết lại, không sao chép, không lách luật.
               </p>
             </div>
+            <div className="relative z-10 mt-auto p-5 rounded-2xl border border-warning/30 bg-warning/5 backdrop-blur-md shadow-sm">
+              <div className="text-warning text-sm font-semibold flex items-center gap-3">
+                <div className="p-2 bg-warning/20 rounded-full">
+                  <ZapIcon className="size-4" />
+                </div>
+                Nếu Macro cần một tính năng, Micro phải hỗ trợ tính năng đó trước tiên.
+              </div>
+            </div>
           </div>
-          <div className="flex flex-wrap gap-4">
-            {COLORS.map((c) => (
+
+          {/* Data-Driven (Spans 1 column, full height) */}
+          <div className="rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
+             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
+              <DatabaseIcon className="w-56 h-56" />
+            </div>
+            <div className="relative z-10 space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-info/10 text-info text-xs font-bold uppercase tracking-wider">
+                <DatabaseIcon className="size-3.5" /> Nguyên tắc 2
+              </div>
+              <h3 className="text-2xl font-extrabold tracking-tight">Data-Driven Design</h3>
+              <p className="text-muted-foreground text-base leading-relaxed">
+                Bộ nhớ nội bộ luôn ổn định. Props <code className="text-foreground bg-foreground/10 px-1 rounded">items</code> là bắt buộc đối với danh sách Headless.
+              </p>
+            </div>
+            <div className="relative z-10 mt-auto pt-8">
+              <div className="p-4 rounded-xl bg-foreground/5 border border-border/50 text-[11px] sm:text-xs overflow-hidden text-muted-foreground font-mono shadow-inner space-y-2">
+                <div className="text-success font-semibold">{"<Select items={data} />"}</div>
+                <div className="text-destructive font-semibold opacity-50 line-through">{"<Select>"}</div>
+                <div className="text-destructive font-semibold opacity-50 pl-4 line-through">{"{data.map(...)}"}</div>
+              </div>
+            </div>
+          </div>
+
+          {/* No Magic CSS */}
+          <div className="rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
+            <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
+              <ShieldCheckIcon className="w-56 h-56" />
+            </div>
+            <div className="relative z-10 space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-destructive/10 text-destructive text-xs font-bold uppercase tracking-wider">
+                <ShieldCheckIcon className="size-3.5" /> Nguyên tắc 3
+              </div>
+              <h3 className="text-2xl font-extrabold tracking-tight">Không Magic CSS</h3>
+              <p className="text-muted-foreground text-base leading-relaxed">
+                Tôn trọng tính đóng gói. Dùng headless data attributes thay vì selector CSS lồng ghép phức tạp.
+              </p>
+            </div>
+            <div className="relative z-10 mt-auto pt-6 space-y-3">
+              <div className="p-3 rounded-xl border border-destructive/20 bg-destructive/5 text-xs font-mono shadow-sm flex items-center">
+                <span className="text-destructive font-bold mr-3 text-lg">❌</span>
+                <span className="opacity-80">{"[&>div>span]:text-red-500"}</span>
+              </div>
+              <div className="p-3 rounded-xl border border-success/20 bg-success/5 text-xs font-mono shadow-sm flex items-center">
+                <span className="text-success font-bold mr-3 text-lg">✅</span>
+                <span className="text-foreground font-medium">data-[slot=icon]:text-red-500</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Orthogonal Styling (Spans 2 columns) */}
+          <div className="md:col-span-2 rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
+            <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:-rotate-12 duration-700">
+              <SlidersHorizontalIcon className="w-80 h-80" />
+            </div>
+            <div className="relative z-10 space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 text-secondary text-xs font-bold uppercase tracking-wider">
+                <SlidersHorizontalIcon className="size-3.5" /> Nguyên tắc 4
+              </div>
+              <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">Styling Độc lập (Orthogonal)</h3>
+              <p className="text-muted-foreground text-lg leading-relaxed max-w-lg">
+                Tách biệt hoàn toàn Ý nghĩa hình ảnh (Color) và Cấu trúc vật lý (Variant) để ngăn chặn bùng nổ tổ hợp CSS.
+              </p>
+            </div>
+            <div className="relative z-10 mt-auto pt-8 grid sm:grid-cols-2 gap-4">
+               <div className="p-5 rounded-2xl border bg-background/60 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow">
+                  <strong className="block text-foreground text-base mb-2 flex items-center gap-2">
+                    <BoxIcon className="size-4 text-muted-foreground" /> Trục Variant
+                  </strong>
+                  <span className="text-sm text-muted-foreground leading-relaxed">solid, outline, ghost, soft. Quyết định viền, nền, độ trong suốt.</span>
+                </div>
+                <div className="p-5 rounded-2xl border bg-background/60 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow">
+                  <strong className="block text-foreground text-base mb-2 flex items-center gap-2">
+                    <PaintbrushIcon className="size-4 text-muted-foreground" /> Trục Color
+                  </strong>
+                  <span className="text-sm text-muted-foreground leading-relaxed">primary, secondary, destructive. Quyết định dải màu sắc (hue).</span>
+                </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 🎨 OKLCH COLOR TOKENS */}
+      <section className="container max-w-6xl mx-auto px-4">
+        <div className="rounded-[2.5rem] border bg-card/30 p-10 md:p-16 shadow-xl relative overflow-hidden group">
+          <div className="absolute -top-10 -right-10 p-8 opacity-5 pointer-events-none group-hover:rotate-12 group-hover:scale-125 transition-all duration-1000">
+            <PaletteIcon className="size-64 md:size-[400px]" />
+          </div>
+          
+          <div className="relative z-10 max-w-3xl mb-14 space-y-5">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-2">
+              <PaletteIcon className="size-3.5" /> Bảng màu Thế hệ Mới
+            </div>
+            <h3 className="text-3xl md:text-5xl font-extrabold tracking-tight">Không gian màu OKLCH</h3>
+            <p className="text-muted-foreground text-xl leading-relaxed">
+              Mọi token màu sắc được tính toán toán học trên không gian OKLCH. Đảm bảo độ chuyển sắc hoàn hảo, tỉ lệ tương phản WCAG AAA/AA trên mọi theme mà không cần định nghĩa thủ công từng dải màu.
+            </p>
+          </div>
+          
+          <div className="relative z-10 flex flex-wrap gap-6 md:gap-8 justify-center">
+            {COLORS.map((c, i) => (
               <div
                 key={c}
-                className="transition-transform duration-200 hover:-translate-y-1 hover:scale-105"
+                className="animate-fade-up"
+                style={{ animationDelay: `${i * 50}ms`, animationFillMode: 'both' }}
               >
                 <ColorSwatch color={c} />
               </div>
             ))}
           </div>
         </div>
-
-        {/* 📚 Architecture Cheatsheet - Span 3 cols */}
-        <div
-          className="md:col-span-3 rounded-2xl border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md group opacity-0 animate-fade-up"
-          style={{ animationDelay: "400ms" }}
-        >
-          <div className="flex items-center justify-between mb-6 border-b border-border/50 pb-4">
-            <div>
-              <h3 className="font-semibold text-lg flex items-center gap-2">
-                <LayersIcon className="size-5 text-primary" />
-                Design Tokens Cheat Sheet
-              </h3>
-              <p className="text-sm text-muted-foreground mt-1">
-                The core architectural principles behind the CSS variables
-                system.
-              </p>
-            </div>
-          </div>
-
-          <Accordion className="w-full">
-            <AccordionItem value="item-1">
-              <AccordionTrigger>
-                1. Không gian màu OKLCH là gì?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground space-y-2">
-                <p>
-                  Hệ thống dùng <strong>oklch(L C H)</strong> thay vì RGB/HEX vì
-                  nó bắt chước cách mắt người cảm nhận ánh sáng:
-                </p>
-                <ul className="list-disc pl-5 space-y-1">
-                  <li>
-                    <strong>L (Lightness):</strong> 0 (Đen) đến 1 (Trắng). Ví
-                    dụ: oklch(0.98 ...) là xám/trắng nhạt.
-                  </li>
-                  <li>
-                    <strong>C (Chroma):</strong> Độ rực rỡ. Nếu C = 0, đó là
-                    Trắng/Đen/Xám.
-                  </li>
-                  <li>
-                    <strong>H (Hue):</strong> Vòng tròn màu sắc (0 = Đỏ, 90 =
-                    Vàng, 150 = Xanh lá, 260 = Xanh dương).
-                  </li>
-                </ul>
-                <p>
-                  <em>
-                    Mẹo: Paste mã màu vào{" "}
-                    <a
-                      href="https://oklch.com"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-primary hover:underline"
-                    >
-                      oklch.com
-                    </a>{" "}
-                    để tinh chỉnh trực quan.
-                  </em>
-                </p>
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-2">
-              <AccordionTrigger>
-                2. Bí ẩn của lớp .light (Tráng Gương)
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground space-y-2">
-                <p>
-                  Tại sao <code>.light</code> lại giống hệt <code>:root</code>?
-                </p>
-                <p>
-                  Kỹ thuật này gọi là <strong>Nested Themes</strong>. Nếu bạn có
-                  một trang Dashboard tối màu (Dark mode), nhưng bạn muốn hiển
-                  thị một tờ Hóa Đơn nền trắng ở giữa màn hình, bạn chỉ cần bọc
-                  thẻ div đó bằng <code>class="light"</code>. Nhờ block .light
-                  khai báo sẵn, khu vực đó sẽ render chuẩn màu sáng mà không bị
-                  ảnh hưởng bởi bóng tối xung quanh!
-                </p>
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-3">
-              <AccordionTrigger>3. Quản lý Độ Tương Phản (CR)</AccordionTrigger>
-              <AccordionContent className="text-muted-foreground space-y-2">
-                <p>
-                  Mỗi màu nền (background) luôn đi kèm với một màu chữ
-                  (foreground) để đảm bảo tiêu chuẩn WCAG (CR≥4.5:1).
-                </p>
-                <p>
-                  Ví dụ: Khi sang Dark Mode, <code>--primary</code> được đẩy
-                  sáng lên (L=0.72) để nổi trên nền đen. Lúc này{" "}
-                  <code>--primary-foreground</code> bắt buộc phải đổi thành Đen
-                  (L=0.145) để chữ không bị chìm vào nền.
-                </p>
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-4">
-              <AccordionTrigger>
-                4. Viền "Xuyên Thấu" ở Dark Mode
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground space-y-2">
-                <p>
-                  Thay vì dùng màu xám đục cứng nhắc, Dark Mode dùng{" "}
-                  <code>oklch(1 0 0 / 10%)</code> (Trắng với 10% opacity) cho
-                  đường viền.
-                </p>
-                <p>
-                  Cách này giúp viền tự động "hòa tan" (blend) với mọi mức độ
-                  đen bên dưới nó (Card đen nhạt, Sidebar đen đậm), tạo ra viền
-                  hoàn hảo mà không cần khai báo nhiều biến khác nhau.
-                </p>
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-5">
-              <AccordionTrigger>
-                5. Những cái tên "gây lú" (--input, --ring)
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground space-y-2">
-                <ul className="list-disc pl-5 space-y-1">
-                  <li>
-                    <strong>--border:</strong> Màu viền chung (Card, Dialog).
-                    Map với <code>border-border</code>.
-                  </li>
-                  <li>
-                    <strong>--input:</strong> CHỈ LÀ MÀU VIỀN của thẻ input. Nền
-                    input thường dùng bg-transparent. Map với{" "}
-                    <code>border-input</code>.
-                  </li>
-                  <li>
-                    <strong>--ring:</strong> Màu của viền highlight phát sáng
-                    khi focus. Map với <code>ring-ring</code>.
-                  </li>
-                </ul>
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-6">
-              <AccordionTrigger>6. Tách biệt Variant và Color</AccordionTrigger>
-              <AccordionContent className="text-muted-foreground space-y-2">
-                <p>
-                  Điểm sáng giá nhất của hệ thống này so với Shadcn gốc là việc
-                  tách đôi hai trục:
-                </p>
-                <ul className="list-disc pl-5 space-y-1">
-                  <li>
-                    <strong>Color (Ý nghĩa):</strong> primary, secondary,
-                    destructive, success...
-                  </li>
-                  <li>
-                    <strong>Variant (Hình thức):</strong> solid, outline, ghost,
-                    soft...
-                  </li>
-                </ul>
-                <p>
-                  Điều này giúp tránh bùng nổ số lượng variant (Combinatorial
-                  Explosion). Ví dụ: Bạn có thể dễ dàng gọi{" "}
-                  <code>variant="ghost" color="destructive"</code> mà không cần
-                  phải viết thêm một class CSS mới nào.
-                </p>
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-        </div>
-      </div>
+      </section>
     </div>
   );
 }

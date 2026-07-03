@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { toast } from "sonner";
-import { Alert, AlertTitle, AlertDescription, Progress, ProgressLabel, ProgressValue, ProgressTrack, ProgressIndicator, Skeleton, Spinner, Empty, EmptyHeader, EmptyMedia, EmptyTitle, EmptyDescription, EmptyContent, Button, Toaster } from "@/index";;
 import {
   CheckCircle2Icon,
   InfoIcon,
@@ -12,6 +11,13 @@ import {
 } from "lucide-react";
 
 import { SectionHeader, ShowcaseBlock } from "@/dev/components/showcase";
+import { Alert, AlertTitle, AlertDescription } from "@/components/micro/alert";
+import { Progress, ProgressLabel, ProgressValue, ProgressTrack, ProgressIndicator } from "@/components/micro/progress";
+import { Skeleton } from "@/components/micro/skeleton";
+import { Spinner } from "@/components/micro/spinner";
+import { Empty, EmptyHeader, EmptyMedia, EmptyTitle, EmptyDescription, EmptyContent } from "@/components/micro/empty";
+import { Button } from "@/components/micro/button";
+import { Toaster } from "@/components/micro/sonner";
 
 export default function FeedbackSection() {
   const [progress1, setProgress1] = useState(25);

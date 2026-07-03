@@ -1,10 +1,10 @@
-import { Badge } from "@/index";;
 import {
   SectionHeader,
   ExampleSection,
   ExampleGrid,
 } from "@/dev/components/showcase";
 import { CheckIcon, XIcon, AlertTriangleIcon, InfoIcon } from "lucide-react";
+import { Badge } from "@/components/micro/badge";
 
 export default function BadgeShowcase() {
   return (

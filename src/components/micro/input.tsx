@@ -24,25 +24,27 @@ const inputVariants = cva(
   },
 );
 
+export interface InputProps
+  extends Omit<React.ComponentPropsWithoutRef<typeof InputPrimitive>, "size">,
+    VariantProps<typeof inputVariants> {}
+
 /**
  * @description Displays a form input field or a component that looks like an input field.
  * @example
  * <Input type="email" placeholder="Email" />
  */
-const Input = React.forwardRef<
-  React.ElementRef<typeof InputPrimitive>,
-  Omit<React.ComponentPropsWithoutRef<typeof InputPrimitive>, "size"> &
-    VariantProps<typeof inputVariants>
->(function Input({ className, size = "md", ...props }, ref) {
-  return (
-    <InputPrimitive
-      ref={ref}
-      data-slot="input"
-      className={cn(inputVariants({ size, className }))}
-      {...props}
-    />
-  );
-});
+const Input = React.forwardRef<React.ElementRef<typeof InputPrimitive>, InputProps>(
+  function Input({ className, size = "md", ...props }, ref) {
+    return (
+      <InputPrimitive
+        ref={ref}
+        data-slot="input"
+        className={cn(inputVariants({ size, className }))}
+        {...props}
+      />
+    );
+  },
+);
 Input.displayName = "Input";
 
 export { Input };

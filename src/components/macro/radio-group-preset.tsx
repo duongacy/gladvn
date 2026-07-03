@@ -32,12 +32,17 @@ const RadioGroupPreset = React.forwardRef<
   errorMessage,
   showError = true,
   className,
+  id,
   ...radioGroupProps
 }, ref) => {
+  const generatedId = React.useId();
+  const inputId = id || generatedId;
+
   return (
-    <FieldPreset label={label} description={description} errorMessage={errorMessage} showError={showError} className={className} orientation={orientation}>
+    <FieldPreset label={label} description={description} errorMessage={errorMessage} showError={showError} className={className} orientation={orientation} htmlFor={inputId}>
       <RadioGroup
         ref={ref}
+        id={inputId}
         className={cn(
           "flex",
           orientation === "vertical" ? "flex-col gap-2" : "flex-row gap-4 flex-wrap"

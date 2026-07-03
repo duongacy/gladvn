@@ -1,9 +1,9 @@
-import { AspectRatio } from "@/index";;
 import {
   SectionHeader,
   ExampleSection,
   ExampleGrid,
 } from "@/dev/components/showcase";
+import { AspectRatio } from "@/components/micro/aspect-ratio";
 
 const commonRatios = [
   { label: "16:9", ratio: 16 / 9, desc: "Widescreen — video, hero banners" },

@@ -1,5 +1,5 @@
-import { Kbd, KbdGroup } from "@/index";;
 import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
+import { Kbd, KbdGroup } from "@/components/micro/kbd";
 
 export default function KbdShowcase() {
   return (

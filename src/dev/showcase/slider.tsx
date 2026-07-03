@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { Field, FieldLabel, FieldDescription, FieldContent } from "@/index";
-import { SliderPreset, SelectPreset } from "@/preset";;
 
 import {
   Slider as CompositionalSlider,
@@ -16,6 +14,9 @@ import {
 } from "@/dev/components/showcase";
 
 import { type Size } from "@/lib/types";
+import { Field, FieldLabel, FieldDescription, FieldContent } from "@/components/micro/field";
+import { SliderPreset } from "@/components/macro/slider-preset";
+import { SelectPreset } from "@/components/macro/select-preset";
 
 export default function SliderShowcase() {
   const [globalSize, setGlobalSize] = useState<Size>("md");

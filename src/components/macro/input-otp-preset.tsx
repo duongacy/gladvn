@@ -20,10 +20,13 @@ export type InputOTPPresetProps = Omit<
 const InputOTPPreset = React.forwardRef<
   React.ElementRef<typeof InputOTP>,
   InputOTPPresetProps
->(({ maxLength, label, description, errorMessage, showError = true, className, ...inputOtpProps }, ref) => {
+>(({ maxLength, label, description, errorMessage, showError = true, className, id, ...inputOtpProps }, ref) => {
+  const generatedId = React.useId();
+  const inputId = id || generatedId;
+
   return (
-    <FieldPreset label={label} description={description} errorMessage={errorMessage} showError={showError} className={className} orientation="vertical">
-      <InputOTP ref={ref} maxLength={maxLength} aria-invalid={!!errorMessage || undefined} {...inputOtpProps}>
+    <FieldPreset label={label} description={description} errorMessage={errorMessage} showError={showError} className={className} orientation="vertical" htmlFor={inputId}>
+      <InputOTP ref={ref} id={inputId} maxLength={maxLength} aria-invalid={!!errorMessage || undefined} {...inputOtpProps}>
         <InputOTPGroup>
           {Array.from({ length: maxLength }).map((_, index) => (
             <InputOTPSlot key={index} index={index} />

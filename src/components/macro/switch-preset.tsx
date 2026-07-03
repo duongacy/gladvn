@@ -13,10 +13,13 @@ export interface SwitchPresetProps extends Omit<React.ComponentProps<typeof Swit
 const SwitchPreset = React.forwardRef<
   React.ElementRef<typeof Switch>,
   SwitchPresetProps
->(({ label, description, errorMessage, showError = true, className, ...switchProps }, ref) => {
+>(({ label, description, errorMessage, showError = true, className, id, ...switchProps }, ref) => {
+  const generatedId = React.useId();
+  const inputId = id || generatedId;
+
   return (
-    <FieldPreset label={label} description={description} errorMessage={errorMessage} showError={showError} className={className} orientation="horizontal">
-      <Switch ref={ref} aria-invalid={!!errorMessage} {...switchProps}>
+    <FieldPreset label={label} description={description} errorMessage={errorMessage} showError={showError} className={className} orientation="horizontal" htmlFor={inputId}>
+      <Switch ref={ref} id={inputId} aria-invalid={!!errorMessage} {...switchProps}>
         <SwitchThumb />
       </Switch>
     </FieldPreset>

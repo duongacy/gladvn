@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { Checkbox, CheckboxIndicator, Label } from "@/index";
-import { SelectPreset } from "@/preset";;
 
 import { CheckIcon, MinusIcon } from "lucide-react";
 import {
@@ -10,6 +8,9 @@ import {
 } from "@/dev/components/showcase";
 
 import { type Size } from "@/lib/types";
+import { Checkbox, CheckboxIndicator } from "@/components/micro/checkbox";
+import { Label } from "@/components/micro/label";
+import { SelectPreset } from "@/components/macro/select-preset";
 
 export default function CheckboxShowcase() {
   const [globalSize, setGlobalSize] = useState<Size>("md");

@@ -1,10 +1,10 @@
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/index";
-import { SelectPreset } from "@/preset";;
 import { useState } from "react";
-import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/index";;
 import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
 
 import { type Size } from "@/lib/types";
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/micro/select";
+import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/micro/pagination";
+import { SelectPreset } from "@/components/macro/select-preset";
 
 export default function PaginationShowcase() {
   const [globalSize, setGlobalSize] = useState<Size>("md");

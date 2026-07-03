@@ -13,3 +13,6 @@ export * from "@/components/macro/select-preset";
 export * from "@/components/macro/slider-preset";
 export * from "@/components/macro/switch-preset";
 export * from "@/components/macro/tabs-preset";
+export * from "@/components/macro/input-preset";
+export * from "@/components/macro/native-select-preset";
+export * from "@/components/macro/textarea-preset";

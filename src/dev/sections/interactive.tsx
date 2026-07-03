@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Button, Badge, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Input, Label, Switch, Tabs, TabsContent, TabsList, TabsTrigger, Separator, Avatar, AvatarFallback, AvatarImage, Progress, Skeleton, Slider, Checkbox, Select, SelectContent, SelectItem, SelectTrigger, SelectValue, Textarea, Accordion, AccordionContent, AccordionItem, AccordionTrigger, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, Alert, AlertDescription, RadioGroup, RadioGroupItem, Combobox, ComboboxInput, ComboboxContent, ComboboxList, ComboboxItem, Calendar, InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator, NativeSelect, NativeSelectOption, InputGroup, InputGroupAddon, InputGroupText, InputGroupInput, Field, FieldTitle, FieldDescription, FieldError, FieldContent } from "@/index";;
 import {
   SunIcon,
   MoonIcon,
@@ -23,6 +22,31 @@ import {
   ColorSwatch,
 } from "@/dev/components/showcase";
 import { VARIANTS, COLORS, SIZES, STATS, COLOR_INFO } from "@/dev/data";
+import { Button } from "@/components/micro/button";
+import { Badge } from "@/components/micro/badge";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/micro/card";
+import { Input } from "@/components/micro/input";
+import { Label } from "@/components/micro/label";
+import { Switch } from "@/components/micro/switch";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/micro/tabs";
+import { Separator } from "@/components/micro/separator";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/micro/avatar";
+import { Progress } from "@/components/micro/progress";
+import { Skeleton } from "@/components/micro/skeleton";
+import { Slider } from "@/components/micro/slider";
+import { Checkbox } from "@/components/micro/checkbox";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/micro/select";
+import { Textarea } from "@/components/micro/textarea";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/micro/accordion";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/micro/tooltip";
+import { Alert, AlertDescription } from "@/components/micro/alert";
+import { RadioGroup, RadioGroupItem } from "@/components/micro/radio-group";
+import { Combobox, ComboboxInput, ComboboxContent, ComboboxList, ComboboxItem } from "@/components/micro/combobox";
+import { Calendar } from "@/components/micro/calendar";
+import { InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator } from "@/components/micro/input-otp";
+import { NativeSelect, NativeSelectOption } from "@/components/micro/native-select";
+import { InputGroup, InputGroupAddon, InputGroupText, InputGroupInput } from "@/components/micro/input-group";
+import { Field, FieldTitle, FieldDescription, FieldError, FieldContent } from "@/components/micro/field";
 
 export default function InteractiveSection() {
   const [tab, setTab] = useState("preview");

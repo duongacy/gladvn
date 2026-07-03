@@ -1,9 +1,9 @@
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/index";;
 import {
   SectionHeader,
   ExampleSection,
   ExampleGrid,
 } from "@/dev/components/showcase";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/micro/accordion";
 
 const faqItems = [
   {

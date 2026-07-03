@@ -1,0 +1,1 @@
+import{An as e,Nn as t,Ot as n,Pn as r}from"./showcase-DadcD9xY.js";function i(i){let{render:a,className:o,style:s,state:c=r,props:l=t,refs:u=t,metadata:d,stateAttributesMapping:f,tag:p=`div`,...m}=i,{compositeProps:h,compositeRef:g}=n({metadata:d});return e(p,i,{state:c,ref:[...u,g],props:[h,...l,m],stateAttributesMapping:f})}export{i as t};

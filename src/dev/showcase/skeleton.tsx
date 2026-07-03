@@ -1,9 +1,9 @@
-import { Skeleton } from "@/index";;
 import {
   SectionHeader,
   ExampleSection,
   ExampleGrid,
 } from "@/dev/components/showcase";
+import { Skeleton } from "@/components/micro/skeleton";
 
 export default function SkeletonShowcase() {
   return (

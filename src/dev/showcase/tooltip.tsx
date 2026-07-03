@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider, Button } from "@/index";
-import { SelectPreset } from "@/preset";;
 import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
 import { PlusIcon, HeartIcon } from "lucide-react";
 
 import { type Size } from "@/lib/types";
+import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/micro/tooltip";
+import { Button } from "@/components/micro/button";
+import { SelectPreset } from "@/components/macro/select-preset";
 
 export default function TooltipShowcase() {
   const [globalSize, setGlobalSize] = useState<Size>("md");

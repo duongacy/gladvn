@@ -1,10 +1,11 @@
 import { ChevronsUpDownIcon } from "lucide-react";
-import { Button, Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/index";;
 import {
   SectionHeader,
   ExampleSection,
   ExampleGrid,
 } from "@/dev/components/showcase";
+import { Button } from "@/components/micro/button";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/micro/collapsible";
 
 export default function CollapsibleShowcase() {
   return (

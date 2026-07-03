@@ -1,7 +1,4 @@
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/index";
-import { SelectPreset } from "@/preset";;
 import { useState } from "react";
-import { Combobox, ComboboxInput, ComboboxContent, ComboboxList, ComboboxItem, ComboboxGroup, ComboboxLabel, ComboboxEmpty, ComboboxSeparator, ComboboxChips, ComboboxChip, ComboboxChipsInput, ComboboxTrigger, ComboboxValue, ComboboxCollection, Field, FieldLabel, FieldDescription, FieldContent } from "@/index";;
 import {
   SectionHeader,
   ExampleSection,
@@ -9,6 +6,10 @@ import {
 } from "@/dev/components/showcase";
 
 import { type Size } from "@/lib/types";
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/micro/select";
+import { Combobox, ComboboxInput, ComboboxContent, ComboboxList, ComboboxItem, ComboboxGroup, ComboboxLabel, ComboboxEmpty, ComboboxSeparator, ComboboxChips, ComboboxChip, ComboboxChipsInput, ComboboxTrigger, ComboboxValue, ComboboxCollection } from "@/components/micro/combobox";
+import { Field, FieldLabel, FieldDescription, FieldContent } from "@/components/micro/field";
+import { SelectPreset } from "@/components/macro/select-preset";
 
 export default function ComboboxShowcase() {
   const [globalSize, setGlobalSize] = useState<Size>("md");

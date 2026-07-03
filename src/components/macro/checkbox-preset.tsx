@@ -14,10 +14,13 @@ export interface CheckboxPresetProps extends Omit<React.ComponentProps<typeof Ch
 const CheckboxPreset = React.forwardRef<
   React.ElementRef<typeof Checkbox>,
   CheckboxPresetProps
->(({ label, description, errorMessage, showError = true, className, ...checkboxProps }, ref) => {
+>(({ label, description, errorMessage, showError = true, className, id, ...checkboxProps }, ref) => {
+  const generatedId = React.useId();
+  const inputId = id || generatedId;
+
   return (
-    <FieldPreset label={label} description={description} errorMessage={errorMessage} showError={showError} className={className} orientation="horizontal">
-      <Checkbox ref={ref} aria-invalid={!!errorMessage} {...checkboxProps}>
+    <FieldPreset label={label} description={description} errorMessage={errorMessage} showError={showError} className={className} orientation="horizontal" htmlFor={inputId}>
+      <Checkbox ref={ref} id={inputId} aria-invalid={!!errorMessage} {...checkboxProps}>
         <CheckboxIndicator>
           <CheckIcon />
         </CheckboxIndicator>

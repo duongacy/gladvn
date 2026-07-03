@@ -1,0 +1,1 @@
+import{Un as e,kn as t}from"./showcase-DadcD9xY.js";var n=t();function r({className:t,...r}){return(0,n.jsx)(`div`,{"data-slot":`skeleton`,className:e(`animate-pulse rounded-lg bg-muted`,t),...r})}export{r as t};

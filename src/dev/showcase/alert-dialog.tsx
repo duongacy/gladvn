@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { AlertDialog, AlertDialogTrigger, AlertDialogContent, AlertDialogHeader, AlertDialogTitle, AlertDialogDescription, AlertDialogFooter, AlertDialogCancel, AlertDialogAction, AlertDialogMedia, Button } from "@/index";
-import { SelectPreset } from "@/preset";;
 import {
   SectionHeader,
   ExampleSection,
@@ -14,6 +12,9 @@ import {
 } from "lucide-react";
 
 import { type Size } from "@/lib/types";
+import { AlertDialog, AlertDialogTrigger, AlertDialogContent, AlertDialogHeader, AlertDialogTitle, AlertDialogDescription, AlertDialogFooter, AlertDialogCancel, AlertDialogAction, AlertDialogMedia } from "@/components/micro/alert-dialog";
+import { Button } from "@/components/micro/button";
+import { SelectPreset } from "@/components/macro/select-preset";
 
 export default function AlertDialogShowcase() {
   const [globalSize, setGlobalSize] = useState<Size>("md");

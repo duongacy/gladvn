@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { Field, FieldLabel, FieldDescription, FieldContent, Progress, ProgressTrack, ProgressIndicator, ProgressLabel, ProgressValue } from "@/index";
-import { ProgressPreset, SelectPreset } from "@/preset";;
 
 import {
   SectionHeader,
@@ -9,6 +7,10 @@ import {
 } from "@/dev/components/showcase";
 
 import { type Size } from "@/lib/types";
+import { Field, FieldLabel, FieldDescription, FieldContent } from "@/components/micro/field";
+import { Progress, ProgressTrack, ProgressIndicator, ProgressLabel, ProgressValue } from "@/components/micro/progress";
+import { ProgressPreset } from "@/components/macro/progress-preset";
+import { SelectPreset } from "@/components/macro/select-preset";
 
 export default function ProgressShowcase() {
   const [globalSize, setGlobalSize] = useState<Size>("md");

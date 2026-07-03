@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { Calendar } from "@/index";
-import { SelectPreset } from "@/preset";;
 import {
   SectionHeader,
   ExampleSection,
@@ -9,6 +7,8 @@ import {
 import type { DateRange } from "react-day-picker";
 
 import { type Size } from "@/lib/types";
+import { Calendar } from "@/components/micro/calendar";
+import { SelectPreset } from "@/components/macro/select-preset";
 
 export default function CalendarShowcase() {
   const [globalSize, setGlobalSize] = useState<Size>("md");

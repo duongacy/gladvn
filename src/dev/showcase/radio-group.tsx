@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { RadioGroup, RadioGroupItem, Field, FieldLabel, Label } from "@/index";
-import { SelectPreset } from "@/preset";;
 import {
   SectionHeader,
   ExampleSection,
@@ -8,6 +6,10 @@ import {
 } from "@/dev/components/showcase";
 
 import { type Size } from "@/lib/types";
+import { RadioGroup, RadioGroupItem } from "@/components/micro/radio-group";
+import { Field, FieldLabel } from "@/components/micro/field";
+import { Label } from "@/components/micro/label";
+import { SelectPreset } from "@/components/macro/select-preset";
 
 export default function RadioGroupShowcase() {
   const [globalSize, setGlobalSize] = useState<Size>("md");

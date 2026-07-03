@@ -1,7 +1,4 @@
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/index";
-import { SelectPreset } from "@/preset";;
 import { useState } from "react";
-import { Field, FieldContent, FieldDescription, FieldLabel, NativeSelect, NativeSelectOptGroup, NativeSelectOption } from "@/index";;
 import {
   SectionHeader,
   ExampleSection,
@@ -9,6 +6,10 @@ import {
 } from "@/dev/components/showcase";
 
 import { type Size } from "@/lib/types";
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/micro/select";
+import { Field, FieldContent, FieldDescription, FieldLabel } from "@/components/micro/field";
+import { NativeSelect, NativeSelectOptGroup, NativeSelectOption } from "@/components/micro/native-select";
+import { SelectPreset } from "@/components/macro/select-preset";
 
 export default function NativeSelectShowcase() {
   const [globalSize, setGlobalSize] = useState<Size>("md");

@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { Alert, AlertDescription, Calendar, Checkbox, Combobox, ComboboxContent, ComboboxInput, ComboboxItem, ComboboxList, Field, FieldContent, FieldDescription, FieldError, FieldTitle, FieldLabel, Input, InputGroup, InputGroupAddon, InputGroupInput, InputGroupText, InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot, Label, NativeSelect, NativeSelectOption, RadioGroup, RadioGroupItem, Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectSeparator, SelectTrigger, SelectValue, Separator, Slider, Switch, Textarea, Size } from "@/index";
-import { SelectPreset } from "@/preset";;
 
 import { SectionHeader } from "@/dev/components/showcase";
 import {
@@ -11,6 +9,24 @@ import {
   TriangleAlertIcon,
   CalendarIcon,
 } from "lucide-react";
+import { Alert, AlertDescription } from "@/components/micro/alert";
+import { Calendar } from "@/components/micro/calendar";
+import { Checkbox } from "@/components/micro/checkbox";
+import { Combobox, ComboboxContent, ComboboxInput, ComboboxItem, ComboboxList } from "@/components/micro/combobox";
+import { Field, FieldContent, FieldDescription, FieldError, FieldTitle, FieldLabel } from "@/components/micro/field";
+import { Input } from "@/components/micro/input";
+import { InputGroup, InputGroupAddon, InputGroupInput, InputGroupText } from "@/components/micro/input-group";
+import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot } from "@/components/micro/input-otp";
+import { Label } from "@/components/micro/label";
+import { NativeSelect, NativeSelectOption } from "@/components/micro/native-select";
+import { RadioGroup, RadioGroupItem } from "@/components/micro/radio-group";
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectSeparator, SelectTrigger, SelectValue } from "@/components/micro/select";
+import { Separator } from "@/components/micro/separator";
+import { Slider } from "@/components/micro/slider";
+import { Switch } from "@/components/micro/switch";
+import { Textarea } from "@/components/micro/textarea";
+import { Size } from "@/lib/types";
+import { SelectPreset } from "@/components/macro/select-preset";
 
 export default function FormsSection() {
   const [globalSize, setGlobalSize] = useState<Size>("md");

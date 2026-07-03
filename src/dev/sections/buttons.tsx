@@ -10,9 +10,13 @@ import {
   UserIcon,
 } from "lucide-react";
 import { useState } from "react";
-import { Avatar, AvatarFallback, Button, Size, Spinner, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/index";
-import { SelectPreset } from "@/preset";;
 import { SectionHeader } from "@/dev/components/showcase";
+import { Avatar, AvatarFallback } from "@/components/micro/avatar";
+import { Button } from "@/components/micro/button";
+import { Size } from "@/lib/types";
+import { Spinner } from "@/components/micro/spinner";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/micro/tooltip";
+import { SelectPreset } from "@/components/macro/select-preset";
 
 export default function ButtonsSection() {
   const [globalSize, setGlobalSize] = useState<Size>("md");

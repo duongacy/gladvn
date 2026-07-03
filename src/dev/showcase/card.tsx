@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, CardAction, Button, Input, Label, Badge } from "@/index";
-import { SelectPreset } from "@/preset";;
 import {
   SectionHeader,
   ExampleSection,
@@ -8,6 +6,12 @@ import {
 } from "@/dev/components/showcase";
 
 import { type Size } from "@/lib/types";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, CardAction } from "@/components/micro/card";
+import { Button } from "@/components/micro/button";
+import { Input } from "@/components/micro/input";
+import { Label } from "@/components/micro/label";
+import { Badge } from "@/components/micro/badge";
+import { SelectPreset } from "@/components/macro/select-preset";
 
 export default function CardShowcase() {
   const [globalSize, setGlobalSize] = useState<Size>("md");

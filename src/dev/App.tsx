@@ -1,13 +1,21 @@
 import { LayersIcon } from "lucide-react";
 import { useEffect, useState } from "react";
-import { Badge, Separator, Switch, SwitchThumb, useTheme } from "@/index";;
-import { ALL_COMPONENTS, NAV } from "@/dev/data";
+import { MICRO_COMPONENTS, MACRO_COMPONENTS, NAV } from "@/dev/data";
 import React, { Suspense, lazy } from "react";
 import OverviewSection from "@/dev/showcase/overview";
+import { Badge } from "@/components/micro/badge";
+import { Separator } from "@/components/micro/separator";
+import { Switch, SwitchThumb } from "@/components/micro/switch";
+import { useTheme } from "@/components/micro/theme-provider";
 
 const components: Record<string, React.LazyExoticComponent<any>> = {};
-ALL_COMPONENTS.forEach((comp) => {
+MICRO_COMPONENTS.forEach((comp) => {
   components[comp.id] = lazy(() => import(`./showcase/${comp.id}.tsx`));
+});
+MACRO_COMPONENTS.forEach((comp) => {
+  // macro-accordion -> ./showcase/macro/accordion.tsx
+  const fileName = comp.id.replace("macro-", "");
+  components[comp.id] = lazy(() => import(`./showcase/macro/${fileName}.tsx`));
 });
 
 export default function App() {
@@ -109,11 +117,30 @@ export default function App() {
               Overview
             </button>
           </nav>
-          <p className="mb-2 px-2 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
-            Components (A-Z)
+          <p className="mb-2 px-2 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground mt-4">
+            Macro Components
           </p>
           <nav className="space-y-0.5">
-            {ALL_COMPONENTS.map(({ id, label }) => (
+            {MACRO_COMPONENTS.map(({ id, label }) => (
+              <button
+                key={id}
+                onClick={() => setActive(id)}
+                className={`w-full flex items-center gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors text-left ${
+                  active === id
+                    ? "bg-accent text-accent-foreground font-medium"
+                    : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
+                }`}
+              >
+                {label}
+              </button>
+            ))}
+          </nav>
+
+          <p className="mb-2 px-2 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground mt-4">
+            Micro Components (A-Z)
+          </p>
+          <nav className="space-y-0.5">
+            {MICRO_COMPONENTS.map(({ id, label }) => (
               <button
                 key={id}
                 onClick={() => setActive(id)}

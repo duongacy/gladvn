@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { Item, ItemGroup, ItemHeader, ItemFooter, ItemSeparator, ItemMedia, ItemActions, ItemContent, ItemTitle, ItemDescription, Button } from "@/index";
-import { SelectPreset } from "@/preset";;
 import {
   SectionHeader,
   ExampleSection,
@@ -8,6 +6,9 @@ import {
 } from "@/dev/components/showcase";
 import { CheckIcon, HeartIcon, MoreVerticalIcon, UserIcon } from "lucide-react";
 import { type Size } from "@/lib/types";
+import { Item, ItemGroup, ItemHeader, ItemFooter, ItemSeparator, ItemMedia, ItemActions, ItemContent, ItemTitle, ItemDescription } from "@/components/micro/item";
+import { Button } from "@/components/micro/button";
+import { SelectPreset } from "@/components/macro/select-preset";
 
 export default function ItemShowcase() {
   const [globalSize, setGlobalSize] = useState<Size>(

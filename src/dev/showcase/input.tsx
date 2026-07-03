@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { Input, Field, FieldLabel, FieldDescription, FieldContent, InputGroup, InputGroupAddon, InputGroupText, InputGroupInput } from "@/index";
-import { SelectPreset } from "@/preset";;
 import {
   SectionHeader,
   ExampleSection,
@@ -8,6 +6,10 @@ import {
 } from "@/dev/components/showcase";
 
 import { type Size } from "@/lib/types";
+import { Input } from "@/components/micro/input";
+import { Field, FieldLabel, FieldDescription, FieldContent } from "@/components/micro/field";
+import { InputGroup, InputGroupAddon, InputGroupText, InputGroupInput } from "@/components/micro/input-group";
+import { SelectPreset } from "@/components/macro/select-preset";
 
 export default function InputShowcase() {
   const [globalSize, setGlobalSize] = useState<Size>("md");

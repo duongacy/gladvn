@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot, Field, FieldLabel, FieldDescription, FieldContent } from "@/index";
-import { SelectPreset } from "@/preset";;
 import {
   SectionHeader,
   ExampleSection,
@@ -8,6 +6,9 @@ import {
 } from "@/dev/components/showcase";
 
 import { type Size } from "@/lib/types";
+import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot } from "@/components/micro/input-otp";
+import { Field, FieldLabel, FieldDescription, FieldContent } from "@/components/micro/field";
+import { SelectPreset } from "@/components/macro/select-preset";
 
 export default function InputOTPShowcase() {
   const [globalSize, setGlobalSize] = useState<Size>("md");

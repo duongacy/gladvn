@@ -1,10 +1,11 @@
-import { Empty, EmptyTitle, EmptyDescription, EmptyAction, EmptyHeader, EmptyContent, EmptyMedia, Button } from "@/index";;
 import {
   SectionHeader,
   ExampleSection,
   ExampleGrid,
 } from "@/dev/components/showcase";
 import { PlusIcon, FolderOpenIcon } from "lucide-react";
+import { Empty, EmptyTitle, EmptyDescription, EmptyAction, EmptyHeader, EmptyContent, EmptyMedia } from "@/components/micro/empty";
+import { Button } from "@/components/micro/button";
 
 export default function EmptyShowcase() {
   return (

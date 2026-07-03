@@ -38,6 +38,7 @@ export interface ComboboxPresetProps {
   description?: React.ReactNode;
   errorMessage?: React.ReactNode;
   showError?: boolean;
+  id?: string;
 }
 
 const ComboboxPreset = React.forwardRef<
@@ -57,7 +58,11 @@ const ComboboxPreset = React.forwardRef<
   description,
   errorMessage,
   showError = true,
+  id,
 }, ref) => {
+  const generatedId = React.useId();
+  const inputId = id || generatedId;
+
   const [open, setOpen] = React.useState(false);
   
   const [currentValue = "", setCurrentValue] = useControllableState({
@@ -75,12 +80,13 @@ const ComboboxPreset = React.forwardRef<
   const selectedOption = options.find((opt) => opt.value === currentValue);
 
   return (
-    <FieldPreset label={label} description={description} errorMessage={errorMessage} showError={showError} className={className} orientation="vertical">
+    <FieldPreset label={label} description={description} errorMessage={errorMessage} showError={showError} className={className} orientation="vertical" htmlFor={inputId}>
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger
           render={
             <Button
               ref={ref}
+              id={inputId}
               variant="outline"
               role="combobox"
               aria-expanded={open}

@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { Alert, AlertDescription, AlertTitle, AlertAction, AlertIcon, Button } from "@/index";
-import { SelectPreset } from "@/preset";;
 import {
   SectionHeader,
   ExampleSection,
@@ -15,6 +13,9 @@ import {
 } from "lucide-react";
 
 import { type Size } from "@/lib/types";
+import { Alert, AlertDescription, AlertTitle, AlertAction, AlertIcon } from "@/components/micro/alert";
+import { Button } from "@/components/micro/button";
+import { SelectPreset } from "@/components/macro/select-preset";
 
 export default function AlertShowcase() {
   const [globalSize, setGlobalSize] = useState<Size>("md");

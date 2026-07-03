@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import reactElementToJSXString from "react-element-to-jsx-string";
-import { Tabs, TabsList, TabsTrigger, TabsContent, Button } from "@/index";;
 import { CopyIcon, CheckIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { COLORS, COLOR_INFO } from "@/dev/data";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/micro/tabs";
+import { Button } from "@/components/micro/button";
 
 /* ─────────────────────────────────────────────────────────────────
    SectionHeader  –  page‐level title bar
@@ -54,26 +55,43 @@ export function ExampleSection({
   children,
   className,
   fullWidth = false,
+  codeString: customCodeString,
 }: {
   label?: string;
   description?: string;
   children: React.ReactNode;
   className?: string;
   fullWidth?: boolean;
+  codeString?: string;
 }) {
   const [copied, setCopied] = useState(false);
+  const [codeString, setCodeString] = useState<string | null>(customCodeString || null);
+  const [activeTab, setActiveTab] = useState("preview");
 
-  const codeString = (typeof reactElementToJSXString === 'function' ? reactElementToJSXString : (reactElementToJSXString as any).default)(children, {
-    showFunctions: true,
-    showDefaultProps: false,
-    useBooleanShorthandSyntax: true,
-    maxInlineAttributesLineLength: 80,
-  });
+  // Only generate code string when user actually clicks "Code" tab
+  const handleTabChange = (value: string) => {
+    setActiveTab(value);
+    if (value === "code" && codeString === null) {
+      try {
+        const stringifier = typeof reactElementToJSXString === 'function' ? reactElementToJSXString : (reactElementToJSXString as any).default;
+        setCodeString(stringifier(children, {
+          showFunctions: true,
+          showDefaultProps: false,
+          useBooleanShorthandSyntax: true,
+          maxInlineAttributesLineLength: 80,
+        }));
+      } catch (e) {
+        setCodeString("// Code snippet generation failed");
+      }
+    }
+  };
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(codeString);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    if (codeString) {
+      navigator.clipboard.writeText(codeString);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
   };
 
   return (
@@ -89,7 +107,7 @@ export function ExampleSection({
         </div>
       )}
       
-      <Tabs defaultValue="preview" className="w-full relative">
+      <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full relative">
         <div className="flex items-center justify-end mb-2 absolute -top-10 right-0">
           <TabsList className="h-8">
             <TabsTrigger value="preview" className="text-xs px-3 py-1">Preview</TabsTrigger>
@@ -125,7 +143,7 @@ export function ExampleSection({
             </Button>
             <div className="overflow-x-auto text-[13px] leading-relaxed font-mono">
               <pre className="!bg-transparent !p-0 !m-0 whitespace-pre-wrap break-words">
-                <code>{codeString}</code>
+                <code>{codeString || "Loading..."}</code>
               </pre>
             </div>
           </div>

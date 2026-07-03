@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { Field, FieldLabel, FieldDescription, FieldContent, FieldError, Input, FieldGroup, FieldLegend, FieldSeparator, FieldSet, FieldTitle } from "@/index";
-import { SelectPreset } from "@/preset";;
 import {
   SectionHeader,
   ExampleSection,
@@ -8,6 +6,9 @@ import {
 } from "@/dev/components/showcase";
 
 import { type Size } from "@/lib/types";
+import { Field, FieldLabel, FieldDescription, FieldContent, FieldError, FieldGroup, FieldLegend, FieldSeparator, FieldSet, FieldTitle } from "@/components/micro/field";
+import { Input } from "@/components/micro/input";
+import { SelectPreset } from "@/components/macro/select-preset";
 
 export default function FieldShowcase() {
   const [globalSize, setGlobalSize] = useState<Size>("md");

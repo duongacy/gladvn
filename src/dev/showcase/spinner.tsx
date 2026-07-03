@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { Spinner } from "@/index";
-import { SelectPreset } from "@/preset";;
 import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
 
 import { type Size } from "@/lib/types";
+import { Spinner } from "@/components/micro/spinner";
+import { SelectPreset } from "@/components/macro/select-preset";
 
 export default function SpinnerShowcase() {
   const [globalSize, setGlobalSize] = useState<Size>("md");

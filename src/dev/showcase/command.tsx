@@ -7,12 +7,13 @@ import {
   SmileIcon,
   UserIcon,
 } from "lucide-react";
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator, CommandShortcut, CommandDialog, Button } from "@/index";;
 import {
   SectionHeader,
   ExampleSection,
   ExampleGrid,
 } from "@/dev/components/showcase";
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator, CommandShortcut, CommandDialog } from "@/components/micro/command";
+import { Button } from "@/components/micro/button";
 
 export default function CommandShowcase() {
   const [open, setOpen] = useState(false);

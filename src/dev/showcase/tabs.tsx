@@ -1,9 +1,9 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/index";;
 import {
   SectionHeader,
   ExampleSection,
   ExampleGrid,
 } from "@/dev/components/showcase";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/micro/tabs";
 
 export default function TabsShowcase() {
   return (

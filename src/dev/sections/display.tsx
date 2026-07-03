@@ -6,9 +6,13 @@ import {
   UserIcon,
   ZapIcon,
 } from "lucide-react";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Avatar, AvatarBadge, AvatarFallback, AvatarGroup, AvatarGroupCount, AvatarImage, Badge, Button, Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/index";;
 
 import { SectionHeader, ShowcaseBlock } from "@/dev/components/showcase";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/micro/accordion";
+import { Avatar, AvatarBadge, AvatarFallback, AvatarGroup, AvatarGroupCount, AvatarImage } from "@/components/micro/avatar";
+import { Badge } from "@/components/micro/badge";
+import { Button } from "@/components/micro/button";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/micro/card";
 
 export default function DisplaySection() {
   return (

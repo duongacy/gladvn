@@ -42,6 +42,7 @@ interface SelectPresetProps {
   description?: React.ReactNode;
   errorMessage?: React.ReactNode;
   showError?: boolean;
+  id?: string;
 }
 
 /**
@@ -65,9 +66,13 @@ const SelectPreset = React.forwardRef<
   description,
   errorMessage,
   showError = true,
+  id,
 }, ref) => {
+  const generatedId = React.useId();
+  const inputId = id || generatedId;
+
   return (
-    <FieldPreset label={label} description={description} errorMessage={errorMessage} showError={showError} className={className} orientation="vertical">
+    <FieldPreset label={label} description={description} errorMessage={errorMessage} showError={showError} className={className} orientation="vertical" htmlFor={inputId} size={size}>
       <Select
         value={value}
         defaultValue={defaultValue}
@@ -82,6 +87,7 @@ const SelectPreset = React.forwardRef<
       >
         <SelectTrigger
           ref={ref}
+          id={inputId}
           size={size}
           aria-invalid={!!errorMessage || undefined}
         >

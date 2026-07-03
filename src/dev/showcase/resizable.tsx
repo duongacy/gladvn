@@ -1,5 +1,5 @@
-import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/index";;
 import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
+import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/micro/resizable";
 
 export default function ResizableShowcase() {
   return (

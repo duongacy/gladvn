@@ -1,0 +1,1 @@
+import{Dt as e}from"./showcase-DadcD9xY.js";var t=typeof CSS<`u`&&!!CSS.supports?.(`-webkit-backdrop-filter:none`),n=!t&&e.includes(`firefox`);!t&&e.includes(`chrom`);export{t as n,n as t};

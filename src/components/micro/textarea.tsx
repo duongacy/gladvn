@@ -23,25 +23,27 @@ const textareaVariants = cva(
   },
 );
 
+export interface TextareaProps
+  extends React.ComponentPropsWithoutRef<"textarea">,
+    VariantProps<typeof textareaVariants> {}
+
 /**
  * @description Displays a form textarea.
  * @example
  * <Textarea placeholder="Type your message here." />
  */
-const Textarea = React.forwardRef<
-  HTMLTextAreaElement,
-  React.ComponentPropsWithoutRef<"textarea"> &
-    VariantProps<typeof textareaVariants>
->(function Textarea({ className, size = "md", ...props }, ref) {
-  return (
-    <textarea
-      ref={ref}
-      data-slot="textarea"
-      className={cn(textareaVariants({ size, className }))}
-      {...props}
-    />
-  );
-});
+const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
+  function Textarea({ className, size = "md", ...props }, ref) {
+    return (
+      <textarea
+        ref={ref}
+        data-slot="textarea"
+        className={cn(textareaVariants({ size, className }))}
+        {...props}
+      />
+    );
+  },
+);
 Textarea.displayName = "Textarea";
 
 export { Textarea };

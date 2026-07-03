@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { toast } from "sonner";
-import { Button, Badge, Card, CardContent, CardHeader, CardTitle, Label, Switch, Select, SelectContent, SelectItem, SelectTrigger, SelectValue, Progress, Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/index";;
 import {
   BoxIcon,
   PaletteIcon,
@@ -14,6 +13,14 @@ import {
 
 import { ColorSwatch } from "@/dev/components/showcase";
 import { COLORS, STATS } from "@/dev/data";
+import { Button } from "@/components/micro/button";
+import { Badge } from "@/components/micro/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/micro/card";
+import { Label } from "@/components/micro/label";
+import { Switch } from "@/components/micro/switch";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/micro/select";
+import { Progress } from "@/components/micro/progress";
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/micro/accordion";
 
 export default function OverviewSection() {
   const [copied, setCopied] = useState(false);

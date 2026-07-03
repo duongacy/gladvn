@@ -1,10 +1,10 @@
 import { ScrollBar } from "@/components/micro/scroll-area";
-import { ScrollArea } from "@/index";;
 import {
   SectionHeader,
   ExampleSection,
   ExampleGrid,
 } from "@/dev/components/showcase";
+import { ScrollArea } from "@/components/micro/scroll-area";
 
 export default function ScrollAreaShowcase() {
   return (

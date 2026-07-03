@@ -24,8 +24,9 @@ const nativeSelectVariants = cva(
   },
 );
 
-type NativeSelectProps = Omit<React.ComponentProps<"select">, "size"> &
-  VariantProps<typeof nativeSelectVariants>;
+export interface NativeSelectProps
+  extends Omit<React.ComponentPropsWithRef<"select">, "size">,
+    VariantProps<typeof nativeSelectVariants> {}
 
 /**
  * @description A styled wrapper around the native HTML select element.
@@ -34,30 +35,33 @@ type NativeSelectProps = Omit<React.ComponentProps<"select">, "size"> &
  *   <option value="1">Option 1</option>
  * </NativeSelect>
  */
-function NativeSelect({ className, size = "md", ...props }: NativeSelectProps) {
-  return (
-    <div
-      className={cn(
-        "group/native-select relative has-[select:disabled]:opacity-50",
-        className,
-      )}
-      data-slot="native-select-wrapper"
-      data-size={size}
-    >
-      <select
-        data-slot="native-select"
+const NativeSelect = React.forwardRef<HTMLSelectElement, NativeSelectProps>(
+  function NativeSelect({ className, size = "md", ...props }, ref) {
+    return (
+      <div
+        className={cn(
+          "group/native-select relative has-[select:disabled]:opacity-50",
+          className,
+        )}
+        data-slot="native-select-wrapper"
         data-size={size}
-        className={cn(nativeSelectVariants({ size }))}
-        {...props}
-      />
-      <ChevronDownIcon
-        className="pointer-events-none absolute top-1/2 right-2.5 size-4 -translate-y-1/2 text-muted-foreground select-none"
-        aria-hidden="true"
-        data-slot="native-select-icon"
-      />
-    </div>
-  );
-}
+      >
+        <select
+          ref={ref}
+          data-slot="native-select"
+          data-size={size}
+          className={cn(nativeSelectVariants({ size }))}
+          {...props}
+        />
+        <ChevronDownIcon
+          className="pointer-events-none absolute top-1/2 right-2.5 size-4 -translate-y-1/2 text-muted-foreground select-none"
+          aria-hidden="true"
+          data-slot="native-select-icon"
+        />
+      </div>
+    );
+  },
+);
 
 function NativeSelectOption({
   className,

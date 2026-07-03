@@ -1,8 +1,4 @@
 import { useState } from "react";
-import { Label, Field, FieldLabel } from "@/index";
-import { SelectPreset } from "@/preset";;
-
-import { Switch, SwitchThumb } from "@/index";;
 import {
   SectionHeader,
   ExampleSection,
@@ -10,6 +6,10 @@ import {
 } from "@/dev/components/showcase";
 
 import { type Size } from "@/lib/types";
+import { Label } from "@/components/micro/label";
+import { Field, FieldLabel } from "@/components/micro/field";
+import { Switch, SwitchThumb } from "@/components/micro/switch";
+import { SelectPreset } from "@/components/macro/select-preset";
 
 export default function SwitchShowcase() {
   const [globalSize, setGlobalSize] = useState<Size>("md");

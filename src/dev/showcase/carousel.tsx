@@ -2,11 +2,12 @@ import {
   ExampleSection,
   SectionHeader
 } from "@/dev/components/showcase";
-import { Card, CardContent, Carousel, CarouselContent, CarouselDots, CarouselItem, CarouselNext, CarouselPrevious } from "@/index";
-import { SelectPreset } from "@/preset";;
 import { type Size } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
+import { Card, CardContent } from "@/components/micro/card";
+import { Carousel, CarouselContent, CarouselDots, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/micro/carousel";
+import { SelectPreset } from "@/components/macro/select-preset";
 
 const SLIDES = [
   { id: 1, title: "Modern Aesthetics", desc: "Crafting beautiful interfaces with tailwind.", bg: "bg-gradient-to-tr from-violet-500 to-purple-500" },

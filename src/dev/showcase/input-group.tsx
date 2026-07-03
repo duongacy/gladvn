@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { Field, FieldContent, FieldDescription, FieldLabel, InputGroup, InputGroupAddon, InputGroupInput, InputGroupText, InputGroupButton, InputGroupTextarea, Button } from "@/index";
-import { SelectPreset } from "@/preset";;
 import {
   SectionHeader,
   ExampleSection,
@@ -9,6 +7,10 @@ import {
 import { SearchIcon } from "lucide-react";
 
 import { type Size } from "@/lib/types";
+import { Field, FieldContent, FieldDescription, FieldLabel } from "@/components/micro/field";
+import { InputGroup, InputGroupAddon, InputGroupInput, InputGroupText, InputGroupButton, InputGroupTextarea } from "@/components/micro/input-group";
+import { Button } from "@/components/micro/button";
+import { SelectPreset } from "@/components/macro/select-preset";
 
 export default function InputGroupShowcase() {
   const [globalSize, setGlobalSize] = useState<Size>("md");

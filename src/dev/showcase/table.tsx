@@ -1,5 +1,5 @@
-import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow, TableFooter } from "@/index";;
 import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
+import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow, TableFooter } from "@/components/micro/table";
 
 export default function TableShowcase() {
   return (

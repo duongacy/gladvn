@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { Avatar, AvatarImage, AvatarFallback, AvatarBadge, AvatarGroup, AvatarGroupCount } from "@/index";
-import { SelectPreset } from "@/preset";;
 import {
   SectionHeader,
   ExampleSection,
@@ -20,6 +18,8 @@ const users = [
 ];
 
 import { type Size } from "@/lib/types";
+import { Avatar, AvatarImage, AvatarFallback, AvatarBadge, AvatarGroup, AvatarGroupCount } from "@/components/micro/avatar";
+import { SelectPreset } from "@/components/macro/select-preset";
 
 export default function AvatarShowcase() {
   const [globalSize, setGlobalSize] = useState<Size>("md");

@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { ToggleGroup, ToggleGroupItem } from "@/index";
-import { SelectPreset } from "@/preset";;
 import {
   SectionHeader,
   ExampleSection,
@@ -16,6 +14,8 @@ import {
 } from "lucide-react";
 
 import { type Size } from "@/lib/types";
+import { ToggleGroup, ToggleGroupItem } from "@/components/micro/toggle-group";
+import { SelectPreset } from "@/components/macro/select-preset";
 
 export default function ToggleGroupShowcase() {
   const [globalSize, setGlobalSize] = useState<Size>("md");

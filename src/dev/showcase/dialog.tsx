@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose, Button, Input, Label } from "@/index";
-import { SelectPreset } from "@/preset";;
 import {
   SectionHeader,
   ExampleSection,
@@ -8,6 +6,11 @@ import {
 } from "@/dev/components/showcase";
 
 import { type Size } from "@/lib/types";
+import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose } from "@/components/micro/dialog";
+import { Button } from "@/components/micro/button";
+import { Input } from "@/components/micro/input";
+import { Label } from "@/components/micro/label";
+import { SelectPreset } from "@/components/macro/select-preset";
 
 export default function DialogShowcase() {
   const [globalSize, setGlobalSize] = useState<Size>("md");

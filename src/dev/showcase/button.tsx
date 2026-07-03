@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { Button, Spinner } from "@/index";
-import { SelectPreset } from "@/preset";;
 import {
   SectionHeader,
   ExampleSection,
@@ -9,6 +7,9 @@ import {
 import { MailIcon, DownloadIcon, PlusIcon } from "lucide-react";
 
 import { type Size } from "@/lib/types";
+import { Button } from "@/components/micro/button";
+import { Spinner } from "@/components/micro/spinner";
+import { SelectPreset } from "@/components/macro/select-preset";
 
 export default function ButtonShowcase() {
   const [globalSize, setGlobalSize] = useState<Size>("md");

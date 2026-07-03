@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { Toggle } from "@/index";
-import { SelectPreset } from "@/preset";;
 import {
   SectionHeader,
   ExampleSection,
@@ -9,6 +7,8 @@ import {
 import { BoldIcon, ItalicIcon, UnderlineIcon } from "lucide-react";
 
 import { type Size } from "@/lib/types";
+import { Toggle } from "@/components/micro/toggle";
+import { SelectPreset } from "@/components/macro/select-preset";
 
 export default function ToggleShowcase() {
   const [globalSize, setGlobalSize] = useState<Size>("md");

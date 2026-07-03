@@ -63,12 +63,10 @@ function AccordionContent({
   return (
     <AccordionPrimitive.Panel
       data-slot="accordion-content"
-      className="grid text-sm transition-[grid-template-rows] duration-200 ease-out data-closed:grid-rows-[0fr] data-open:grid-rows-[1fr]"
+      className="overflow-hidden text-sm h-[var(--accordion-panel-height)] transition-[height] duration-200 ease-out data-starting-style:h-0 data-ending-style:h-0"
       {...props}
     >
-      <div className="overflow-hidden">
-        <div className={cn("pb-4 pt-0", className)}>{children}</div>
-      </div>
+      <div className={cn("pb-4 pt-0", className)}>{children}</div>
     </AccordionPrimitive.Panel>
   );
 }

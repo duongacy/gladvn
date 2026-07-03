@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Button } from "@/index";
-import { SelectPreset } from "@/preset";;
 import { toast } from "sonner";
 import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
 
 import { type Size } from "@/lib/types";
+import { Button } from "@/components/micro/button";
+import { SelectPreset } from "@/components/macro/select-preset";
 
 export default function ToastShowcase() {
   const [globalSize, setGlobalSize] = useState<Size>("md");

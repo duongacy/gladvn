@@ -1,0 +1,1 @@
+import{ir as e,sr as t}from"./showcase-DadcD9xY.js";import{c as n,l as r}from"./DialogTrigger-N5I5MPmw.js";var i=t(e(),1);function a(e){return n(e,i.useContext(r)?`drawer`:`dialog`)}export{a as t};

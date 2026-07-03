@@ -10,10 +10,17 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Badge, Button, Card, CardContent, CardHeader, CardTitle, Label, Progress, Select, SelectContent, SelectItem, SelectTrigger, SelectValue, Switch } from "@/index";;
 
 import { ColorSwatch } from "@/dev/components/showcase";
 import { COLORS, STATS } from "@/dev/data";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/micro/accordion";
+import { Badge } from "@/components/micro/badge";
+import { Button } from "@/components/micro/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/micro/card";
+import { Label } from "@/components/micro/label";
+import { Progress } from "@/components/micro/progress";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/micro/select";
+import { Switch } from "@/components/micro/switch";
 
 export default function OverviewSection() {
   const [copied, setCopied] = useState(false);

@@ -1,5 +1,5 @@
-import { Separator } from "@/index";;
 import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
+import { Separator } from "@/components/micro/separator";
 
 export default function SeparatorShowcase() {
   return (

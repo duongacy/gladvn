@@ -29,8 +29,12 @@ const SliderPreset = React.forwardRef<
   errorMessage,
   showError = true,
   className,
+  id,
   ...sliderProps
 }, ref) => {
+  const generatedId = React.useId();
+  const inputId = id || generatedId;
+
   const _values = (() => {
     if (Array.isArray(value)) return value;
     if (Array.isArray(defaultValue)) return defaultValue;
@@ -38,9 +42,10 @@ const SliderPreset = React.forwardRef<
   })();
 
   return (
-    <FieldPreset label={label} description={description} errorMessage={errorMessage} showError={showError} className={className} orientation="vertical">
+    <FieldPreset label={label} description={description} errorMessage={errorMessage} showError={showError} className={className} orientation="vertical" htmlFor={inputId}>
       <Slider
         ref={ref}
+        id={inputId}
         defaultValue={defaultValue}
         value={value}
         min={min}

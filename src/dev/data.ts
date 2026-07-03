@@ -45,7 +45,7 @@ export const COLOR_INFO = {
   tertiary: { label: "Tertiary", description: "Extra / Beta" },
 };
 
-export const ALL_COMPONENTS = [
+export const MICRO_COMPONENTS = [
   { id: "accordion", label: "Accordion" },
   { id: "alert", label: "Alert" },
   { id: "alert-dialog", label: "Alert Dialog" },
@@ -99,4 +99,26 @@ export const ALL_COMPONENTS = [
   { id: "toggle", label: "Toggle" },
   { id: "toggle-group", label: "Toggle Group" },
   { id: "tooltip", label: "Tooltip" },
+];
+
+export const MACRO_COMPONENTS = [
+  { id: "macro-accordion", label: "Accordion" },
+  { id: "macro-avatar", label: "Avatar" },
+  { id: "macro-breadcrumb", label: "Breadcrumb" },
+  { id: "macro-carousel", label: "Carousel" },
+  { id: "macro-checkbox", label: "Checkbox" },
+  { id: "macro-combobox", label: "Combobox" },
+  { id: "macro-field", label: "Field" },
+  { id: "macro-input", label: "Input" },
+  { id: "macro-input-otp", label: "Input OTP" },
+  { id: "macro-native-select", label: "Native Select" },
+  { id: "macro-pagination", label: "Pagination" },
+  { id: "macro-progress", label: "Progress" },
+  { id: "macro-radio-group", label: "Radio Group" },
+  { id: "macro-rhf", label: "React Hook Form" },
+  { id: "macro-select", label: "Select" },
+  { id: "macro-slider", label: "Slider" },
+  { id: "macro-switch", label: "Switch" },
+  { id: "macro-tabs", label: "Tabs" },
+  { id: "macro-textarea", label: "Textarea" },
 ];

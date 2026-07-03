@@ -11,6 +11,12 @@ import { Combobox, ComboboxInput, ComboboxContent, ComboboxList, ComboboxItem, C
 import { Field, FieldLabel, FieldDescription, FieldContent } from "@/components/micro/field";
 import { SelectPreset } from "@/components/macro/select-preset";
 
+const frontendFrameworks = ["react", "vue", "svelte"];
+const backendFrameworks = ["express", "nest"];
+const allFrameworks = [...frontendFrameworks, ...backendFrameworks];
+const tagItems = ["bug", "feature", "enhancement", "docs"];
+const engineItems = ["v8", "spidermonkey"];
+
 export default function ComboboxShowcase() {
   const [globalSize, setGlobalSize] = useState<Size>("md");
 
@@ -41,7 +47,7 @@ export default function ComboboxShowcase() {
             <Field size={globalSize}>
               <FieldLabel>Framework Search</FieldLabel>
               <FieldContent>
-                <Combobox>
+                <Combobox items={allFrameworks}>
                   <ComboboxInput
                     size={globalSize}
                     placeholder="Search framework..."
@@ -80,7 +86,7 @@ export default function ComboboxShowcase() {
             <Field size={globalSize}>
               <FieldLabel>Assign Tags</FieldLabel>
               <FieldContent>
-                <Combobox multiple>
+                <Combobox items={tagItems} multiple>
                   <ComboboxChips size={globalSize}>
                     <ComboboxChip value="bug">Bug</ComboboxChip>
                     <ComboboxChip value="feature">Feature</ComboboxChip>
@@ -112,7 +118,7 @@ export default function ComboboxShowcase() {
             <Field size={globalSize}>
               <FieldLabel>Disabled Search</FieldLabel>
               <FieldContent>
-                <Combobox>
+                <Combobox items={["react"]}>
                   <ComboboxInput
                     size={globalSize}
                     placeholder="Search..."
@@ -138,12 +144,12 @@ export default function ComboboxShowcase() {
             <Field size={globalSize}>
               <FieldLabel>Select Engine</FieldLabel>
               <FieldContent>
-                <Combobox>
+                <Combobox items={engineItems}>
                   <ComboboxTrigger className="w-full justify-between flex items-center border rounded-md p-2">
                     <ComboboxValue placeholder="Select an engine" />
                   </ComboboxTrigger>
                   <ComboboxContent>
-                    <ComboboxInput placeholder="Search engine..." size={globalSize} />
+                    <ComboboxInput placeholder="Search engine..." size={globalSize} showTrigger={false} />
                     <ComboboxEmpty>No results.</ComboboxEmpty>
                     <ComboboxList>
                       <ComboboxItem value="v8">V8</ComboboxItem>

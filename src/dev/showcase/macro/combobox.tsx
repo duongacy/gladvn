@@ -73,25 +73,6 @@ export default function MacroComboboxShowcase() {
           </div>
         </ExampleSection>
 
-        <ExampleSection label="Multi-select" description="Selecting multiple values at once.">
-          <div className="w-full max-w-sm">
-            <ComboboxPreset
-              label="Tags"
-              description="Assign tags to this document."
-              placeholder="Select tags..."
-              searchPlaceholder="Search tags..."
-              emptyText="No tags found."
-              multiple
-              options={[
-                { value: "important", label: "Important" },
-                { value: "draft", label: "Draft" },
-                { value: "archived", label: "Archived" },
-                { value: "review", label: "Needs Review" },
-              ]}
-            />
-          </div>
-        </ExampleSection>
-
         <ExampleSection label="Long List" description="Demonstrating scrolling with many options.">
           <div className="w-full max-w-sm">
             <ComboboxPreset

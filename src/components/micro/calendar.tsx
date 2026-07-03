@@ -114,9 +114,10 @@ function Calendar({
         dropdown: cn(defaultClassNames.dropdown),
         caption_label: cn(
           "px-2 font-bold select-none",
-          captionLayout === "label"
-            ? "text-sm group-[.calendar-sm]/calendar:text-xs group-[.calendar-lg]/calendar:text-base"
-            : "flex items-center gap-1 rounded-(--cell-radius) text-sm group-[.calendar-sm]/calendar:text-xs group-[.calendar-lg]/calendar:text-base [&>svg]:size-3.5 [&>svg]:text-muted-foreground",
+          {
+            "text-sm group-[.calendar-sm]/calendar:text-xs group-[.calendar-lg]/calendar:text-base": captionLayout === "label",
+            "flex items-center gap-1 rounded-(--cell-radius) text-sm group-[.calendar-sm]/calendar:text-xs group-[.calendar-lg]/calendar:text-base [&>svg]:size-3.5 [&>svg]:text-muted-foreground": captionLayout !== "label",
+          },
           defaultClassNames.caption_label,
         ),
         month_grid: cn("w-full border-collapse", defaultClassNames.month_grid),

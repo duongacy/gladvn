@@ -45,7 +45,7 @@ const RadioGroupPreset = React.forwardRef<
         id={inputId}
         className={cn(
           "flex",
-          orientation === "vertical" ? "flex-col gap-2" : "flex-row gap-4 flex-wrap"
+          { "flex-col gap-2": orientation === "vertical", "flex-row gap-4 flex-wrap": orientation !== "vertical" },
         )}
         aria-invalid={!!errorMessage}
         {...radioGroupProps}

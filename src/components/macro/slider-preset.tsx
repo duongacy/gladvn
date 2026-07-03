@@ -38,7 +38,7 @@ const SliderPreset = React.forwardRef<
   const _values = (() => {
     if (Array.isArray(value)) return value;
     if (Array.isArray(defaultValue)) return defaultValue;
-    return [min, max];
+    return [min];
   })();
 
   return (
@@ -58,7 +58,7 @@ const SliderPreset = React.forwardRef<
             <SliderIndicator />
           </SliderTrack>
           {Array.from({ length: _values.length }, (_, index) => (
-            <SliderThumb key={index} />
+            <SliderThumb key={`${inputId}-thumb-${index}`} />
           ))}
         </SliderControl>
       </Slider>

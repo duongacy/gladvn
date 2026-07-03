@@ -29,7 +29,7 @@ const InputOTPPreset = React.forwardRef<
       <InputOTP ref={ref} id={inputId} maxLength={maxLength} aria-invalid={!!errorMessage || undefined} {...inputOtpProps}>
         <InputOTPGroup>
           {Array.from({ length: maxLength }).map((_, index) => (
-            <InputOTPSlot key={index} index={index} />
+            <InputOTPSlot key={`${inputId}-slot-${index}`} index={index} />
           ))}
         </InputOTPGroup>
       </InputOTP>

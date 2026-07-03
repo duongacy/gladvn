@@ -32,17 +32,26 @@ function useControllableState<T>({
   const value = isControlled ? prop : uncontrolledProp;
   const handleChange = useCallbackRef(onChange);
 
-  const setValue: React.Dispatch<React.SetStateAction<T | undefined>> = React.useCallback(
-    (nextValue) => {
+  const propRef = React.useRef(prop);
+  const handleChangeRef = React.useRef(handleChange);
+
+  React.useEffect(() => {
+    propRef.current = prop;
+    handleChangeRef.current = handleChange;
+  });
+
+  const setValue = React.useCallback(
+    (nextValue: React.SetStateAction<T | undefined>) => {
       if (isControlled) {
-        const setter = nextValue as SetStateFn<T>;
-        const value = typeof nextValue === "function" ? setter(prop) : nextValue;
-        if (value !== prop) handleChange(value as T);
+        const setter = nextValue as (prevState?: T) => T;
+        const value =
+          typeof nextValue === "function" ? setter(propRef.current) : nextValue;
+        if (value !== propRef.current) handleChangeRef.current(value as T);
       } else {
         setUncontrolledProp(nextValue);
       }
     },
-    [isControlled, prop, setUncontrolledProp, handleChange]
+    [isControlled, setUncontrolledProp]
   );
 
   return [value, setValue] as const;

@@ -54,13 +54,13 @@ const RadioGroupPreset = React.forwardRef<
           <div key={option.value} className="flex items-start gap-3">
             <RadioGroupItem
               value={option.value}
-              id={option.value}
+              id={`${inputId}-${option.value}`}
               disabled={option.disabled}
               className="mt-1"
             />
             <div className="flex flex-col gap-1">
               <Label
-                htmlFor={option.value}
+                htmlFor={`${inputId}-${option.value}`}
                 className={cn(
                   "font-normal cursor-pointer",
                   option.disabled && "opacity-50 cursor-not-allowed"

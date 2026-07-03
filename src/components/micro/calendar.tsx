@@ -26,13 +26,13 @@ import {
 } from "lucide-react";
 
 const calendarVariants = cva(
-  "group/calendar bg-background p-2 [--cell-radius:var(--radius-md)] in-data-[slot=card-content]:bg-transparent in-data-[slot=popover-content]:bg-transparent",
+  "group/calendar bg-background p-2 in-data-[slot=card-content]:bg-transparent in-data-[slot=popover-content]:bg-transparent",
   {
     variants: {
       size: {
-        sm: "calendar-sm [--cell-size:--spacing(6)]",
-        md: "calendar-md [--cell-size:--spacing(7)]",
-        lg: "calendar-lg [--cell-size:--spacing(8)]",
+        sm: "calendar-sm",
+        md: "calendar-md",
+        lg: "calendar-lg",
       },
     },
   },
@@ -104,7 +104,7 @@ function Calendar({
           defaultClassNames.month_caption,
         ),
         dropdowns: cn(
-          "flex h-(--cell-size) items-center justify-center gap-1",
+          "flex h-7 group-[.calendar-sm]/calendar:h-6 group-[.calendar-lg]/calendar:h-8 items-center justify-center gap-1",
           defaultClassNames.dropdowns,
         ),
         dropdown_root: cn(
@@ -116,19 +116,19 @@ function Calendar({
           "px-2 font-bold select-none",
           {
             "text-sm group-[.calendar-sm]/calendar:text-xs group-[.calendar-lg]/calendar:text-base": captionLayout === "label",
-            "flex items-center gap-1 rounded-(--cell-radius) text-sm group-[.calendar-sm]/calendar:text-xs group-[.calendar-lg]/calendar:text-base [&>svg]:size-3.5 [&>svg]:text-muted-foreground": captionLayout !== "label",
+            "flex items-center gap-1 rounded-md text-sm group-[.calendar-sm]/calendar:text-xs group-[.calendar-lg]/calendar:text-base [&>svg]:size-3.5 [&>svg]:text-muted-foreground": captionLayout !== "label",
           },
           defaultClassNames.caption_label,
         ),
         month_grid: cn("w-full border-collapse", defaultClassNames.month_grid),
         weekdays: cn("flex gap-1", defaultClassNames.weekdays),
         weekday: cn(
-          "flex-1 rounded-(--cell-radius) text-xs font-medium text-muted-foreground select-none group-[.calendar-sm]/calendar:text-[10px] group-[.calendar-lg]/calendar:text-sm",
+          "flex-1 rounded-md text-xs font-medium text-muted-foreground select-none group-[.calendar-sm]/calendar:text-[10px] group-[.calendar-lg]/calendar:text-sm",
           defaultClassNames.weekday,
         ),
         week: cn("mt-2 flex w-full gap-1", defaultClassNames.week),
         week_number_header: cn(
-          "w-(--cell-size) select-none",
+          "w-7 group-[.calendar-sm]/calendar:w-6 group-[.calendar-lg]/calendar:w-8 select-none",
           defaultClassNames.week_number_header,
         ),
         week_number: cn(
@@ -136,21 +136,21 @@ function Calendar({
           defaultClassNames.week_number,
         ),
         day: cn(
-          "group/day relative aspect-square h-full w-full rounded-(--cell-radius) p-0 text-center select-none",
+          "group/day relative aspect-square h-full w-full rounded-md p-0 text-center select-none",
           defaultClassNames.day,
         ),
         day_button: cn(defaultClassNames.day_button),
         range_start: cn(
-          "relative isolate z-0 rounded-(--cell-radius) bg-muted",
+          "relative isolate z-0 rounded-md bg-muted",
           defaultClassNames.range_start,
         ),
-        range_middle: cn("rounded-(--cell-radius) bg-muted", defaultClassNames.range_middle),
+        range_middle: cn("rounded-md bg-muted", defaultClassNames.range_middle),
         range_end: cn(
-          "relative isolate z-0 rounded-(--cell-radius) bg-muted",
+          "relative isolate z-0 rounded-md bg-muted",
           defaultClassNames.range_end,
         ),
         today: cn(
-          "rounded-(--cell-radius) bg-muted text-foreground",
+          "rounded-md bg-muted text-foreground",
           defaultClassNames.today,
         ),
         outside: cn(
@@ -263,7 +263,7 @@ function Calendar({
         WeekNumber: ({ children, ...props }) => {
           return (
             <td {...props}>
-              <div className="flex size-(--cell-size) items-center justify-center text-center">
+              <div className="flex size-7 group-[.calendar-sm]/calendar:size-6 group-[.calendar-lg]/calendar:size-8 items-center justify-center text-center">
                 {children}
               </div>
             </td>

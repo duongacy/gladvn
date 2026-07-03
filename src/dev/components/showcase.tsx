@@ -94,10 +94,9 @@ export function ExampleSection({
   const [codeString, setCodeString] = useState<string | null>(customCodeString || null);
   const [activeTab, setActiveTab] = useState("preview");
 
-  // Only generate code string when user actually clicks "Code" tab
-  const handleTabChange = (value: string) => {
-    setActiveTab(value);
-    if (value === "code" && codeString === null) {
+  // Update codeString when user clicks "Code" tab or when children change (e.g. global state changes)
+  React.useEffect(() => {
+    if (activeTab === "code" && !customCodeString) {
       try {
         const stringifier = typeof reactElementToJSXString === 'function' ? reactElementToJSXString : (reactElementToJSXString as any).default;
         const raw = stringifier(children, {
@@ -111,6 +110,10 @@ export function ExampleSection({
         setCodeString("// Code snippet generation failed");
       }
     }
+  }, [activeTab, children, customCodeString]);
+
+  const handleTabChange = (value: string) => {
+    setActiveTab(value);
   };
 
   const copyToClipboard = () => {

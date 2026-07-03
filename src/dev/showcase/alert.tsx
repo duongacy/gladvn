@@ -3,6 +3,7 @@ import {
   SectionHeader,
   ExampleSection,
   ExampleGrid,
+  ShowcaseDocs,
 } from "@/dev/components/showcase";
 import {
   InfoIcon,
@@ -24,7 +25,7 @@ export default function AlertShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Alert"
-        description="Displays a callout for user attention."
+        description="Hiển thị một thông báo nổi bật để thu hút sự chú ý của người dùng."
       >
         <SelectPreset
           value={globalSize}
@@ -38,44 +39,49 @@ export default function AlertShowcase() {
         />
       </SectionHeader>
 
+      <ShowcaseDocs>
+        <h3>Khi nào nên dùng</h3>
+        <p>Dùng để hiển thị một thông báo quan trọng thu hút sự chú ý của người dùng (ví dụ: lỗi, cảnh báo, hoặc thông báo thành công). Không nên dùng Alert cho các thông báo mang tính tạm thời tự biến mất (hãy dùng Toast/Sonner).</p>
+        
+        <h3>Micro vs Macro</h3>
+        <p>Hiện tại Alert chỉ có phiên bản Micro. Nếu bạn muốn bọc thêm logic tự động đóng (auto dismiss) hoặc state, bạn có thể tự tạo một preset riêng, tuy nhiên đối với các thông báo động thường nên dùng Toast.</p>
+      </ShowcaseDocs>
+
       {/* ── Semantic Colors ──────────────────────── */}
       <ExampleSection
-        label="Semantic Colors"
-        description="Each color conveys a different level of urgency."
+        label="Màu Sắc Ngữ Nghĩa (Semantic Colors)"
+        description="Mỗi màu sắc truyền đạt một mức độ khẩn cấp hoặc ý nghĩa khác nhau."
       >
         <div className="flex w-full flex-col gap-4 max-w-xl">
           <Alert color="info" size={globalSize}>
             <AlertIcon render={<InfoIcon />} />
-            <AlertTitle>Update Available</AlertTitle>
+            <AlertTitle>Có bản cập nhật mới</AlertTitle>
             <AlertDescription>
-              A new software update is available. See what's new in version
-              2.0.4.
+              Phiên bản 2.0.4 đã sẵn sàng để tải xuống. Hãy cập nhật để trải nghiệm tính năng mới.
             </AlertDescription>
           </Alert>
 
           <Alert color="success" size={globalSize}>
             <AlertIcon render={<CheckCircle2Icon />} />
-            <AlertTitle>Saved</AlertTitle>
+            <AlertTitle>Đã lưu thành công</AlertTitle>
             <AlertDescription>
-              Your changes have been successfully saved to the cloud.
+              Các thay đổi của bạn đã được đồng bộ lên đám mây.
             </AlertDescription>
           </Alert>
 
           <Alert color="warning" size={globalSize}>
             <AlertIcon render={<TriangleAlertIcon />} />
-            <AlertTitle>Session Expiring</AlertTitle>
+            <AlertTitle>Phiên bản sắp hết hạn</AlertTitle>
             <AlertDescription>
-              Your session is about to expire in 5 minutes. Please save your
-              work.
+              Phiên đăng nhập của bạn sẽ hết hạn trong 5 phút nữa. Vui lòng lưu lại công việc.
             </AlertDescription>
           </Alert>
 
           <Alert color="destructive" size={globalSize}>
             <AlertIcon render={<XCircleIcon />} />
-            <AlertTitle>Connection Failed</AlertTitle>
+            <AlertTitle>Kết nối thất bại</AlertTitle>
             <AlertDescription>
-              Failed to connect to the database. Please check your connection
-              strings.
+              Không thể kết nối đến cơ sở dữ liệu. Vui lòng kiểm tra lại đường truyền mạng.
             </AlertDescription>
           </Alert>
         </div>
@@ -84,58 +90,56 @@ export default function AlertShowcase() {
       <ExampleGrid columns={2}>
         {/* ── Default (no color) ───────────────────── */}
         <ExampleSection
-          label="Default"
-          description="Neutral card-style alert without a semantic color."
+          label="Cơ bản (Basic)"
+          description="Hiển thị Alert với màu sắc mặc định (info)."
+          fullWidth
         >
-          <div className="w-full">
-            <Alert size={globalSize}>
-              <AlertIcon render={<InfoIcon />} />
-              <AlertTitle>Heads up!</AlertTitle>
-              <AlertDescription>
-                You can add components to your app using the CLI.
-              </AlertDescription>
-            </Alert>
-          </div>
+          <Alert size={globalSize}>
+            <AlertIcon render={<InfoIcon />} />
+            <AlertTitle>Chú ý!</AlertTitle>
+            <AlertDescription>
+              Bạn có thể thêm các component vào dự án bằng cách sử dụng CLI.
+            </AlertDescription>
+          </Alert>
         </ExampleSection>
 
         {/* ── With Action ───────────────────── */}
         <ExampleSection
-          label="With Action"
-          description="Alert with a dismiss button positioned at the top-right."
+          label="Có Nút Hành Động (With Action)"
+          description="Alert kèm theo một nút tắt (dismiss) được đặt ở góc trên bên phải."
+          fullWidth
         >
-          <div className="w-full">
-            <Alert color="info" size={globalSize}>
-              <AlertIcon render={<InfoIcon />} />
-              <AlertTitle>New feature available</AlertTitle>
-              <AlertDescription>
-                Check out the new dashboard analytics page.
-              </AlertDescription>
-              <AlertAction>
-                <Button variant="ghost" size="sm" className="size-6 p-0">
-                  <XIcon className="size-3.5" />
-                </Button>
-              </AlertAction>
-            </Alert>
-          </div>
+          <Alert color="info" size={globalSize}>
+            <AlertIcon render={<InfoIcon />} />
+            <AlertTitle>Tính năng mới</AlertTitle>
+            <AlertDescription>
+              Hãy khám phá trang thống kê dashboard hoàn toàn mới của chúng tôi.
+            </AlertDescription>
+            <AlertAction>
+              <Button variant="ghost" size="sm" className="size-6 p-0">
+                <XIcon className="size-3.5" />
+              </Button>
+            </AlertAction>
+          </Alert>
         </ExampleSection>
       </ExampleGrid>
 
       {/* ── Minimal (no title) ───────────────────── */}
       <ExampleSection
-        label="Minimal"
-        description="Alert with description only — no title."
+        label="Tối Giản (Minimal)"
+        description="Alert chỉ có nội dung mô tả, không có tiêu đề."
       >
         <div className="flex w-full flex-col gap-3 max-w-xl">
           <Alert color="info" size={globalSize}>
             <AlertIcon render={<InfoIcon />} />
             <AlertDescription>
-              You can add components to your app using the CLI.
+              Bạn có thể thêm các component vào dự án bằng cách sử dụng CLI.
             </AlertDescription>
           </Alert>
           <Alert color="warning" size={globalSize}>
             <AlertIcon render={<TriangleAlertIcon />} />
             <AlertDescription>
-              Your trial will expire in 3 days.
+              Bản dùng thử của bạn sẽ hết hạn trong 3 ngày nữa.
             </AlertDescription>
           </Alert>
         </div>
@@ -143,20 +147,20 @@ export default function AlertShowcase() {
 
       {/* ── Text Only (no icon) ───────────────────── */}
       <ExampleSection
-        label="Text Only"
-        description="Simple text alerts without icons — single-column layout."
+        label="Chỉ Có Chữ (Text Only)"
+        description="Alert đơn giản không có icon — layout một cột dọc."
       >
         <div className="flex w-full flex-col gap-3 max-w-xl">
           <Alert color="success" size={globalSize}>
-            <AlertTitle>Payment received</AlertTitle>
+            <AlertTitle>Thanh toán thành công</AlertTitle>
             <AlertDescription>
-              Your invoice #1234 has been paid successfully.
+              Hoá đơn #1234 của bạn đã được thanh toán hoàn tất.
             </AlertDescription>
           </Alert>
           <Alert color="destructive" size={globalSize}>
-            <AlertTitle>Account suspended</AlertTitle>
+            <AlertTitle>Tài khoản bị khoá</AlertTitle>
             <AlertDescription>
-              Please contact support to reactivate your account.
+              Vui lòng liên hệ với bộ phận hỗ trợ để mở khoá tài khoản.
             </AlertDescription>
           </Alert>
         </div>

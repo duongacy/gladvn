@@ -8,6 +8,7 @@
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { useRender } from "@base-ui/react/use-render";
+import { mergeProps } from "@base-ui/react/merge-props";
 
 import { cn } from "@/lib/utils";
 
@@ -15,7 +16,7 @@ import { cn } from "@/lib/utils";
 // - has-data-[slot=alert-icon]: Tự động chuyển layout grid 2 cột nếu phát hiện Icon được truyền vào
 // - has-data-[slot=alert-action]: Tạo khoảng padding phải (pr-18) khi có chứa Action component
 const alertVariants = cva(
-  "group/alert relative grid gap-0.5 rounded-lg border text-left has-data-[slot=alert-action]:pr-18 has-data-[slot=alert-icon]:grid-cols-[auto_1fr] bg-card text-card-foreground",
+  "group/alert relative grid gap-0.5 rounded-lg border text-left has-data-[slot=alert-action]:pr-8 has-data-[slot=alert-icon]:grid-cols-[auto_1fr] bg-card text-card-foreground",
   {
     variants: {
       color: {
@@ -45,87 +46,104 @@ const alertVariants = cva(
  *   <AlertDescription>Something went wrong.</AlertDescription>
  * </Alert>
  */
-function Alert({
-  className,
-  color = "info",
-  size = "md",
-  ...props
-}: Omit<React.ComponentProps<"div">, "color"> &
-  VariantProps<typeof alertVariants>) {
-  return (
-    <div
-      data-slot="alert"
-      data-size={size || "md"}
-      role="alert"
-      className={cn(alertVariants({ color, size }), className)}
-      {...props}
-    />
-  );
-}
+export type AlertProps = Omit<React.ComponentProps<"div">, "color"> &
+  VariantProps<typeof alertVariants>;
 
-function AlertTitle({ className, ...props }: React.ComponentProps<"div">) {
-  return (
-    <div
-      data-slot="alert-title"
-      className={cn(
-        "font-medium group-has-data-[slot=alert-icon]/alert:col-start-2",
-        className,
-      )}
-      {...props}
-    />
-  );
-}
+const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
+  function Alert({ className, color = "info", size = "md", ...props }, ref) {
+    return (
+      <div
+        ref={ref}
+        data-slot="alert"
+        data-size={size}
+        role="alert"
+        className={cn(alertVariants({ color, size }), className)}
+        {...props}
+      />
+    );
+  }
+);
+Alert.displayName = "Alert";
 
-function AlertDescription({
-  className,
-  ...props
-}: React.ComponentProps<"div">) {
-  return (
-    <div
-      data-slot="alert-description"
-      className={cn(
-        "text-sm text-balance text-muted-foreground md:text-pretty",
-        className,
-      )}
-      {...props}
-    />
-  );
-}
+export type AlertTitleProps = React.ComponentProps<"div">;
 
-function AlertAction({ className, ...props }: React.ComponentProps<"div">) {
-  return (
-    <div
-      data-slot="alert-action"
-      className={cn("absolute top-2 right-2", className)}
-      {...props}
-    />
-  );
-}
-
-
-
-import { mergeProps } from "@base-ui/react/merge-props";
-
-function AlertIcon({
-  className,
-  render,
-  ...props
-}: useRender.ComponentProps<"div">) {
-  return useRender({
-    render,
-    defaultTagName: "div",
-    props: mergeProps<"div">(
-      {
-        className: cn(
-          "col-start-1 row-span-2 translate-y-0.5 text-current",
-          "size-4 group-data-[size=sm]/alert:size-3.5 group-data-[size=lg]/alert:size-5",
+const AlertTitle = React.forwardRef<HTMLDivElement, AlertTitleProps>(
+  function AlertTitle({ className, ...props }, ref) {
+    return (
+      <div
+        ref={ref}
+        data-slot="alert-title"
+        className={cn(
+          "font-medium group-has-data-[slot=alert-icon]/alert:col-start-2",
           className,
-        ),
-        "data-slot": "alert-icon",
-      } as React.ComponentProps<"div">,
-      props,
-    ),
-  });
-}
+        )}
+        {...props}
+      />
+    );
+  }
+);
+AlertTitle.displayName = "AlertTitle";
+
+export type AlertDescriptionProps = React.ComponentProps<"div">;
+
+const AlertDescription = React.forwardRef<HTMLDivElement, AlertDescriptionProps>(
+  function AlertDescription({ className, ...props }, ref) {
+    return (
+      <div
+        ref={ref}
+        data-slot="alert-description"
+        className={cn(
+          "text-balance text-muted-foreground md:text-pretty [&_p]:leading-relaxed",
+          className,
+        )}
+        {...props}
+      />
+    );
+  }
+);
+AlertDescription.displayName = "AlertDescription";
+
+export type AlertActionProps = React.ComponentProps<"div">;
+
+const AlertAction = React.forwardRef<HTMLDivElement, AlertActionProps>(
+  function AlertAction({ className, ...props }, ref) {
+    return (
+      <div
+        ref={ref}
+        data-slot="alert-action"
+        className={cn(
+          "absolute right-2.5 top-2 group-data-[size=sm]/alert:right-2 group-data-[size=sm]/alert:top-1.5 group-data-[size=lg]/alert:right-3 group-data-[size=lg]/alert:top-2.5",
+          className
+        )}
+        {...props}
+      />
+    );
+  }
+);
+AlertAction.displayName = "AlertAction";
+
+export type AlertIconProps = useRender.ComponentProps<"div">;
+
+const AlertIcon = React.forwardRef<HTMLDivElement, AlertIconProps>(
+  function AlertIcon({ className, render, ...props }, ref) {
+    return useRender({
+      render,
+      defaultTagName: "div",
+      props: mergeProps<"div">(
+        {
+          ref,
+          className: cn(
+            "col-start-1 row-span-2 translate-y-0.5 text-current",
+            "size-4 group-data-[size=sm]/alert:size-3.5 group-data-[size=lg]/alert:size-5",
+            className,
+          ),
+          "data-slot": "alert-icon",
+        } as React.ComponentProps<"div">,
+        props,
+      ),
+    });
+  }
+);
+AlertIcon.displayName = "AlertIcon";
 
 export { Alert, AlertIcon, AlertTitle, AlertDescription, AlertAction };

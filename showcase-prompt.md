@@ -27,5 +27,6 @@ Sử dụng `<SectionHeader title="Tên Component" description="Mô tả ngắn 
 - **Demo State (Controlled):** Bắt buộc phải có một `ExampleSection` mô phỏng cách Component hoạt động ở chế độ Controlled (ví dụ: dùng `useState` và hiển thị output raw state bên ngoài component bằng một khối code block `<code className="rounded bg-muted...">`).
 - **State Edge Cases:** Phải có một `<ExampleSection>` thể hiện trạng thái `Disabled` (vô hiệu hoá một phần hoặc toàn bộ).
 - **Ví dụ thực tế (Real-world):** Kết thúc showcase bằng một `<ExampleSection>` trình bày một Use Case hoàn chỉnh/thực tế có tính ứng dụng cao kết hợp dữ liệu đầy đủ.
+- **Ngôn ngữ (Tiếng Việt):** BẮT BUỘC sử dụng Tiếng Việt cho toàn bộ nội dung text hiển thị trên UI (bao gồm tiêu đề, mô tả của ExampleSection, thẻ mô tả, và cả dữ liệu giả/dummy text bên trong component).
 
 **Mục tiêu cuối cùng:** Code phải sạch, có tính hướng dẫn cao, UI hiển thị chuyên nghiệp và đồng bộ 100% với form mẫu của Component `Accordion`.

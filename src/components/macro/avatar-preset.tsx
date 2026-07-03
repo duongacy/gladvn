@@ -1,11 +1,11 @@
 import * as React from "react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/micro/avatar";
 
-export interface AvatarPresetProps extends React.ComponentProps<typeof Avatar> {
+export type AvatarPresetProps = React.ComponentProps<typeof Avatar> & {
   src?: string;
   alt?: string;
   fallback?: React.ReactNode;
-}
+};
 
 function getInitials(name: string) {
   const parts = name.split(" ").filter(Boolean);

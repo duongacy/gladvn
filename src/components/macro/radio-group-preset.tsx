@@ -11,7 +11,7 @@ export interface RadioGroupOption {
   disabled?: boolean;
 }
 
-export interface RadioGroupPresetProps extends Omit<React.ComponentProps<typeof RadioGroup>, "className"> {
+export type RadioGroupPresetProps = Omit<React.ComponentProps<typeof RadioGroup>, "className"> & {
   className?: string;
   options: RadioGroupOption[];
   orientation?: "vertical" | "horizontal";
@@ -19,7 +19,7 @@ export interface RadioGroupPresetProps extends Omit<React.ComponentProps<typeof 
   description?: React.ReactNode;
   errorMessage?: React.ReactNode;
   showError?: boolean;
-}
+};
 
 const RadioGroupPreset = React.forwardRef<
   React.ElementRef<typeof RadioGroup>,

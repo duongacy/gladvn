@@ -1,22 +1,14 @@
 import * as React from "react";
-import { CheckIcon, ChevronsUpDownIcon } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/micro/button";
 import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from "@/components/micro/command";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/micro/popover";
+  Combobox,
+  ComboboxContent,
+  ComboboxEmpty,
+  ComboboxGroup,
+  ComboboxInput,
+  ComboboxItem,
+  ComboboxList,
+} from "@/components/micro/combobox";
 import { FieldPreset } from "./field-preset";
-import { useControllableState } from "@/hooks/use-controllable-state";
 
 export interface ComboboxOption {
   label: string;
@@ -39,10 +31,11 @@ export interface ComboboxPresetProps {
   errorMessage?: React.ReactNode;
   showError?: boolean;
   id?: string;
+  size?: "sm" | "md" | "lg";
 }
 
 const ComboboxPreset = React.forwardRef<
-  React.ElementRef<typeof Button>,
+  HTMLInputElement,
   ComboboxPresetProps
 >(({
   options,
@@ -50,7 +43,7 @@ const ComboboxPreset = React.forwardRef<
   defaultValue,
   onValueChange,
   placeholder = "Select an option",
-  searchPlaceholder = "Search...",
+  searchPlaceholder,
   emptyText = "No results found.",
   className,
   disabled,
@@ -59,73 +52,52 @@ const ComboboxPreset = React.forwardRef<
   errorMessage,
   showError = true,
   id,
+  size = "md",
 }, ref) => {
   const generatedId = React.useId();
   const inputId = id || generatedId;
 
-  const [open, setOpen] = React.useState(false);
-  
-  const [currentValue = "", setCurrentValue] = useControllableState({
-    prop: value,
-    defaultProp: defaultValue,
-    onChange: onValueChange,
-  });
-
-  const handleSelect = (selectedValue: string) => {
-    const newValue = selectedValue === currentValue ? "" : selectedValue;
-    setCurrentValue(newValue);
-    setOpen(false);
-  };
-
-  const selectedOption = options.find((opt) => opt.value === currentValue);
+  const itemValues = React.useMemo(() => options.map((o) => o.value), [options]);
 
   return (
     <FieldPreset label={label} description={description} errorMessage={errorMessage} showError={showError} className={className} orientation="vertical" htmlFor={inputId}>
-      <Popover open={open} onOpenChange={setOpen}>
-        <PopoverTrigger
-          render={
-            <Button
-              ref={ref}
-              id={inputId}
-              variant="outline"
-              role="combobox"
-              aria-expanded={open}
-              aria-invalid={!!errorMessage || undefined}
-              className={cn("w-full justify-between")}
-              disabled={disabled}
-            >
-              {selectedOption ? selectedOption.label : placeholder}
-              <ChevronsUpDownIcon className="opacity-50" />
-            </Button>
-          }
+      <Combobox
+        items={itemValues}
+        value={value}
+        defaultValue={defaultValue}
+        onValueChange={
+          onValueChange &&
+          ((v: string | null) => {
+            if (v !== null) onValueChange(v);
+          })
+        }
+        disabled={disabled}
+      >
+        <ComboboxInput
+          ref={ref}
+          id={inputId}
+          size={size}
+          placeholder={placeholder || searchPlaceholder}
+          aria-invalid={!!errorMessage || undefined}
+          className="w-full"
         />
-        <PopoverContent className="w-full p-0">
-          <Command>
-            <CommandInput placeholder={searchPlaceholder} />
-            <CommandList>
-              <CommandEmpty>{emptyText}</CommandEmpty>
-              <CommandGroup>
-                {options.map((option) => (
-                  <CommandItem
-                    key={option.value}
-                    value={option.value}
-                    disabled={option.disabled}
-                    onSelect={handleSelect}
-                  >
-                    <CheckIcon
-                      className={cn(
-                        "opacity-0 transition-opacity",
-                        currentValue === option.value && "opacity-100"
-                      )}
-                    />
-                    {option.label}
-                  </CommandItem>
-                ))}
-              </CommandGroup>
-            </CommandList>
-          </Command>
-        </PopoverContent>
-      </Popover>
+        <ComboboxContent>
+          <ComboboxEmpty>{emptyText}</ComboboxEmpty>
+          <ComboboxList>
+            <ComboboxGroup>
+              {options.map((option) => (
+                <ComboboxItem
+                  key={option.value}
+                  value={option.value}
+                  disabled={option.disabled}
+                >
+                  {option.label}
+                </ComboboxItem>
+              ))}
+            </ComboboxGroup>
+          </ComboboxList>
+        </ComboboxContent>
+      </Combobox>
     </FieldPreset>
   );
 });

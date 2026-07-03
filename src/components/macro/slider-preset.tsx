@@ -8,13 +8,13 @@ import {
 } from "@/components/micro/slider";
 import { FieldPreset } from "./field-preset";
 
-export interface SliderPresetProps extends Omit<React.ComponentProps<typeof Slider>, "className"> {
+export type SliderPresetProps = Omit<React.ComponentProps<typeof Slider>, "className"> & {
   className?: string;
   label?: React.ReactNode;
   description?: React.ReactNode;
   errorMessage?: React.ReactNode;
   showError?: boolean;
-}
+};
 
 const SliderPreset = React.forwardRef<
   React.ElementRef<typeof Slider>,

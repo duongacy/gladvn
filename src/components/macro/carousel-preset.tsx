@@ -9,12 +9,12 @@ import {
 } from "@/components/micro/carousel";
 import { cn } from "@/lib/utils";
 
-export interface CarouselPresetProps extends React.ComponentProps<typeof Carousel> {
+export type CarouselPresetProps = React.ComponentProps<typeof Carousel> & {
   items: React.ReactNode[];
   showArrows?: boolean;
   showDots?: boolean;
   itemClassName?: string;
-}
+};
 
 const CarouselPreset = React.forwardRef<
   React.ElementRef<typeof Carousel>,

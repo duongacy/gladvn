@@ -3,13 +3,13 @@ import { CheckIcon } from "lucide-react";
 import { Checkbox, CheckboxIndicator } from "@/components/micro/checkbox";
 import { FieldPreset } from "./field-preset";
 
-export interface CheckboxPresetProps extends Omit<React.ComponentProps<typeof Checkbox>, "className"> {
+export type CheckboxPresetProps = Omit<React.ComponentProps<typeof Checkbox>, "className"> & {
   className?: string;
   label?: React.ReactNode;
   description?: React.ReactNode;
   errorMessage?: React.ReactNode;
   showError?: boolean;
-}
+};
 
 const CheckboxPreset = React.forwardRef<
   React.ElementRef<typeof Checkbox>,

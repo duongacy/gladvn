@@ -13,10 +13,9 @@ export interface AccordionPresetItem {
   disabled?: boolean;
 }
 
-export interface AccordionPresetProps
-  extends React.ComponentProps<typeof Accordion> {
+export type AccordionPresetProps = React.ComponentProps<typeof Accordion> & {
   items: AccordionPresetItem[];
-}
+};
 
 const AccordionPreset = React.forwardRef<
   React.ElementRef<typeof Accordion>,

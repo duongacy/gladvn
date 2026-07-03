@@ -7,14 +7,14 @@ import {
   FieldError,
 } from "@/components/micro/field";
 
-export interface FieldPresetProps extends Omit<React.ComponentProps<typeof Field>, "error"> {
+export type FieldPresetProps = Omit<React.ComponentProps<typeof Field>, "error"> & {
   label?: React.ReactNode;
   description?: React.ReactNode;
   errorMessage?: React.ReactNode;
   showError?: boolean;
   htmlFor?: string;
   children: React.ReactNode;
-}
+};
 
 const FieldPreset = React.forwardRef<
   React.ElementRef<typeof Field>,

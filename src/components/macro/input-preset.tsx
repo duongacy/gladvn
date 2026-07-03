@@ -2,13 +2,13 @@ import React from "react";
 import { Input, InputProps } from "@/components/micro/input";
 import { FieldPreset } from "./field-preset";
 
-export interface InputPresetProps extends Omit<InputProps, "className"> {
+export type InputPresetProps = Omit<InputProps, "className"> & {
   className?: string;
   label?: React.ReactNode;
   description?: React.ReactNode;
   errorMessage?: React.ReactNode;
   showError?: boolean;
-}
+};
 
 export const InputPreset = React.forwardRef<HTMLInputElement, InputPresetProps>(
   (

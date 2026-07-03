@@ -2,13 +2,13 @@ import React from "react";
 import { Textarea, TextareaProps } from "@/components/micro/textarea";
 import { FieldPreset } from "./field-preset";
 
-export interface TextareaPresetProps extends Omit<TextareaProps, "className"> {
+export type TextareaPresetProps = Omit<TextareaProps, "className"> & {
   className?: string;
   label?: React.ReactNode;
   description?: React.ReactNode;
   errorMessage?: React.ReactNode;
   showError?: boolean;
-}
+};
 
 export const TextareaPreset = React.forwardRef<
   HTMLTextAreaElement,

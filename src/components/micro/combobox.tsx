@@ -4,6 +4,13 @@
  * - WCAG AAA/AA
  * - Form Control Parity
  * - CSS Delegated Logic
+ * 
+ * 🚨 CRITICAL RULE FOR AI:
+ * When using <Combobox>, YOU MUST pass the `items` prop (an array of data).
+ * Headless UI libraries rely on this prop to build a stable internal item registry.
+ * If omitted, the library is forced to scan the DOM on every render to discover items,
+ * which causes full list re-renders, layout recalculations, and severe "content jumping" bugs.
+ * DO NOT rely purely on static children mapping for Base UI collection components.
  */
 "use client";
 
@@ -21,7 +28,21 @@ import {
 import { ThemeWrapper } from "@/components/micro/theme-provider";
 import { ChevronDownIcon, XIcon, CheckIcon } from "lucide-react";
 
-const Combobox = ComboboxPrimitive.Root;
+const ComboboxContext = React.createContext<{
+  anchor: Element | null;
+  setAnchor: (el: Element | null) => void;
+}>({ anchor: null, setAnchor: () => {} });
+
+function Combobox<Value = any, Multiple extends boolean | undefined = false>(
+  props: ComboboxPrimitive.Root.Props<Value, Multiple>
+) {
+  const [anchor, setAnchor] = React.useState<Element | null>(null);
+  return (
+    <ComboboxContext.Provider value={{ anchor, setAnchor }}>
+      <ComboboxPrimitive.Root {...props} />
+    </ComboboxContext.Provider>
+  );
+}
 
 function ComboboxValue({ ...props }: ComboboxPrimitive.Value.Props) {
   return <ComboboxPrimitive.Value data-slot="combobox-value" {...props} />;
@@ -74,8 +95,9 @@ function ComboboxInput({
   showClear?: boolean;
   size?: Size;
 }) {
+  const { setAnchor } = React.useContext(ComboboxContext);
   return (
-    <InputGroup size={size} className={cn("w-auto", className)}>
+    <InputGroup ref={setAnchor} size={size} className={cn("w-full", className)}>
       <ComboboxPrimitive.Input
         render={<InputGroupInput disabled={disabled} />}
         {...(props as ComboboxPrimitive.Input.Props)}
@@ -108,6 +130,7 @@ function ComboboxContent({
     ComboboxPrimitive.Positioner.Props,
     "side" | "align" | "sideOffset" | "alignOffset" | "anchor"
   >) {
+  const { anchor: contextAnchor } = React.useContext(ComboboxContext);
   return (
     <ComboboxPrimitive.Portal>
       <ThemeWrapper>
@@ -116,14 +139,14 @@ function ComboboxContent({
           sideOffset={sideOffset}
           align={align}
           alignOffset={alignOffset}
-          anchor={anchor}
+          anchor={anchor || contextAnchor}
           className="isolate z-50"
         >
           <ComboboxPrimitive.Popup
             data-slot="combobox-content"
             data-chips={!!anchor}
             className={cn(
-              "group/combobox-content relative max-h-(--available-height) w-(--anchor-width) max-w-(--available-width) min-w-[calc(var(--anchor-width)+--spacing(7))] origin-(--transform-origin) overflow-hidden rounded-lg bg-popover text-popover-foreground shadow-md ring-1 ring-foreground/10 duration-100 data-[chips=true]:min-w-(--anchor-width) data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 [&_[data-slot=input-group]]:m-1 [&_[data-slot=input-group]]:mb-0 [&_[data-slot=input-group]]:border-input/30 [&_[data-slot=input-group]]:bg-input/30 [&_[data-slot=input-group]]:shadow-none data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
+              "group/combobox-content relative max-h-(--available-height) min-w-(--anchor-width) max-w-(--available-width) origin-(--transform-origin) overflow-x-hidden overflow-y-auto rounded-lg bg-popover text-popover-foreground shadow-md ring-1 ring-foreground/10 duration-100 p-1 data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 [&_[data-slot=input-group]]:mb-1 [&_[data-slot=input-group]]:w-full [&_[data-slot=input-group]]:border-input/30 [&_[data-slot=input-group]]:bg-input/30 [&_[data-slot=input-group]]:shadow-none data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
               className,
             )}
             {...props}
@@ -139,7 +162,7 @@ function ComboboxList({ className, ...props }: ComboboxPrimitive.List.Props) {
     <ComboboxPrimitive.List
       data-slot="combobox-list"
       className={cn(
-        "no-scrollbar max-h-[min(calc(--spacing(72)---spacing(9)),calc(var(--available-height)---spacing(9)))] scroll-py-1 overflow-y-auto overscroll-contain p-1 data-empty:p-0",
+        "no-scrollbar max-h-[min(calc(--spacing(72)-(--spacing(9))),calc(var(--available-height)-(--spacing(9))))] scroll-py-1 overflow-y-auto overscroll-contain data-empty:hidden",
         className,
       )}
       {...props}
@@ -156,7 +179,7 @@ function ComboboxItem<T = any>({
     <ComboboxPrimitive.Item
       data-slot="combobox-item"
       className={cn(
-        "relative flex w-full cursor-default items-center gap-2 rounded-md py-1 pr-8 pl-1.5 text-sm outline-hidden select-none data-highlighted:bg-accent data-highlighted:text-accent-foreground not-data-[variant=destructive]:data-highlighted:[&>*]:text-accent-foreground data-disabled:pointer-events-none data-disabled:opacity-50 [&>svg]:pointer-events-none [&>svg]:shrink-0 [&>svg:not([class*='size-'])]:size-4",
+        "relative flex w-full cursor-default items-center gap-2 rounded-md py-1 pr-8 pl-1.5 text-sm outline-hidden select-none data-highlighted:bg-accent data-highlighted:text-accent-foreground not-data-[variant=destructive]:data-highlighted:[&>svg]:text-accent-foreground data-disabled:pointer-events-none data-disabled:opacity-50 [&>svg]:pointer-events-none [&>svg]:shrink-0 [&>svg:not([class*='size-'])]:size-4",
         className,
       )}
       {...(props as ComboboxPrimitive.Item.Props)}
@@ -222,7 +245,7 @@ function ComboboxSeparator({
   return (
     <ComboboxPrimitive.Separator
       data-slot="combobox-separator"
-      className={cn("-mx-1 my-1 h-px bg-border", className)}
+      className={cn("my-1 h-px bg-border", className)}
       {...props}
     />
   );

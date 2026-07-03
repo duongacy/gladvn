@@ -7,10 +7,10 @@ import {
   ProgressValue,
 } from "@/components/micro/progress";
 
-export interface ProgressPresetProps extends React.ComponentProps<typeof Progress> {
+export type ProgressPresetProps = React.ComponentProps<typeof Progress> & {
   label?: React.ReactNode;
   showValue?: boolean;
-}
+};
 
 const ProgressPreset = React.forwardRef<
   React.ElementRef<typeof Progress>,

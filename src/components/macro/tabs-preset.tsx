@@ -8,9 +8,9 @@ export interface TabsPresetItem {
   disabled?: boolean;
 }
 
-export interface TabsPresetProps extends React.ComponentProps<typeof Tabs> {
+export type TabsPresetProps = React.ComponentProps<typeof Tabs> & {
   items: TabsPresetItem[];
-}
+};
 
 const TabsPreset = React.forwardRef<
   React.ElementRef<typeof Tabs>,

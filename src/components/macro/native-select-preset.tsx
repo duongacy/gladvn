@@ -5,14 +5,13 @@ import {
 } from "@/components/micro/native-select";
 import { FieldPreset } from "./field-preset";
 
-export interface NativeSelectPresetProps
-  extends Omit<NativeSelectProps, "className"> {
+export type NativeSelectPresetProps = Omit<NativeSelectProps, "className"> & {
   className?: string;
   label?: React.ReactNode;
   description?: React.ReactNode;
   errorMessage?: React.ReactNode;
   showError?: boolean;
-}
+};
 
 export const NativeSelectPreset = React.forwardRef<
   HTMLSelectElement,

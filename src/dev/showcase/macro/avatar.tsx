@@ -7,7 +7,7 @@ import {
 import { type Size } from "@/lib/types";
 import { AvatarPreset } from "@/components/macro/avatar-preset";
 import { SelectPreset } from "@/components/macro/select-preset";
-import { AvatarGroup, AvatarGroupCount, AvatarBadge } from "@/components/micro/avatar";
+import { AvatarGroup, AvatarGroupCount } from "@/components/micro/avatar";
 
 export default function MacroAvatarShowcase() {
   const [globalSize, setGlobalSize] = useState<Size>("md");

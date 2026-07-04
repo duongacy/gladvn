@@ -39,17 +39,11 @@ export default function MacroAvatarShowcase() {
           </div>
         </ExampleSection>
 
-        <ExampleSection label="With Badge" description="Preset avatar composed with a custom badge.">
+        <ExampleSection label="With Status" description="Preset avatar configured with standard status flags.">
           <div className="flex items-center gap-4">
-            <AvatarPreset size={globalSize} src="https://github.com/shadcn.png" alt="@shadcn">
-              <AvatarBadge className="bg-green-500" />
-            </AvatarPreset>
-            <AvatarPreset size={globalSize} alt="Alice">
-              <AvatarBadge className="bg-yellow-500" />
-            </AvatarPreset>
-            <AvatarPreset size={globalSize}>
-              <AvatarBadge className="bg-muted-foreground/50" />
-            </AvatarPreset>
+            <AvatarPreset size={globalSize} src="https://github.com/shadcn.png" alt="@shadcn" status="online" />
+            <AvatarPreset size={globalSize} alt="Alice" status="away" />
+            <AvatarPreset size={globalSize} status="offline" />
           </div>
         </ExampleSection>
         <ExampleSection label="Avatar Group" description="Stacking preset avatars using AvatarGroup.">

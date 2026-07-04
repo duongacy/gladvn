@@ -1,10 +1,18 @@
 import * as React from "react";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/micro/avatar";
+import { Avatar, AvatarImage, AvatarFallback, AvatarBadge } from "@/components/micro/avatar";
 
 export type AvatarPresetProps = React.ComponentProps<typeof Avatar> & {
   src?: string;
   alt?: string;
   fallback?: React.ReactNode;
+  status?: "online" | "offline" | "away" | "busy";
+};
+
+const statusColors = {
+  online: "bg-success",
+  away: "bg-warning",
+  busy: "bg-destructive",
+  offline: "bg-muted-foreground/50",
 };
 
 function getInitials(name: string) {
@@ -17,13 +25,14 @@ function getInitials(name: string) {
 const AvatarPreset = React.forwardRef<
   React.ComponentRef<typeof Avatar>,
   AvatarPresetProps
->(({ src, alt = "", fallback, ...avatarProps }, ref) => {
+>(({ src, alt = "", fallback, status, ...avatarProps }, ref) => {
   const generatedFallback = fallback ?? getInitials(alt);
 
   return (
     <Avatar ref={ref} {...avatarProps}>
       <AvatarImage src={src} alt={alt} />
       <AvatarFallback>{generatedFallback}</AvatarFallback>
+      {status && <AvatarBadge className={statusColors[status]} />}
       {avatarProps.children}
     </Avatar>
   );

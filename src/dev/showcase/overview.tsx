@@ -216,7 +216,7 @@ export default function OverviewSection() {
         <div className="text-center max-w-2xl mx-auto space-y-4">
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">Nguyên tắc thiết kế cốt lõi</h2>
           <p className="text-muted-foreground text-lg">
-            Toàn bộ thư viện được xây dựng dựa trên <strong className="text-foreground">12 nguyên tắc (Design Principles)</strong> khắt khe để đảm bảo tính nhất quán, dễ bảo trì và mang lại DX tốt nhất.
+            Toàn bộ thư viện được xây dựng dựa trên <strong className="text-foreground">11 nguyên tắc (Design Principles)</strong> khắt khe để đảm bảo tính nhất quán, dễ bảo trì và mang lại DX tốt nhất.
           </p>
         </div>
 
@@ -232,42 +232,37 @@ export default function OverviewSection() {
               </div>
               <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">Micro & Macro Architecture</h3>
               <p className="text-muted-foreground max-w-lg text-lg leading-relaxed">
-                Tách biệt rõ ràng giữa Core components linh hoạt (Micro) và các pattern tiện dụng (Macro). 
-                Macro luôn tái sử dụng 100% logic từ Micro, không duplicate code.
+                Tách biệt rõ ràng Core components linh hoạt (Micro) và các pattern tiện dụng (Macro). 
+                <strong className="text-foreground">Micro tuyệt đối không áp đặt layout phức tạp (Opinionated). Mọi logic lắp ráp giao diện đều phải uỷ quyền (Delegate) hoàn toàn cho Macro.</strong>
               </p>
             </div>
-            <div className="relative z-10 mt-auto p-5 rounded-2xl border border-warning/30 bg-warning/5 backdrop-blur-md shadow-sm">
-              <div className="text-warning text-sm font-semibold flex items-center gap-3">
-                <div className="p-2 bg-warning/20 rounded-full">
-                  <ZapIcon className="size-4" />
+            <div className="relative z-10 mt-auto pt-6">
+              <div className="p-4 rounded-xl bg-foreground/5 border border-border/50 text-[11px] sm:text-xs font-mono shadow-inner space-y-4">
+                <div>
+                  <div className="text-success font-semibold mb-2 flex items-center gap-2">✅ Uỷ quyền cho Macro (Preset):</div>
+                  <div className="text-muted-foreground pl-3 border-l-2 border-success/50 leading-relaxed">
+                    <span className="text-warning">{"/* Macro thấy toàn bộ cấu trúc nên gắn class thẳng vào đích */"}</span><br/>
+                    <span className="text-foreground">{"<AlertDialogFooter>"}</span><br/>
+                    <span className="pl-4">{"<Button variant=\"ghost\">Trợ giúp</Button>"}</span><br/>
+                    <span className="pl-4 text-success">{"<Button className=\"ml-auto\">Xác nhận</Button>"}</span><br/>
+                    <span className="text-foreground">{"</AlertDialogFooter>"}</span>
+                  </div>
                 </div>
-                Tính năng mới luôn được implement ở tầng Micro trước khi apply vào Macro.
+                <div className="border-t border-border/50 pt-3">
+                  <div className="text-destructive font-semibold mb-2 flex items-center gap-2">❌ Ép Layout ở Micro (Primitive):</div>
+                  <div className="text-muted-foreground pl-3 border-l-2 border-destructive/50 opacity-60 leading-relaxed">
+                    <span className="text-warning">{"/* Micro mù mờ về thẻ con nên phải dùng Magic CSS đoán mò */"}</span><br/>
+                    <span className="text-foreground">{"<AlertDialogFooter"}</span><br/>
+                    <span className="pl-4 text-destructive line-through">{"className=\"[&>*:last-child]:ml-auto\""}</span><br/>
+                    <span className="text-foreground">{">"}</span><br/>
+                    <span className="pl-4">{"{children}"}</span><br/>
+                    <span className="text-foreground">{"</AlertDialogFooter>"}</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Data-Driven (Spans 1 column, full height) */}
-          <div className="rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
-             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
-              <DatabaseIcon className="w-56 h-56" />
-            </div>
-            <div className="relative z-10 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-info/10 text-info text-xs font-bold uppercase tracking-wider">
-                <DatabaseIcon className="size-3.5" /> Nguyên tắc 2
-              </div>
-              <h3 className="text-2xl font-extrabold tracking-tight">Data-Driven Design</h3>
-              <p className="text-muted-foreground text-base leading-relaxed">
-                Các component danh sách (như Select, Combobox) luôn nhận data array qua prop <code className="text-foreground bg-foreground/10 px-1 rounded">items</code> thay vì tự loop <code>map()</code> HTML.
-              </p>
-            </div>
-            <div className="relative z-10 mt-auto pt-8">
-              <div className="p-4 rounded-xl bg-foreground/5 border border-border/50 text-[11px] sm:text-xs overflow-hidden text-muted-foreground font-mono shadow-inner space-y-2">
-                <div className="text-success font-semibold">{"<Select items={data} />"}</div>
-                <div className="text-destructive font-semibold opacity-50 line-through">{"<Select>"}</div>
-                <div className="text-destructive font-semibold opacity-50 pl-4 line-through">{"{data.map(...)}"}</div>
-              </div>
-            </div>
-          </div>
 
           {/* No Magic CSS */}
           <div className="rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
@@ -276,7 +271,7 @@ export default function OverviewSection() {
             </div>
             <div className="relative z-10 space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-destructive/10 text-destructive text-xs font-bold uppercase tracking-wider">
-                <ShieldCheckIcon className="size-3.5" /> Nguyên tắc 3
+                <ShieldCheckIcon className="size-3.5" /> Nguyên tắc 2
               </div>
               <h3 className="text-2xl font-extrabold tracking-tight">No Magic CSS</h3>
               <p className="text-muted-foreground text-base leading-relaxed">
@@ -302,7 +297,7 @@ export default function OverviewSection() {
             </div>
             <div className="relative z-10 space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 text-secondary text-xs font-bold uppercase tracking-wider">
-                <SlidersHorizontalIcon className="size-3.5" /> Nguyên tắc 4
+                <SlidersHorizontalIcon className="size-3.5" /> Nguyên tắc 3
               </div>
               <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">Orthogonal Styling</h3>
               <p className="text-muted-foreground text-lg leading-relaxed max-w-lg">
@@ -332,7 +327,7 @@ export default function OverviewSection() {
             </div>
             <div className="relative z-10 space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
-                <ComponentIcon className="size-3.5" /> Nguyên tắc 5
+                <ComponentIcon className="size-3.5" /> Nguyên tắc 4
               </div>
               <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">Zero-prop Defaults</h3>
               <p className="text-muted-foreground text-lg leading-relaxed max-w-lg">
@@ -358,7 +353,7 @@ export default function OverviewSection() {
             </div>
             <div className="relative z-10 space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-warning/10 text-warning text-xs font-bold uppercase tracking-wider">
-                <LayersIcon className="size-3.5" /> Nguyên tắc 6
+                <LayersIcon className="size-3.5" /> Nguyên tắc 5
               </div>
               <h3 className="text-2xl font-extrabold tracking-tight">AHA Principle</h3>
               <p className="text-muted-foreground text-base leading-relaxed">
@@ -381,7 +376,7 @@ export default function OverviewSection() {
             </div>
             <div className="relative z-10 space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-info/10 text-info text-xs font-bold uppercase tracking-wider">
-                <PaintbrushIcon className="size-3.5" /> Nguyên tắc 7
+                <PaintbrushIcon className="size-3.5" /> Nguyên tắc 6
               </div>
               <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">CSS Delegated Logic</h3>
               <p className="text-muted-foreground text-lg leading-relaxed max-w-lg">
@@ -397,7 +392,7 @@ export default function OverviewSection() {
             </div>
             <div className="relative z-10 space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
-                <CopyIcon className="size-3.5" /> Nguyên tắc 8
+                <CopyIcon className="size-3.5" /> Nguyên tắc 7
               </div>
               <h3 className="text-2xl font-extrabold tracking-tight">Strict Polymorphism</h3>
               <p className="text-muted-foreground text-base leading-relaxed">
@@ -413,7 +408,7 @@ export default function OverviewSection() {
             </div>
             <div className="relative z-10 space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 text-secondary text-xs font-bold uppercase tracking-wider">
-                <BoxIcon className="size-3.5" /> Nguyên tắc 9
+                <BoxIcon className="size-3.5" /> Nguyên tắc 8
               </div>
               <h3 className="text-2xl font-extrabold tracking-tight">Exhaustive Union Types</h3>
               <p className="text-muted-foreground text-base leading-relaxed">
@@ -429,7 +424,7 @@ export default function OverviewSection() {
             </div>
             <div className="relative z-10 space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-success/10 text-success text-xs font-bold uppercase tracking-wider">
-                <SparklesIcon className="size-3.5" /> Nguyên tắc 10
+                <SparklesIcon className="size-3.5" /> Nguyên tắc 9
               </div>
               <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">Code Self-documenting</h3>
               <p className="text-muted-foreground text-lg leading-relaxed max-w-lg">
@@ -445,7 +440,7 @@ export default function OverviewSection() {
             </div>
             <div className="relative z-10 space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-warning/10 text-warning text-xs font-bold uppercase tracking-wider">
-                <SlidersHorizontalIcon className="size-3.5" /> Nguyên tắc 11
+                <SlidersHorizontalIcon className="size-3.5" /> Nguyên tắc 10
               </div>
               <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">No Default Variants</h3>
               <p className="text-muted-foreground text-lg leading-relaxed max-w-lg">
@@ -461,7 +456,7 @@ export default function OverviewSection() {
             </div>
             <div className="relative z-10 space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-destructive/10 text-destructive text-xs font-bold uppercase tracking-wider">
-                <BlocksIcon className="size-3.5" /> Nguyên tắc 12
+                <BlocksIcon className="size-3.5" /> Nguyên tắc 11
               </div>
               <h3 className="text-2xl font-extrabold tracking-tight">Pure Composition</h3>
               <p className="text-muted-foreground text-base leading-relaxed">

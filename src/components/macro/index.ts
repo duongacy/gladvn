@@ -1,5 +1,6 @@
 export * from "./accordion-preset";
 export * from "./alert-preset";
+export * from "./alert-dialog-preset";
 export * from "./avatar-preset";
 export * from "./breadcrumb-preset";
 export * from "./carousel-preset";

@@ -104,6 +104,7 @@ export const MICRO_COMPONENTS = [
 export const MACRO_COMPONENTS = [
   { id: "macro-accordion", label: "Accordion" },
   { id: "macro-alert", label: "Alert" },
+  { id: "macro-alert-dialog", label: "Alert Dialog" },
   { id: "macro-avatar", label: "Avatar" },
   { id: "macro-breadcrumb", label: "Breadcrumb" },
   { id: "macro-carousel", label: "Carousel" },

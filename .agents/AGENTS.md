@@ -92,3 +92,9 @@ When creating or modifying showcase files in `src/dev/showcase/*.tsx`, you MUST 
 
 - **Mandatory for `forwardRef`**: Whenever you define a component using `React.forwardRef`, you MUST explicitly assign a `displayName` to it immediately after its declaration (e.g., `MyComponent.displayName = "MyComponent";`).
 - **Why**: `React.forwardRef` creates an anonymous component in the React DevTools tree (often displaying as `ForwardRef` or `Anonymous`), making debugging extremely difficult for consumers of the library. Explicitly setting the `displayName` ensures the component is easily identifiable in the tree.
+
+## 14. Responsive Design: Container Queries vs Media Queries
+
+- **Use Container Queries (`@container`, `@sm:`) for Floating/Reusable Components**: Components that can be placed anywhere (e.g., Cards, List Items, Avatar Groups) MUST use CSS Container Queries so their internal layout adapts to their physical container width, not the screen width.
+- **Use Media Queries (`sm:`, `md:`) for Fixed/Viewport-Bound Components**: Components that attach to the viewport (e.g., `AlertDialog`, `Dialog`, `Sheet`, `Drawer`, `Tooltip`, `Popover`, `Sidebar`) MUST use standard Media Queries. 
+- **Reasoning**: Modals and viewport-bound components scale almost 1:1 with the screen. Using `@container` for them is overkill and provides zero practical benefit over standard `sm:` modifiers, while keeping `sm:` ensures 100% legacy stability for core structural overlays.

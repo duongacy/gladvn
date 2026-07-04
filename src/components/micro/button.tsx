@@ -57,9 +57,9 @@ const buttonVariants = cva(
 
       // ── Size ─────────────────────────────────────────────────────
       size: {
-        sm: "h-7 gap-1.5 px-3 text-xs [&>svg:not([class*='size-'])]:size-3.5 data-[icon-only=true]:w-7 data-[icon-only=true]:px-0",
-        md: "h-8 gap-2 px-4 [&_svg:not([class*='size-'])]:size-4 data-[icon-only=true]:w-8 data-[icon-only=true]:px-0",
-        lg: "h-9 gap-2 px-5 [&_svg:not([class*='size-'])]:size-5 data-[icon-only=true]:w-9 data-[icon-only=true]:px-0",
+        sm: "h-7 gap-1.5 px-3 text-xs data-[icon=true]:w-7 data-[icon=true]:px-0",
+        md: "h-8 gap-2 px-4 data-[icon=true]:w-8 data-[icon=true]:px-0",
+        lg: "h-9 gap-2 px-5 data-[icon=true]:w-9 data-[icon=true]:px-0",
       },
     },
 
@@ -290,61 +290,40 @@ const buttonVariants = cva(
 
 import * as React from "react";
 
-function flattenChildren(children: React.ReactNode): React.ReactNode[] {
-  const flat: React.ReactNode[] = [];
-  React.Children.forEach(children, (child) => {
-    if (React.isValidElement(child) && child.type === React.Fragment) {
-      flat.push(
-        ...flattenChildren(
-          (child.props as { children?: React.ReactNode }).children,
-        ),
-      );
-    } else {
-      flat.push(child);
-    }
-  });
-  return flat;
-}
-
 /**
  * @description Displays a button or a component that looks like a button.
  * @example
  * <Button variant="solid" color="primary">Click me</Button>
  */
-function Button({
+export interface ButtonProps
+  extends ButtonPrimitive.Props,
+    VariantProps<typeof buttonVariants> {
+  icon?: boolean;
+}
+
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({
   className,
   variant = "solid",
   color = "primary",
   size = "md",
+  icon,
   children,
   ...props
-}: ButtonPrimitive.Props & VariantProps<typeof buttonVariants>) {
-  // Auto-detect if the button contains exactly one element (like an icon) and no text.
-  // Recursively flattens Fragments so <>{icon}{text}</> doesn't mistakenly trigger icon-only.
-  const isIconOnly = React.useMemo(() => {
-    const childrenArray = flattenChildren(children);
-    const visibleChildren = childrenArray.filter((child) => {
-      if (typeof child === "string") return child.trim() !== "";
-      if (typeof child === "number") return true;
-      return child;
-    });
-    return (
-      visibleChildren.length === 1 && React.isValidElement(visibleChildren[0])
-    );
-  }, [children]);
-
+}, ref) => {
   return (
     <ButtonPrimitive
+      ref={ref}
       data-slot="button"
       data-color={color}
       data-variant={variant}
-      {...(isIconOnly && { "data-icon-only": "true" })}
+      {...(icon && { "data-icon": "true" })}
       className={cn(buttonVariants({ variant, color, size, className }))}
       {...props}
     >
       {children}
     </ButtonPrimitive>
   );
-}
+});
+Button.displayName = "Button";
 
 export { Button, buttonVariants };

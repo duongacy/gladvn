@@ -112,11 +112,11 @@ export default function ButtonShowcase() {
         >
           <div className="flex flex-wrap items-center gap-3">
             <Button size={globalSize} variant="outline">
-              <MailIcon />
+              <MailIcon className="size-4" />
               Login with Email
             </Button>
             <Button size={globalSize}>
-              <DownloadIcon />
+              <DownloadIcon className="size-4" />
               Download
             </Button>
           </div>
@@ -127,14 +127,14 @@ export default function ButtonShowcase() {
           description="Square buttons with only an icon."
         >
           <div className="flex flex-wrap items-center gap-3">
-            <Button size={globalSize} variant="outline" className="px-2.5">
-              <PlusIcon />
+            <Button size={globalSize} variant="outline" icon={true}>
+              <PlusIcon className="size-4" />
             </Button>
-            <Button size={globalSize} variant="ghost" className="px-2.5">
-              <MailIcon />
+            <Button size={globalSize} variant="ghost" icon={true}>
+              <MailIcon className="size-4" />
             </Button>
-            <Button size={globalSize} variant="soft" className="px-2.5">
-              <DownloadIcon />
+            <Button size={globalSize} variant="soft" icon={true}>
+              <DownloadIcon className="size-4" />
             </Button>
           </div>
         </ExampleSection>

@@ -32,7 +32,7 @@ const AvatarPreset = React.forwardRef<
     <Avatar ref={ref} {...avatarProps}>
       <AvatarImage src={src} alt={alt} />
       <AvatarFallback>{generatedFallback}</AvatarFallback>
-      {status && <AvatarBadge className={statusColors[status]} />}
+      {status && <AvatarBadge className={`right-0 bottom-0 ${statusColors[status]}`} />}
       {avatarProps.children}
     </Avatar>
   );

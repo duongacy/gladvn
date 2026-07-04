@@ -113,7 +113,7 @@ export default function AvatarShowcase() {
             <Avatar size={globalSize}>
               <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
               <AvatarFallback>CN</AvatarFallback>
-              <AvatarBadge className="bg-green-500" />
+              <AvatarBadge className="right-0 bottom-0 bg-green-500" />
             </Avatar>
             <span className="text-xs text-muted-foreground">Online</span>
           </div>
@@ -121,7 +121,7 @@ export default function AvatarShowcase() {
             <Avatar size={globalSize}>
               <AvatarImage src="https://github.com/vercel.png" alt="@vercel" />
               <AvatarFallback>VC</AvatarFallback>
-              <AvatarBadge className="bg-yellow-500" />
+              <AvatarBadge className="right-0 bottom-0 bg-yellow-500" />
             </Avatar>
             <span className="text-xs text-muted-foreground">Away</span>
           </div>
@@ -129,7 +129,7 @@ export default function AvatarShowcase() {
             <Avatar size={globalSize}>
               <AvatarImage src="https://github.com/leerob.png" alt="@leerob" />
               <AvatarFallback>LR</AvatarFallback>
-              <AvatarBadge className="bg-muted-foreground/50" />
+              <AvatarBadge className="right-0 bottom-0 bg-muted-foreground/50" />
             </Avatar>
             <span className="text-xs text-muted-foreground">Offline</span>
           </div>

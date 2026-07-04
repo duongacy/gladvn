@@ -48,15 +48,17 @@ const AlertPreset = React.forwardRef<HTMLDivElement, AlertPresetProps>(
     };
 
     return (
-      <Alert ref={ref} color={color} className={cn("flex w-full items-start", className)} {...props}>
-        {icon && <AlertIcon render={icon} className="mt-0.5 shrink-0" />}
-        <div className="flex-1 space-y-0.5">
-          {title && <AlertTitle>{title}</AlertTitle>}
-          {description && <AlertDescription>{description}</AlertDescription>}
-          {children}
+      <Alert ref={ref} color={color} className={cn("flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start", className)} {...props}>
+        <div className="flex flex-1 items-start gap-3">
+          {icon && <AlertIcon render={icon} className="mt-0.5 shrink-0" />}
+          <div className="flex-1 space-y-0.5">
+            {title && <AlertTitle>{title}</AlertTitle>}
+            {description && <AlertDescription>{description}</AlertDescription>}
+            {children}
+          </div>
         </div>
         {(action || dismissible) && (
-          <AlertAction className="shrink-0 ml-4">
+          <AlertAction className="shrink-0 @sm/alert:ml-4">
             {action || (
               <Button
                 variant="ghost"

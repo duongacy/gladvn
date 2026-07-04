@@ -18,7 +18,7 @@ import { Textarea } from "@/components/micro/textarea";
 const inputGroupVariants = cva(
   [
     // Base layout
-    "group/input-group relative flex min-w-0 items-center rounded-lg border border-input transition-colors outline-none",
+    "group/input-group @container/input-group relative flex min-w-0 items-center rounded-lg border border-input transition-colors outline-none",
     // Combobox focus delegation
     "in-data-[slot=combobox-content]:focus-within:border-inherit in-data-[slot=combobox-content]:focus-within:ring-0",
     // Disabled state

@@ -33,9 +33,9 @@ const switchVariants = cva(
  * <Switch id="airplane-mode" />
  */
 const Switch = React.forwardRef<
-  React.ElementRef<typeof SwitchPrimitive.Root>,
+  React.ComponentRef<typeof SwitchPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof SwitchPrimitive.Root> &
-    VariantProps<typeof switchVariants>
+  VariantProps<typeof switchVariants>
 >(function Switch({ className, size = "md", ...props }, ref) {
   return (
     <SwitchPrimitive.Root
@@ -50,7 +50,7 @@ const Switch = React.forwardRef<
 Switch.displayName = "Switch";
 
 const SwitchThumb = React.forwardRef<
-  React.ElementRef<typeof SwitchPrimitive.Thumb>,
+  React.ComponentRef<typeof SwitchPrimitive.Thumb>,
   React.ComponentPropsWithoutRef<typeof SwitchPrimitive.Thumb>
 >(function SwitchThumb({ className, ...props }, ref) {
   return (

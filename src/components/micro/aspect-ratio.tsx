@@ -5,6 +5,7 @@
  * - Form Control Parity
  * - CSS Delegated Logic
  */
+import * as React from "react";
 import { cn } from "@/lib/utils";
 
 /**
@@ -14,13 +15,13 @@ import { cn } from "@/lib/utils";
  *   <img src="..." alt="..." />
  * </AspectRatio>
  */
-function AspectRatio({
-  ratio,
-  className,
-  ...props
-}: React.ComponentProps<"div"> & { ratio: number }) {
+const AspectRatio = React.forwardRef<
+  HTMLDivElement,
+  React.ComponentProps<"div"> & { ratio: number }
+>(({ ratio, className, ...props }, ref) => {
   return (
     <div
+      ref={ref}
       data-slot="aspect-ratio"
       style={
         {
@@ -31,6 +32,7 @@ function AspectRatio({
       {...props}
     />
   );
-}
+});
+AspectRatio.displayName = "AspectRatio";
 
 export { AspectRatio };

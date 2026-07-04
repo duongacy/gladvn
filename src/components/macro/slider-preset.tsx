@@ -17,7 +17,7 @@ export type SliderPresetProps = Omit<React.ComponentProps<typeof Slider>, "class
 };
 
 const SliderPreset = React.forwardRef<
-  React.ElementRef<typeof Slider>,
+  React.ComponentRef<typeof Slider>,
   SliderPresetProps
 >(({
   defaultValue,

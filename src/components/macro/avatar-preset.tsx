@@ -15,7 +15,7 @@ function getInitials(name: string) {
 }
 
 const AvatarPreset = React.forwardRef<
-  React.ElementRef<typeof Avatar>,
+  React.ComponentRef<typeof Avatar>,
   AvatarPresetProps
 >(({ src, alt = "", fallback, ...avatarProps }, ref) => {
   const generatedFallback = fallback ?? getInitials(alt);

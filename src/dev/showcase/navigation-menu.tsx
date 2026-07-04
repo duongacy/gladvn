@@ -4,7 +4,7 @@ import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle, NavigationMenuIndicator, NavigationMenuPositioner } from "@/components/micro/navigation-menu";
 
 const ListItem = React.forwardRef<
-  React.ElementRef<"a">,
+  React.ComponentRef<"a">,
   React.ComponentPropsWithoutRef<"a"> & { title: string }
 >(({ className, title, children, ...props }, ref) => {
   return (

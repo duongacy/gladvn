@@ -11,7 +11,7 @@ export type SwitchPresetProps = Omit<React.ComponentProps<typeof Switch>, "class
 };
 
 const SwitchPreset = React.forwardRef<
-  React.ElementRef<typeof Switch>,
+  React.ComponentRef<typeof Switch>,
   SwitchPresetProps
 >(({ label, description, errorMessage, showError = true, className, id, ...switchProps }, ref) => {
   const generatedId = React.useId();

@@ -32,7 +32,7 @@ export type InputProps = Omit<React.ComponentPropsWithoutRef<typeof InputPrimiti
  * @example
  * <Input type="email" placeholder="Email" />
  */
-const Input = React.forwardRef<React.ElementRef<typeof InputPrimitive>, InputProps>(
+const Input = React.forwardRef<React.ComponentRef<typeof InputPrimitive>, InputProps>(
   function Input({ className, size = "md", ...props }, ref) {
     return (
       <InputPrimitive

@@ -19,7 +19,7 @@ export interface BreadcrumbPresetProps
 }
 
 const BreadcrumbPreset = React.forwardRef<
-  React.ElementRef<typeof Breadcrumb>,
+  React.ComponentRef<typeof Breadcrumb>,
   BreadcrumbPresetProps
 >(({ items, ...breadcrumbProps }, ref) => {
   return (

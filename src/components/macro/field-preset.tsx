@@ -17,7 +17,7 @@ export type FieldPresetProps = Omit<React.ComponentProps<typeof Field>, "error">
 };
 
 const FieldPreset = React.forwardRef<
-  React.ElementRef<typeof Field>,
+  React.ComponentRef<typeof Field>,
   FieldPresetProps
 >(({ label, description, errorMessage, showError = true, htmlFor, children, className, ...fieldProps }, ref) => {
   return (

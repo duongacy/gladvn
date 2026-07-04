@@ -17,7 +17,7 @@ export type CarouselPresetProps = React.ComponentProps<typeof Carousel> & {
 };
 
 const CarouselPreset = React.forwardRef<
-  React.ElementRef<typeof Carousel>,
+  React.ComponentRef<typeof Carousel>,
   CarouselPresetProps
 >(({
   items,

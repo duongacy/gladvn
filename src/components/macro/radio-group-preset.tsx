@@ -22,7 +22,7 @@ export type RadioGroupPresetProps = Omit<React.ComponentProps<typeof RadioGroup>
 };
 
 const RadioGroupPreset = React.forwardRef<
-  React.ElementRef<typeof RadioGroup>,
+  React.ComponentRef<typeof RadioGroup>,
   RadioGroupPresetProps
 >(({
   options,

@@ -1,6 +1,6 @@
 import { LayersIcon } from "lucide-react";
 import { useEffect, useState } from "react";
-import { MICRO_COMPONENTS, MACRO_COMPONENTS, NAV } from "@/dev/data";
+import { COMPONENTS, NAV } from "@/dev/data";
 import React, { Suspense, lazy } from "react";
 import OverviewSection from "@/dev/showcase/overview";
 import { Badge } from "@/components/micro/badge";
@@ -9,14 +9,75 @@ import { Switch, SwitchThumb } from "@/components/micro/switch";
 import { useTheme } from "@/components/micro/theme-provider";
 
 const components: Record<string, React.LazyExoticComponent<any>> = {};
-MICRO_COMPONENTS.forEach((comp) => {
-  components[comp.id] = lazy(() => import(`./showcase/${comp.id}.tsx`));
+COMPONENTS.forEach((comp) => {
+  if (comp.hasMicro) {
+    components[`micro-${comp.id}`] = lazy(() => import(`./showcase/${comp.id}.tsx`));
+  }
+  if (comp.hasMacro) {
+    components[`macro-${comp.id}`] = lazy(() => import(`./showcase/macro/${comp.id}.tsx`));
+  }
 });
-MACRO_COMPONENTS.forEach((comp) => {
-  // macro-accordion -> ./showcase/macro/accordion.tsx
-  const fileName = comp.id.replace("macro-", "");
-  components[comp.id] = lazy(() => import(`./showcase/macro/${fileName}.tsx`));
-});
+
+function ComponentViewer({ id }: { id: string }) {
+  const compDef = COMPONENTS.find((c) => c.id === id);
+  const [activeTab, setActiveTab] = useState<"micro" | "macro">("macro");
+  
+  useEffect(() => {
+    if (compDef?.hasMacro) setActiveTab("macro");
+    else setActiveTab("micro");
+  }, [id, compDef]);
+
+  if (!compDef) return null;
+
+  const MicroComp = compDef.hasMicro ? components[`micro-${id}`] : null;
+  const MacroComp = compDef.hasMacro ? components[`macro-${id}`] : null;
+
+  if (MicroComp && MacroComp) {
+    return (
+      <div className="w-full flex flex-col gap-8">
+        <div className="flex w-full items-center justify-start border-b border-border/40 pb-4">
+          <div className="inline-flex items-center justify-center rounded-lg bg-muted/60 p-1 text-muted-foreground">
+            <button
+              onClick={() => setActiveTab("macro")}
+              className={`inline-flex items-center justify-center whitespace-nowrap rounded-md px-4 py-1.5 text-sm font-medium transition-all ${
+                activeTab === "macro"
+                  ? "bg-background text-foreground shadow-sm"
+                  : "hover:text-foreground"
+              }`}
+            >
+              Macro (Preset)
+            </button>
+            <button
+              onClick={() => setActiveTab("micro")}
+              className={`inline-flex items-center justify-center whitespace-nowrap rounded-md px-4 py-1.5 text-sm font-medium transition-all ${
+                activeTab === "micro"
+                  ? "bg-background text-foreground shadow-sm"
+                  : "hover:text-foreground"
+              }`}
+            >
+              Micro (Primitive)
+            </button>
+          </div>
+        </div>
+        
+        <div className="mt-2">
+          <Suspense fallback={<div className="p-12 text-center text-muted-foreground animate-pulse">Loading...</div>}>
+            {activeTab === "macro" ? <MacroComp /> : <MicroComp />}
+          </Suspense>
+        </div>
+      </div>
+    );
+  }
+
+  const Comp = MicroComp || MacroComp;
+  return (
+    <div className="mt-2">
+      <Suspense fallback={<div className="p-12 text-center text-muted-foreground animate-pulse">Loading...</div>}>
+        {Comp && <Comp />}
+      </Suspense>
+    </div>
+  );
+}
 
 export default function App() {
   const theme = useTheme();
@@ -68,8 +129,6 @@ export default function App() {
     return () => window.removeEventListener("popstate", handlePopState);
   }, []);
 
-  const ActiveComponent = active !== "overview" ? components[active] : null;
-
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Top nav */}
@@ -117,40 +176,30 @@ export default function App() {
               Overview
             </button>
           </nav>
+          
           <p className="mb-2 px-2 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground mt-4">
-            Macro Components
+            Components (A-Z)
           </p>
           <nav className="space-y-0.5">
-            {MACRO_COMPONENTS.map(({ id, label }) => (
+            {COMPONENTS.map(({ id, label, hasMacro, hasMicro }) => (
               <button
                 key={id}
                 onClick={() => setActive(id)}
-                className={`w-full flex items-center gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors text-left ${
+                className={`w-full flex items-center justify-between gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors text-left ${
                   active === id
                     ? "bg-accent text-accent-foreground font-medium"
                     : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
                 }`}
               >
-                {label}
-              </button>
-            ))}
-          </nav>
-
-          <p className="mb-2 px-2 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground mt-4">
-            Micro Components (A-Z)
-          </p>
-          <nav className="space-y-0.5">
-            {MICRO_COMPONENTS.map(({ id, label }) => (
-              <button
-                key={id}
-                onClick={() => setActive(id)}
-                className={`w-full flex items-center gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors text-left ${
-                  active === id
-                    ? "bg-accent text-accent-foreground font-medium"
-                    : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
-                }`}
-              >
-                {label}
+                <span>{label}</span>
+                <div className="flex gap-1 shrink-0">
+                  {hasMicro && hasMacro && (
+                    <span className="text-[9px] bg-primary/10 text-primary px-1 rounded font-bold tracking-tighter" title="Has both Micro & Macro versions">M+</span>
+                  )}
+                  {!hasMicro && hasMacro && (
+                    <span className="text-[9px] bg-amber-500/10 text-amber-500 px-1 rounded font-bold tracking-tighter" title="Macro only">M</span>
+                  )}
+                </div>
               </button>
             ))}
           </nav>
@@ -187,18 +236,7 @@ export default function App() {
 
           <div className="pb-24">
             {active === "overview" && <OverviewSection />}
-
-            {active !== "overview" && ActiveComponent && (
-              <Suspense
-                fallback={
-                  <div className="p-12 text-center text-muted-foreground animate-pulse">
-                    Loading component...
-                  </div>
-                }
-              >
-                <ActiveComponent />
-              </Suspense>
-            )}
+            {active !== "overview" && <ComponentViewer id={active} />}
           </div>
         </main>
       </div>

@@ -47,7 +47,7 @@ const SliderContext = React.createContext<{ size: Size }>({
 });
 
 const Slider = React.forwardRef<
-  React.ElementRef<typeof SliderPrimitive.Root>,
+  React.ComponentRef<typeof SliderPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof SliderPrimitive.Root> & { size?: Size }
 >(function Slider({ className, size = "md", ...props }, ref) {
   return (
@@ -65,7 +65,7 @@ const Slider = React.forwardRef<
 Slider.displayName = "Slider";
 
 const SliderControl = React.forwardRef<
-  React.ElementRef<typeof SliderPrimitive.Control>,
+  React.ComponentRef<typeof SliderPrimitive.Control>,
   React.ComponentPropsWithoutRef<typeof SliderPrimitive.Control>
 >(function SliderControl({ className, ...props }, ref) {
   return (
@@ -83,7 +83,7 @@ const SliderControl = React.forwardRef<
 SliderControl.displayName = "SliderControl";
 
 const SliderTrack = React.forwardRef<
-  React.ElementRef<typeof SliderPrimitive.Track>,
+  React.ComponentRef<typeof SliderPrimitive.Track>,
   React.ComponentPropsWithoutRef<typeof SliderPrimitive.Track>
 >(function SliderTrack({ className, ...props }, ref) {
   const { size } = React.useContext(SliderContext);
@@ -99,7 +99,7 @@ const SliderTrack = React.forwardRef<
 SliderTrack.displayName = "SliderTrack";
 
 const SliderIndicator = React.forwardRef<
-  React.ElementRef<typeof SliderPrimitive.Indicator>,
+  React.ComponentRef<typeof SliderPrimitive.Indicator>,
   React.ComponentPropsWithoutRef<typeof SliderPrimitive.Indicator>
 >(function SliderIndicator({ className, ...props }, ref) {
   return (
@@ -117,7 +117,7 @@ const SliderIndicator = React.forwardRef<
 SliderIndicator.displayName = "SliderIndicator";
 
 const SliderThumb = React.forwardRef<
-  React.ElementRef<typeof SliderPrimitive.Thumb>,
+  React.ComponentRef<typeof SliderPrimitive.Thumb>,
   React.ComponentPropsWithoutRef<typeof SliderPrimitive.Thumb>
 >(function SliderThumb({ className, ...props }, ref) {
   const { size } = React.useContext(SliderContext);

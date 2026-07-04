@@ -13,7 +13,7 @@ export type TabsPresetProps = React.ComponentProps<typeof Tabs> & {
 };
 
 const TabsPreset = React.forwardRef<
-  React.ElementRef<typeof Tabs>,
+  React.ComponentRef<typeof Tabs>,
   TabsPresetProps
 >(({ items, ...tabsProps }, ref) => {
   return (

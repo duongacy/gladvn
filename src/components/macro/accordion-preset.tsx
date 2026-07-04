@@ -18,7 +18,7 @@ export type AccordionPresetProps = React.ComponentProps<typeof Accordion> & {
 };
 
 const AccordionPreset = React.forwardRef<
-  React.ElementRef<typeof Accordion>,
+  React.ComponentRef<typeof Accordion>,
   AccordionPresetProps
 >(({ items, ...accordionProps }, ref) => {
   return (

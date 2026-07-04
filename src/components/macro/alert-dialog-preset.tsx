@@ -25,7 +25,7 @@ type AlertDialogPresetProps = React.ComponentProps<typeof AlertDialog> & {
 };
 
 const AlertDialogPreset = React.forwardRef<
-  React.ElementRef<typeof AlertDialog>,
+  React.ComponentRef<typeof AlertDialog>,
   AlertDialogPresetProps
 >(
   (

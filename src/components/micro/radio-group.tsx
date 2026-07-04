@@ -16,7 +16,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const RadioGroup = React.forwardRef<
-  React.ElementRef<typeof RadioGroupPrimitive>,
+  React.ComponentRef<typeof RadioGroupPrimitive>,
   React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive>
 >(function RadioGroup({ className, ...props }, ref) {
   return (
@@ -44,9 +44,9 @@ const radioGroupItemVariants = cva(
 );
 
 const RadioGroupItem = React.forwardRef<
-  React.ElementRef<typeof RadioPrimitive.Root>,
+  React.ComponentRef<typeof RadioPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof RadioPrimitive.Root> &
-    VariantProps<typeof radioGroupItemVariants>
+  VariantProps<typeof radioGroupItemVariants>
 >(function RadioGroupItem({ className, size = "md", ...props }, ref) {
   return (
     <RadioPrimitive.Root

@@ -64,7 +64,7 @@ function generatePaginationRange(
 }
 
 const PaginationPreset = React.forwardRef<
-  React.ElementRef<typeof Pagination>,
+  React.ComponentRef<typeof Pagination>,
   PaginationPresetProps
 >(({
   currentPage,

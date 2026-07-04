@@ -98,3 +98,10 @@ When creating or modifying showcase files in `src/dev/showcase/*.tsx`, you MUST 
 - **Use Container Queries (`@container`, `@sm:`) for Floating/Reusable Components**: Components that can be placed anywhere (e.g., Cards, List Items, Avatar Groups) MUST use CSS Container Queries so their internal layout adapts to their physical container width, not the screen width.
 - **Use Media Queries (`sm:`, `md:`) for Fixed/Viewport-Bound Components**: Components that attach to the viewport (e.g., `AlertDialog`, `Dialog`, `Sheet`, `Drawer`, `Tooltip`, `Popover`, `Sidebar`) MUST use standard Media Queries. 
 - **Reasoning**: Modals and viewport-bound components scale almost 1:1 with the screen. Using `@container` for them is overkill and provides zero practical benefit over standard `sm:` modifiers, while keeping `sm:` ensures 100% legacy stability for core structural overlays.
+
+## 15. Component Pair Programming Workflow
+
+Whenever the user requests to pair program on a specific component, you MUST proactively plan and execute the review across the entire component ecosystem:
+1. **Micro Component**: Audit and refactor the primitive component based on all design rules (e.g., no magic CSS, pure composition, correct data-attributes).
+2. **Macro Component (Preset)**: Audit the preset. If a Macro component does not exist but is necessary for handling opinionated layouts or complex state, CREATE IT.
+3. **Showcases (Both Modes)**: Ensure the showcase files (`src/dev/showcase/[component].tsx` and `src/dev/showcase/macro/[component].tsx` if applicable) are updated to correctly demonstrate the component. Ensure Micro showcases explicitly demonstrate Pure Composition (e.g., manually applying Flexbox).

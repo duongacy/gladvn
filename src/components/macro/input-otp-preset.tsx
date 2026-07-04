@@ -18,7 +18,7 @@ export type InputOTPPresetProps = Omit<
 };
 
 const InputOTPPreset = React.forwardRef<
-  React.ElementRef<typeof InputOTP>,
+  React.ComponentRef<typeof InputOTP>,
   InputOTPPresetProps
 >(({ maxLength, label, description, errorMessage, showError = true, className, id, ...inputOtpProps }, ref) => {
   const generatedId = React.useId();

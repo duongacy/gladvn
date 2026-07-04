@@ -12,7 +12,7 @@ export type CheckboxPresetProps = Omit<React.ComponentProps<typeof Checkbox>, "c
 };
 
 const CheckboxPreset = React.forwardRef<
-  React.ElementRef<typeof Checkbox>,
+  React.ComponentRef<typeof Checkbox>,
   CheckboxPresetProps
 >(({ label, description, errorMessage, showError = true, className, id, ...checkboxProps }, ref) => {
   const generatedId = React.useId();

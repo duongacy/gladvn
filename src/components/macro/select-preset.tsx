@@ -51,7 +51,7 @@ interface SelectPresetProps {
  * driven by an `options` prop. Supports flat and grouped options.
  */
 const SelectPreset = React.forwardRef<
-  React.ElementRef<typeof SelectTrigger>,
+  React.ComponentRef<typeof SelectTrigger>,
   SelectPresetProps
 >(({
   options,

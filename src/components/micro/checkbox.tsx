@@ -34,9 +34,9 @@ const checkboxVariants = cva(
  * <label htmlFor="terms">Accept terms</label>
  */
 const Checkbox = React.forwardRef<
-  React.ElementRef<typeof CheckboxPrimitive.Root>,
+  React.ComponentRef<typeof CheckboxPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root> &
-    VariantProps<typeof checkboxVariants>
+  VariantProps<typeof checkboxVariants>
 >(function Checkbox({ className, size = "md", ...props }, ref) {
   return (
     <CheckboxPrimitive.Root
@@ -50,7 +50,7 @@ const Checkbox = React.forwardRef<
 Checkbox.displayName = "Checkbox";
 
 const CheckboxIndicator = React.forwardRef<
-  React.ElementRef<typeof CheckboxPrimitive.Indicator>,
+  React.ComponentRef<typeof CheckboxPrimitive.Indicator>,
   React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Indicator>
 >(function CheckboxIndicator({ className, ...props }, ref) {
   return (

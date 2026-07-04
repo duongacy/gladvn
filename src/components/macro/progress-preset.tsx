@@ -14,7 +14,7 @@ export type ProgressPresetProps = Omit<React.ComponentProps<typeof Progress>, "v
 };
 
 const ProgressPreset = React.forwardRef<
-  React.ElementRef<typeof Progress>,
+  React.ComponentRef<typeof Progress>,
   ProgressPresetProps
 >(({
   children,

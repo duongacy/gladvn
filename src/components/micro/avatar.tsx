@@ -87,10 +87,10 @@ const AvatarBadge = React.forwardRef<
       ref={ref}
       data-slot="avatar-badge"
       className={cn(
-        "absolute z-10 inline-flex items-center justify-center rounded-full bg-primary text-primary-foreground bg-blend-color ring-2 ring-background select-none",
-        "group-data-[size=sm]/avatar:size-2 group-data-[size=sm]/avatar:[&>svg]:hidden",
-        "group-data-[size=md]/avatar:size-2.5 group-data-[size=md]/avatar:[&>svg]:size-2",
-        "group-data-[size=lg]/avatar:size-3 group-data-[size=lg]/avatar:[&>svg]:size-2",
+        "absolute z-10 rounded-full bg-primary ring-2 ring-background",
+        "group-data-[size=sm]/avatar:size-2",
+        "group-data-[size=md]/avatar:size-2.5",
+        "group-data-[size=lg]/avatar:size-3",
         className,
       )}
       {...props}
@@ -127,7 +127,7 @@ const AvatarGroupCount = React.forwardRef<
       data-slot="avatar-group-count"
       data-size={size}
       className={cn(
-        "relative flex size-8 shrink-0 items-center justify-center rounded-full bg-muted text-sm text-muted-foreground ring-2 ring-background data-[size=lg]:size-10 data-[size=sm]:size-6 [&>svg]:size-4 data-[size=lg]:[&>svg]:size-5 data-[size=sm]:[&>svg]:size-3",
+        "relative flex size-8 shrink-0 items-center justify-center rounded-full bg-muted text-sm text-muted-foreground ring-2 ring-background data-[size=lg]:size-10 data-[size=sm]:size-6",
         className,
       )}
       {...props}

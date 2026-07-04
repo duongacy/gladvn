@@ -24,7 +24,7 @@ export default function AlertShowcase() {
   return (
     <div className="space-y-10">
       <SectionHeader
-        title="Alert"
+        title="Alert (Micro)"
         description="Hiển thị một thông báo nổi bật để thu hút sự chú ý của người dùng."
       >
         <SelectPreset
@@ -44,7 +44,8 @@ export default function AlertShowcase() {
         <p>Dùng để hiển thị một thông báo quan trọng thu hút sự chú ý của người dùng (ví dụ: lỗi, cảnh báo, hoặc thông báo thành công). Không nên dùng Alert cho các thông báo mang tính tạm thời tự biến mất (hãy dùng Toast/Sonner).</p>
         
         <h3>Micro vs Macro</h3>
-        <p>Hiện tại Alert chỉ có phiên bản Micro. Nếu bạn muốn bọc thêm logic tự động đóng (auto dismiss) hoặc state, bạn có thể tự tạo một preset riêng, tuy nhiên đối với các thông báo động thường nên dùng Toast.</p>
+        <p>Phiên bản <strong>Micro</strong> (<code>Alert</code>) là một Box thuần tuý không ép buộc layout. Bạn phải dùng class Flexbox (<code>flex items-start</code>) và thẻ <code>div</code> bọc ngoài để tự cấu trúc (Pure Composition) giống như các ví dụ bên dưới.</p>
+        <p>Phiên bản <strong>Macro</strong> (<code>AlertPreset</code>) đã được đóng gói sẵn layout Flexbox, chỉ cần truyền props (title, description, icon) vào để dùng ngay.</p>
       </ShowcaseDocs>
 
       {/* ── Semantic Colors ──────────────────────── */}
@@ -53,36 +54,44 @@ export default function AlertShowcase() {
         description="Mỗi màu sắc truyền đạt một mức độ khẩn cấp hoặc ý nghĩa khác nhau."
       >
         <div className="flex w-full flex-col gap-4 max-w-xl">
-          <Alert color="info" size={globalSize}>
-            <AlertIcon render={<InfoIcon />} />
-            <AlertTitle>Có bản cập nhật mới</AlertTitle>
-            <AlertDescription>
-              Phiên bản 2.0.4 đã sẵn sàng để tải xuống. Hãy cập nhật để trải nghiệm tính năng mới.
-            </AlertDescription>
+          <Alert color="info" size={globalSize} className="flex items-start">
+            <AlertIcon render={<InfoIcon />} className="mt-0.5 shrink-0" />
+            <div className="flex-1 space-y-0.5">
+              <AlertTitle>Có bản cập nhật mới</AlertTitle>
+              <AlertDescription>
+                Phiên bản 2.0.4 đã sẵn sàng để tải xuống. Hãy cập nhật để trải nghiệm tính năng mới.
+              </AlertDescription>
+            </div>
           </Alert>
 
-          <Alert color="success" size={globalSize}>
-            <AlertIcon render={<CheckCircle2Icon />} />
-            <AlertTitle>Đã lưu thành công</AlertTitle>
-            <AlertDescription>
-              Các thay đổi của bạn đã được đồng bộ lên đám mây.
-            </AlertDescription>
+          <Alert color="success" size={globalSize} className="flex items-start">
+            <AlertIcon render={<CheckCircle2Icon />} className="mt-0.5 shrink-0" />
+            <div className="flex-1 space-y-0.5">
+              <AlertTitle>Đã lưu thành công</AlertTitle>
+              <AlertDescription>
+                Các thay đổi của bạn đã được đồng bộ lên đám mây.
+              </AlertDescription>
+            </div>
           </Alert>
 
-          <Alert color="warning" size={globalSize}>
-            <AlertIcon render={<TriangleAlertIcon />} />
-            <AlertTitle>Phiên bản sắp hết hạn</AlertTitle>
-            <AlertDescription>
-              Phiên đăng nhập của bạn sẽ hết hạn trong 5 phút nữa. Vui lòng lưu lại công việc.
-            </AlertDescription>
+          <Alert color="warning" size={globalSize} className="flex items-start">
+            <AlertIcon render={<TriangleAlertIcon />} className="mt-0.5 shrink-0" />
+            <div className="flex-1 space-y-0.5">
+              <AlertTitle>Phiên bản sắp hết hạn</AlertTitle>
+              <AlertDescription>
+                Phiên đăng nhập của bạn sẽ hết hạn trong 5 phút nữa. Vui lòng lưu lại công việc.
+              </AlertDescription>
+            </div>
           </Alert>
 
-          <Alert color="destructive" size={globalSize}>
-            <AlertIcon render={<XCircleIcon />} />
-            <AlertTitle>Kết nối thất bại</AlertTitle>
-            <AlertDescription>
-              Không thể kết nối đến cơ sở dữ liệu. Vui lòng kiểm tra lại đường truyền mạng.
-            </AlertDescription>
+          <Alert color="destructive" size={globalSize} className="flex items-start">
+            <AlertIcon render={<XCircleIcon />} className="mt-0.5 shrink-0" />
+            <div className="flex-1 space-y-0.5">
+              <AlertTitle>Kết nối thất bại</AlertTitle>
+              <AlertDescription>
+                Không thể kết nối đến cơ sở dữ liệu. Vui lòng kiểm tra lại đường truyền mạng.
+              </AlertDescription>
+            </div>
           </Alert>
         </div>
       </ExampleSection>
@@ -94,12 +103,14 @@ export default function AlertShowcase() {
           description="Hiển thị Alert với màu sắc mặc định (info)."
           fullWidth
         >
-          <Alert size={globalSize}>
-            <AlertIcon render={<InfoIcon />} />
-            <AlertTitle>Chú ý!</AlertTitle>
-            <AlertDescription>
-              Bạn có thể thêm các component vào dự án bằng cách sử dụng CLI.
-            </AlertDescription>
+          <Alert size={globalSize} className="flex items-start">
+            <AlertIcon render={<InfoIcon />} className="mt-0.5 shrink-0" />
+            <div className="flex-1 space-y-0.5">
+              <AlertTitle>Chú ý!</AlertTitle>
+              <AlertDescription>
+                Bạn có thể thêm các component vào dự án bằng cách sử dụng CLI.
+              </AlertDescription>
+            </div>
           </Alert>
         </ExampleSection>
 
@@ -109,13 +120,15 @@ export default function AlertShowcase() {
           description="Alert kèm theo một nút tắt (dismiss) được đặt ở góc trên bên phải."
           fullWidth
         >
-          <Alert color="info" size={globalSize}>
-            <AlertIcon render={<InfoIcon />} />
-            <AlertTitle>Tính năng mới</AlertTitle>
-            <AlertDescription>
-              Hãy khám phá trang thống kê dashboard hoàn toàn mới của chúng tôi.
-            </AlertDescription>
-            <AlertAction>
+          <Alert color="info" size={globalSize} className="flex items-start">
+            <AlertIcon render={<InfoIcon />} className="mt-0.5 shrink-0" />
+            <div className="flex-1 space-y-0.5">
+              <AlertTitle>Tính năng mới</AlertTitle>
+              <AlertDescription>
+                Hãy khám phá trang thống kê dashboard hoàn toàn mới của chúng tôi.
+              </AlertDescription>
+            </div>
+            <AlertAction className="ml-4 shrink-0">
               <Button variant="ghost" size="sm" className="size-6 p-0">
                 <XIcon className="size-3.5" />
               </Button>
@@ -130,15 +143,15 @@ export default function AlertShowcase() {
         description="Alert chỉ có nội dung mô tả, không có tiêu đề."
       >
         <div className="flex w-full flex-col gap-3 max-w-xl">
-          <Alert color="info" size={globalSize}>
-            <AlertIcon render={<InfoIcon />} />
-            <AlertDescription>
+          <Alert color="info" size={globalSize} className="flex items-start">
+            <AlertIcon render={<InfoIcon />} className="mt-0.5 shrink-0" />
+            <AlertDescription className="flex-1">
               Bạn có thể thêm các component vào dự án bằng cách sử dụng CLI.
             </AlertDescription>
           </Alert>
-          <Alert color="warning" size={globalSize}>
-            <AlertIcon render={<TriangleAlertIcon />} />
-            <AlertDescription>
+          <Alert color="warning" size={globalSize} className="flex items-start">
+            <AlertIcon render={<TriangleAlertIcon />} className="mt-0.5 shrink-0" />
+            <AlertDescription className="flex-1">
               Bản dùng thử của bạn sẽ hết hạn trong 3 ngày nữa.
             </AlertDescription>
           </Alert>
@@ -148,16 +161,16 @@ export default function AlertShowcase() {
       {/* ── Text Only (no icon) ───────────────────── */}
       <ExampleSection
         label="Chỉ Có Chữ (Text Only)"
-        description="Alert đơn giản không có icon — layout một cột dọc."
+        description="Alert đơn giản không có icon — layout tự nhiên."
       >
         <div className="flex w-full flex-col gap-3 max-w-xl">
-          <Alert color="success" size={globalSize}>
+          <Alert color="success" size={globalSize} className="flex flex-col gap-0.5">
             <AlertTitle>Thanh toán thành công</AlertTitle>
             <AlertDescription>
               Hoá đơn #1234 của bạn đã được thanh toán hoàn tất.
             </AlertDescription>
           </Alert>
-          <Alert color="destructive" size={globalSize}>
+          <Alert color="destructive" size={globalSize} className="flex flex-col gap-0.5">
             <AlertTitle>Tài khoản bị khoá</AlertTitle>
             <AlertDescription>
               Vui lòng liên hệ với bộ phận hỗ trợ để mở khoá tài khoản.

@@ -10,15 +10,16 @@ Lưu lại 2 bộ prompt này để dùng mỗi khi cần nhờ AI soi code kh�
 > Hãy **run code review** và chạy **edge case hunter** cho file `[Tên_Component]` này (Component thuộc nhóm Micro).  
 > 
 > Yêu cầu bắt buộc phải soi chiếu nghiêm ngặt các lỗi sau dựa trên `AGENTS.md` và UI/UX Best Practices:
-> 1. **Component API & Styling (No Magic CSS):** Phát hiện và cảnh báo ngay lập tức nếu tôi đang dùng "magic CSS" (ví dụ `[&>div]`, `*:[a]`, `group-has-[...]`) thay vì dùng các `data-slot` hoặc `data-state` chuẩn của Headless UI.
-> 2. **Biến CSS (CSS Variables):** Kiểm tra xem tôi có lạm dụng truyền state tĩnh qua biến CSS không (cấm). Bắt buộc phải dùng Tailwind classes trực tiếp với group modifier (ví dụ: `group-[.size-sm]/tên:size-6`).
-> 3. **Type Definitions:** Bắt buộc dùng `type` (intersection `&`) thay vì `interface extends` khi extend props.
-> 4. **ForwardRef & DisplayName:** Trả về lỗi nếu component dùng `forwardRef` nhưng quên không khai báo `displayName`. 
-> 5. **Encapsulation:** Đảm bảo `className` của user truyền vào chỉ được áp dụng cho thẻ Wrapper ngoài cùng, không được chèn thẳng vào inner interactive element.
-> 6. **Tailwind Merge (`cn`):** Đảm bảo mọi `className` nhận từ ngoài vào đều được bọc trong hàm `cn()` để tránh xung đột CSS.
-> 7. **No Hardcoded Dimensions:** Primitive component KHÔNG ĐƯỢC tự quyết định width/height tổng thể của nó (ví dụ không hardcode `w-full` ở thẻ root). Trách nhiệm này thuộc về thẻ cha (thẻ bọc ngoài).
-> 8. **Defensive Flexbox:** Bất cứ khi nào dùng `flex` có chứa text và icon/action bên trong, bắt buộc phải có `gap` (ví dụ `gap-2`) để tránh text đè lên icon khi bị tràn.
-> 9. **Data Attributes Verification:** Tuyệt đối không tự bịa data-attribute. Phải verify xem Headless UI đang dùng chuẩn nào (ví dụ Radix dùng `data-[state=open]`, Base UI dùng `data-panel-open`).
+> 1. **Component API & Styling (No Magic CSS):** Phát hiện và cảnh báo ngay lập tức nếu tôi đang dùng "magic CSS" (ví dụ `[&>div]`, `*:[a]`, `group-has-[...]`) thay vì dùng các `data-slot` hoặc `data-state` chuẩn của Headless UI. Tuyệt đối không dùng descendant combinators `[&_p]` hay `[&>[data-slot=...]]` từ thẻ cha để ép style cho thẻ con. Hãy dùng **Upward CSS State Selection**: gắn `data-*` ở thẻ cha và dùng `group-data-[...]/name` ở thẻ con để tự quyết định style.
+> 2. **No Layout Guessing in Micro:** Primitive components tuyệt đối không được dùng `:has()` để đoán cấu trúc con nhằm ép buộc Layout (ví dụ: `has-[data-slot=icon]:grid-cols-2`). Micro phải là "Dumb Component", việc sắp xếp Layout (Flex/Grid) phải nhường lại cho **Pure Composition** (người dùng tự bọc thẻ) hoặc giao cho **Macro Preset** xử lý.
+> 3. **Biến CSS (CSS Variables):** Kiểm tra xem tôi có lạm dụng truyền state tĩnh qua biến CSS không (cấm). Bắt buộc phải dùng Tailwind classes trực tiếp với group modifier (ví dụ: `group-[.size-sm]/tên:size-6`).
+> 4. **Type Definitions:** Bắt buộc dùng `type` (intersection `&`) thay vì `interface extends` khi extend props.
+> 5. **ForwardRef & DisplayName:** Trả về lỗi nếu component dùng `forwardRef` nhưng quên không khai báo `displayName`. 
+> 6. **Encapsulation:** Đảm bảo `className` của user truyền vào chỉ được áp dụng cho thẻ Wrapper ngoài cùng, không được chèn thẳng vào inner interactive element.
+> 7. **Tailwind Merge (`cn`):** Đảm bảo mọi `className` nhận từ ngoài vào đều được bọc trong hàm `cn()` để tránh xung đột CSS.
+> 8. **No Hardcoded Dimensions:** Primitive component KHÔNG ĐƯỢC tự quyết định width/height tổng thể của nó (ví dụ không hardcode `w-full` ở thẻ root). Trách nhiệm này thuộc về thẻ cha (thẻ bọc ngoài).
+> 9. **Defensive Flexbox:** Bất cứ khi nào dùng `flex` có chứa text và icon/action bên trong, bắt buộc phải có `gap` (ví dụ `gap-2`) để tránh text đè lên icon khi bị tràn.
+> 10. **Data Attributes Verification:** Tuyệt đối không tự bịa data-attribute. Phải verify xem Headless UI đang dùng chuẩn nào (ví dụ Radix dùng `data-[state=open]`, Base UI dùng `data-panel-open`).
 > 
 > Đừng nể nang, hãy liệt kê mọi sai sót dù là nhỏ nhất.
 

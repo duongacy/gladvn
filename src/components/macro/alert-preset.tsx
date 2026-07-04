@@ -9,6 +9,7 @@ import {
   type AlertProps,
 } from "@/components/micro/alert";
 import { Button } from "@/components/micro/button";
+import { cn } from "@/lib/utils";
 
 export type AlertPresetProps = AlertProps & {
   title?: React.ReactNode;
@@ -32,6 +33,7 @@ const AlertPreset = React.forwardRef<HTMLDivElement, AlertPresetProps>(
       defaultOpen = true,
       children,
       color = "info",
+      className,
       ...props
     },
     ref
@@ -46,13 +48,15 @@ const AlertPreset = React.forwardRef<HTMLDivElement, AlertPresetProps>(
     };
 
     return (
-      <Alert ref={ref} color={color} {...props}>
-        {icon && <AlertIcon render={icon} />}
-        {title && <AlertTitle>{title}</AlertTitle>}
-        {description && <AlertDescription>{description}</AlertDescription>}
-        {children}
+      <Alert ref={ref} color={color} className={cn("flex w-full items-start", className)} {...props}>
+        {icon && <AlertIcon render={icon} className="mt-0.5 shrink-0" />}
+        <div className="flex-1 space-y-0.5">
+          {title && <AlertTitle>{title}</AlertTitle>}
+          {description && <AlertDescription>{description}</AlertDescription>}
+          {children}
+        </div>
         {(action || dismissible) && (
-          <AlertAction>
+          <AlertAction className="shrink-0 ml-4">
             {action || (
               <Button
                 variant="ghost"

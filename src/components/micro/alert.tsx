@@ -13,20 +13,16 @@ import { mergeProps } from "@base-ui/react/merge-props";
 import { cn } from "@/lib/utils";
 
 // CSS Delegated Logic:
-// - has-data-[slot=alert-icon]: Tự động chuyển layout grid 2 cột nếu phát hiện Icon được truyền vào
-// - has-data-[slot=alert-action]: Tạo khoảng padding phải (pr-18) khi có chứa Action component
+// - KHÔNG CÒN MAGIC CSS: Mọi logic layout (như khoảng cách icon, padding action) đều được uỷ quyền cho Macro xử lý.
 const alertVariants = cva(
-  "group/alert relative grid gap-0.5 rounded-lg border text-left has-data-[slot=alert-action]:pr-8 has-data-[slot=alert-icon]:grid-cols-[auto_1fr] bg-card text-card-foreground",
+  "group/alert relative rounded-lg border text-left bg-card text-card-foreground",
   {
     variants: {
       color: {
-        info: "border-info/15 bg-info/5 text-info [&>[data-slot=alert-description]]:text-info/90",
-        destructive:
-          "border-destructive/15 bg-destructive/5 text-destructive [&>[data-slot=alert-description]]:text-destructive/90",
-        success:
-          "border-success/15 bg-success/5 text-success [&>[data-slot=alert-description]]:text-success/90",
-        warning:
-          "border-warning/15 bg-warning/5 text-warning [&>[data-slot=alert-description]]:text-warning/90",
+        info: "border-info/15 bg-info/5 text-info",
+        destructive: "border-destructive/15 bg-destructive/5 text-destructive",
+        success: "border-success/15 bg-success/5 text-success",
+        warning: "border-warning/15 bg-warning/5 text-warning",
       },
       size: {
         sm: "px-2 py-1.5 text-xs gap-x-1.5",
@@ -56,6 +52,7 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
         ref={ref}
         data-slot="alert"
         data-size={size}
+        data-color={color}
         role="alert"
         className={cn(alertVariants({ color, size }), className)}
         {...props}
@@ -74,7 +71,7 @@ const AlertTitle = React.forwardRef<HTMLDivElement, AlertTitleProps>(
         ref={ref}
         data-slot="alert-title"
         className={cn(
-          "font-medium group-has-data-[slot=alert-icon]/alert:col-start-2",
+          "font-medium",
           className,
         )}
         {...props}
@@ -93,7 +90,11 @@ const AlertDescription = React.forwardRef<HTMLDivElement, AlertDescriptionProps>
         ref={ref}
         data-slot="alert-description"
         className={cn(
-          "text-balance text-muted-foreground md:text-pretty [&_p]:leading-relaxed",
+          "text-balance text-muted-foreground md:text-pretty leading-relaxed",
+          "group-data-[color=info]/alert:text-info/90",
+          "group-data-[color=destructive]/alert:text-destructive/90",
+          "group-data-[color=success]/alert:text-success/90",
+          "group-data-[color=warning]/alert:text-warning/90",
           className,
         )}
         {...props}
@@ -111,10 +112,7 @@ const AlertAction = React.forwardRef<HTMLDivElement, AlertActionProps>(
       <div
         ref={ref}
         data-slot="alert-action"
-        className={cn(
-          "absolute right-2.5 top-2 group-data-[size=sm]/alert:right-2 group-data-[size=sm]/alert:top-1.5 group-data-[size=lg]/alert:right-3 group-data-[size=lg]/alert:top-2.5",
-          className
-        )}
+        className={cn(className)}
         {...props}
       />
     );
@@ -133,7 +131,7 @@ const AlertIcon = React.forwardRef<HTMLDivElement, AlertIconProps>(
         {
           ref,
           className: cn(
-            "col-start-1 row-span-2 translate-y-0.5 text-current",
+            "text-current",
             "size-4 group-data-[size=sm]/alert:size-3.5 group-data-[size=lg]/alert:size-5",
             className,
           ),

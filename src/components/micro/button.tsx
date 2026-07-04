@@ -6,6 +6,8 @@
  * - CSS Delegated Logic
  */
 import { Button as ButtonPrimitive } from "@base-ui/react/button";
+import { useRender } from "@base-ui/react/use-render";
+import { mergeProps } from "@base-ui/react/merge-props";
 import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
@@ -326,4 +328,29 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({
 });
 Button.displayName = "Button";
 
-export { Button, buttonVariants };
+export type ButtonIconProps = useRender.ComponentProps<"span">;
+
+const ButtonIcon = React.forwardRef<HTMLSpanElement, ButtonIconProps>(
+  function ButtonIcon({ className, render, ...props }, ref) {
+    return useRender({
+      render,
+      defaultTagName: "span",
+      props: mergeProps<"span">(
+        {
+          ref,
+          className: cn(
+            "shrink-0 transition-transform",
+            "size-4 group-data-[size=sm]/button:size-3.5 group-data-[size=lg]/button:size-5",
+            "[&>svg]:size-full",
+            className,
+          ),
+          "data-slot": "button-icon",
+        },
+        props,
+      ),
+    });
+  }
+);
+ButtonIcon.displayName = "ButtonIcon";
+
+export { Button, ButtonIcon, buttonVariants };

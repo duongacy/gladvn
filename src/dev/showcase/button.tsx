@@ -7,7 +7,7 @@ import {
 import { MailIcon, DownloadIcon, PlusIcon } from "lucide-react";
 
 import { type Size } from "@/lib/types";
-import { Button } from "@/components/micro/button";
+import { Button, ButtonIcon } from "@/components/micro/button";
 import { Spinner } from "@/components/micro/spinner";
 import { SelectPreset } from "@/components/macro/select-preset";
 
@@ -112,11 +112,11 @@ export default function ButtonShowcase() {
         >
           <div className="flex flex-wrap items-center gap-3">
             <Button size={globalSize} variant="outline">
-              <MailIcon className="size-4" />
+              <ButtonIcon render={<MailIcon />} />
               Login with Email
             </Button>
             <Button size={globalSize}>
-              <DownloadIcon className="size-4" />
+              <ButtonIcon render={<DownloadIcon />} />
               Download
             </Button>
           </div>
@@ -128,13 +128,13 @@ export default function ButtonShowcase() {
         >
           <div className="flex flex-wrap items-center gap-3">
             <Button size={globalSize} variant="outline" icon={true}>
-              <PlusIcon className="size-4" />
+              <ButtonIcon render={<PlusIcon />} />
             </Button>
             <Button size={globalSize} variant="ghost" icon={true}>
-              <MailIcon className="size-4" />
+              <ButtonIcon render={<MailIcon />} />
             </Button>
             <Button size={globalSize} variant="soft" icon={true}>
-              <DownloadIcon className="size-4" />
+              <ButtonIcon render={<DownloadIcon />} />
             </Button>
           </div>
         </ExampleSection>

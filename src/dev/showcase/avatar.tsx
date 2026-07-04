@@ -166,7 +166,7 @@ export default function AvatarShowcase() {
                   <AvatarFallback>{user.initials}</AvatarFallback>
                 </Avatar>
               ))}
-              <AvatarGroupCount>+12</AvatarGroupCount>
+              <AvatarGroupCount size={globalSize}>+12</AvatarGroupCount>
             </AvatarGroup>
           </div>
           <div className="flex flex-col gap-2">
@@ -183,7 +183,7 @@ export default function AvatarShowcase() {
               <Avatar size={globalSize}>
                 <AvatarFallback>EF</AvatarFallback>
               </Avatar>
-              <AvatarGroupCount>+5</AvatarGroupCount>
+              <AvatarGroupCount size={globalSize}>+5</AvatarGroupCount>
             </AvatarGroup>
           </div>
         </div>

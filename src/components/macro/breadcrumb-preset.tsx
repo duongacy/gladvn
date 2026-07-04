@@ -13,10 +13,9 @@ export interface BreadcrumbPresetItem {
   href?: string;
 }
 
-export interface BreadcrumbPresetProps
-  extends React.ComponentProps<typeof Breadcrumb> {
+export type BreadcrumbPresetProps = React.ComponentProps<typeof Breadcrumb> & {
   items: BreadcrumbPresetItem[];
-}
+};
 
 const BreadcrumbPreset = React.forwardRef<
   React.ComponentRef<typeof Breadcrumb>,

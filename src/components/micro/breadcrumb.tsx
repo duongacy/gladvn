@@ -24,20 +24,29 @@ import { ChevronRightIcon, MoreHorizontalIcon } from "lucide-react";
  *   </BreadcrumbList>
  * </Breadcrumb>
  */
-function Breadcrumb({ className, ...props }: React.ComponentProps<"nav">) {
+const Breadcrumb = React.forwardRef<
+  HTMLElement,
+  React.ComponentProps<"nav">
+>(({ className, ...props }, ref) => {
   return (
     <nav
+      ref={ref}
       aria-label="breadcrumb"
       data-slot="breadcrumb"
       className={cn(className)}
       {...props}
     />
   );
-}
+});
+Breadcrumb.displayName = "Breadcrumb";
 
-function BreadcrumbList({ className, ...props }: React.ComponentProps<"ol">) {
+const BreadcrumbList = React.forwardRef<
+  HTMLOListElement,
+  React.ComponentProps<"ol">
+>(({ className, ...props }, ref) => {
   return (
     <ol
+      ref={ref}
       data-slot="breadcrumb-list"
       className={cn(
         "flex flex-wrap items-center gap-1.5 text-sm wrap-break-word text-muted-foreground",
@@ -46,27 +55,36 @@ function BreadcrumbList({ className, ...props }: React.ComponentProps<"ol">) {
       {...props}
     />
   );
-}
+});
+BreadcrumbList.displayName = "BreadcrumbList";
 
-function BreadcrumbItem({ className, ...props }: React.ComponentProps<"li">) {
+const BreadcrumbItem = React.forwardRef<
+  HTMLLIElement,
+  React.ComponentProps<"li">
+>(({ className, ...props }, ref) => {
   return (
     <li
+      ref={ref}
       data-slot="breadcrumb-item"
       className={cn("inline-flex items-center gap-1", className)}
       {...props}
     />
   );
-}
+});
+BreadcrumbItem.displayName = "BreadcrumbItem";
 
-function BreadcrumbLink({
+export type BreadcrumbLinkProps = useRender.ComponentProps<"a">;
+
+const BreadcrumbLink = React.forwardRef<HTMLAnchorElement, BreadcrumbLinkProps>(({
   className,
   render,
   ...props
-}: useRender.ComponentProps<"a">) {
+}, ref) => {
   return useRender({
     defaultTagName: "a",
     props: mergeProps<"a">(
       {
+        ref,
         className: cn("transition-colors hover:text-foreground", className),
       },
       props,
@@ -76,11 +94,16 @@ function BreadcrumbLink({
       slot: "breadcrumb-link",
     },
   });
-}
+});
+BreadcrumbLink.displayName = "BreadcrumbLink";
 
-function BreadcrumbPage({ className, ...props }: React.ComponentProps<"span">) {
+const BreadcrumbPage = React.forwardRef<
+  HTMLSpanElement,
+  React.ComponentProps<"span">
+>(({ className, ...props }, ref) => {
   return (
     <span
+      ref={ref}
       data-slot="breadcrumb-page"
       role="link"
       aria-disabled="true"
@@ -89,46 +112,50 @@ function BreadcrumbPage({ className, ...props }: React.ComponentProps<"span">) {
       {...props}
     />
   );
-}
+});
+BreadcrumbPage.displayName = "BreadcrumbPage";
 
-function BreadcrumbSeparator({
-  children,
-  className,
-  ...props
-}: React.ComponentProps<"li">) {
+const BreadcrumbSeparator = React.forwardRef<
+  HTMLLIElement,
+  React.ComponentProps<"li">
+>(({ children, className, ...props }, ref) => {
   return (
     <li
+      ref={ref}
       data-slot="breadcrumb-separator"
       role="presentation"
       aria-hidden="true"
-      className={cn("[&>svg]:size-3.5", className)}
+      className={cn(className)}
       {...props}
     >
-      {children ?? <ChevronRightIcon />}
+      {children ?? <ChevronRightIcon className="size-3.5" />}
     </li>
   );
-}
+});
+BreadcrumbSeparator.displayName = "BreadcrumbSeparator";
 
-function BreadcrumbEllipsis({
-  className,
-  ...props
-}: React.ComponentProps<"span">) {
+const BreadcrumbEllipsis = React.forwardRef<
+  HTMLSpanElement,
+  React.ComponentProps<"span">
+>(({ className, ...props }, ref) => {
   return (
     <span
+      ref={ref}
       data-slot="breadcrumb-ellipsis"
       role="presentation"
       aria-hidden="true"
       className={cn(
-        "flex size-5 items-center justify-center [&>svg]:size-4",
+        "flex size-5 items-center justify-center",
         className,
       )}
       {...props}
     >
-      <MoreHorizontalIcon />
+      <MoreHorizontalIcon className="size-4" />
       <span className="sr-only">More</span>
     </span>
   );
-}
+});
+BreadcrumbEllipsis.displayName = "BreadcrumbEllipsis";
 
 export {
   Breadcrumb,

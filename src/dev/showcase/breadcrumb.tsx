@@ -45,13 +45,13 @@ export default function BreadcrumbShowcase() {
                 <BreadcrumbLink href="/">Home</BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator>
-                <SlashIcon />
+                <SlashIcon className="size-3.5" />
               </BreadcrumbSeparator>
               <BreadcrumbItem>
                 <BreadcrumbLink href="/components">Components</BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator>
-                <SlashIcon />
+                <SlashIcon className="size-3.5" />
               </BreadcrumbSeparator>
               <BreadcrumbItem>
                 <BreadcrumbPage>Breadcrumb</BreadcrumbPage>

@@ -6,7 +6,7 @@ import {
 } from "@/dev/components/showcase";
 
 import { type Size } from "@/lib/types";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, CardAction } from "@/components/micro/card";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/micro/card";
 import { Button } from "@/components/micro/button";
 import { Input } from "@/components/micro/input";
 import { Label } from "@/components/micro/label";
@@ -39,7 +39,7 @@ export default function CardShowcase() {
         label="Standard Card"
         description="Complete card with header, content and footer."
       >
-        <Card className="w-full max-w-sm">
+        <Card size={globalSize} className="w-full max-w-sm">
           <CardHeader>
             <CardTitle>Create project</CardTitle>
             <CardDescription>
@@ -69,8 +69,8 @@ export default function CardShowcase() {
           label="Content Only"
           description="Minimal card without header or footer."
         >
-          <Card className="w-full">
-            <CardContent className="pt-6">
+          <Card size={globalSize} className="w-full">
+            <CardContent>
               <p className="text-sm text-muted-foreground">
                 This is a simple content-only card without a header or footer.
                 Useful for wrapping any content in a card container.
@@ -84,14 +84,16 @@ export default function CardShowcase() {
           label="Header Only"
           description="Card with just a title and description."
         >
-          <Card className="w-full">
+          <Card size={globalSize} className="w-full">
             <CardHeader>
               <div className="flex items-center justify-between">
-                <CardTitle>Notifications</CardTitle>
-                <Badge color="secondary">3 new</Badge>
-              </div>
-              <CardDescription>You have 3 unread messages.</CardDescription>
-              <CardAction>
+                <div className="flex flex-col gap-1.5">
+                  <div className="flex items-center gap-2">
+                    <CardTitle>Notifications</CardTitle>
+                    <Badge color="secondary">3 new</Badge>
+                  </div>
+                  <CardDescription>You have 3 unread messages.</CardDescription>
+                </div>
                 <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
                   <span className="sr-only">Open menu</span>
                   <svg
@@ -110,7 +112,7 @@ export default function CardShowcase() {
                     ></path>
                   </svg>
                 </Button>
-              </CardAction>
+              </div>
             </CardHeader>
           </Card>
         </ExampleSection>
@@ -120,8 +122,9 @@ export default function CardShowcase() {
       <ExampleSection
         label="Stats Cards"
         description="Real-world metric/KPI card layout."
+        fullWidth
       >
-        <ExampleGrid columns={3}>
+        <ExampleGrid columns={3} className="w-full">
           {[
             {
               title: "Total Revenue",
@@ -139,7 +142,7 @@ export default function CardShowcase() {
               desc: "+201 since last hour",
             },
           ].map((stat) => (
-            <Card key={stat.title} className="w-full">
+            <Card key={stat.title} size={globalSize}>
               <CardHeader>
                 <CardDescription>{stat.title}</CardDescription>
                 <CardTitle className="text-2xl">{stat.value}</CardTitle>

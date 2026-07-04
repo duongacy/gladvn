@@ -55,7 +55,7 @@ export const COMPONENTS = [
   { id: "breadcrumb", label: "Breadcrumb", hasMicro: true, hasMacro: true },
   { id: "button", label: "Button", hasMicro: true, hasMacro: false },
   { id: "calendar", label: "Calendar", hasMicro: true, hasMacro: false },
-  { id: "card", label: "Card", hasMicro: true, hasMacro: false },
+  { id: "card", label: "Card", hasMicro: true, hasMacro: true },
   { id: "carousel", label: "Carousel", hasMicro: true, hasMacro: true },
   { id: "chart", label: "Chart", hasMicro: true, hasMacro: false },
   { id: "checkbox", label: "Checkbox", hasMicro: true, hasMacro: true },

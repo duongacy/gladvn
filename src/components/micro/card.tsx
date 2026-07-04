@@ -19,102 +19,101 @@ import { type Size } from "@/lib/types";
  *   <CardContent>Content here</CardContent>
  * </Card>
  */
-function Card({
-  className,
-  size = "md",
-  ...props
-}: React.ComponentProps<"div"> & { size?: Size }) {
-  return (
-    <div
-      data-slot="card"
-      data-size={size}
-      className={cn(
-        "group/card flex flex-col overflow-hidden rounded-xl bg-card text-sm text-card-foreground ring-1 ring-foreground/10",
-        className,
-      )}
-      {...props}
-    />
-  );
-}
+const Card = React.forwardRef<
+  HTMLDivElement,
+  React.ComponentProps<"div"> & { size?: Size }
+>(({ className, size = "md", ...props }, ref) => (
+  <div
+    ref={ref}
+    data-slot="card"
+    data-size={size}
+    className={cn(
+      "group/card @container/card flex flex-col overflow-hidden rounded-xl bg-card text-sm text-card-foreground ring-1 ring-foreground/10",
+      "p-6 gap-5 data-[size=sm]:p-4 data-[size=sm]:gap-4 data-[size=lg]:p-8 data-[size=lg]:gap-6",
+      className,
+    )}
+    {...props}
+  />
+));
+Card.displayName = "Card";
 
-function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
-  return (
+const CardHeader = React.forwardRef<HTMLDivElement, React.ComponentProps<"div">>(
+  ({ className, ...props }, ref) => (
     <div
+      ref={ref}
       data-slot="card-header"
       className={cn(
-        "group/card-header flex flex-col gap-1.5 p-6",
+        "flex flex-col gap-1.5",
         className,
       )}
       {...props}
     />
-  );
-}
+  )
+);
+CardHeader.displayName = "CardHeader";
 
-function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
-  return (
+const CardTitle = React.forwardRef<HTMLDivElement, React.ComponentProps<"div">>(
+  ({ className, ...props }, ref) => (
     <div
+      ref={ref}
       data-slot="card-title"
       className={cn(
-        "font-heading text-base leading-snug font-medium group-data-[size=sm]/card:text-sm",
+        "font-heading text-base leading-snug font-medium group-data-[size=sm]/card:text-sm group-data-[size=lg]/card:text-lg",
         className,
       )}
       {...props}
     />
-  );
-}
+  )
+);
+CardTitle.displayName = "CardTitle";
 
-function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
-  return (
+const CardDescription = React.forwardRef<HTMLDivElement, React.ComponentProps<"div">>(
+  ({ className, ...props }, ref) => (
     <div
+      ref={ref}
       data-slot="card-description"
-      className={cn("text-sm text-muted-foreground", className)}
-      {...props}
-    />
-  );
-}
-
-function CardAction({ className, ...props }: React.ComponentProps<"div">) {
-  return (
-    <div
-      data-slot="card-action"
       className={cn(
-        "col-start-2 row-span-2 row-start-1 self-start justify-self-end",
-        className,
+        "text-sm text-muted-foreground group-data-[size=sm]/card:text-xs group-data-[size=lg]/card:text-base",
+        className
       )}
       {...props}
     />
-  );
-}
+  )
+);
+CardDescription.displayName = "CardDescription";
 
-function CardContent({ className, ...props }: React.ComponentProps<"div">) {
-  return (
+const CardContent = React.forwardRef<HTMLDivElement, React.ComponentProps<"div">>(
+  ({ className, ...props }, ref) => (
     <div
+      ref={ref}
       data-slot="card-content"
-      className={cn("p-6 pt-0", className)}
+      className={className}
       {...props}
     />
-  );
-}
+  )
+);
+CardContent.displayName = "CardContent";
 
-function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
-  return (
+const CardFooter = React.forwardRef<HTMLDivElement, React.ComponentProps<"div">>(
+  ({ className, ...props }, ref) => (
     <div
+      ref={ref}
       data-slot="card-footer"
       className={cn(
-        "flex items-center p-6 pt-0",
+        "flex items-center",
         className,
       )}
       {...props}
     />
-  );
-}
+  )
+);
+CardFooter.displayName = "CardFooter";
 
 export {
   Card,
   CardHeader,
   CardFooter,
   CardTitle,
-  CardAction,
   CardDescription,
   CardContent,
 };

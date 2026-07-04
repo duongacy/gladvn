@@ -152,7 +152,7 @@ export function ExampleSection({
             )}
           >
             <div className="absolute inset-0 -z-10 opacity-[0.03] dark:opacity-[0.05] [background-size:24px_24px] [background-image:radial-gradient(circle_at_center,var(--color-foreground)_1.5px,transparent_1.5px)]" />
-            <div className="relative z-10 flex w-full items-center justify-center">
+            <div className="relative z-10 flex w-full flex-wrap items-center justify-center gap-4">
               {children}
             </div>
           </div>

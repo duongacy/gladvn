@@ -31,7 +31,7 @@ import { cn } from "@/lib/utils";
  */
 
 const buttonVariants = cva(
-  "group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-border text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:ring-3 focus-visible:ring-offset-1 focus-visible:ring-offset-background active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:ring-3 aria-invalid:focus-visible:ring-destructive/50 dark:aria-invalid:border-destructive/50 dark:aria-invalid:focus-visible:ring-destructive/50 [&>svg]:pointer-events-none [&>svg]:shrink-0",
+  "group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-border text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:ring-3 focus-visible:ring-offset-1 focus-visible:ring-offset-background active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:ring-3 aria-invalid:focus-visible:ring-destructive/50 dark:aria-invalid:border-destructive/50 dark:aria-invalid:focus-visible:ring-destructive/50",
   {
     variants: {
       // ── Visual style ─────────────────────────────────────────────
@@ -299,8 +299,8 @@ import * as React from "react";
  */
 export interface ButtonProps
   extends ButtonPrimitive.Props,
-    VariantProps<typeof buttonVariants> {
-  icon?: boolean;
+  VariantProps<typeof buttonVariants> {
+  iconOnly?: boolean;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({
@@ -308,7 +308,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({
   variant = "solid",
   color = "primary",
   size = "md",
-  icon,
+  iconOnly,
   children,
   ...props
 }, ref) => {
@@ -318,7 +318,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({
       data-slot="button"
       data-color={color}
       data-variant={variant}
-      {...(icon && { "data-icon": "true" })}
+      {...(iconOnly && { "data-icon": "true" })}
       className={cn(buttonVariants({ variant, color, size, className }))}
       {...props}
     >
@@ -339,13 +339,13 @@ const ButtonIcon = React.forwardRef<HTMLSpanElement, ButtonIconProps>(
         {
           ref,
           className: cn(
-            "shrink-0 transition-transform",
+            "inline-flex items-center justify-center shrink-0 transition-transform",
             "size-4 group-data-[size=sm]/button:size-3.5 group-data-[size=lg]/button:size-5",
-            "[&>svg]:size-full",
+            "[&>svg]:size-full [&>svg]:pointer-events-none",
             className,
           ),
           "data-slot": "button-icon",
-        },
+        } as React.ComponentProps<"span">,
         props,
       ),
     });

@@ -49,7 +49,6 @@ export default function ButtonShowcase() {
         label="Variants"
         description="All available visual styles."
       >
-        <div className="flex flex-wrap items-center gap-3">
           <Button size={globalSize} variant="solid">
             Solid
           </Button>
@@ -65,7 +64,6 @@ export default function ButtonShowcase() {
           <Button size={globalSize} variant="link">
             Link
           </Button>
-        </div>
       </ExampleSection>
 
       {/* ── Colors ── */}
@@ -73,7 +71,6 @@ export default function ButtonShowcase() {
         label="Colors"
         description="Semantic color tokens paired with the solid variant."
       >
-        <div className="flex flex-wrap items-center gap-3">
           <Button size={globalSize} color="primary">
             Primary
           </Button>
@@ -101,7 +98,6 @@ export default function ButtonShowcase() {
           <Button size={globalSize} color="accent">
             Accent
           </Button>
-        </div>
       </ExampleSection>
 
       {/* ── With Icon ── */}
@@ -110,7 +106,6 @@ export default function ButtonShowcase() {
           label="With Icon"
           description="Buttons with leading or trailing icons."
         >
-          <div className="flex flex-wrap items-center gap-3">
             <Button size={globalSize} variant="outline">
               <ButtonIcon render={<MailIcon />} />
               Login with Email
@@ -119,24 +114,21 @@ export default function ButtonShowcase() {
               <ButtonIcon render={<DownloadIcon />} />
               Download
             </Button>
-          </div>
         </ExampleSection>
 
         <ExampleSection
           label="Icon Only"
           description="Square buttons with only an icon."
         >
-          <div className="flex flex-wrap items-center gap-3">
-            <Button size={globalSize} variant="outline" icon={true}>
+            <Button size={globalSize} variant="outline" iconOnly={true}>
               <ButtonIcon render={<PlusIcon />} />
             </Button>
-            <Button size={globalSize} variant="ghost" icon={true}>
+            <Button size={globalSize} variant="ghost" iconOnly={true}>
               <ButtonIcon render={<MailIcon />} />
             </Button>
-            <Button size={globalSize} variant="soft" icon={true}>
+            <Button size={globalSize} variant="soft" iconOnly={true}>
               <ButtonIcon render={<DownloadIcon />} />
             </Button>
-          </div>
         </ExampleSection>
       </ExampleGrid>
 
@@ -145,7 +137,6 @@ export default function ButtonShowcase() {
         label="Disabled"
         description="Non-interactive button states."
       >
-        <div className="flex flex-wrap items-center gap-3">
           <Button size={globalSize} disabled>
             Solid Disabled
           </Button>
@@ -161,7 +152,6 @@ export default function ButtonShowcase() {
           <Button size={globalSize} variant="link" disabled>
             Link Disabled
           </Button>
-        </div>
       </ExampleSection>
 
       {/* ── Real-world examples ── */}

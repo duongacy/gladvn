@@ -24,6 +24,7 @@ const AvatarPreset = React.forwardRef<
     <Avatar ref={ref} {...avatarProps}>
       <AvatarImage src={src} alt={alt} />
       <AvatarFallback>{generatedFallback}</AvatarFallback>
+      {avatarProps.children}
     </Avatar>
   );
 });

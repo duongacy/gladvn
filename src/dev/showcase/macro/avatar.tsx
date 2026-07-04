@@ -7,7 +7,7 @@ import {
 import { type Size } from "@/lib/types";
 import { AvatarPreset } from "@/components/macro/avatar-preset";
 import { SelectPreset } from "@/components/macro/select-preset";
-import { AvatarGroup, AvatarGroupCount } from "@/components/micro/avatar";
+import { AvatarGroup, AvatarGroupCount, AvatarBadge } from "@/components/micro/avatar";
 
 export default function MacroAvatarShowcase() {
   const [globalSize, setGlobalSize] = useState<Size>("md");
@@ -39,8 +39,19 @@ export default function MacroAvatarShowcase() {
           </div>
         </ExampleSection>
 
-
-
+        <ExampleSection label="With Badge" description="Preset avatar composed with a custom badge.">
+          <div className="flex items-center gap-4">
+            <AvatarPreset size={globalSize} src="https://github.com/shadcn.png" alt="@shadcn">
+              <AvatarBadge className="bg-green-500" />
+            </AvatarPreset>
+            <AvatarPreset size={globalSize} alt="Alice">
+              <AvatarBadge className="bg-yellow-500" />
+            </AvatarPreset>
+            <AvatarPreset size={globalSize}>
+              <AvatarBadge className="bg-muted-foreground/50" />
+            </AvatarPreset>
+          </div>
+        </ExampleSection>
         <ExampleSection label="Avatar Group" description="Stacking preset avatars using AvatarGroup.">
           <div className="flex flex-col gap-4">
             <AvatarGroup>

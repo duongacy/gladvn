@@ -60,19 +60,19 @@ export default function BadgeShowcase() {
       >
         <div className="flex flex-wrap gap-3">
           <Badge color="success">
-            <CheckIcon data-icon="inline-start" />
+            <CheckIcon className="size-3.5" />
             Approved
           </Badge>
           <Badge color="destructive">
-            <XIcon data-icon="inline-start" />
+            <XIcon className="size-3.5" />
             Rejected
           </Badge>
           <Badge color="warning" variant="soft">
-            <AlertTriangleIcon data-icon="inline-start" />
+            <AlertTriangleIcon className="size-3.5" />
             Pending
           </Badge>
           <Badge color="info" variant="outline">
-            <InfoIcon data-icon="inline-start" />
+            <InfoIcon className="size-3.5" />
             Draft
           </Badge>
         </div>

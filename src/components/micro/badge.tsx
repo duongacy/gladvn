@@ -12,7 +12,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const badgeVariants = cva(
-  "group/badge inline-flex h-6 w-fit shrink-0 items-center justify-center gap-1.5 overflow-hidden rounded-4xl border border-transparent px-2.5 py-0.5 text-xs font-medium whitespace-nowrap transition-colors focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-offset-1 focus-visible:ring-offset-background has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2 [&>svg]:pointer-events-none [&>svg]:size-3.5",
+  "group/badge inline-flex h-6 w-fit shrink-0 items-center justify-center gap-1.5 overflow-hidden rounded-4xl border border-transparent px-2.5 py-0.5 text-xs font-medium whitespace-nowrap transition-colors focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-offset-1 focus-visible:ring-offset-background",
   {
     variants: {
       variant: {
@@ -69,22 +69,27 @@ const badgeVariants = cva(
   },
 );
 
+import * as React from "react";
+
 /**
  * @description Displays a badge or a component that looks like a badge.
  * @example
  * <Badge variant="outline">Badge</Badge>
  */
-function Badge({
+export type BadgeProps = useRender.ComponentProps<"span"> & VariantProps<typeof badgeVariants>;
+
+const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(({
   className,
   variant = "solid",
   color = "primary",
   render,
   ...props
-}: useRender.ComponentProps<"span"> & VariantProps<typeof badgeVariants>) {
+}, ref) => {
   return useRender({
     defaultTagName: "span",
     props: mergeProps<"span">(
       {
+        ref,
         className: cn(badgeVariants({ variant, color }), className),
       },
       props,
@@ -96,6 +101,7 @@ function Badge({
       color,
     },
   });
-}
+});
+Badge.displayName = "Badge";
 
 export { Badge, badgeVariants };

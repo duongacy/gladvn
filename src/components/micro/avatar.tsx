@@ -87,7 +87,7 @@ const AvatarBadge = React.forwardRef<
       ref={ref}
       data-slot="avatar-badge"
       className={cn(
-        "absolute z-10 rounded-full bg-primary ring-2 ring-background",
+        "rounded-full bg-primary ring-2 ring-background",
         "group-data-[size=sm]/avatar:size-2",
         "group-data-[size=md]/avatar:size-2.5",
         "group-data-[size=lg]/avatar:size-3",

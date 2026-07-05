@@ -18,7 +18,7 @@ import { Input } from "@/components/micro/input";
 import { InputGroup, InputGroupAddon, InputGroupInput, InputGroupText } from "@/components/micro/input-group";
 import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot } from "@/components/micro/input-otp";
 import { Label } from "@/components/micro/label";
-import { NativeSelect, NativeSelectOption } from "@/components/micro/native-select";
+
 import { RadioGroup, RadioGroupItem } from "@/components/micro/radio-group";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectSeparator, SelectTrigger, SelectValue } from "@/components/micro/select";
 import { Separator } from "@/components/micro/separator";
@@ -218,11 +218,18 @@ export default function FormsSection() {
                 Uses the browser's built-in dropdown menu. Great for mobile.
               </FieldDescription>
               <FieldContent>
-                <NativeSelect id="id1" size={globalSize} defaultValue="mac">
-                  <NativeSelectOption value="mac">macOS</NativeSelectOption>
-                  <NativeSelectOption value="win">Windows</NativeSelectOption>
-                  <NativeSelectOption value="linux">Linux</NativeSelectOption>
-                </NativeSelect>
+                <Select defaultValue="mac" items={{ mac: "macOS", win: "Windows", linux: "Linux" }}>
+                  <SelectTrigger id="id1" size={globalSize}>
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      <SelectItem value="mac">macOS</SelectItem>
+                      <SelectItem value="win">Windows</SelectItem>
+                      <SelectItem value="linux">Linux</SelectItem>
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
               </FieldContent>
             </Field>
 
@@ -521,16 +528,13 @@ export default function FormsSection() {
               <Field size={globalSize}>
                 <FieldLabel htmlFor="err-native">Country</FieldLabel>
                 <FieldContent>
-                  <NativeSelect
-                    id="err-native"
-                    size={globalSize}
-                    aria-invalid
-                    defaultValue=""
-                  >
-                    <NativeSelectOption value="" disabled>
-                      Select option...
-                    </NativeSelectOption>
-                  </NativeSelect>
+                  <Select disabled items={{}}>
+                    <SelectTrigger id="err-native" size={globalSize} aria-invalid>
+                      <SelectValue placeholder="Select option..." />
+                    </SelectTrigger>
+                    <SelectContent>
+                    </SelectContent>
+                  </Select>
                 </FieldContent>
                 <FieldError
                   errors={[

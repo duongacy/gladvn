@@ -37,7 +37,6 @@ export * from "@/components/micro/item";
 export * from "@/components/micro/kbd";
 export * from "@/components/micro/label";
 export * from "@/components/micro/menubar";
-export * from "@/components/micro/native-select";
 export * from "@/components/micro/navigation-menu";
 export * from "@/components/micro/pagination";
 export * from "@/components/micro/popover";

@@ -9,7 +9,6 @@ export * from "./combobox-preset";
 export * from "./field-preset";
 export * from "./input-otp-preset";
 export * from "./input-preset";
-export * from "./native-select-preset";
 export * from "./pagination-preset";
 export * from "./progress-preset";
 export * from "./radio-group-preset";

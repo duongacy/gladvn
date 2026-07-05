@@ -76,7 +76,6 @@ export const COMPONENTS = [
   { id: "kbd", label: "Kbd", hasMicro: true, hasMacro: false },
   { id: "label", label: "Label", hasMicro: true, hasMacro: false },
   { id: "menubar", label: "Menubar", hasMicro: true, hasMacro: false },
-  { id: "native-select", label: "Native Select", hasMicro: true, hasMacro: true },
   { id: "navigation-menu", label: "Navigation Menu", hasMicro: true, hasMacro: false },
   { id: "pagination", label: "Pagination", hasMicro: true, hasMacro: true },
   { id: "popover", label: "Popover", hasMicro: true, hasMacro: false },

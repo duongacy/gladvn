@@ -14,7 +14,7 @@ import { SwitchPreset } from "@/components/macro/switch-preset";
 import { CheckboxPreset } from "@/components/macro/checkbox-preset";
 import { InputPreset } from "@/components/macro/input-preset";
 import { TextareaPreset } from "@/components/macro/textarea-preset";
-import { NativeSelectPreset } from "@/components/macro/native-select-preset";
+
 import { SliderPreset } from "@/components/macro/slider-preset";
 import { ComboboxPreset } from "@/components/macro/combobox-preset";
 import { InputOTPPreset } from "@/components/macro/input-otp-preset";
@@ -78,18 +78,26 @@ function ProfileForm() {
         {...form.register("bio")}
       />
 
-      {/* NativeSelectPreset (Using register) */}
-      <NativeSelectPreset
-        label="Language"
-        description="Ngôn ngữ ưa thích của bạn là gì?"
-        errorMessage={form.formState.errors.language?.message}
-        {...form.register("language")}
-      >
-        <option value="" disabled>Select a language...</option>
-        <option value="en">English</option>
-        <option value="vi">Vietnamese</option>
-        <option value="fr">French</option>
-      </NativeSelectPreset>
+      {/* SelectPreset (Replacing NativeSelectPreset) */}
+      <Controller
+        control={form.control}
+        name="language"
+        render={({ field, fieldState }) => (
+          <SelectPreset
+            label="Language"
+            description="Ngôn ngữ ưa thích của bạn là gì?"
+            placeholder="Select a language..."
+            options={[
+              { value: "en", label: "English" },
+              { value: "vi", label: "Vietnamese" },
+              { value: "fr", label: "French" },
+            ]}
+            value={field.value}
+            onValueChange={field.onChange}
+            errorMessage={fieldState.error?.message}
+          />
+        )}
+      />
 
       {/* ComboboxPreset */}
       <Controller

@@ -44,7 +44,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/micro/radio-group";
 import { Combobox, ComboboxInput, ComboboxContent, ComboboxList, ComboboxItem } from "@/components/micro/combobox";
 import { Calendar } from "@/components/micro/calendar";
 import { InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator } from "@/components/micro/input-otp";
-import { NativeSelect, NativeSelectOption } from "@/components/micro/native-select";
+
 import { InputGroup, InputGroupAddon, InputGroupText, InputGroupInput } from "@/components/micro/input-group";
 import { Field, FieldTitle, FieldDescription, FieldError, FieldContent } from "@/components/micro/field";
 

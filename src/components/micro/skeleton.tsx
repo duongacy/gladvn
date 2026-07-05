@@ -5,6 +5,7 @@
  * - Form Control Parity
  * - CSS Delegated Logic
  */
+import * as React from "react";
 import { cn } from "@/lib/utils";
 
 /**
@@ -12,14 +13,16 @@ import { cn } from "@/lib/utils";
  * @example
  * <Skeleton className="w-[100px] h-[20px] rounded-full" />
  */
-function Skeleton({ className, ...props }: React.ComponentProps<"div">) {
-  return (
+const Skeleton = React.forwardRef<HTMLDivElement, React.ComponentPropsWithoutRef<"div">>(
+  ({ className, ...props }, ref) => (
     <div
+      ref={ref}
       data-slot="skeleton"
       className={cn("animate-pulse rounded-lg bg-muted", className)}
       {...props}
     />
-  );
-}
+  ),
+);
+Skeleton.displayName = "Skeleton";
 
 export { Skeleton };

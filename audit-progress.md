@@ -4,9 +4,9 @@ Tiến trình pair-coding audit các UI components theo thứ tự bảng chữ 
 
 ## Tổng quan tiến độ
 
-**Đã Audit:** 30 components
+**Đã Audit:** 31 components
 **Đang xử lý / Bug:** 0 component
-**Chưa Audit:** 23 components
+**Chưa Audit:** 22 components
 
 ---
 
@@ -103,7 +103,7 @@ Danh sách các nhóm component cần ưu tiên hoàn thiện sớm nhất để
 - [ ] `separator.tsx`
 - [ ] `sheet.tsx`
 - [ ] `sidebar.tsx`
-- [ ] `skeleton.tsx`
+- [X] `skeleton.tsx`
 - [ ] `sonner.tsx`
 - [ ] `spinner.tsx`
 - [ ] `theme-provider.tsx`

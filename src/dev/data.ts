@@ -87,7 +87,7 @@ export const COMPONENTS = [
   { id: "separator", label: "Separator", hasMicro: true, hasMacro: false },
   { id: "sheet", label: "Sheet", hasMicro: true, hasMacro: false },
   { id: "sidebar", label: "Sidebar", hasMicro: true, hasMacro: false },
-  { id: "skeleton", label: "Skeleton", hasMicro: true, hasMacro: false },
+  { id: "skeleton", label: "Skeleton", hasMicro: true, hasMacro: false, status: "stable" },
   { id: "slider", label: "Slider", hasMicro: true, hasMacro: true, status: "stable" },
   { id: "sonner", label: "Sonner", hasMicro: true, hasMacro: false },
   { id: "spinner", label: "Spinner", hasMicro: true, hasMacro: false },

@@ -73,6 +73,8 @@ const inputGroupAddonVariants = cva(
     "flex h-auto cursor-text items-center justify-center gap-2 font-medium text-muted-foreground select-none",
     // Disabled state (delegated from wrapper)
     "group-data-[disabled=true]/input-group:opacity-50",
+    // Invalid state (delegated from wrapper)
+    "group-has-[[data-slot][aria-invalid=true]]/input-group:text-destructive",
     // Padding based on wrapper size
     "group-[.input-group-sm]/input-group:py-0.5 group-[.input-group-md]/input-group:py-1.5 group-[.input-group-lg]/input-group:py-1.5",
     // Inner elements styling

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { SearchIcon, LockIcon } from "lucide-react";
 import {
   SectionHeader,
   ExampleSection,
@@ -51,6 +52,7 @@ export default function MacroInputShowcase() {
           <InputPreset
             label="Password"
             type="password"
+            startAdornment={<LockIcon />}
             placeholder="Enter your password"
             errorMessage="Password must be at least 8 characters long."
             size={globalSize}
@@ -88,6 +90,30 @@ export default function MacroInputShowcase() {
               type="url"
               placeholder="https://example.com"
               description="Miền chính cho ứng dụng của bạn."
+              size={globalSize}
+              className="w-full"
+            />
+          </div>
+        </ExampleSection>
+        <ExampleSection label="With Adornments (Auto InputGroup)" description="Tự động chuyển đổi thành InputGroup khi có startAdornment hoặc endAdornment.">
+          <div className="flex w-full max-w-sm flex-col gap-6">
+            <InputPreset
+              label="Website"
+              placeholder="example"
+              startAdornment="https://"
+              endAdornment=".com"
+              size={globalSize}
+              className="w-full"
+            />
+            <InputPreset
+              label="Search"
+              placeholder="Search components..."
+              startAdornment={<SearchIcon />}
+              endAdornment={
+                <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
+                  <span className="text-xs">⌘</span>K
+                </kbd>
+              }
               size={globalSize}
               className="w-full"
             />

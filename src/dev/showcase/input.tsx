@@ -9,7 +9,7 @@ import { type Size } from "@/lib/types";
 import { Input } from "@/components/micro/input";
 import { Field, FieldLabel, FieldDescription, FieldContent } from "@/components/micro/field";
 import { InputGroup, InputGroupAddon, InputGroupText, InputGroupInput } from "@/components/micro/input-group";
-import { SelectPreset } from "@/components/macro/select-preset";
+import { MonoSelect } from "@/dev/components/mono-select";
 
 export default function InputShowcase() {
   const [globalSize, setGlobalSize] = useState<Size>("md");
@@ -20,15 +20,14 @@ export default function InputShowcase() {
         title="Input"
         description="Trường văn bản để ghi lại thông tin đầu vào của người dùng dạng ngắn."
       >
-        <SelectPreset
+        <MonoSelect
           value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as Size)}
+          onValueChange={(v) => setGlobalSize(v as "sm" | "md" | "lg")}
           options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
+            { value: "sm", label: "Small" },
+            { value: "md", label: "Medium" },
+            { value: "lg", label: "Large" },
           ]}
-          className="w-[120px] h-8 text-xs bg-background"
         />
       </SectionHeader>
 

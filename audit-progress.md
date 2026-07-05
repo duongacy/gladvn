@@ -4,9 +4,39 @@ Tiến trình pair-coding audit các UI components theo thứ tự bảng chữ 
 
 ## Tổng quan tiến độ
 
-**Đã Audit:** 9 components
+**Đã Audit:** 11 components
 **Đang xử lý / Bug:** 1 component (`calendar`)
-**Chưa Audit:** 45 components
+**Chưa Audit:** 42 components
+
+---
+
+## 🎯 Ưu tiên Audit gấp (Baseline)
+
+Danh sách các nhóm component cần ưu tiên hoàn thiện sớm nhất để dự án có thể đóng gói phiên bản baseline đưa vào ứng dụng thực tế:
+
+**1. Nhóm Form & Data Entry (Ưu tiên số 1)**
+- [ ] `rhf` (React Hook Form)
+- [x] `input.tsx` / `textarea.tsx`
+- [ ] `select.tsx` / `native-select.tsx`
+- [ ] `combobox.tsx`
+- [x] `checkbox.tsx`
+- [ ] `switch.tsx` / `radio-group.tsx`
+
+**2. Nhóm Navigation & Layout**
+- [ ] `sidebar.tsx`
+- [ ] `navigation-menu.tsx`
+- [ ] `tabs.tsx`
+- [x] `card.tsx`
+
+**3. Nhóm Overlays & Modals**
+- [x] `dialog.tsx` / `alert-dialog.tsx`
+- [ ] `sheet.tsx` / `drawer.tsx`
+- [ ] `dropdown-menu.tsx` / `popover.tsx`
+
+**4. Nhóm Data Display & Feedback**
+- [ ] `table.tsx`
+- [ ] `sonner.tsx`
+- [ ] `tooltip.tsx`
 
 ---
 
@@ -22,24 +52,26 @@ Tiến trình pair-coding audit các UI components theo thứ tự bảng chữ 
 - [x] `button.tsx`
 - [x] `card.tsx`
 - [x] `carousel.tsx`
+- [x] `checkbox.tsx`
+- [x] `collapsible.tsx`
+- [x] `dialog.tsx`
+- [x] `input.tsx`
+- [x] `textarea.tsx`
 
 ---
 
 ## ⚠️ Đang xử lý / Tạm gác
 
 - [ ] `calendar.tsx` *(Blank page bug khi render, đang tạm revert)*
+- [ ] `combobox.tsx` *(Tạm gác chờ review lại MonoSelect sau khi fix các component liên quan)*
 
 ---
 
 ## 🔴 Chưa Audit (Từ C trở đi)
 
 - [ ] `chart.tsx`
-- [x] `checkbox.tsx`
-- [x] `collapsible.tsx`
-- [ ] `combobox.tsx`
 - [ ] `command.tsx`
 - [ ] `context-menu.tsx`
-- [ ] `dialog.tsx`
 - [ ] `direction.tsx`
 - [ ] `drawer.tsx`
 - [ ] `dropdown-menu.tsx`
@@ -48,7 +80,6 @@ Tiến trình pair-coding audit các UI components theo thứ tự bảng chữ 
 - [ ] `hover-card.tsx`
 - [ ] `input-group.tsx`
 - [ ] `input-otp.tsx`
-- [ ] `input.tsx`
 - [ ] `item.tsx`
 - [ ] `kbd.tsx`
 - [ ] `label.tsx`
@@ -72,7 +103,6 @@ Tiến trình pair-coding audit các UI components theo thứ tự bảng chữ 
 - [ ] `switch.tsx`
 - [ ] `table.tsx`
 - [ ] `tabs.tsx`
-- [ ] `textarea.tsx`
 - [ ] `theme-provider.tsx`
 - [ ] `toggle-group.tsx`
 - [ ] `toggle.tsx`

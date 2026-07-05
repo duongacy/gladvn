@@ -15,7 +15,6 @@ Tiến trình pair-coding audit các UI components theo thứ tự bảng chữ 
 Danh sách các nhóm component cần ưu tiên hoàn thiện sớm nhất để dự án có thể đóng gói phiên bản baseline đưa vào ứng dụng thực tế:
 
 **1. Nhóm Form & Data Entry (Ưu tiên số 1)**
-- [ ] `rhf` (React Hook Form)
 - [x] `input.tsx` / `textarea.tsx`
 - [x] `select.tsx`
 - [ ] `combobox.tsx`

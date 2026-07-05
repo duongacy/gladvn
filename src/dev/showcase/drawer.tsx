@@ -97,6 +97,94 @@ export default function DrawerShowcase() {
             </DrawerContent>
           </Drawer>
         </ExampleSection>
+        <ExampleSection
+          label="Left / Right Drawers"
+          description="Drawer mở từ cạnh trái hoặc phải — phù hợp cho Sidebar và Filter panel."
+        >
+          <div className="flex gap-4">
+            <Drawer direction="left">
+              <DrawerTrigger asChild>
+                <Button variant="outline">Open Left</Button>
+              </DrawerTrigger>
+              <DrawerContent>
+                <DrawerHeader>
+                  <DrawerTitle>Sidebar Menu</DrawerTitle>
+                  <DrawerDescription>
+                    Điều hướng từ cạnh trái của màn hình.
+                  </DrawerDescription>
+                </DrawerHeader>
+                <div className="flex-1 p-4">
+                  <ul className="space-y-4 text-sm">
+                    <li>Dashboard</li>
+                    <li>Settings</li>
+                    <li>Profile</li>
+                  </ul>
+                </div>
+                <DrawerFooter>
+                  <DrawerClose asChild>
+                    <Button variant="outline">Close</Button>
+                  </DrawerClose>
+                </DrawerFooter>
+              </DrawerContent>
+            </Drawer>
+
+            <Drawer direction="right">
+              <DrawerTrigger asChild>
+                <Button variant="outline">Open Right</Button>
+              </DrawerTrigger>
+              <DrawerContent>
+                <DrawerHeader>
+                  <DrawerTitle>Filters</DrawerTitle>
+                  <DrawerDescription>
+                    Bộ lọc tìm kiếm từ cạnh phải.
+                  </DrawerDescription>
+                </DrawerHeader>
+                <div className="flex-1 space-y-2 p-4">
+                  <div className="h-4 w-1/2 rounded bg-muted" />
+                  <div className="h-4 w-3/4 rounded bg-muted" />
+                  <div className="h-4 w-2/3 rounded bg-muted" />
+                </div>
+                <DrawerFooter>
+                  <Button>Apply Filters</Button>
+                  <DrawerClose asChild>
+                    <Button variant="outline">Cancel</Button>
+                  </DrawerClose>
+                </DrawerFooter>
+              </DrawerContent>
+            </Drawer>
+          </div>
+        </ExampleSection>
+
+        <ExampleSection
+          label="Top Drawer"
+          description="Drawer mở từ phía trên — phù hợp cho notifications, alerts, hoặc search."
+        >
+          <Drawer direction="top">
+            <DrawerTrigger asChild>
+              <Button variant="outline">Open Top</Button>
+            </DrawerTrigger>
+            <DrawerContent>
+              <div className="mx-auto w-full max-w-sm">
+                <DrawerHeader>
+                  <DrawerTitle>New Notification</DrawerTitle>
+                  <DrawerDescription>
+                    Bạn có 3 thông báo chưa đọc.
+                  </DrawerDescription>
+                </DrawerHeader>
+                <div className="space-y-2 px-4 pb-2 text-sm text-muted-foreground">
+                  <p>🔔 Your order has been shipped.</p>
+                  <p>🔔 A new comment on your post.</p>
+                  <p>🔔 Your subscription renews in 3 days.</p>
+                </div>
+                <DrawerFooter>
+                  <DrawerClose asChild>
+                    <Button variant="outline">Dismiss all</Button>
+                  </DrawerClose>
+                </DrawerFooter>
+              </div>
+            </DrawerContent>
+          </Drawer>
+        </ExampleSection>
       </ExampleGrid>
     </div>
   );

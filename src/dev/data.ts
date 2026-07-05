@@ -62,7 +62,7 @@ export const COMPONENTS = [
   { id: "collapsible", label: "Collapsible", hasMicro: true, hasMacro: false, status: "stable" },
   { id: "combobox", label: "Combobox", hasMicro: true, hasMacro: true, status: "stable" },
   { id: "command", label: "Command", hasMicro: true, hasMacro: false, status: "stable" },
-  { id: "context-menu", label: "Context Menu", hasMicro: true, hasMacro: false },
+  { id: "context-menu", label: "Context Menu", hasMicro: true, hasMacro: false, status: "stable" },
   { id: "dialog", label: "Dialog", hasMicro: true, hasMacro: true, status: "stable" },
   { id: "drawer", label: "Drawer", hasMicro: true, hasMacro: false },
   { id: "dropdown-menu", label: "Dropdown Menu", hasMicro: true, hasMacro: false },

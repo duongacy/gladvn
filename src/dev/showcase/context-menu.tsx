@@ -78,6 +78,29 @@ export default function ContextMenuShowcase() {
           </ContextMenuContent>
         </ContextMenu>
       </ExampleSection>
+
+      <ExampleSection
+        label="Destructive Variant"
+        description="Context menu với các action nguy hiểm hiển thị màu destructive."
+      >
+        <ContextMenu>
+          <ContextMenuTrigger className="flex h-[100px] w-full max-w-[300px] items-center justify-center rounded-md border border-dashed text-sm">
+            Right click here
+          </ContextMenuTrigger>
+          <ContextMenuContent className="w-52">
+            <ContextMenuItem>
+              Rename
+              <ContextMenuShortcut>⌘R</ContextMenuShortcut>
+            </ContextMenuItem>
+            <ContextMenuItem>Duplicate</ContextMenuItem>
+            <ContextMenuSeparator />
+            <ContextMenuItem variant="destructive">
+              Delete
+              <ContextMenuShortcut>⌫</ContextMenuShortcut>
+            </ContextMenuItem>
+          </ContextMenuContent>
+        </ContextMenu>
+      </ExampleSection>
     </div>
   );
 }

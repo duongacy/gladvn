@@ -4,7 +4,7 @@ import {
   ExampleSection,
   ExampleGrid,
 } from "@/dev/components/showcase";
-import type { DateRange } from "react-day-picker";
+import { type DateRange } from "react-day-picker";
 
 import { type Size } from "@/lib/types";
 import { Calendar } from "@/components/micro/calendar";
@@ -13,6 +13,11 @@ import { SelectPreset } from "@/components/macro/select-preset";
 export default function CalendarShowcase() {
   const [globalSize, setGlobalSize] = useState<Size>("md");
   const [singleDate, setSingleDate] = useState<Date | undefined>(new Date());
+  const [multipleDates, setMultipleDates] = useState<Date[] | undefined>([
+    new Date(2026, 5, 10),
+    new Date(2026, 5, 15),
+    new Date(2026, 5, 20),
+  ]);
   const [dateRange, setDateRange] = useState<DateRange | undefined>({
     from: new Date(2026, 5, 15),
     to: new Date(2026, 5, 25),
@@ -61,12 +66,62 @@ export default function CalendarShowcase() {
               mode="range"
               selected={dateRange}
               onSelect={setDateRange}
-              numberOfMonths={1}
               className="w-full"
             />
           </div>
         </ExampleSection>
       </ExampleGrid>
+
+      <ExampleGrid columns={2}>
+        {/* ── Multiple Dates ── */}
+        <ExampleSection
+          label="Multiple Dates"
+          description="Chọn nhiều ngày rời rạc (mode='multiple')."
+        >
+          <div className="border rounded-xl inline-block bg-card p-3">
+            <Calendar
+              size={globalSize}
+              mode="multiple"
+              selected={multipleDates}
+              onSelect={setMultipleDates}
+              className="w-full"
+            />
+          </div>
+        </ExampleSection>
+
+        {/* ── Disabled Dates ── */}
+        <ExampleSection
+          label="Disabled Dates"
+          description="Vô hiệu hóa chọn ngày (VD: ngày trong quá khứ)."
+        >
+          <div className="border rounded-xl inline-block bg-card p-3">
+            <Calendar
+              size={globalSize}
+              mode="single"
+              disabled={(date) => date < new Date(2026, 5, 15)}
+              defaultMonth={new Date(2026, 5, 15)}
+              className="w-full"
+            />
+          </div>
+        </ExampleSection>
+      </ExampleGrid>
+
+      {/* ── Two Months ── */}
+      <ExampleSection
+        label="Two Months"
+        description="Hiển thị 2 tháng liền kề (numberOfMonths=2) thường dùng cho Date Range."
+      >
+        <div className="border rounded-xl inline-block bg-card p-3 overflow-x-auto max-w-full">
+          <Calendar
+            size={globalSize}
+            mode="range"
+            selected={dateRange}
+            onSelect={setDateRange}
+            numberOfMonths={2}
+            className="w-full"
+          />
+        </div>
+      </ExampleSection>
 
       {/* ── With Navigation Dropdown ── */}
       <ExampleSection

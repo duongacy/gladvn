@@ -4,9 +4,9 @@ Tiến trình pair-coding audit các UI components theo thứ tự bảng chữ 
 
 ## Tổng quan tiến độ
 
-**Đã Audit:** 25 components
-**Đang xử lý / Bug:** 1 component (`calendar`)
-**Chưa Audit:** 28 components
+**Đã Audit:** 26 components
+**Đang xử lý / Bug:** 0 component
+**Chưa Audit:** 27 components
 
 ---
 
@@ -53,6 +53,7 @@ Danh sách các nhóm component cần ưu tiên hoàn thiện sớm nhất để
 - [X] `badge.tsx`
 - [X] `breadcrumb.tsx`
 - [X] `button.tsx`
+- [X] `calendar.tsx`
 - [X] `card.tsx`
 - [X] `carousel.tsx`
 - [X] `checkbox.tsx`
@@ -75,7 +76,7 @@ Danh sách các nhóm component cần ưu tiên hoàn thiện sớm nhất để
 
 ## ⚠️ Đang xử lý / Tạm gác
 
-- [ ] `calendar.tsx` *(Blank page bug khi render, đang tạm revert)*
+(Không có)
 
 ---
 

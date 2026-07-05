@@ -31,7 +31,7 @@ export default function TooltipShowcase() {
         label="Placements"
         description="Tooltips can be positioned on any side of the trigger."
       >
-        <ExampleGrid columns={4}>
+        <ExampleGrid columns={2}>
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger
@@ -81,7 +81,7 @@ export default function TooltipShowcase() {
             <Tooltip>
               <TooltipTrigger
                 render={
-                  <Button variant="outline" size={globalSize} isIconOnly>
+                  <Button variant="outline" size={globalSize} iconOnly>
                     <InfoIcon />
                   </Button>
                 }

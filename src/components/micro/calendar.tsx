@@ -1,6 +1,6 @@
 /**
  * ✅ AUDITED
- * - Design System Compliant (20 Commandments)
+ * - Design System Compliant (22 Commandments)
  * - WCAG AAA/AA
  * - Form Control Parity
  * - CSS Delegated Logic
@@ -19,12 +19,35 @@ import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/micro/button";
-import { SelectPreset } from "@/components/macro/select-preset";
+import {
+  Select,
+  SelectTrigger,
+  SelectContent,
+  SelectItem,
+} from "@/components/micro/select";
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
   ChevronDownIcon,
 } from "lucide-react";
+
+function getDropdownLabel(
+  options: Array<{ value: number | string; label: string }> | undefined,
+  value: number | string | readonly string[] | undefined,
+  locale?: Partial<Locale>,
+): string {
+  const valueStr = Array.isArray(value) ? (value as string[])[0] : value?.toString();
+  const selected = options?.find((o) => o.value.toString() === valueStr);
+  if (!selected) return "";
+  const isMonth = options?.length === 12;
+  if (isMonth && selected.value !== undefined) {
+    return new Date(2000, Number(selected.value), 1).toLocaleString(
+      locale?.code ?? "en-US",
+      { month: "short" },
+    );
+  }
+  return selected.label;
+}
 
 const calendarVariants = cva(
   "group/calendar bg-background p-2 in-data-[slot=card-content]:bg-transparent in-data-[slot=popover-content]:bg-transparent",
@@ -67,8 +90,6 @@ function Calendar({
       showOutsideDays={showOutsideDays}
       className={cn(
         calendarVariants({ size }),
-        String.raw`rtl:[&_[.rdp-button\_next>svg]]:rotate-180`,
-        String.raw`rtl:[&_[.rdp-button\_previous>svg]]:rotate-180`,
         className,
       )}
       captionLayout={captionLayout}
@@ -106,7 +127,7 @@ function Calendar({
           defaultClassNames.month_caption,
         ),
         dropdowns: cn(
-          "flex h-7 group-[.calendar-sm]/calendar:h-6 group-[.calendar-lg]/calendar:h-8 items-center justify-center gap-1",
+          "flex h-7 group-[.calendar-sm]/calendar:h-6 group-[.calendar-lg]/calendar:h-8 items-center justify-center gap-0",
           defaultClassNames.dropdowns,
         ),
         dropdown_root: cn(
@@ -186,13 +207,28 @@ function Calendar({
           name,
         }) => {
           return (
-            <SelectPreset
-              size={size}
+            <Select
               value={value?.toString()}
               disabled={disabled}
-              options={
-                options?.map((option) => {
-                  const isMonth = name === "months";
+              onValueChange={(newVal) => {
+                const event = {
+                  target: { value: newVal, name },
+                } as React.ChangeEvent<HTMLSelectElement>;
+                onChange?.(event);
+              }}
+            >
+              <SelectTrigger
+                size={size}
+                aria-label={ariaLabel}
+                className="w-fit min-w-0 px-1 border-none bg-transparent font-medium shadow-none focus-visible:ring-0 focus-visible:ring-offset-0 [&_[data-slot=select-value]]:w-auto"
+              >
+                <span data-slot="select-value" className="flex flex-1 text-left">
+                  {getDropdownLabel(options, value, locale)}
+                </span>
+              </SelectTrigger>
+              <SelectContent>
+                {options?.map((option) => {
+                  const isMonth = options?.length === 12;
                   let shortLabel = option.label;
                   if (isMonth && option.value !== undefined) {
                     const monthDate = new Date(2000, Number(option.value), 1);
@@ -203,22 +239,18 @@ function Calendar({
                       },
                     );
                   }
-                  return {
-                    value: option.value.toString(),
-                    label: shortLabel,
-                    dropdownLabel: isMonth ? option.label : undefined,
-                    disabled: option.disabled,
-                  };
-                }) || []
-              }
-              onValueChange={(newVal) => {
-                const event = {
-                  target: { value: newVal, name },
-                } as React.ChangeEvent<HTMLSelectElement>;
-                onChange?.(event);
-              }}
-              className="w-fit min-w-0 border-none bg-transparent dark:bg-transparent font-medium shadow-none hover:bg-muted/50 dark:hover:bg-muted/50 focus-visible:ring-0 focus-visible:ring-offset-0 [&>span]:w-auto"
-            />
+                  return (
+                    <SelectItem
+                      key={option.value}
+                      value={option.value.toString()}
+                      disabled={option.disabled}
+                    >
+                      {shortLabel}
+                    </SelectItem>
+                  );
+                })}
+              </SelectContent>
+            </Select>
           );
         },
         Chevron: ({ className, orientation, ...props }) => {
@@ -229,7 +261,7 @@ function Calendar({
             return (
               <ChevronLeftIcon
                 className={cn(
-                  "size-5 group-[.calendar-sm]/calendar:size-4 group-[.calendar-lg]/calendar:size-6",
+                  "size-5 group-[.calendar-sm]/calendar:size-4 group-[.calendar-lg]/calendar:size-6 rtl:rotate-180",
                   className,
                 )}
                 strokeWidth={3}
@@ -242,7 +274,7 @@ function Calendar({
             return (
               <ChevronRightIcon
                 className={cn(
-                  "size-5 group-[.calendar-sm]/calendar:size-4 group-[.calendar-lg]/calendar:size-6",
+                  "size-5 group-[.calendar-sm]/calendar:size-4 group-[.calendar-lg]/calendar:size-6 rtl:rotate-180",
                   className,
                 )}
                 strokeWidth={3}
@@ -331,8 +363,7 @@ function CalendarDayButton({
         "data-[range-end=true]:bg-primary data-[range-end=true]:text-primary-foreground",
         // Range middle
         "data-[range-middle=true]:bg-muted data-[range-middle=true]:text-foreground",
-        // Content spans (event dots etc.)
-        "[&>span]:text-xs [&>span]:opacity-70",
+        // Content spans (event dots etc.) — consumer should use data-slot on spans
         // Dark mode
         "dark:hover:text-foreground",
         className,
@@ -341,5 +372,8 @@ function CalendarDayButton({
     />
   );
 }
+
+Calendar.displayName = "Calendar";
+CalendarDayButton.displayName = "CalendarDayButton";
 
 export { Calendar, CalendarDayButton };

@@ -1,1 +1,0 @@
-import{Vn as e,ir as t,sr as n,zn as r}from"./showcase-DadcD9xY.js";var i=n(t(),1);function a(t,n){let a=i.useRef(t),o=r(n);e(()=>{a.current!==t&&o(a.current)},[t,o]),e(()=>{a.current=t},[t])}export{a as t};

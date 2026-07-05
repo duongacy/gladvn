@@ -73,7 +73,7 @@ export default function PopoverShowcase() {
             <Popover>
               <PopoverTrigger
                 render={
-                  <Button variant="ghost" size="icon" className="rounded-full">
+                  <Button variant="ghost" size="md" iconOnly className="rounded-full">
                     <Bell className="size-4" />
                   </Button>
                 }
@@ -91,7 +91,7 @@ export default function PopoverShowcase() {
             <Popover>
               <PopoverTrigger
                 render={
-                  <Button variant="outline" size="icon">
+                  <Button variant="outline" size="md" iconOnly>
                     <Settings className="size-4" />
                   </Button>
                 }
@@ -154,7 +154,7 @@ export default function PopoverShowcase() {
                 </PopoverDescription>
               </PopoverHeader>
               <div className="mt-4 flex justify-end">
-                <Button size="sm" variant="secondary" onClick={() => setIsOpen(false)}>
+                <Button size="sm" color="secondary" onClick={() => setIsOpen(false)}>
                   Đóng Popover
                 </Button>
               </div>

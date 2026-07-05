@@ -54,7 +54,7 @@ export const COMPONENTS = [
   { id: "badge", label: "Badge", hasMicro: true, hasMacro: false, status: "stable" },
   { id: "breadcrumb", label: "Breadcrumb", hasMicro: true, hasMacro: true, status: "stable" },
   { id: "button", label: "Button", hasMicro: true, hasMacro: false, status: "stable" },
-  { id: "calendar", label: "Calendar", hasMicro: true, hasMacro: false },
+  { id: "calendar", label: "Calendar", hasMicro: true, hasMacro: false, status: "stable" },
   { id: "card", label: "Card", hasMicro: true, hasMacro: true, status: "stable" },
   { id: "carousel", label: "Carousel", hasMicro: true, hasMacro: true, status: "stable" },
   { id: "chart", label: "Chart", hasMicro: true, hasMacro: false },

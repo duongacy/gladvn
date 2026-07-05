@@ -4,9 +4,9 @@ Tiến trình pair-coding audit các UI components theo thứ tự bảng chữ 
 
 ## Tổng quan tiến độ
 
-**Đã Audit:** 11 components
+**Đã Audit:** 12 components
 **Đang xử lý / Bug:** 1 component (`calendar`)
-**Chưa Audit:** 41 components
+**Chưa Audit:** 40 components
 
 ---
 
@@ -17,7 +17,7 @@ Danh sách các nhóm component cần ưu tiên hoàn thiện sớm nhất để
 **1. Nhóm Form & Data Entry (Ưu tiên số 1)**
 - [ ] `rhf` (React Hook Form)
 - [x] `input.tsx` / `textarea.tsx`
-- [ ] `select.tsx`
+- [x] `select.tsx`
 - [ ] `combobox.tsx`
 - [x] `checkbox.tsx`
 - [ ] `switch.tsx` / `radio-group.tsx`

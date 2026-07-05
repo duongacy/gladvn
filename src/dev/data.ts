@@ -84,7 +84,7 @@ export const COMPONENTS = [
   { id: "rhf", label: "React Hook Form", hasMicro: false, hasMacro: true },
   { id: "resizable", label: "Resizable", hasMicro: true, hasMacro: false },
   { id: "scroll-area", label: "Scroll Area", hasMicro: true, hasMacro: false },
-  { id: "select", label: "Select", hasMicro: true, hasMacro: true },
+  { id: "select", label: "Select", hasMicro: true, hasMacro: true, status: "stable" },
   { id: "separator", label: "Separator", hasMicro: true, hasMacro: false },
   { id: "sheet", label: "Sheet", hasMicro: true, hasMacro: false },
   { id: "sidebar", label: "Sidebar", hasMicro: true, hasMacro: false },

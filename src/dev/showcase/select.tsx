@@ -37,7 +37,7 @@ export default function SelectShowcase() {
             <Field size={globalSize}>
               <FieldLabel>Framework</FieldLabel>
               <FieldContent>
-                <Select>
+                <Select items={{ "next": "Next.js", "vite": "Vite", "remix": "Remix", "astro": "Astro" }}>
                   <SelectTrigger size={globalSize}>
                     <SelectValue placeholder="Pick a framework..." />
                   </SelectTrigger>
@@ -66,7 +66,7 @@ export default function SelectShowcase() {
             <Field size={globalSize}>
               <FieldLabel>Fruit</FieldLabel>
               <FieldContent>
-                <Select>
+                <Select items={{ "orange": "Orange", "lemon": "Lemon", "strawberry": "Strawberry", "blueberry": "Blueberry" }}>
                   <SelectTrigger size={globalSize}>
                     <SelectValue placeholder="Pick a fruit..." />
                   </SelectTrigger>

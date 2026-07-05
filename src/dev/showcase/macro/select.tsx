@@ -16,6 +16,16 @@ export default function MacroSelectShowcase() {
         title="Select (Macro)"
         description="Một thành phần đặt trước bao gồm Chọn, Trường, Nhãn và Mô tả."
       >
+        <SelectPreset
+          value={globalSize}
+          onValueChange={(v) => setGlobalSize(v as Size)}
+          options={[
+            { value: "sm", label: "Size: sm" },
+            { value: "md", label: "Size: md" },
+            { value: "lg", label: "Size: lg" },
+          ]}
+          className="w-[120px] h-8 text-xs bg-background"
+        />
       </SectionHeader>
 
       <ExampleGrid columns={2}>

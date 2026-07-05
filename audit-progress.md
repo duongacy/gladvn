@@ -90,7 +90,7 @@ Danh sách các nhóm component cần ưu tiên hoàn thiện sớm nhất để
 - [ ] `radio-group.tsx`
 - [ ] `resizable.tsx`
 - [ ] `scroll-area.tsx`
-- [ ] `select.tsx`
+- [x] `select.tsx`
 - [ ] `separator.tsx`
 - [ ] `sheet.tsx`
 - [ ] `sidebar.tsx`

@@ -80,7 +80,7 @@ export const COMPONENTS = [
   { id: "pagination", label: "Pagination", hasMicro: true, hasMacro: true },
   { id: "popover", label: "Popover", hasMicro: true, hasMacro: false },
   { id: "progress", label: "Progress", hasMicro: true, hasMacro: true },
-  { id: "radio-group", label: "Radio Group", hasMicro: true, hasMacro: true },
+  { id: "radio-group", label: "Radio Group", hasMicro: true, hasMacro: true, status: "stable" },
   { id: "resizable", label: "Resizable", hasMicro: true, hasMacro: false },
   { id: "scroll-area", label: "Scroll Area", hasMicro: true, hasMacro: false },
   { id: "select", label: "Select", hasMicro: true, hasMacro: true, status: "stable" },

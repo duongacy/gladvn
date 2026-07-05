@@ -16,16 +16,16 @@ export type CheckboxPresetProps = Omit<React.ComponentProps<typeof Checkbox>, "c
 const CheckboxPreset = React.forwardRef<
   React.ComponentRef<typeof Checkbox>,
   CheckboxPresetProps
->(({ label, description, errorMessage, showError = true, className, id, ...checkboxProps }, ref) => {
+>(({ label, description, errorMessage, showError = true, className, id, size = "md", ...checkboxProps }, ref) => {
   const generatedId = React.useId();
   const inputId = id || generatedId;
 
   return (
-    <Field className={cn("flex flex-row items-start gap-3", className)}>
+    <Field className={cn("flex flex-row items-start gap-3", className)} data-size={size}>
       {/* Zero-width space hack to perfectly align the Checkbox with the first line of the Label */}
-      <div className="flex items-center text-sm leading-snug group-data-[size=sm]/field:text-xs">
+      <div className="flex items-center text-sm leading-snug group-data-[size=sm]/field:text-xs group-data-[size=lg]/field:text-base">
         &#8203;
-        <Checkbox ref={ref} id={inputId} aria-invalid={!!errorMessage} {...checkboxProps}>
+        <Checkbox ref={ref} id={inputId} aria-invalid={!!errorMessage} size={size} {...checkboxProps}>
           <CheckboxIndicator>
             <CheckIcon />
           </CheckboxIndicator>

@@ -14,14 +14,15 @@ export type FieldPresetProps = Omit<React.ComponentProps<typeof Field>, "error">
   showError?: boolean;
   htmlFor?: string;
   children: React.ReactNode;
+  size?: "sm" | "md" | "lg";
 };
 
 const FieldPreset = React.forwardRef<
   React.ComponentRef<typeof Field>,
   FieldPresetProps
->(({ label, description, errorMessage, showError = true, htmlFor, children, className, ...fieldProps }, ref) => {
+>(({ label, description, errorMessage, showError = true, htmlFor, children, className, size, ...fieldProps }, ref) => {
   return (
-    <Field ref={ref} className={className} error={!!errorMessage} {...fieldProps}>
+    <Field ref={ref} className={className} error={!!errorMessage} data-size={size} {...fieldProps}>
       {label && <FieldLabel htmlFor={htmlFor}>{label}</FieldLabel>}
       <FieldContent>{children}</FieldContent>
       {description && <FieldDescription>{description}</FieldDescription>}

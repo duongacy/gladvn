@@ -7,6 +7,84 @@ import {
 import { type Size } from "@/lib/types";
 import { CheckboxPreset } from "@/components/macro/checkbox-preset";
 import { SelectPreset } from "@/components/macro/select-preset";
+import { useForm, Controller } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { Button } from "@/components/micro/button";
+
+const formSchema = z.object({
+  mobile: z.boolean().default(false).optional(),
+});
+
+type FormValues = z.infer<typeof formSchema>;
+
+function CheckboxForm({ size }: { size: Size }) {
+  const form = useForm<FormValues>({
+    resolver: zodResolver(formSchema),
+    defaultValues: { mobile: false },
+  });
+
+  function onSubmit(values: FormValues) {
+    alert(JSON.stringify(values, null, 2));
+  }
+
+  return (
+    <form onSubmit={form.handleSubmit(onSubmit)} className="w-full max-w-sm space-y-6">
+      <Controller
+        control={form.control}
+        name="mobile"
+        render={({ field, fieldState }) => (
+          <CheckboxPreset
+            size={size}
+            label="Use mobile device"
+            description="Cho phép chúng tôi gửi thông báo đến thiết bị di động của bạn."
+            checked={field.value}
+            onCheckedChange={field.onChange}
+            errorMessage={fieldState.error?.message}
+          />
+        )}
+      />
+      <Button type="submit" size={size}>Submit</Button>
+    </form>
+  );
+}
+
+const rhfCode = `const formSchema = z.object({
+  mobile: z.boolean().default(false).optional(),
+});
+
+type FormValues = z.infer<typeof formSchema>;
+
+function CheckboxForm({ size }: { size: Size }) {
+  const form = useForm<FormValues>({
+    resolver: zodResolver(formSchema),
+    defaultValues: { mobile: false },
+  });
+
+  function onSubmit(values: FormValues) {
+    alert(JSON.stringify(values, null, 2));
+  }
+
+  return (
+    <form onSubmit={form.handleSubmit(onSubmit)} className="w-full max-w-sm space-y-6">
+      <Controller
+        control={form.control}
+        name="mobile"
+        render={({ field, fieldState }) => (
+          <CheckboxPreset
+            size={size}
+            label="Use mobile device"
+            description="Cho phép chúng tôi gửi thông báo đến thiết bị di động của bạn."
+            checked={field.value}
+            onCheckedChange={field.onChange}
+            errorMessage={fieldState.error?.message}
+          />
+        )}
+      />
+      <Button type="submit" size={size}>Submit</Button>
+    </form>
+  );
+}`;
 
 function ControlledMacroCheckboxDemo({ size }: { size: Size }) {
   const [checked, setChecked] = useState(false);
@@ -139,6 +217,13 @@ export function ControlledDemo() {
 }`}
         >
           <ControlledMacroCheckboxDemo size={globalSize} />
+        </ExampleSection>
+        <ExampleSection 
+          label="React Hook Form Integration" 
+          description="Xác thực form bằng Zod và React Hook Form."
+          codeString={rhfCode}
+        >
+          <CheckboxForm size={globalSize} />
         </ExampleSection>
       </ExampleGrid>
     </div>

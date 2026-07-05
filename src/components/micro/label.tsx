@@ -13,7 +13,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const labelVariants = cva(
-  "flex items-center gap-2 leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50",
+  "flex items-center gap-2 leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50 group-data-[invalid=true]:text-destructive",
   {
     variants: {
       size: {
@@ -30,18 +30,19 @@ const labelVariants = cva(
  * @example
  * <Label htmlFor="email">Email</Label>
  */
-function Label({
-  className,
-  size = "md",
-  ...props
-}: React.ComponentProps<"label"> & VariantProps<typeof labelVariants>) {
+const Label = React.forwardRef<
+  HTMLLabelElement,
+  React.ComponentProps<"label"> & VariantProps<typeof labelVariants>
+>(({ className, size = "md", ...props }, ref) => {
   return (
     <label
+      ref={ref}
       data-slot="label"
       className={cn(labelVariants({ size, className }))}
       {...props}
     />
   );
-}
+});
+Label.displayName = "Label";
 
 export { Label, labelVariants };

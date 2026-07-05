@@ -1,7 +1,7 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
-import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle, NavigationMenuIndicator, NavigationMenuPositioner } from "@/components/micro/navigation-menu";
+import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from "@/components/micro/navigation-menu";
 
 const ListItem = React.forwardRef<
   React.ComponentRef<"a">,
@@ -122,9 +122,22 @@ export default function NavigationMenuShowcase() {
               </NavigationMenuLink>
             </NavigationMenuItem>
           </NavigationMenuList>
-          <NavigationMenuPositioner>
-            <NavigationMenuIndicator />
-          </NavigationMenuPositioner>
+        </NavigationMenu>
+      </ExampleSection>
+
+      <ExampleSection
+        label="Disabled State"
+        description="Menu trigger ở trạng thái vô hiệu hóa."
+      >
+        <NavigationMenu>
+          <NavigationMenuList>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger disabled>Disabled Trigger</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <div className="p-4 w-[200px]">Content will not be visible</div>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+          </NavigationMenuList>
         </NavigationMenu>
       </ExampleSection>
     </div>

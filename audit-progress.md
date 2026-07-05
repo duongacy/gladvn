@@ -4,9 +4,9 @@ Tiến trình pair-coding audit các UI components theo thứ tự bảng chữ 
 
 ## Tổng quan tiến độ
 
-**Đã Audit:** 26 components
+**Đã Audit:** 28 components
 **Đang xử lý / Bug:** 0 component
-**Chưa Audit:** 27 components
+**Chưa Audit:** 25 components
 
 ---
 
@@ -25,7 +25,7 @@ Danh sách các nhóm component cần ưu tiên hoàn thiện sớm nhất để
 **2. Nhóm Navigation & Layout**
 
 - [ ] `sidebar.tsx`
-- [ ] `navigation-menu.tsx`
+- [X] `navigation-menu.tsx`
 - [X] `tabs.tsx`
 - [X] `card.tsx`
 
@@ -61,6 +61,7 @@ Danh sách các nhóm component cần ưu tiên hoàn thiện sớm nhất để
 - [X] `combobox.tsx`
 - [X] `dialog.tsx`
 - [X] `input.tsx`
+- [X] `label.tsx`
 - [X] `progress.tsx`
 - [X] `popover.tsx`
 - [X] `radio-group.tsx`
@@ -95,9 +96,7 @@ Danh sách các nhóm component cần ưu tiên hoàn thiện sớm nhất để
 - [ ] `input-otp.tsx`
 - [ ] `item.tsx`
 - [ ] `kbd.tsx`
-- [ ] `label.tsx`
 - [ ] `menubar.tsx`
-- [ ] `navigation-menu.tsx`
 - [ ] `pagination.tsx`
 - [ ] `resizable.tsx`
 - [ ] `scroll-area.tsx`

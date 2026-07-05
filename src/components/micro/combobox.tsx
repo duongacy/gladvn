@@ -31,7 +31,7 @@ import { ChevronDownIcon, XIcon, CheckIcon } from "lucide-react";
 const ComboboxContext = React.createContext<{
   anchor: Element | null;
   setAnchor: (el: Element | null) => void;
-}>({ anchor: null, setAnchor: () => {} });
+}>({ anchor: null, setAnchor: () => { } });
 
 function Combobox<Value = any, Multiple extends boolean | undefined = false>(
   props: ComboboxPrimitive.Root.Props<Value, Multiple>
@@ -78,42 +78,19 @@ function ComboboxClear({ className, ...props }: ComboboxPrimitive.Clear.Props) {
   );
 }
 
-type DistributiveOmit<T, K extends keyof any> = T extends any
-  ? Omit<T, K>
-  : never;
-
 function ComboboxInput({
   className,
-  children,
-  disabled = false,
-  showTrigger = true,
-  showClear = false,
-  size = "md",
   ...props
-}: DistributiveOmit<ComboboxPrimitive.Input.Props, "size"> & {
-  showTrigger?: boolean;
-  showClear?: boolean;
-  size?: Size;
-}) {
-  const { setAnchor } = React.useContext(ComboboxContext);
+}: ComboboxPrimitive.Input.Props) {
   return (
-    <InputGroup ref={setAnchor} size={size} className={cn("w-full", className)}>
-      <ComboboxPrimitive.Input
-        render={<InputGroupInput disabled={disabled} />}
-        {...(props as ComboboxPrimitive.Input.Props)}
-      />
-      <InputGroupAddon align="inline-end">
-        {showTrigger && (
-          <ComboboxTrigger
-            data-slot="combobox-trigger"
-            className="flex h-full cursor-default items-center justify-center px-2.5 outline-none group-has-data-[slot=combobox-clear]/input-group:hidden disabled:cursor-not-allowed disabled:opacity-50"
-            disabled={disabled}
-          />
-        )}
-        {showClear && <ComboboxClear disabled={disabled} />}
-      </InputGroupAddon>
-      {children}
-    </InputGroup>
+    <ComboboxPrimitive.Input
+      data-slot="combobox-input"
+      className={cn(
+        "flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
+        className,
+      )}
+      {...props}
+    />
   );
 }
 
@@ -254,7 +231,7 @@ function ComboboxSeparator({
 import { cva, type VariantProps } from "class-variance-authority";
 
 const comboboxChipsVariants = cva(
-  "group/combobox-chips flex flex-wrap items-center gap-1 rounded-lg border border-input bg-transparent bg-clip-padding transition-colors focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/50 has-aria-invalid:border-destructive has-aria-invalid:focus-within:ring-3 has-aria-invalid:focus-within:ring-destructive/20 has-data-[slot=combobox-chip]:px-1 dark:bg-input/30 dark:has-aria-invalid:border-destructive/50 dark:has-aria-invalid:focus-within:ring-destructive/40 has-disabled:opacity-50 has-disabled:cursor-not-allowed has-disabled:pointer-events-none",
+  "group/combobox-chips flex flex-wrap items-center gap-1 rounded-lg border border-input bg-transparent bg-clip-padding transition-colors focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/50 has-aria-invalid:border-destructive has-aria-invalid:focus-within:ring-3 has-aria-invalid:focus-within:ring-destructive/20 has-[[data-slot=combobox-chip]]:px-1 dark:bg-input/30 dark:has-aria-invalid:border-destructive/50 dark:has-aria-invalid:focus-within:ring-destructive/40 has-disabled:opacity-50 has-disabled:cursor-not-allowed has-disabled:pointer-events-none",
   {
     variants: {
       size: {
@@ -335,9 +312,33 @@ function ComboboxChipsInput({
   );
 }
 
-function useComboboxAnchor() {
-  return React.useRef<HTMLDivElement | null>(null);
+function useComboboxContext() {
+  const context = React.useContext(ComboboxContext);
+  if (!context) {
+    throw new Error("useComboboxContext must be used within a Combobox");
+  }
+  return context;
 }
+
+const ComboboxAnchor = React.forwardRef<
+  HTMLDivElement,
+  React.ComponentPropsWithoutRef<"div">
+>(({ className, ...props }, ref) => {
+  const { setAnchor } = useComboboxContext();
+  return (
+    <div
+      ref={(node) => {
+        setAnchor(node);
+        if (typeof ref === "function") ref(node);
+        else if (ref) ref.current = node;
+      }}
+      data-slot="combobox-anchor"
+      className={className}
+      {...props}
+    />
+  );
+});
+ComboboxAnchor.displayName = "ComboboxAnchor";
 
 export {
   Combobox,
@@ -355,5 +356,7 @@ export {
   ComboboxChipsInput,
   ComboboxTrigger,
   ComboboxValue,
-  useComboboxAnchor,
+  ComboboxClear,
+  ComboboxAnchor,
+  useComboboxContext,
 };

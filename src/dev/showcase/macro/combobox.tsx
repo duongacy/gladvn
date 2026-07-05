@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { MonoSelect } from "@/dev/components/mono-select";
 import {
   SectionHeader,
   ExampleSection,
@@ -15,12 +16,23 @@ export default function MacroComboboxShowcase() {
       <SectionHeader
         title="Combobox (Macro)"
         description="Một thành phần cài sẵn bao gồm Combobox, Field, Label và Description."
-      />
+      >
+        <MonoSelect
+          value={globalSize}
+          onValueChange={(v) => setGlobalSize(v as Size)}
+          options={[
+            { value: "sm", label: "Size: sm" },
+            { value: "md", label: "Size: md" },
+            { value: "lg", label: "Size: lg" },
+          ]}
+        />
+      </SectionHeader>
 
       <ExampleGrid columns={2}>
         <ExampleSection label="Standard" description="Combobox cơ bản có nhãn và mô tả.">
           <div className="w-full max-w-sm">
             <ComboboxPreset
+              size={globalSize}
               label="Framework"
               description="Chọn khuôn khổ yêu thích của bạn."
               placeholder="Pick a framework..."
@@ -39,13 +51,15 @@ export default function MacroComboboxShowcase() {
         <ExampleSection label="Error State" description="Thể hiện các đạo cụ errorMessage và showError.">
           <div className="w-full max-w-sm flex flex-col gap-6">
             <ComboboxPreset
+              size={globalSize}
               label="Framework (Invalid)"
               placeholder="Pick a framework..."
               options={[{ value: "react", label: "React" }]}
               errorMessage="You must select a framework."
             />
-            
+
             <ComboboxPreset
+              size={globalSize}
               label="Framework (Hidden Error)"
               description="Văn bản lỗi bị ẩn bằng showError={false}"
               placeholder="Pick a framework..."
@@ -58,6 +72,7 @@ export default function MacroComboboxShowcase() {
         <ExampleSection label="Disabled State" description="Một combobox không tương tác.">
           <div className="w-full max-w-sm">
             <ComboboxPreset
+              size={globalSize}
               label="Team"
               description="Bạn không có quyền thay đổi đội."
               placeholder="Select team..."
@@ -76,6 +91,7 @@ export default function MacroComboboxShowcase() {
         <ExampleSection label="Long List" description="Thể hiện thao tác cuộn với nhiều tùy chọn.">
           <div className="w-full max-w-sm">
             <ComboboxPreset
+              size={globalSize}
               label="Timezone"
               placeholder="Select timezone..."
               searchPlaceholder="Search timezone..."

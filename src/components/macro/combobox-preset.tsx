@@ -7,7 +7,15 @@ import {
   ComboboxInput,
   ComboboxItem,
   ComboboxList,
+  ComboboxTrigger,
+  ComboboxClear,
+  useComboboxContext,
 } from "@/components/micro/combobox";
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+} from "@/components/micro/input-group";
 import { FieldPreset } from "./field-preset";
 
 export interface ComboboxOption {
@@ -20,7 +28,7 @@ export interface ComboboxPresetProps {
   options: ComboboxOption[];
   value?: string;
   defaultValue?: string;
-  onValueChange?: (value: string) => void;
+  onValueChange?: (value: string | null) => void;
   placeholder?: string;
   searchPlaceholder?: string;
   emptyText?: string;
@@ -58,28 +66,25 @@ const ComboboxPreset = React.forwardRef<
   const inputId = id || generatedId;
 
   const itemValues = React.useMemo(() => options.map((o) => o.value), [options]);
+  const hasValue = value !== undefined ? !!value : !!defaultValue;
 
   return (
-    <FieldPreset label={label} description={description} errorMessage={errorMessage} showError={showError} className={className} orientation="vertical" htmlFor={inputId}>
+    <FieldPreset size={size} label={label} description={description} errorMessage={errorMessage} showError={showError} className={className} orientation="vertical" htmlFor={inputId}>
       <Combobox
         items={itemValues}
         value={value}
         defaultValue={defaultValue}
-        onValueChange={
-          onValueChange &&
-          ((v: string | null) => {
-            if (v !== null) onValueChange(v);
-          })
-        }
+        onValueChange={onValueChange}
         disabled={disabled}
       >
-        <ComboboxInput
+        <ComboboxPresetInner 
           ref={ref}
-          id={inputId}
+          inputId={inputId}
           size={size}
           placeholder={placeholder || searchPlaceholder}
           aria-invalid={!!errorMessage || undefined}
-          className="w-full"
+          disabled={disabled}
+          hasValue={hasValue}
         />
         <ComboboxContent>
           <ComboboxEmpty>{emptyText}</ComboboxEmpty>
@@ -104,3 +109,37 @@ const ComboboxPreset = React.forwardRef<
 ComboboxPreset.displayName = "ComboboxPreset";
 
 export { ComboboxPreset };
+
+const ComboboxPresetInner = React.forwardRef<
+  HTMLInputElement,
+  {
+    inputId: string;
+    size: "sm" | "md" | "lg";
+    placeholder?: string;
+    "aria-invalid"?: boolean;
+    disabled?: boolean;
+    hasValue?: boolean;
+  }
+>(({ inputId, size, placeholder, "aria-invalid": ariaInvalid, disabled, hasValue }, ref) => {
+  const { setAnchor } = useComboboxContext();
+
+  return (
+    <InputGroup ref={setAnchor} size={size} className="w-full">
+      <ComboboxInput
+        ref={ref}
+        id={inputId}
+        placeholder={placeholder}
+        aria-invalid={ariaInvalid}
+        render={<InputGroupInput disabled={disabled} />}
+      />
+      <InputGroupAddon align="inline-end">
+        <ComboboxTrigger
+          className="flex h-full cursor-default items-center justify-center px-2.5 outline-none group-has-data-[slot=combobox-clear]/input-group:hidden disabled:cursor-not-allowed disabled:opacity-50"
+          disabled={disabled}
+        />
+        {hasValue && <ComboboxClear disabled={disabled} />}
+      </InputGroupAddon>
+    </InputGroup>
+  );
+});
+ComboboxPresetInner.displayName = "ComboboxPresetInner";

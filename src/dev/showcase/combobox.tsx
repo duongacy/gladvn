@@ -7,8 +7,9 @@ import {
 
 import { type Size } from "@/lib/types";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/micro/select";
-import { Combobox, ComboboxInput, ComboboxContent, ComboboxList, ComboboxItem, ComboboxGroup, ComboboxLabel, ComboboxEmpty, ComboboxSeparator, ComboboxChips, ComboboxChip, ComboboxChipsInput, ComboboxTrigger, ComboboxValue, ComboboxCollection } from "@/components/micro/combobox";
+import { Combobox, ComboboxInput, ComboboxContent, ComboboxList, ComboboxItem, ComboboxGroup, ComboboxLabel, ComboboxEmpty, ComboboxSeparator, ComboboxChips, ComboboxChip, ComboboxChipsInput, ComboboxTrigger, ComboboxValue, ComboboxAnchor, ComboboxClear } from "@/components/micro/combobox";
 import { Field, FieldLabel, FieldDescription, FieldContent } from "@/components/micro/field";
+import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/micro/input-group";
 import { SelectPreset } from "@/components/macro/select-preset";
 
 const frontendFrameworks = ["react", "vue", "svelte"];
@@ -48,10 +49,18 @@ export default function ComboboxShowcase() {
               <FieldLabel>Framework Search</FieldLabel>
               <FieldContent>
                 <Combobox items={allFrameworks}>
-                  <ComboboxInput
-                    size={globalSize}
-                    placeholder="Search framework..."
-                  />
+                  <ComboboxAnchor className="w-full">
+                    <InputGroup size={globalSize} className="w-full">
+                      <ComboboxInput
+                        placeholder="Search framework..."
+                        render={<InputGroupInput />}
+                      />
+                      <InputGroupAddon align="inline-end">
+                        <ComboboxTrigger className="flex h-full cursor-default items-center justify-center px-2.5 outline-none group-has-data-[slot=combobox-clear]/input-group:hidden disabled:cursor-not-allowed disabled:opacity-50" />
+                        <ComboboxClear />
+                      </InputGroupAddon>
+                    </InputGroup>
+                  </ComboboxAnchor>
                   <ComboboxContent>
                     <ComboboxEmpty>No framework found.</ComboboxEmpty>
                     <ComboboxList>
@@ -119,11 +128,18 @@ export default function ComboboxShowcase() {
               <FieldLabel>Disabled Search</FieldLabel>
               <FieldContent>
                 <Combobox items={["react"]}>
-                  <ComboboxInput
-                    size={globalSize}
-                    placeholder="Search..."
-                    disabled
-                  />
+                  <ComboboxAnchor className="w-full">
+                    <InputGroup size={globalSize} className="w-full">
+                      <ComboboxInput
+                        placeholder="Search..."
+                        disabled
+                        render={<InputGroupInput disabled />}
+                      />
+                      <InputGroupAddon align="inline-end">
+                        <ComboboxTrigger className="flex h-full cursor-default items-center justify-center px-2.5 outline-none group-has-data-[slot=combobox-clear]/input-group:hidden disabled:cursor-not-allowed disabled:opacity-50" disabled />
+                      </InputGroupAddon>
+                    </InputGroup>
+                  </ComboboxAnchor>
                   <ComboboxContent>
                     <ComboboxList>
                       <ComboboxItem value="react">React</ComboboxItem>
@@ -149,7 +165,14 @@ export default function ComboboxShowcase() {
                     <ComboboxValue placeholder="Select an engine" />
                   </ComboboxTrigger>
                   <ComboboxContent>
-                    <ComboboxInput placeholder="Search engine..." size={globalSize} showTrigger={false} />
+                    <div className="p-1">
+                      <InputGroup size={globalSize} className="w-full">
+                        <ComboboxInput
+                          placeholder="Search engine..."
+                          render={<InputGroupInput />}
+                        />
+                      </InputGroup>
+                    </div>
                     <ComboboxEmpty>No results.</ComboboxEmpty>
                     <ComboboxList>
                       <ComboboxItem value="v8">V8</ComboboxItem>

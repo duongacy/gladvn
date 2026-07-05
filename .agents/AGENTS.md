@@ -42,6 +42,10 @@ When creating or modifying showcase files in `src/dev/showcase/*.tsx`, you MUST 
 
 ## 7. Component Styling Philosophy (No Magic CSS)
 
+- **🔥 FATAL ERROR - NO CONDITIONAL STRING INTERPOLATION**: NEVER use ternary operators or string interpolation inside className template strings to switch classes (e.g., `className={"... " + (isActive ? "bg-blue" : "bg-red")}` or `className={\`... \${cond ? 'a' : 'b'}\`}`). This makes the code unmaintainable and is strictly forbidden.
+- **PERMITTED CONDITIONAL STYLING**: If you need conditional classes, you MUST use either:
+  1. **Data Attributes** (Preferred for Headless UI states): e.g., `data-active={isActive ? "" : undefined}` and styling via `data-active:bg-blue`.
+  2. **`cn()` Object Syntax** (For internal logic/props): e.g., `className={cn("base-classes", { "bg-blue": isActive, "bg-red": !isActive })}`.
 - **Good (Permitted)**: Leverage data-attributes provided by headless UI libraries (e.g., `data-[state=open]`, `data-disabled`, `data-[slot=...]`) for state-driven styling. Querying descendant elements via these attributes (e.g., `[&_[data-slot=icon]]`) or standard icons (e.g., `[&_svg]`, `[&>svg]`) is perfectly valid and aligns with the intended component architecture.
 - **Bad (Prohibited - Overthinking)**: Do NOT use complex CSS descendant combinators or "magic CSS" (like `*:[a]`, `[&_p]`, `has-[>div]`, or deeply nested `group-has-[...]`) to forcibly access and override arbitrary HTML child elements' styles. Intervening too deeply into specific generic tags should be avoided.
 - **Reasoning**: Overriding arbitrary child tags violates the encapsulation of a component library. It creates unexpected overriding behaviors ("bị đè") that are highly confusing to consumers and makes the CSS architecture feel "dirty" and unmaintainable. Data-slots and semantic states are the correct contract for cross-element styling.

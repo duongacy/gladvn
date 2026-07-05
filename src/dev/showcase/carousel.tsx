@@ -2,12 +2,9 @@ import {
   ExampleSection,
   SectionHeader
 } from "@/dev/components/showcase";
-import { type Size } from "@/lib/types";
 import { cn } from "@/lib/utils";
-import { useState } from "react";
 import { Card, CardContent } from "@/components/micro/card";
 import { Carousel, CarouselContent, CarouselDots, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/micro/carousel";
-import { SelectPreset } from "@/components/macro/select-preset";
 
 const SLIDES = [
   { id: 1, title: "Modern Aesthetics", desc: "Crafting beautiful interfaces with tailwind.", bg: "bg-gradient-to-tr from-violet-500 to-purple-500" },
@@ -18,25 +15,12 @@ const SLIDES = [
 ];
 
 export default function CarouselShowcase() {
-  const [globalSize, setGlobalSize] = useState<Size>("md");
-
   return (
     <div className="space-y-10">
       <SectionHeader
         title="Carousel"
         description="A premium carousel with motion, swipe, and pagination built using Embla."
-      >
-        <SelectPreset
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as Size)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-          className="w-[120px] h-8 text-xs bg-background"
-        />
-      </SectionHeader>
+      />
 
       {/* ── Hero Banner ── */}
       <ExampleSection
@@ -48,9 +32,9 @@ export default function CarouselShowcase() {
             opts={{ loop: true }}
             className="group relative w-full overflow-hidden rounded-2xl shadow-xl border border-border/50"
           >
-            <CarouselContent>
+            <CarouselContent className="-ml-4">
               {SLIDES.map((slide) => (
-                <CarouselItem key={slide.id}>
+                <CarouselItem key={slide.id} className="pl-4">
                   <div className={cn("flex aspect-[21/9] flex-col items-center justify-center p-6 text-center text-white", slide.bg)}>
                     <h3 className="mb-2 text-3xl font-bold tracking-tight sm:text-5xl">{slide.title}</h3>
                     <p className="max-w-md text-sm text-white/80 sm:text-lg">{slide.desc}</p>
@@ -60,14 +44,15 @@ export default function CarouselShowcase() {
             </CarouselContent>
 
             {/* Overlay Navigation - only visible on group hover for desktop, always visible on mobile */}
+            {/* Using Pure Composition: the wrapper defines the flex layout, the arrows define their own appearance */}
             <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-between p-4 transition-opacity duration-300 sm:p-6">
-              <CarouselPrevious className="pointer-events-auto static translate-y-0 opacity-80 backdrop-blur-md hover:opacity-100 bg-background/50 border-white/20 text-foreground" size={globalSize} />
-              <CarouselNext className="pointer-events-auto static translate-y-0 opacity-80 backdrop-blur-md hover:opacity-100 bg-background/50 border-white/20 text-foreground" size={globalSize} />
+              <CarouselPrevious className="pointer-events-auto opacity-80 backdrop-blur-md hover:opacity-100 bg-background/50 border-white/20 text-foreground" />
+              <CarouselNext className="pointer-events-auto opacity-80 backdrop-blur-md hover:opacity-100 bg-background/50 border-white/20 text-foreground" />
             </div>
 
             {/* Pagination Dots overlay at bottom */}
             <div className="absolute bottom-4 left-0 right-0 z-10">
-              <CarouselDots className="[&>[data-slot=carousel-dot][data-active=true]]:bg-white [&>[data-slot=carousel-dot]]:bg-white/40 hover:[&>[data-slot=carousel-dot]]:bg-white/60" />
+              <CarouselDots className="[&>[data-slot=carousel-dot][data-active]]:bg-white [&>[data-slot=carousel-dot]]:bg-white/40 hover:[&>[data-slot=carousel-dot]]:bg-white/60" />
             </div>
           </Carousel>
         </div>
@@ -79,22 +64,23 @@ export default function CarouselShowcase() {
         description="A multi-item carousel for displaying products or cards with micro-animations."
       >
         <div className="mx-auto w-full max-w-5xl px-12">
+          {/* Note the explicit positioning injected via Pure Composition for the arrows here */}
           <Carousel
             opts={{
               align: "start",
             }}
-            className="w-full"
+            className="w-full relative"
           >
             <CarouselContent className="-ml-4">
               {Array.from({ length: 10 }).map((_, index) => (
                 <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
                   <div className="p-1">
                     <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                      <div className="aspect-[4/3] bg-muted flex items-center justify-center relative group">
+                      <div className="aspect-4/3 bg-muted flex items-center justify-center relative group">
                         <span className="text-4xl font-black text-muted-foreground/30 transition-transform duration-500 group-hover:scale-110">
                           0{index + 1}
                         </span>
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex items-end p-4">
+                        <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex items-end p-4">
                           <span className="text-white font-medium">View Item {index + 1}</span>
                         </div>
                       </div>
@@ -107,8 +93,10 @@ export default function CarouselShowcase() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious size={globalSize} className="border-border shadow-sm hover:bg-accent" />
-            <CarouselNext size={globalSize} className="border-border shadow-sm hover:bg-accent" />
+
+            {/* Pure Composition: Injecting absolute layout manually for this specific gallery layout */}
+            <CarouselPrevious className="absolute -left-12 top-1/2 -translate-y-1/2 border-border shadow-sm hover:bg-accent" />
+            <CarouselNext className="absolute -right-12 top-1/2 -translate-y-1/2 border-border shadow-sm hover:bg-accent" />
           </Carousel>
         </div>
       </ExampleSection>
@@ -120,9 +108,9 @@ export default function CarouselShowcase() {
       >
         <div className="mx-auto w-full max-w-sm">
           <Carousel className="w-full">
-            <CarouselContent>
+            <CarouselContent className="-ml-4">
               {Array.from({ length: 5 }).map((_, index) => (
-                <CarouselItem key={index}>
+                <CarouselItem key={index} className="pl-4">
                   <div className="p-2">
                     <Card className="border-2 border-primary/10 bg-primary/5">
                       <CardContent className="flex aspect-square flex-col items-center justify-center p-6 text-center">
@@ -144,6 +132,34 @@ export default function CarouselShowcase() {
             <div className="mt-4">
               <CarouselDots />
             </div>
+          </Carousel>
+        </div>
+      </ExampleSection>
+
+      {/* ── Vertical Carousel ── */}
+      <ExampleSection
+        label="Vertical Orientation"
+        description="A vertically scrolling carousel. Note the usage of pt-4 instead of pl-4 for gaps."
+      >
+        <div className="mx-auto w-full max-w-xs py-12 flex justify-center">
+          <Carousel orientation="vertical" className="w-full">
+            <CarouselContent className="h-[400px] -mt-4">
+              {Array.from({ length: 5 }).map((_, index) => (
+                <CarouselItem key={index} className="pt-4 basis-1/2">
+                  <div className="p-1 h-full">
+                    <Card className="h-full flex items-center justify-center bg-muted/40 border-2">
+                      <span className="text-4xl font-bold text-muted-foreground/50">
+                        {index + 1}
+                      </span>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+
+            {/* Custom positioning for vertical arrows using pure composition */}
+            <CarouselPrevious className="absolute -top-12 left-1/2 -translate-x-1/2 rotate-90" />
+            <CarouselNext className="absolute -bottom-12 left-1/2 -translate-x-1/2 rotate-90" />
           </Carousel>
         </div>
       </ExampleSection>

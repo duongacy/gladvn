@@ -8,6 +8,7 @@
 "use client";
 
 import { useMemo } from "react";
+import { AlertCircleIcon } from "lucide-react";
 import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
@@ -56,7 +57,7 @@ function FieldGroup({ className, ...props }: React.ComponentProps<"div">) {
 }
 
 const fieldVariants = cva(
-  "group/field @container/field flex data-[invalid=true]:text-destructive",
+  "group/field @container/field flex",
   {
     variants: {
       orientation: {
@@ -256,10 +257,11 @@ function FieldError({
     <div
       role="alert"
       data-slot="field-error"
-      className={cn("text-sm font-normal text-destructive", className)}
+      className={cn("text-sm font-medium text-destructive flex items-start gap-1.5 animate-in fade-in-0 slide-in-from-top-1", className)}
       {...props}
     >
-      {content}
+      <AlertCircleIcon className="size-4 shrink-0 mt-0.5" />
+      <div className="flex-1">{content}</div>
     </div>
   );
 }

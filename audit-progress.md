@@ -21,6 +21,7 @@ Tiến trình pair-coding audit các UI components theo thứ tự bảng chữ 
 - [x] `breadcrumb.tsx`
 - [x] `button.tsx`
 - [x] `card.tsx`
+- [x] `carousel.tsx`
 
 ---
 
@@ -32,7 +33,6 @@ Tiến trình pair-coding audit các UI components theo thứ tự bảng chữ 
 
 ## 🔴 Chưa Audit (Từ C trở đi)
 
-- [ ] `carousel.tsx`
 - [ ] `chart.tsx`
 - [ ] `checkbox.tsx`
 - [ ] `collapsible.tsx`

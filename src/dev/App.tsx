@@ -194,7 +194,7 @@ export default function App() {
                 <span>{label}</span>
                 <div className="flex gap-1 shrink-0">
                   {status === "stable" && (
-                    <span className="text-[9px] bg-green-500/10 text-green-500 dark:bg-green-500/20 dark:text-green-400 px-1 rounded font-bold tracking-tighter" title="Stable & Audited">✓</span>
+                    <span className="text-[9px] bg-green-500/10 text-green-500 dark:bg-green-500/20 dark:text-green-400 px-1 rounded font-bold uppercase tracking-tighter" title="Stable & Audited">stable</span>
                   )}
                   {hasMicro && hasMacro && (
                     <span className="text-[9px] bg-primary/10 text-primary px-1 rounded font-bold tracking-tighter" title="Has both Micro & Macro versions">M+</span>

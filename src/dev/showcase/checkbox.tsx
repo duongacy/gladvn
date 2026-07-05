@@ -119,7 +119,7 @@ export default function CheckboxShowcase() {
       <ExampleGrid columns={2}>
         <ExampleSection label="Error State" description="Trạng thái lỗi thủ công sử dụng các primitives của Field.">
           <div className="w-full max-w-sm flex flex-col gap-6">
-            <Field className="flex flex-row items-start gap-3" data-invalid={true}>
+            <Field className="flex flex-row items-start gap-3" data-invalid={true} data-size={globalSize}>
               <div className="flex items-center text-sm leading-snug group-data-[size=sm]/field:text-xs">
                 &#8203;
                 <Checkbox id="cb-err1" size={globalSize} aria-invalid={true}>
@@ -208,7 +208,7 @@ export default function CheckboxShowcase() {
 
         <ExampleSection label="Real-world Content" description="Minh hoạ cách xử lý nhãn (label) dạng React Node phức tạp.">
           <div className="w-full max-w-sm">
-            <Field className="flex flex-row items-start gap-3">
+            <Field className="flex flex-row items-start gap-3" data-size={globalSize}>
               <div className="flex items-center text-sm leading-snug group-data-[size=sm]/field:text-xs">
                 &#8203;
                 <Checkbox id="cb-rw1" size={globalSize}>

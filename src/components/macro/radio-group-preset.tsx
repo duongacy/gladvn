@@ -3,6 +3,7 @@ import { Label } from "@/components/micro/label";
 import { RadioGroup, RadioGroupItem } from "@/components/micro/radio-group";
 import { FieldPreset } from "./field-preset";
 import { cn } from "@/lib/utils";
+import { type Size } from "@/lib/types";
 
 export interface RadioGroupOption {
   label: React.ReactNode;
@@ -19,7 +20,7 @@ export type RadioGroupPresetProps = Omit<React.ComponentProps<typeof RadioGroup>
   description?: React.ReactNode;
   errorMessage?: React.ReactNode;
   showError?: boolean;
-  size?: "sm" | "md" | "lg";
+  size?: Size;
 };
 
 const RadioGroupPreset = React.forwardRef<
@@ -39,9 +40,14 @@ const RadioGroupPreset = React.forwardRef<
 }, ref) => {
   const generatedId = React.useId();
   const inputId = id || generatedId;
+  const textSizeClass = cn({
+    "text-xs": size === "sm",
+    "text-sm": size === "md",
+    "text-base": size === "lg",
+  });
 
   return (
-    <FieldPreset size={size} label={label} description={description} errorMessage={errorMessage} showError={showError} className={className} orientation={orientation} htmlFor={inputId}>
+    <FieldPreset size={size} label={label} description={description} errorMessage={errorMessage} showError={showError} className={className} htmlFor={inputId}>
       <RadioGroup
         ref={ref}
         id={inputId}
@@ -54,28 +60,28 @@ const RadioGroupPreset = React.forwardRef<
       >
         {options.map((option) => (
           <div key={option.value} className="flex items-start gap-3">
-            <RadioGroupItem
-              value={option.value}
-              id={`${inputId}-${option.value}`}
-              disabled={option.disabled}
-              className={cn(
-                { "mt-0.5": size === "sm", "mt-1": size !== "sm" },
-              )}
-              size={size}
-            />
+            <div className={cn("flex items-center leading-snug", textSizeClass)}>
+              &#8203;
+              <RadioGroupItem
+                value={option.value}
+                id={`${inputId}-${option.value}`}
+                disabled={option.disabled}
+                size={size}
+              />
+            </div>
             <div className="flex flex-col gap-1">
               <Label
                 htmlFor={`${inputId}-${option.value}`}
                 className={cn(
                   "font-normal cursor-pointer leading-snug",
-                  { "text-xs": size === "sm", "text-sm": size === "md", "text-base": size === "lg" },
+                  textSizeClass,
                   { "opacity-50 cursor-not-allowed": option.disabled }
                 )}
               >
                 {option.label}
               </Label>
               {option.description && (
-                <p className={cn("text-muted-foreground", { "text-xs": size === "sm", "text-sm": size === "md", "text-base": size === "lg" })}>{option.description}</p>
+                <p className={cn("text-muted-foreground", textSizeClass)}>{option.description}</p>
               )}
             </div>
           </div>

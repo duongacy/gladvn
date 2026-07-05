@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Switch, SwitchThumb } from "@/components/micro/switch";
-import { FieldPreset } from "./field-preset";
+import { Field, FieldLabel, FieldDescription, FieldError } from "@/components/micro/field";
+import { cn } from "@/lib/utils";
 
 export type SwitchPresetProps = Omit<React.ComponentProps<typeof Switch>, "className"> & {
   className?: string;
@@ -18,13 +19,21 @@ const SwitchPreset = React.forwardRef<
   const inputId = id || generatedId;
 
   return (
-    <FieldPreset size={size} label={label} description={description} errorMessage={errorMessage} showError={showError} className={className} orientation="horizontal" htmlFor={inputId}>
-      <Switch ref={ref} id={inputId} aria-invalid={!!errorMessage} size={size} {...switchProps}>
-        <SwitchThumb />
-      </Switch>
-    </FieldPreset>
+    <Field size={size} error={!!errorMessage} className={cn("gap-1.5", className)}>
+      <div className="flex items-center justify-between gap-3">
+        <div className="flex-1 space-y-0.5">
+          {label && <FieldLabel htmlFor={inputId}>{label}</FieldLabel>}
+          {description && <FieldDescription>{description}</FieldDescription>}
+        </div>
+        <Switch ref={ref} id={inputId} aria-invalid={!!errorMessage} size={size} {...switchProps}>
+          <SwitchThumb />
+        </Switch>
+      </div>
+      {showError && errorMessage && <FieldError>{errorMessage}</FieldError>}
+    </Field>
   );
 });
 SwitchPreset.displayName = "SwitchPreset";
 
 export { SwitchPreset };
+

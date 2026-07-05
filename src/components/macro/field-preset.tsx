@@ -6,6 +6,7 @@ import {
   FieldContent,
   FieldError,
 } from "@/components/micro/field";
+import { type Size } from "@/lib/types";
 
 export type FieldPresetProps = Omit<React.ComponentProps<typeof Field>, "error"> & {
   label?: React.ReactNode;
@@ -14,7 +15,7 @@ export type FieldPresetProps = Omit<React.ComponentProps<typeof Field>, "error">
   showError?: boolean;
   htmlFor?: string;
   children: React.ReactNode;
-  size?: "sm" | "md" | "lg";
+  size?: Size;
 };
 
 const FieldPreset = React.forwardRef<
@@ -22,7 +23,7 @@ const FieldPreset = React.forwardRef<
   FieldPresetProps
 >(({ label, description, errorMessage, showError = true, htmlFor, children, className, size, ...fieldProps }, ref) => {
   return (
-    <Field ref={ref} className={className} error={!!errorMessage} data-size={size} {...fieldProps}>
+    <Field ref={ref} className={className} error={!!errorMessage} size={size} {...fieldProps}>
       {label && <FieldLabel htmlFor={htmlFor}>{label}</FieldLabel>}
       <FieldContent>{children}</FieldContent>
       {description && <FieldDescription>{description}</FieldDescription>}

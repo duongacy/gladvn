@@ -68,7 +68,9 @@ export default function SwitchShowcase() {
                 disabled
                 size={globalSize}
                 defaultChecked
-              />
+              >
+                <SwitchThumb />
+              </Switch>
             </Field>
             <Field
               orientation="horizontal"
@@ -76,7 +78,9 @@ export default function SwitchShowcase() {
               className="justify-between"
             >
               <FieldLabel htmlFor="switch-d2">Developer Options</FieldLabel>
-              <Switch id="switch-d2" disabled size={globalSize} />
+              <Switch id="switch-d2" disabled size={globalSize}>
+                <SwitchThumb />
+              </Switch>
             </Field>
           </div>
         </ExampleSection>

@@ -14,6 +14,7 @@ import { RadioGroup as RadioGroupPrimitive } from "@base-ui/react/radio-group";
 import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
+import { type Size } from "@/lib/types";
 
 const RadioGroup = React.forwardRef<
   React.ComponentRef<typeof RadioGroupPrimitive>,
@@ -35,9 +36,9 @@ const radioGroupItemVariants = cva(
   {
     variants: {
       size: {
-        sm: "radio-sm size-3.5 after:-inset-x-2.5 after:-inset-y-2.5",
-        md: "radio-md size-4 after:-inset-x-3 after:-inset-y-2",
-        lg: "radio-lg size-5 after:-inset-x-4 after:-inset-y-3",
+        sm: "size-3.5 after:-inset-x-2.5 after:-inset-y-2.5",
+        md: "size-4 after:-inset-x-3 after:-inset-y-2",
+        lg: "size-5 after:-inset-x-4 after:-inset-y-3",
       },
     },
   },
@@ -46,20 +47,23 @@ const radioGroupItemVariants = cva(
 const RadioGroupItem = React.forwardRef<
   React.ComponentRef<typeof RadioPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof RadioPrimitive.Root> &
-  VariantProps<typeof radioGroupItemVariants>
+  Omit<VariantProps<typeof radioGroupItemVariants>, "size"> & {
+    size?: Size;
+  }
 >(function RadioGroupItem({ className, size = "md", ...props }, ref) {
   return (
     <RadioPrimitive.Root
       ref={ref}
       data-slot="radio-group-item"
+      data-size={size}
       className={cn(radioGroupItemVariants({ size, className }))}
       {...props}
     >
       <RadioPrimitive.Indicator
         data-slot="radio-group-indicator"
-        className="flex items-center justify-center size-4 group-[.radio-sm]/radio:size-3.5 group-[.radio-lg]/radio:size-5"
+        className="flex items-center justify-center size-4 group-data-[size=sm]/radio:size-3.5 group-data-[size=lg]/radio:size-5"
       >
-        <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-foreground size-2 group-[.radio-sm]/radio:size-1.5 group-[.radio-lg]/radio:size-2.5" />
+        <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-foreground size-2 group-data-[size=sm]/radio:size-1.5 group-data-[size=lg]/radio:size-2.5" />
       </RadioPrimitive.Indicator>
     </RadioPrimitive.Root>
   );

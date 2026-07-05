@@ -17,6 +17,7 @@ import {
   InputGroupInput,
 } from "@/components/micro/input-group";
 import { FieldPreset } from "./field-preset";
+import { type Size } from "@/lib/types";
 
 export interface ComboboxOption {
   label: string;
@@ -39,7 +40,7 @@ export interface ComboboxPresetProps {
   errorMessage?: React.ReactNode;
   showError?: boolean;
   id?: string;
-  size?: "sm" | "md" | "lg";
+  size?: Size;
 }
 
 const ComboboxPreset = React.forwardRef<

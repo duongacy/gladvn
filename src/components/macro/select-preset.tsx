@@ -1,5 +1,5 @@
 import * as React from "react";
-import { type VariantProps } from "class-variance-authority";
+import { type Size } from "@/lib/types";
 import {
   Select,
   SelectContent,
@@ -8,7 +8,6 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-  selectTriggerVariants,
 } from "@/components/micro/select";
 import { FieldPreset } from "./field-preset";
 
@@ -33,7 +32,7 @@ interface SelectPresetProps {
   /** Called when the value changes. */
   onValueChange?: (value: string) => void;
   /** Trigger size variant. */
-  size?: VariantProps<typeof selectTriggerVariants>["size"];
+  size?: Size;
   /** Disable the select. */
   disabled?: boolean;
   /** Additional className for the FieldPreset wrapper. */

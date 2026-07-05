@@ -243,7 +243,6 @@ export default function FormsSection() {
               <FieldContent>
                 <Combobox>
                   <ComboboxInput
-                    size={globalSize}
                     placeholder="Search framework..."
                   />
                   <ComboboxContent>

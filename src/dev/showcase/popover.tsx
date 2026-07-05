@@ -1,13 +1,17 @@
 import { useState } from "react";
-import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
+import { SectionHeader, ExampleSection, ExampleGrid } from "@/dev/components/showcase";
 
 import { type Size } from "@/lib/types";
 import { Popover, PopoverTrigger, PopoverContent, PopoverHeader, PopoverTitle, PopoverDescription } from "@/components/micro/popover";
 import { Button } from "@/components/micro/button";
+import { Input } from "@/components/micro/input";
+import { Label } from "@/components/micro/label";
 import { SelectPreset } from "@/components/macro/select-preset";
+import { Settings, User, Bell } from "lucide-react";
 
 export default function PopoverShowcase() {
   const [globalSize, setGlobalSize] = useState<Size>("md");
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="space-y-10">
@@ -27,33 +31,140 @@ export default function PopoverShowcase() {
         />
       </SectionHeader>
 
-      <ExampleSection
-        label="Default"
-        description="Một cửa sổ bật lên đơn giản với tiêu đề và mô tả."
-      >
-        <Popover>
-          <PopoverTrigger
-            render={
-              <Button variant="outline" size={globalSize}>
-                Open Popover
-              </Button>
-            }
-          />
-          <PopoverContent className="w-80" sideOffset={8}>
-            <PopoverHeader>
-              <PopoverTitle>Dimensions</PopoverTitle>
-              <PopoverDescription>
-                Set the dimensions for the layer.
-              </PopoverDescription>
-            </PopoverHeader>
-            <div className="grid gap-4 mt-4">
-              <div className="space-y-2">
-                <p className="text-sm text-muted-foreground">Width: 100%</p>
-                <p className="text-sm text-muted-foreground">Height: 200px</p>
+      <ExampleGrid columns={2}>
+        <ExampleSection
+          label="Default"
+          description="Cửa sổ Popover tiêu chuẩn."
+        >
+          <Popover>
+            <PopoverTrigger
+              render={
+                <Button variant="outline" size={globalSize}>
+                  Open Popover
+                </Button>
+              }
+            />
+            <PopoverContent className="w-80" sideOffset={8}>
+              <PopoverHeader>
+                <PopoverTitle>Dimensions</PopoverTitle>
+                <PopoverDescription>
+                  Cài đặt kích thước cho layer.
+                </PopoverDescription>
+              </PopoverHeader>
+              <div className="grid gap-4 mt-4">
+                <div className="grid grid-cols-3 items-center gap-4">
+                  <Label htmlFor="width">Width</Label>
+                  <Input id="width" defaultValue="100%" className="col-span-2 h-8" />
+                </div>
+                <div className="grid grid-cols-3 items-center gap-4">
+                  <Label htmlFor="height">Height</Label>
+                  <Input id="height" defaultValue="200px" className="col-span-2 h-8" />
+                </div>
               </div>
-            </div>
-          </PopoverContent>
-        </Popover>
+            </PopoverContent>
+          </Popover>
+        </ExampleSection>
+
+        <ExampleSection
+          label="Icon Trigger"
+          description="Mở Popover bằng Icon Button."
+        >
+          <div className="flex gap-4">
+            <Popover>
+              <PopoverTrigger
+                render={
+                  <Button variant="ghost" size="icon" className="rounded-full">
+                    <Bell className="size-4" />
+                  </Button>
+                }
+              />
+              <PopoverContent className="w-64" sideOffset={8} align="start">
+                <PopoverHeader>
+                  <PopoverTitle>Thông báo</PopoverTitle>
+                  <PopoverDescription>
+                    Bạn có 3 tin nhắn chưa đọc.
+                  </PopoverDescription>
+                </PopoverHeader>
+              </PopoverContent>
+            </Popover>
+            
+            <Popover>
+              <PopoverTrigger
+                render={
+                  <Button variant="outline" size="icon">
+                    <Settings className="size-4" />
+                  </Button>
+                }
+              />
+              <PopoverContent className="w-56" sideOffset={8}>
+                <PopoverHeader>
+                  <PopoverTitle>Cài đặt nhanh</PopoverTitle>
+                </PopoverHeader>
+                <div className="flex flex-col gap-2 mt-2">
+                  <Button variant="ghost" className="justify-start">Tài khoản</Button>
+                  <Button variant="ghost" className="justify-start">Giao diện</Button>
+                  <Button variant="ghost" className="justify-start text-destructive hover:text-destructive">Đăng xuất</Button>
+                </div>
+              </PopoverContent>
+            </Popover>
+          </div>
+        </ExampleSection>
+      </ExampleGrid>
+
+      <ExampleSection
+        label="Placement (Vị trí)"
+        description="Popover có thể hiển thị ở nhiều hướng khác nhau so với trigger (Top, Bottom, Left, Right)."
+      >
+        <div className="flex flex-wrap items-center justify-center gap-4 py-8">
+          {(["top", "right", "bottom", "left"] as const).map((side) => (
+            <Popover key={side}>
+              <PopoverTrigger
+                render={
+                  <Button variant="outline" size={globalSize} className="capitalize">
+                    {side}
+                  </Button>
+                }
+              />
+              <PopoverContent side={side} sideOffset={8} className="w-48 text-center text-sm p-4">
+                Hiển thị ở phía <strong className="capitalize">{side}</strong>
+              </PopoverContent>
+            </Popover>
+          ))}
+        </div>
+      </ExampleSection>
+
+      <ExampleSection
+        label="Controlled State"
+        description="Quản lý trạng thái đóng/mở của Popover thông qua React state (open và onOpenChange)."
+      >
+        <div className="flex items-center gap-4">
+          <Popover open={isOpen} onOpenChange={setIsOpen}>
+            <PopoverTrigger
+              render={
+                <Button variant="outline" size={globalSize}>
+                  Toggle Controlled Popover
+                </Button>
+              }
+            />
+            <PopoverContent className="w-80" sideOffset={8}>
+              <PopoverHeader>
+                <PopoverTitle>Controlled Mode</PopoverTitle>
+                <PopoverDescription>
+                  Popover này được control bởi state. Bạn có thể đóng nó bằng nút bên dưới hoặc click ra ngoài.
+                </PopoverDescription>
+              </PopoverHeader>
+              <div className="mt-4 flex justify-end">
+                <Button size="sm" variant="secondary" onClick={() => setIsOpen(false)}>
+                  Đóng Popover
+                </Button>
+              </div>
+            </PopoverContent>
+          </Popover>
+          
+          <div className="text-sm text-muted-foreground">
+            Trạng thái hiện tại: <strong className={isOpen ? "text-primary" : ""}>{isOpen ? "Mở" : "Đóng"}</strong>
+          </div>
+        </div>
       </ExampleSection>
     </div>
   );

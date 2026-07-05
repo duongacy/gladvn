@@ -14,6 +14,7 @@ import {
   type DayButton,
   type Locale,
 } from "react-day-picker";
+import { type Size } from "@/lib/types";
 import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
@@ -55,7 +56,8 @@ function Calendar({
   size = "md",
   ...props
 }: React.ComponentProps<typeof DayPicker> &
-  VariantProps<typeof calendarVariants> & {
+  Omit<VariantProps<typeof calendarVariants>, "size"> & {
+    size?: Size;
     buttonVariant?: VariantProps<typeof buttonVariants>["variant"];
   }) {
   const defaultClassNames = getDefaultClassNames();

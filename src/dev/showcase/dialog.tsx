@@ -6,14 +6,18 @@ import {
 } from "@/dev/components/showcase";
 
 import { type Size } from "@/lib/types";
+import { cn } from "@/lib/utils";
 import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose } from "@/components/micro/dialog";
 import { Button } from "@/components/micro/button";
 import { Input } from "@/components/micro/input";
 import { Label } from "@/components/micro/label";
-import { SelectPreset } from "@/components/macro/select-preset";
+import { MonoSelect } from "@/dev/components/mono-select";
+import { XIcon } from "lucide-react";
 
 export default function DialogShowcase() {
   const [globalSize, setGlobalSize] = useState<Size>("md");
+  const [controlledOpen, setControlledOpen] = useState(false);
+  const contentClass = globalSize === "sm" ? "sm:max-w-md" : globalSize === "md" ? "sm:max-w-lg" : "sm:max-w-xl";
 
   return (
     <div className="space-y-10">
@@ -21,7 +25,7 @@ export default function DialogShowcase() {
         title="Dialog"
         description="Một cửa sổ phương thức làm gián đoạn người dùng với nội dung quan trọng và mong đợi phản hồi."
       >
-        <SelectPreset
+        <MonoSelect
           value={globalSize}
           onValueChange={(v) => setGlobalSize(v as Size)}
           options={[
@@ -29,15 +33,62 @@ export default function DialogShowcase() {
             { value: "md", label: "Size: md" },
             { value: "lg", label: "Size: lg" },
           ]}
-          className="w-[120px] h-8 text-xs bg-background"
         />
       </SectionHeader>
 
       <ExampleGrid columns={2}>
-        {/* ── Edit Profile ── */}
+        {/* ── Basic Usage ── */}
         <ExampleSection
-          label="Edit Profile"
-          description="Hộp thoại chứa một biểu mẫu có nhiều đầu vào."
+          label="Basic Usage"
+          description="Sử dụng các thành phần rời rạc để tạo dialog cơ bản."
+        >
+          <Dialog>
+            <DialogTrigger
+              render={
+                <Button variant="outline" size={globalSize}>
+                  Upgrade Plan
+                </Button>
+              }
+            />
+            <DialogContent className={contentClass}>
+              <DialogHeader>
+                <DialogTitle>Update Subscription</DialogTitle>
+                <DialogDescription>
+                  Are you sure you want to upgrade your plan to Pro? This will
+                  charge your card immediately.
+                </DialogDescription>
+              </DialogHeader>
+              <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t bg-muted/50 p-4">
+                <DialogClose
+                  render={<Button variant="ghost" size={globalSize} />}
+                >
+                  Cancel
+                </DialogClose>
+                <Button color="primary" size={globalSize}>
+                  Confirm
+                </Button>
+              </DialogFooter>
+              <DialogClose
+                render={
+                  <Button
+                    variant="ghost"
+                    className="absolute top-2 right-2"
+                    size="sm"
+                    iconOnly
+                  />
+                }
+              >
+                <XIcon />
+                <span className="sr-only">Close</span>
+              </DialogClose>
+            </DialogContent>
+          </Dialog>
+        </ExampleSection>
+
+        {/* ── Forms & Custom Content ── */}
+        <ExampleSection
+          label="Forms & Custom Content"
+          description="Sử dụng form bên trong DialogContent."
         >
           <Dialog>
             <DialogTrigger
@@ -47,7 +98,7 @@ export default function DialogShowcase() {
                 </Button>
               }
             />
-            <DialogContent className="sm:max-w-[425px]">
+            <DialogContent className={contentClass}>
               <DialogHeader>
                 <DialogTitle>Edit profile</DialogTitle>
                 <DialogDescription>
@@ -77,37 +128,24 @@ export default function DialogShowcase() {
                   />
                 </div>
               </div>
-              <DialogFooter>
-                <Button type="submit">Save changes</Button>
-              </DialogFooter>
-            </DialogContent>
-          </Dialog>
-        </ExampleSection>
-
-        {/* ── Simple Confirmation ── */}
-        <ExampleSection
-          label="Simple Confirmation"
-          description="Hộp thoại chỉ có văn bản với nút đóng chân trang."
-        >
-          <Dialog>
-            <DialogTrigger
-              render={
-                <Button variant="outline" size={globalSize}>
-                  Share Document
+              <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t bg-muted/50 p-4">
+                <Button type="submit" size={globalSize}>
+                  Save changes
                 </Button>
-              }
-            />
-            <DialogContent>
-              <DialogHeader>
-                <DialogTitle>Share this document</DialogTitle>
-                <DialogDescription>
-                  Anyone with the link can view this document. You can change
-                  access permissions at any time in settings.
-                </DialogDescription>
-              </DialogHeader>
-              <DialogFooter showCloseButton>
-                <Button size={globalSize}>Copy Link</Button>
               </DialogFooter>
+              <DialogClose
+                render={
+                  <Button
+                    variant="ghost"
+                    className="absolute top-2 right-2"
+                    size="sm"
+                    iconOnly
+                  />
+                }
+              >
+                <XIcon />
+                <span className="sr-only">Close</span>
+              </DialogClose>
             </DialogContent>
           </Dialog>
         </ExampleSection>
@@ -117,25 +155,29 @@ export default function DialogShowcase() {
         {/* ── No Close Button ── */}
         <ExampleSection
           label="No Close Button"
-          description="Hộp thoại không có nút đóng trên cùng bên phải."
+          description="Không render nút XIcon thủ công."
         >
           <Dialog>
             <DialogTrigger
               render={
                 <Button variant="outline" size={globalSize}>
-                  Terms & Conditions
+                  View Terms
                 </Button>
               }
             />
-            <DialogContent showCloseButton={false}>
+            <DialogContent className={contentClass}>
               <DialogHeader>
                 <DialogTitle>Terms of Service</DialogTitle>
                 <DialogDescription>
-                  Please read and accept the terms of service before continuing.
-                  You must agree to proceed.
+                  You must accept the new terms to continue using the
+                  application.
                 </DialogDescription>
               </DialogHeader>
-              <DialogFooter>
+              <p className="text-sm text-muted-foreground">
+                By clicking accept, you agree to our updated Terms of Service
+                and Privacy Policy.
+              </p>
+              <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t bg-muted/50 p-4">
                 <DialogClose
                   render={<Button variant="outline" size={globalSize} />}
                 >
@@ -143,63 +185,160 @@ export default function DialogShowcase() {
                 </DialogClose>
                 <Button size={globalSize}>Accept</Button>
               </DialogFooter>
+              {/* No XIcon DialogClose here */}
             </DialogContent>
           </Dialog>
         </ExampleSection>
 
-        {/* ── Scrollable Content ── */}
+        {/* ── Large Content Sizing ── */}
         <ExampleSection
-          label="Scrollable Content"
-          description="Nội dung dài bên trong nội dung hộp thoại có thể cuộn."
+          label="Large Content Sizing"
+          description="Sử dụng sm:max-w-lg cho nội dung lớn hơn."
         >
           <Dialog>
             <DialogTrigger
               render={
                 <Button variant="outline" size={globalSize}>
-                  Privacy Policy
+                  View Report
                 </Button>
               }
             />
-            <DialogContent>
+            <DialogContent className={contentClass}>
               <DialogHeader>
-                <DialogTitle>Privacy Policy</DialogTitle>
+                <DialogTitle>Detailed Report</DialogTitle>
                 <DialogDescription>
-                  Last updated: January 2024
+                  Monthly analytics and performance overview.
                 </DialogDescription>
               </DialogHeader>
-              <div className="max-h-[200px] overflow-y-auto space-y-3 text-sm text-muted-foreground pr-2">
-                <p>
-                  We collect information you provide directly to us, such as
-                  when you create an account, make a purchase, or contact us for
-                  support.
-                </p>
-                <p>
-                  We automatically collect certain information when you use our
-                  services, including your IP address, device type, browser
-                  type, operating system, and usage patterns.
-                </p>
-                <p>
-                  We use the information we collect to provide, maintain, and
-                  improve our services, to process transactions, and to
-                  communicate with you.
-                </p>
-                <p>
-                  We do not share your personal information with third parties
-                  except as described in this policy or with your consent.
-                </p>
-                <p>
-                  We implement appropriate security measures to protect your
-                  personal information from unauthorized access, alteration, or
-                  destruction.
-                </p>
-                <p>
-                  You have the right to access, update, or delete your personal
-                  information at any time through your account settings.
-                </p>
+              <div className="flex h-[200px] items-center justify-center rounded-md border border-dashed bg-muted/20">
+                <span className="text-sm text-muted-foreground">
+                  Large Content Area
+                </span>
               </div>
-              <DialogFooter showCloseButton>
-                <Button size={globalSize}>I Understand</Button>
+              <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t bg-muted/50 p-4">
+                <Button size={globalSize}>Download PDF</Button>
               </DialogFooter>
+              <DialogClose
+                render={
+                  <Button
+                    variant="ghost"
+                    className="absolute top-2 right-2"
+                    size="sm"
+                    iconOnly
+                  />
+                }
+              >
+                <XIcon />
+                <span className="sr-only">Close</span>
+              </DialogClose>
+            </DialogContent>
+          </Dialog>
+        </ExampleSection>
+      </ExampleGrid>
+
+      <ExampleGrid columns={2}>
+        {/* ── Controlled State ── */}
+        <ExampleSection
+          label="Controlled State"
+          description="Sử dụng open và onOpenChange để quản lý trạng thái đóng mở bằng React state."
+        >
+          <div className="w-full flex flex-col gap-4 items-center justify-center">
+            <div className="flex gap-4 items-center">
+              <Button onClick={() => setControlledOpen(true)} variant="outline" size={globalSize}>
+                Open Controlled Dialog
+              </Button>
+              <span className="text-sm text-muted-foreground font-mono">
+                State: {controlledOpen ? "true" : "false"}
+              </span>
+            </div>
+
+            <Dialog open={controlledOpen} onOpenChange={setControlledOpen}>
+              <DialogContent className={contentClass}>
+                <DialogHeader>
+                  <DialogTitle>Controlled Dialog</DialogTitle>
+                  <DialogDescription>
+                    Trạng thái của hộp thoại này được quản lý hoàn toàn bởi React state bên ngoài.
+                  </DialogDescription>
+                </DialogHeader>
+                <p className="text-sm text-foreground">Bạn có thể đóng bằng nút bên dưới hoặc dấu X.</p>
+                <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t bg-muted/50 p-4">
+                  <Button color="primary" onClick={() => setControlledOpen(false)} size={globalSize}>
+                    Close Manually
+                  </Button>
+                </DialogFooter>
+                <DialogClose
+                  render={
+                    <Button
+                      variant="ghost"
+                      className="absolute top-2 right-2"
+                      size="sm"
+                      iconOnly
+                    />
+                  }
+                >
+                  <XIcon />
+                  <span className="sr-only">Close</span>
+                </DialogClose>
+              </DialogContent>
+            </Dialog>
+          </div>
+        </ExampleSection>
+
+        {/* ── Sticky Footer (Manual Micro) ── */}
+        <ExampleSection
+          label="Sticky Footer (Long Content)"
+          description="Ghi đè class của DialogContent thành flex-col để khóa scroll ở phần body."
+        >
+          <Dialog>
+            <DialogTrigger
+              render={
+                <Button variant="outline" size={globalSize}>
+                  View Long Content
+                </Button>
+              }
+            />
+            <DialogContent className={cn(contentClass, "flex flex-col gap-0 p-0 overflow-hidden")}>
+              <DialogHeader className="shrink-0 p-4 pb-0">
+                <DialogTitle>Terms & Conditions</DialogTitle>
+                <DialogDescription>
+                  Cuộn xuống dưới cùng để có thể đồng ý với điều khoản.
+                </DialogDescription>
+              </DialogHeader>
+              <div className="flex-1 min-h-0 overflow-y-auto p-4">
+                <div className="flex h-[800px] flex-col items-center justify-between rounded-md border border-dashed bg-muted/20 py-8">
+                  <span className="text-sm font-medium text-muted-foreground">
+                    START OF CONTENT
+                  </span>
+                  <div className="flex flex-col items-center gap-2">
+                    <span className="text-4xl">👇</span>
+                    <span className="text-sm text-muted-foreground">Keep scrolling</span>
+                  </div>
+                  <span className="text-sm font-medium text-muted-foreground">
+                    END OF CONTENT
+                  </span>
+                </div>
+              </div>
+              <DialogFooter className="shrink-0 rounded-b-xl border-t bg-muted/50 p-4">
+                <DialogClose
+                  render={<Button variant="ghost" size={globalSize} />}
+                >
+                  Cancel
+                </DialogClose>
+                <Button size={globalSize}>I Agree</Button>
+              </DialogFooter>
+              <DialogClose
+                render={
+                  <Button
+                    variant="ghost"
+                    className="absolute top-2 right-2"
+                    size="sm"
+                    iconOnly
+                  />
+                }
+              >
+                <XIcon />
+                <span className="sr-only">Close</span>
+              </DialogClose>
             </DialogContent>
           </Dialog>
         </ExampleSection>

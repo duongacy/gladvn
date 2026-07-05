@@ -181,7 +181,7 @@ export default function App() {
             Components (A-Z)
           </p>
           <nav className="space-y-0.5">
-            {COMPONENTS.map(({ id, label, hasMacro, hasMicro }) => (
+            {COMPONENTS.map(({ id, label, hasMacro, hasMicro, status }) => (
               <button
                 key={id}
                 onClick={() => setActive(id)}
@@ -193,6 +193,9 @@ export default function App() {
               >
                 <span>{label}</span>
                 <div className="flex gap-1 shrink-0">
+                  {status === "stable" && (
+                    <span className="text-[9px] bg-green-500/10 text-green-500 dark:bg-green-500/20 dark:text-green-400 px-1 rounded font-bold tracking-tighter" title="Stable & Audited">✓</span>
+                  )}
                   {hasMicro && hasMacro && (
                     <span className="text-[9px] bg-primary/10 text-primary px-1 rounded font-bold tracking-tighter" title="Has both Micro & Macro versions">M+</span>
                   )}

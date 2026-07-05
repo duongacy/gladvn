@@ -7,6 +7,102 @@ import {
 } from "@/dev/components/showcase";
 import { type Size } from "@/lib/types";
 import { ComboboxPreset } from "@/components/macro/combobox-preset";
+import { useForm, Controller } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { Button } from "@/components/micro/button";
+
+const formSchema = z.object({
+  framework: z.string().min(1, "Vui lòng chọn một framework."),
+});
+
+type FormValues = z.infer<typeof formSchema>;
+
+function ComboboxForm({ size }: { size: Size }) {
+  const form = useForm<FormValues>({
+    resolver: zodResolver(formSchema),
+    defaultValues: { framework: "" },
+  });
+
+  function onSubmit(values: FormValues) {
+    alert(JSON.stringify(values, null, 2));
+  }
+
+  return (
+    <form onSubmit={form.handleSubmit(onSubmit)} className="w-full max-w-sm space-y-6">
+      <Controller
+        control={form.control}
+        name="framework"
+        render={({ field, fieldState }) => (
+          <ComboboxPreset
+            size={size}
+            label="Framework"
+            description="Chọn framework yêu thích của bạn."
+            placeholder="Select framework..."
+            searchPlaceholder="Search frameworks..."
+            emptyText="No framework found."
+            options={[
+              { value: "react", label: "React" },
+              { value: "vue", label: "Vue" },
+              { value: "angular", label: "Angular" },
+              { value: "svelte", label: "Svelte" },
+            ]}
+            value={field.value}
+            onValueChange={field.onChange}
+            errorMessage={fieldState.error?.message}
+          />
+        )}
+      />
+      <Button type="submit" size={size}>Submit</Button>
+    </form>
+  );
+}
+
+const rhfCode = `const formSchema = z.object({
+  framework: z.string().min(1, "Vui lòng chọn một framework."),
+});
+
+type FormValues = z.infer<typeof formSchema>;
+
+function ComboboxForm({ size }: { size: Size }) {
+  const form = useForm<FormValues>({
+    resolver: zodResolver(formSchema),
+    defaultValues: { framework: "" },
+  });
+
+  function onSubmit(values: FormValues) {
+    alert(JSON.stringify(values, null, 2));
+  }
+
+  return (
+    <form onSubmit={form.handleSubmit(onSubmit)} className="w-full max-w-sm space-y-6">
+      <Controller
+        control={form.control}
+        name="framework"
+        render={({ field, fieldState }) => (
+          <ComboboxPreset
+            size={size}
+            label="Framework"
+            description="Chọn framework yêu thích của bạn."
+            placeholder="Select framework..."
+            searchPlaceholder="Search frameworks..."
+            emptyText="No framework found."
+            options={[
+              { value: "react", label: "React" },
+              { value: "vue", label: "Vue" },
+              { value: "angular", label: "Angular" },
+              { value: "svelte", label: "Svelte" },
+            ]}
+            value={field.value}
+            onValueChange={field.onChange}
+            errorMessage={fieldState.error?.message}
+          />
+        )}
+      />
+      <Button type="submit" size={size}>Submit</Button>
+    </form>
+  );
+}`;
 
 export default function MacroComboboxShowcase() {
   const [globalSize, setGlobalSize] = useState<Size>("md");
@@ -102,6 +198,13 @@ export default function MacroComboboxShowcase() {
               }))}
             />
           </div>
+        </ExampleSection>
+        <ExampleSection 
+          label="React Hook Form Integration" 
+          description="Xác thực form bằng Zod và React Hook Form."
+          codeString={rhfCode}
+        >
+          <ComboboxForm size={globalSize} />
         </ExampleSection>
       </ExampleGrid>
     </div>

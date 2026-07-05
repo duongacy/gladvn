@@ -84,7 +84,6 @@ const ComboboxPreset = React.forwardRef<
           placeholder={placeholder || searchPlaceholder}
           aria-invalid={!!errorMessage || undefined}
           disabled={disabled}
-          hasValue={hasValue}
         />
         <ComboboxContent>
           <ComboboxEmpty>{emptyText}</ComboboxEmpty>
@@ -118,9 +117,8 @@ const ComboboxPresetInner = React.forwardRef<
     placeholder?: string;
     "aria-invalid"?: boolean;
     disabled?: boolean;
-    hasValue?: boolean;
   }
->(({ inputId, size, placeholder, "aria-invalid": ariaInvalid, disabled, hasValue }, ref) => {
+>(({ inputId, size, placeholder, "aria-invalid": ariaInvalid, disabled }, ref) => {
   const { setAnchor } = useComboboxContext();
 
   return (
@@ -137,7 +135,7 @@ const ComboboxPresetInner = React.forwardRef<
           className="flex h-full cursor-default items-center justify-center px-2.5 outline-none group-has-data-[slot=combobox-clear]/input-group:hidden disabled:cursor-not-allowed disabled:opacity-50"
           disabled={disabled}
         />
-        {hasValue && <ComboboxClear disabled={disabled} />}
+        <ComboboxClear disabled={disabled} />
       </InputGroupAddon>
     </InputGroup>
   );

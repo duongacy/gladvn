@@ -17,7 +17,7 @@ Danh sách các nhóm component cần ưu tiên hoàn thiện sớm nhất để
 **1. Nhóm Form & Data Entry (Ưu tiên số 1)**
 - [x] `input.tsx` / `textarea.tsx`
 - [x] `select.tsx`
-- [ ] `combobox.tsx`
+- [x] `combobox.tsx`
 - [x] `checkbox.tsx`
 - [ ] `switch.tsx` / `radio-group.tsx`
 
@@ -62,7 +62,7 @@ Danh sách các nhóm component cần ưu tiên hoàn thiện sớm nhất để
 ## ⚠️ Đang xử lý / Tạm gác
 
 - [ ] `calendar.tsx` *(Blank page bug khi render, đang tạm revert)*
-- [ ] `combobox.tsx` *(Tạm gác chờ review lại MonoSelect sau khi fix các component liên quan)*
+- [x] `combobox.tsx`
 
 ---
 

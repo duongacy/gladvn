@@ -6,12 +6,12 @@ export default function SeparatorShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Separator"
-        description="Visually or semantically separates content."
+        description="Phân tách nội dung một cách trực quan hoặc ngữ nghĩa."
       />
 
       <ExampleSection
         label="Default"
-        description="Horizontal and vertical separators."
+        description="Dải phân cách ngang và dọc."
       >
         <div className="w-full max-w-sm">
           <div className="space-y-1">

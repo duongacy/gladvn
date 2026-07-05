@@ -103,15 +103,17 @@ export default function AlertShowcase() {
           description="Hiển thị Alert với màu sắc mặc định (info)."
           fullWidth
         >
-          <Alert size={globalSize} className="flex items-start">
-            <AlertIcon render={<InfoIcon />} className="mt-0.5 shrink-0" />
-            <div className="flex-1 space-y-0.5">
-              <AlertTitle>Chú ý!</AlertTitle>
-              <AlertDescription>
-                Bạn có thể thêm các component vào dự án bằng cách sử dụng CLI.
-              </AlertDescription>
-            </div>
-          </Alert>
+          <div className="w-full max-w-xl">
+            <Alert size={globalSize} className="flex items-start">
+              <AlertIcon render={<InfoIcon />} className="mt-0.5 shrink-0" />
+              <div className="flex-1 space-y-0.5">
+                <AlertTitle>Chú ý!</AlertTitle>
+                <AlertDescription>
+                  Bạn có thể thêm các component vào dự án bằng cách sử dụng CLI.
+                </AlertDescription>
+              </div>
+            </Alert>
+          </div>
         </ExampleSection>
 
         {/* ── With Action ───────────────────── */}
@@ -120,20 +122,22 @@ export default function AlertShowcase() {
           description="Alert kèm theo một nút tắt (dismiss) được đặt ở góc trên bên phải."
           fullWidth
         >
-          <Alert color="info" size={globalSize} className="flex items-start">
-            <AlertIcon render={<InfoIcon />} className="mt-0.5 shrink-0" />
-            <div className="flex-1 space-y-0.5">
-              <AlertTitle>Tính năng mới</AlertTitle>
-              <AlertDescription>
-                Hãy khám phá trang thống kê dashboard hoàn toàn mới của chúng tôi.
-              </AlertDescription>
-            </div>
-            <AlertAction className="ml-4 shrink-0">
-              <Button variant="ghost" size="sm" className="size-6 p-0">
-                <XIcon className="size-3.5" />
-              </Button>
-            </AlertAction>
-          </Alert>
+          <div className="w-full max-w-xl">
+            <Alert color="info" size={globalSize} className="flex items-start relative">
+              <AlertIcon render={<InfoIcon />} className="mt-0.5 shrink-0" />
+              <div className="flex-1 space-y-0.5 pr-8">
+                <AlertTitle>Tính năng mới</AlertTitle>
+                <AlertDescription>
+                  Hãy khám phá trang thống kê dashboard hoàn toàn mới của chúng tôi.
+                </AlertDescription>
+              </div>
+              <AlertAction className="absolute right-1 top-1">
+                <Button variant="ghost" size="sm" className="size-6 p-0 group-data-[size=sm]/alert:size-5 group-data-[size=lg]/alert:size-7">
+                  <XIcon className="size-3.5 group-data-[size=sm]/alert:size-3 group-data-[size=lg]/alert:size-4" />
+                </Button>
+              </AlertAction>
+            </Alert>
+          </div>
         </ExampleSection>
       </ExampleGrid>
 

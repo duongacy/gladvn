@@ -22,7 +22,7 @@ export default function CalendarShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Calendar"
-        description="A date field component that allows users to enter and edit date."
+        description="Thành phần trường ngày cho phép người dùng nhập và chỉnh sửa ngày."
       >
         <SelectPreset
           value={globalSize}
@@ -38,7 +38,7 @@ export default function CalendarShowcase() {
 
       <ExampleGrid columns={2}>
         {/* ── Single Date ── */}
-        <ExampleSection label="Single Date" description="Select a single date.">
+        <ExampleSection label="Single Date" description="Chọn một ngày duy nhất.">
           <div className="border rounded-xl inline-block bg-card p-3">
             <Calendar
               size={globalSize}
@@ -53,7 +53,7 @@ export default function CalendarShowcase() {
         {/* ── Date Range ── */}
         <ExampleSection
           label="Date Range"
-          description="Select a range of dates."
+          description="Chọn một phạm vi ngày."
         >
           <div className="border rounded-xl inline-block bg-card p-3">
             <Calendar
@@ -71,7 +71,7 @@ export default function CalendarShowcase() {
       {/* ── With Navigation Dropdown ── */}
       <ExampleSection
         label="With Navigation"
-        description="Calendar with dropdown navigation for month/year."
+        description="Lịch với điều hướng thả xuống cho tháng/năm."
       >
         <div className="border rounded-xl inline-block bg-card p-3">
           <Calendar

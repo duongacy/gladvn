@@ -18,10 +18,10 @@ function ControlledMacroCheckboxDemo({ size }: { size: Size }) {
         checked={checked}
         onCheckedChange={(c) => setChecked(!!c)}
         label="Controlled Checkbox"
-        description="This checkbox state is managed by React."
+        description="Trạng thái hộp kiểm này được quản lý bởi React."
       />
       <p className="text-sm text-muted-foreground">
-        Current State: <span className="font-mono font-bold text-foreground">{checked ? "Checked" : "Unchecked"}</span>
+        Trạng thái hiện tại: <span className="font-mono font-bold text-foreground">{checked ? "Checked" : "Unchecked"}</span>
       </p>
     </div>
   );
@@ -34,7 +34,7 @@ export default function MacroCheckboxShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Checkbox (Macro)"
-        description="A preset component that encapsulates Checkbox, Field, Label, and Description."
+        description="Một preset component đóng gói Checkbox, Field, Label, và Description."
       >
         <SelectPreset
           value={globalSize}
@@ -49,53 +49,53 @@ export default function MacroCheckboxShowcase() {
       </SectionHeader>
 
       <ExampleGrid columns={2}>
-        <ExampleSection label="Standard" description="Basic checkbox with label and description.">
+        <ExampleSection label="Standard" description="Checkbox cơ bản kèm nhãn (label) và mô tả.">
           <div className="w-full max-w-sm">
             <CheckboxPreset
               size={globalSize}
               label="Accept terms"
-              description="You must accept the terms and conditions."
+              description="Bạn phải đồng ý với các điều khoản và điều kiện."
             />
           </div>
         </ExampleSection>
 
-        <ExampleSection label="Error State" description="Demonstrates errorMessage and showError props.">
+        <ExampleSection label="Error State" description="Minh hoạ cách sử dụng props errorMessage và showError.">
           <div className="w-full max-w-sm flex flex-col gap-6">
             <CheckboxPreset
               size={globalSize}
               label="Accept terms (Invalid)"
-              errorMessage="You must check this box."
+              errorMessage="Bạn phải đánh dấu vào ô này."
             />
             
             <CheckboxPreset
               size={globalSize}
               label="Accept terms (Hidden Error)"
-              description="Error text is hidden using showError={false}"
-              errorMessage="Hidden error."
+              description="Câu báo lỗi bị ẩn đi bằng showError={false}"
+              errorMessage="Lỗi bị ẩn."
               showError={false}
             />
           </div>
         </ExampleSection>
         
-        <ExampleSection label="Disabled State" description="A non-interactive checkbox field.">
+        <ExampleSection label="Disabled State" description="Một trường checkbox không thể tương tác.">
           <div className="w-full max-w-sm flex flex-col gap-6">
             <CheckboxPreset
               size={globalSize}
               label="Sign up for newsletter"
-              description="This option is currently unavailable."
+              description="Tuỳ chọn này hiện không khả dụng."
               disabled
             />
             <CheckboxPreset
               size={globalSize}
               label="Enable experimental features"
-              description="You cannot change this setting."
+              description="Bạn không thể thay đổi cài đặt này."
               defaultChecked
               disabled
             />
           </div>
         </ExampleSection>
 
-        <ExampleSection label="Form Group" description="Multiple related options.">
+        <ExampleSection label="Form Group" description="Nhiều tuỳ chọn liên quan đến nhau.">
           <div className="flex flex-col gap-3">
             <CheckboxPreset id="cb-m-recents" label="Recents" defaultChecked size={globalSize} />
             <CheckboxPreset id="cb-m-home" label="Home" defaultChecked size={globalSize} />
@@ -103,16 +103,16 @@ export default function MacroCheckboxShowcase() {
           </div>
         </ExampleSection>
 
-        <ExampleSection label="Real-world Content" description="Demonstrating how CheckboxPreset handles complex React Node labels and long descriptions.">
+        <ExampleSection label="Real-world Content" description="Minh hoạ cách CheckboxPreset xử lý nhãn (label) dạng React Node phức tạp và các đoạn mô tả dài.">
           <div className="w-full max-w-sm">
             <CheckboxPreset
               size={globalSize}
               label={
                 <span className="flex items-center gap-2">
-                  Share usage data <span className="rounded bg-primary/20 px-1.5 py-0.5 text-[10px] font-semibold text-primary">BETA</span>
+                  Chia sẻ dữ liệu sử dụng <span className="rounded bg-primary/20 px-1.5 py-0.5 text-[10px] font-semibold text-primary">BETA</span>
                 </span>
               }
-              description="Help us improve our service by automatically sending diagnostic data and crash reports every time the application encounters an unexpected error. You can revoke this permission at any time in your account settings."
+              description="Giúp chúng tôi cải thiện dịch vụ bằng cách tự động gửi dữ liệu phân tích và báo cáo lỗi mỗi khi ứng dụng gặp sự cố. Bạn có thể thu hồi quyền này bất cứ lúc nào trong phần cài đặt tài khoản."
             />
           </div>
         </ExampleSection>
@@ -121,7 +121,7 @@ export default function MacroCheckboxShowcase() {
       <ExampleGrid columns={1}>
         <ExampleSection 
           label="Controlled Mode" 
-          description="Control the checked state using React state (checked and onCheckedChange)."
+          description="Quản lý trạng thái bằng React state (sử dụng checked và onCheckedChange)."
           codeString={`import { useState } from "react";
 import { CheckboxPreset } from "@/components/macro/checkbox-preset";
 
@@ -133,7 +133,7 @@ export function ControlledDemo() {
       checked={checked}
       onCheckedChange={(c) => setChecked(!!c)}
       label="Controlled Checkbox"
-      description="This checkbox state is managed by React."
+      description="Trạng thái của checkbox này được quản lý bởi React."
     />
   );
 }`}

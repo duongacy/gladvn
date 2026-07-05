@@ -14,7 +14,7 @@ export default function TooltipShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Tooltip"
-        description="A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it."
+        description="Cửa sổ bật lên hiển thị thông tin liên quan đến một phần tử khi phần tử đó nhận được tiêu điểm bàn phím hoặc chuột di chuột qua phần tử đó."
       >
         <SelectPreset
           value={globalSize}
@@ -30,7 +30,7 @@ export default function TooltipShowcase() {
 
       <ExampleSection
         label="Standard"
-        description="Hover to see more information."
+        description="Di chuột để xem thêm thông tin."
       >
         <div className="flex gap-4">
           <TooltipProvider>

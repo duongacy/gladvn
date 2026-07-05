@@ -63,7 +63,7 @@ function ProfileForm() {
       {/* InputPreset (Using register) */}
       <InputPreset
         label="Username"
-        description="This is your public display name."
+        description="Đây là tên hiển thị công khai của bạn."
         errorMessage={form.formState.errors.username?.message}
         placeholder="johndoe" 
         {...form.register("username")} 
@@ -72,7 +72,7 @@ function ProfileForm() {
       {/* TextareaPreset (Using register) */}
       <TextareaPreset
         label="Bio"
-        description="Tell us a little bit about yourself."
+        description="Hãy cho chúng tôi biết một chút về bản thân bạn."
         errorMessage={form.formState.errors.bio?.message}
         placeholder="I am a software engineer..."
         {...form.register("bio")}
@@ -81,7 +81,7 @@ function ProfileForm() {
       {/* NativeSelectPreset (Using register) */}
       <NativeSelectPreset
         label="Language"
-        description="What is your preferred language?"
+        description="Ngôn ngữ ưa thích của bạn là gì?"
         errorMessage={form.formState.errors.language?.message}
         {...form.register("language")}
       >
@@ -98,7 +98,7 @@ function ProfileForm() {
         render={({ field, fieldState }) => (
           <ComboboxPreset
             label="Framework"
-            description="Select your favorite framework."
+            description="Chọn khuôn khổ yêu thích của bạn."
             placeholder="Select framework..."
             searchPlaceholder="Search frameworks..."
             emptyText="No framework found."
@@ -142,7 +142,7 @@ function ProfileForm() {
         render={({ field, fieldState }) => (
           <RadioGroupPreset
             label="Notification"
-            description="How do you want to be notified?"
+            description="Bạn muốn được thông báo bằng cách nào?"
             options={[
               { value: "email", label: "Email" },
               { value: "sms", label: "SMS" },
@@ -161,7 +161,7 @@ function ProfileForm() {
         render={({ field, fieldState }) => (
           <SliderPreset
             label="Volume"
-            description="Adjust the notification volume."
+            description="Điều chỉnh âm lượng thông báo."
             value={field.value}
             onValueChange={field.onChange}
             errorMessage={fieldState.error?.message}
@@ -178,7 +178,7 @@ function ProfileForm() {
         render={({ field, fieldState }) => (
           <InputOTPPreset
             label="PIN"
-            description="Enter the 6-digit confirmation code."
+            description="Nhập mã xác nhận gồm 6 chữ số."
             maxLength={6}
             value={field.value}
             onChange={field.onChange}
@@ -194,7 +194,7 @@ function ProfileForm() {
         render={({ field, fieldState }) => (
           <SwitchPreset
             label="Marketing Emails"
-            description="Receive emails about new products, features, and more."
+            description="Nhận email về các sản phẩm, tính năng mới và hơn thế nữa."
             checked={field.value}
             onCheckedChange={field.onChange}
             errorMessage={fieldState.error?.message}
@@ -209,7 +209,7 @@ function ProfileForm() {
         render={({ field, fieldState }) => (
           <CheckboxPreset
             label="Accept Terms"
-            description="You agree to our Terms of Service and Privacy Policy."
+            description="Bạn đồng ý với Điều khoản dịch vụ và Chính sách quyền riêng tư của chúng tôi."
             checked={field.value}
             onCheckedChange={field.onChange}
             errorMessage={fieldState.error?.message}
@@ -229,13 +229,13 @@ export default function MacroRHFShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="React Hook Form (Macro)"
-        description="Demonstrates how to integrate Macro Presets with react-hook-form."
+        description="Trình bày cách tích hợp các cài đặt trước Macro với dạng móc phản ứng."
       />
 
       <ExampleGrid columns={1}>
         <ExampleSection 
           label="Profile Form" 
-          description="A complete form with validation covering all preset form controls."
+          description="Một biểu mẫu hoàn chỉnh có xác nhận bao gồm tất cả các điều khiển biểu mẫu đặt trước."
           codeString={profileFormCode}
         >
           <ProfileForm />

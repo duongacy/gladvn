@@ -14,22 +14,22 @@ export default function MacroInputOTPShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Input OTP (Macro)"
-        description="A preset component that encapsulates Input OTP, Field, Label, and Description."
+        description="Một thành phần cài sẵn bao gồm OTP đầu vào, Trường, Nhãn và Mô tả."
       />
 
       <ExampleGrid columns={2}>
-        <ExampleSection label="Standard" description="Basic Input OTP with label and description.">
+        <ExampleSection label="Standard" description="OTP đầu vào cơ bản có nhãn và mô tả.">
           <div className="w-full max-w-sm">
             <InputOTPPreset
               maxLength={6}
               size={globalSize}
               label="Verification Code"
-              description="Please enter the verification code sent to your phone."
+              description="Vui lòng nhập mã xác minh được gửi tới điện thoại của bạn."
             />
           </div>
         </ExampleSection>
 
-        <ExampleSection label="Error State" description="Demonstrates errorMessage and showError props.">
+        <ExampleSection label="Error State" description="Thể hiện các đạo cụ errorMessage và showError.">
           <div className="w-full max-w-sm flex flex-col gap-6">
             <InputOTPPreset
               maxLength={6}
@@ -42,25 +42,25 @@ export default function MacroInputOTPShowcase() {
               maxLength={6}
               size={globalSize}
               label="Code (Hidden Error)"
-              description="Error text is hidden using showError={false}"
+              description="Văn bản lỗi bị ẩn bằng showError={false}"
               errorMessage="Hidden error."
               showError={false}
             />
           </div>
         </ExampleSection>
-        <ExampleSection label="Disabled State" description="A non-interactive OTP input.">
+        <ExampleSection label="Disabled State" description="Đầu vào OTP không tương tác.">
           <div className="w-full max-w-sm">
             <InputOTPPreset
               maxLength={6}
               size={globalSize}
               label="Recovery Code"
-              description="You cannot enter a code at this time."
+              description="Bạn không thể nhập mã vào lúc này."
               disabled
             />
           </div>
         </ExampleSection>
 
-        <ExampleSection label="Real-world Form Snippet" description="Often used with custom labels and specific lengths.">
+        <ExampleSection label="Real-world Form Snippet" description="Thường được sử dụng với nhãn tùy chỉnh và độ dài cụ thể.">
           <div className="w-full max-w-sm">
             <InputOTPPreset
               maxLength={4}
@@ -71,7 +71,7 @@ export default function MacroInputOTPShowcase() {
                   <a href="#" className="text-xs text-primary underline-offset-4 hover:underline">Forgot PIN?</a>
                 </span>
               }
-              description="Enter your 4-digit personal identification number to proceed."
+              description="Nhập số nhận dạng cá nhân gồm 4 chữ số của bạn để tiếp tục."
             />
           </div>
         </ExampleSection>

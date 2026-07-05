@@ -10,13 +10,13 @@ export default function SkeletonShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Skeleton"
-        description="Use to show a placeholder while content is loading."
+        description="Sử dụng để hiển thị phần giữ chỗ trong khi nội dung đang tải."
       />
 
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Card Skeleton"
-          description="User profile card loading state."
+          description="Trạng thái tải thẻ hồ sơ người dùng."
         >
           <div className="space-y-6 w-full max-w-sm">
             <div className="flex items-center space-x-4">
@@ -35,7 +35,7 @@ export default function SkeletonShowcase() {
 
         <ExampleSection
           label="Article Skeleton"
-          description="Blog post or content loading state."
+          description="Trạng thái tải bài đăng hoặc nội dung trên blog."
         >
           <div className="space-y-4 w-full max-w-sm">
             <Skeleton className="h-5 w-3/4" />

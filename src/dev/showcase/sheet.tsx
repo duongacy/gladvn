@@ -8,12 +8,12 @@ export default function SheetShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Sheet"
-        description="Extends the Dialog component to display content that complements the main content of the screen."
+        description="Mở rộng thành phần Hộp thoại để hiển thị nội dung bổ sung cho nội dung chính của màn hình."
       />
 
       <ExampleSection
         label="Directions"
-        description="Sheet can slide from any edge."
+        description="Tấm có thể trượt từ bất kỳ cạnh nào."
       >
         <div className="grid grid-cols-2 gap-2">
           {(["top", "right", "bottom", "left"] as const).map((side) => (

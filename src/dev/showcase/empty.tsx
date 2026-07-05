@@ -12,13 +12,13 @@ export default function EmptyShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Empty"
-        description="A component for displaying empty states (e.g. no data, no results)."
+        description="Một thành phần để hiển thị trạng thái trống (ví dụ: không có dữ liệu, không có kết quả)."
       />
 
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Default"
-          description="Standard empty state with action."
+          description="Trạng thái trống tiêu chuẩn với hành động."
         >
           <Empty className="w-full h-full min-h-[300px]">
             <EmptyHeader>
@@ -40,7 +40,7 @@ export default function EmptyShowcase() {
 
         <ExampleSection
           label="Icon Variant"
-          description="Empty state with media and content slots."
+          description="Trạng thái trống với các khe nội dung và phương tiện."
         >
           <Empty className="w-full h-full min-h-[300px]">
             <EmptyHeader>

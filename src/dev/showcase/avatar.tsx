@@ -28,7 +28,7 @@ export default function AvatarShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Avatar"
-        description="An image element with a fallback for representing the user."
+        description="Một phần tử hình ảnh có dự phòng để đại diện cho người dùng."
       >
         <SelectPreset
           value={globalSize}
@@ -45,7 +45,7 @@ export default function AvatarShowcase() {
       {/* ── With Image ── */}
       <ExampleSection
         label="With Image"
-        description="Avatars displaying user photos with fallback initials."
+        description="Hình đại diện hiển thị ảnh người dùng với tên viết tắt dự phòng."
       >
         <div className="flex items-center gap-4">
           <Avatar size={globalSize}>
@@ -67,7 +67,7 @@ export default function AvatarShowcase() {
         {/* ── Fallback Only ── */}
         <ExampleSection
           label="Fallback Only"
-          description="When no image is provided, initials are displayed."
+          description="Khi không có hình ảnh nào được cung cấp, tên viết tắt sẽ được hiển thị."
         >
           <div className="flex items-center gap-4">
             <Avatar size={globalSize}>
@@ -85,7 +85,7 @@ export default function AvatarShowcase() {
         {/* ── Broken Image (triggers fallback) ── */}
         <ExampleSection
           label="Broken Image"
-          description="Fallback shown when the image URL fails to load."
+          description="Dự phòng được hiển thị khi URL hình ảnh không tải được."
         >
           <div className="flex items-center gap-4">
             <Avatar size={globalSize}>
@@ -106,7 +106,7 @@ export default function AvatarShowcase() {
       {/* ── With Badge ── */}
       <ExampleSection
         label="With Badge"
-        description="Status indicator badge positioned at the bottom-right corner."
+        description="Huy hiệu chỉ báo trạng thái được đặt ở góc dưới bên phải."
       >
         <div className="flex items-center gap-6">
           <div className="flex flex-col items-center gap-2">
@@ -139,7 +139,7 @@ export default function AvatarShowcase() {
       {/* ── Avatar Group ── */}
       <ExampleSection
         label="Avatar Group"
-        description="Stacked avatars with overlapping layout for teams or collaborators."
+        description="Hình đại diện xếp chồng lên nhau với bố cục chồng chéo dành cho các nhóm hoặc cộng tác viên."
       >
         <div className="flex flex-col gap-6">
           <div className="flex flex-col gap-2">

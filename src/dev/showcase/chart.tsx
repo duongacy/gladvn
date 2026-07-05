@@ -27,12 +27,12 @@ export default function ChartShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Chart"
-        description="Beautiful & responsive charts built using Recharts."
+        description="Biểu đồ đẹp và đáp ứng được xây dựng bằng Recharts."
       />
 
       <ExampleSection
         label="Bar Chart"
-        description="A simple bar chart with tooltip and legend."
+        description="Biểu đồ thanh đơn giản với chú giải công cụ và chú giải."
       >
         <ChartContainer
           config={chartConfig}

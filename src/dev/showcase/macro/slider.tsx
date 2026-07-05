@@ -14,16 +14,16 @@ export default function MacroSliderShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Slider (Macro)"
-        description="A preset component that encapsulates Slider, Field, Label, and Description."
+        description="Một thành phần cài sẵn bao gồm Thanh trượt, Trường, Nhãn và Mô tả."
       />
 
       <ExampleGrid columns={2}>
-        <ExampleSection label="Standard" description="Basic slider with label and description.">
+        <ExampleSection label="Standard" description="Thanh trượt cơ bản có nhãn và mô tả.">
           <div className="w-full max-w-sm">
             <SliderPreset
               size={globalSize}
               label="Volume"
-              description="Adjust the system volume."
+              description="Điều chỉnh âm lượng hệ thống."
               defaultValue={[50]}
               max={100}
               step={1}
@@ -31,7 +31,7 @@ export default function MacroSliderShowcase() {
           </div>
         </ExampleSection>
 
-        <ExampleSection label="Error State" description="Demonstrates errorMessage and showError props.">
+        <ExampleSection label="Error State" description="Thể hiện các đạo cụ errorMessage và showError.">
           <div className="w-full max-w-sm flex flex-col gap-6">
             <SliderPreset
               size={globalSize}
@@ -45,7 +45,7 @@ export default function MacroSliderShowcase() {
             <SliderPreset
               size={globalSize}
               label="Volume (Hidden Error)"
-              description="Error text is hidden using showError={false}"
+              description="Văn bản lỗi bị ẩn bằng showError={false}"
               defaultValue={[110]}
               max={100}
               errorMessage="Hidden error."
@@ -53,12 +53,12 @@ export default function MacroSliderShowcase() {
             />
           </div>
         </ExampleSection>
-        <ExampleSection label="Disabled State" description="A non-interactive slider.">
+        <ExampleSection label="Disabled State" description="Một thanh trượt không tương tác.">
           <div className="w-full max-w-sm">
             <SliderPreset
               size={globalSize}
               label="Brightness"
-              description="Brightness is controlled automatically by the system."
+              description="Độ sáng được hệ thống điều khiển tự động."
               defaultValue={[75]}
               max={100}
               disabled
@@ -66,12 +66,12 @@ export default function MacroSliderShowcase() {
           </div>
         </ExampleSection>
 
-        <ExampleSection label="Range Slider" description="Using multiple values to create a range.">
+        <ExampleSection label="Range Slider" description="Sử dụng nhiều giá trị để tạo một phạm vi.">
           <div className="w-full max-w-sm">
             <SliderPreset
               size={globalSize}
               label="Price Range"
-              description="Select the minimum and maximum price."
+              description="Chọn giá tối thiểu và tối đa."
               defaultValue={[25, 75]}
               max={100}
               step={5}

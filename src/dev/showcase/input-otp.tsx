@@ -17,7 +17,7 @@ export default function InputOTPShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Input OTP"
-        description="Accessible one-time password component with copy paste functionality."
+        description="Thành phần mật khẩu một lần có thể truy cập được với chức năng sao chép và dán."
       >
         <SelectPreset
           value={globalSize}
@@ -34,7 +34,7 @@ export default function InputOTPShowcase() {
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Standard"
-          description="Standard 6-digit verification code."
+          description="Mã xác minh tiêu chuẩn gồm 6 chữ số."
         >
           <Field size={globalSize}>
             <FieldLabel htmlFor="tf-otp-0">Verification Code</FieldLabel>
@@ -58,7 +58,7 @@ export default function InputOTPShowcase() {
 
         <ExampleSection
           label="Separated Format"
-          description="OTP with visual separator."
+          description="OTP có dấu phân cách trực quan."
         >
           <Field size={globalSize}>
             <FieldLabel htmlFor="tf-otp-1">Security Key</FieldLabel>

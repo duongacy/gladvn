@@ -10,11 +10,11 @@ export default function MacroBreadcrumbShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Breadcrumb (Macro)"
-        description="A preset component that renders a breadcrumb trail from a flat array."
+        description="Một thành phần đặt trước hiển thị đường dẫn đường dẫn từ một mảng phẳng."
       />
 
       <ExampleGrid columns={1}>
-        <ExampleSection label="Standard" description="Breadcrumb with links and text.">
+        <ExampleSection label="Standard" description="Breadcrumb với các liên kết và văn bản.">
           <BreadcrumbPreset
             items={[
               { label: "Home", href: "/" },
@@ -24,7 +24,7 @@ export default function MacroBreadcrumbShowcase() {
           />
         </ExampleSection>
 
-        <ExampleSection label="Deep Navigation" description="A longer breadcrumb trail typical for nested pages.">
+        <ExampleSection label="Deep Navigation" description="Đường dẫn breadcrumb dài hơn điển hình cho các trang lồng nhau.">
           <BreadcrumbPreset
             items={[
               { label: "Dashboard", href: "/dashboard" },

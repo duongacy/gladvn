@@ -24,7 +24,7 @@ export default function DropdownMenuShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Dropdown Menu"
-        description="Displays a menu to the user—such as a set of actions or functions—triggered by a button."
+        description="Hiển thị một menu cho người dùng—chẳng hạn như một tập hợp các hành động hoặc chức năng—được kích hoạt bằng một nút."
       >
         <SelectPreset
           value={globalSize}
@@ -41,7 +41,7 @@ export default function DropdownMenuShowcase() {
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Standard Dropdown"
-          description="Basic menu with shortcuts."
+          description="Menu cơ bản với các phím tắt."
         >
           <DropdownMenu>
             <DropdownMenuTrigger
@@ -83,7 +83,7 @@ export default function DropdownMenuShowcase() {
 
         <ExampleSection
           label="With Disabled Items"
-          description="Some items are non-interactive."
+          description="Một số mục không tương tác."
         >
           <DropdownMenu>
             <DropdownMenuTrigger
@@ -118,7 +118,7 @@ export default function DropdownMenuShowcase() {
         </ExampleSection>
         <ExampleSection
           label="Advanced Dropdown"
-          description="Menu with checkboxes, radio items, and submenus."
+          description="Menu có các hộp kiểm, mục radio và menu con."
         >
           <DropdownMenu>
             <DropdownMenuTrigger

@@ -19,7 +19,7 @@ export default function InputGroupShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Input Group"
-        description="Combine text inputs with addons for things like URLs or prices."
+        description="Kết hợp kiểu nhập văn bản với các tiện ích bổ sung cho những thứ như URL hoặc giá cả."
       >
         <SelectPreset
           value={globalSize}
@@ -36,7 +36,7 @@ export default function InputGroupShowcase() {
       <ExampleGrid columns={2}>
         <ExampleSection
           label="URL Input"
-          description="Input with prefix and suffix addons."
+          description="Đầu vào với các phần bổ sung tiền tố và hậu tố."
         >
           <div className="w-full max-w-md">
             <Field size={globalSize}>
@@ -61,7 +61,7 @@ export default function InputGroupShowcase() {
 
         <ExampleSection
           label="With Button"
-          description="Input combined with an action button."
+          description="Đầu vào kết hợp với một nút hành động."
         >
           <div className="w-full max-w-md">
             <Field size={globalSize}>
@@ -83,7 +83,7 @@ export default function InputGroupShowcase() {
 
       <ExampleSection
         label="With Textarea"
-        description="Input group applied to a textarea component."
+        description="Nhóm đầu vào được áp dụng cho thành phần vùng văn bản."
       >
         <div className="w-full max-w-md">
           <Field size={globalSize}>
@@ -106,7 +106,7 @@ export default function InputGroupShowcase() {
 
       <ExampleSection
         label="Addon Alignments"
-        description="InputGroup Addons support various alignments: inline-start, inline-end, block-start, block-end."
+        description="Addon của nhóm đầu vào hỗ trợ nhiều cách sắp xếp khác nhau: bắt đầu nội tuyến, kết thúc nội tuyến, bắt đầu khối, kết thúc khối."
       >
         <ExampleGrid columns={2}>
           <InputGroup size={globalSize}>

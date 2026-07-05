@@ -19,13 +19,13 @@ export default function AspectRatioShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Aspect Ratio"
-        description="Displays content within a desired ratio. Useful for images, videos, maps, and embedded media."
+        description="Hiển thị nội dung theo tỷ lệ mong muốn. Hữu ích cho hình ảnh, video, bản đồ và phương tiện nhúng."
       />
 
       {/* ── Common Ratios ── */}
       <ExampleSection
         label="Common Ratios"
-        description="Frequently used aspect ratios with labels."
+        description="Tỷ lệ khung hình được sử dụng thường xuyên với nhãn."
       >
         <ExampleGrid columns={3}>
           {commonRatios.map(({ label, ratio, desc }) => (
@@ -51,7 +51,7 @@ export default function AspectRatioShowcase() {
       {/* ── With Image ── */}
       <ExampleSection
         label="With Image"
-        description="Aspect ratio constraining an image — the image fills the container via object-cover."
+        description="Tỷ lệ khung hình hạn chế hình ảnh - hình ảnh lấp đầy vùng chứa thông qua lớp phủ đối tượng."
       >
         <ExampleGrid columns={2}>
           <div className="flex flex-col gap-2">
@@ -84,7 +84,7 @@ export default function AspectRatioShowcase() {
       {/* ── Map / Embed placeholder ── */}
       <ExampleSection
         label="Embedded Content"
-        description="Maintaining ratio for maps, iframes, or video embeds."
+        description="Duy trì tỷ lệ cho bản đồ, iframe hoặc video nhúng."
       >
         <ExampleGrid columns={2}>
           <div className="flex flex-col gap-2">
@@ -145,7 +145,7 @@ export default function AspectRatioShowcase() {
       {/* ── Custom Ratio ── */}
       <ExampleSection
         label="Custom Ratio"
-        description="Any numeric value works — not limited to standard ratios."
+        description="Mọi giá trị số đều hoạt động - không giới hạn ở tỷ lệ tiêu chuẩn."
       >
         <ExampleGrid columns={3}>
           {[2.35, 1.85, 0.8].map((ratio) => (

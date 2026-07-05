@@ -14,7 +14,7 @@ export default function MacroTextareaShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Textarea Preset (Macro)"
-        description="A complete textarea field with built-in label, description, and validation error messages."
+        description="Trường văn bản hoàn chỉnh có nhãn, mô tả và thông báo lỗi xác thực tích hợp sẵn."
       >
         <MonoSelect
           value={globalSize}
@@ -28,7 +28,7 @@ export default function MacroTextareaShowcase() {
       </SectionHeader>
 
       <ExampleGrid columns={1}>
-        <ExampleSection label="Basic Usage" description="Standard textarea field with a label.">
+        <ExampleSection label="Basic Usage" description="Trường văn bản tiêu chuẩn có nhãn.">
           <TextareaPreset
             label="Biography"
             placeholder="Tell us about yourself..."
@@ -37,17 +37,17 @@ export default function MacroTextareaShowcase() {
           />
         </ExampleSection>
 
-        <ExampleSection label="With Description" description="Providing extra context below the textarea.">
+        <ExampleSection label="With Description" description="Cung cấp thêm ngữ cảnh bên dưới vùng văn bản.">
           <TextareaPreset
             label="Feedback"
-            description="We appreciate your thoughts on how to improve our service."
+            description="Chúng tôi đánh giá cao những suy nghĩ của bạn về cách cải thiện dịch vụ của chúng tôi."
             placeholder="Type your feedback here..."
             size={globalSize}
             className="w-full max-w-sm"
           />
         </ExampleSection>
 
-        <ExampleSection label="Validation Error" description="Displaying an error message when input is invalid.">
+        <ExampleSection label="Validation Error" description="Hiển thị thông báo lỗi khi đầu vào không hợp lệ.">
           <TextareaPreset
             label="Complaint"
             placeholder="Describe your issue"
@@ -57,10 +57,10 @@ export default function MacroTextareaShowcase() {
           />
         </ExampleSection>
 
-        <ExampleSection label="Disabled State" description="A non-interactive textarea field.">
+        <ExampleSection label="Disabled State" description="Trường văn bản không tương tác.">
           <TextareaPreset
             label="Archived Notes"
-            description="These notes are read-only."
+            description="Những ghi chú này ở dạng chỉ đọc."
             defaultValue="This project was completed in 2023."
             disabled
             size={globalSize}
@@ -68,12 +68,12 @@ export default function MacroTextareaShowcase() {
           />
         </ExampleSection>
 
-        <ExampleSection label="Real-world Content" description="Demonstrating layout in a broader form context.">
+        <ExampleSection label="Real-world Content" description="Trình bày bố cục trong ngữ cảnh biểu mẫu rộng hơn.">
           <div className="w-full max-w-sm rounded-lg border p-4 shadow-sm">
             <h3 className="mb-4 font-semibold">Contact Support</h3>
             <TextareaPreset
               label="Issue Description"
-              description="Please provide as much detail as possible to help us resolve the issue."
+              description="Vui lòng cung cấp càng nhiều chi tiết càng tốt để giúp chúng tôi giải quyết vấn đề."
               placeholder="I am experiencing an error when..."
               size={globalSize}
               className="w-full"

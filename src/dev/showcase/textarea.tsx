@@ -17,7 +17,7 @@ export default function TextareaShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Textarea"
-        description="Best suited for long-form content, feedback, or biographies."
+        description="Phù hợp nhất cho nội dung dài, phản hồi hoặc tiểu sử."
       >
         <SelectPreset
           value={globalSize}
@@ -34,7 +34,7 @@ export default function TextareaShowcase() {
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Standard"
-          description="Multi-line text entry field."
+          description="Trường nhập văn bản nhiều dòng."
         >
           <div className="w-full max-w-sm">
             <Field size={globalSize}>
@@ -56,7 +56,7 @@ export default function TextareaShowcase() {
 
         <ExampleSection
           label="Disabled"
-          description="Non-interactive textarea state."
+          description="Trạng thái vùng văn bản không tương tác."
         >
           <div className="w-full max-w-sm">
             <Field size={globalSize}>

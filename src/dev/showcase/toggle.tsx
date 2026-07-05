@@ -17,7 +17,7 @@ export default function ToggleShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Toggle"
-        description="A two-state button that can be either on or off."
+        description="Nút hai trạng thái có thể bật hoặc tắt."
       >
         <SelectPreset
           value={globalSize}
@@ -32,7 +32,7 @@ export default function ToggleShowcase() {
       </SectionHeader>
 
       <ExampleGrid columns={2}>
-        <ExampleSection label="Standard" description="Single toggle button.">
+        <ExampleSection label="Standard" description="Nút chuyển đổi duy nhất.">
           <div className="flex gap-2">
             <Toggle aria-label="Toggle italic" size={globalSize}>
               <ItalicIcon className="size-4 mr-2" />
@@ -47,7 +47,7 @@ export default function ToggleShowcase() {
 
         <ExampleSection
           label="Outline Variant"
-          description="Toggle with outline style."
+          description="Chuyển đổi với phong cách phác thảo."
         >
           <div className="flex gap-2">
             <Toggle

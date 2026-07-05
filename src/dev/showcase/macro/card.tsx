@@ -20,7 +20,7 @@ export default function CardMacroShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Card Preset (Macro)"
-        description="A composition of Card primitives to quickly build standard cards without boilerplate."
+        description="Một thành phần của các nguyên hàm Card để nhanh chóng xây dựng các thẻ tiêu chuẩn mà không cần bản soạn sẵn."
       >
         <SelectPreset
           value={globalSize}
@@ -37,12 +37,12 @@ export default function CardMacroShowcase() {
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Standard Preset"
-          description="Pass title, description, and footer as props."
+          description="Chuyển tiêu đề, mô tả và chân trang làm đạo cụ."
         >
           <CardPreset
             size={globalSize}
             title="Account Settings"
-            description="Manage your account settings and preferences."
+            description="Quản lý các cài đặt và tùy chọn cho tài khoản của bạn."
             footer={<Button size={globalSize}>Save Changes</Button>}
             className="w-full"
           >
@@ -54,12 +54,12 @@ export default function CardMacroShowcase() {
 
         <ExampleSection
           label="No Footer"
-          description="Omit footer prop to hide the footer section entirely."
+          description="Bỏ qua phần chân trang để ẩn hoàn toàn phần chân trang."
         >
           <CardPreset
             size={globalSize}
             title="Notification Preferences"
-            description="Choose what you want to be notified about."
+            description="Chọn những thông tin mà bạn muốn nhận thông báo."
             className="w-full"
           >
             <div className="text-sm text-muted-foreground bg-muted/30 p-4 rounded-lg border border-dashed border-border/50">
@@ -70,7 +70,7 @@ export default function CardMacroShowcase() {
 
         <ExampleSection
           label="Custom Title Node"
-          description="The title prop accepts ReactNode, allowing icons and badges."
+          description="Tiêu đề hỗ trợ chấp nhận ReactNode, cho phép biểu tượng và huy hiệu."
         >
           <CardPreset
             size={globalSize}
@@ -80,7 +80,7 @@ export default function CardMacroShowcase() {
                 <Badge color="warning">Experimental</Badge>
               </div>
             }
-            description="Manage your secret API keys for external access."
+            description="Quản lý các khóa API bí mật của bạn để truy cập từ bên ngoài."
             className="w-full"
           >
             <div className="text-sm text-muted-foreground bg-muted/30 p-4 rounded-lg border border-dashed border-border/50 flex items-center justify-between">
@@ -92,12 +92,12 @@ export default function CardMacroShowcase() {
 
         <ExampleSection
           label="With Form Controls"
-          description="Use children to render complex forms and layouts."
+          description="Sử dụng trẻ em để hiển thị các hình thức và bố cục phức tạp."
         >
           <CardPreset
             size={globalSize}
             title="Update Profile"
-            description="Change your display name and email."
+            description="Thay đổi tên hiển thị và email của bạn."
             footer={
               <div className="flex justify-between w-full">
                 <Button variant="ghost" size={globalSize}>Cancel</Button>

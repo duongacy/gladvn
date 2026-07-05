@@ -13,7 +13,7 @@ export default function ToastShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Toast"
-        description="A succinct message that is displayed temporarily."
+        description="Một thông báo ngắn gọn được hiển thị tạm thời."
       >
         <SelectPreset
           value={globalSize}
@@ -29,7 +29,7 @@ export default function ToastShowcase() {
 
       <ExampleSection
         label="Toast Notifications"
-        description="Click to trigger different toasts."
+        description="Nhấp để kích hoạt các lời chúc mừng khác nhau."
       >
         <div className="flex flex-wrap gap-3">
           <Button

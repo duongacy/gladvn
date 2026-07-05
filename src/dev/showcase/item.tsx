@@ -19,7 +19,7 @@ export default function ItemShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Item"
-        description="A flexible container for list items or structured content blocks."
+        description="Một vùng chứa linh hoạt cho các mục danh sách hoặc khối nội dung có cấu trúc."
       >
         <SelectPreset
           value={globalSize}
@@ -36,7 +36,7 @@ export default function ItemShowcase() {
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Basic Content"
-          description="A structured item with title and description."
+          description="Một mục có cấu trúc với tiêu đề và mô tả."
         >
           <Item size={globalSize} className="w-full">
             <ItemContent>
@@ -50,7 +50,7 @@ export default function ItemShowcase() {
 
         <ExampleSection
           label="With Media"
-          description="Item with an icon or avatar slot."
+          description="Vật phẩm có biểu tượng hoặc hình đại diện."
         >
           <Item size={globalSize} className="w-full">
             <ItemMedia className="bg-primary/10 text-primary rounded-md p-2">
@@ -67,7 +67,7 @@ export default function ItemShowcase() {
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Variants"
-          description="Different visual styles (outline, muted)."
+          description="Các phong cách hình ảnh khác nhau (phác thảo, tắt tiếng)."
         >
           <div className="flex flex-col gap-3 w-full">
             <Item variant="outline" size={globalSize}>
@@ -85,7 +85,7 @@ export default function ItemShowcase() {
 
         <ExampleSection
           label="Media Variants"
-          description="Item can be styled for specific media like icons or images."
+          description="Mục có thể được tạo kiểu cho phương tiện cụ thể như biểu tượng hoặc hình ảnh."
         >
           <div className="flex flex-col gap-3 w-full">
             <Item size={globalSize}>
@@ -109,7 +109,7 @@ export default function ItemShowcase() {
 
         <ExampleSection
           label="With Actions"
-          description="Item with trailing action buttons."
+          description="Mục có các nút hành động ở cuối."
         >
           <Item size={globalSize} className="w-full">
             <ItemContent>
@@ -129,7 +129,7 @@ export default function ItemShowcase() {
 
       <ExampleSection
         label="Item Group"
-        description="Grouped items with separators."
+        description="Các mục được nhóm bằng dấu phân cách."
       >
         <ItemGroup className="w-full max-w-sm mx-auto">
           <Item size={globalSize}>
@@ -154,7 +154,7 @@ export default function ItemShowcase() {
 
       <ExampleSection
         label="With Header and Footer"
-        description="Complex item with specific placement regions."
+        description="Mục phức tạp với các vùng vị trí cụ thể."
       >
         <Item
           size={globalSize}

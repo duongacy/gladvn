@@ -14,7 +14,7 @@ export default function MacroInputShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Input Preset (Macro)"
-        description="A complete text input field with built-in label, description, and validation error messages."
+        description="Trường nhập văn bản hoàn chỉnh có nhãn, mô tả và thông báo lỗi xác thực được tích hợp sẵn."
       >
         <MonoSelect
           value={globalSize}
@@ -28,7 +28,7 @@ export default function MacroInputShowcase() {
       </SectionHeader>
 
       <ExampleGrid columns={1}>
-        <ExampleSection label="Basic Usage" description="Standard input field with a label.">
+        <ExampleSection label="Basic Usage" description="Trường đầu vào tiêu chuẩn có nhãn.">
           <InputPreset
             label="Email Address"
             placeholder="name@example.com"
@@ -37,17 +37,17 @@ export default function MacroInputShowcase() {
           />
         </ExampleSection>
 
-        <ExampleSection label="With Description" description="Providing extra context below the input.">
+        <ExampleSection label="With Description" description="Cung cấp thêm ngữ cảnh bên dưới đầu vào.">
           <InputPreset
             label="Username"
-            description="This will be your public display name."
+            description="Đây sẽ là tên hiển thị công khai của bạn."
             placeholder="johndoe"
             size={globalSize}
             className="w-full max-w-sm"
           />
         </ExampleSection>
 
-        <ExampleSection label="Validation Error" description="Displaying an error message when input is invalid.">
+        <ExampleSection label="Validation Error" description="Hiển thị thông báo lỗi khi đầu vào không hợp lệ.">
           <InputPreset
             label="Password"
             type="password"
@@ -58,10 +58,10 @@ export default function MacroInputShowcase() {
           />
         </ExampleSection>
 
-        <ExampleSection label="Disabled State" description="A non-interactive input field.">
+        <ExampleSection label="Disabled State" description="Trường đầu vào không tương tác.">
           <InputPreset
             label="Project Name"
-            description="You cannot change the project name after creation."
+            description="Bạn không thể thay đổi tên dự án sau khi tạo."
             defaultValue="my-awesome-project"
             disabled
             size={globalSize}
@@ -69,7 +69,7 @@ export default function MacroInputShowcase() {
           />
         </ExampleSection>
 
-        <ExampleSection label="Real-world Form Snippet" description="Often used with custom label patterns and specific input types.">
+        <ExampleSection label="Real-world Form Snippet" description="Thường được sử dụng với các mẫu nhãn tùy chỉnh và các loại đầu vào cụ thể.">
           <div className="flex w-full max-w-sm flex-col gap-6">
             <InputPreset
               label={
@@ -78,7 +78,7 @@ export default function MacroInputShowcase() {
                 </span>
               }
               type="password"
-              description="Do not share this key with anyone. We will never ask for it."
+              description="Không chia sẻ chìa khóa này với bất cứ ai. Chúng tôi sẽ không bao giờ yêu cầu nó."
               defaultValue="sk_test_1234567890abcdef"
               size={globalSize}
               className="w-full"
@@ -87,7 +87,7 @@ export default function MacroInputShowcase() {
               label="Website URL"
               type="url"
               placeholder="https://example.com"
-              description="The primary domain for your application."
+              description="Miền chính cho ứng dụng của bạn."
               size={globalSize}
               className="w-full"
             />

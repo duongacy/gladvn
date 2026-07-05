@@ -17,7 +17,7 @@ export default function SelectShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Select"
-        description="Displays a list of options for the user to pick from—triggered by a button."
+        description="Hiển thị danh sách các tùy chọn để người dùng chọn—được kích hoạt bằng một nút."
       >
         <SelectPreset
           value={globalSize}
@@ -32,7 +32,7 @@ export default function SelectShowcase() {
       </SectionHeader>
 
       <ExampleGrid columns={2}>
-        <ExampleSection label="Standard" description="Custom dropdown select.">
+        <ExampleSection label="Standard" description="Chọn thả xuống tùy chỉnh.">
           <div className="w-full max-w-sm">
             <Field size={globalSize}>
               <FieldLabel>Framework</FieldLabel>
@@ -60,7 +60,7 @@ export default function SelectShowcase() {
 
         <ExampleSection
           label="Grouped"
-          description="Options visually grouped with labels."
+          description="Các tùy chọn được nhóm trực quan bằng nhãn."
         >
           <div className="w-full max-w-sm">
             <Field size={globalSize}>

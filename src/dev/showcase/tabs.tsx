@@ -10,13 +10,13 @@ export default function TabsShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Tabs"
-        description="A set of layered sections of content—known as tab panels—that are displayed one at a time."
+        description="Một tập hợp các phần nội dung được xếp lớp—được gọi là bảng tab—được hiển thị lần lượt."
       />
 
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Default"
-          description="Switch between account and password tabs."
+          description="Chuyển đổi giữa các tab tài khoản và mật khẩu."
         >
           <Tabs defaultValue="account" className="w-full">
             <TabsList className="grid w-full grid-cols-2">
@@ -44,7 +44,7 @@ export default function TabsShowcase() {
 
         <ExampleSection
           label="Line Variant"
-          description="Tabs with an underline style."
+          description="Các tab có kiểu gạch chân."
         >
           <Tabs defaultValue="music" className="w-full">
             <TabsList

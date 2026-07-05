@@ -14,7 +14,7 @@ export default function MacroNativeSelectShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Native Select Preset (Macro)"
-        description="A complete native select field with built-in label, description, and validation error messages."
+        description="Trường chọn gốc hoàn chỉnh có nhãn, mô tả và thông báo lỗi xác thực được tích hợp sẵn."
       >
         <MonoSelect
           value={globalSize}
@@ -28,7 +28,7 @@ export default function MacroNativeSelectShowcase() {
       </SectionHeader>
 
       <ExampleGrid columns={1}>
-        <ExampleSection label="Basic Usage" description="Standard native select field with a label.">
+        <ExampleSection label="Basic Usage" description="Trường chọn gốc tiêu chuẩn có nhãn.">
           <NativeSelectPreset
             label="Language"
             defaultValue=""
@@ -42,10 +42,10 @@ export default function MacroNativeSelectShowcase() {
           </NativeSelectPreset>
         </ExampleSection>
 
-        <ExampleSection label="With Description" description="Providing extra context below the select field.">
+        <ExampleSection label="With Description" description="Cung cấp thêm ngữ cảnh bên dưới trường được chọn.">
           <NativeSelectPreset
             label="Theme"
-            description="Choose how the interface looks to you."
+            description="Chọn giao diện trông như thế nào đối với bạn."
             defaultValue="system"
             size={globalSize}
             className="w-full max-w-sm"
@@ -56,7 +56,7 @@ export default function MacroNativeSelectShowcase() {
           </NativeSelectPreset>
         </ExampleSection>
 
-        <ExampleSection label="Validation Error" description="Displaying an error message when selection is invalid.">
+        <ExampleSection label="Validation Error" description="Hiển thị thông báo lỗi khi lựa chọn không hợp lệ.">
           <NativeSelectPreset
             label="Country"
             defaultValue=""
@@ -70,10 +70,10 @@ export default function MacroNativeSelectShowcase() {
           </NativeSelectPreset>
         </ExampleSection>
 
-        <ExampleSection label="Disabled State" description="A non-interactive select field.">
+        <ExampleSection label="Disabled State" description="Trường chọn không tương tác.">
           <NativeSelectPreset
             label="Plan"
-            description="You cannot change your plan at this time."
+            description="Bạn không thể thay đổi kế hoạch của mình vào lúc này."
             defaultValue="basic"
             disabled
             size={globalSize}
@@ -84,7 +84,7 @@ export default function MacroNativeSelectShowcase() {
           </NativeSelectPreset>
         </ExampleSection>
 
-        <ExampleSection label="Grouped Options" description="Using optgroup inside the native select.">
+        <ExampleSection label="Grouped Options" description="Sử dụng optgroup bên trong lựa chọn gốc.">
           <NativeSelectPreset
             label="Timezone"
             defaultValue=""

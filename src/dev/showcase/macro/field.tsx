@@ -15,23 +15,23 @@ export default function MacroFieldShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Field (Macro)"
-        description="A utility wrapper for form controls to add label, description, and error."
+        description="Trình bao bọc tiện ích dành cho các điều khiển biểu mẫu để thêm nhãn, mô tả và lỗi."
       />
 
       <ExampleGrid columns={2}>
-        <ExampleSection label="Standard" description="Wrapping a standard Input.">
+        <ExampleSection label="Standard" description="Gói một đầu vào tiêu chuẩn.">
           <div className="w-full max-w-sm">
             <FieldPreset
               size={globalSize}
               label="Username"
-              description="This is your public display name."
+              description="Đây là tên hiển thị công khai của bạn."
             >
               <Input placeholder="Enter username..." size={globalSize} />
             </FieldPreset>
           </div>
         </ExampleSection>
 
-        <ExampleSection label="Error State" description="Passing error messages.">
+        <ExampleSection label="Error State" description="Truyền thông báo lỗi.">
           <div className="w-full max-w-sm flex flex-col gap-6">
             <FieldPreset
               size={globalSize}
@@ -43,12 +43,12 @@ export default function MacroFieldShowcase() {
           </div>
         </ExampleSection>
 
-        <ExampleSection label="Horizontal Orientation" description="Laying out the label and control side by side.">
+        <ExampleSection label="Horizontal Orientation" description="Đặt nhãn và điều khiển cạnh nhau.">
           <div className="w-full max-w-sm">
             <FieldPreset
               size={globalSize}
               label="Subscribe"
-              description="Receive weekly updates."
+              description="Nhận thông tin cập nhật hàng tuần."
               orientation="horizontal"
             >
               <div className="h-5 w-5 rounded border border-primary bg-primary/10"></div>

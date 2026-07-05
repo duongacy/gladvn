@@ -13,7 +13,7 @@ export default function PopoverShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Popover"
-        description="Displays rich content in a portal, triggered by a button."
+        description="Hiển thị nội dung phong phú trong cổng thông tin, được kích hoạt bằng một nút."
       >
         <SelectPreset
           value={globalSize}
@@ -29,7 +29,7 @@ export default function PopoverShowcase() {
 
       <ExampleSection
         label="Default"
-        description="A simple popover with header and description."
+        description="Một cửa sổ bật lên đơn giản với tiêu đề và mô tả."
       >
         <Popover>
           <PopoverTrigger

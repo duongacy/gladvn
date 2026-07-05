@@ -10,7 +10,7 @@ export default function SpinnerShowcase() {
 
   return (
     <div className="space-y-10">
-      <SectionHeader title="Spinner" description="A loading spinner indicator.">
+      <SectionHeader title="Spinner" description="Một chỉ báo quay vòng tải.">
         <SelectPreset
           value={globalSize}
           onValueChange={(v) => setGlobalSize(v as Size)}
@@ -23,7 +23,7 @@ export default function SpinnerShowcase() {
         />
       </SectionHeader>
 
-      <ExampleSection label="Default" description="Standard spinner.">
+      <ExampleSection label="Default" description="Máy quay tiêu chuẩn.">
         <Spinner size={globalSize} />
       </ExampleSection>
     </div>

@@ -7,12 +7,12 @@ export default function SonnerShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Sonner"
-        description="An opinionated toast component for React."
+        description="Một thành phần nâng cốc chúc mừng cho React."
       />
 
       <ExampleSection
         label="Toast Types"
-        description="Click each button to trigger a different toast type."
+        description="Nhấp vào từng nút để kích hoạt một loại bánh mì nướng khác nhau."
       >
         <div className="flex flex-wrap gap-2">
           <Button

@@ -11,13 +11,13 @@ export default function BadgeShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Badge"
-        description="Displays a badge or a component that looks like a badge."
+        description="Hiển thị huy hiệu hoặc thành phần trông giống huy hiệu."
       />
 
       {/* ── Variants ── */}
       <ExampleSection
         label="Variants"
-        description="All available visual styles."
+        description="Tất cả các kiểu hiển thị hiện có."
       >
         <div className="flex flex-wrap gap-3">
           <Badge variant="solid">Solid</Badge>
@@ -29,7 +29,7 @@ export default function BadgeShowcase() {
       {/* ── Colors ── */}
       <ExampleSection
         label="Colors"
-        description="Semantic color tokens applied to badges."
+        description="Mã thông báo màu ngữ nghĩa được áp dụng cho huy hiệu."
       >
         <div className="flex flex-col gap-4">
           <div className="flex flex-wrap gap-3">
@@ -56,7 +56,7 @@ export default function BadgeShowcase() {
       {/* ── With Icons ── */}
       <ExampleSection
         label="With Icons"
-        description="Badges with inline icons for added context."
+        description="Huy hiệu có biểu tượng nội tuyến để bổ sung ngữ cảnh."
       >
         <div className="flex flex-wrap gap-3">
           <Badge color="success">
@@ -81,7 +81,7 @@ export default function BadgeShowcase() {
       {/* ── Real-world Use Cases ── */}
       <ExampleSection
         label="Use Cases"
-        description="Common real-world badge patterns."
+        description="Các mẫu huy hiệu phổ biến trong thế giới thực."
       >
         <ExampleGrid columns={2}>
           <div className="flex flex-col gap-3">
@@ -112,7 +112,7 @@ export default function BadgeShowcase() {
       {/* ── As Link ── */}
       <ExampleSection
         label="As Link"
-        description="Badge rendered as an anchor element using the render prop."
+        description="Huy hiệu được hiển thị dưới dạng phần tử neo bằng cách sử dụng giá trị hiển thị."
       >
         <div className="flex flex-wrap gap-3">
           <Badge render={<a href="#" />}>

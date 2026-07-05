@@ -11,12 +11,12 @@ export default function ContextMenuShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Context Menu"
-        description="Displays a menu to the user—such as a set of actions or functions—triggered by a right-click."
+        description="Hiển thị một menu cho người dùng—chẳng hạn như một tập hợp các hành động hoặc chức năng—được kích hoạt bằng cách nhấp chuột phải."
       />
 
       <ExampleSection
         label="Full Context Menu"
-        description="Right click the area below to open."
+        description="Nhấp chuột phải vào khu vực bên dưới để mở."
       >
         <ContextMenu>
           <ContextMenuTrigger className="flex h-[150px] w-full max-w-[400px] items-center justify-center rounded-md border border-dashed text-sm">

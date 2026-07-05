@@ -11,13 +11,13 @@ export default function ScrollAreaShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Scroll Area"
-        description="Augments native scroll functionality for custom, cross-browser styling."
+        description="Tăng cường chức năng cuộn gốc để tạo kiểu tùy chỉnh trên nhiều trình duyệt."
       />
 
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Vertical"
-          description="Scrollable list of items."
+          description="Danh sách các mục có thể cuộn."
         >
           <ScrollArea className="h-72 w-full max-w-sm rounded-xl border bg-card">
             <div className="p-4">
@@ -35,7 +35,7 @@ export default function ScrollAreaShowcase() {
 
         <ExampleSection
           label="Horizontal"
-          description="Horizontal scrolling gallery."
+          description="Thư viện cuộn ngang."
         >
           <ScrollArea className="w-full max-w-sm whitespace-nowrap rounded-xl border bg-card p-4">
             <div className="flex w-max space-x-4">

@@ -24,7 +24,7 @@ export default function ToggleGroupShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Toggle Group"
-        description="A set of two-state buttons that can be toggled on or off."
+        description="Một tập hợp các nút hai trạng thái có thể bật hoặc tắt."
       >
         <SelectPreset
           value={globalSize}
@@ -41,7 +41,7 @@ export default function ToggleGroupShowcase() {
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Single Selection"
-          description="Only one item can be active."
+          description="Chỉ có một mục có thể hoạt động."
         >
           <ToggleGroup defaultValue={["center"]} size={globalSize}>
             <ToggleGroupItem value="left" aria-label="Align left">
@@ -58,7 +58,7 @@ export default function ToggleGroupShowcase() {
 
         <ExampleSection
           label="Multiple Selection"
-          description="Multiple items can be active."
+          description="Nhiều mục có thể được kích hoạt."
         >
           <ToggleGroup
             defaultValue={["bold", "italic"]}

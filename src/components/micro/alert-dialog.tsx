@@ -29,6 +29,12 @@ function AlertDialogTrigger({ ...props }: AlertDialogPrimitive.Trigger.Props) {
   );
 }
 
+function AlertDialogClose({ ...props }: AlertDialogPrimitive.Close.Props) {
+  return (
+    <AlertDialogPrimitive.Close data-slot="alert-dialog-close" {...props} />
+  );
+}
+
 function AlertDialogPortal({ ...props }: AlertDialogPrimitive.Portal.Props) {
   return (
     <AlertDialogPrimitive.Portal data-slot="alert-dialog-portal" {...props} />
@@ -118,7 +124,7 @@ function AlertDialogMedia({
     <div
       data-slot="alert-dialog-media"
       className={cn(
-        "inline-flex size-10 items-center justify-center rounded-md bg-muted [&>svg:not([class*='size-'])]:size-6",
+        "inline-flex size-10 items-center justify-center [&>svg:not([class*='size-'])]:size-6",
         "group-data-[size=lg]/alert-dialog-content:size-12",
         className,
       )}
@@ -163,12 +169,17 @@ function AlertDialogDescription({
 
 function AlertDialogAction({
   className,
+  variant,
+  color,
+  size = "md",
   ...props
-}: React.ComponentProps<typeof Button>) {
+}: AlertDialogPrimitive.Close.Props &
+  Pick<React.ComponentProps<typeof Button>, "variant" | "color" | "size">) {
   return (
-    <Button
+    <AlertDialogPrimitive.Close
       data-slot="alert-dialog-action"
       className={cn(className)}
+      render={<Button variant={variant} color={color} size={size} />}
       {...props}
     />
   );
@@ -177,15 +188,16 @@ function AlertDialogAction({
 function AlertDialogCancel({
   className,
   variant = "outline",
+  color,
   size = "md",
   ...props
 }: AlertDialogPrimitive.Close.Props &
-  Pick<React.ComponentProps<typeof Button>, "variant" | "size">) {
+  Pick<React.ComponentProps<typeof Button>, "variant" | "color" | "size">) {
   return (
     <AlertDialogPrimitive.Close
       data-slot="alert-dialog-cancel"
       className={cn(className)}
-      render={<Button variant={variant} size={size} />}
+      render={<Button variant={variant} color={color} size={size} />}
       {...props}
     />
   );
@@ -195,6 +207,7 @@ export {
   AlertDialog,
   AlertDialogAction,
   AlertDialogCancel,
+  AlertDialogClose,
   AlertDialogContent,
   AlertDialogDescription,
   AlertDialogFooter,

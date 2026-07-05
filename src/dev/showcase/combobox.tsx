@@ -24,7 +24,7 @@ export default function ComboboxShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Combobox"
-        description="A select input that allows searching through large datasets."
+        description="Một đầu vào chọn lọc cho phép tìm kiếm thông qua các tập dữ liệu lớn."
       >
         <SelectPreset
           value={globalSize}
@@ -41,7 +41,7 @@ export default function ComboboxShowcase() {
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Searchable Dropdown"
-          description="Combobox with groups and empty state."
+          description="Combobox với các nhóm và trạng thái trống."
         >
           <div className="w-full max-w-sm">
             <Field size={globalSize}>
@@ -80,7 +80,7 @@ export default function ComboboxShowcase() {
 
         <ExampleSection
           label="Multi-select (Chips)"
-          description="Allows selecting multiple values as chips."
+          description="Cho phép chọn nhiều giá trị làm chip."
         >
           <div className="w-full max-w-sm">
             <Field size={globalSize}>
@@ -112,7 +112,7 @@ export default function ComboboxShowcase() {
 
         <ExampleSection
           label="Disabled"
-          description="Non-interactive combobox state."
+          description="Trạng thái combobox không tương tác."
         >
           <div className="w-full max-w-sm">
             <Field size={globalSize}>
@@ -138,7 +138,7 @@ export default function ComboboxShowcase() {
 
         <ExampleSection
           label="With Trigger"
-          description="Combobox using a button trigger instead of just an input."
+          description="Combobox sử dụng nút kích hoạt thay vì chỉ đầu vào."
         >
           <div className="w-full max-w-sm">
             <Field size={globalSize}>

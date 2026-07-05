@@ -19,7 +19,7 @@ export default function ProgressShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Progress"
-        description="Displays an indicator showing the completion progress of a task."
+        description="Hiển thị chỉ báo cho biết tiến độ hoàn thành của một nhiệm vụ."
       >
         <SelectPreset
           value={globalSize}
@@ -37,7 +37,7 @@ export default function ProgressShowcase() {
         {/* COMPOSITIONAL */}
         <ExampleSection
           label="Compositional (Core)"
-          description="Standard progress bar using pure compositional API."
+          description="Thanh tiến trình tiêu chuẩn sử dụng API tổng hợp thuần túy."
         >
           <Progress value={60} size={globalSize} className="w-[60%]">
             <ProgressTrack>
@@ -48,7 +48,7 @@ export default function ProgressShowcase() {
 
         <ExampleSection
           label="Compositional with Label"
-          description="Using compositional parts to show label and value."
+          description="Sử dụng các bộ phận cấu thành để hiển thị nhãn và giá trị."
         >
           <Progress value={45} size={globalSize} className="w-[80%]">
             <div className="flex items-center justify-between mb-1">
@@ -64,7 +64,7 @@ export default function ProgressShowcase() {
         {/* MONOLITHIC */}
         <ExampleSection
           label="Monolithic Wrapper"
-          description="Using the monolithic component for faster development."
+          description="Sử dụng thành phần nguyên khối để phát triển nhanh hơn."
         >
           <ProgressPreset
             value={75}

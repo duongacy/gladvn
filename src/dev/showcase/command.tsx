@@ -22,13 +22,13 @@ export default function CommandShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Command"
-        description="Fast, composable, unstyled command menu for React."
+        description="Menu lệnh nhanh, có thể kết hợp, không theo kiểu cho React."
       />
 
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Default"
-          description="Searchable command palette with grouped items."
+          description="Bảng lệnh có thể tìm kiếm với các mục được nhóm."
         >
           <div className="border rounded-xl shadow-sm overflow-hidden bg-background w-full">
             <Command>
@@ -74,7 +74,7 @@ export default function CommandShowcase() {
 
         <ExampleSection
           label="Flat List"
-          description="Single group without heading."
+          description="Nhóm duy nhất không có tiêu đề."
         >
           <div className="border rounded-xl shadow-sm overflow-hidden bg-background w-full">
             <Command>
@@ -107,7 +107,7 @@ export default function CommandShowcase() {
 
       <ExampleSection
         label="Dialog Menu"
-        description="Command menu rendered inside a dialog."
+        description="Menu lệnh được hiển thị bên trong hộp thoại."
       >
         <Button onClick={() => setOpen(true)}>Open Command Palette</Button>
         <CommandDialog open={open} onOpenChange={setOpen}>

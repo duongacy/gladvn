@@ -9,12 +9,12 @@ export default function HoverCardShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Hover Card"
-        description="For sighted users to preview content available behind a link."
+        description="Để người dùng sáng mắt xem trước nội dung có sẵn đằng sau một liên kết."
       />
 
       <ExampleSection
         label="Default"
-        description="Hover over the link to see a preview."
+        description="Di chuột qua liên kết để xem bản xem trước."
       >
         <HoverCard>
           <HoverCardTrigger render={<Button variant="link" />}>

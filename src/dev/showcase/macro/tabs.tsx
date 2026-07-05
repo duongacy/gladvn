@@ -10,23 +10,23 @@ export default function MacroTabsShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Tabs (Macro)"
-        description="A preset component that renders a complete tab view from an array."
+        description="Thành phần đặt trước hiển thị chế độ xem tab hoàn chỉnh từ một mảng."
       />
 
       <ExampleGrid columns={1}>
-        <ExampleSection label="Standard" description="Basic tabs.">
+        <ExampleSection label="Standard" description="Các tab cơ bản">
           <div className="w-full max-w-lg">
             <TabsPreset
               defaultValue="account"
               items={[
                 { value: "account", title: "Account", content: <div className="p-4 border rounded-md mt-2">Account settings here.</div> },
-                { value: "password", title: "Password", content: <div className="p-4 border rounded-md mt-2">Change your password here.</div> },
+                { value: "password", title: "Mật khẩu", content: <div className="p-4 border rounded-md mt-2">Change your password here.</div> },
               ]}
             />
           </div>
         </ExampleSection>
 
-        <ExampleSection label="With Disabled Tab" description="A tab that cannot be interacted with.">
+        <ExampleSection label="With Disabled Tab" description="Một tab không thể tương tác được.">
           <div className="w-full max-w-lg">
             <TabsPreset
               defaultValue="general"
@@ -38,7 +38,7 @@ export default function MacroTabsShowcase() {
           </div>
         </ExampleSection>
 
-        <ExampleSection label="Complex Content" description="Rendering complex components like forms inside tab content.">
+        <ExampleSection label="Complex Content" description="Hiển thị các thành phần phức tạp như biểu mẫu bên trong nội dung tab.">
           <div className="w-full max-w-lg">
             <TabsPreset
               defaultValue="login"

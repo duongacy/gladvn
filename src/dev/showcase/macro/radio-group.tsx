@@ -14,15 +14,15 @@ export default function MacroRadioGroupShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Radio Group (Macro)"
-        description="A preset component that encapsulates RadioGroup, Field, Label, and Description."
+        description="Một thành phần cài sẵn bao gồm RadioGroup, Field, Label và Description."
       />
 
       <ExampleGrid columns={2}>
-        <ExampleSection label="Standard" description="Basic radio group with label and description.">
+        <ExampleSection label="Standard" description="Nhóm radio cơ bản có nhãn và mô tả.">
           <div className="w-full max-w-sm">
             <RadioGroupPreset
               label="Notification Preference"
-              description="How would you like to be notified?"
+              description="Bạn muốn được thông báo như thế nào?"
               options={[
                 { value: "email", label: "Email" },
                 { value: "sms", label: "SMS" },
@@ -32,7 +32,7 @@ export default function MacroRadioGroupShowcase() {
           </div>
         </ExampleSection>
 
-        <ExampleSection label="Error State" description="Demonstrates errorMessage and showError props.">
+        <ExampleSection label="Error State" description="Thể hiện các đạo cụ errorMessage và showError.">
           <div className="w-full max-w-sm flex flex-col gap-6">
             <RadioGroupPreset
               label="Preference (Invalid)"
@@ -42,18 +42,18 @@ export default function MacroRadioGroupShowcase() {
             
             <RadioGroupPreset
               label="Preference (Hidden Error)"
-              description="Error text is hidden using showError={false}"
+              description="Văn bản lỗi bị ẩn bằng showError={false}"
               options={[{ value: "email", label: "Email" }]}
               errorMessage="Hidden error."
               showError={false}
             />
           </div>
         </ExampleSection>
-        <ExampleSection label="Disabled State" description="A non-interactive radio group.">
+        <ExampleSection label="Disabled State" description="Một nhóm radio không tương tác.">
           <div className="w-full max-w-sm flex flex-col gap-6">
             <RadioGroupPreset
               label="Subscription Plan"
-              description="You cannot change your plan right now."
+              description="Bạn không thể thay đổi kế hoạch của mình ngay bây giờ."
               options={[
                 { value: "free", label: "Free Plan" },
                 { value: "pro", label: "Pro Plan" },
@@ -64,7 +64,7 @@ export default function MacroRadioGroupShowcase() {
           </div>
         </ExampleSection>
 
-        <ExampleSection label="Rich Descriptions" description="Options with long descriptions to test wrapping and alignment.">
+        <ExampleSection label="Rich Descriptions" description="Các tùy chọn có mô tả dài để kiểm tra việc gói và căn chỉnh.">
           <div className="w-full max-w-sm">
             <RadioGroupPreset
               label="Theme"
@@ -73,7 +73,7 @@ export default function MacroRadioGroupShowcase() {
                 { value: "dark", label: "Dark Theme" },
                 { value: "system", label: "System Default" },
               ]}
-              description="Choose how you want the interface to look. If you select System Default, the theme will automatically adapt to your operating system's settings when possible."
+              description="Chọn cách bạn muốn giao diện trông như thế nào. Nếu bạn chọn Mặc định hệ thống, chủ đề sẽ tự động thích ứng với cài đặt hệ điều hành của bạn khi có thể."
               defaultValue="system"
             />
           </div>

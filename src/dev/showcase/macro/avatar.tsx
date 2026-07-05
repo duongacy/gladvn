@@ -16,7 +16,7 @@ export default function MacroAvatarShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Avatar (Macro)"
-        description="A preset component that renders an Avatar with fallback initials automatically generated."
+        description="Một thành phần cài sẵn giúp hiển thị Hình đại diện với tên viết tắt dự phòng được tạo tự động."
       >
         <SelectPreset
           value={globalSize}
@@ -31,7 +31,7 @@ export default function MacroAvatarShowcase() {
       </SectionHeader>
 
       <ExampleGrid columns={2}>
-        <ExampleSection label="Standard" description="Avatar with image and fallback.">
+        <ExampleSection label="Standard" description="Avatar với hình ảnh và dự phòng.">
           <div className="flex items-center gap-4">
             <AvatarPreset size={globalSize} src="https://github.com/shadcn.png" alt="@shadcn" />
             <AvatarPreset size={globalSize} alt="John Doe" />
@@ -39,14 +39,14 @@ export default function MacroAvatarShowcase() {
           </div>
         </ExampleSection>
 
-        <ExampleSection label="With Status" description="Preset avatar configured with standard status flags.">
+        <ExampleSection label="With Status" description="Hình đại diện cài sẵn được cấu hình với các cờ trạng thái tiêu chuẩn.">
           <div className="flex items-center gap-4">
             <AvatarPreset size={globalSize} src="https://github.com/shadcn.png" alt="@shadcn" status="online" />
             <AvatarPreset size={globalSize} alt="Alice" status="away" />
             <AvatarPreset size={globalSize} status="offline" />
           </div>
         </ExampleSection>
-        <ExampleSection label="Avatar Group" description="Stacking preset avatars using AvatarGroup.">
+        <ExampleSection label="Avatar Group" description="Xếp chồng các avatar cài sẵn bằng AvatarGroup.">
           <div className="flex flex-col gap-4">
             <AvatarGroup>
               <AvatarPreset size={globalSize} src="https://github.com/shadcn.png" alt="@shadcn" />

@@ -34,8 +34,8 @@ Tiến trình pair-coding audit các UI components theo thứ tự bảng chữ 
 ## 🔴 Chưa Audit (Từ C trở đi)
 
 - [ ] `chart.tsx`
-- [ ] `checkbox.tsx`
-- [ ] `collapsible.tsx`
+- [x] `checkbox.tsx`
+- [x] `collapsible.tsx`
 - [ ] `combobox.tsx`
 - [ ] `command.tsx`
 - [ ] `context-menu.tsx`

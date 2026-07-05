@@ -1,3 +1,4 @@
+import * as React from "react";
 import { ChevronsUpDownIcon } from "lucide-react";
 import {
   SectionHeader,
@@ -8,17 +9,19 @@ import { Button } from "@/components/micro/button";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/micro/collapsible";
 
 export default function CollapsibleShowcase() {
+  const [isOpen, setIsOpen] = React.useState(false);
+
   return (
     <div className="space-y-10">
       <SectionHeader
         title="Collapsible"
-        description="An interactive component which expands/collapses a panel."
+        description="Một thành phần tương tác giúp mở rộng/thu gọn một bảng điều khiển."
       />
 
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Default"
-          description="Click the toggle to expand or collapse."
+          description="Nhấn để mở rộng hoặc thu gọn."
         >
           <Collapsible className="w-full space-y-2">
             <div className="flex items-center justify-between space-x-4 px-4">
@@ -37,12 +40,14 @@ export default function CollapsibleShowcase() {
             <div className="rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm">
               @radix-ui/primitives
             </div>
-            <CollapsibleContent className="space-y-2">
-              <div className="rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm">
-                @radix-ui/colors
-              </div>
-              <div className="rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm">
-                @stitches/react
+            <CollapsibleContent>
+              <div className="flex flex-col gap-2">
+                <div className="rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm">
+                  @radix-ui/colors
+                </div>
+                <div className="rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm">
+                  @stitches/react
+                </div>
               </div>
             </CollapsibleContent>
           </Collapsible>
@@ -50,7 +55,7 @@ export default function CollapsibleShowcase() {
 
         <ExampleSection
           label="Default Open"
-          description="Starts in the expanded state."
+          description="Bắt đầu ở trạng thái mở rộng."
         >
           <Collapsible defaultOpen className="w-full space-y-2">
             <div className="flex items-center justify-between space-x-4 px-4">
@@ -67,12 +72,93 @@ export default function CollapsibleShowcase() {
             <div className="rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm">
               Pushed to main
             </div>
-            <CollapsibleContent className="space-y-2">
-              <div className="rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm">
-                Merged PR #42
+            <CollapsibleContent>
+              <div className="flex flex-col gap-2">
+                <div className="rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm">
+                  Merged PR #42
+                </div>
+                <div className="rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm">
+                  Opened issue #43
+                </div>
               </div>
-              <div className="rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm">
-                Opened issue #43
+            </CollapsibleContent>
+          </Collapsible>
+        </ExampleSection>
+
+        <ExampleSection
+          label="Controlled Mode"
+          description="Trạng thái mở được kiểm soát bằng state."
+        >
+          <div className="w-full space-y-4">
+            {/* Đây là nút nằm HOÀN TOÀN BÊN NGOÀI thẻ Collapsible */}
+            <div className="flex items-center gap-4 rounded-md border border-dashed p-4">
+              <Button
+                size="sm"
+                onClick={() => setIsOpen(!isOpen)}
+              >
+                {isOpen ? "Đóng bảng bên dưới (External)" : "Mở bảng bên dưới (External)"}
+              </Button>
+              <span className="text-sm text-muted-foreground">
+                State hiện tại: <strong className="text-foreground">{isOpen ? "Mở" : "Đóng"}</strong>
+              </span>
+            </div>
+
+            {/* Đây là component Collapsible nhận state từ ngoài */}
+            <Collapsible
+              open={isOpen}
+              onOpenChange={setIsOpen}
+              className="w-full space-y-2 rounded-md border p-4 bg-muted/20"
+            >
+              <div className="flex items-center justify-between">
+                <h4 className="text-sm font-semibold">
+                  Bảng hiển thị nội dung
+                </h4>
+                <CollapsibleTrigger
+                  render={
+                    <Button variant="ghost" size="sm" className="w-9 p-0" />
+                  }
+                >
+                  <ChevronsUpDownIcon className="h-4 w-4" />
+                  <span className="sr-only">Toggle</span>
+                </CollapsibleTrigger>
+              </div>
+              <CollapsibleContent>
+                <div className="flex flex-col gap-2 pt-2">
+                  <div className="rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm text-center">
+                    Nội dung này được điều khiển bởi nút bên ngoài hoặc mũi tên ở trên!
+                  </div>
+                </div>
+              </CollapsibleContent>
+            </Collapsible>
+          </div>
+        </ExampleSection>
+
+        <ExampleSection
+          label="Disabled"
+          description="Không thể tương tác (Vô hiệu hóa)."
+        >
+          <Collapsible disabled className="w-full space-y-2">
+            <div className="flex items-center justify-between space-x-4 px-4 opacity-50">
+              <h4 className="text-sm font-semibold">
+                Archived Repositories
+              </h4>
+              <CollapsibleTrigger
+                render={
+                  <Button variant="ghost" size="sm" className="w-9 p-0" />
+                }
+              >
+                <ChevronsUpDownIcon className="h-4 w-4" />
+                <span className="sr-only">Toggle</span>
+              </CollapsibleTrigger>
+            </div>
+            <div className="rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm opacity-50">
+              @radix-ui/react-toolbar
+            </div>
+            <CollapsibleContent>
+              <div className="flex flex-col gap-2">
+                <div className="rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm opacity-50">
+                  @radix-ui/react-popover
+                </div>
               </div>
             </CollapsibleContent>
           </Collapsible>

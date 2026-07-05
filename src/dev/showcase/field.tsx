@@ -17,7 +17,7 @@ export default function FieldShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Field"
-        description="Wrapper component to manage form field state, labels, and errors."
+        description="Thành phần trình bao bọc để quản lý trạng thái trường biểu mẫu, nhãn và lỗi."
       >
         <SelectPreset
           value={globalSize}
@@ -34,7 +34,7 @@ export default function FieldShowcase() {
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Basic"
-          description="A standard field with label and description."
+          description="Trường tiêu chuẩn có nhãn và mô tả."
         >
           <Field size={globalSize} className="max-w-sm">
             <FieldLabel>Username</FieldLabel>
@@ -49,7 +49,7 @@ export default function FieldShowcase() {
 
         <ExampleSection
           label="With Error"
-          description="Field displaying validation error."
+          description="Trường hiển thị lỗi xác thực."
         >
           <Field size={globalSize} className="max-w-sm" data-invalid={true}>
             <FieldLabel>Username</FieldLabel>
@@ -67,7 +67,7 @@ export default function FieldShowcase() {
 
       <ExampleSection
         label="Fieldset and Group"
-        description="Grouping multiple related fields together."
+        description="Nhóm nhiều lĩnh vực liên quan lại với nhau."
       >
         <FieldSet className="max-w-md border p-6 rounded-xl">
           <FieldLegend>
@@ -96,7 +96,7 @@ export default function FieldShowcase() {
 
       <ExampleSection
         label="Orientations"
-        description="Fields can be laid out vertically, horizontally, or responsively based on screen size."
+        description="Các trường có thể được bố trí theo chiều dọc, chiều ngang hoặc phản hồi dựa trên kích thước màn hình."
       >
         <div className="flex flex-col gap-8 w-full max-w-sm">
           <Field size={globalSize} orientation="vertical">

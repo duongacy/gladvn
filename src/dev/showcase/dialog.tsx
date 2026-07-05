@@ -19,7 +19,7 @@ export default function DialogShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Dialog"
-        description="A modal window that interrupts the user with important content and expects a response."
+        description="Một cửa sổ phương thức làm gián đoạn người dùng với nội dung quan trọng và mong đợi phản hồi."
       >
         <SelectPreset
           value={globalSize}
@@ -37,7 +37,7 @@ export default function DialogShowcase() {
         {/* ── Edit Profile ── */}
         <ExampleSection
           label="Edit Profile"
-          description="A dialog containing a form with multiple inputs."
+          description="Hộp thoại chứa một biểu mẫu có nhiều đầu vào."
         >
           <Dialog>
             <DialogTrigger
@@ -87,7 +87,7 @@ export default function DialogShowcase() {
         {/* ── Simple Confirmation ── */}
         <ExampleSection
           label="Simple Confirmation"
-          description="Text-only dialog with footer close button."
+          description="Hộp thoại chỉ có văn bản với nút đóng chân trang."
         >
           <Dialog>
             <DialogTrigger
@@ -117,7 +117,7 @@ export default function DialogShowcase() {
         {/* ── No Close Button ── */}
         <ExampleSection
           label="No Close Button"
-          description="Dialog without the top-right close button."
+          description="Hộp thoại không có nút đóng trên cùng bên phải."
         >
           <Dialog>
             <DialogTrigger
@@ -150,7 +150,7 @@ export default function DialogShowcase() {
         {/* ── Scrollable Content ── */}
         <ExampleSection
           label="Scrollable Content"
-          description="Long content inside a scrollable dialog body."
+          description="Nội dung dài bên trong nội dung hộp thoại có thể cuộn."
         >
           <Dialog>
             <DialogTrigger

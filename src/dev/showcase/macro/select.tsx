@@ -14,17 +14,17 @@ export default function MacroSelectShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Select (Macro)"
-        description="A preset component that encapsulates Select, Field, Label, and Description."
+        description="Một thành phần đặt trước bao gồm Chọn, Trường, Nhãn và Mô tả."
       >
       </SectionHeader>
 
       <ExampleGrid columns={2}>
-        <ExampleSection label="Standard" description="Basic dropdown select with label and description.">
+        <ExampleSection label="Standard" description="Chọn thả xuống cơ bản với nhãn và mô tả.">
           <div className="w-full max-w-sm">
             <SelectPreset
               size={globalSize}
               label="Fruit"
-              description="Pick your favorite fruit."
+              description="Chọn trái cây yêu thích của bạn."
               placeholder="Pick a fruit..."
               options={[
                 { value: "apple", label: "Apple" },
@@ -35,7 +35,7 @@ export default function MacroSelectShowcase() {
           </div>
         </ExampleSection>
 
-        <ExampleSection label="Error State" description="Demonstrates errorMessage and showError props.">
+        <ExampleSection label="Error State" description="Thể hiện các đạo cụ errorMessage và showError.">
           <div className="w-full max-w-sm flex flex-col gap-6">
             <SelectPreset
               size={globalSize}
@@ -48,7 +48,7 @@ export default function MacroSelectShowcase() {
             <SelectPreset
               size={globalSize}
               label="Framework (Hidden Error)"
-              description="Error text is hidden using showError={false}"
+              description="Văn bản lỗi bị ẩn bằng showError={false}"
               placeholder="Pick a framework..."
               options={[{ value: "react", label: "React" }]}
               errorMessage="Hidden error."
@@ -56,16 +56,16 @@ export default function MacroSelectShowcase() {
             />
           </div>
         </ExampleSection>
-        <ExampleSection label="Disabled State" description="A non-interactive select component.">
+        <ExampleSection label="Disabled State" description="Một thành phần chọn không tương tác.">
           <div className="w-full max-w-sm">
             <SelectPreset
               size={globalSize}
               label="Account Tier"
-              description="You cannot downgrade your account at this time."
+              description="Bạn không thể hạ cấp tài khoản của mình vào lúc này."
               placeholder="Select tier..."
               value="pro"
               options={[
-                { value: "basic", label: "Basic" },
+                { value: "basic", label: "Cơ bản" },
                 { value: "pro", label: "Pro" },
               ]}
               disabled
@@ -73,7 +73,7 @@ export default function MacroSelectShowcase() {
           </div>
         </ExampleSection>
 
-        <ExampleSection label="Real-world Form Snippet" description="Integrating custom labels and detailed descriptions.">
+        <ExampleSection label="Real-world Form Snippet" description="Tích hợp nhãn tùy chỉnh và mô tả chi tiết.">
           <div className="w-full max-w-sm">
             <SelectPreset
               size={globalSize}
@@ -82,7 +82,7 @@ export default function MacroSelectShowcase() {
                   Country of Residence <span className="text-destructive">*</span>
                 </span>
               }
-              description="This information is used for tax calculation purposes. Please ensure it matches your billing address."
+              description="Thông tin này được sử dụng cho mục đích tính thuế. Hãy đảm bảo nó khớp với địa chỉ thanh toán của bạn."
               placeholder="Select your country..."
               options={[
                 { value: "us", label: "United States" },

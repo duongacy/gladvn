@@ -18,7 +18,7 @@ export default function SwitchShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Switch"
-        description="A control that allows the user to toggle between checked and not checked."
+        description="Một điều khiển cho phép người dùng chuyển đổi giữa đã chọn và không được chọn."
       >
         <SelectPreset
           value={globalSize}
@@ -35,7 +35,7 @@ export default function SwitchShowcase() {
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Standard"
-          description="Used for immediate toggle actions."
+          description="Được sử dụng cho các hành động chuyển đổi ngay lập tức."
         >
           <div className="w-full max-w-sm space-y-4">
             {["Notifications", "Dark Mode", "Auto-save"].map((item, i) => (
@@ -54,7 +54,7 @@ export default function SwitchShowcase() {
 
         <ExampleSection
           label="Disabled"
-          description="Non-interactive switch states."
+          description="Trạng thái chuyển đổi không tương tác."
         >
           <div className="w-full max-w-sm space-y-4">
             <Field
@@ -84,7 +84,7 @@ export default function SwitchShowcase() {
 
       <ExampleSection
         label="Compositional Usage"
-        description="Building a switch using its base primitives for custom behavior or styling."
+        description="Xây dựng một công tắc bằng cách sử dụng các nguyên hàm cơ bản của nó cho hành vi hoặc kiểu dáng tùy chỉnh."
       >
         <div className="flex items-center gap-4">
           <Switch size={globalSize}>

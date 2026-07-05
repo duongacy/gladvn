@@ -25,7 +25,7 @@ export default function SliderShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Slider"
-        description="An input where the user selects a value from within a given range."
+        description="Đầu vào trong đó người dùng chọn một giá trị trong một phạm vi nhất định."
       >
         <SelectPreset
           value={globalSize}
@@ -42,7 +42,7 @@ export default function SliderShowcase() {
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Standard"
-          description="Basic numeric range selection."
+          description="Lựa chọn phạm vi số cơ bản."
         >
           <div className="w-full max-w-sm">
             <Field size={globalSize}>
@@ -64,7 +64,7 @@ export default function SliderShowcase() {
 
         <ExampleSection
           label="Range"
-          description="Select a range with two thumbs."
+          description="Chọn một phạm vi bằng hai ngón tay cái."
         >
           <div className="w-full max-w-sm">
             <Field size={globalSize}>
@@ -85,7 +85,7 @@ export default function SliderShowcase() {
 
       <ExampleSection
         label="Compositional Usage"
-        description="Building a slider using its base primitives for ultimate control."
+        description="Xây dựng thanh trượt bằng cách sử dụng các nguyên hàm cơ bản của nó để có được khả năng kiểm soát tối ưu."
       >
         <div className="w-full max-w-sm">
           <CompositionalSlider
@@ -106,7 +106,7 @@ export default function SliderShowcase() {
 
       <ExampleSection
         label="Disabled"
-        description="Non-interactive slider state."
+        description="Trạng thái thanh trượt không tương tác."
       >
         <div className="w-full max-w-sm">
           <Field size={globalSize}>

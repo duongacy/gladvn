@@ -13,7 +13,7 @@ export default function PaginationShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Pagination"
-        description="Pagination with page navigation, next and previous links."
+        description="Phân trang với điều hướng trang, liên kết tiếp theo và trước đó."
       >
         <SelectPreset
           value={globalSize}
@@ -27,7 +27,7 @@ export default function PaginationShowcase() {
         />
       </SectionHeader>
 
-      <ExampleSection label="Default" description="Standard pagination layout.">
+      <ExampleSection label="Default" description="Bố cục phân trang tiêu chuẩn.">
         <Pagination>
           <PaginationContent>
             <PaginationItem>

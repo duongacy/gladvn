@@ -48,11 +48,11 @@ export default function MacroCarouselShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Carousel (Macro)"
-        description="A preset component that encapsulates Carousel with basic slide contents."
+        description="Một thành phần cài sẵn bao gồm Carousel với các nội dung slide cơ bản."
       />
 
       <ExampleGrid columns={1}>
-        <ExampleSection label="Standard" description="Basic carousel with slides.">
+        <ExampleSection label="Standard" description="Băng chuyền cơ bản có cầu trượt.">
           <div className="w-full max-w-sm px-12">
             <CarouselPreset
               items={[
@@ -64,7 +64,7 @@ export default function MacroCarouselShowcase() {
           </div>
         </ExampleSection>
 
-        <ExampleSection label="Image Gallery" description="Using real images inside the carousel slides.">
+        <ExampleSection label="Image Gallery" description="Sử dụng hình ảnh thực bên trong các slide băng chuyền.">
           <div className="w-full max-w-lg px-12">
             <CarouselPreset
               items={[
@@ -78,7 +78,7 @@ export default function MacroCarouselShowcase() {
       </ExampleGrid>
 
       <ExampleGrid columns={2}>
-        <ExampleSection label="Loop Enabled" description="Infinite loop with dots only (no arrows).">
+        <ExampleSection label="Loop Enabled" description="Vòng lặp vô hạn chỉ có dấu chấm (không có mũi tên).">
           <div className="w-full max-w-sm">
             <CarouselPreset
               opts={{ loop: true }}
@@ -92,7 +92,7 @@ export default function MacroCarouselShowcase() {
           </div>
         </ExampleSection>
 
-        <ExampleSection label="Arrows Only" description="Navigation arrows without dots.">
+        <ExampleSection label="Arrows Only" description="Mũi tên điều hướng không có dấu chấm.">
           <div className="w-full max-w-sm px-12">
             <CarouselPreset
               showDots={false}
@@ -107,13 +107,13 @@ export default function MacroCarouselShowcase() {
       </ExampleGrid>
 
       <ExampleGrid columns={1}>
-        <ExampleSection label="Controlled Mode" description="Control the active slide using React state (index and onIndexChange).">
+        <ExampleSection label="Controlled Mode" description="Điều khiển slide đang hoạt động bằng trạng thái React (index và onIndexChange).">
           <ControlledCarouselDemo />
         </ExampleSection>
       </ExampleGrid>
 
       <ExampleGrid columns={1}>
-        <ExampleSection label="Vertical Orientation" description="A vertically scrolling macro carousel.">
+        <ExampleSection label="Vertical Orientation" description="Băng chuyền macro cuộn theo chiều dọc.">
           <div className="w-full max-w-sm px-12 py-12 flex justify-center">
             <CarouselPreset
               className="w-full"

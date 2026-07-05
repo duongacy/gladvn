@@ -18,7 +18,7 @@ export default function InputShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Input"
-        description="A text field for capturing short-form user input."
+        description="Trường văn bản để ghi lại thông tin đầu vào của người dùng dạng ngắn."
       >
         <SelectPreset
           value={globalSize}
@@ -35,7 +35,7 @@ export default function InputShowcase() {
       {/* ── Default ───────────────────────────────── */}
       <ExampleSection
         label="Default"
-        description="Basic text input with label and description."
+        description="Nhập văn bản cơ bản với nhãn và mô tả."
       >
         <div className="w-full max-w-sm">
           <Field size={globalSize}>
@@ -56,7 +56,7 @@ export default function InputShowcase() {
         {/* ── Input Group ──────────────────────────── */}
         <ExampleSection
           label="Input Group"
-          description="Input with prefix and suffix addons."
+          description="Đầu vào với các phần bổ sung tiền tố và hậu tố."
         >
           <div className="w-full max-w-sm">
             <Field size={globalSize}>
@@ -79,7 +79,7 @@ export default function InputShowcase() {
         {/* ── Disabled ─────────────────────────────── */}
         <ExampleSection
           label="Disabled"
-          description="Non-interactive input state."
+          description="Trạng thái đầu vào không tương tác."
         >
           <div className="w-full max-w-sm">
             <Field size={globalSize}>

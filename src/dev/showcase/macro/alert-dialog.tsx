@@ -8,6 +8,8 @@ import {
 import {
   ShieldAlertIcon,
   InfoIcon,
+  MessageSquareWarningIcon,
+  MailWarningIcon,
 } from "lucide-react";
 
 import { type Size } from "@/lib/types";
@@ -45,15 +47,17 @@ export default function AlertDialogPresetShowcase() {
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Hành Động Nguy Hiểm (Destructive)"
-          description="Sử dụng thuộc tính color='destructive' trên Action Button."
+          description="Sử dụng actionColor='destructive' để tạo nút hành động nguy hiểm."
         >
           <AlertDialogPreset
             size={globalSize}
             trigger={<Button variant="outline" color="destructive" size={globalSize}>Xoá Tài Khoản</Button>}
             title="Bạn có chắc chắn muốn xoá?"
             description="Hành động này không thể hoàn tác. Tài khoản và toàn bộ dữ liệu của bạn trên hệ thống sẽ bị xoá vĩnh viễn."
-            cancel={<Button variant="outline" size={globalSize}>Huỷ</Button>}
-            action={<Button color="destructive" size={globalSize}>Xoá</Button>}
+            cancelLabel="Huỷ"
+            actionLabel="Xoá"
+            actionColor="destructive"
+            onAction={() => console.log("Deleted!")}
           />
         </ExampleSection>
 
@@ -66,8 +70,9 @@ export default function AlertDialogPresetShowcase() {
             trigger={<Button variant="outline" size={globalSize}>Đăng Xuất</Button>}
             title="Đăng xuất khỏi tài khoản?"
             description="Bạn sẽ cần nhập lại thông tin đăng nhập để truy cập vào tài khoản."
-            cancel={<Button variant="outline" size={globalSize}>Ở Lại</Button>}
-            action={<Button size={globalSize}>Đăng Xuất</Button>}
+            cancelLabel="Ở Lại"
+            actionLabel="Đăng Xuất"
+            onAction={() => console.log("Logged out!")}
           />
         </ExampleSection>
       </ExampleGrid>
@@ -87,8 +92,10 @@ export default function AlertDialogPresetShowcase() {
             }
             title="Thu hồi quyền truy cập API?"
             description="Tất cả các ứng dụng đang sử dụng API key này sẽ bị mất quyền truy cập ngay lập tức."
-            cancel={<Button variant="outline" size={globalSize}>Giữ Lại</Button>}
-            action={<Button color="warning" size={globalSize}>Thu Hồi</Button>}
+            cancelLabel="Giữ Lại"
+            actionLabel="Thu Hồi"
+            actionColor="warning"
+            onAction={() => console.log("Revoked!")}
           />
         </ExampleSection>
 
@@ -112,10 +119,59 @@ export default function AlertDialogPresetShowcase() {
               size={globalSize}
               title="Bật chế độ máy bay?"
               description="Tất cả các kết nối mạng bao gồm Wi-Fi và Bluetooth sẽ bị ngắt."
-              cancel={<Button variant="outline" size={globalSize} onClick={() => setControlledOpen(false)}>Huỷ</Button>}
-              action={<Button color="info" size={globalSize} onClick={() => setControlledOpen(false)}>Đồng Ý</Button>}
+              cancelLabel="Huỷ"
+              actionLabel="Đồng Ý"
+              actionColor="info"
+              onAction={() => console.log("Airplane mode on!")}
             />
           </div>
+        </ExampleSection>
+      </ExampleGrid>
+
+      <ExampleGrid columns={2}>
+        <ExampleSection
+          label="Custom Button Variants"
+          description="Tuỳ chỉnh variant cho cả nút Action (soft) và Cancel (ghost) thông qua actionVariant/cancelVariant."
+        >
+          <AlertDialogPreset
+            size={globalSize}
+            trigger={<Button variant="outline" size={globalSize}>Custom Variants</Button>}
+            icon={
+              <div className="flex size-full items-center justify-center rounded-full bg-info/10">
+                <MailWarningIcon className="text-info" />
+              </div>
+            }
+            title="Gửi phản hồi?"
+            description="Phản hồi của bạn sẽ được gửi ẩn danh tới đội ngũ phát triển."
+            cancelLabel="Bỏ qua"
+            cancelVariant="ghost"
+            actionLabel="Gửi"
+            actionColor="info"
+            actionVariant="soft"
+            onAction={() => console.log("Feedback sent!")}
+          />
+        </ExampleSection>
+
+        <ExampleSection
+          label="Children (Nội dung bổ sung)"
+          description="Prop children cho phép chèn thêm nội dung tuỳ ý vào phần Header."
+        >
+          <AlertDialogPreset
+            size={globalSize}
+            trigger={<Button variant="outline" color="warning" size={globalSize}>Báo Cáo Lỗi</Button>}
+            title="Báo cáo lỗi hệ thống"
+            description="Vui lòng kiểm tra thông tin lỗi bên dưới trước khi gửi."
+            cancelLabel="Huỷ"
+            actionLabel="Gửi Báo Cáo"
+            actionColor="warning"
+            onAction={() => console.log("Report sent!")}
+          >
+            <div className="mt-2 rounded-md border bg-muted/50 p-3 font-mono text-xs text-muted-foreground">
+              <p>Error Code: ERR_NETWORK_TIMEOUT</p>
+              <p>Timestamp: 2026-07-05T14:30:00Z</p>
+              <p>Module: api/gateway</p>
+            </div>
+          </AlertDialogPreset>
         </ExampleSection>
       </ExampleGrid>
 
@@ -134,8 +190,8 @@ export default function AlertDialogPresetShowcase() {
             }
             title="Xác nhận hành động?"
             description="Đây là hộp thoại dạng nhỏ, phù hợp cho các thao tác nhanh với 2 nút nằm ngang."
-            cancel={<Button variant="outline" size="sm">Không</Button>}
-            action={<Button size="sm">Có</Button>}
+            cancelLabel="Không"
+            actionLabel="Có"
           />
         </ExampleSection>
       </ExampleGrid>

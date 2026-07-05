@@ -11,13 +11,13 @@ export default function DrawerShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Drawer"
-        description="A drawer component for React."
+        description="Một thành phần ngăn kéo cho React."
       />
 
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Bottom Drawer"
-          description="Default bottom sheet style."
+          description="Kiểu trang tính dưới cùng mặc định."
         >
           <Drawer>
             <DrawerTrigger asChild>
@@ -72,7 +72,7 @@ export default function DrawerShowcase() {
 
         <ExampleSection
           label="Simple Message"
-          description="Drawer with simple text content."
+          description="Ngăn kéo có nội dung văn bản đơn giản."
         >
           <Drawer>
             <DrawerTrigger asChild>

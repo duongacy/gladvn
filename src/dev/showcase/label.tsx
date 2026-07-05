@@ -12,7 +12,7 @@ export default function LabelShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Label"
-        description="Renders an accessible label associated with controls."
+        description="Hiển thị nhãn có thể truy cập được liên kết với các điều khiển."
       >
         <SelectPreset
           value={globalSize}
@@ -26,7 +26,7 @@ export default function LabelShowcase() {
         />
       </SectionHeader>
 
-      <ExampleSection label="Default" description="Standard label usage.">
+      <ExampleSection label="Default" description="Cách sử dụng nhãn tiêu chuẩn.">
         <Label htmlFor="terms" size={globalSize}>
           Accept terms and conditions
         </Label>

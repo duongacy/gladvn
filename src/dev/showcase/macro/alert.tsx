@@ -122,7 +122,7 @@ export default function MacroAlertShowcase() {
             icon={<CheckCircle2Icon />}
             dismissible
             action={
-              <Button size="sm" variant="outline" className="mr-2 h-7 px-2 text-xs">
+              <Button size="sm" variant="outline" className="h-7 px-2 text-xs">
                 Xem biên lai
               </Button>
             }

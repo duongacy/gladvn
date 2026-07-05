@@ -30,7 +30,7 @@ export default function ButtonShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Button"
-        description="Triggers an action or event, such as submitting a form or opening a dialog."
+        description="Kích hoạt một hành động hoặc sự kiện, chẳng hạn như gửi biểu mẫu hoặc mở hộp thoại."
       >
         <SelectPreset
           value={globalSize}
@@ -47,7 +47,7 @@ export default function ButtonShowcase() {
       {/* ── Variants ── */}
       <ExampleSection
         label="Variants"
-        description="All available visual styles."
+        description="Tất cả các kiểu hiển thị hiện có."
       >
           <Button size={globalSize} variant="solid">
             Solid
@@ -69,7 +69,7 @@ export default function ButtonShowcase() {
       {/* ── Colors ── */}
       <ExampleSection
         label="Colors"
-        description="Semantic color tokens paired with the solid variant."
+        description="Màu sắc theo ngữ nghĩa đi kèm với biến thể solid."
       >
           <Button size={globalSize} color="primary">
             Primary
@@ -104,7 +104,7 @@ export default function ButtonShowcase() {
       <ExampleGrid columns={2}>
         <ExampleSection
           label="With Icon"
-          description="Buttons with leading or trailing icons."
+          description="Nút kèm biểu tượng ở đầu hoặc cuối."
         >
             <Button size={globalSize} variant="outline">
               <ButtonIcon render={<MailIcon />} />
@@ -118,7 +118,7 @@ export default function ButtonShowcase() {
 
         <ExampleSection
           label="Icon Only"
-          description="Square buttons with only an icon."
+          description="Nút hình vuông chỉ chứa biểu tượng."
         >
             <Button size={globalSize} variant="outline" iconOnly={true}>
               <ButtonIcon render={<PlusIcon />} />
@@ -135,7 +135,7 @@ export default function ButtonShowcase() {
       {/* ── Disabled ── */}
       <ExampleSection
         label="Disabled"
-        description="Non-interactive button states."
+        description="Trạng thái nút không thể tương tác."
       >
           <Button size={globalSize} disabled>
             Solid Disabled
@@ -158,7 +158,7 @@ export default function ButtonShowcase() {
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Loading State"
-          description="Button with spinner during async action."
+          description="Nút kèm spinner trong quá trình xử lý bất đồng bộ."
           fullWidth
         >
           <div className="flex flex-col gap-3 w-full max-w-xs mx-auto">
@@ -180,7 +180,7 @@ export default function ButtonShowcase() {
 
         <ExampleSection
           label="Destructive"
-          description="Confirming a dangerous action."
+          description="Xác nhận một hành động nguy hiểm."
           fullWidth
         >
           <div className="w-full max-w-xs mx-auto rounded-lg border border-destructive/20 bg-destructive/5 p-4 flex flex-col gap-2">

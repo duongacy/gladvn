@@ -14,15 +14,15 @@ export default function MacroComboboxShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Combobox (Macro)"
-        description="A preset component that encapsulates Combobox, Field, Label, and Description."
+        description="Một thành phần cài sẵn bao gồm Combobox, Field, Label và Description."
       />
 
       <ExampleGrid columns={2}>
-        <ExampleSection label="Standard" description="Basic combobox with label and description.">
+        <ExampleSection label="Standard" description="Combobox cơ bản có nhãn và mô tả.">
           <div className="w-full max-w-sm">
             <ComboboxPreset
               label="Framework"
-              description="Pick your favorite framework."
+              description="Chọn khuôn khổ yêu thích của bạn."
               placeholder="Pick a framework..."
               searchPlaceholder="Search framework..."
               emptyText="No framework found."
@@ -36,7 +36,7 @@ export default function MacroComboboxShowcase() {
           </div>
         </ExampleSection>
 
-        <ExampleSection label="Error State" description="Demonstrates errorMessage and showError props.">
+        <ExampleSection label="Error State" description="Thể hiện các đạo cụ errorMessage và showError.">
           <div className="w-full max-w-sm flex flex-col gap-6">
             <ComboboxPreset
               label="Framework (Invalid)"
@@ -47,7 +47,7 @@ export default function MacroComboboxShowcase() {
             
             <ComboboxPreset
               label="Framework (Hidden Error)"
-              description="Error text is hidden using showError={false}"
+              description="Văn bản lỗi bị ẩn bằng showError={false}"
               placeholder="Pick a framework..."
               options={[{ value: "react", label: "React" }]}
               errorMessage="Hidden error."
@@ -55,11 +55,11 @@ export default function MacroComboboxShowcase() {
             />
           </div>
         </ExampleSection>
-        <ExampleSection label="Disabled State" description="A non-interactive combobox.">
+        <ExampleSection label="Disabled State" description="Một combobox không tương tác.">
           <div className="w-full max-w-sm">
             <ComboboxPreset
               label="Team"
-              description="You do not have permission to change the team."
+              description="Bạn không có quyền thay đổi đội."
               placeholder="Select team..."
               searchPlaceholder="Search team..."
               emptyText="No team found."
@@ -73,7 +73,7 @@ export default function MacroComboboxShowcase() {
           </div>
         </ExampleSection>
 
-        <ExampleSection label="Long List" description="Demonstrating scrolling with many options.">
+        <ExampleSection label="Long List" description="Thể hiện thao tác cuộn với nhiều tùy chọn.">
           <div className="w-full max-w-sm">
             <ComboboxPreset
               label="Timezone"

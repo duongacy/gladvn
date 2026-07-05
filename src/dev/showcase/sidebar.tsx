@@ -13,7 +13,7 @@ export default function SidebarShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Sidebar"
-        description="A composable, accessible sidebar component."
+        description="Một thành phần thanh bên có thể kết hợp, có thể truy cập được."
       >
         <SelectPreset
           value={globalSize}
@@ -29,7 +29,7 @@ export default function SidebarShowcase() {
 
       <ExampleSection
         label="Comprehensive Sidebar"
-        description="Sidebar with header, footer, search input, actions, badges, and submenus."
+        description="Thanh bên có đầu trang, chân trang, đầu vào tìm kiếm, hành động, huy hiệu và menu con."
       >
         <div className="rounded-xl border overflow-hidden flex h-[500px] w-full">
           <SidebarProvider>

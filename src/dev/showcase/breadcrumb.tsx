@@ -8,12 +8,12 @@ export default function BreadcrumbShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Breadcrumb"
-        description="Displays the path to the current resource using a hierarchy of links."
+        description="Hiển thị đường dẫn đến tài nguyên hiện tại bằng cách sử dụng hệ thống phân cấp liên kết."
       />
 
       <ExampleSection
         label="Default"
-        description="Standard breadcrumb with chevron separators."
+        description="Breadcrumb tiêu chuẩn có dấu phân cách hình chữ V."
       >
         <div className="space-y-6 w-full max-w-lg">
           <Breadcrumb>
@@ -36,7 +36,7 @@ export default function BreadcrumbShowcase() {
 
       <ExampleSection
         label="Custom Separator"
-        description="Using a slash icon as separator."
+        description="Sử dụng biểu tượng dấu gạch chéo làm dấu phân cách."
       >
         <div className="w-full max-w-lg">
           <Breadcrumb>
@@ -63,7 +63,7 @@ export default function BreadcrumbShowcase() {
 
       <ExampleSection
         label="With Ellipsis"
-        description="Collapsed items with dropdown."
+        description="Các mục được thu gọn với danh sách thả xuống."
       >
         <div className="w-full max-w-lg">
           <Breadcrumb>

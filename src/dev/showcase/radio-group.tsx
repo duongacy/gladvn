@@ -18,7 +18,7 @@ export default function RadioGroupShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Radio Group"
-        description="A set of checkable buttons—known as radio buttons—where no more than one of the buttons can be checked at a time."
+        description="Một tập hợp các nút có thể kiểm tra—được gọi là nút radio—trong đó không thể kiểm tra nhiều hơn một nút cùng một lúc."
       >
         <SelectPreset
           value={globalSize}
@@ -35,7 +35,7 @@ export default function RadioGroupShowcase() {
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Standard"
-          description="Vertical list of radio options."
+          description="Danh sách dọc các tùy chọn radio."
         >
           <div className="space-y-2">
             <Label
@@ -63,7 +63,7 @@ export default function RadioGroupShowcase() {
 
         <ExampleSection
           label="Disabled"
-          description="Non-interactive radio states."
+          description="Trạng thái vô tuyến không tương tác."
         >
           <div className="space-y-2">
             <RadioGroup defaultValue="opt1" className="space-y-1">

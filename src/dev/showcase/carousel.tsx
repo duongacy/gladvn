@@ -19,13 +19,13 @@ export default function CarouselShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Carousel"
-        description="A premium carousel with motion, swipe, and pagination built using Embla."
+        description="Băng chuyền cao cấp có chuyển động, vuốt và phân trang được xây dựng bằng Embla."
       />
 
       {/* ── Hero Banner ── */}
       <ExampleSection
         label="Hero Banner"
-        description="A full-width banner with overlay navigation, frosted glass arrows, and interactive pagination."
+        description="Biểu ngữ có chiều rộng đầy đủ với điều hướng lớp phủ, mũi tên kính mờ và phân trang tương tác."
       >
         <div className="mx-auto w-full max-w-4xl">
           <Carousel
@@ -61,7 +61,7 @@ export default function CarouselShowcase() {
       {/* ── Product Gallery ── */}
       <ExampleSection
         label="Product Gallery"
-        description="A multi-item carousel for displaying products or cards with micro-animations."
+        description="Băng chuyền gồm nhiều mục để hiển thị sản phẩm hoặc thẻ có hoạt ảnh vi mô."
       >
         <div className="mx-auto w-full max-w-5xl px-12">
           {/* Note the explicit positioning injected via Pure Composition for the arrows here */}
@@ -104,7 +104,7 @@ export default function CarouselShowcase() {
       {/* ── Compact Cards ── */}
       <ExampleSection
         label="Compact layout"
-        description="A compact carousel layout with dots, commonly used for onboarding or wizards."
+        description="Bố cục băng chuyền nhỏ gọn có các dấu chấm, thường được sử dụng để làm quen hoặc hướng dẫn."
       >
         <div className="mx-auto w-full max-w-sm">
           <Carousel className="w-full">
@@ -139,7 +139,7 @@ export default function CarouselShowcase() {
       {/* ── Vertical Carousel ── */}
       <ExampleSection
         label="Vertical Orientation"
-        description="A vertically scrolling carousel. Note the usage of pt-4 instead of pl-4 for gaps."
+        description="Một băng chuyền cuộn theo chiều dọc. Lưu ý việc sử dụng pt-4 thay vì pl-4 cho các khoảng trống."
       >
         <div className="mx-auto w-full max-w-xs py-12 flex justify-center">
           <Carousel orientation="vertical" className="w-full">

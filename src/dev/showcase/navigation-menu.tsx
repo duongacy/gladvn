@@ -36,12 +36,12 @@ export default function NavigationMenuShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Navigation Menu"
-        description="A collection of links for navigating websites."
+        description="Một bộ sưu tập các liên kết để điều hướng các trang web."
       />
 
       <ExampleSection
         label="Default"
-        description="Multi-level navigation with dropdown panels."
+        description="Điều hướng đa cấp với bảng thả xuống."
       >
         <NavigationMenu>
           <NavigationMenuList>

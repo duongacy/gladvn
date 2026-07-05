@@ -6,12 +6,12 @@ export default function ResizableShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Resizable"
-        description="Accessible resizable panel groups and layouts with keyboard support."
+        description="Các nhóm và bố cục bảng điều khiển có thể thay đổi kích thước có thể truy cập được với sự hỗ trợ của bàn phím."
       />
 
       <ExampleSection
         label="Horizontal Split"
-        description="Drag the handle to resize panels."
+        description="Kéo tay cầm để thay đổi kích thước bảng."
       >
         <ResizablePanelGroup
           orientation="horizontal"
@@ -33,7 +33,7 @@ export default function ResizableShowcase() {
 
       <ExampleSection
         label="Nested Layout"
-        description="Complex layout with nested resizable groups."
+        description="Bố cục phức tạp với các nhóm có thể thay đổi kích thước lồng nhau."
       >
         <ResizablePanelGroup
           orientation="horizontal"

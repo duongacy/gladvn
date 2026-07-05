@@ -7,7 +7,9 @@
  */
 "use client";
 
+import * as React from "react";
 import { Collapsible as CollapsiblePrimitive } from "@base-ui/react/collapsible";
+import { cn } from "@/lib/utils";
 
 /**
  * @description An interactive component which expands/collapses a panel.
@@ -18,20 +20,46 @@ import { Collapsible as CollapsiblePrimitive } from "@base-ui/react/collapsible"
  *   <CollapsibleContent>Content</CollapsibleContent>
  * </Collapsible>
  */
-function Collapsible({ ...props }: CollapsiblePrimitive.Root.Props) {
-  return <CollapsiblePrimitive.Root data-slot="collapsible" {...props} />;
-}
+const Collapsible = React.forwardRef<
+  React.ComponentRef<typeof CollapsiblePrimitive.Root>,
+  React.ComponentProps<typeof CollapsiblePrimitive.Root>
+>(({ className, ...props }, ref) => (
+  <CollapsiblePrimitive.Root 
+    ref={ref} 
+    data-slot="collapsible" 
+    className={className} 
+    {...props} 
+  />
+));
+Collapsible.displayName = "Collapsible";
 
-function CollapsibleTrigger({ ...props }: CollapsiblePrimitive.Trigger.Props) {
-  return (
-    <CollapsiblePrimitive.Trigger data-slot="collapsible-trigger" {...props} />
-  );
-}
+const CollapsibleTrigger = React.forwardRef<
+  React.ComponentRef<typeof CollapsiblePrimitive.Trigger>,
+  React.ComponentProps<typeof CollapsiblePrimitive.Trigger>
+>(({ className, ...props }, ref) => (
+  <CollapsiblePrimitive.Trigger 
+    ref={ref} 
+    data-slot="collapsible-trigger" 
+    className={className} 
+    {...props} 
+  />
+));
+CollapsibleTrigger.displayName = "CollapsibleTrigger";
 
-function CollapsibleContent({ ...props }: CollapsiblePrimitive.Panel.Props) {
-  return (
-    <CollapsiblePrimitive.Panel data-slot="collapsible-content" {...props} />
-  );
-}
+const CollapsibleContent = React.forwardRef<
+  React.ComponentRef<typeof CollapsiblePrimitive.Panel>,
+  React.ComponentProps<typeof CollapsiblePrimitive.Panel>
+>(({ className, ...props }, ref) => (
+  <CollapsiblePrimitive.Panel 
+    ref={ref}
+    data-slot="collapsible-content" 
+    className={cn(
+      "flex flex-col justify-end overflow-hidden h-(--collapsible-panel-height) transition-[height] duration-200 ease-out data-starting-style:h-0 data-ending-style:h-0 [&[hidden]:not([hidden='until-found'])]:hidden",
+      className
+    )}
+    {...props} 
+  />
+));
+CollapsibleContent.displayName = "CollapsibleContent";
 
 export { Collapsible, CollapsibleTrigger, CollapsibleContent };

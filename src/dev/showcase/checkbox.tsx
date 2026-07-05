@@ -29,7 +29,7 @@ function ControlledCheckboxDemo({ size }: { size: Size }) {
         </Label>
       </div>
       <p className="text-sm text-muted-foreground">
-        Current State: <span className="font-mono font-bold text-foreground">{checked ? "Checked" : "Unchecked"}</span>
+        Trạng thái hiện tại: <span className="font-mono font-bold text-foreground">{checked ? "Checked" : "Unchecked"}</span>
       </p>
     </div>
   );
@@ -42,7 +42,7 @@ export default function CheckboxShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Checkbox"
-        description="A control that allows the user to toggle between checked and not checked."
+        description="Một thành phần điều khiển cho phép người dùng chuyển đổi giữa trạng thái được chọn (checked) và không được chọn (not checked)."
       >
         <SelectPreset
           value={globalSize}
@@ -59,7 +59,7 @@ export default function CheckboxShowcase() {
       {/* ── Default ────────────────────────────────── */}
       <ExampleSection
         label="Default"
-        description="Standard checkbox with a label using pure composition."
+        description="Checkbox cơ bản kèm nhãn sử dụng pure composition."
       >
         <div className="flex items-center gap-3">
           <Checkbox id="cb-default" size={globalSize}>
@@ -76,7 +76,7 @@ export default function CheckboxShowcase() {
       {/* ── Custom Icon (Compositional) ───────────── */}
       <ExampleSection
         label="Custom Icon"
-        description="Using the compositional API to provide a custom indicator icon."
+        description="Sử dụng API tổng hợp để cung cấp biểu tượng chỉ báo tùy chỉnh."
       >
         <div className="flex items-center gap-3">
           <Checkbox id="cb-custom-icon" size={globalSize}>
@@ -93,7 +93,7 @@ export default function CheckboxShowcase() {
       {/* ── With Description ──────────────────────── */}
       <ExampleSection
         label="With Description"
-        description="Checkbox accompanied by helper text."
+        description="Checkbox kèm theo văn bản mô tả."
       >
         <div className="flex items-start gap-3">
           <div className="flex items-center text-sm leading-snug">
@@ -117,7 +117,7 @@ export default function CheckboxShowcase() {
 
       {/* ── States ────────────────────────────────── */}
       <ExampleGrid columns={2}>
-        <ExampleSection label="Error State" description="Manual error state using Field primitives.">
+        <ExampleSection label="Error State" description="Trạng thái lỗi thủ công sử dụng các primitives của Field.">
           <div className="w-full max-w-sm flex flex-col gap-6">
             <Field className="flex flex-row items-start gap-3" data-invalid={true}>
               <div className="flex items-center text-sm leading-snug group-data-[size=sm]/field:text-xs">
@@ -127,14 +127,14 @@ export default function CheckboxShowcase() {
                 </Checkbox>
               </div>
               <div className="grid gap-1.5 leading-none">
-                <FieldLabel htmlFor="cb-err1" className="font-medium cursor-pointer">Accept terms (Invalid)</FieldLabel>
-                <FieldError>You must check this box.</FieldError>
+                <FieldLabel htmlFor="cb-err1" className="font-medium cursor-pointer">Đồng ý điều khoản (Không hợp lệ)</FieldLabel>
+                <FieldError>Bạn phải đánh dấu vào ô này.</FieldError>
               </div>
             </Field>
           </div>
         </ExampleSection>
 
-        <ExampleSection label="Disabled" description="Non-interactive states.">
+        <ExampleSection label="Disabled" description="Các trạng thái không thể tương tác.">
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-3">
               <Checkbox id="cb-disabled-unchecked" disabled size={globalSize}>
@@ -146,7 +146,7 @@ export default function CheckboxShowcase() {
                 htmlFor="cb-disabled-unchecked"
                 className="font-normal text-muted-foreground"
               >
-                Unchecked & disabled
+                Chưa chọn & bị vô hiệu hoá
               </Label>
             </div>
             <div className="flex items-center gap-3">
@@ -159,7 +159,7 @@ export default function CheckboxShowcase() {
                 htmlFor="cb-disabled-checked"
                 className="font-normal text-muted-foreground"
               >
-                Checked & disabled
+                Đã chọn & bị vô hiệu hoá
               </Label>
             </div>
           </div>
@@ -167,7 +167,7 @@ export default function CheckboxShowcase() {
 
         <ExampleSection
           label="Form Group"
-          description="Multiple related options."
+          description="Nhiều tuỳ chọn liên quan đến nhau."
         >
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-3">
@@ -177,7 +177,7 @@ export default function CheckboxShowcase() {
                 </CheckboxIndicator>
               </Checkbox>
               <Label htmlFor="cb-recents" className="font-normal cursor-pointer">
-                Recents
+                Gần đây
               </Label>
             </div>
             <div className="flex items-center gap-3">
@@ -187,7 +187,7 @@ export default function CheckboxShowcase() {
                 </CheckboxIndicator>
               </Checkbox>
               <Label htmlFor="cb-home" className="font-normal cursor-pointer">
-                Home
+                Trang chủ
               </Label>
             </div>
             <div className="flex items-center gap-3">
@@ -200,13 +200,13 @@ export default function CheckboxShowcase() {
                 htmlFor="cb-applications"
                 className="font-normal cursor-pointer"
               >
-                Applications
+                Ứng dụng
               </Label>
             </div>
           </div>
         </ExampleSection>
 
-        <ExampleSection label="Real-world Content" description="Demonstrating how to handle complex React Node labels.">
+        <ExampleSection label="Real-world Content" description="Minh hoạ cách xử lý nhãn (label) dạng React Node phức tạp.">
           <div className="w-full max-w-sm">
             <Field className="flex flex-row items-start gap-3">
               <div className="flex items-center text-sm leading-snug group-data-[size=sm]/field:text-xs">
@@ -217,10 +217,10 @@ export default function CheckboxShowcase() {
               </div>
               <div className="grid gap-1.5 leading-none">
                 <FieldLabel htmlFor="cb-rw1" className="font-medium cursor-pointer flex items-center gap-2">
-                  Share usage data <span className="rounded bg-primary/20 px-1.5 py-0.5 text-[10px] font-semibold text-primary">BETA</span>
+                  Chia sẻ dữ liệu sử dụng <span className="rounded bg-primary/20 px-1.5 py-0.5 text-[10px] font-semibold text-primary">BETA</span>
                 </FieldLabel>
                 <FieldDescription>
-                  Help us improve our service by automatically sending diagnostic data and crash reports every time the application encounters an unexpected error. You can revoke this permission at any time in your account settings.
+                  Giúp chúng tôi cải thiện dịch vụ bằng cách tự động gửi dữ liệu phân tích và báo cáo lỗi mỗi khi ứng dụng gặp sự cố. Bạn có thể thu hồi quyền này bất cứ lúc nào trong phần cài đặt tài khoản.
                 </FieldDescription>
               </div>
             </Field>
@@ -231,7 +231,7 @@ export default function CheckboxShowcase() {
       <ExampleGrid columns={1}>
         <ExampleSection 
           label="Controlled Mode" 
-          description="Control the checked state using React state (checked and onCheckedChange)."
+          description="Quản lý trạng thái bằng React state (sử dụng checked và onCheckedChange)."
           codeString={`import { useState } from "react";
 import { CheckIcon } from "lucide-react";
 import { Checkbox, CheckboxIndicator } from "@/components/micro/checkbox";
@@ -247,7 +247,7 @@ export function ControlledDemo() {
           <CheckIcon />
         </CheckboxIndicator>
       </Checkbox>
-      <Label htmlFor="cb-controlled">Controlled Checkbox</Label>
+      <Label htmlFor="cb-controlled">Checkbox có kiểm soát</Label>
     </div>
   );
 }`}

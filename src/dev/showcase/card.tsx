@@ -20,7 +20,7 @@ export default function CardShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Card"
-        description="Displays a card with header, content, and footer."
+        description="Hiển thị thẻ có đầu trang, nội dung và chân trang."
       >
         <SelectPreset
           value={globalSize}
@@ -37,7 +37,7 @@ export default function CardShowcase() {
       {/* ── Standard Card ── */}
       <ExampleSection
         label="Standard Card"
-        description="Complete card with header, content and footer."
+        description="Thẻ hoàn chỉnh với tiêu đề, nội dung và chân trang."
       >
         <Card size={globalSize} className="w-full max-w-sm">
           <CardHeader>
@@ -67,7 +67,7 @@ export default function CardShowcase() {
         {/* ── Content Only ── */}
         <ExampleSection
           label="Content Only"
-          description="Minimal card without header or footer."
+          description="Thẻ tối thiểu không có đầu trang hoặc chân trang."
         >
           <Card size={globalSize} className="w-full">
             <CardContent>
@@ -82,7 +82,7 @@ export default function CardShowcase() {
         {/* ── Header Only ── */}
         <ExampleSection
           label="Header Only"
-          description="Card with just a title and description."
+          description="Thẻ chỉ có tiêu đề và mô tả."
         >
           <Card size={globalSize} className="w-full">
             <CardHeader>
@@ -121,7 +121,7 @@ export default function CardShowcase() {
       {/* ── Stats Cards ── */}
       <ExampleSection
         label="Stats Cards"
-        description="Real-world metric/KPI card layout."
+        description="Bố cục thẻ chỉ số/KPI trong thế giới thực."
         fullWidth
       >
         <ExampleGrid columns={3} className="w-full">

@@ -6,12 +6,12 @@ export default function TableShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Table"
-        description="A responsive table component."
+        description="Một thành phần bảng đáp ứng."
       />
 
       <ExampleSection
         label="Default"
-        description="Standard table with caption."
+        description="Bảng tiêu chuẩn có chú thích."
       >
         <Table>
           <TableCaption>A list of your recent invoices.</TableCaption>

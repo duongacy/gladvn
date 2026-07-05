@@ -6,12 +6,12 @@ export default function KbdShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Keyboard Shortcut"
-        description="Displays a keyboard shortcut inline."
+        description="Hiển thị phím tắt nội tuyến."
       />
 
       <ExampleSection
         label="Default"
-        description="Keyboard shortcut indicators."
+        description="Chỉ báo phím tắt."
       >
         <p className="text-sm text-muted-foreground">
           Press <Kbd>⌘</Kbd> <Kbd>K</Kbd> to open the command menu.

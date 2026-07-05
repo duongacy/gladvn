@@ -11,12 +11,12 @@ export default function MenubarShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Menubar"
-        description="A visually persistent menu common in desktop applications."
+        description="Một menu liên tục trực quan phổ biến trong các ứng dụng máy tính để bàn."
       />
 
       <ExampleSection
         label="Full Menubar"
-        description="Menubar with submenus, checkboxes, and radio items."
+        description="Thanh menu với các menu con, hộp kiểm và các mục radio."
       >
         <Menubar className="w-fit">
           <MenubarMenu>

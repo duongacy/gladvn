@@ -18,7 +18,7 @@ export default function NativeSelectShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="Native Select"
-        description="Uses the browser's built-in dropdown menu. Great for mobile environments."
+        description="Sử dụng menu thả xuống tích hợp của trình duyệt. Tuyệt vời cho môi trường di động."
       >
         <SelectPreset
           value={globalSize}
@@ -35,7 +35,7 @@ export default function NativeSelectShowcase() {
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Standard"
-          description="Native select with custom styling."
+          description="Chọn gốc với kiểu dáng tùy chỉnh."
         >
           <div className="w-full max-w-sm">
             <Field size={globalSize}>
@@ -59,7 +59,7 @@ export default function NativeSelectShowcase() {
 
         <ExampleSection
           label="Disabled"
-          description="Non-interactive native select."
+          description="Lựa chọn gốc không tương tác."
         >
           <div className="w-full max-w-sm">
             <Field size={globalSize}>

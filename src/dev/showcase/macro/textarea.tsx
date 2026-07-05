@@ -9,6 +9,8 @@ import { TextareaPreset } from "@/components/macro/textarea-preset";
 
 export default function MacroTextareaShowcase() {
   const [globalSize, setGlobalSize] = useState<"sm" | "md" | "lg">("md");
+  const [bio, setBio] = useState("");
+  const maxLength = 280;
 
   return (
     <div className="space-y-10">
@@ -68,7 +70,31 @@ export default function MacroTextareaShowcase() {
           />
         </ExampleSection>
 
-        <ExampleSection label="Real-world Content" description="Trình bày bố cục trong ngữ cảnh biểu mẫu rộng hơn.">
+        <ExampleSection label="Character Count" description="Giới hạn ký tự với đếm ngược — use case phổ biến trong B2B.">
+          <div className="w-full max-w-sm">
+            <TextareaPreset
+              label="Bio"
+              description={
+                <span className="flex justify-between">
+                  <span>Mô tả ngắn gọn về bản thân bạn.</span>
+                  <span className={bio.length > maxLength ? "text-destructive font-medium" : ""}>
+                    {bio.length}/{maxLength}
+                  </span>
+                </span>
+              }
+              placeholder="I'm a developer who loves..."
+              value={bio}
+              onChange={(e) => setBio(e.target.value)}
+              maxLength={maxLength}
+              errorMessage={bio.length > maxLength ? `Exceeded by ${bio.length - maxLength} characters.` : undefined}
+              size={globalSize}
+              className="w-full"
+              rows={4}
+            />
+          </div>
+        </ExampleSection>
+
+        <ExampleSection label="Real-world Form" description="Trình bày bố cục trong ngữ cảnh biểu mẫu rộng hơn.">
           <div className="w-full max-w-sm rounded-lg border p-4 shadow-sm">
             <h3 className="mb-4 font-semibold">Contact Support</h3>
             <TextareaPreset

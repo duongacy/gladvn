@@ -19,7 +19,7 @@ export const TextareaPreset = React.forwardRef<
       label,
       description,
       errorMessage,
-      showError,
+      showError = true,
       className,
       size,
       id,

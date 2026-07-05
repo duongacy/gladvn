@@ -43,7 +43,7 @@ const selectTriggerVariants = cva(
     variants: {
       size: {
         sm: "h-7 px-2 py-0.5 text-xs",
-        md: "h-8 px-2.5 py-1",
+        md: "h-8 px-2.5 py-1 text-sm",
         lg: "h-9 px-3 py-1.5",
       },
     },
@@ -101,11 +101,10 @@ function SelectContent({
             data-slot="select-content"
             data-align-trigger={alignItemWithTrigger}
             className={cn(
-              "relative isolate z-50 max-h-(--available-height) overflow-x-hidden overflow-y-auto rounded-lg bg-popover text-popover-foreground shadow-md ring-1 ring-foreground/10 data-[align-trigger=true]:animate-none data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
-              !alignItemWithTrigger &&
-                "w-[calc(var(--anchor-width)+8px)] p-1",
-              alignItemWithTrigger &&
-                "w-[calc(var(--anchor-width)+8px)] origin-(--transform-origin) p-1",
+              "relative isolate z-50 max-h-(--available-height) w-[calc(var(--anchor-width)+8px)] overflow-x-hidden overflow-y-auto rounded-lg bg-popover p-1 text-popover-foreground shadow-md ring-1 ring-foreground/10 data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
+              alignItemWithTrigger
+                ? "origin-(--transform-origin) data-[align-trigger=true]:animate-none"
+                : "",
               className,
             )}
             {...props}
@@ -133,19 +132,19 @@ function SelectLabel({
   );
 }
 
-function SelectItem<T = any>({
+function SelectItem({
   className,
   children,
   ...props
-}: Omit<SelectPrimitive.Item.Props, "value"> & { value?: T }) {
+}: SelectPrimitive.Item.Props) {
   return (
     <SelectPrimitive.Item
       data-slot="select-item"
       className={cn(
-        "relative flex w-full cursor-default items-center gap-1.5 rounded-md py-1 pr-8 pl-1.5 text-sm outline-hidden select-none focus:bg-accent focus:text-accent-foreground not-data-[variant=destructive]:focus:[&>svg]:text-accent-foreground data-disabled:pointer-events-none data-disabled:opacity-50 [&>svg]:pointer-events-none [&>svg]:shrink-0 [&>svg:not([class*='size-'])]:size-4 [&>[data-slot=select-item-indicator]]:flex [&>[data-slot=select-item-indicator]]:items-center [&>[data-slot=select-item-indicator]]:gap-2",
+        "relative flex w-full cursor-default items-center gap-1.5 rounded-md py-1 pr-8 pl-1.5 text-sm outline-hidden select-none data-highlighted:bg-accent data-highlighted:text-accent-foreground data-disabled:pointer-events-none data-disabled:opacity-50 [&>svg]:pointer-events-none [&>svg]:shrink-0 [&>svg:not([class*='size-'])]:size-4 [&>[data-slot=select-item-indicator]]:flex [&>[data-slot=select-item-indicator]]:items-center [&>[data-slot=select-item-indicator]]:gap-2",
         className,
       )}
-      {...(props as SelectPrimitive.Item.Props)}
+      {...props}
     >
       <SelectPrimitive.ItemText className="flex flex-1 shrink-0 gap-2 whitespace-nowrap">
         {children}

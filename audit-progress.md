@@ -102,7 +102,7 @@ Danh sách các nhóm component cần ưu tiên hoàn thiện sớm nhất để
 - [ ] `scroll-area.tsx`
 - [ ] `separator.tsx`
 - [ ] `sheet.tsx`
-- [ ] `sidebar.tsx`
+- [X] `sidebar.tsx`
 - [X] `skeleton.tsx`
 - [ ] `sonner.tsx`
 - [ ] `spinner.tsx`

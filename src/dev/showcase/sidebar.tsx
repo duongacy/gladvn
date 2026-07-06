@@ -1,125 +1,78 @@
-import { useState } from "react";
 import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
-import { MoreHorizontalIcon, ChevronRightIcon, PlusIcon } from "lucide-react";
+import { Package2Icon, SettingsIcon, UserIcon, FolderIcon, MoreHorizontalIcon } from "lucide-react";
 
-import { type Size } from "@/lib/types";
-import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider, SidebarHeader, SidebarFooter, SidebarInput, SidebarMenuAction, SidebarMenuBadge, SidebarMenuSub, SidebarMenuSubItem, SidebarMenuSubButton, SidebarRail, SidebarTrigger, SidebarSeparator, SidebarInset, SidebarGroupAction, SidebarMenuSkeleton } from "@/components/micro/sidebar";
-import { SelectPreset } from "@/components/macro/select-preset";
+import {
+  Sidebar,
+  SidebarLogo,
+  SidebarLabel,
+  SidebarMenuItemList,
+  SidebarMenuItem,
+  useSidebarToggle,
+} from "@/components/micro/sidebar";
 
 export default function SidebarShowcase() {
-  const [globalSize, setGlobalSize] = useState<Size>("md");
+  const { sidebarRef, toggleSidebar, defaultState } = useSidebarToggle("expanded");
 
   return (
     <div className="space-y-10">
       <SectionHeader
-        title="Sidebar"
-        description="Một thành phần thanh bên có thể kết hợp, có thể truy cập được."
+        title="Sidebar (Ultra Primitive)"
+        description="Sidebar nguyên thủy nhất, chỉ nhận context state, không có JS lằng nhằng, CSS thuần túy đóng mở tức thì."
       >
-        <SelectPreset
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as Size)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-          className="w-[120px] h-8 text-xs bg-background"
-        />
       </SectionHeader>
 
       <ExampleSection
-        label="Comprehensive Sidebar"
-        description="Thanh bên có đầu trang, chân trang, đầu vào tìm kiếm, hành động, huy hiệu và menu con."
+        label="Dumb Component Architecture"
+        description="Sidebar không có transition width, sử dụng display: none để ẩn ngay lập tức, không gây hiệu ứng giật khung."
+        fullWidth
       >
-        <div className="rounded-xl border overflow-hidden flex h-[500px] w-full">
-          <SidebarProvider>
-            <Sidebar variant="sidebar">
-              <SidebarHeader className="p-4 border-b">
-                <div className="font-semibold text-lg">Acme Corp</div>
-              </SidebarHeader>
-              <SidebarContent>
-                <div className="p-4">
-                  <SidebarInput placeholder="Search..." />
-                </div>
-                <SidebarGroup>
-                  <SidebarGroupLabel>Main Menu</SidebarGroupLabel>
-                  <SidebarGroupAction title="Add">
-                    <PlusIcon />
-                  </SidebarGroupAction>
-                  <SidebarGroupContent>
-                    <SidebarMenu>
-                      <SidebarMenuItem>
-                        <SidebarMenuButton
-                          size={globalSize}
-                          isActive
-                        >
-                          <span>Dashboard</span>
-                        </SidebarMenuButton>
-                        <SidebarMenuBadge>12</SidebarMenuBadge>
-                        <SidebarMenuAction>
-                          <MoreHorizontalIcon />
-                        </SidebarMenuAction>
-                      </SidebarMenuItem>
-                      <SidebarMenuItem>
-                        <SidebarMenuButton
-                          variant="outline"
-                          size={globalSize}
-                        >
-                          <span>Projects</span>
-                        </SidebarMenuButton>
-                        <SidebarMenuSub>
-                          <SidebarMenuSubItem>
-                            <SidebarMenuSubButton isActive>
-                              Active
-                            </SidebarMenuSubButton>
-                          </SidebarMenuSubItem>
-                          <SidebarMenuSubItem>
-                            <SidebarMenuSubButton>
-                              Archived
-                            </SidebarMenuSubButton>
-                          </SidebarMenuSubItem>
-                        </SidebarMenuSub>
-                      </SidebarMenuItem>
-                      <SidebarMenuItem>
-                        <SidebarMenuButton
-                          size={globalSize}
-                        >
-                          <span>Settings</span>
-                        </SidebarMenuButton>
-                      </SidebarMenuItem>
-                    </SidebarMenu>
-                  </SidebarGroupContent>
-                </SidebarGroup>
-                <SidebarGroup>
-                  <SidebarGroupLabel>Recent</SidebarGroupLabel>
-                  <SidebarGroupContent>
-                    <SidebarMenu>
-                      <SidebarMenuItem>
-                        <SidebarMenuSkeleton showIcon />
-                      </SidebarMenuItem>
-                      <SidebarMenuItem>
-                        <SidebarMenuSkeleton showIcon />
-                      </SidebarMenuItem>
-                    </SidebarMenu>
-                  </SidebarGroupContent>
-                </SidebarGroup>
-              </SidebarContent>
-              <SidebarFooter className="p-4 border-t text-sm text-muted-foreground">
-                v1.2.0
-              </SidebarFooter>
-              <SidebarRail />
-            </Sidebar>
-            <SidebarInset>
-              <header className="h-14 border-b px-4 flex items-center gap-4">
-                <SidebarTrigger />
-                <SidebarSeparator orientation="vertical" className="h-6" />
-                <span className="font-medium text-sm">Dashboard</span>
-              </header>
-              <div className="flex-1 p-6 flex flex-col items-center justify-center text-muted-foreground bg-muted/10">
-                Main content area
+        <div className="rounded-xl border overflow-hidden flex h-[500px] w-full bg-background">
+          <Sidebar ref={sidebarRef} defaultState={defaultState} expandedWidth={300}>
+            {/* Logo */}
+            <SidebarLogo icon={<Package2Icon />} text="Acme Corp" />
+
+            {/* Menu chính */}
+            <div className="flex-1 py-2 flex flex-col gap-4">
+
+              <div className="flex flex-col gap-1">
+                <SidebarLabel icon={<FolderIcon />} text="Projects" />
+                <SidebarMenuItemList>
+                  <SidebarMenuItem text="Active Projects" />
+                  <SidebarMenuItem text="Archived Projects" />
+                  <SidebarMenuItem text="Templates" />
+                </SidebarMenuItemList>
               </div>
-            </SidebarInset>
-          </SidebarProvider>
+
+              <div className="flex flex-col gap-1">
+                <SidebarLabel icon={<UserIcon />} text="Team" />
+                <SidebarMenuItemList>
+                  <SidebarMenuItem text="Members" />
+                  <SidebarMenuItem text="Permissions" />
+                </SidebarMenuItemList>
+              </div>
+
+            </div>
+
+            {/* Footer */}
+            <div className="p-2 border-t border-sidebar-border mt-auto">
+              <SidebarLabel icon={<SettingsIcon />} text="Settings" />
+            </div>
+          </Sidebar>
+
+          <main className="flex-1 flex flex-col bg-muted/10 p-6">
+            <h1 className="text-xl font-bold">Main Application</h1>
+            <p className="text-muted-foreground mt-4">
+              Hãy bấm menu State ở phía trên cùng, hoặc bấm nút Toggle bên dưới để chuyển qua lại giữa Expanded và Collapsed.
+            </p>
+            <div className="mt-6">
+              <button
+                className="px-4 py-2 bg-primary text-primary-foreground rounded-md shadow hover:bg-primary/90 transition-colors"
+                onClick={toggleSidebar}
+              >
+                Toggle Sidebar (Direct DOM Mutation)
+              </button>
+            </div>
+          </main>
         </div>
       </ExampleSection>
     </div>

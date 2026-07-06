@@ -19,6 +19,8 @@ import { SelectPreset } from "@/components/macro/select-preset";
 
 export default function DropdownMenuShowcase() {
   const [globalSize, setGlobalSize] = useState<Size>("md");
+  const [showStatusBar, setShowStatusBar] = useState(true);
+  const [showPanel, setShowPanel] = useState(false);
 
   return (
     <div className="space-y-10">
@@ -41,7 +43,7 @@ export default function DropdownMenuShowcase() {
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Standard Dropdown"
-          description="Menu cơ bản với các phím tắt."
+          description="Menu cơ bản với các phím tắt và action nguy hiểm."
         >
           <DropdownMenu>
             <DropdownMenuTrigger
@@ -76,6 +78,12 @@ export default function DropdownMenuShowcase() {
                 <LogOutIcon className="mr-2 h-4 w-4" />
                 <span>Log out</span>
                 <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem variant="destructive">
+                <LogOutIcon className="mr-2 h-4 w-4" />
+                <span>Delete Account</span>
+                <DropdownMenuShortcut>⌘⌫</DropdownMenuShortcut>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -131,13 +139,21 @@ export default function DropdownMenuShowcase() {
             <DropdownMenuContent className="w-56">
               <DropdownMenuLabel>Appearance</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuCheckboxItem checked>
+              <DropdownMenuCheckboxItem
+                checked={showStatusBar}
+                onCheckedChange={setShowStatusBar}
+              >
                 Show Status Bar
               </DropdownMenuCheckboxItem>
               <DropdownMenuCheckboxItem disabled>
                 Show Activity Bar
               </DropdownMenuCheckboxItem>
-              <DropdownMenuCheckboxItem>Show Panel</DropdownMenuCheckboxItem>
+              <DropdownMenuCheckboxItem
+                checked={showPanel}
+                onCheckedChange={setShowPanel}
+              >
+                Show Panel
+              </DropdownMenuCheckboxItem>
               <DropdownMenuSeparator />
               <DropdownMenuSub>
                 <DropdownMenuSubTrigger>Theme</DropdownMenuSubTrigger>
@@ -157,6 +173,32 @@ export default function DropdownMenuShowcase() {
                   Right
                 </DropdownMenuRadioItem>
               </DropdownMenuRadioGroup>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </ExampleSection>
+        <ExampleSection
+          label="Inset Items"
+          description="Dùng prop inset trên label và items khi menu không có icon — giữ alignment đồng đều."
+        >
+          <DropdownMenu>
+            <DropdownMenuTrigger
+              render={
+                <Button variant="outline" size={globalSize}>
+                  View Options
+                </Button>
+              }
+            />
+            <DropdownMenuContent className="w-48">
+              <DropdownMenuLabel inset>View</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem inset>Zoom In</DropdownMenuItem>
+              <DropdownMenuItem inset>Zoom Out</DropdownMenuItem>
+              <DropdownMenuItem inset>Reset Zoom</DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuLabel inset>Layout</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem inset>Single Column</DropdownMenuItem>
+              <DropdownMenuItem inset>Two Columns</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </ExampleSection>

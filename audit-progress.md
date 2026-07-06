@@ -4,9 +4,9 @@ Tiến trình pair-coding audit các UI components theo thứ tự bảng chữ 
 
 ## Tổng quan tiến độ
 
-**Đã Audit:** 33 components
+**Đã Audit:** 34 components
 **Đang xử lý / Bug:** 0 component
-**Chưa Audit:** 20 components
+**Chưa Audit:** 19 components
 
 ---
 
@@ -88,7 +88,7 @@ Danh sách các nhóm component cần ưu tiên hoàn thiện sớm nhất để
 - [X] `context-menu.tsx`
 - [X] `direction.tsx`
 - [X] `drawer.tsx`
-- [ ] `dropdown-menu.tsx`
+- [X] `dropdown-menu.tsx`
 - [ ] `empty.tsx`
 - [ ] `field.tsx`
 - [ ] `hover-card.tsx`

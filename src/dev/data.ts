@@ -65,7 +65,7 @@ export const COMPONENTS = [
   { id: "context-menu", label: "Context Menu", hasMicro: true, hasMacro: false, status: "stable" },
   { id: "dialog", label: "Dialog", hasMicro: true, hasMacro: true, status: "stable" },
   { id: "drawer", label: "Drawer", hasMicro: true, hasMacro: false, status: "stable" },
-  { id: "dropdown-menu", label: "Dropdown Menu", hasMicro: true, hasMacro: false },
+  { id: "dropdown-menu", label: "Dropdown Menu", hasMicro: true, hasMacro: false, status: "stable" },
   { id: "empty", label: "Empty", hasMicro: true, hasMacro: false },
   { id: "field", label: "Field", hasMicro: true, hasMacro: true },
   { id: "hover-card", label: "Hover Card", hasMicro: true, hasMacro: false },

@@ -7,7 +7,7 @@
  */
 "use client";
 
-import { useMemo } from "react";
+import * as React from "react";
 import { AlertCircleIcon } from "lucide-react";
 import { cva, type VariantProps } from "class-variance-authority";
 
@@ -15,23 +15,28 @@ import { cn } from "@/lib/utils";
 import { Label } from "@/components/micro/label";
 import { Separator } from "@/components/micro/separator";
 
-function FieldSet({ className, ...props }: React.ComponentProps<"fieldset">) {
+const FieldSet = React.forwardRef<
+  HTMLFieldSetElement,
+  React.ComponentProps<"fieldset">
+>(({ className, ...props }, ref) => {
   return (
     <fieldset
+      ref={ref}
       data-slot="field-set"
       className={cn("flex flex-col gap-4", className)}
       {...props}
     />
   );
-}
+});
+FieldSet.displayName = "FieldSet";
 
-function FieldLegend({
-  className,
-  variant = "legend",
-  ...props
-}: React.ComponentProps<"legend"> & { variant?: "legend" | "label" }) {
+const FieldLegend = React.forwardRef<
+  HTMLLegendElement,
+  React.ComponentProps<"legend"> & { variant?: "legend" | "label" }
+>(({ className, variant = "legend", ...props }, ref) => {
   return (
     <legend
+      ref={ref}
       data-slot="field-legend"
       data-variant={variant}
       className={cn(
@@ -41,20 +46,26 @@ function FieldLegend({
       {...props}
     />
   );
-}
+});
+FieldLegend.displayName = "FieldLegend";
 
-function FieldGroup({ className, ...props }: React.ComponentProps<"div">) {
+const FieldGroup = React.forwardRef<
+  HTMLDivElement,
+  React.ComponentProps<"div">
+>(({ className, ...props }, ref) => {
   return (
     <div
+      ref={ref}
       data-slot="field-group"
       className={cn(
-        "group/field-group @container/field-group flex flex-col gap-5 data-[slot=checkbox-group]:gap-3 [&>*]:data-[slot=field-group]:gap-4",
+        "group/field-group @container/field-group flex flex-col gap-5 data-[slot=checkbox-group]:gap-3 [&>[data-slot=field-group]]:gap-4",
         className,
       )}
       {...props}
     />
   );
-}
+});
+FieldGroup.displayName = "FieldGroup";
 
 const fieldVariants = cva(
   "group/field @container/field flex",
@@ -63,10 +74,10 @@ const fieldVariants = cva(
       orientation: {
         vertical: "flex-col [&>.sr-only]:w-auto",
         horizontal:
-          "flex-row items-center [&>*]:data-[slot=field-label]:flex-auto",
+          "flex-row items-center [&>[data-slot=field-label]]:flex-auto",
         // Responsive: vertical on mobile, horizontal on @md breakpoint.
         responsive:
-          "flex-col @md/field-group:flex-row @md/field-group:items-center @md/field-group:[&>*]:data-[slot=field-label]:flex-auto [&>.sr-only]:w-auto",
+          "flex-col @md/field-group:flex-row @md/field-group:items-center @md/field-group:[&>[data-slot=field-label]]:flex-auto [&>.sr-only]:w-auto",
       },
       size: {
         sm: "",
@@ -102,15 +113,14 @@ const fieldVariants = cva(
   },
 );
 
-function Field({
-  className,
-  orientation = "vertical",
-  size = "md",
-  error,
-  ...props
-}: React.ComponentProps<"div"> & VariantProps<typeof fieldVariants> & { error?: boolean | string }) {
+const Field = React.forwardRef<
+  HTMLDivElement,
+  React.ComponentProps<"div"> &
+    VariantProps<typeof fieldVariants> & { error?: boolean | string }
+>(({ className, orientation = "vertical", size = "md", error, ...props }, ref) => {
   return (
     <div
+      ref={ref}
       role="group"
       data-slot="field"
       data-orientation={orientation}
@@ -120,11 +130,16 @@ function Field({
       {...props}
     />
   );
-}
+});
+Field.displayName = "Field";
 
-function FieldContent({ className, ...props }: React.ComponentProps<"div">) {
+const FieldContent = React.forwardRef<
+  HTMLDivElement,
+  React.ComponentProps<"div">
+>(({ className, ...props }, ref) => {
   return (
     <div
+      ref={ref}
       data-slot="field-content"
       className={cn(
         "group/field-content flex flex-1 flex-col gap-0.5 leading-snug",
@@ -133,14 +148,16 @@ function FieldContent({ className, ...props }: React.ComponentProps<"div">) {
       {...props}
     />
   );
-}
+});
+FieldContent.displayName = "FieldContent";
 
-function FieldLabel({
-  className,
-  ...props
-}: React.ComponentProps<typeof Label>) {
+const FieldLabel = React.forwardRef<
+  React.ElementRef<typeof Label>,
+  React.ComponentProps<typeof Label>
+>(({ className, ...props }, ref) => {
   return (
     <Label
+      ref={ref}
       data-slot="field-label"
       className={cn(
         "group/field-label peer/field-label flex w-fit gap-2 leading-snug group-data-[disabled=true]/field:opacity-50",
@@ -150,12 +167,17 @@ function FieldLabel({
       {...props}
     />
   );
-}
+});
+FieldLabel.displayName = "FieldLabel";
 
-function FieldTitle({ className, ...props }: React.ComponentProps<"div">) {
+const FieldTitle = React.forwardRef<
+  HTMLDivElement,
+  React.ComponentProps<"div">
+>(({ className, ...props }, ref) => {
   return (
     <div
-      data-slot="field-label"
+      ref={ref}
+      data-slot="field-title"
       className={cn(
         "flex w-fit items-center gap-2 font-medium group-data-[disabled=true]/field:opacity-50",
         "text-sm group-data-[size=sm]/field:text-xs",
@@ -164,15 +186,20 @@ function FieldTitle({ className, ...props }: React.ComponentProps<"div">) {
       {...props}
     />
   );
-}
+});
+FieldTitle.displayName = "FieldTitle";
 
-function FieldDescription({ className, ...props }: React.ComponentProps<"p">) {
+const FieldDescription = React.forwardRef<
+  HTMLParagraphElement,
+  React.ComponentProps<"p">
+>(({ className, ...props }, ref) => {
   return (
     <p
+      ref={ref}
       data-slot="field-description"
       className={cn(
         // Pull up when after a legend variant; balance text when inside horizontal Field
-        "text-left leading-normal font-normal text-muted-foreground group-has-data-horizontal/field:text-balance [[data-variant=legend]+&]:-mt-1.5",
+        "text-left leading-normal font-normal text-muted-foreground group-data-[orientation=horizontal]/field:text-balance [[data-variant=legend]+&]:-mt-1.5",
         // Tighten gap: no margin when last child, pull up when second-to-last (before FieldError)
         "last:mt-0 nth-last-2:-mt-1",
         "[&>a]:underline [&>a]:underline-offset-4 [&>a:hover]:text-primary",
@@ -182,17 +209,16 @@ function FieldDescription({ className, ...props }: React.ComponentProps<"p">) {
       {...props}
     />
   );
-}
+});
+FieldDescription.displayName = "FieldDescription";
 
-function FieldSeparator({
-  children,
-  className,
-  ...props
-}: React.ComponentProps<"div"> & {
-  children?: React.ReactNode;
-}) {
+const FieldSeparator = React.forwardRef<
+  HTMLDivElement,
+  React.ComponentProps<"div"> & { children?: React.ReactNode }
+>(({ children, className, ...props }, ref) => {
   return (
     <div
+      ref={ref}
       data-slot="field-separator"
       data-content={!!children}
       className={cn(
@@ -212,17 +238,14 @@ function FieldSeparator({
       )}
     </div>
   );
-}
+});
+FieldSeparator.displayName = "FieldSeparator";
 
-function FieldError({
-  className,
-  children,
-  errors,
-  ...props
-}: React.ComponentProps<"div"> & {
-  errors?: Array<{ message?: string } | undefined>;
-}) {
-  const content = useMemo(() => {
+const FieldError = React.forwardRef<
+  HTMLDivElement,
+  React.ComponentProps<"div"> & { errors?: Array<{ message?: string } | undefined> }
+>(({ className, children, errors, ...props }, ref) => {
+  const content = React.useMemo(() => {
     if (children) {
       return children;
     }
@@ -255,16 +278,21 @@ function FieldError({
 
   return (
     <div
+      ref={ref}
       role="alert"
       data-slot="field-error"
-      className={cn("text-sm font-medium text-destructive flex items-start gap-1.5 animate-in fade-in-0 slide-in-from-top-1", className)}
+      className={cn(
+        "text-sm font-medium text-destructive flex items-start gap-1.5 animate-in fade-in-0 slide-in-from-top-1",
+        className,
+      )}
       {...props}
     >
       <AlertCircleIcon className="size-4 shrink-0 mt-0.5" />
       <div className="flex-1">{content}</div>
     </div>
   );
-}
+});
+FieldError.displayName = "FieldError";
 
 export {
   Field,

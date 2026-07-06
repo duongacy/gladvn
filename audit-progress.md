@@ -89,8 +89,8 @@ Danh sách các nhóm component cần ưu tiên hoàn thiện sớm nhất để
 - [X] `direction.tsx`
 - [X] `drawer.tsx`
 - [X] `dropdown-menu.tsx`
-- [ ] `empty.tsx`
-- [ ] `field.tsx`
+- [X] `empty.tsx`
+- [X] `field.tsx`
 - [ ] `hover-card.tsx`
 - [ ] `input-group.tsx`
 - [ ] `input-otp.tsx`

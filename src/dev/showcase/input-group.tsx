@@ -38,8 +38,7 @@ export default function InputGroupShowcase() {
           label="URL Input"
           description="Đầu vào với các phần bổ sung tiền tố và hậu tố."
         >
-          <div className="w-full max-w-md">
-            <Field size={globalSize}>
+          <Field size={globalSize} className="w-full max-w-md">
               <FieldLabel htmlFor="tf-group">Website</FieldLabel>
               <FieldDescription>
                 Combine text inputs with addons for things like URLs or prices.
@@ -56,15 +55,13 @@ export default function InputGroupShowcase() {
                 </InputGroup>
               </FieldContent>
             </Field>
-          </div>
         </ExampleSection>
 
         <ExampleSection
           label="With Button"
           description="Đầu vào kết hợp với một nút hành động."
         >
-          <div className="w-full max-w-md">
-            <Field size={globalSize}>
+            <Field size={globalSize} className="w-full max-w-md">
               <FieldLabel htmlFor="tf-search">Search</FieldLabel>
               <FieldContent>
                 <InputGroup size={globalSize}>
@@ -77,7 +74,6 @@ export default function InputGroupShowcase() {
                 </InputGroup>
               </FieldContent>
             </Field>
-          </div>
         </ExampleSection>
       </ExampleGrid>
 
@@ -85,8 +81,7 @@ export default function InputGroupShowcase() {
         label="With Textarea"
         description="Nhóm đầu vào được áp dụng cho thành phần vùng văn bản."
       >
-        <div className="w-full max-w-md">
-          <Field size={globalSize}>
+          <Field size={globalSize} className="w-full max-w-md">
             <FieldLabel htmlFor="tf-comment">Comment</FieldLabel>
             <FieldContent>
               <InputGroup size={globalSize} className="h-auto">
@@ -101,7 +96,6 @@ export default function InputGroupShowcase() {
               </InputGroup>
             </FieldContent>
             </Field>
-        </div>
       </ExampleSection>
 
       <ExampleSection

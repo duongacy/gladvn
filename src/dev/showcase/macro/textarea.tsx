@@ -70,7 +70,32 @@ export default function MacroTextareaShowcase() {
           />
         </ExampleSection>
 
-        <ExampleSection label="Character Count" description="Giới hạn ký tự với đếm ngược — use case phổ biến trong B2B.">
+        <ExampleSection 
+          label="Character Count" 
+          description="Giới hạn ký tự với đếm ngược — use case phổ biến trong B2B."
+          codeString={`const [bio, setBio] = useState("");
+const maxLength = 280;
+
+return (
+  <TextareaPreset
+    label="Bio"
+    description={
+      <span className="flex justify-between">
+        <span>Mô tả ngắn gọn về bản thân bạn.</span>
+        <span className={bio.length > maxLength ? "text-destructive font-medium" : ""}>
+          {bio.length}/{maxLength}
+        </span>
+      </span>
+    }
+    placeholder="I'm a developer who loves..."
+    value={bio}
+    onChange={(e) => setBio(e.target.value)}
+    maxLength={maxLength}
+    errorMessage={bio.length > maxLength ? \`Exceeded by \${bio.length - maxLength} characters.\` : undefined}
+    rows={4}
+  />
+);`}
+        >
           <div className="w-full max-w-sm">
             <TextareaPreset
               label="Bio"

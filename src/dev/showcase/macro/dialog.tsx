@@ -136,6 +136,28 @@ export default function MacroDialogShowcase() {
         <ExampleSection
           label="Controlled State"
           description="Sử dụng open và onOpenChange để quản lý trạng thái đóng mở bằng React state."
+          codeString={`const [controlledOpen, setControlledOpen] = useState(false);
+          
+return (
+  <>
+    <Button onClick={() => setControlledOpen(true)} variant="outline">
+      Open Controlled Dialog
+    </Button>
+    <DialogPreset
+      open={controlledOpen}
+      onOpenChange={setControlledOpen}
+      title="Controlled Dialog"
+      description="Trạng thái của hộp thoại này được quản lý hoàn toàn bởi React state bên ngoài."
+      footer={
+        <Button color="primary" onClick={() => setControlledOpen(false)}>
+          Close Manually
+        </Button>
+      }
+    >
+      <p className="text-sm text-foreground">Bạn có thể đóng bằng nút bên dưới hoặc dấu X.</p>
+    </DialogPreset>
+  </>
+);`}
         >
           <div className="w-full flex flex-col gap-4 items-center justify-center">
             <div className="flex gap-4 items-center">

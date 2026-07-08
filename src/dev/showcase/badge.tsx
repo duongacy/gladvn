@@ -18,113 +18,155 @@ export default function BadgeShowcase() {
       <ExampleSection
         label="Variants"
         description="Tất cả các kiểu hiển thị hiện có."
+        codeString={`<Badge variant="solid">Solid</Badge>
+<Badge variant="soft">Soft</Badge>
+<Badge variant="outline">Outline</Badge>`}
       >
-        <div className="flex flex-wrap gap-3">
-          <Badge variant="solid">Solid</Badge>
-          <Badge variant="soft">Soft</Badge>
-          <Badge variant="outline">Outline</Badge>
-        </div>
+        <Badge variant="solid">Solid</Badge>
+        <Badge variant="soft">Soft</Badge>
+        <Badge variant="outline">Outline</Badge>
       </ExampleSection>
 
       {/* ── Colors ── */}
-      <ExampleSection
-        label="Colors"
-        description="Mã thông báo màu ngữ nghĩa được áp dụng cho huy hiệu."
-      >
-        <div className="flex flex-col gap-4">
-          <div className="flex flex-wrap gap-3">
-            <Badge color="primary">Primary</Badge>
-            <Badge color="secondary">Secondary</Badge>
-            <Badge color="destructive">Destructive</Badge>
-            <Badge color="warning">Warning</Badge>
-            <Badge color="success">Success</Badge>
-            <Badge color="info">Info</Badge>
-            <Badge color="muted">Muted</Badge>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            <Badge variant="soft" color="primary">Primary</Badge>
-            <Badge variant="soft" color="secondary">Secondary</Badge>
-            <Badge variant="soft" color="destructive">Destructive</Badge>
-            <Badge variant="soft" color="warning">Warning</Badge>
-            <Badge variant="soft" color="success">Success</Badge>
-            <Badge variant="soft" color="info">Info</Badge>
-            <Badge variant="soft" color="muted">Muted</Badge>
-          </div>
-        </div>
-      </ExampleSection>
+      <ExampleGrid columns={1}>
+        <ExampleSection
+          label="Solid Colors"
+          description="Mã thông báo màu ngữ nghĩa được áp dụng cho huy hiệu (Solid)."
+          codeString={`<Badge color="primary">Primary</Badge>
+<Badge color="secondary">Secondary</Badge>
+<Badge color="destructive">Destructive</Badge>
+<Badge color="warning">Warning</Badge>
+<Badge color="success">Success</Badge>
+<Badge color="info">Info</Badge>
+<Badge color="muted">Muted</Badge>`}
+        >
+          <Badge color="primary">Primary</Badge>
+          <Badge color="secondary">Secondary</Badge>
+          <Badge color="destructive">Destructive</Badge>
+          <Badge color="warning">Warning</Badge>
+          <Badge color="success">Success</Badge>
+          <Badge color="info">Info</Badge>
+          <Badge color="muted">Muted</Badge>
+        </ExampleSection>
+        
+        <ExampleSection
+          label="Soft Colors"
+          description="Mã thông báo màu ngữ nghĩa được áp dụng cho huy hiệu (Soft)."
+          codeString={`<Badge variant="soft" color="primary">Primary</Badge>
+<Badge variant="soft" color="secondary">Secondary</Badge>
+<Badge variant="soft" color="destructive">Destructive</Badge>
+<Badge variant="soft" color="warning">Warning</Badge>
+<Badge variant="soft" color="success">Success</Badge>
+<Badge variant="soft" color="info">Info</Badge>
+<Badge variant="soft" color="muted">Muted</Badge>`}
+        >
+          <Badge variant="soft" color="primary">Primary</Badge>
+          <Badge variant="soft" color="secondary">Secondary</Badge>
+          <Badge variant="soft" color="destructive">Destructive</Badge>
+          <Badge variant="soft" color="warning">Warning</Badge>
+          <Badge variant="soft" color="success">Success</Badge>
+          <Badge variant="soft" color="info">Info</Badge>
+          <Badge variant="soft" color="muted">Muted</Badge>
+        </ExampleSection>
+      </ExampleGrid>
 
       {/* ── With Icons ── */}
       <ExampleSection
         label="With Icons"
         description="Huy hiệu có biểu tượng nội tuyến để bổ sung ngữ cảnh."
+        codeString={`<Badge color="success">
+  <CheckIcon className="size-3.5" />
+  Approved
+</Badge>
+
+<Badge color="destructive">
+  <XIcon className="size-3.5" />
+  Rejected
+</Badge>
+
+<Badge color="warning" variant="soft">
+  <AlertTriangleIcon className="size-3.5" />
+  Pending
+</Badge>
+
+<Badge color="info" variant="outline">
+  <InfoIcon className="size-3.5" />
+  Draft
+</Badge>`}
       >
-        <div className="flex flex-wrap gap-3">
-          <Badge color="success">
-            <CheckIcon className="size-3.5" />
-            Approved
-          </Badge>
-          <Badge color="destructive">
-            <XIcon className="size-3.5" />
-            Rejected
-          </Badge>
-          <Badge color="warning" variant="soft">
-            <AlertTriangleIcon className="size-3.5" />
-            Pending
-          </Badge>
-          <Badge color="info" variant="outline">
-            <InfoIcon className="size-3.5" />
-            Draft
-          </Badge>
-        </div>
+        <Badge color="success">
+          <CheckIcon className="size-3.5" />
+          Approved
+        </Badge>
+        <Badge color="destructive">
+          <XIcon className="size-3.5" />
+          Rejected
+        </Badge>
+        <Badge color="warning" variant="soft">
+          <AlertTriangleIcon className="size-3.5" />
+          Pending
+        </Badge>
+        <Badge color="info" variant="outline">
+          <InfoIcon className="size-3.5" />
+          Draft
+        </Badge>
       </ExampleSection>
 
       {/* ── Real-world Use Cases ── */}
-      <ExampleSection
-        label="Use Cases"
-        description="Các mẫu huy hiệu phổ biến trong thế giới thực."
-      >
-        <ExampleGrid columns={2}>
-          <div className="flex flex-col gap-3">
-            <span className="text-sm text-muted-foreground font-medium">
-              Status indicators
-            </span>
-            <div className="flex flex-wrap gap-2">
-              <Badge color="success" variant="soft">Active</Badge>
-              <Badge color="secondary" variant="soft">Inactive</Badge>
-              <Badge color="destructive" variant="soft">Expired</Badge>
-              <Badge color="muted" variant="outline">Archived</Badge>
-            </div>
-          </div>
-          <div className="flex flex-col gap-3">
-            <span className="text-sm text-muted-foreground font-medium">
-              Tags & categories
-            </span>
-            <div className="flex flex-wrap gap-2">
-              <Badge variant="outline" color="primary">React</Badge>
-              <Badge variant="outline" color="secondary">TypeScript</Badge>
-              <Badge variant="outline" color="info">Tailwind</Badge>
-              <Badge variant="outline" color="warning">Vite</Badge>
-            </div>
-          </div>
-        </ExampleGrid>
-      </ExampleSection>
+      <ExampleGrid columns={2}>
+        <ExampleSection
+          label="Status Indicators"
+          description="Dùng để hiển thị trạng thái."
+          codeString={`<Badge color="success" variant="soft">Active</Badge>
+<Badge color="secondary" variant="soft">Inactive</Badge>
+<Badge color="destructive" variant="soft">Expired</Badge>
+<Badge color="muted" variant="outline">Archived</Badge>`}
+        >
+          <Badge color="success" variant="soft">Active</Badge>
+          <Badge color="secondary" variant="soft">Inactive</Badge>
+          <Badge color="destructive" variant="soft">Expired</Badge>
+          <Badge color="muted" variant="outline">Archived</Badge>
+        </ExampleSection>
+        <ExampleSection
+          label="Tags & Categories"
+          description="Dùng để hiển thị danh mục."
+          codeString={`<Badge variant="outline" color="primary">React</Badge>
+<Badge variant="outline" color="secondary">TypeScript</Badge>
+<Badge variant="outline" color="info">Tailwind</Badge>
+<Badge variant="outline" color="warning">Vite</Badge>`}
+        >
+          <Badge variant="outline" color="primary">React</Badge>
+          <Badge variant="outline" color="secondary">TypeScript</Badge>
+          <Badge variant="outline" color="info">Tailwind</Badge>
+          <Badge variant="outline" color="warning">Vite</Badge>
+        </ExampleSection>
+      </ExampleGrid>
 
       {/* ── As Link ── */}
       <ExampleSection
         label="As Link"
         description="Huy hiệu được hiển thị dưới dạng phần tử neo bằng cách sử dụng giá trị hiển thị."
+        codeString={`<Badge render={<a href="#" />}>
+  Clickable Badge
+</Badge>
+
+<Badge color="secondary" render={<a href="#" />}>
+  Secondary Link
+</Badge>
+
+<Badge variant="outline" render={<a href="#" />}>
+  Outline Link
+</Badge>`}
       >
-        <div className="flex flex-wrap gap-3">
-          <Badge render={<a href="#" />}>
-            Clickable Badge
-          </Badge>
-          <Badge color="secondary" render={<a href="#" />}>
-            Secondary Link
-          </Badge>
-          <Badge variant="outline" render={<a href="#" />}>
-            Outline Link
-          </Badge>
-        </div>
+        <Badge render={<a href="#" />}>
+          Clickable Badge
+        </Badge>
+        <Badge color="secondary" render={<a href="#" />}>
+          Secondary Link
+        </Badge>
+        <Badge variant="outline" render={<a href="#" />}>
+          Outline Link
+        </Badge>
       </ExampleSection>
     </div>
   );

@@ -79,6 +79,17 @@ export default function MacroAccordionShowcase() {
         <ExampleSection
           label="Controlled"
           description="Trạng thái mở được quản lý bằng state. Click vào các mục để xem state thay đổi."
+          codeString={`const [controlledValue, setControlledValue] = useState<string[]>([]);
+          
+return (
+  <AccordionPreset
+    className="w-full"
+    multiple
+    value={controlledValue}
+    onValueChange={setControlledValue}
+    items={faqItems}
+  />
+);`}
         >
           <div className="flex w-full flex-col gap-3">
             <p className="text-xs text-muted-foreground">

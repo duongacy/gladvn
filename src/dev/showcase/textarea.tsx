@@ -39,8 +39,7 @@ export default function TextareaShowcase() {
         label="Standard"
         description="Trường nhập văn bản nhiều dòng cơ bản với nhãn và mô tả."
       >
-        <div className="w-full max-w-sm">
-          <Field size={globalSize}>
+          <Field size={globalSize} className="w-full max-w-sm">
             <FieldLabel htmlFor="tf-textarea">Biography</FieldLabel>
             <FieldDescription>
               A standard textarea for long strings.
@@ -54,7 +53,6 @@ export default function TextareaShowcase() {
               />
             </FieldContent>
           </Field>
-        </div>
       </ExampleSection>
 
       <ExampleGrid columns={2}>
@@ -63,8 +61,7 @@ export default function TextareaShowcase() {
           label="Auto Resize (field-sizing-content)"
           description="Tự động giãn chiều cao theo nội dung nhờ CSS field-sizing-content."
         >
-          <div className="w-full max-w-sm">
-            <Field size={globalSize}>
+            <Field size={globalSize} className="w-full max-w-sm">
               <FieldLabel htmlFor="tf-autoresize">Notes</FieldLabel>
               <FieldContent>
                 <Textarea
@@ -75,7 +72,6 @@ export default function TextareaShowcase() {
                 />
               </FieldContent>
             </Field>
-          </div>
         </ExampleSection>
 
         {/* ── Invalid State ───────────────────────── */}
@@ -83,8 +79,7 @@ export default function TextareaShowcase() {
           label="Invalid State"
           description="Trạng thái lỗi với viền đỏ và focus ring đỏ."
         >
-          <div className="w-full max-w-sm">
-            <Field size={globalSize}>
+            <Field size={globalSize} className="w-full max-w-sm">
               <FieldLabel htmlFor="tf-invalid">Complaint</FieldLabel>
               <FieldContent>
                 <Textarea
@@ -97,7 +92,6 @@ export default function TextareaShowcase() {
                 />
               </FieldContent>
             </Field>
-          </div>
         </ExampleSection>
       </ExampleGrid>
 
@@ -107,8 +101,7 @@ export default function TextareaShowcase() {
           label="Disabled"
           description="Trạng thái vùng văn bản không tương tác."
         >
-          <div className="w-full max-w-sm">
-            <Field size={globalSize}>
+            <Field size={globalSize} className="w-full max-w-sm">
               <FieldLabel htmlFor="tf-disabled-textarea">
                 Disabled Biography
               </FieldLabel>
@@ -122,7 +115,6 @@ export default function TextareaShowcase() {
                 />
               </FieldContent>
             </Field>
-          </div>
         </ExampleSection>
 
         {/* ── InputGroupTextarea ──────────────────── */}
@@ -130,8 +122,7 @@ export default function TextareaShowcase() {
           label="InputGroup + Textarea"
           description="Textarea bên trong InputGroup với các phần bổ sung."
         >
-          <div className="w-full max-w-sm">
-            <Field size={globalSize}>
+            <Field size={globalSize} className="w-full max-w-sm">
               <FieldLabel htmlFor="tf-group-textarea">Message</FieldLabel>
               <FieldContent>
                 <InputGroup size={globalSize} className="items-start">
@@ -146,7 +137,6 @@ export default function TextareaShowcase() {
                 </InputGroup>
               </FieldContent>
             </Field>
-          </div>
         </ExampleSection>
       </ExampleGrid>
     </div>

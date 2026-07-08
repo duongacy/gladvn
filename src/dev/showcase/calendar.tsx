@@ -43,7 +43,18 @@ export default function CalendarShowcase() {
 
       <ExampleGrid columns={2}>
         {/* ── Single Date ── */}
-        <ExampleSection label="Single Date" description="Chọn một ngày duy nhất.">
+        <ExampleSection 
+          label="Single Date" 
+          description="Chọn một ngày duy nhất."
+          codeString={`const [date, setDate] = React.useState<Date | undefined>(new Date())
+
+<Calendar
+  mode="single"
+  selected={date}
+  onSelect={setDate}
+  className="rounded-xl border shadow"
+/>`}
+        >
           <div className="border rounded-xl inline-block bg-card p-3">
             <Calendar
               size={globalSize}
@@ -59,6 +70,17 @@ export default function CalendarShowcase() {
         <ExampleSection
           label="Date Range"
           description="Chọn một phạm vi ngày."
+          codeString={`const [date, setDate] = React.useState<DateRange | undefined>({
+  from: new Date(2026, 5, 15),
+  to: new Date(2026, 5, 25),
+})
+
+<Calendar
+  mode="range"
+  selected={date}
+  onSelect={setDate}
+  className="rounded-xl border shadow"
+/>`}
         >
           <div className="border rounded-xl inline-block bg-card p-3">
             <Calendar
@@ -77,6 +99,14 @@ export default function CalendarShowcase() {
         <ExampleSection
           label="Multiple Dates"
           description="Chọn nhiều ngày rời rạc (mode='multiple')."
+          codeString={`const [dates, setDates] = React.useState<Date[] | undefined>([])
+
+<Calendar
+  mode="multiple"
+  selected={dates}
+  onSelect={setDates}
+  className="rounded-xl border shadow"
+/>`}
         >
           <div className="border rounded-xl inline-block bg-card p-3">
             <Calendar
@@ -93,6 +123,11 @@ export default function CalendarShowcase() {
         <ExampleSection
           label="Disabled Dates"
           description="Vô hiệu hóa chọn ngày (VD: ngày trong quá khứ)."
+          codeString={`<Calendar
+  mode="single"
+  disabled={(date) => date < new Date()}
+  className="rounded-xl border shadow"
+/>`}
         >
           <div className="border rounded-xl inline-block bg-card p-3">
             <Calendar
@@ -110,6 +145,13 @@ export default function CalendarShowcase() {
       <ExampleSection
         label="Two Months"
         description="Hiển thị 2 tháng liền kề (numberOfMonths=2) thường dùng cho Date Range."
+        codeString={`<Calendar
+  mode="range"
+  selected={date}
+  onSelect={setDate}
+  numberOfMonths={2}
+  className="rounded-xl border shadow"
+/>`}
       >
         <div className="border rounded-xl inline-block bg-card p-3 overflow-x-auto max-w-full">
           <Calendar
@@ -127,6 +169,11 @@ export default function CalendarShowcase() {
       <ExampleSection
         label="With Navigation"
         description="Lịch với điều hướng thả xuống cho tháng/năm."
+        codeString={`<Calendar
+  mode="single"
+  captionLayout="dropdown"
+  className="rounded-xl border shadow"
+/>`}
       >
         <div className="border rounded-xl inline-block bg-card p-3">
           <Calendar

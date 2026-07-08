@@ -36,6 +36,20 @@ export default function SwitchShowcase() {
         <ExampleSection
           label="Standard"
           description="Được sử dụng cho các hành động chuyển đổi ngay lập tức."
+          codeString={`<div className="w-full max-w-sm space-y-4">
+  <Field orientation="horizontal" className="justify-between">
+    <FieldLabel htmlFor="switch-notif">Notifications</FieldLabel>
+    <Switch id="switch-notif" defaultChecked><SwitchThumb /></Switch>
+  </Field>
+  <Field orientation="horizontal" className="justify-between">
+    <FieldLabel htmlFor="switch-dark">Dark Mode</FieldLabel>
+    <Switch id="switch-dark"><SwitchThumb /></Switch>
+  </Field>
+  <Field orientation="horizontal" className="justify-between">
+    <FieldLabel htmlFor="switch-auto">Auto-save</FieldLabel>
+    <Switch id="switch-auto"><SwitchThumb /></Switch>
+  </Field>
+</div>`}
         >
           <div className="w-full max-w-sm space-y-4">
             {["Notifications", "Dark Mode", "Auto-save"].map((item, i) => (

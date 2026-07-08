@@ -83,6 +83,25 @@ export default function MacroAlertShowcase() {
           label="Controlled"
           description="Quản lý trạng thái đóng mở thông qua state bên ngoài bằng React (Conditional Rendering)."
           fullWidth
+          codeString={`const [controlledOpen, setControlledOpen] = useState(true);
+          
+return (
+  <>
+    <Button size="sm" variant="outline" onClick={() => setControlledOpen(true)} disabled={controlledOpen}>
+      Mở lại Alert
+    </Button>
+    {controlledOpen && (
+      <AlertPreset 
+        color="destructive" 
+        title="Bảo trì hệ thống" 
+        description="Hệ thống sẽ tạm ngừng hoạt động để bảo trì vào lúc nửa đêm." 
+        icon={<TriangleAlertIcon />}
+        dismissible
+        onDismiss={() => setControlledOpen(false)}
+      />
+    )}
+  </>
+);`}
         >
           <div className="flex w-full flex-col gap-3">
             <div className="flex items-center justify-between">

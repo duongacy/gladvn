@@ -33,8 +33,7 @@ export default function SelectShowcase() {
 
       <ExampleGrid columns={2}>
         <ExampleSection label="Standard" description="Chọn thả xuống tùy chỉnh.">
-          <div className="w-full max-w-sm">
-            <Field size={globalSize}>
+          <Field size={globalSize} className="w-full max-w-sm">
               <FieldLabel>Framework</FieldLabel>
               <FieldContent>
                 <Select items={{ "next": "Next.js", "vite": "Vite", "remix": "Remix", "astro": "Astro" }}>
@@ -54,16 +53,14 @@ export default function SelectShowcase() {
               <FieldDescription>
                 Choose your preferred tech stack.
               </FieldDescription>
-            </Field>
-          </div>
+          </Field>
         </ExampleSection>
 
         <ExampleSection
           label="Grouped"
           description="Các tùy chọn được nhóm trực quan bằng nhãn."
         >
-          <div className="w-full max-w-sm">
-            <Field size={globalSize}>
+          <Field size={globalSize} className="w-full max-w-sm">
               <FieldLabel>Fruit</FieldLabel>
               <FieldContent>
                 <Select items={{ "orange": "Orange", "lemon": "Lemon", "strawberry": "Strawberry", "blueberry": "Blueberry" }}>
@@ -85,8 +82,7 @@ export default function SelectShowcase() {
                   </SelectContent>
                 </Select>
               </FieldContent>
-            </Field>
-          </div>
+          </Field>
         </ExampleSection>
       </ExampleGrid>
     </div>

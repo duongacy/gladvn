@@ -25,6 +25,28 @@ export default function SidebarShowcase() {
         label="Dumb Component Architecture"
         description="Sidebar không có transition width, sử dụng display: none để ẩn ngay lập tức, không gây hiệu ứng giật khung."
         fullWidth
+        codeString={`const { sidebarRef, toggleSidebar, defaultState } = useSidebarToggle("expanded");
+
+return (
+  <div className="flex h-[500px] w-full">
+    <Sidebar ref={sidebarRef} defaultState={defaultState} expandedWidth={300}>
+      <SidebarLogo icon={<Package2Icon />} text="Acme Corp" />
+      <div className="flex-1 py-2 flex flex-col gap-4">
+        <div className="flex flex-col gap-1">
+          <SidebarLabel icon={<FolderIcon />} text="Projects" />
+          <SidebarMenuItemList>
+            <SidebarMenuItem text="Active Projects" />
+            <SidebarMenuItem text="Archived Projects" />
+            <SidebarMenuItem text="Templates" />
+          </SidebarMenuItemList>
+        </div>
+      </div>
+    </Sidebar>
+    <main className="flex-1 p-6">
+      <button onClick={toggleSidebar}>Toggle Sidebar</button>
+    </main>
+  </div>
+);`}
       >
         <div className="rounded-xl border overflow-hidden flex h-[500px] w-full bg-background">
           <Sidebar ref={sidebarRef} defaultState={defaultState} expandedWidth={300}>

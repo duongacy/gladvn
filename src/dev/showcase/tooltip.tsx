@@ -31,7 +31,7 @@ export default function TooltipShowcase() {
         label="Placements"
         description="Tooltips can be positioned on any side of the trigger."
       >
-        <ExampleGrid columns={2}>
+        <div className="grid grid-cols-2 gap-4">
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger
@@ -69,7 +69,7 @@ export default function TooltipShowcase() {
               <TooltipContent side="right">Tooltip on right</TooltipContent>
             </Tooltip>
           </TooltipProvider>
-        </ExampleGrid>
+        </div>
       </ExampleSection>
 
       <ExampleGrid columns={2}>
@@ -123,7 +123,7 @@ export default function TooltipShowcase() {
         label="Custom Delay"
         description="You can customize the delay before the tooltip appears using the delay prop on the Provider."
       >
-        <ExampleGrid columns={3}>
+        <div className="grid grid-cols-3 gap-4">
           <TooltipProvider delay={0}>
             <Tooltip>
               <TooltipTrigger
@@ -156,7 +156,7 @@ export default function TooltipShowcase() {
               <TooltipContent>Takes a while to appear</TooltipContent>
             </Tooltip>
           </TooltipProvider>
-        </ExampleGrid>
+        </div>
       </ExampleSection>
     </div>
   );

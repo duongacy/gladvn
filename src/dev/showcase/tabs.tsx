@@ -85,8 +85,7 @@ export default function TabsShowcase() {
         description="Tabs có kiểu gạch chân thay vì nền."
         fullWidth
       >
-        <div className="max-w-lg">
-          <Tabs defaultValue="music" className="w-full">
+        <Tabs defaultValue="music" className="w-full max-w-lg">
             <TabsList
               variant="line"
               className="w-full justify-start border-b rounded-none px-0"
@@ -120,7 +119,6 @@ export default function TabsShowcase() {
               </div>
             </TabsContent>
           </Tabs>
-        </div>
       </ExampleSection>
 
       <ExampleSection
@@ -128,8 +126,7 @@ export default function TabsShowcase() {
         description="Tabs kết hợp biểu tượng và nhãn."
         fullWidth
       >
-        <div className="max-w-lg">
-          <Tabs defaultValue="profile" className="w-full">
+          <Tabs defaultValue="profile" className="w-full max-w-lg">
             <TabsList className="w-full">
               <TabsTrigger value="profile">
                 <UserIcon data-icon="inline-start" />
@@ -169,7 +166,6 @@ export default function TabsShowcase() {
               </div>
             </TabsContent>
           </Tabs>
-        </div>
       </ExampleSection>
 
       <ExampleSection
@@ -177,11 +173,10 @@ export default function TabsShowcase() {
         description="Tabs xếp dọc với nội dung bên phải."
         fullWidth
       >
-        <div className="max-w-xl">
           <Tabs
             defaultValue="profile"
             orientation="vertical"
-            className="w-full"
+            className="w-full max-w-xl"
           >
             <TabsList className="w-40 shrink-0">
               <TabsTrigger value="profile">
@@ -223,7 +218,6 @@ export default function TabsShowcase() {
               </div>
             </TabsContent>
           </Tabs>
-        </div>
       </ExampleSection>
     </div>
   );

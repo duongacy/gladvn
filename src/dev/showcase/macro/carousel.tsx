@@ -107,7 +107,24 @@ export default function MacroCarouselShowcase() {
       </ExampleGrid>
 
       <ExampleGrid columns={1}>
-        <ExampleSection label="Controlled Mode" description="Điều khiển slide đang hoạt động bằng trạng thái React (index và onIndexChange).">
+        <ExampleSection 
+          label="Controlled Mode" 
+          description="Điều khiển slide đang hoạt động bằng trạng thái React (index và onIndexChange)."
+          codeString={`const [index, setIndex] = useState(0);
+
+return (
+  <CarouselPreset
+    index={index}
+    onIndexChange={setIndex}
+    showDots={false}
+    items={[
+      { id: "c1", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-slate-100 dark:bg-slate-800 rounded-lg"><span className="text-4xl font-semibold">1</span></div></div> },
+      { id: "c2", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-slate-100 dark:bg-slate-800 rounded-lg"><span className="text-4xl font-semibold">2</span></div></div> },
+      { id: "c3", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-slate-100 dark:bg-slate-800 rounded-lg"><span className="text-4xl font-semibold">3</span></div></div> },
+    ]}
+  />
+);`}
+        >
           <ControlledCarouselDemo />
         </ExampleSection>
       </ExampleGrid>

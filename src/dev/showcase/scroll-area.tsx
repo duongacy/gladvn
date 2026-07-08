@@ -18,6 +18,15 @@ export default function ScrollAreaShowcase() {
         <ExampleSection
           label="Vertical"
           description="Danh sách các mục có thể cuộn."
+          codeString={`<ScrollArea className="h-72 w-full max-w-sm rounded-xl border bg-card">
+  <div className="p-4">
+    <h4 className="mb-4 text-sm font-medium leading-none">Settings</h4>
+    <div className="text-sm py-2 border-b">Option 1</div>
+    <div className="text-sm py-2 border-b">Option 2</div>
+    <div className="text-sm py-2 border-b">Option 3</div>
+    {/* ... */}
+  </div>
+</ScrollArea>`}
         >
           <ScrollArea className="h-72 w-full max-w-sm rounded-xl border bg-card">
             <div className="p-4">
@@ -36,6 +45,19 @@ export default function ScrollAreaShowcase() {
         <ExampleSection
           label="Horizontal"
           description="Thư viện cuộn ngang."
+          codeString={`<ScrollArea className="w-full max-w-sm whitespace-nowrap rounded-xl border bg-card p-4">
+  <div className="flex w-max space-x-4">
+    <div className="w-[150px] shrink-0">
+      <div className="overflow-hidden rounded-md bg-muted aspect-[3/4] mb-2 flex items-center justify-center">
+        <span className="text-xs text-muted-foreground">Artwork 1</span>
+      </div>
+      <p className="text-sm font-medium">Title 1</p>
+      <p className="text-xs text-muted-foreground">Artist 1</p>
+    </div>
+    {/* ... */}
+  </div>
+  <ScrollBar orientation="horizontal" />
+</ScrollArea>`}
         >
           <ScrollArea className="w-full max-w-sm whitespace-nowrap rounded-xl border bg-card p-4">
             <div className="flex w-max space-x-4">

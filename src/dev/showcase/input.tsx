@@ -36,8 +36,7 @@ export default function InputShowcase() {
         label="Default"
         description="Nhập văn bản cơ bản với nhãn và mô tả."
       >
-        <div className="w-full max-w-sm">
-          <Field size={globalSize}>
+          <Field size={globalSize} className="w-full max-w-sm">
             <FieldLabel htmlFor="tf-input">Email</FieldLabel>
             <FieldDescription>We'll never share your email.</FieldDescription>
             <FieldContent>
@@ -48,7 +47,6 @@ export default function InputShowcase() {
               />
             </FieldContent>
           </Field>
-        </div>
       </ExampleSection>
 
       <ExampleGrid columns={2}>
@@ -57,8 +55,7 @@ export default function InputShowcase() {
           label="Input Group"
           description="Đầu vào với các phần bổ sung tiền tố và hậu tố."
         >
-          <div className="w-full max-w-sm">
-            <Field size={globalSize}>
+            <Field size={globalSize} className="w-full max-w-sm">
               <FieldLabel htmlFor="tf-group">Website</FieldLabel>
               <FieldContent>
                 <InputGroup size={globalSize}>
@@ -72,7 +69,6 @@ export default function InputShowcase() {
                 </InputGroup>
               </FieldContent>
             </Field>
-          </div>
         </ExampleSection>
 
         {/* ── Disabled ─────────────────────────────── */}
@@ -80,8 +76,7 @@ export default function InputShowcase() {
           label="Disabled"
           description="Trạng thái đầu vào không tương tác."
         >
-          <div className="w-full max-w-sm">
-            <Field size={globalSize}>
+            <Field size={globalSize} className="w-full max-w-sm">
               <FieldLabel htmlFor="tf-disabled">Locked</FieldLabel>
               <FieldContent>
                 <Input
@@ -92,7 +87,6 @@ export default function InputShowcase() {
                 />
               </FieldContent>
             </Field>
-          </div>
         </ExampleSection>
       </ExampleGrid>
     </div>

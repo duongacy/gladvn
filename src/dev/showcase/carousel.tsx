@@ -26,6 +26,20 @@ export default function CarouselShowcase() {
       <ExampleSection
         label="Hero Banner"
         description="Biểu ngữ có chiều rộng đầy đủ với điều hướng lớp phủ, mũi tên kính mờ và phân trang tương tác."
+        codeString={`<Carousel opts={{ loop: true }} className="group relative w-full overflow-hidden rounded-2xl shadow-xl border border-border/50">
+  <CarouselContent className="-ml-4">
+    <CarouselItem className="pl-4">
+      {/* ...slide content... */}
+    </CarouselItem>
+  </CarouselContent>
+  <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-between p-4 transition-opacity duration-300 sm:p-6">
+    <CarouselPrevious className="pointer-events-auto opacity-80 backdrop-blur-md hover:opacity-100 bg-background/50 border-white/20 text-foreground" />
+    <CarouselNext className="pointer-events-auto opacity-80 backdrop-blur-md hover:opacity-100 bg-background/50 border-white/20 text-foreground" />
+  </div>
+  <div className="absolute bottom-4 left-0 right-0 z-10">
+    <CarouselDots className="[&>[data-slot=carousel-dot][data-active]]:bg-white [&>[data-slot=carousel-dot]]:bg-white/40 hover:[&>[data-slot=carousel-dot]]:bg-white/60" />
+  </div>
+</Carousel>`}
       >
         <div className="mx-auto w-full max-w-4xl">
           <Carousel
@@ -62,6 +76,15 @@ export default function CarouselShowcase() {
       <ExampleSection
         label="Product Gallery"
         description="Băng chuyền gồm nhiều mục để hiển thị sản phẩm hoặc thẻ có hoạt ảnh vi mô."
+        codeString={`<Carousel opts={{ align: "start" }} className="w-full relative">
+  <CarouselContent className="-ml-4">
+    <CarouselItem className="pl-4 md:basis-1/2 lg:basis-1/3">
+      {/* ...product card... */}
+    </CarouselItem>
+  </CarouselContent>
+  <CarouselPrevious className="absolute -left-12 top-1/2 -translate-y-1/2 border-border shadow-sm hover:bg-accent" />
+  <CarouselNext className="absolute -right-12 top-1/2 -translate-y-1/2 border-border shadow-sm hover:bg-accent" />
+</Carousel>`}
       >
         <div className="mx-auto w-full max-w-5xl px-12">
           {/* Note the explicit positioning injected via Pure Composition for the arrows here */}
@@ -105,6 +128,16 @@ export default function CarouselShowcase() {
       <ExampleSection
         label="Compact layout"
         description="Bố cục băng chuyền nhỏ gọn có các dấu chấm, thường được sử dụng để làm quen hoặc hướng dẫn."
+        codeString={`<Carousel className="w-full">
+  <CarouselContent className="-ml-4">
+    <CarouselItem className="pl-4">
+      {/* ...compact card... */}
+    </CarouselItem>
+  </CarouselContent>
+  <div className="mt-4">
+    <CarouselDots />
+  </div>
+</Carousel>`}
       >
         <div className="mx-auto w-full max-w-sm">
           <Carousel className="w-full">
@@ -140,6 +173,15 @@ export default function CarouselShowcase() {
       <ExampleSection
         label="Vertical Orientation"
         description="Một băng chuyền cuộn theo chiều dọc. Lưu ý việc sử dụng pt-4 thay vì pl-4 cho các khoảng trống."
+        codeString={`<Carousel orientation="vertical" className="w-full">
+  <CarouselContent className="h-[400px] -mt-4">
+    <CarouselItem className="pt-4 basis-1/2">
+      {/* ...vertical card... */}
+    </CarouselItem>
+  </CarouselContent>
+  <CarouselPrevious className="absolute -top-12 left-1/2 -translate-x-1/2 rotate-90" />
+  <CarouselNext className="absolute -bottom-12 left-1/2 -translate-x-1/2 rotate-90" />
+</Carousel>`}
       >
         <div className="mx-auto w-full max-w-xs py-12 flex justify-center">
           <Carousel orientation="vertical" className="w-full">

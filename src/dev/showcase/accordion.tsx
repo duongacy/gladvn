@@ -92,6 +92,19 @@ export default function AccordionShowcase() {
         <ExampleSection
           label="Controlled"
           description="Trạng thái mở được quản lý bằng state. Click vào các mục để xem state thay đổi."
+          codeString={`const [controlledValue, setControlledValue] = useState<string[]>([]);
+
+<Accordion
+  className="w-full"
+  multiple
+  value={controlledValue}
+  onValueChange={setControlledValue}
+>
+  <AccordionItem value="item-1">
+    <AccordionTrigger>Question 1</AccordionTrigger>
+    <AccordionContent>Answer 1</AccordionContent>
+  </AccordionItem>
+</Accordion>`}
         >
           <div className="flex w-full flex-col gap-3">
             <p className="text-xs text-muted-foreground">

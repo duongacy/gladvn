@@ -52,48 +52,47 @@ export default function AlertShowcase() {
       <ExampleSection
         label="Màu Sắc Ngữ Nghĩa (Semantic Colors)"
         description="Mỗi màu sắc truyền đạt một mức độ khẩn cấp hoặc ý nghĩa khác nhau."
+        fullWidth
       >
-        <div className="flex w-full flex-col gap-4 max-w-xl">
-          <Alert color="info" size={globalSize} className="flex items-start">
-            <AlertIcon render={<InfoIcon />} className="mt-0.5 shrink-0" />
-            <div className="flex-1 space-y-0.5">
-              <AlertTitle>Có bản cập nhật mới</AlertTitle>
-              <AlertDescription>
-                Phiên bản 2.0.4 đã sẵn sàng để tải xuống. Hãy cập nhật để trải nghiệm tính năng mới.
-              </AlertDescription>
-            </div>
-          </Alert>
+        <Alert color="info" size={globalSize} className="flex items-start">
+          <AlertIcon render={<InfoIcon />} className="mt-0.5 shrink-0" />
+          <div className="flex-1 space-y-0.5">
+            <AlertTitle>Có bản cập nhật mới</AlertTitle>
+            <AlertDescription>
+              Phiên bản 2.0.4 đã sẵn sàng để tải xuống. Hãy cập nhật để trải nghiệm tính năng mới.
+            </AlertDescription>
+          </div>
+        </Alert>
 
-          <Alert color="success" size={globalSize} className="flex items-start">
-            <AlertIcon render={<CheckCircle2Icon />} className="mt-0.5 shrink-0" />
-            <div className="flex-1 space-y-0.5">
-              <AlertTitle>Đã lưu thành công</AlertTitle>
-              <AlertDescription>
-                Các thay đổi của bạn đã được đồng bộ lên đám mây.
-              </AlertDescription>
-            </div>
-          </Alert>
+        <Alert color="success" size={globalSize} className="flex items-start">
+          <AlertIcon render={<CheckCircle2Icon />} className="mt-0.5 shrink-0" />
+          <div className="flex-1 space-y-0.5">
+            <AlertTitle>Đã lưu thành công</AlertTitle>
+            <AlertDescription>
+              Các thay đổi của bạn đã được đồng bộ lên đám mây.
+            </AlertDescription>
+          </div>
+        </Alert>
 
-          <Alert color="warning" size={globalSize} className="flex items-start">
-            <AlertIcon render={<TriangleAlertIcon />} className="mt-0.5 shrink-0" />
-            <div className="flex-1 space-y-0.5">
-              <AlertTitle>Phiên bản sắp hết hạn</AlertTitle>
-              <AlertDescription>
-                Phiên đăng nhập của bạn sẽ hết hạn trong 5 phút nữa. Vui lòng lưu lại công việc.
-              </AlertDescription>
-            </div>
-          </Alert>
+        <Alert color="warning" size={globalSize} className="flex items-start">
+          <AlertIcon render={<TriangleAlertIcon />} className="mt-0.5 shrink-0" />
+          <div className="flex-1 space-y-0.5">
+            <AlertTitle>Phiên bản sắp hết hạn</AlertTitle>
+            <AlertDescription>
+              Phiên đăng nhập của bạn sẽ hết hạn trong 5 phút nữa. Vui lòng lưu lại công việc.
+            </AlertDescription>
+          </div>
+        </Alert>
 
-          <Alert color="destructive" size={globalSize} className="flex items-start">
-            <AlertIcon render={<XCircleIcon />} className="mt-0.5 shrink-0" />
-            <div className="flex-1 space-y-0.5">
-              <AlertTitle>Kết nối thất bại</AlertTitle>
-              <AlertDescription>
-                Không thể kết nối đến cơ sở dữ liệu. Vui lòng kiểm tra lại đường truyền mạng.
-              </AlertDescription>
-            </div>
-          </Alert>
-        </div>
+        <Alert color="destructive" size={globalSize} className="flex items-start">
+          <AlertIcon render={<XCircleIcon />} className="mt-0.5 shrink-0" />
+          <div className="flex-1 space-y-0.5">
+            <AlertTitle>Kết nối thất bại</AlertTitle>
+            <AlertDescription>
+              Không thể kết nối đến cơ sở dữ liệu. Vui lòng kiểm tra lại đường truyền mạng.
+            </AlertDescription>
+          </div>
+        </Alert>
       </ExampleSection>
 
       <ExampleGrid columns={2}>
@@ -103,17 +102,15 @@ export default function AlertShowcase() {
           description="Hiển thị Alert với màu sắc mặc định (info)."
           fullWidth
         >
-          <div className="w-full max-w-xl">
-            <Alert size={globalSize} className="flex items-start">
-              <AlertIcon render={<InfoIcon />} className="mt-0.5 shrink-0" />
-              <div className="flex-1 space-y-0.5">
-                <AlertTitle>Chú ý!</AlertTitle>
-                <AlertDescription>
-                  Bạn có thể thêm các component vào dự án bằng cách sử dụng CLI.
-                </AlertDescription>
-              </div>
-            </Alert>
-          </div>
+          <Alert size={globalSize} className="flex items-start">
+            <AlertIcon render={<InfoIcon />} className="mt-0.5 shrink-0" />
+            <div className="flex-1 space-y-0.5">
+              <AlertTitle>Chú ý!</AlertTitle>
+              <AlertDescription>
+                Bạn có thể thêm các component vào dự án bằng cách sử dụng CLI.
+              </AlertDescription>
+            </div>
+          </Alert>
         </ExampleSection>
 
         {/* ── With Action ───────────────────── */}
@@ -122,22 +119,20 @@ export default function AlertShowcase() {
           description="Alert kèm theo một nút tắt (dismiss) được đặt ở góc trên bên phải."
           fullWidth
         >
-          <div className="w-full max-w-xl">
-            <Alert color="info" size={globalSize} className="flex items-start relative">
-              <AlertIcon render={<InfoIcon />} className="mt-0.5 shrink-0" />
-              <div className="flex-1 space-y-0.5 pr-8">
-                <AlertTitle>Tính năng mới</AlertTitle>
-                <AlertDescription>
-                  Hãy khám phá trang thống kê dashboard hoàn toàn mới của chúng tôi.
-                </AlertDescription>
-              </div>
-              <AlertAction className="absolute right-1 top-1">
-                <Button variant="ghost" size="sm" className="size-6 p-0 group-data-[size=sm]/alert:size-5 group-data-[size=lg]/alert:size-7">
-                  <XIcon className="size-3.5 group-data-[size=sm]/alert:size-3 group-data-[size=lg]/alert:size-4" />
-                </Button>
-              </AlertAction>
-            </Alert>
-          </div>
+          <Alert color="info" size={globalSize} className="flex items-start relative">
+            <AlertIcon render={<InfoIcon />} className="mt-0.5 shrink-0" />
+            <div className="flex-1 space-y-0.5 pr-8">
+              <AlertTitle>Tính năng mới</AlertTitle>
+              <AlertDescription>
+                Hãy khám phá trang thống kê dashboard hoàn toàn mới của chúng tôi.
+              </AlertDescription>
+            </div>
+            <AlertAction className="absolute right-1 top-1">
+              <Button variant="ghost" size="sm" className="size-6 p-0 group-data-[size=sm]/alert:size-5 group-data-[size=lg]/alert:size-7">
+                <XIcon className="size-3.5 group-data-[size=sm]/alert:size-3 group-data-[size=lg]/alert:size-4" />
+              </Button>
+            </AlertAction>
+          </Alert>
         </ExampleSection>
       </ExampleGrid>
 
@@ -145,42 +140,40 @@ export default function AlertShowcase() {
       <ExampleSection
         label="Tối Giản (Minimal)"
         description="Alert chỉ có nội dung mô tả, không có tiêu đề."
+        fullWidth
       >
-        <div className="flex w-full flex-col gap-3 max-w-xl">
-          <Alert color="info" size={globalSize} className="flex items-start">
-            <AlertIcon render={<InfoIcon />} className="mt-0.5 shrink-0" />
-            <AlertDescription className="flex-1">
-              Bạn có thể thêm các component vào dự án bằng cách sử dụng CLI.
-            </AlertDescription>
-          </Alert>
-          <Alert color="warning" size={globalSize} className="flex items-start">
-            <AlertIcon render={<TriangleAlertIcon />} className="mt-0.5 shrink-0" />
-            <AlertDescription className="flex-1">
-              Bản dùng thử của bạn sẽ hết hạn trong 3 ngày nữa.
-            </AlertDescription>
-          </Alert>
-        </div>
+        <Alert color="info" size={globalSize} className="flex items-start">
+          <AlertIcon render={<InfoIcon />} className="mt-0.5 shrink-0" />
+          <AlertDescription className="flex-1">
+            Bạn có thể thêm các component vào dự án bằng cách sử dụng CLI.
+          </AlertDescription>
+        </Alert>
+        <Alert color="warning" size={globalSize} className="flex items-start">
+          <AlertIcon render={<TriangleAlertIcon />} className="mt-0.5 shrink-0" />
+          <AlertDescription className="flex-1">
+            Bản dùng thử của bạn sẽ hết hạn trong 3 ngày nữa.
+          </AlertDescription>
+        </Alert>
       </ExampleSection>
 
       {/* ── Text Only (no icon) ───────────────────── */}
       <ExampleSection
         label="Chỉ Có Chữ (Text Only)"
         description="Alert đơn giản không có icon — layout tự nhiên."
+        fullWidth
       >
-        <div className="flex w-full flex-col gap-3 max-w-xl">
-          <Alert color="success" size={globalSize} className="flex flex-col gap-0.5">
-            <AlertTitle>Thanh toán thành công</AlertTitle>
-            <AlertDescription>
-              Hoá đơn #1234 của bạn đã được thanh toán hoàn tất.
-            </AlertDescription>
-          </Alert>
-          <Alert color="destructive" size={globalSize} className="flex flex-col gap-0.5">
-            <AlertTitle>Tài khoản bị khoá</AlertTitle>
-            <AlertDescription>
-              Vui lòng liên hệ với bộ phận hỗ trợ để mở khoá tài khoản.
-            </AlertDescription>
-          </Alert>
-        </div>
+        <Alert color="success" size={globalSize} className="flex flex-col gap-0.5">
+          <AlertTitle>Thanh toán thành công</AlertTitle>
+          <AlertDescription>
+            Hoá đơn #1234 của bạn đã được thanh toán hoàn tất.
+          </AlertDescription>
+        </Alert>
+        <Alert color="destructive" size={globalSize} className="flex flex-col gap-0.5">
+          <AlertTitle>Tài khoản bị khoá</AlertTitle>
+          <AlertDescription>
+            Vui lòng liên hệ với bộ phận hỗ trợ để mở khoá tài khoản.
+          </AlertDescription>
+        </Alert>
       </ExampleSection>
     </div>
   );

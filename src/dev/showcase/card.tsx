@@ -125,33 +125,33 @@ export default function CardShowcase() {
         fullWidth
       >
         <ExampleGrid columns={3} className="w-full">
-          {[
-            {
-              title: "Total Revenue",
-              value: "$45,231.89",
-              desc: "+20.1% from last month",
-            },
-            {
-              title: "Subscriptions",
-              value: "+2,350",
-              desc: "+180.1% from last month",
-            },
-            {
-              title: "Active Now",
-              value: "+573",
-              desc: "+201 since last hour",
-            },
-          ].map((stat) => (
-            <Card key={stat.title} size={globalSize}>
-              <CardHeader>
-                <CardDescription>{stat.title}</CardDescription>
-                <CardTitle className="text-2xl">{stat.value}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-xs text-muted-foreground">{stat.desc}</p>
-              </CardContent>
-            </Card>
-          ))}
+          <Card size={globalSize}>
+            <CardHeader>
+              <CardDescription>Total Revenue</CardDescription>
+              <CardTitle className="text-2xl">$45,231.89</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-xs text-muted-foreground">+20.1% from last month</p>
+            </CardContent>
+          </Card>
+          <Card size={globalSize}>
+            <CardHeader>
+              <CardDescription>Subscriptions</CardDescription>
+              <CardTitle className="text-2xl">+2,350</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-xs text-muted-foreground">+180.1% from last month</p>
+            </CardContent>
+          </Card>
+          <Card size={globalSize}>
+            <CardHeader>
+              <CardDescription>Active Now</CardDescription>
+              <CardTitle className="text-2xl">+573</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-xs text-muted-foreground">+201 since last hour</p>
+            </CardContent>
+          </Card>
         </ExampleGrid>
       </ExampleSection>
     </div>

@@ -1,15 +1,15 @@
-import { useState } from "react";
 import {
-  SectionHeader,
-  ExampleSection,
   ExampleGrid,
+  ExampleSection,
+  SectionHeader,
 } from "@/dev/components/showcase";
-import { MailIcon, DownloadIcon, PlusIcon } from "lucide-react";
+import { DownloadIcon, MailIcon, PlusIcon } from "lucide-react";
+import { useState } from "react";
 
-import { type Size } from "@/lib/types";
+import { SelectPreset } from "@/components/macro/select-preset";
 import { Button, ButtonIcon } from "@/components/micro/button";
 import { Spinner } from "@/components/micro/spinner";
-import { SelectPreset } from "@/components/macro/select-preset";
+import { type Size } from "@/lib/types";
 
 export default function ButtonShowcase() {
   const [globalSize, setGlobalSize] = useState<Size>("md");
@@ -49,21 +49,21 @@ export default function ButtonShowcase() {
         label="Variants"
         description="Tất cả các kiểu hiển thị hiện có."
       >
-          <Button size={globalSize} variant="solid">
-            Solid
-          </Button>
-          <Button size={globalSize} variant="outline">
-            Outline
-          </Button>
-          <Button size={globalSize} variant="soft">
-            Soft
-          </Button>
-          <Button size={globalSize} variant="ghost">
-            Ghost
-          </Button>
-          <Button size={globalSize} variant="link">
-            Link
-          </Button>
+        <Button size={globalSize} variant="solid">
+          Solid
+        </Button>
+        <Button size={globalSize} variant="outline">
+          Outline
+        </Button>
+        <Button size={globalSize} variant="soft">
+          Soft
+        </Button>
+        <Button size={globalSize} variant="ghost">
+          Ghost
+        </Button>
+        <Button size={globalSize} variant="link">
+          Link
+        </Button>
       </ExampleSection>
 
       {/* ── Colors ── */}
@@ -71,33 +71,33 @@ export default function ButtonShowcase() {
         label="Colors"
         description="Màu sắc theo ngữ nghĩa đi kèm với biến thể solid."
       >
-          <Button size={globalSize} color="primary">
-            Primary
-          </Button>
-          <Button size={globalSize} color="secondary">
-            Secondary
-          </Button>
-          <Button size={globalSize} color="destructive">
-            Destructive
-          </Button>
-          <Button size={globalSize} color="warning">
-            Warning
-          </Button>
-          <Button size={globalSize} color="success">
-            Success
-          </Button>
-          <Button size={globalSize} color="info">
-            Info
-          </Button>
-          <Button size={globalSize} color="tertiary">
-            Tertiary
-          </Button>
-          <Button size={globalSize} color="muted">
-            Muted
-          </Button>
-          <Button size={globalSize} color="accent">
-            Accent
-          </Button>
+        <Button size={globalSize} color="primary">
+          Primary
+        </Button>
+        <Button size={globalSize} color="secondary">
+          Secondary
+        </Button>
+        <Button size={globalSize} color="destructive">
+          Destructive
+        </Button>
+        <Button size={globalSize} color="warning">
+          Warning
+        </Button>
+        <Button size={globalSize} color="success">
+          Success
+        </Button>
+        <Button size={globalSize} color="info">
+          Info
+        </Button>
+        <Button size={globalSize} color="tertiary">
+          Tertiary
+        </Button>
+        <Button size={globalSize} color="muted">
+          Muted
+        </Button>
+        <Button size={globalSize} color="accent">
+          Accent
+        </Button>
       </ExampleSection>
 
       {/* ── With Icon ── */}
@@ -106,29 +106,29 @@ export default function ButtonShowcase() {
           label="With Icon"
           description="Nút kèm biểu tượng ở đầu hoặc cuối."
         >
-            <Button size={globalSize} variant="outline">
-              <ButtonIcon render={<MailIcon />} />
-              Login with Email
-            </Button>
-            <Button size={globalSize}>
-              <ButtonIcon render={<DownloadIcon />} />
-              Download
-            </Button>
+          <Button size={globalSize} variant="outline">
+            <ButtonIcon render={<MailIcon />} />
+            Login with Email
+          </Button>
+          <Button size={globalSize}>
+            <ButtonIcon render={<DownloadIcon />} />
+            Download
+          </Button>
         </ExampleSection>
 
         <ExampleSection
           label="Icon Only"
           description="Nút hình vuông chỉ chứa biểu tượng."
         >
-            <Button size={globalSize} variant="outline" iconOnly={true}>
-              <ButtonIcon render={<PlusIcon />} />
-            </Button>
-            <Button size={globalSize} variant="ghost" iconOnly={true}>
-              <ButtonIcon render={<MailIcon />} />
-            </Button>
-            <Button size={globalSize} variant="soft" iconOnly={true}>
-              <ButtonIcon render={<DownloadIcon />} />
-            </Button>
+          <Button size={globalSize} variant="outline" iconOnly={true}>
+            <ButtonIcon render={<PlusIcon />} />
+          </Button>
+          <Button size={globalSize} variant="ghost" iconOnly={true}>
+            <ButtonIcon render={<MailIcon />} />
+          </Button>
+          <Button size={globalSize} variant="soft" iconOnly={true}>
+            <ButtonIcon render={<DownloadIcon />} />
+          </Button>
         </ExampleSection>
       </ExampleGrid>
 
@@ -137,21 +137,21 @@ export default function ButtonShowcase() {
         label="Disabled"
         description="Trạng thái nút không thể tương tác."
       >
-          <Button size={globalSize} disabled>
-            Solid Disabled
-          </Button>
-          <Button size={globalSize} variant="outline" disabled>
-            Outline Disabled
-          </Button>
-          <Button size={globalSize} variant="soft" disabled>
-            Soft Disabled
-          </Button>
-          <Button size={globalSize} variant="ghost" disabled>
-            Ghost Disabled
-          </Button>
-          <Button size={globalSize} variant="link" disabled>
-            Link Disabled
-          </Button>
+        <Button size={globalSize} disabled>
+          Solid Disabled
+        </Button>
+        <Button size={globalSize} variant="outline" disabled>
+          Outline Disabled
+        </Button>
+        <Button size={globalSize} variant="soft" disabled>
+          Soft Disabled
+        </Button>
+        <Button size={globalSize} variant="ghost" disabled>
+          Ghost Disabled
+        </Button>
+        <Button size={globalSize} variant="link" disabled>
+          Link Disabled
+        </Button>
       </ExampleSection>
 
       {/* ── Real-world examples ── */}
@@ -160,6 +160,13 @@ export default function ButtonShowcase() {
           label="Loading State"
           description="Nút kèm spinner trong quá trình xử lý bất đồng bộ."
           fullWidth
+          codeString={`<Button color="primary" className="w-full" disabled={isSending} onClick={handleSend}>
+  {isSending && <Spinner />}
+  {isSending ? "Sending..." : "Send Message"}
+</Button>
+<Button variant="outline" className="w-full">
+  Save Draft
+</Button>`}
         >
           <div className="flex flex-col gap-3 w-full max-w-xs mx-auto">
             <Button
@@ -182,6 +189,10 @@ export default function ButtonShowcase() {
           label="Destructive"
           description="Xác nhận một hành động nguy hiểm."
           fullWidth
+          codeString={`<Button color="destructive" className="w-full mt-1" disabled={isDeleting} onClick={handleDelete}>
+  {isDeleting && <Spinner />}
+  {isDeleting ? "Deleting..." : "Delete Permanently"}
+</Button>`}
         >
           <div className="w-full max-w-xs mx-auto rounded-lg border border-destructive/20 bg-destructive/5 p-4 flex flex-col gap-2">
             <p className="text-sm font-medium">Delete Workspace</p>

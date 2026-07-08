@@ -44,8 +44,7 @@ export default function SliderShowcase() {
           label="Standard"
           description="Lựa chọn phạm vi số cơ bản."
         >
-          <div className="w-full max-w-sm">
-            <Field size={globalSize}>
+            <Field size={globalSize} className="w-full max-w-sm">
               <FieldLabel>Volume</FieldLabel>
               <FieldContent>
                 <SliderPreset
@@ -59,15 +58,13 @@ export default function SliderShowcase() {
                 Adjust the media volume globally.
               </FieldDescription>
             </Field>
-          </div>
         </ExampleSection>
 
         <ExampleSection
           label="Range"
           description="Chọn một phạm vi bằng hai ngón tay cái."
         >
-          <div className="w-full max-w-sm">
-            <Field size={globalSize}>
+            <Field size={globalSize} className="w-full max-w-sm">
               <FieldLabel>Price Range</FieldLabel>
               <FieldContent>
                 <SliderPreset
@@ -79,7 +76,6 @@ export default function SliderShowcase() {
               </FieldContent>
               <FieldDescription>Filter items by price limits.</FieldDescription>
             </Field>
-          </div>
         </ExampleSection>
       </ExampleGrid>
 
@@ -87,12 +83,12 @@ export default function SliderShowcase() {
         label="Compositional Usage"
         description="Xây dựng thanh trượt bằng cách sử dụng các nguyên hàm cơ bản của nó để có được khả năng kiểm soát tối ưu."
       >
-        <div className="w-full max-w-sm">
           <CompositionalSlider
             size={globalSize}
             defaultValue={[40]}
             max={100}
             step={1}
+            className="w-full max-w-sm"
           >
             <SliderControl>
               <SliderTrack>
@@ -101,15 +97,13 @@ export default function SliderShowcase() {
               <SliderThumb />
             </SliderControl>
           </CompositionalSlider>
-        </div>
       </ExampleSection>
 
       <ExampleSection
         label="Disabled"
         description="Trạng thái thanh trượt không tương tác."
       >
-        <div className="w-full max-w-sm">
-          <Field size={globalSize}>
+          <Field size={globalSize} className="w-full max-w-sm">
             <FieldLabel>Fixed Value</FieldLabel>
             <FieldContent>
               <SliderPreset
@@ -121,7 +115,6 @@ export default function SliderShowcase() {
               />
             </FieldContent>
           </Field>
-        </div>
       </ExampleSection>
     </div>
   );

@@ -117,7 +117,22 @@ export default function CheckboxShowcase() {
 
       {/* ── States ────────────────────────────────── */}
       <ExampleGrid columns={2}>
-        <ExampleSection label="Error State" description="Trạng thái lỗi thủ công sử dụng các primitives của Field.">
+        <ExampleSection 
+          label="Error State" 
+          description="Trạng thái lỗi thủ công sử dụng các primitives của Field."
+          codeString={`<Field className="flex flex-row items-start gap-3" data-invalid={true}>
+  <div className="flex items-center text-sm leading-snug group-data-[size=sm]/field:text-xs">
+    &#8203;
+    <Checkbox id="cb-err1" aria-invalid={true}>
+      <CheckboxIndicator><CheckIcon /></CheckboxIndicator>
+    </Checkbox>
+  </div>
+  <div className="grid gap-1.5 leading-none">
+    <FieldLabel htmlFor="cb-err1" className="font-medium cursor-pointer">Đồng ý điều khoản</FieldLabel>
+    <FieldError>Bạn phải đánh dấu vào ô này.</FieldError>
+  </div>
+</Field>`}
+        >
           <div className="w-full max-w-sm flex flex-col gap-6">
             <Field className="flex flex-row items-start gap-3" data-invalid={true} data-size={globalSize}>
               <div className="flex items-center text-sm leading-snug group-data-[size=sm]/field:text-xs">
@@ -206,7 +221,26 @@ export default function CheckboxShowcase() {
           </div>
         </ExampleSection>
 
-        <ExampleSection label="Real-world Content" description="Minh hoạ cách xử lý nhãn (label) dạng React Node phức tạp.">
+        <ExampleSection 
+          label="Real-world Content" 
+          description="Minh hoạ cách xử lý nhãn (label) dạng React Node phức tạp."
+          codeString={`<Field className="flex flex-row items-start gap-3">
+  <div className="flex items-center text-sm leading-snug group-data-[size=sm]/field:text-xs">
+    &#8203;
+    <Checkbox id="cb-rw1">
+      <CheckboxIndicator><CheckIcon /></CheckboxIndicator>
+    </Checkbox>
+  </div>
+  <div className="grid gap-1.5 leading-none">
+    <FieldLabel htmlFor="cb-rw1" className="font-medium cursor-pointer flex items-center gap-2">
+      Chia sẻ dữ liệu sử dụng <span className="rounded bg-primary/20 px-1.5 py-0.5 text-[10px] font-semibold text-primary">BETA</span>
+    </FieldLabel>
+    <FieldDescription>
+      Giúp chúng tôi cải thiện dịch vụ bằng cách tự động gửi dữ liệu...
+    </FieldDescription>
+  </div>
+</Field>`}
+        >
           <div className="w-full max-w-sm">
             <Field className="flex flex-row items-start gap-3" data-size={globalSize}>
               <div className="flex items-center text-sm leading-snug group-data-[size=sm]/field:text-xs">

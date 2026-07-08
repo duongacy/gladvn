@@ -30,8 +30,7 @@ export default function CommandShowcase() {
           label="Default"
           description="Bảng lệnh có thể tìm kiếm với các mục được nhóm."
         >
-          <div className="border rounded-xl shadow-sm overflow-hidden bg-background w-full">
-            <Command>
+          <Command className="border rounded-xl shadow-sm overflow-hidden bg-background w-full">
               <CommandInput placeholder="Type a command or search..." />
               <CommandList>
                 <CommandEmpty>No results found.</CommandEmpty>
@@ -69,15 +68,13 @@ export default function CommandShowcase() {
                 </CommandGroup>
               </CommandList>
             </Command>
-          </div>
         </ExampleSection>
 
         <ExampleSection
           label="Flat List"
           description="Nhóm duy nhất không có tiêu đề."
         >
-          <div className="border rounded-xl shadow-sm overflow-hidden bg-background w-full">
-            <Command>
+          <Command className="border rounded-xl shadow-sm overflow-hidden bg-background w-full">
               <CommandInput placeholder="Search actions..." />
               <CommandList>
                 <CommandEmpty>No actions found.</CommandEmpty>
@@ -101,7 +98,6 @@ export default function CommandShowcase() {
                 </CommandGroup>
               </CommandList>
             </Command>
-          </div>
         </ExampleSection>
       </ExampleGrid>
 

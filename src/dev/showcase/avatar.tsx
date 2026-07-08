@@ -47,20 +47,18 @@ export default function AvatarShowcase() {
         label="With Image"
         description="Hình đại diện hiển thị ảnh người dùng với tên viết tắt dự phòng."
       >
-        <div className="flex items-center gap-4">
-          <Avatar size={globalSize}>
-            <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-            <AvatarFallback>CN</AvatarFallback>
-          </Avatar>
-          <Avatar size={globalSize}>
-            <AvatarImage src="https://github.com/vercel.png" alt="@vercel" />
-            <AvatarFallback>VC</AvatarFallback>
-          </Avatar>
-          <Avatar size={globalSize}>
-            <AvatarImage src="https://github.com/leerob.png" alt="@leerob" />
-            <AvatarFallback>LR</AvatarFallback>
-          </Avatar>
-        </div>
+        <Avatar size={globalSize}>
+          <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+          <AvatarFallback>CN</AvatarFallback>
+        </Avatar>
+        <Avatar size={globalSize}>
+          <AvatarImage src="https://github.com/vercel.png" alt="@vercel" />
+          <AvatarFallback>VC</AvatarFallback>
+        </Avatar>
+        <Avatar size={globalSize}>
+          <AvatarImage src="https://github.com/leerob.png" alt="@leerob" />
+          <AvatarFallback>LR</AvatarFallback>
+        </Avatar>
       </ExampleSection>
 
       <ExampleGrid columns={2}>
@@ -69,17 +67,15 @@ export default function AvatarShowcase() {
           label="Fallback Only"
           description="Khi không có hình ảnh nào được cung cấp, tên viết tắt sẽ được hiển thị."
         >
-          <div className="flex items-center gap-4">
-            <Avatar size={globalSize}>
-              <AvatarFallback>CN</AvatarFallback>
-            </Avatar>
-            <Avatar size={globalSize}>
-              <AvatarFallback>AB</AvatarFallback>
-            </Avatar>
-            <Avatar size={globalSize}>
-              <AvatarFallback>JD</AvatarFallback>
-            </Avatar>
-          </div>
+          <Avatar size={globalSize}>
+            <AvatarFallback>CN</AvatarFallback>
+          </Avatar>
+          <Avatar size={globalSize}>
+            <AvatarFallback>AB</AvatarFallback>
+          </Avatar>
+          <Avatar size={globalSize}>
+            <AvatarFallback>JD</AvatarFallback>
+          </Avatar>
         </ExampleSection>
 
         {/* ── Broken Image (triggers fallback) ── */}
@@ -87,19 +83,17 @@ export default function AvatarShowcase() {
           label="Broken Image"
           description="Dự phòng được hiển thị khi URL hình ảnh không tải được."
         >
-          <div className="flex items-center gap-4">
-            <Avatar size={globalSize}>
-              <AvatarImage
-                src="https://broken-url.invalid/avatar.png"
-                alt="broken"
-              />
-              <AvatarFallback>BR</AvatarFallback>
-            </Avatar>
-            <Avatar size={globalSize}>
-              <AvatarImage src="" alt="empty" />
-              <AvatarFallback>EM</AvatarFallback>
-            </Avatar>
-          </div>
+          <Avatar size={globalSize}>
+            <AvatarImage
+              src="https://broken-url.invalid/avatar.png"
+              alt="broken"
+            />
+            <AvatarFallback>BR</AvatarFallback>
+          </Avatar>
+          <Avatar size={globalSize}>
+            <AvatarImage src="" alt="empty" />
+            <AvatarFallback>EM</AvatarFallback>
+          </Avatar>
         </ExampleSection>
       </ExampleGrid>
 
@@ -137,57 +131,70 @@ export default function AvatarShowcase() {
       </ExampleSection>
 
       {/* ── Avatar Group ── */}
-      <ExampleSection
-        label="Avatar Group"
-        description="Hình đại diện xếp chồng lên nhau với bố cục chồng chéo dành cho các nhóm hoặc cộng tác viên."
-      >
-        <div className="flex flex-col gap-6">
-          <div className="flex flex-col gap-2">
-            <span className="text-sm text-muted-foreground font-medium">
-              Basic group
-            </span>
-            <AvatarGroup>
-              {users.slice(0, 4).map((user) => (
-                <Avatar key={user.alt} size={globalSize}>
-                  <AvatarImage src={user.src} alt={user.alt} />
-                  <AvatarFallback>{user.initials}</AvatarFallback>
-                </Avatar>
-              ))}
-            </AvatarGroup>
-          </div>
-          <div className="flex flex-col gap-2">
-            <span className="text-sm text-muted-foreground font-medium">
-              With overflow count
-            </span>
-            <AvatarGroup>
-              {users.slice(0, 3).map((user) => (
-                <Avatar key={user.alt} size={globalSize}>
-                  <AvatarImage src={user.src} alt={user.alt} />
-                  <AvatarFallback>{user.initials}</AvatarFallback>
-                </Avatar>
-              ))}
-              <AvatarGroupCount size={globalSize}>+12</AvatarGroupCount>
-            </AvatarGroup>
-          </div>
-          <div className="flex flex-col gap-2">
-            <span className="text-sm text-muted-foreground font-medium">
-              Fallback-only group
-            </span>
-            <AvatarGroup>
-              <Avatar size={globalSize}>
-                <AvatarFallback>AB</AvatarFallback>
-              </Avatar>
-              <Avatar size={globalSize}>
-                <AvatarFallback>CD</AvatarFallback>
-              </Avatar>
-              <Avatar size={globalSize}>
-                <AvatarFallback>EF</AvatarFallback>
-              </Avatar>
-              <AvatarGroupCount size={globalSize}>+5</AvatarGroupCount>
-            </AvatarGroup>
-          </div>
-        </div>
-      </ExampleSection>
+      <ExampleGrid columns={3}>
+        <ExampleSection
+          label="Basic Group"
+          description="Hình đại diện xếp chồng cơ bản."
+        >
+          <AvatarGroup>
+            <Avatar size={globalSize}>
+              <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+              <AvatarFallback>CN</AvatarFallback>
+            </Avatar>
+            <Avatar size={globalSize}>
+              <AvatarImage src="https://github.com/vercel.png" alt="@vercel" />
+              <AvatarFallback>VC</AvatarFallback>
+            </Avatar>
+            <Avatar size={globalSize}>
+              <AvatarImage src="https://github.com/leerob.png" alt="@leerob" />
+              <AvatarFallback>LR</AvatarFallback>
+            </Avatar>
+            <Avatar size={globalSize}>
+              <AvatarImage src="https://github.com/rauchg.png" alt="@rauchg" />
+              <AvatarFallback>GR</AvatarFallback>
+            </Avatar>
+          </AvatarGroup>
+        </ExampleSection>
+
+        <ExampleSection
+          label="With count"
+          description="Kèm bộ đếm số lượng người bị ẩn."
+        >
+          <AvatarGroup>
+            <Avatar size={globalSize}>
+              <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+              <AvatarFallback>CN</AvatarFallback>
+            </Avatar>
+            <Avatar size={globalSize}>
+              <AvatarImage src="https://github.com/vercel.png" alt="@vercel" />
+              <AvatarFallback>VC</AvatarFallback>
+            </Avatar>
+            <Avatar size={globalSize}>
+              <AvatarImage src="https://github.com/leerob.png" alt="@leerob" />
+              <AvatarFallback>LR</AvatarFallback>
+            </Avatar>
+            <AvatarGroupCount size={globalSize}>+12</AvatarGroupCount>
+          </AvatarGroup>
+        </ExampleSection>
+
+        <ExampleSection
+          label="Fallback-only group"
+          description="Nhóm không có hình ảnh."
+        >
+          <AvatarGroup>
+            <Avatar size={globalSize}>
+              <AvatarFallback>AB</AvatarFallback>
+            </Avatar>
+            <Avatar size={globalSize}>
+              <AvatarFallback>CD</AvatarFallback>
+            </Avatar>
+            <Avatar size={globalSize}>
+              <AvatarFallback>EF</AvatarFallback>
+            </Avatar>
+            <AvatarGroupCount size={globalSize}>+5</AvatarGroupCount>
+          </AvatarGroup>
+        </ExampleSection>
+      </ExampleGrid>
     </div>
   );
 }

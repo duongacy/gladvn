@@ -114,6 +114,14 @@ export default function PopoverShowcase() {
       <ExampleSection
         label="Placement (Vị trí)"
         description="Popover có thể hiển thị ở nhiều hướng khác nhau so với trigger (Top, Bottom, Left, Right)."
+        codeString={`<Popover>
+  <PopoverTrigger asChild>
+    <Button variant="outline">top</Button>
+  </PopoverTrigger>
+  <PopoverContent side="top" sideOffset={8} className="w-48 text-center text-sm p-4">
+    Hiển thị ở phía <strong>top</strong>
+  </PopoverContent>
+</Popover>`}
       >
         <div className="flex flex-wrap items-center justify-center gap-4 py-8">
           {(["top", "right", "bottom", "left"] as const).map((side) => (
@@ -136,6 +144,28 @@ export default function PopoverShowcase() {
       <ExampleSection
         label="Controlled State"
         description="Quản lý trạng thái đóng/mở của Popover thông qua React state (open và onOpenChange)."
+        codeString={`const [isOpen, setIsOpen] = React.useState(false)
+
+return (
+  <Popover open={isOpen} onOpenChange={setIsOpen}>
+    <PopoverTrigger asChild>
+      <Button variant="outline">Toggle Controlled Popover</Button>
+    </PopoverTrigger>
+    <PopoverContent className="w-80" sideOffset={8}>
+      <PopoverHeader>
+        <PopoverTitle>Controlled Mode</PopoverTitle>
+        <PopoverDescription>
+          Popover này được control bởi state. Bạn có thể đóng nó bằng nút bên dưới hoặc click ra ngoài.
+        </PopoverDescription>
+      </PopoverHeader>
+      <div className="mt-4 flex justify-end">
+        <Button size="sm" color="secondary" onClick={() => setIsOpen(false)}>
+          Đóng Popover
+        </Button>
+      </div>
+    </PopoverContent>
+  </Popover>
+)`}
       >
         <div className="flex items-center gap-4">
           <Popover open={isOpen} onOpenChange={setIsOpen}>

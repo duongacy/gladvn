@@ -241,6 +241,28 @@ export default function DialogShowcase() {
         <ExampleSection
           label="Controlled State"
           description="Sử dụng open và onOpenChange để quản lý trạng thái đóng mở bằng React state."
+          codeString={`const [open, setOpen] = React.useState(false)
+
+return (
+  <Dialog open={open} onOpenChange={setOpen}>
+    <DialogTrigger asChild>
+      <Button variant="outline">Open Controlled Dialog</Button>
+    </DialogTrigger>
+    <DialogContent>
+      <DialogHeader>
+        <DialogTitle>Controlled Dialog</DialogTitle>
+        <DialogDescription>
+          Trạng thái của hộp thoại này được quản lý hoàn toàn bởi React state bên ngoài.
+        </DialogDescription>
+      </DialogHeader>
+      <DialogFooter>
+        <Button onClick={() => setOpen(false)}>
+          Close Manually
+        </Button>
+      </DialogFooter>
+    </DialogContent>
+  </Dialog>
+)`}
         >
           <div className="w-full flex flex-col gap-4 items-center justify-center">
             <div className="flex gap-4 items-center">

@@ -101,8 +101,7 @@ export default function DrawerShowcase() {
           label="Left / Right Drawers"
           description="Drawer mở từ cạnh trái hoặc phải — phù hợp cho Sidebar và Filter panel."
         >
-          <div className="flex gap-4">
-            <Drawer direction="left">
+          <Drawer direction="left">
               <DrawerTrigger asChild>
                 <Button variant="outline">Open Left</Button>
               </DrawerTrigger>
@@ -152,7 +151,6 @@ export default function DrawerShowcase() {
                 </DrawerFooter>
               </DrawerContent>
             </Drawer>
-          </div>
         </ExampleSection>
 
         <ExampleSection

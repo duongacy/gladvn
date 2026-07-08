@@ -88,6 +88,26 @@ export default function CollapsibleShowcase() {
         <ExampleSection
           label="Controlled Mode"
           description="Trạng thái mở được kiểm soát bằng state."
+          codeString={`const [isOpen, setIsOpen] = React.useState(false)
+
+return (
+  <Collapsible open={isOpen} onOpenChange={setIsOpen} className="w-full space-y-2">
+    <div className="flex items-center justify-between space-x-4 px-4">
+      <h4 className="text-sm font-semibold">Bảng hiển thị nội dung</h4>
+      <CollapsibleTrigger asChild>
+        <Button variant="ghost" size="sm" className="w-9 p-0">
+          <ChevronsUpDown className="h-4 w-4" />
+          <span className="sr-only">Toggle</span>
+        </Button>
+      </CollapsibleTrigger>
+    </div>
+    <CollapsibleContent>
+      <div className="rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm">
+        Nội dung này được điều khiển bởi nút bên ngoài hoặc mũi tên ở trên!
+      </div>
+    </CollapsibleContent>
+  </Collapsible>
+)`}
         >
           <div className="w-full space-y-4">
             {/* Đây là nút nằm HOÀN TOÀN BÊN NGOÀI thẻ Collapsible */}

@@ -25,15 +25,51 @@ interface ShowcaseProps {
 ```
 
 **Logic tự điều chỉnh:**
-- `tabs.length >= 2` → Render Tab buttons + active tab content (default tab đầu tiên)
+- `tabs.length >= 2` → Render Tab buttons (ngang hàng title) + active tab content (default tab đầu tiên)
 - `tabs.length < 2` → Không render Tab bar, render thẳng `tabs[0]?.content`
 
 **Thứ tự render:**
-1. Title
+1. Title + Tab buttons *(ngang hàng, chỉ khi `tabs.length >= 2`)*
 2. Description
-3. `generalConcept` block (nếu có) — styled như `<ShowcaseDocs>` với background muted
-4. Tab buttons *(chỉ khi `tabs.length >= 2`)*
-5. Nội dung tab đang active
+3. `generalConcept` block (nếu có) — render bằng `<ShowcaseDocs>` (nền ám vàng amber)
+4. Nội dung tab đang active
+
+---
+
+## Các component hỗ trợ trong `@/dev/components/showcase`
+
+### `ShowcaseDocs` — Khung tài liệu ám vàng
+
+Hiển thị phần "Usage Guidelines" với giao diện giấy tờ (amber-tinted). **TUYỆT ĐỐI KHÔNG** dùng thẻ HTML thô (`<h3>`, `<p>`, `<ul>`, `<li>`, `<code>`) bên trong `ShowcaseDocs`. Thay vào đó, dùng các React Component thuần tương ứng bên dưới.
+
+### Semantic Docs Components (thay thế cho HTML thô)
+
+| Component    | Thay thế cho | Mô tả                                      |
+| ------------ | ------------ | ------------------------------------------- |
+| `<DocsH3>`   | `<h3>`       | Tiêu đề phụ bên trong docs                 |
+| `<DocsP>`    | `<p>`        | Đoạn văn bản                               |
+| `<DocsUl>`   | `<ul>`       | Danh sách không thứ tự                      |
+| `<DocsLi>`   | `<li>`       | Một mục trong danh sách                     |
+| `<DocsCode>` | `<code>`     | Đoạn code inline (ám vàng tone-sur-tone)    |
+
+> **Lý do**: Trước đây dùng `<h3>`, `<p>` thô và ép style bằng Magic CSS descendant selectors (`[&>h3]:...`). Cách này vi phạm triết lý "No Magic CSS" và không bảo trì được. Các Docs Component thuần túy chứa sẵn class Tailwind, đảm bảo style nhất quán và WCAG-compliant.
+
+### `ExampleSection` — Khung preview + code
+
+Props chính:
+- `label` — Tiêu đề của section
+- `description` — Mô tả ngắn
+- `fullWidth` — `true` để children fill toàn bộ chiều ngang
+- `codeString` — **Override code hiển thị trong tab "Code"**. Dùng khi live code chứa `.map()`, `useState`, hay wrappers phức tạp làm rối mắt. Xem thêm Quy tắc 7.
+
+### `ExampleGrid` — Responsive layout cho nhiều ExampleSection
+
+```tsx
+<ExampleGrid columns={2}> {/* hoặc 1, 3 */}
+  <ExampleSection ...>...</ExampleSection>
+  <ExampleSection ...>...</ExampleSection>
+</ExampleGrid>
+```
 
 ---
 
@@ -62,9 +98,9 @@ import {
 function [Name]MacroShowcase() {
   // State cục bộ nếu cần (ví dụ: controlled example)
   return (
-    <div className="space-y-10">
+    <div className="space-y-10 mt-6">
       <ShowcaseDocs>
-        <DocsH3>Khi nào nên dùng Macro</DocsH3>
+        <DocsH3>Khi nào nên dùng</DocsH3>
         <DocsP>...</DocsP>
 
         <DocsH3>Ưu điểm</DocsH3>
@@ -76,7 +112,7 @@ function [Name]MacroShowcase() {
         <DocsP>...</DocsP>
       </ShowcaseDocs>
 
-      {/* Các ExampleSection của Macro */}
+      {/* Các ExampleSection của Macro — BẮT BUỘC dùng component Preset */}
       <ExampleGrid columns={2}>
         <ExampleSection label="Standard" description="...">
           <[Name]Preset ... />
@@ -98,13 +134,13 @@ function [Name]MacroShowcase() {
 function [Name]MicroShowcase() {
   // State cục bộ nếu cần
   return (
-    <div className="space-y-10">
+    <div className="space-y-10 mt-6">
       <ShowcaseDocs>
         <DocsH3>Khi nào nên dùng Micro</DocsH3>
         <DocsP>...</DocsP>
       </ShowcaseDocs>
 
-      {/* Các ExampleSection của Micro */}
+      {/* Các ExampleSection của Micro — BẮT BUỘC dùng component Primitive */}
 
       {/* Use Case Comparison — luôn ở cuối */}
       <ExampleSection
@@ -150,19 +186,28 @@ export default function [Name]Showcase() {
 ## Quy tắc bắt buộc
 
 1. **Không import** `SectionHeader` trong showcase nữa — `<Showcase>` đã handle phần `title` và `description`.
-2. **`generalConcept`** chỉ dùng cho các khái niệm áp dụng cho **cả Micro lẫn Macro**. Nếu khái niệm quá cơ bản, hãy mạnh dạn bỏ qua để giao diện gọn gàng. Khi viết Docs, đảm bảo **format danh sách (`<ul>`/`<ol>`) rõ ràng** thay vì gom các ý vào một đoạn văn dài.
+2. **`generalConcept`** chỉ dùng cho các khái niệm áp dụng cho **cả Micro lẫn Macro**. Nếu khái niệm quá cơ bản, hãy mạnh dạn bỏ qua để giao diện gọn gàng. Khi viết Docs, đảm bảo **format danh sách (`<DocsUl>`/`<DocsLi>`) rõ ràng** thay vì gom các ý vào một đoạn văn dài.
 3. **`[Name]MacroShowcase` và `[Name]MicroShowcase`** là internal components — **không export**, chỉ dùng bên trong cùng file.
 4. **State nội bộ** (như `controlledValue`) phải khai báo **bên trong component con** (`[Name]MacroShowcase` hoặc `[Name]MicroShowcase`), **không** khai báo ở entry point `[Name]Showcase`.
 5. **Dọn dẹp sau khi migrate**: Xoá file cũ tương ứng trong `showcase/macro/[name].tsx` sau khi nội dung đã được gom vào file mới.
+6. **Tuyệt đối không "râu ông nọ cắm cằm bà kia" (No mixing Micro & Macro)**: 
+   - Trong Tab **Macro** (`[Name]MacroShowcase`), BẮT BUỘC phải dùng component Preset (ví dụ: `<AccordionPreset>`).
+   - Trong Tab **Micro** (`[Name]MicroShowcase`), BẮT BUỘC phải dùng các thành phần Primitive cơ sở (ví dụ: `<Accordion>`, `<AccordionItem>`).
+   - Nếu có dùng prop `codeString` để override code hiển thị, nội dung code BẮT BUỘC phải khớp 100% với component thật đang được render. Không được phép render Micro nhưng code hiển thị lại là Macro hoặc ngược lại.
+7. **`codeString` override**: Khi live code trong `<ExampleSection>` chứa `.map()`, `useState`, layout wrappers, hoặc icons dạng compiled (như `<LucideCheck>`) làm rối tab "Code", **PHẢI** truyền prop `codeString` với phiên bản code sạch, dễ copy-paste nhất. Tab "Code" luôn phải hiển thị đoạn code đẹp nhất, gần nhất với thực tế sử dụng.
+8. **Không dùng HTML thô bên trong `ShowcaseDocs`**: Tuyệt đối KHÔNG dùng `<h3>`, `<p>`, `<ul>`, `<li>`, `<code>`. Thay vào đó BẮT BUỘC dùng `<DocsH3>`, `<DocsP>`, `<DocsUl>`, `<DocsLi>`, `<DocsCode>`.
 
 ---
 
 ## Checklist trước khi commit
 
-- [ ] Import `Showcase` từ `@/dev/components/showcase`
+- [ ] Import `Showcase` + các `Docs*` components từ `@/dev/components/showcase`
 - [ ] Xoá import `SectionHeader` (không cần nữa)
-- [ ] `[Name]MacroShowcase()` — không export, có đủ examples + ShowcaseDocs
-- [ ] `[Name]MicroShowcase()` — không export, có đủ examples + Use Case Comparison ở cuối
+- [ ] `[Name]MacroShowcase()` — không export, có đủ examples + ShowcaseDocs, **chỉ dùng Preset**
+- [ ] `[Name]MicroShowcase()` — không export, có đủ examples + Use Case Comparison ở cuối, **chỉ dùng Primitive**
 - [ ] `tabs[]` đúng thứ tự: Micro trước, Macro sau (nếu có cả 2)
 - [ ] File cũ trong `showcase/macro/[name].tsx` đã được xoá
+- [ ] Không còn thẻ HTML thô (`<h3>`, `<p>`, `<ul>`) bên trong `ShowcaseDocs`
+- [ ] `codeString` được truyền cho mọi `ExampleSection` có live code phức tạp
+- [ ] Code trong `codeString` **khớp** với component thật đang render (không lộn Micro/Macro)
 - [ ] TypeScript build clean (`npx tsc --noEmit`)

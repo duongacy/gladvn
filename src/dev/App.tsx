@@ -1,4 +1,4 @@
-import { LayersIcon } from "lucide-react";
+import { LayersIcon, MenuIcon, XIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 import { COMPONENTS, NAV } from "@/dev/data";
 import React, { Suspense, lazy } from "react";
@@ -10,17 +10,13 @@ import { useTheme } from "@/components/micro/theme-provider";
 
 const components: Record<string, React.LazyExoticComponent<any>> = {};
 COMPONENTS.forEach((comp) => {
-  // We only load the unified showcase file now
   components[comp.id] = lazy(() => import(`./showcase/${comp.id}.tsx`));
 });
 
 function ComponentViewer({ id }: { id: string }) {
   const compDef = COMPONENTS.find((c) => c.id === id);
-  
   if (!compDef) return null;
-
   const Comp = components[id];
-
   return (
     <div className="mt-2">
       <Suspense fallback={<div className="p-12 text-center text-muted-foreground animate-pulse">Loading...</div>}>
@@ -32,6 +28,7 @@ function ComponentViewer({ id }: { id: string }) {
 
 export default function App() {
   const theme = useTheme();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [active, setActiveState] = useState(() => {
     if (typeof window !== "undefined") {
       const params = new URLSearchParams(window.location.search);
@@ -42,6 +39,7 @@ export default function App() {
 
   const setActive = (id: string) => {
     setActiveState(id);
+    setIsMobileMenuOpen(false); // Close mobile menu on select
     if (typeof window !== "undefined") {
       const url = new URL(window.location.href);
       url.searchParams.set("component", id);
@@ -57,7 +55,6 @@ export default function App() {
   };
 
   useEffect(() => {
-    // Initial scroll if URL has component
     const params = new URLSearchParams(window.location.search);
     const comp = params.get("component");
     if (comp) {
@@ -80,12 +77,31 @@ export default function App() {
     return () => window.removeEventListener("popstate", handlePopState);
   }, []);
 
+  // Prevent scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Top nav */}
       <header className="sticky top-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-md">
         <div className="mx-auto flex h-14 max-w-[1440px] items-center justify-between px-6">
           <div className="flex items-center gap-3">
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden -ml-2 p-1.5 rounded-md hover:bg-muted text-muted-foreground transition-colors"
+              aria-label="Toggle Menu"
+            >
+              {isMobileMenuOpen ? <XIcon className="size-5" /> : <MenuIcon className="size-5" />}
+            </button>
             <div className="size-7 rounded-[9px] bg-primary flex items-center justify-center shadow-sm border border-primary/20">
               <LayersIcon className="size-4 text-primary-foreground" />
             </div>
@@ -94,7 +110,7 @@ export default function App() {
             </span>
             <Badge
               color="secondary"
-              className="text-[10px] px-1.5 py-0 font-medium"
+              className="text-[10px] px-1.5 py-0 font-medium hidden sm:inline-flex"
             >
               v0.2.1
             </Badge>
@@ -112,8 +128,19 @@ export default function App() {
       </header>
 
       <div className="mx-auto flex max-w-[1440px] gap-0">
+        {/* Mobile Backdrop */}
+        {isMobileMenuOpen && (
+          <div 
+            className="fixed inset-0 z-40 bg-background/80 backdrop-blur-sm md:hidden" 
+            onClick={() => setIsMobileMenuOpen(false)} 
+            aria-hidden="true"
+          />
+        )}
+
         {/* Sidebar */}
-        <aside className="sticky top-14 h-[calc(100vh-3.5rem)] w-56 shrink-0 border-r pt-6 px-3 hidden md:block overflow-y-auto">
+        <aside className={`fixed inset-y-0 left-0 z-50 w-64 transform border-r bg-background pt-4 px-3 transition-transform duration-200 ease-in-out md:sticky md:top-14 md:block md:h-[calc(100vh-3.5rem)] md:w-56 md:translate-x-0 md:pt-6 md:z-0 overflow-y-auto ${
+          isMobileMenuOpen ? "translate-x-0 shadow-2xl" : "-translate-x-full"
+        }`}>
           <nav className="space-y-0.5">
             <button
               onClick={() => setActive("overview")}
@@ -145,13 +172,7 @@ export default function App() {
                 <span>{label}</span>
                 <div className="flex gap-1 shrink-0">
                   {status === "stable" && (
-                    <span className="text-[9px] bg-green-500/10 text-green-500 dark:bg-green-500/20 dark:text-green-400 px-1 rounded font-bold uppercase tracking-tighter" title="Stable & Audited">stable</span>
-                  )}
-                  {hasMicro && hasMacro && (
-                    <span className="text-[9px] bg-primary/10 text-primary px-1 rounded font-bold tracking-tighter" title="Has both Micro & Macro versions">M+</span>
-                  )}
-                  {!hasMicro && hasMacro && (
-                    <span className="text-[9px] bg-amber-500/10 text-amber-500 px-1 rounded font-bold tracking-tighter" title="Macro only">M</span>
+                    <span className="text-[9px] bg-green-500/10 text-green-500 dark:bg-green-500/20 dark:text-green-400 px-1.5 py-0.5 rounded-sm font-medium tracking-tight" title="Stable & Audited">Stable</span>
                   )}
                 </div>
               </button>
@@ -171,23 +192,6 @@ export default function App() {
 
         {/* Main */}
         <main className="flex-1 min-w-0 px-6 py-8">
-          {/* Mobile nav */}
-          <div className="mb-6 flex gap-1.5 overflow-x-auto pb-1 md:hidden">
-            {NAV.map(({ id, label }) => (
-              <button
-                key={id}
-                onClick={() => setActive(id)}
-                className={`shrink-0 rounded-full px-3 py-1 text-xs font-medium transition-colors ${
-                  active === id
-                    ? "bg-primary text-primary-foreground"
-                    : "bg-muted text-muted-foreground"
-                }`}
-              >
-                {label}
-              </button>
-            ))}
-          </div>
-
           <div className="pb-24">
             {active === "overview" && <OverviewSection />}
             {active !== "overview" && <ComponentViewer id={active} />}

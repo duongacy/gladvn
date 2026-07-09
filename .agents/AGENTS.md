@@ -46,8 +46,9 @@ When creating or modifying showcase files in `src/dev/showcase/*.tsx`, you MUST 
 - **PERMITTED CONDITIONAL STYLING**: If you need conditional classes, you MUST use either:
   1. **Data Attributes** (Preferred for Headless UI states): e.g., `data-active={isActive ? "" : undefined}` and styling via `data-active:bg-blue`.
   2. **`cn()` Object Syntax** (For internal logic/props): e.g., `className={cn("base-classes", { "bg-blue": isActive, "bg-red": !isActive })}`.
-- **Good (Permitted)**: Leverage data-attributes provided by headless UI libraries (e.g., `data-[state=open]`, `data-disabled`, `data-[slot=...]`) for state-driven styling. Querying descendant elements via these attributes (e.g., `[&_[data-slot=icon]]`) or standard icons (e.g., `[&_svg]`, `[&>svg]`) is perfectly valid and aligns with the intended component architecture.
-- **Bad (Prohibited - Overthinking)**: Do NOT use complex CSS descendant combinators or "magic CSS" (like `*:[a]`, `[&_p]`, `has-[>div]`, or deeply nested `group-has-[...]`) to forcibly access and override arbitrary HTML child elements' styles. Intervening too deeply into specific generic tags should be avoided.
+- **Good (Permitted)**: Leverage data-attributes provided by headless UI libraries (e.g., `data-[state=open]`, `data-disabled`, `data-[slot=...]`) for state-driven styling. Querying descendant elements via these attributes (e.g., `[&_[data-slot=icon]]`) is perfectly valid and aligns with the intended component architecture.
+- **Exception for Icons (DX over Purity)**: To optimize Developer Experience and avoid forcing consumers to remember `data-slot="icon"`, querying standard icons via `[&_svg]` or `[&>svg]` is **PERMITTED** to set default sizes inside icon-hosting components (like Button, Badge, Separator). However, you **MUST** combine it with the `:not([class*='size-'])` pseudo-class so consumers can safely override the size. Example: `[&>svg:not([class*='size-'])]:size-4`.
+- **Bad (Prohibited - Overthinking)**: Do NOT use complex CSS descendant combinators or "magic CSS" (like `*:[a]`, `[&_p]`, `has-[>div]`, or deeply nested `group-has-[...]`) to forcibly access and override arbitrary HTML child elements' styles (other than the strict icon exception above). Intervening too deeply into specific generic tags should be avoided.
 - **Reasoning**: Overriding arbitrary child tags violates the encapsulation of a component library. It creates unexpected overriding behaviors ("bị đè") that are highly confusing to consumers and makes the CSS architecture feel "dirty" and unmaintainable. Data-slots and semantic states are the correct contract for cross-element styling.
 - Keep component CSS strictly isolated to the component's own boundaries and predefined slots.
 - **CSS Variables Restriction**: Strictly limit the use of arbitrary CSS variables (`var(--...)` or `[--my-var:...]`) within Tailwind classes. 
@@ -109,3 +110,59 @@ Whenever the user requests to pair program on a specific component, you MUST pro
 1. **Micro Component**: Audit and refactor the primitive component based on all design rules (e.g., no magic CSS, pure composition, correct data-attributes).
 2. **Macro Component (Preset)**: Audit the preset. If a Macro component does not exist but is necessary for handling opinionated layouts or complex state, CREATE IT.
 3. **Showcases (Both Modes)**: Ensure the showcase files (`src/dev/showcase/[component].tsx` and `src/dev/showcase/macro/[component].tsx` if applicable) are updated to correctly demonstrate the component. Ensure Micro showcases explicitly demonstrate Pure Composition (e.g., manually applying Flexbox).
+
+## 16. Accessibility (a11y) & ARIA Strictness
+
+- **Semantic HTML first**: Always prefer native semantic HTML elements (`<button>`, `<dialog>`, `<nav>`) over generic `<div>`s with ARIA roles.
+- **Decorative Elements**: Any icons or purely visual SVGs MUST include `aria-hidden="true"` or `focusable="false"` to prevent screen readers from reading useless information.
+- **Form Controls & Errors**: When building Macro form controls (like Inputs with ErrorMessages), you MUST logically link the error message or description to the input field using `aria-describedby` and a unique `id`.
+
+## 17. Animations and Transitions Standards
+
+- **CSS Over JS**: Always prefer CSS transitions and `@keyframes` animations over JavaScript-based animations whenever possible for performance.
+- **Standardized Utilities**: Use standard Tailwind duration and easing utilities (e.g., `duration-200 ease-out`). Do not invent arbitrary transition timings unless strictly required by design.
+- **Accessibility (Reduced Motion)**: Respect the user's OS preference by using the `motion-reduce:` modifier for heavy, disorienting, or scale-based animations (e.g., `motion-reduce:transition-none` hoặc `motion-reduce:animate-none`).
+
+## 18. `data-slot` Naming Convention & Usage
+
+- **Standardized Hooks**: When a component is composed of multiple internal elements that a consumer might need to target for styling overrides, you MUST assign a `data-slot="slot-name"` attribute to them.
+- **Naming Rule**: Slot names should be descriptive and kebab-cased, typically representing the part name (e.g., `data-slot="icon"`, `data-slot="label"`, `data-slot="avatar-fallback"`).
+- **Targeting**: Use these slots for styling descendant elements from parent containers (e.g., `[&_[data-slot=icon]]:text-primary`) rather than querying raw HTML tags like `svg` directly.
+
+## 19. Code Style & Conventions
+
+- **Component Declaration**: Use standard functions (`function MyComponent() { ... }`) for components that do not require a `ref`. Use `React.forwardRef` with an anonymous function (`React.forwardRef<HTMLDivElement, Props>((props, ref) => { ... })`) when passing refs. Avoid assigning arrow functions to constants for components unless necessary.
+- **Exporting Pattern**: Use **Named Exports** for all core UI primitives (e.g., `export { Button, buttonVariants }`). Reserve `export default` exclusively for Route pages or Showcase files (e.g., `export default function ButtonShowcase()`).
+- **Props Destructuring**: Always destructure props inline at the function signature and provide default values there (e.g., `({ className, variant = "solid", ...props })`), rather than inside the function body.
+- **TypeScript Strictness**: The use of `any` is strictly prohibited. Use `unknown` if the type is truly unknowable. Avoid `// @ts-ignore` unless accompanied by a comment explaining why it is absolutely necessary.
+- **Import Ordering**: Prioritize external dependencies first (React, Base UI, Lucide), followed by absolute path imports (`@/lib/...`, `@/components/...`), and lastly relative imports (`./`, `../`).
+
+## 20. "Dumb" Micro Components & State Management
+
+- **Micro Components MUST be "Dumb"**: Primitives in the `micro` directory must be purely Presentational Components. They should only receive props to render UI. Absolutely NO internal React State (`useState`), side effects (`useEffect`), API calls, or business logic inside Micro components.
+- **State belongs to Macro**: Any internal state (like open/closed popups, input values, validation) must be handled by the underlying Headless UI library or hoisted to the **Macro Component (Presets)** layer.
+
+## 21. Polymorphism (`asChild` / `render`)
+
+- **Render Delegation**: Interactive or navigational components (like Button, Badge, Dropdown Item) MUST support a polymorphism prop (e.g., `render` from Base UI or `asChild` from Radix).
+- **Reasoning**: This allows consumers to pass custom routing components (like Next.js `<Link>` or React Router `<Link>`) while preserving the component's original styles and accessibility, instead of being forced into default `<button>` or `<a>` tags.
+
+## 22. Server / Client Boundary (Next.js App Router)
+
+- **Restrict `"use client"`**: Only use the `"use client"` directive at the top of files that absolutely require React interactivity (`useState`, `useEffect`, `onClick`, `Context`).
+- **Server-First Preference**: If a component is purely for layout or static UI (e.g., Card, Badge, Skeleton, SectionHeader), do NOT add `"use client"`. This optimizes for Server-Side Rendering (SSR) and reduces client bundle size.
+
+## 23. Z-Index & Overlay Management
+
+- **No Hardcoded High Z-indexes**: Never use arbitrary, astronomical z-index values like `z-[9999]` or `z-[99999]` inside components.
+- **Use Portals**: All floating overlays (Dialog, Tooltip, Popover, Sheet) MUST be rendered via a `Portal` to avoid stacking context conflicts. When a z-index is required, strictly adhere to Tailwind's standardized scale (e.g., `z-50`).
+
+## 24. Prop Naming Conventions
+
+- **Event Handlers**: All callback functions must be prefixed with `on` (e.g., use `onValueChange` and `onOpenChange` instead of `handleValue` or `changeOpen`).
+- **Boolean Props**: Boolean props should mimic standard HTML attributes. Use `disabled` (not `isDisabled`) and `loading` (not `isLoading`) for external APIs to maintain a native feel.
+
+## 25. Showcase Code Snippet Purity (`codeString` Override)
+
+- **The Problem**: The auto-JSX stringifier (`react-element-to-jsx-string`) blindly captures everything, including noisy array maps (`.map()`), complex local state (`useState`, layout toggles), and compiled third-party icons (like `<LucideCheck>`).
+- **The Rule**: Whenever the live demo code inside `<ExampleSection>` contains complex state management, loops, or layout wrappers that distract from the pure component API, you **MUST provide a clean, simplified override using the `codeString={...}` prop**. The "Code" tab must always show the cleanest, most copy-pasteable version of the component.

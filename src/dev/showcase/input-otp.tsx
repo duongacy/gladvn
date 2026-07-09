@@ -35,52 +35,93 @@ export default function InputOTPShowcase() {
         <ExampleSection
           label="Standard"
           description="Mã xác minh tiêu chuẩn gồm 6 chữ số."
+          codeString={`<div className="w-full max-w-sm">
+  <Field size="${globalSize}">
+    <FieldLabel htmlFor="tf-otp-0">Verification Code</FieldLabel>
+    <FieldDescription>
+      Enter the 6-digit code sent to your phone number.
+    </FieldDescription>
+    <FieldContent>
+      <InputOTP id="tf-otp-0" size="${globalSize}" maxLength={6}>
+        <InputOTPGroup>
+          {Array.from({ length: 6 }).map((_, index) => (
+            <InputOTPSlot key={\`tf-otp-0-slot-\${index}\`} index={index} />
+          ))}
+        </InputOTPGroup>
+      </InputOTP>
+    </FieldContent>
+  </Field>
+</div>`}
         >
-          <Field size={globalSize}>
-            <FieldLabel htmlFor="tf-otp-0">Verification Code</FieldLabel>
-            <FieldDescription>
-              Enter the 6-digit code sent to your phone number.
-            </FieldDescription>
-            <FieldContent>
-              <InputOTP id="tf-otp-0" size={globalSize} maxLength={6}>
-                <InputOTPGroup>
-                  <InputOTPSlot index={0} />
-                  <InputOTPSlot index={1} />
-                  <InputOTPSlot index={2} />
-                  <InputOTPSlot index={3} />
-                  <InputOTPSlot index={4} />
-                  <InputOTPSlot index={5} />
-                </InputOTPGroup>
-              </InputOTP>
-            </FieldContent>
-          </Field>
+          <div className="w-full max-w-sm">
+            <Field size={globalSize}>
+              <FieldLabel htmlFor="tf-otp-0">Verification Code</FieldLabel>
+              <FieldDescription>
+                Enter the 6-digit code sent to your phone number.
+              </FieldDescription>
+              <FieldContent>
+                <InputOTP id="tf-otp-0" size={globalSize} maxLength={6}>
+                  <InputOTPGroup>
+                    {Array.from({ length: 6 }).map((_, index) => (
+                      <InputOTPSlot key={`tf-otp-0-slot-${index}`} index={index} />
+                    ))}
+                  </InputOTPGroup>
+                </InputOTP>
+              </FieldContent>
+            </Field>
+          </div>
         </ExampleSection>
 
         <ExampleSection
           label="Separated Format"
           description="OTP có dấu phân cách trực quan."
+          codeString={`<div className="w-full max-w-sm">
+  <Field size="${globalSize}">
+    <FieldLabel htmlFor="tf-otp-1">Security Key</FieldLabel>
+    <FieldDescription>
+      Enter your two-factor recovery key.
+    </FieldDescription>
+    <FieldContent>
+      <InputOTP id="tf-otp-1" size="${globalSize}" maxLength={6}>
+        <InputOTPGroup>
+          {Array.from({ length: 3 }).map((_, index) => (
+            <InputOTPSlot key={\`tf-otp-1-slot-a-\${index}\`} index={index} />
+          ))}
+        </InputOTPGroup>
+        <InputOTPSeparator />
+        <InputOTPGroup>
+          {Array.from({ length: 3 }).map((_, index) => (
+            <InputOTPSlot key={\`tf-otp-1-slot-b-\${index + 3}\`} index={index + 3} />
+          ))}
+        </InputOTPGroup>
+      </InputOTP>
+    </FieldContent>
+  </Field>
+</div>`}
         >
-          <Field size={globalSize}>
-            <FieldLabel htmlFor="tf-otp-1">Security Key</FieldLabel>
-            <FieldDescription>
-              Enter your two-factor recovery key.
-            </FieldDescription>
-            <FieldContent>
-              <InputOTP id="tf-otp-1" size={globalSize} maxLength={6}>
-                <InputOTPGroup>
-                  <InputOTPSlot index={0} />
-                  <InputOTPSlot index={1} />
-                  <InputOTPSlot index={2} />
-                </InputOTPGroup>
-                <InputOTPSeparator />
-                <InputOTPGroup>
-                  <InputOTPSlot index={3} />
-                  <InputOTPSlot index={4} />
-                  <InputOTPSlot index={5} />
-                </InputOTPGroup>
-              </InputOTP>
-            </FieldContent>
-          </Field>
+          <div className="w-full max-w-sm">
+            <Field size={globalSize}>
+              <FieldLabel htmlFor="tf-otp-1">Security Key</FieldLabel>
+              <FieldDescription>
+                Enter your two-factor recovery key.
+              </FieldDescription>
+              <FieldContent>
+                <InputOTP id="tf-otp-1" size={globalSize} maxLength={6}>
+                  <InputOTPGroup>
+                    {Array.from({ length: 3 }).map((_, index) => (
+                      <InputOTPSlot key={`tf-otp-1-slot-a-${index}`} index={index} />
+                    ))}
+                  </InputOTPGroup>
+                  <InputOTPSeparator />
+                  <InputOTPGroup>
+                    {Array.from({ length: 3 }).map((_, index) => (
+                      <InputOTPSlot key={`tf-otp-1-slot-b-${index + 3}`} index={index + 3} />
+                    ))}
+                  </InputOTPGroup>
+                </InputOTP>
+              </FieldContent>
+            </Field>
+          </div>
         </ExampleSection>
       </ExampleGrid>
     </div>

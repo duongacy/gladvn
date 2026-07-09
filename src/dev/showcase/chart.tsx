@@ -1,6 +1,13 @@
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
-import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent, ChartLegend, ChartLegendContent } from "@/components/micro/chart";
+import {
+  ChartConfig,
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+  ChartLegend,
+  ChartLegendContent,
+} from "@/components/micro/chart";
 
 const chartData = [
   { month: "January", desktop: 186, mobile: 80 },

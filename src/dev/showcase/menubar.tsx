@@ -1,6 +1,22 @@
 import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
 import { useState } from "react";
-import { Menubar, MenubarCheckboxItem, MenubarContent, MenubarItem, MenubarMenu, MenubarRadioGroup, MenubarRadioItem, MenubarSeparator, MenubarShortcut, MenubarSub, MenubarSubContent, MenubarSubTrigger, MenubarTrigger, MenubarGroup, MenubarLabel } from "@/components/micro/menubar";
+import {
+  Menubar,
+  MenubarCheckboxItem,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarRadioGroup,
+  MenubarRadioItem,
+  MenubarSeparator,
+  MenubarShortcut,
+  MenubarSub,
+  MenubarSubContent,
+  MenubarSubTrigger,
+  MenubarTrigger,
+  MenubarGroup,
+  MenubarLabel,
+} from "@/components/micro/menubar";
 
 export default function MenubarShowcase() {
   const [showBookmarks, setShowBookmarks] = useState(true);

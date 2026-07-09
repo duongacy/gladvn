@@ -10,8 +10,21 @@ import {
 } from "@/dev/components/showcase";
 
 import { BreadcrumbPreset } from "@/components/macro/breadcrumb-preset";
-import { Breadcrumb, BreadcrumbEllipsis, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/micro/breadcrumb";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/micro/dropdown-menu";
+import {
+  Breadcrumb,
+  BreadcrumbEllipsis,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/micro/breadcrumb";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/micro/dropdown-menu";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Macro Content
@@ -22,12 +35,17 @@ function BreadcrumbMacroShowcase() {
       <ShowcaseDocs>
         <DocsH3>Khi nào nên dùng Macro</DocsH3>
         <DocsP>
-          <DocsCode>BreadcrumbPreset</DocsCode> cho phép bạn truyền vào một mảng các object <DocsCode>items</DocsCode> và nó sẽ tự động render toàn bộ cấu trúc danh sách (Link, Separator, Page) cho bạn, tiết kiệm rất nhiều code cho các thanh điều hướng tĩnh.
+          <DocsCode>BreadcrumbPreset</DocsCode> cho phép bạn truyền vào một mảng
+          các object <DocsCode>items</DocsCode> và nó sẽ tự động render toàn bộ
+          cấu trúc danh sách (Link, Separator, Page) cho bạn, tiết kiệm rất
+          nhiều code cho các thanh điều hướng tĩnh.
         </DocsP>
       </ShowcaseDocs>
 
       <ExampleGrid columns={2}>
-        <ExampleSection label="Tiêu chuẩn (Standard)" description="Mảng điều hướng cơ bản."
+        <ExampleSection
+          label="Tiêu chuẩn (Standard)"
+          description="Mảng điều hướng cơ bản."
           codeString={`<BreadcrumbPreset
   items={[
     { label: "Trang chủ", href: "/" },
@@ -35,7 +53,8 @@ function BreadcrumbMacroShowcase() {
     { label: "Breadcrumb" },
   ]}
 />
-`}>
+`}
+        >
           <BreadcrumbPreset
             items={[
               { label: "Trang chủ", href: "/" },
@@ -45,7 +64,9 @@ function BreadcrumbMacroShowcase() {
           />
         </ExampleSection>
 
-        <ExampleSection label="Nhiều cấp (Deep Navigation)" description="Đường dẫn dài hơn điển hình cho các trang lồng nhau."
+        <ExampleSection
+          label="Nhiều cấp (Deep Navigation)"
+          description="Đường dẫn dài hơn điển hình cho các trang lồng nhau."
           codeString={`<BreadcrumbPreset
   items={[
     { label: "Bảng điều khiển", href: "/dashboard" },
@@ -54,7 +75,8 @@ function BreadcrumbMacroShowcase() {
     { label: "Hóa đơn" },
   ]}
 />
-`}>
+`}
+        >
           <BreadcrumbPreset
             items={[
               { label: "Bảng điều khiển", href: "/dashboard" },
@@ -78,7 +100,10 @@ function BreadcrumbMicroShowcase() {
       <ShowcaseDocs>
         <DocsH3>Khi nào nên dùng Micro</DocsH3>
         <DocsP>
-          Dùng <DocsCode>Breadcrumb</DocsCode> và các thành phần con khi bạn cần chèn các thành phần UI phức tạp vào giữa đường dẫn (ví dụ: <DocsCode>DropdownMenu</DocsCode> khi danh sách quá dài, hoặc đổi Icon của <DocsCode>BreadcrumbSeparator</DocsCode>).
+          Dùng <DocsCode>Breadcrumb</DocsCode> và các thành phần con khi bạn cần
+          chèn các thành phần UI phức tạp vào giữa đường dẫn (ví dụ:{" "}
+          <DocsCode>DropdownMenu</DocsCode> khi danh sách quá dài, hoặc đổi Icon
+          của <DocsCode>BreadcrumbSeparator</DocsCode>).
         </DocsP>
       </ShowcaseDocs>
 

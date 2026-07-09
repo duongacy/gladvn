@@ -7,7 +7,12 @@ import {
 import { SearchIcon, EyeIcon, EyeOffIcon, XIcon } from "lucide-react";
 
 import { type Size } from "@/lib/types";
-import { Field, FieldContent, FieldDescription, FieldLabel } from "@/components/micro/field";
+import {
+  Field,
+  FieldContent,
+  FieldDescription,
+  FieldLabel,
+} from "@/components/micro/field";
 import {
   InputGroup,
   InputGroupAddon,
@@ -139,7 +144,9 @@ export default function InputGroupShowcase() {
                 <InputGroupAddon align="inline-end">
                   <InputGroupButton
                     size="icon"
-                    aria-label={showPassword ? "Hide password" : "Show password"}
+                    aria-label={
+                      showPassword ? "Hide password" : "Show password"
+                    }
                     onClick={() => setShowPassword((p) => !p)}
                   >
                     {showPassword ? (

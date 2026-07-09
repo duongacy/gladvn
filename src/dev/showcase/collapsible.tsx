@@ -6,7 +6,11 @@ import {
   ExampleGrid,
 } from "@/dev/components/showcase";
 import { Button } from "@/components/micro/button";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/micro/collapsible";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/micro/collapsible";
 
 export default function CollapsibleShowcase() {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -112,14 +116,16 @@ return (
           <div className="w-full space-y-4">
             {/* Đây là nút nằm HOÀN TOÀN BÊN NGOÀI thẻ Collapsible */}
             <div className="flex items-center gap-4 rounded-md border border-dashed p-4">
-              <Button
-                size="sm"
-                onClick={() => setIsOpen(!isOpen)}
-              >
-                {isOpen ? "Đóng bảng bên dưới (External)" : "Mở bảng bên dưới (External)"}
+              <Button size="sm" onClick={() => setIsOpen(!isOpen)}>
+                {isOpen
+                  ? "Đóng bảng bên dưới (External)"
+                  : "Mở bảng bên dưới (External)"}
               </Button>
               <span className="text-sm text-muted-foreground">
-                State hiện tại: <strong className="text-foreground">{isOpen ? "Mở" : "Đóng"}</strong>
+                State hiện tại:{" "}
+                <strong className="text-foreground">
+                  {isOpen ? "Mở" : "Đóng"}
+                </strong>
               </span>
             </div>
 
@@ -145,7 +151,8 @@ return (
               <CollapsibleContent>
                 <div className="flex flex-col gap-2 pt-2">
                   <div className="rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm text-center">
-                    Nội dung này được điều khiển bởi nút bên ngoài hoặc mũi tên ở trên!
+                    Nội dung này được điều khiển bởi nút bên ngoài hoặc mũi tên
+                    ở trên!
                   </div>
                 </div>
               </CollapsibleContent>
@@ -159,9 +166,7 @@ return (
         >
           <Collapsible disabled className="w-full space-y-2">
             <div className="flex items-center justify-between space-x-4 px-4 opacity-50">
-              <h4 className="text-sm font-semibold">
-                Archived Repositories
-              </h4>
+              <h4 className="text-sm font-semibold">Archived Repositories</h4>
               <CollapsibleTrigger
                 render={
                   <Button variant="ghost" size="sm" className="w-9 p-0" />

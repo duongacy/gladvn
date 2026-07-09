@@ -15,9 +15,36 @@ import {
 import { MonoSelect } from "@/dev/components/mono-select";
 import { type Size } from "@/lib/types";
 
-import { Combobox, ComboboxInput, ComboboxContent, ComboboxList, ComboboxItem, ComboboxGroup, ComboboxLabel, ComboboxEmpty, ComboboxSeparator, ComboboxChips, ComboboxChip, ComboboxChipsInput, ComboboxTrigger, ComboboxValue, ComboboxAnchor, ComboboxClear } from "@/components/micro/combobox";
-import { Field, FieldLabel, FieldDescription, FieldContent, FieldError } from "@/components/micro/field";
-import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/micro/input-group";
+import {
+  Combobox,
+  ComboboxInput,
+  ComboboxContent,
+  ComboboxList,
+  ComboboxItem,
+  ComboboxGroup,
+  ComboboxLabel,
+  ComboboxEmpty,
+  ComboboxSeparator,
+  ComboboxChips,
+  ComboboxChip,
+  ComboboxChipsInput,
+  ComboboxTrigger,
+  ComboboxValue,
+  ComboboxAnchor,
+  ComboboxClear,
+} from "@/components/micro/combobox";
+import {
+  Field,
+  FieldLabel,
+  FieldDescription,
+  FieldContent,
+  FieldError,
+} from "@/components/micro/field";
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+} from "@/components/micro/input-group";
 import { ComboboxPreset } from "@/components/macro/combobox-preset";
 import { Button } from "@/components/micro/button";
 
@@ -42,7 +69,10 @@ function ComboboxForm({ size }: { size: Size }) {
   });
 
   return (
-    <form onSubmit={form.handleSubmit((v) => alert(JSON.stringify(v)))} className="w-full space-y-6">
+    <form
+      onSubmit={form.handleSubmit((v) => alert(JSON.stringify(v)))}
+      className="w-full space-y-6"
+    >
       <Controller
         control={form.control}
         name="framework"
@@ -66,7 +96,9 @@ function ComboboxForm({ size }: { size: Size }) {
           />
         )}
       />
-      <Button type="submit" size={size}>Xác nhận</Button>
+      <Button type="submit" size={size}>
+        Xác nhận
+      </Button>
     </form>
   );
 }
@@ -115,15 +147,20 @@ function ComboboxMacroShowcase({ globalSize }: { globalSize: Size }) {
       <ShowcaseDocs>
         <DocsH3>Khi nào nên dùng Macro</DocsH3>
         <DocsP>
-          <DocsCode>ComboboxPreset</DocsCode> đóng gói kiến trúc siêu phức tạp của Combobox (gồm Input, List, Popover, Clear Button) thành 1 component duy nhất giống hệ SelectPreset. Nhận danh sách thả xuống qua prop <DocsCode>options</DocsCode>. Sử dụng Macro cho 99% form có chứa tìm kiếm.
+          <DocsCode>ComboboxPreset</DocsCode> đóng gói kiến trúc siêu phức tạp
+          của Combobox (gồm Input, List, Popover, Clear Button) thành 1
+          component duy nhất giống hệ SelectPreset. Nhận danh sách thả xuống qua
+          prop <DocsCode>options</DocsCode>. Sử dụng Macro cho 99% form có chứa
+          tìm kiếm.
         </DocsP>
       </ShowcaseDocs>
 
       <ExampleGrid columns={2}>
-        <ExampleSection label="Tiêu chuẩn" description="Tương tự Select nhưng có thể gõ để tìm kiếm."
+        <ExampleSection
+          label="Tiêu chuẩn"
+          description="Tương tự Select nhưng có thể gõ để tìm kiếm."
           codeString={`<div className="w-full">
   <ComboboxPreset
-    size={globalSize}
     label="Framework"
     description="Hỗ trợ hàng ngàn bản ghi mà không lag."
     placeholder="Chọn framework..."
@@ -137,7 +174,8 @@ function ComboboxMacroShowcase({ globalSize }: { globalSize: Size }) {
     ]}
   />
 </div>
-`}>
+`}
+        >
           <div className="w-full">
             <ComboboxPreset
               size={globalSize}
@@ -156,17 +194,19 @@ function ComboboxMacroShowcase({ globalSize }: { globalSize: Size }) {
           </div>
         </ExampleSection>
 
-        <ExampleSection label="Trạng thái Lỗi (Error)" description="Báo lỗi khi bỏ trống form."
+        <ExampleSection
+          label="Trạng thái Lỗi (Error)"
+          description="Báo lỗi khi bỏ trống form."
           codeString={`<div className="w-full flex flex-col gap-6">
   <ComboboxPreset
-    size={globalSize}
     label="Khu vực (Lỗi)"
     placeholder="Chọn khu vực..."
     options={[{ value: "ap", label: "Châu Á Thái Bình Dương" }]}
     errorMessage="Khu vực là bắt buộc."
   />
 </div>
-`}>
+`}
+        >
           <div className="w-full flex flex-col gap-6">
             <ComboboxPreset
               size={globalSize}
@@ -180,10 +220,11 @@ function ComboboxMacroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleGrid>
 
       <ExampleGrid columns={2}>
-        <ExampleSection label="Khóa / Bất hoạt (Disabled)" description="Người dùng không thể click hay gõ vào ô."
+        <ExampleSection
+          label="Khóa / Bất hoạt (Disabled)"
+          description="Người dùng không thể click hay gõ vào ô."
           codeString={`<div className="w-full">
   <ComboboxPreset
-    size={globalSize}
     label="Đội nhóm (Team)"
     description="Bạn không có quyền thay đổi đội trong dự án này."
     placeholder="Chọn đội..."
@@ -195,7 +236,8 @@ function ComboboxMacroShowcase({ globalSize }: { globalSize: Size }) {
     disabled
   />
 </div>
-`}>
+`}
+        >
           <div className="w-full">
             <ComboboxPreset
               size={globalSize}
@@ -212,10 +254,12 @@ function ComboboxMacroShowcase({ globalSize }: { globalSize: Size }) {
           </div>
         </ExampleSection>
 
-        <ExampleSection label="Cuộn danh sách dài (Long List)" description="Trải nghiệm mượt mà với danh sách ảo hoá."
+        <ExampleSection
+          label="Cuộn danh sách dài (Long List)"
+          description="Trải nghiệm mượt mà với danh sách ảo hoá."
           codeString={`<div className="w-full">
   <ComboboxPreset
-    size={globalSize}
+   
     label="Múi giờ (Timezone)"
     placeholder="Chọn múi giờ..."
     searchPlaceholder="Tìm kiếm múi giờ..."
@@ -226,7 +270,8 @@ function ComboboxMacroShowcase({ globalSize }: { globalSize: Size }) {
     }))}
   />
 </div>
-`}>
+`}
+        >
           <div className="w-full">
             <ComboboxPreset
               size={globalSize}
@@ -236,7 +281,7 @@ function ComboboxMacroShowcase({ globalSize }: { globalSize: Size }) {
               emptyText="Không tìm thấy múi giờ."
               options={Array.from({ length: 50 }).map((_, i) => ({
                 value: `utc${i - 12}`,
-                label: `UTC ${i - 12 > 0 ? '+' : ''}${i - 12}:00`,
+                label: `UTC ${i - 12 > 0 ? "+" : ""}${i - 12}:00`,
               }))}
             />
           </div>
@@ -244,8 +289,8 @@ function ComboboxMacroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleGrid>
 
       <ExampleGrid columns={2}>
-        <ExampleSection 
-          label="Tích hợp React Hook Form" 
+        <ExampleSection
+          label="Tích hợp React Hook Form"
           description="Sử dụng Controller để bắt giá trị."
           codeString={rhfCode}
         >
@@ -267,12 +312,19 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
       <ShowcaseDocs>
         <DocsH3>Khi nào nên dùng Micro</DocsH3>
         <DocsP>
-          Dùng <DocsCode>Combobox</DocsCode> nguyên thuỷ khi bạn cần tính năng Multi-select (chọn nhiều dạng Chips), hoặc muốn phân nhóm (<DocsCode>ComboboxGroup</DocsCode>), hoặc muốn tuỳ biến giao diện Input thành nút Trigger bình thường (<DocsCode>ComboboxTrigger</DocsCode>) thay vì ô nhập chữ.
+          Dùng <DocsCode>Combobox</DocsCode> nguyên thuỷ khi bạn cần tính năng
+          Multi-select (chọn nhiều dạng Chips), hoặc muốn phân nhóm (
+          <DocsCode>ComboboxGroup</DocsCode>), hoặc muốn tuỳ biến giao diện
+          Input thành nút Trigger bình thường (
+          <DocsCode>ComboboxTrigger</DocsCode>) thay vì ô nhập chữ.
         </DocsP>
       </ShowcaseDocs>
 
       <ExampleGrid columns={2}>
-        <ExampleSection label="Cơ bản & Phân nhóm" description="Sử dụng InputGroup, ComboboxAnchor, ComboboxGroup.">
+        <ExampleSection
+          label="Cơ bản & Phân nhóm"
+          description="Sử dụng InputGroup, ComboboxAnchor, ComboboxGroup."
+        >
           <Field size={globalSize} className="w-full">
             <FieldLabel>Tìm kiếm Framework</FieldLabel>
             <FieldContent>
@@ -311,40 +363,51 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
           </Field>
         </ExampleSection>
 
-        <ExampleSection label="Chọn nhiều (Multi-select Chips)" description="Sử dụng ComboboxChips và ComboboxChip thay cho Input.">
+        <ExampleSection
+          label="Chọn nhiều (Multi-select Chips)"
+          description="Sử dụng ComboboxChips và ComboboxChip thay cho Input."
+        >
           <Field size={globalSize} className="w-full">
             <FieldLabel>Gán thẻ (Tags)</FieldLabel>
             <FieldContent>
               <Combobox items={tagItems} multiple>
                 <ComboboxChips size={globalSize}>
                   <ComboboxChip value="bug">Lỗi (Bug)</ComboboxChip>
-                  <ComboboxChip value="feature">Tính năng (Feature)</ComboboxChip>
+                  <ComboboxChip value="feature">
+                    Tính năng (Feature)
+                  </ComboboxChip>
                   <ComboboxChipsInput placeholder="Thêm thẻ..." />
                 </ComboboxChips>
                 <ComboboxContent>
                   <ComboboxEmpty>Không tìm thấy thẻ.</ComboboxEmpty>
                   <ComboboxList>
                     <ComboboxItem value="bug">Lỗi (Bug)</ComboboxItem>
-                    <ComboboxItem value="feature">Tính năng (Feature)</ComboboxItem>
+                    <ComboboxItem value="feature">
+                      Tính năng (Feature)
+                    </ComboboxItem>
                     <ComboboxItem value="enhancement">Cải thiện</ComboboxItem>
                     <ComboboxItem value="docs">Tài liệu</ComboboxItem>
                   </ComboboxList>
                 </ComboboxContent>
               </Combobox>
             </FieldContent>
-            <FieldDescription>Bạn có thể chọn nhiều thẻ cùng lúc.</FieldDescription>
+            <FieldDescription>
+              Bạn có thể chọn nhiều thẻ cùng lúc.
+            </FieldDescription>
           </Field>
         </ExampleSection>
       </ExampleGrid>
 
       <ExampleGrid columns={2}>
-        <ExampleSection label="Disabled thủ công" description="Truyền disabled vào InputGroupInput và ComboboxTrigger."
-          codeString={`<Field size={globalSize} className="w-full">
+        <ExampleSection
+          label="Disabled thủ công"
+          description="Truyền disabled vào InputGroupInput và ComboboxTrigger."
+          codeString={`<Field className="w-full">
   <FieldLabel>Tìm kiếm (Disabled)</FieldLabel>
   <FieldContent>
     <Combobox items={["react"]}>
       <ComboboxAnchor className="w-full">
-        <InputGroup size={globalSize} className="w-full">
+        <InputGroup className="w-full">
           <ComboboxInput
             placeholder="Tìm kiếm..."
             disabled
@@ -363,7 +426,8 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
     </Combobox>
   </FieldContent>
 </Field>
-`}>
+`}
+        >
           <Field size={globalSize} className="w-full">
             <FieldLabel>Tìm kiếm (Disabled)</FieldLabel>
             <FieldContent>
@@ -376,7 +440,10 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
                       render={<InputGroupInput disabled />}
                     />
                     <InputGroupAddon align="inline-end">
-                      <ComboboxTrigger className="flex h-full cursor-default items-center justify-center px-2.5 outline-none group-has-data-[slot=combobox-clear]/input-group:hidden disabled:cursor-not-allowed disabled:opacity-50" disabled />
+                      <ComboboxTrigger
+                        className="flex h-full cursor-default items-center justify-center px-2.5 outline-none group-has-data-[slot=combobox-clear]/input-group:hidden disabled:cursor-not-allowed disabled:opacity-50"
+                        disabled
+                      />
                     </InputGroupAddon>
                   </InputGroup>
                 </ComboboxAnchor>
@@ -390,13 +457,15 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
           </Field>
         </ExampleSection>
 
-        <ExampleSection label="Trạng thái Lỗi (Invalid)" description="Gắn aria-invalid vào ô nhập liệu."
-          codeString={`<Field size={globalSize} data-invalid={true} className="w-full">
+        <ExampleSection
+          label="Trạng thái Lỗi (Invalid)"
+          description="Gắn aria-invalid vào ô nhập liệu."
+          codeString={`<Field data-invalid={true} className="w-full">
   <FieldLabel>Mã giảm giá</FieldLabel>
   <FieldContent>
     <Combobox items={["sale20", "sale50"]}>
       <ComboboxAnchor className="w-full">
-        <InputGroup size={globalSize} className="w-full">
+        <InputGroup className="w-full">
           <ComboboxInput
             placeholder="Nhập mã..."
             aria-invalid={true}
@@ -419,7 +488,8 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
   </FieldContent>
   <FieldError>Mã này đã hết hạn.</FieldError>
 </Field>
-`}>
+`}
+        >
           <Field size={globalSize} data-invalid={true} className="w-full">
             <FieldLabel>Mã giảm giá</FieldLabel>
             <FieldContent>
@@ -452,8 +522,10 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleGrid>
 
       <ExampleGrid columns={2}>
-        <ExampleSection label="Giao diện Nút (With Trigger)" description="Combobox dùng nút bấm (giống Select) thay vì ô nhập chữ (Input)."
-          codeString={`<Field size={globalSize} className="w-full">
+        <ExampleSection
+          label="Giao diện Nút (With Trigger)"
+          description="Combobox dùng nút bấm (giống Select) thay vì ô nhập chữ (Input)."
+          codeString={`<Field className="w-full">
   <FieldLabel>Chọn Engine</FieldLabel>
   <FieldContent>
     <Combobox items={engineItems}>
@@ -462,7 +534,7 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ComboboxTrigger>
       <ComboboxContent>
         <div className="p-1">
-          <InputGroup size={globalSize} className="w-full">
+          <InputGroup className="w-full">
             <ComboboxInput
               placeholder="Tìm engine..."
               render={<InputGroupInput />}
@@ -478,7 +550,8 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
     </Combobox>
   </FieldContent>
 </Field>
-`}>
+`}
+        >
           <Field size={globalSize} className="w-full">
             <FieldLabel>Chọn Engine</FieldLabel>
             <FieldContent>
@@ -498,7 +571,9 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
                   <ComboboxEmpty>Không tìm thấy.</ComboboxEmpty>
                   <ComboboxList>
                     <ComboboxItem value="v8">V8 (Chrome)</ComboboxItem>
-                    <ComboboxItem value="spidermonkey">SpiderMonkey (Firefox)</ComboboxItem>
+                    <ComboboxItem value="spidermonkey">
+                      SpiderMonkey (Firefox)
+                    </ComboboxItem>
                   </ComboboxList>
                 </ComboboxContent>
               </Combobox>
@@ -511,7 +586,6 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
         label="🧭 Use Case Comparison"
         description="So sánh nhanh khi nào dùng Micro và Macro."
         fullWidth
-      
         codeString={`<div className="grid grid-cols-1 gap-6 md:grid-cols-2">
   {/* Story 1: Macro wins */}
   <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
@@ -545,21 +619,41 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
     </p>
   </div>
 </div>
-`}>
+`}
+      >
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {/* Story 1: Macro wins */}
           <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
             <div className="flex items-start gap-3">
               <span className="mt-0.5 shrink-0 rounded-full bg-green-500/10 p-1.5 text-green-600">
-                <svg xmlns="http://www.w3.org/2000/svg" className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="size-4"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
               </span>
               <div>
-                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Story 1 · Dùng Macro</p>
-                <h3 className="mt-0.5 text-sm font-semibold text-foreground">Single Select tự động hoàn thành</h3>
+                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                  Story 1 · Dùng Macro
+                </p>
+                <h3 className="mt-0.5 text-sm font-semibold text-foreground">
+                  Single Select tự động hoàn thành
+                </h3>
               </div>
             </div>
             <p className="text-xs text-muted-foreground leading-relaxed">
-              Bạn cần một form chọn Thành phố. Số lượng thành phố quá lớn nên không dùng Select được, phải dùng Combobox để gõ tìm. <DocsCode>ComboboxPreset</DocsCode> sinh ra để giải quyết đúng bài toán chọn 1 giá trị từ tập lớn này.
+              Bạn cần một form chọn Thành phố. Số lượng thành phố quá lớn nên
+              không dùng Select được, phải dùng Combobox để gõ tìm.{" "}
+              <DocsCode>ComboboxPreset</DocsCode> sinh ra để giải quyết đúng bài
+              toán chọn 1 giá trị từ tập lớn này.
             </p>
           </div>
 
@@ -567,15 +661,33 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
           <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
             <div className="flex items-start gap-3">
               <span className="mt-0.5 shrink-0 rounded-full bg-blue-500/10 p-1.5 text-blue-600">
-                <svg xmlns="http://www.w3.org/2000/svg" className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="size-4"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                </svg>
               </span>
               <div>
-                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Story 2 · Dùng Micro</p>
-                <h3 className="mt-0.5 text-sm font-semibold text-foreground">Gán thẻ (Multi-select)</h3>
+                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                  Story 2 · Dùng Micro
+                </p>
+                <h3 className="mt-0.5 text-sm font-semibold text-foreground">
+                  Gán thẻ (Multi-select)
+                </h3>
               </div>
             </div>
             <p className="text-xs text-muted-foreground leading-relaxed">
-              Bạn làm form tạo bài viết mới và cần gán nhiều Thẻ (Tags) cho bài viết. Macro không hỗ trợ Multi-select. Bạn buộc phải dùng Micro kết hợp với cụm <DocsCode>{`<ComboboxChips />`}</DocsCode>.
+              Bạn làm form tạo bài viết mới và cần gán nhiều Thẻ (Tags) cho bài
+              viết. Macro không hỗ trợ Multi-select. Bạn buộc phải dùng Micro
+              kết hợp với cụm <DocsCode>{`<ComboboxChips />`}</DocsCode>.
             </p>
           </div>
         </div>
@@ -606,8 +718,14 @@ export default function ComboboxShowcase() {
         />
       }
       tabs={[
-        { label: "Micro (Primitive)", content: <ComboboxMicroShowcase globalSize={globalSize} /> },
-        { label: "Macro (Preset)", content: <ComboboxMacroShowcase globalSize={globalSize} /> },
+        {
+          label: "Micro (Primitive)",
+          content: <ComboboxMicroShowcase globalSize={globalSize} />,
+        },
+        {
+          label: "Macro (Preset)",
+          content: <ComboboxMacroShowcase globalSize={globalSize} />,
+        },
       ]}
     />
   );

@@ -10,7 +10,12 @@ import {
   DocsLi,
   DocsCode,
 } from "@/dev/components/showcase";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/micro/accordion";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/micro/accordion";
 import { AccordionPreset } from "@/components/macro/accordion-preset";
 import { SettingsIcon, BoxIcon, SlidersHorizontalIcon } from "lucide-react";
 
@@ -43,12 +48,14 @@ const presetItems = [
   {
     value: "item-1",
     title: "Is it accessible?",
-    content: "Yes. It adheres to the WAI-ARIA design pattern. Keyboard navigation and screen readers are fully supported.",
+    content:
+      "Yes. It adheres to the WAI-ARIA design pattern. Keyboard navigation and screen readers are fully supported.",
   },
   {
     value: "item-2",
     title: "Is it styled?",
-    content: "Yes. It comes with default styles that match the other components' aesthetic.",
+    content:
+      "Yes. It comes with default styles that match the other components' aesthetic.",
   },
   {
     value: "item-3",
@@ -57,10 +64,10 @@ const presetItems = [
   },
 ];
 
-const presetItemsForCompare = faqItems.map(item => ({
+const presetItemsForCompare = faqItems.map((item) => ({
   value: item.q,
   title: item.q,
-  content: item.a
+  content: item.a,
 }));
 
 // ──────────────────────────────────────────────────────────
@@ -73,21 +80,38 @@ function AccordionMacroShowcase() {
     <div className="space-y-10 mt-6">
       <ShowcaseDocs>
         <DocsH3>Khi nào nên dùng</DocsH3>
-        <DocsP>Đây là phiên bản <b>được khuyên dùng mặc định</b> cho 90% các trường hợp cần Accordion (như FAQ, điều khoản, menu con). Thay vì phải render thủ công từng thẻ Root, Item, Trigger, Content, bạn chỉ cần truyền vào một array <DocsCode>items</DocsCode>.</DocsP>
-        
+        <DocsP>
+          Đây là phiên bản <b>được khuyên dùng mặc định</b> cho 90% các trường
+          hợp cần Accordion (như FAQ, điều khoản, menu con). Thay vì phải render
+          thủ công từng thẻ Root, Item, Trigger, Content, bạn chỉ cần truyền vào
+          một array <DocsCode>items</DocsCode>.
+        </DocsP>
+
         <DocsH3>Ưu điểm</DocsH3>
         <DocsUl>
           <DocsLi>Code siêu ngắn gọn, data-driven, dễ bảo trì.</DocsLi>
           <DocsLi>Đảm bảo chuẩn xác về Type và cấu trúc Headless UI.</DocsLi>
-          <DocsLi>Vẫn hỗ trợ nhét React Component phức tạp vào thẻ <DocsCode>content</DocsCode> (như ví dụ Complex Content và Nested bên dưới).</DocsLi>
+          <DocsLi>
+            Vẫn hỗ trợ nhét React Component phức tạp vào thẻ{" "}
+            <DocsCode>content</DocsCode> (như ví dụ Complex Content và Nested
+            bên dưới).
+          </DocsLi>
         </DocsUl>
 
         <DocsH3>Lưu ý</DocsH3>
-        <DocsP>Bản Macro này đã được gói ghém (encapsulated) layout cẩn thận. Bạn có thể thoải mái truyền <DocsCode>className</DocsCode> vào thẳng thẻ <DocsCode>&lt;AccordionPreset /&gt;</DocsCode> để giới hạn width hay margin mà không sợ vỡ layout bên trong.</DocsP>
+        <DocsP>
+          Bản Macro này đã được gói ghém (encapsulated) layout cẩn thận. Bạn có
+          thể thoải mái truyền <DocsCode>className</DocsCode> vào thẳng thẻ{" "}
+          <DocsCode>&lt;AccordionPreset /&gt;</DocsCode> để giới hạn width hay
+          margin mà không sợ vỡ layout bên trong.
+        </DocsP>
       </ShowcaseDocs>
 
       <ExampleGrid columns={2}>
-        <ExampleSection label="Tiêu Chuẩn (Standard)" description="Accordion mở đơn cơ bản.">
+        <ExampleSection
+          label="Tiêu Chuẩn (Standard)"
+          description="Accordion mở đơn cơ bản."
+        >
           <AccordionPreset
             className="w-full"
             defaultValue={["item-1"]}
@@ -95,7 +119,10 @@ function AccordionMacroShowcase() {
           />
         </ExampleSection>
 
-        <ExampleSection label="Mở Nhiều (Multiple Expansion)" description="Cho phép mở nhiều mục cùng một lúc.">
+        <ExampleSection
+          label="Mở Nhiều (Multiple Expansion)"
+          description="Cho phép mở nhiều mục cùng một lúc."
+        >
           <AccordionPreset
             className="w-full"
             multiple
@@ -110,7 +137,6 @@ function AccordionMacroShowcase() {
           label="Controlled"
           description="Trạng thái mở được quản lý bằng state. Click vào các mục để xem state thay đổi."
           codeString={`const [controlledValue, setControlledValue] = useState<string[]>([]);
-          
 return (
   <AccordionPreset
     className="w-full"
@@ -150,7 +176,8 @@ return (
               {
                 value: "enabled-1",
                 title: "Available Feature",
-                content: "This feature is available and can be expanded normally.",
+                content:
+                  "This feature is available and can be expanded normally.",
               },
               {
                 value: "disabled-1",
@@ -161,7 +188,8 @@ return (
               {
                 value: "enabled-2",
                 title: "Another Feature",
-                content: "This is another available feature you can interact with freely.",
+                content:
+                  "This is another available feature you can interact with freely.",
               },
             ]}
           />
@@ -169,7 +197,10 @@ return (
       </ExampleGrid>
 
       <ExampleGrid columns={2}>
-        <ExampleSection label="Nội Dung Phức Tạp" description="Render các React Node bên trong nội dung.">
+        <ExampleSection
+          label="Nội Dung Phức Tạp"
+          description="Render các React Node bên trong nội dung."
+        >
           <AccordionPreset
             className="w-full"
             items={[
@@ -178,7 +209,9 @@ return (
                 title: "User Profile Settings",
                 content: (
                   <div className="flex flex-col items-start gap-3">
-                    <p className="text-sm">Update your personal information and preferences.</p>
+                    <p className="text-sm">
+                      Update your personal information and preferences.
+                    </p>
                     <button className="rounded-md bg-primary px-3 py-1.5 text-sm font-medium text-primary-foreground">
                       Edit Profile
                     </button>
@@ -206,7 +239,8 @@ return (
                       {
                         value: "installation",
                         title: "Installation",
-                        content: "Run npm install to add the component to your project.",
+                        content:
+                          "Run npm install to add the component to your project.",
                       },
                     ]}
                   />
@@ -222,7 +256,8 @@ return (
                       {
                         value: "controlled",
                         title: "Controlled Mode",
-                        content: "Use the value and onValueChange props to control which items are open.",
+                        content:
+                          "Use the value and onValueChange props to control which items are open.",
                       },
                     ]}
                   />
@@ -244,7 +279,11 @@ function AccordionMicroShowcase() {
     <div className="space-y-10 mt-6">
       <ShowcaseDocs>
         <DocsH3>Khi nào nên dùng</DocsH3>
-        <DocsP>Dùng để gom nhóm các khối nội dung lớn nhằm tiết kiệm không gian hiển thị (ví dụ: FAQ, Advanced Settings). Không nên dùng Accordion nếu nội dung bên trong quá quan trọng và cần user phải nhìn thấy ngay lập tức.</DocsP>
+        <DocsP>
+          Dùng để gom nhóm các khối nội dung lớn nhằm tiết kiệm không gian hiển
+          thị (ví dụ: FAQ, Advanced Settings). Không nên dùng Accordion nếu nội
+          dung bên trong quá quan trọng và cần user phải nhìn thấy ngay lập tức.
+        </DocsP>
       </ShowcaseDocs>
 
       <ExampleGrid columns={2}>
@@ -294,7 +333,11 @@ function AccordionMicroShowcase() {
   </AccordionItem>
 </Accordion>`}
         >
-          <Accordion className="w-full" multiple defaultValue={[firstQ, secondQ]}>
+          <Accordion
+            className="w-full"
+            multiple
+            defaultValue={[firstQ, secondQ]}
+          >
             {faqItems.slice(0, 3).map(({ q, a }) => (
               <AccordionItem key={q} value={q}>
                 <AccordionTrigger>{q}</AccordionTrigger>
@@ -364,8 +407,8 @@ function AccordionMicroShowcase() {
                   <AccordionItem value="controlled">
                     <AccordionTrigger>Controlled Mode</AccordionTrigger>
                     <AccordionContent>
-                      Use the value and onValueChange props to control which items
-                      are open.
+                      Use the value and onValueChange props to control which
+                      items are open.
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem value="animation">
@@ -420,7 +463,6 @@ function AccordionMicroShowcase() {
         fullWidth
       >
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-
           {/* ── Story 1: Macro wins ── */}
           <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
             <div className="flex items-start gap-3">
@@ -438,7 +480,8 @@ function AccordionMicroShowcase() {
             </div>
 
             <p className="text-xs text-muted-foreground leading-relaxed">
-              Bạn nhận được một mảng dữ liệu FAQ (hỏi đáp) từ server. Nội dung đơn giản chỉ là text. Dùng Macro để tiết kiệm code.
+              Bạn nhận được một mảng dữ liệu FAQ (hỏi đáp) từ server. Nội dung
+              đơn giản chỉ là text. Dùng Macro để tiết kiệm code.
             </p>
 
             <div className="rounded-lg bg-muted/50 p-3">
@@ -450,7 +493,8 @@ function AccordionMicroShowcase() {
 
             <div className="rounded-md border border-green-500/20 bg-green-500/5 px-3 py-2">
               <p className="text-xs font-medium text-green-700 dark:text-green-400">
-                ✅ Dùng <code className="font-mono">AccordionPreset</code> — Tự động lặp qua array, không cần viết lại JSX cho từng thẻ Item.
+                ✅ Dùng <code className="font-mono">AccordionPreset</code> — Tự
+                động lặp qua array, không cần viết lại JSX cho từng thẻ Item.
               </p>
             </div>
           </div>
@@ -472,7 +516,9 @@ function AccordionMicroShowcase() {
             </div>
 
             <p className="text-xs text-muted-foreground leading-relaxed">
-              Trigger cần hiển thị Icon hoặc Badge. Nội dung bên trong là một Form phức tạp (chứ không phải text đơn thuần). Macro không thể làm được việc này.
+              Trigger cần hiển thị Icon hoặc Badge. Nội dung bên trong là một
+              Form phức tạp (chứ không phải text đơn thuần). Macro không thể làm
+              được việc này.
             </p>
 
             <div className="rounded-lg bg-muted/50 p-3">
@@ -481,11 +527,15 @@ function AccordionMicroShowcase() {
                   <AccordionTrigger className="gap-3">
                     <SlidersHorizontalIcon className="size-4 text-primary" />
                     <span className="flex-1 text-left">Advanced Settings</span>
-                    <span className="mr-2 rounded bg-primary/10 px-2 py-0.5 text-[10px] uppercase tracking-wider text-primary">New</span>
+                    <span className="mr-2 rounded bg-primary/10 px-2 py-0.5 text-[10px] uppercase tracking-wider text-primary">
+                      New
+                    </span>
                   </AccordionTrigger>
                   <AccordionContent>
                     <div className="flex items-center gap-3 rounded border border-border p-3 text-xs text-muted-foreground">
-                      <span>Nội dung tuỳ biến hoàn toàn, ví dụ: Form, Toggle, v.v.</span>
+                      <span>
+                        Nội dung tuỳ biến hoàn toàn, ví dụ: Form, Toggle, v.v.
+                      </span>
                     </div>
                   </AccordionContent>
                 </AccordionItem>
@@ -494,11 +544,11 @@ function AccordionMicroShowcase() {
 
             <div className="rounded-md border border-blue-500/20 bg-blue-500/5 px-3 py-2">
               <p className="text-xs font-medium text-blue-700 dark:text-blue-400">
-                ✅ Dùng <code className="font-mono">Accordion</code> (Micro) — Toàn quyền kiểm soát cấu trúc HTML của Trigger và Content.
+                ✅ Dùng <code className="font-mono">Accordion</code> (Micro) —
+                Toàn quyền kiểm soát cấu trúc HTML của Trigger và Content.
               </p>
             </div>
           </div>
-
         </div>
       </ExampleSection>
     </div>

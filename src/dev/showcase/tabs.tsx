@@ -26,7 +26,10 @@ function TabsMacroShowcase() {
       <ShowcaseDocs>
         <DocsH3>Khi nào nên dùng Macro</DocsH3>
         <DocsP>
-          <DocsCode>TabsPreset</DocsCode> là một component đóng gói sẵn, nhận vào mảng <DocsCode>items</DocsCode> chứa thông tin cấu hình của các tabs (value, title, content, disabled, ...). Thích hợp cho các tab đơn giản, render từ dữ liệu cấu hình có sẵn.
+          <DocsCode>TabsPreset</DocsCode> là một component đóng gói sẵn, nhận
+          vào mảng <DocsCode>items</DocsCode> chứa thông tin cấu hình của các
+          tabs (value, title, content, disabled, ...). Thích hợp cho các tab đơn
+          giản, render từ dữ liệu cấu hình có sẵn.
         </DocsP>
       </ShowcaseDocs>
 
@@ -150,7 +153,6 @@ function TabsMacroShowcase() {
         label="Dạng đường viền (Line Variant)"
         description="Sử dụng prop variant='line' để hiển thị tabs kiểu gạch chân (phong cách thanh điều hướng)."
         fullWidth
-      
         codeString={`<div className="max-w-lg">
   <TabsPreset
     defaultValue="overview"
@@ -197,7 +199,8 @@ function TabsMacroShowcase() {
     ]}
   />
 </div>
-`}>
+`}
+      >
         <div className="max-w-lg">
           <TabsPreset
             defaultValue="overview"
@@ -250,7 +253,6 @@ function TabsMacroShowcase() {
         label="Nội dung phức tạp (Complex Content)"
         description="Hiển thị các thành phần phức tạp như biểu mẫu bên trong nội dung tab."
         fullWidth
-      
         codeString={`<div className="max-w-lg">
   <TabsPreset
     defaultValue="login"
@@ -288,7 +290,8 @@ function TabsMacroShowcase() {
     ]}
   />
 </div>
-`}>
+`}
+      >
         <div className="max-w-lg">
           <TabsPreset
             defaultValue="login"
@@ -340,7 +343,11 @@ function TabsMicroShowcase() {
       <ShowcaseDocs>
         <DocsH3>Khi nào nên dùng Micro</DocsH3>
         <DocsP>
-          Dùng <DocsCode>Tabs</DocsCode> và các thành phần con (<DocsCode>TabsList</DocsCode>, <DocsCode>TabsTrigger</DocsCode>, <DocsCode>TabsContent</DocsCode>) khi bạn muốn tự kiểm soát cấu trúc HTML, muốn đính kèm Icon vào Trigger, hoặc xây dựng các dạng Tab không theo khuôn mẫu (ví dụ: đặt List dọc, List rời rạc).
+          Dùng <DocsCode>Tabs</DocsCode> và các thành phần con (
+          <DocsCode>TabsList</DocsCode>, <DocsCode>TabsTrigger</DocsCode>,{" "}
+          <DocsCode>TabsContent</DocsCode>) khi bạn muốn tự kiểm soát cấu trúc
+          HTML, muốn đính kèm Icon vào Trigger, hoặc xây dựng các dạng Tab không
+          theo khuôn mẫu (ví dụ: đặt List dọc, List rời rạc).
         </DocsP>
       </ShowcaseDocs>
 
@@ -348,7 +355,6 @@ function TabsMicroShowcase() {
         <ExampleSection
           label="Cơ bản (Default)"
           description="Tabs nguyên thuỷ lắp ráp thủ công."
-        
           codeString={`<Tabs defaultValue="account" className="w-full">
   <TabsList className="w-full">
     <TabsTrigger value="account">Account</TabsTrigger>
@@ -371,7 +377,8 @@ function TabsMicroShowcase() {
     </div>
   </TabsContent>
 </Tabs>
-`}>
+`}
+        >
           <Tabs defaultValue="account" className="w-full">
             <TabsList className="w-full">
               <TabsTrigger value="account">Account</TabsTrigger>
@@ -399,7 +406,6 @@ function TabsMicroShowcase() {
         <ExampleSection
           label="Kèm Icon (With Icons)"
           description="Thêm biểu tượng tuỳ chỉnh vào bên trong Tab Trigger."
-        
           codeString={`<Tabs defaultValue="profile" className="w-full">
   <TabsList className="w-full">
     <TabsTrigger value="profile">
@@ -428,7 +434,8 @@ function TabsMicroShowcase() {
     </div>
   </TabsContent>
 </Tabs>
-`}>
+`}
+        >
           <Tabs defaultValue="profile" className="w-full">
             <TabsList className="w-full">
               <TabsTrigger value="profile">
@@ -464,7 +471,6 @@ function TabsMicroShowcase() {
         label="Dạng đường viền (Line Variant)"
         description="Tabs có kiểu gạch chân (không nền)."
         fullWidth
-      
         codeString={`<Tabs defaultValue="music" className="w-full max-w-lg">
   <TabsList
     variant="line"
@@ -499,7 +505,8 @@ function TabsMicroShowcase() {
     </div>
   </TabsContent>
 </Tabs>
-`}>
+`}
+      >
         <Tabs defaultValue="music" className="w-full max-w-lg">
           <TabsList
             variant="line"
@@ -540,7 +547,6 @@ function TabsMicroShowcase() {
         label="Xếp dọc (Vertical Orientation)"
         description="Sắp xếp danh sách tab theo chiều dọc bên trái và nội dung bên phải."
         fullWidth
-      
         codeString={`<Tabs
   defaultValue="profile"
   orientation="vertical"
@@ -586,7 +592,8 @@ function TabsMicroShowcase() {
     </div>
   </TabsContent>
 </Tabs>
-`}>
+`}
+      >
         <Tabs
           defaultValue="profile"
           orientation="vertical"
@@ -610,8 +617,7 @@ function TabsMicroShowcase() {
             <div className="rounded-xl border bg-card p-4">
               <h4 className="font-medium">Profile</h4>
               <p className="text-sm text-muted-foreground">
-                Update your personal information and manage your public
-                profile.
+                Update your personal information and manage your public profile.
               </p>
             </div>
           </TabsContent>

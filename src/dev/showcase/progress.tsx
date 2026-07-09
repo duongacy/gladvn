@@ -11,7 +11,13 @@ import {
 import { MonoSelect } from "@/dev/components/mono-select";
 
 import { type Size } from "@/lib/types";
-import { Progress, ProgressTrack, ProgressIndicator, ProgressLabel, ProgressValue } from "@/components/micro/progress";
+import {
+  Progress,
+  ProgressTrack,
+  ProgressIndicator,
+  ProgressLabel,
+  ProgressValue,
+} from "@/components/micro/progress";
 import { ProgressPreset } from "@/components/macro/progress-preset";
 
 // ──────────────────────────────────────────────────────────
@@ -23,48 +29,58 @@ function ProgressMacroShowcase({ globalSize }: { globalSize: Size }) {
       <ShowcaseDocs>
         <DocsH3>Khi nào nên dùng Macro</DocsH3>
         <DocsP>
-          <DocsCode>ProgressPreset</DocsCode> là một component đóng gói sẵn. Nó tự động hiển thị nhãn (label) và phần trăm (value) lên trên thanh tiến trình chỉ với các prop đơn giản, tiết kiệm thời gian code.
+          <DocsCode>ProgressPreset</DocsCode> là một component đóng gói sẵn. Nó
+          tự động hiển thị nhãn (label) và phần trăm (value) lên trên thanh tiến
+          trình chỉ với các prop đơn giản, tiết kiệm thời gian code.
         </DocsP>
       </ShowcaseDocs>
 
       <ExampleGrid columns={2}>
-        <ExampleSection label="Tiêu chuẩn (Standard)" description="Thanh tiến trình cơ bản nhất."
+        <ExampleSection
+          label="Tiêu chuẩn (Standard)"
+          description="Thanh tiến trình cơ bản nhất."
           codeString={`<div className="w-full max-w-sm">
-  <ProgressPreset size={globalSize} value={60} />
+  <ProgressPreset value={60} />
 </div>
-`}>
+`}
+        >
           <div className="w-full max-w-sm">
             <ProgressPreset size={globalSize} value={60} />
           </div>
         </ExampleSection>
 
-        <ExampleSection label="Vô định (Indeterminate)" description="Khi không truyền giá trị, thanh sẽ chạy hoạt ảnh liên tục."
+        <ExampleSection
+          label="Vô định (Indeterminate)"
+          description="Khi không truyền giá trị, thanh sẽ chạy hoạt ảnh liên tục."
           codeString={`<div className="w-full max-w-sm">
-  <ProgressPreset size={globalSize} />
+  <ProgressPreset />
 </div>
-`}>
+`}
+        >
           <div className="w-full max-w-sm">
             <ProgressPreset size={globalSize} />
           </div>
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleSection label="Kèm Nhãn & Giá trị (With Label & Value)" description="Tự động căn lề nhãn và hiển thị phần trăm."
-          codeString={`<div className="w-full max-w-sm">
+      <ExampleSection
+        label="Kèm Nhãn & Giá trị (With Label & Value)"
+        description="Tự động căn lề nhãn và hiển thị phần trăm."
+        codeString={`<div className="w-full max-w-sm">
   <ProgressPreset 
-    size={globalSize} 
     value={85} 
     label="Đang tải lên hệ thống..." 
     showValue 
   />
 </div>
-`}>
+`}
+      >
         <div className="w-full max-w-sm">
-          <ProgressPreset 
-            size={globalSize} 
-            value={85} 
-            label="Đang tải lên hệ thống..." 
-            showValue 
+          <ProgressPreset
+            size={globalSize}
+            value={85}
+            label="Đang tải lên hệ thống..."
+            showValue
           />
         </div>
       </ExampleSection>
@@ -81,12 +97,18 @@ function ProgressMicroShowcase({ globalSize }: { globalSize: Size }) {
       <ShowcaseDocs>
         <DocsH3>Khi nào nên dùng Micro</DocsH3>
         <DocsP>
-          Dùng <DocsCode>Progress</DocsCode> nguyên thủy khi bạn muốn tự tùy chỉnh hoàn toàn bố cục (ví dụ: đặt label ở bên dưới thanh thay vì bên trên, đổi màu thanh indicator dựa trên giá trị, hoặc bỏ nhãn hoàn toàn).
+          Dùng <DocsCode>Progress</DocsCode> nguyên thủy khi bạn muốn tự tùy
+          chỉnh hoàn toàn bố cục (ví dụ: đặt label ở bên dưới thanh thay vì bên
+          trên, đổi màu thanh indicator dựa trên giá trị, hoặc bỏ nhãn hoàn
+          toàn).
         </DocsP>
       </ShowcaseDocs>
 
       <ExampleGrid columns={2}>
-        <ExampleSection label="Chỉ Thanh tiến trình (Core)" description="Thanh tiến trình tiêu chuẩn sử dụng API tổng hợp thuần túy (không nhãn).">
+        <ExampleSection
+          label="Chỉ Thanh tiến trình (Core)"
+          description="Thanh tiến trình tiêu chuẩn sử dụng API tổng hợp thuần túy (không nhãn)."
+        >
           <Progress value={60} size={globalSize} className="w-full max-w-sm">
             <ProgressTrack>
               <ProgressIndicator />
@@ -94,7 +116,10 @@ function ProgressMicroShowcase({ globalSize }: { globalSize: Size }) {
           </Progress>
         </ExampleSection>
 
-        <ExampleSection label="Tuỳ chỉnh màu sắc (Custom Color)" description="Can thiệp trực tiếp vào ProgressIndicator để đổi màu.">
+        <ExampleSection
+          label="Tuỳ chỉnh màu sắc (Custom Color)"
+          description="Can thiệp trực tiếp vào ProgressIndicator để đổi màu."
+        >
           <Progress value={45} size={globalSize} className="w-full max-w-sm">
             <ProgressTrack>
               <ProgressIndicator className="bg-red-500" />
@@ -103,8 +128,10 @@ function ProgressMicroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleSection label="Tự lắp ráp Nhãn (Compositional with Label)" description="Sử dụng các bộ phận cấu thành để hiển thị nhãn và giá trị theo ý muốn."
-          codeString={`<Progress value={45} size={globalSize} className="w-full max-w-sm">
+      <ExampleSection
+        label="Tự lắp ráp Nhãn (Compositional with Label)"
+        description="Sử dụng các bộ phận cấu thành để hiển thị nhãn và giá trị theo ý muốn."
+        codeString={`<Progress value={45} className="w-full max-w-sm">
   <div className="flex items-center justify-between mb-1.5">
     <ProgressLabel className="font-medium text-muted-foreground">Đang tải xuống...</ProgressLabel>
     <ProgressValue className="font-mono" />
@@ -113,10 +140,13 @@ function ProgressMicroShowcase({ globalSize }: { globalSize: Size }) {
     <ProgressIndicator />
   </ProgressTrack>
 </Progress>
-`}>
+`}
+      >
         <Progress value={45} size={globalSize} className="w-full max-w-sm">
           <div className="flex items-center justify-between mb-1.5">
-            <ProgressLabel className="font-medium text-muted-foreground">Đang tải xuống...</ProgressLabel>
+            <ProgressLabel className="font-medium text-muted-foreground">
+              Đang tải xuống...
+            </ProgressLabel>
             <ProgressValue className="font-mono" />
           </div>
           <ProgressTrack>
@@ -150,8 +180,14 @@ export default function ProgressShowcase() {
         />
       }
       tabs={[
-        { label: "Micro (Primitive)", content: <ProgressMicroShowcase globalSize={globalSize} /> },
-        { label: "Macro (Preset)", content: <ProgressMacroShowcase globalSize={globalSize} /> },
+        {
+          label: "Micro (Primitive)",
+          content: <ProgressMicroShowcase globalSize={globalSize} />,
+        },
+        {
+          label: "Macro (Preset)",
+          content: <ProgressMacroShowcase globalSize={globalSize} />,
+        },
       ]}
     />
   );

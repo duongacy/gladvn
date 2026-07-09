@@ -10,15 +10,47 @@ import {
 } from "@/dev/components/showcase";
 import { cn } from "@/lib/utils";
 import { Card, CardContent } from "@/components/micro/card";
-import { Carousel, CarouselContent, CarouselDots, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/micro/carousel";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselDots,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/micro/carousel";
 import { CarouselPreset } from "@/components/macro/carousel-preset";
 
 const SLIDES = [
-  { id: 1, title: "Modern Aesthetics", desc: "Crafting beautiful interfaces with tailwind.", bg: "bg-gradient-to-tr from-violet-500 to-purple-500" },
-  { id: 2, title: "Smooth Interactions", desc: "Fluid animations and micro-interactions.", bg: "bg-gradient-to-tr from-pink-500 to-rose-500" },
-  { id: 3, title: "Highly Customizable", desc: "Easily adapt to your brand.", bg: "bg-gradient-to-tr from-blue-500 to-cyan-500" },
-  { id: 4, title: "Accessible by Default", desc: "Keyboard navigation out of the box.", bg: "bg-gradient-to-tr from-emerald-500 to-teal-500" },
-  { id: 5, title: "Dark Mode Ready", desc: "Looks stunning on dark and light mode.", bg: "bg-gradient-to-tr from-amber-500 to-orange-500" },
+  {
+    id: 1,
+    title: "Modern Aesthetics",
+    desc: "Crafting beautiful interfaces with tailwind.",
+    bg: "bg-gradient-to-tr from-violet-500 to-purple-500",
+  },
+  {
+    id: 2,
+    title: "Smooth Interactions",
+    desc: "Fluid animations and micro-interactions.",
+    bg: "bg-gradient-to-tr from-pink-500 to-rose-500",
+  },
+  {
+    id: 3,
+    title: "Highly Customizable",
+    desc: "Easily adapt to your brand.",
+    bg: "bg-gradient-to-tr from-blue-500 to-cyan-500",
+  },
+  {
+    id: 4,
+    title: "Accessible by Default",
+    desc: "Keyboard navigation out of the box.",
+    bg: "bg-gradient-to-tr from-emerald-500 to-teal-500",
+  },
+  {
+    id: 5,
+    title: "Dark Mode Ready",
+    desc: "Looks stunning on dark and light mode.",
+    bg: "bg-gradient-to-tr from-amber-500 to-orange-500",
+  },
 ];
 
 function ControlledCarouselDemo() {
@@ -45,14 +77,42 @@ function ControlledCarouselDemo() {
           onIndexChange={setIndex}
           showDots={false}
           items={[
-            { id: "c1", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-slate-100 dark:bg-slate-800 rounded-lg"><span className="text-4xl font-semibold">1</span></div></div> },
-            { id: "c2", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-slate-100 dark:bg-slate-800 rounded-lg"><span className="text-4xl font-semibold">2</span></div></div> },
-            { id: "c3", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-slate-100 dark:bg-slate-800 rounded-lg"><span className="text-4xl font-semibold">3</span></div></div> },
+            {
+              id: "c1",
+              content: (
+                <div className="p-1 border rounded-xl">
+                  <div className="flex aspect-square items-center justify-center p-6 bg-slate-100 dark:bg-slate-800 rounded-lg">
+                    <span className="text-4xl font-semibold">1</span>
+                  </div>
+                </div>
+              ),
+            },
+            {
+              id: "c2",
+              content: (
+                <div className="p-1 border rounded-xl">
+                  <div className="flex aspect-square items-center justify-center p-6 bg-slate-100 dark:bg-slate-800 rounded-lg">
+                    <span className="text-4xl font-semibold">2</span>
+                  </div>
+                </div>
+              ),
+            },
+            {
+              id: "c3",
+              content: (
+                <div className="p-1 border rounded-xl">
+                  <div className="flex aspect-square items-center justify-center p-6 bg-slate-100 dark:bg-slate-800 rounded-lg">
+                    <span className="text-4xl font-semibold">3</span>
+                  </div>
+                </div>
+              ),
+            },
           ]}
         />
       </div>
       <p className="text-sm text-muted-foreground text-center">
-        Current Index in State: <span className="font-mono font-bold text-foreground">{index}</span>
+        Current Index in State:{" "}
+        <span className="font-mono font-bold text-foreground">{index}</span>
       </p>
     </div>
   );
@@ -67,12 +127,17 @@ function CarouselMacroShowcase() {
       <ShowcaseDocs>
         <DocsH3>Khi nào nên dùng Macro</DocsH3>
         <DocsP>
-          <DocsCode>CarouselPreset</DocsCode> hỗ trợ render mảng các <DocsCode>items</DocsCode> thành các slide. Bạn không cần phải viết lặp lại <DocsCode>CarouselItem</DocsCode>, mũi tên điều hướng, hay các chấm trang (Dots). Mọi thứ đều được hiển thị tự động.
+          <DocsCode>CarouselPreset</DocsCode> hỗ trợ render mảng các{" "}
+          <DocsCode>items</DocsCode> thành các slide. Bạn không cần phải viết
+          lặp lại <DocsCode>CarouselItem</DocsCode>, mũi tên điều hướng, hay các
+          chấm trang (Dots). Mọi thứ đều được hiển thị tự động.
         </DocsP>
       </ShowcaseDocs>
 
       <ExampleGrid columns={2}>
-        <ExampleSection label="Tiêu chuẩn (Standard)" description="Băng chuyền cơ bản nhất với cầu trượt."
+        <ExampleSection
+          label="Tiêu chuẩn (Standard)"
+          description="Băng chuyền cơ bản nhất với cầu trượt."
           codeString={`<CarouselPreset
   items={[
     { id: "std-1", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg"><span className="text-4xl font-semibold">1</span></div></div> },
@@ -84,15 +149,44 @@ function CarouselMacroShowcase() {
           <div className="w-full max-w-sm px-12">
             <CarouselPreset
               items={[
-                { id: "std-1", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg"><span className="text-4xl font-semibold">1</span></div></div> },
-                { id: "std-2", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg"><span className="text-4xl font-semibold">2</span></div></div> },
-                { id: "std-3", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg"><span className="text-4xl font-semibold">3</span></div></div> },
+                {
+                  id: "std-1",
+                  content: (
+                    <div className="p-1 border rounded-xl">
+                      <div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg">
+                        <span className="text-4xl font-semibold">1</span>
+                      </div>
+                    </div>
+                  ),
+                },
+                {
+                  id: "std-2",
+                  content: (
+                    <div className="p-1 border rounded-xl">
+                      <div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg">
+                        <span className="text-4xl font-semibold">2</span>
+                      </div>
+                    </div>
+                  ),
+                },
+                {
+                  id: "std-3",
+                  content: (
+                    <div className="p-1 border rounded-xl">
+                      <div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg">
+                        <span className="text-4xl font-semibold">3</span>
+                      </div>
+                    </div>
+                  ),
+                },
               ]}
             />
           </div>
         </ExampleSection>
 
-        <ExampleSection label="Thư viện ảnh (Image Gallery)" description="Sử dụng hình ảnh thực làm nội dung slide."
+        <ExampleSection
+          label="Thư viện ảnh (Image Gallery)"
+          description="Sử dụng hình ảnh thực làm nội dung slide."
           codeString={`<CarouselPreset
   items={[
     { id: "img-1", content: <img src="https://images.unsplash.com/photo-1707343843437-caacff5cfa74?q=80&w=600&h=400&auto=format&fit=crop" alt="Slide 1" className="rounded-xl object-cover" /> },
@@ -104,9 +198,36 @@ function CarouselMacroShowcase() {
           <div className="w-full max-w-sm px-12">
             <CarouselPreset
               items={[
-                { id: "img-1", content: <img src="https://images.unsplash.com/photo-1707343843437-caacff5cfa74?q=80&w=600&h=400&auto=format&fit=crop" alt="Slide 1" className="rounded-xl object-cover" /> },
-                { id: "img-2", content: <img src="https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?q=80&w=600&h=400&auto=format&fit=crop" alt="Slide 2" className="rounded-xl object-cover" /> },
-                { id: "img-3", content: <img src="https://images.unsplash.com/photo-1707343843437-caacff5cfa74?q=80&w=600&h=400&auto=format&fit=crop" alt="Slide 3" className="rounded-xl object-cover" /> },
+                {
+                  id: "img-1",
+                  content: (
+                    <img
+                      src="https://images.unsplash.com/photo-1707343843437-caacff5cfa74?q=80&w=600&h=400&auto=format&fit=crop"
+                      alt="Slide 1"
+                      className="rounded-xl object-cover"
+                    />
+                  ),
+                },
+                {
+                  id: "img-2",
+                  content: (
+                    <img
+                      src="https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?q=80&w=600&h=400&auto=format&fit=crop"
+                      alt="Slide 2"
+                      className="rounded-xl object-cover"
+                    />
+                  ),
+                },
+                {
+                  id: "img-3",
+                  content: (
+                    <img
+                      src="https://images.unsplash.com/photo-1707343843437-caacff5cfa74?q=80&w=600&h=400&auto=format&fit=crop"
+                      alt="Slide 3"
+                      className="rounded-xl object-cover"
+                    />
+                  ),
+                },
               ]}
             />
           </div>
@@ -114,7 +235,9 @@ function CarouselMacroShowcase() {
       </ExampleGrid>
 
       <ExampleGrid columns={2}>
-        <ExampleSection label="Vòng lặp vô hạn (Loop Enabled)" description="Chỉ hiển thị dấu chấm (ẩn mũi tên)."
+        <ExampleSection
+          label="Vòng lặp vô hạn (Loop Enabled)"
+          description="Chỉ hiển thị dấu chấm (ẩn mũi tên)."
           codeString={`<CarouselPreset
   opts={{ loop: true }}
   showArrows={false}
@@ -130,15 +253,44 @@ function CarouselMacroShowcase() {
               opts={{ loop: true }}
               showArrows={false}
               items={[
-                { id: "loop-1", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-gradient-to-tr from-violet-500 to-purple-500 rounded-lg text-white"><span className="text-4xl font-semibold">1</span></div></div> },
-                { id: "loop-2", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-gradient-to-tr from-pink-500 to-rose-500 rounded-lg text-white"><span className="text-4xl font-semibold">2</span></div></div> },
-                { id: "loop-3", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-gradient-to-tr from-blue-500 to-cyan-500 rounded-lg text-white"><span className="text-4xl font-semibold">3</span></div></div> },
+                {
+                  id: "loop-1",
+                  content: (
+                    <div className="p-1 border rounded-xl">
+                      <div className="flex aspect-square items-center justify-center p-6 bg-gradient-to-tr from-violet-500 to-purple-500 rounded-lg text-white">
+                        <span className="text-4xl font-semibold">1</span>
+                      </div>
+                    </div>
+                  ),
+                },
+                {
+                  id: "loop-2",
+                  content: (
+                    <div className="p-1 border rounded-xl">
+                      <div className="flex aspect-square items-center justify-center p-6 bg-gradient-to-tr from-pink-500 to-rose-500 rounded-lg text-white">
+                        <span className="text-4xl font-semibold">2</span>
+                      </div>
+                    </div>
+                  ),
+                },
+                {
+                  id: "loop-3",
+                  content: (
+                    <div className="p-1 border rounded-xl">
+                      <div className="flex aspect-square items-center justify-center p-6 bg-gradient-to-tr from-blue-500 to-cyan-500 rounded-lg text-white">
+                        <span className="text-4xl font-semibold">3</span>
+                      </div>
+                    </div>
+                  ),
+                },
               ]}
             />
           </div>
         </ExampleSection>
 
-        <ExampleSection label="Chỉ mũi tên (Arrows Only)" description="Mũi tên điều hướng không có dấu chấm."
+        <ExampleSection
+          label="Chỉ mũi tên (Arrows Only)"
+          description="Mũi tên điều hướng không có dấu chấm."
           codeString={`<CarouselPreset
   showDots={false}
   items={[
@@ -152,9 +304,36 @@ function CarouselMacroShowcase() {
             <CarouselPreset
               showDots={false}
               items={[
-                { id: "arr-1", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg"><span className="text-4xl font-semibold">A</span></div></div> },
-                { id: "arr-2", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg"><span className="text-4xl font-semibold">B</span></div></div> },
-                { id: "arr-3", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg"><span className="text-4xl font-semibold">C</span></div></div> },
+                {
+                  id: "arr-1",
+                  content: (
+                    <div className="p-1 border rounded-xl">
+                      <div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg">
+                        <span className="text-4xl font-semibold">A</span>
+                      </div>
+                    </div>
+                  ),
+                },
+                {
+                  id: "arr-2",
+                  content: (
+                    <div className="p-1 border rounded-xl">
+                      <div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg">
+                        <span className="text-4xl font-semibold">B</span>
+                      </div>
+                    </div>
+                  ),
+                },
+                {
+                  id: "arr-3",
+                  content: (
+                    <div className="p-1 border rounded-xl">
+                      <div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg">
+                        <span className="text-4xl font-semibold">C</span>
+                      </div>
+                    </div>
+                  ),
+                },
               ]}
             />
           </div>
@@ -162,8 +341,8 @@ function CarouselMacroShowcase() {
       </ExampleGrid>
 
       <ExampleGrid columns={2}>
-        <ExampleSection 
-          label="Điều khiển từ bên ngoài (Controlled Mode)" 
+        <ExampleSection
+          label="Điều khiển từ bên ngoài (Controlled Mode)"
           description="Sử dụng biến state React để điều khiển slide."
           codeString={`const [index, setIndex] = useState(0);
 
@@ -178,7 +357,9 @@ return (
           <ControlledCarouselDemo />
         </ExampleSection>
 
-        <ExampleSection label="Theo chiều dọc (Vertical Orientation)" description="Băng chuyền macro cuộn theo chiều dọc."
+        <ExampleSection
+          label="Theo chiều dọc (Vertical Orientation)"
+          description="Băng chuyền macro cuộn theo chiều dọc."
           codeString={`<CarouselPreset
   className="w-full"
   orientation="vertical"
@@ -198,9 +379,30 @@ return (
               contentClassName="h-[300px]"
               itemClassName="basis-[250px]"
               items={[
-                { id: "v1", content: <div className="h-full w-full border rounded-xl flex items-center justify-center bg-muted/20 text-4xl font-semibold">A</div> },
-                { id: "v2", content: <div className="h-full w-full border rounded-xl flex items-center justify-center bg-muted/20 text-4xl font-semibold">B</div> },
-                { id: "v3", content: <div className="h-full w-full border rounded-xl flex items-center justify-center bg-muted/20 text-4xl font-semibold">C</div> },
+                {
+                  id: "v1",
+                  content: (
+                    <div className="h-full w-full border rounded-xl flex items-center justify-center bg-muted/20 text-4xl font-semibold">
+                      A
+                    </div>
+                  ),
+                },
+                {
+                  id: "v2",
+                  content: (
+                    <div className="h-full w-full border rounded-xl flex items-center justify-center bg-muted/20 text-4xl font-semibold">
+                      B
+                    </div>
+                  ),
+                },
+                {
+                  id: "v3",
+                  content: (
+                    <div className="h-full w-full border rounded-xl flex items-center justify-center bg-muted/20 text-4xl font-semibold">
+                      C
+                    </div>
+                  ),
+                },
               ]}
             />
           </div>
@@ -219,7 +421,10 @@ function CarouselMicroShowcase() {
       <ShowcaseDocs>
         <DocsH3>Khi nào nên dùng Micro</DocsH3>
         <DocsP>
-          Dùng <DocsCode>Carousel</DocsCode> và lắp ráp thủ công khi bạn muốn một UI tuỳ chỉnh mạnh như: Mũi tên nằm đè trên ảnh (Overlay Navigation), nhiều Card trên cùng một Slide, hoặc các hiệu ứng tương tác (hover scale) riêng biệt.
+          Dùng <DocsCode>Carousel</DocsCode> và lắp ráp thủ công khi bạn muốn
+          một UI tuỳ chỉnh mạnh như: Mũi tên nằm đè trên ảnh (Overlay
+          Navigation), nhiều Card trên cùng một Slide, hoặc các hiệu ứng tương
+          tác (hover scale) riêng biệt.
         </DocsP>
       </ShowcaseDocs>
 
@@ -247,9 +452,18 @@ function CarouselMicroShowcase() {
             <CarouselContent className="-ml-4">
               {SLIDES.map((slide) => (
                 <CarouselItem key={slide.id} className="pl-4">
-                  <div className={cn("flex aspect-[21/9] flex-col items-center justify-center p-6 text-center text-white", slide.bg)}>
-                    <h3 className="mb-2 text-3xl font-bold tracking-tight sm:text-5xl">{slide.title}</h3>
-                    <p className="max-w-md text-sm text-white/80 sm:text-lg">{slide.desc}</p>
+                  <div
+                    className={cn(
+                      "flex aspect-[21/9] flex-col items-center justify-center p-6 text-center text-white",
+                      slide.bg,
+                    )}
+                  >
+                    <h3 className="mb-2 text-3xl font-bold tracking-tight sm:text-5xl">
+                      {slide.title}
+                    </h3>
+                    <p className="max-w-md text-sm text-white/80 sm:text-lg">
+                      {slide.desc}
+                    </p>
                   </div>
                 </CarouselItem>
               ))}
@@ -270,7 +484,6 @@ function CarouselMicroShowcase() {
       <ExampleSection
         label="Nhiều phần tử trên 1 slide (Product Gallery)"
         description="Hiển thị nhiều Card (vd: basis-1/2, lg:basis-1/3) trên cùng một Slide của Băng chuyền."
-      
         codeString={`<div className="mx-auto w-full max-w-5xl px-12">
   <Carousel opts={{ align: "start" }} className="w-full relative">
     <CarouselContent className="-ml-4">
@@ -300,12 +513,16 @@ function CarouselMicroShowcase() {
     <CarouselNext className="absolute -right-12 top-1/2 -translate-y-1/2 border-border shadow-sm hover:bg-accent" />
   </Carousel>
 </div>
-`}>
+`}
+      >
         <div className="mx-auto w-full max-w-5xl px-12">
           <Carousel opts={{ align: "start" }} className="w-full relative">
             <CarouselContent className="-ml-4">
               {Array.from({ length: 10 }).map((_, index) => (
-                <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                <CarouselItem
+                  key={index}
+                  className="pl-4 md:basis-1/2 lg:basis-1/3"
+                >
                   <div className="p-1">
                     <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                       <div className="aspect-4/3 bg-muted flex items-center justify-center relative group">
@@ -313,12 +530,18 @@ function CarouselMicroShowcase() {
                           0{index + 1}
                         </span>
                         <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex items-end p-4">
-                          <span className="text-white font-medium">View Item {index + 1}</span>
+                          <span className="text-white font-medium">
+                            View Item {index + 1}
+                          </span>
                         </div>
                       </div>
                       <CardContent className="p-4">
-                        <div className="text-sm font-medium text-muted-foreground mb-1">Category</div>
-                        <h4 className="font-semibold text-lg leading-none">Featured Item {index + 1}</h4>
+                        <div className="text-sm font-medium text-muted-foreground mb-1">
+                          Category
+                        </div>
+                        <h4 className="font-semibold text-lg leading-none">
+                          Featured Item {index + 1}
+                        </h4>
                       </CardContent>
                     </Card>
                   </div>

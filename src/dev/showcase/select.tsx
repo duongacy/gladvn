@@ -15,8 +15,25 @@ import {
 import { MonoSelect } from "@/dev/components/mono-select";
 import { type Size } from "@/lib/types";
 
-import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectScrollDownButton, SelectScrollUpButton, SelectSeparator, SelectTrigger, SelectValue } from "@/components/micro/select";
-import { Field, FieldLabel, FieldDescription, FieldContent, FieldError } from "@/components/micro/field";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectScrollDownButton,
+  SelectScrollUpButton,
+  SelectSeparator,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/micro/select";
+import {
+  Field,
+  FieldLabel,
+  FieldDescription,
+  FieldContent,
+  FieldError,
+} from "@/components/micro/field";
 import { SelectPreset } from "@/components/macro/select-preset";
 import { Button } from "@/components/micro/button";
 
@@ -35,7 +52,10 @@ function SelectForm({ size }: { size: Size }) {
   });
 
   return (
-    <form onSubmit={form.handleSubmit((v) => alert(JSON.stringify(v)))} className="w-full space-y-6">
+    <form
+      onSubmit={form.handleSubmit((v) => alert(JSON.stringify(v)))}
+      className="w-full space-y-6"
+    >
       <Controller
         control={form.control}
         name="language"
@@ -56,7 +76,9 @@ function SelectForm({ size }: { size: Size }) {
           />
         )}
       />
-      <Button type="submit" size={size}>Xác nhận</Button>
+      <Button type="submit" size={size}>
+        Xác nhận
+      </Button>
     </form>
   );
 }
@@ -103,15 +125,19 @@ function SelectMacroShowcase({ globalSize }: { globalSize: Size }) {
       <ShowcaseDocs>
         <DocsH3>Khi nào nên dùng Macro</DocsH3>
         <DocsP>
-          <DocsCode>SelectPreset</DocsCode> đóng gói sẵn cấu trúc 8 thẻ của Select nguyên thuỷ thành 1 Component duy nhất. Nó dùng prop <DocsCode>options</DocsCode> để render danh sách thả xuống. Dùng Macro cho 90% trường hợp form nhập liệu chọn 1 giá trị thông thường.
+          <DocsCode>SelectPreset</DocsCode> đóng gói sẵn cấu trúc 8 thẻ của
+          Select nguyên thuỷ thành 1 Component duy nhất. Nó dùng prop{" "}
+          <DocsCode>options</DocsCode> để render danh sách thả xuống. Dùng Macro
+          cho 90% trường hợp form nhập liệu chọn 1 giá trị thông thường.
         </DocsP>
       </ShowcaseDocs>
 
       <ExampleGrid columns={2}>
-        <ExampleSection label="Tiêu chuẩn" description="Trình thả xuống cơ bản với mảng options."
+        <ExampleSection
+          label="Tiêu chuẩn"
+          description="Trình thả xuống cơ bản với mảng options."
           codeString={`<div className="w-full">
   <SelectPreset
-    size={globalSize}
     label="Trái cây yêu thích"
     description="Chọn một loại trái cây bạn thích nhất."
     placeholder="Chọn trái cây..."
@@ -122,7 +148,8 @@ function SelectMacroShowcase({ globalSize }: { globalSize: Size }) {
     ]}
   />
 </div>
-`}>
+`}
+        >
           <div className="w-full">
             <SelectPreset
               size={globalSize}
@@ -138,23 +165,28 @@ function SelectMacroShowcase({ globalSize }: { globalSize: Size }) {
           </div>
         </ExampleSection>
 
-        <ExampleSection label="Trạng thái Lỗi (Error)" description="Báo lỗi khi form submit mà user chưa chọn."
+        <ExampleSection
+          label="Trạng thái Lỗi (Error)"
+          description="Báo lỗi khi form submit mà user chưa chọn."
           codeString={`<div className="w-full flex flex-col gap-6">
   <SelectPreset
-    size={globalSize}
     label="Framework (Lỗi)"
     placeholder="Chọn một framework..."
     options={[{ value: "react", label: "React" }, { value: "vue", label: "Vue" }]}
     errorMessage="Vui lòng chọn một framework để tiếp tục."
   />
 </div>
-`}>
+`}
+        >
           <div className="w-full flex flex-col gap-6">
             <SelectPreset
               size={globalSize}
               label="Framework (Lỗi)"
               placeholder="Chọn một framework..."
-              options={[{ value: "react", label: "React" }, { value: "vue", label: "Vue" }]}
+              options={[
+                { value: "react", label: "React" },
+                { value: "vue", label: "Vue" },
+              ]}
               errorMessage="Vui lòng chọn một framework để tiếp tục."
             />
           </div>
@@ -162,10 +194,11 @@ function SelectMacroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleGrid>
 
       <ExampleGrid columns={2}>
-        <ExampleSection label="Khóa / Bất hoạt (Disabled)" description="Người dùng không thể mở danh sách."
+        <ExampleSection
+          label="Khóa / Bất hoạt (Disabled)"
+          description="Người dùng không thể mở danh sách."
           codeString={`<div className="w-full">
   <SelectPreset
-    size={globalSize}
     label="Gói tài khoản"
     description="Bạn không thể thay đổi gói cước khi chưa thanh toán nợ."
     placeholder="Chọn gói..."
@@ -177,7 +210,8 @@ function SelectMacroShowcase({ globalSize }: { globalSize: Size }) {
     disabled
   />
 </div>
-`}>
+`}
+        >
           <div className="w-full">
             <SelectPreset
               size={globalSize}
@@ -194,10 +228,11 @@ function SelectMacroShowcase({ globalSize }: { globalSize: Size }) {
           </div>
         </ExampleSection>
 
-        <ExampleSection label="Nhãn phức tạp (Custom Content)" description="Truyền React Node vào Label để tạo giao diện phong phú."
+        <ExampleSection
+          label="Nhãn phức tạp (Custom Content)"
+          description="Truyền React Node vào Label để tạo giao diện phong phú."
           codeString={`<div className="w-full">
   <SelectPreset
-    size={globalSize}
     label={
       <span className="flex items-center gap-2">
         Quốc gia cư trú
@@ -212,7 +247,8 @@ function SelectMacroShowcase({ globalSize }: { globalSize: Size }) {
     ]}
   />
 </div>
-`}>
+`}
+        >
           <div className="w-full">
             <SelectPreset
               size={globalSize}
@@ -234,8 +270,8 @@ function SelectMacroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleGrid>
 
       <ExampleGrid columns={2}>
-        <ExampleSection 
-          label="Tích hợp React Hook Form" 
+        <ExampleSection
+          label="Tích hợp React Hook Form"
           description="Sử dụng Controller để bắt giá trị."
           codeString={rhfCode}
         >
@@ -257,16 +293,24 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
       <ShowcaseDocs>
         <DocsH3>Khi nào nên dùng Micro</DocsH3>
         <DocsP>
-          Dùng <DocsCode>Select</DocsCode> và các thành phần con nguyên thuỷ khi bạn cần một danh sách thả xuống có phân nhóm (<DocsCode>SelectGroup</DocsCode>, <DocsCode>SelectLabel</DocsCode>) hoặc khi mỗi tuỳ chọn (<DocsCode>SelectItem</DocsCode>) có thiết kế phức tạp (chứa icon, ảnh đại diện, subtext) thay vì chỉ là text đơn thuần.
+          Dùng <DocsCode>Select</DocsCode> và các thành phần con nguyên thuỷ khi
+          bạn cần một danh sách thả xuống có phân nhóm (
+          <DocsCode>SelectGroup</DocsCode>, <DocsCode>SelectLabel</DocsCode>)
+          hoặc khi mỗi tuỳ chọn (<DocsCode>SelectItem</DocsCode>) có thiết kế
+          phức tạp (chứa icon, ảnh đại diện, subtext) thay vì chỉ là text đơn
+          thuần.
         </DocsP>
       </ShowcaseDocs>
 
       <ExampleGrid columns={2}>
-        <ExampleSection label="Cơ bản (Primitive)" description="Ghép nối thủ công bằng cách bọc Field.">
+        <ExampleSection
+          label="Cơ bản (Primitive)"
+          description="Ghép nối thủ công bằng cách bọc Field."
+        >
           <Field size={globalSize} className="w-full">
             <FieldLabel>Framework</FieldLabel>
             <FieldContent>
-              <Select items={{ "next": "Next.js", "vite": "Vite", "remix": "Remix" }}>
+              <Select items={{ next: "Next.js", vite: "Vite", remix: "Remix" }}>
                 <SelectTrigger size={globalSize}>
                   <SelectValue placeholder="Chọn framework..." />
                 </SelectTrigger>
@@ -279,15 +323,27 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
                 </SelectContent>
               </Select>
             </FieldContent>
-            <FieldDescription>Chọn công nghệ bạn muốn sử dụng.</FieldDescription>
+            <FieldDescription>
+              Chọn công nghệ bạn muốn sử dụng.
+            </FieldDescription>
           </Field>
         </ExampleSection>
 
-        <ExampleSection label="Phân nhóm (Grouped)" description="Sử dụng SelectGroup, SelectLabel và SelectSeparator.">
+        <ExampleSection
+          label="Phân nhóm (Grouped)"
+          description="Sử dụng SelectGroup, SelectLabel và SelectSeparator."
+        >
           <Field size={globalSize} className="w-full">
             <FieldLabel>Trái cây</FieldLabel>
             <FieldContent>
-              <Select items={{ "orange": "Orange", "lemon": "Lemon", "strawberry": "Strawberry", "blueberry": "Blueberry" }}>
+              <Select
+                items={{
+                  orange: "Orange",
+                  lemon: "Lemon",
+                  strawberry: "Strawberry",
+                  blueberry: "Blueberry",
+                }}
+              >
                 <SelectTrigger size={globalSize}>
                   <SelectValue placeholder="Chọn loại quả..." />
                 </SelectTrigger>
@@ -311,11 +367,14 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleGrid>
 
       <ExampleGrid columns={2}>
-        <ExampleSection label="Trạng thái Lỗi thủ công" description="Tự gắn aria-invalid vào Select.">
+        <ExampleSection
+          label="Trạng thái Lỗi thủ công"
+          description="Tự gắn aria-invalid vào Select."
+        >
           <Field size={globalSize} data-invalid={true} className="w-full">
             <FieldLabel>Dự án</FieldLabel>
             <FieldContent>
-              <Select items={{ "p1": "Project 1" }}>
+              <Select items={{ p1: "Project 1" }}>
                 <SelectTrigger size={globalSize} aria-invalid={true}>
                   <SelectValue placeholder="Chọn dự án..." />
                 </SelectTrigger>
@@ -328,11 +387,14 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
           </Field>
         </ExampleSection>
 
-        <ExampleSection label="Disabled thủ công" description="Khóa SelectTrigger.">
+        <ExampleSection
+          label="Disabled thủ công"
+          description="Khóa SelectTrigger."
+        >
           <Field size={globalSize} className="w-full">
             <FieldLabel>Múi giờ</FieldLabel>
             <FieldContent>
-              <Select items={{ "gmt": "GMT+7" }}>
+              <Select items={{ gmt: "GMT+7" }}>
                 <SelectTrigger size={globalSize} disabled>
                   <SelectValue placeholder="Chọn múi giờ..." />
                 </SelectTrigger>
@@ -341,7 +403,9 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
                 </SelectContent>
               </Select>
             </FieldContent>
-            <FieldDescription>Múi giờ tự động lấy theo hệ thống.</FieldDescription>
+            <FieldDescription>
+              Múi giờ tự động lấy theo hệ thống.
+            </FieldDescription>
           </Field>
         </ExampleSection>
       </ExampleGrid>
@@ -350,7 +414,6 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
         label="🧭 Use Case Comparison"
         description="So sánh nhanh khi nào dùng Micro và Macro."
         fullWidth
-      
         codeString={`<div className="grid grid-cols-1 gap-6 md:grid-cols-2">
   {/* Story 1: Macro wins */}
   <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
@@ -384,21 +447,40 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
     </p>
   </div>
 </div>
-`}>
+`}
+      >
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {/* Story 1: Macro wins */}
           <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
             <div className="flex items-start gap-3">
               <span className="mt-0.5 shrink-0 rounded-full bg-green-500/10 p-1.5 text-green-600">
-                <svg xmlns="http://www.w3.org/2000/svg" className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="size-4"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
               </span>
               <div>
-                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Story 1 · Dùng Macro</p>
-                <h3 className="mt-0.5 text-sm font-semibold text-foreground">Form nhập Quốc tịch</h3>
+                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                  Story 1 · Dùng Macro
+                </p>
+                <h3 className="mt-0.5 text-sm font-semibold text-foreground">
+                  Form nhập Quốc tịch
+                </h3>
               </div>
             </div>
             <p className="text-xs text-muted-foreground leading-relaxed">
-              Bạn có 195 quốc gia để chọn, tất cả đều chỉ là chữ. Thay vì viết 195 thẻ <DocsCode>SelectItem</DocsCode>, bạn vứt mảng JSON 195 phần tử đó vào thuộc tính <DocsCode>options</DocsCode> của Macro.
+              Bạn có 195 quốc gia để chọn, tất cả đều chỉ là chữ. Thay vì viết
+              195 thẻ <DocsCode>SelectItem</DocsCode>, bạn vứt mảng JSON 195
+              phần tử đó vào thuộc tính <DocsCode>options</DocsCode> của Macro.
             </p>
           </div>
 
@@ -406,15 +488,34 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
           <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
             <div className="flex items-start gap-3">
               <span className="mt-0.5 shrink-0 rounded-full bg-blue-500/10 p-1.5 text-blue-600">
-                <svg xmlns="http://www.w3.org/2000/svg" className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="size-4"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                </svg>
               </span>
               <div>
-                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Story 2 · Dùng Micro</p>
-                <h3 className="mt-0.5 text-sm font-semibold text-foreground">Menu Chọn Tài khoản</h3>
+                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                  Story 2 · Dùng Micro
+                </p>
+                <h3 className="mt-0.5 text-sm font-semibold text-foreground">
+                  Menu Chọn Tài khoản
+                </h3>
               </div>
             </div>
             <p className="text-xs text-muted-foreground leading-relaxed">
-              Bạn muốn trong danh sách thả xuống, mỗi dòng không chỉ là Tên, mà còn có cả Avatar (ảnh tròn) và Email (chữ mờ ở dưới). Bạn bắt buộc phải dùng Micro để tự thiết kế nội dung bên trong <DocsCode>SelectItem</DocsCode>.
+              Bạn muốn trong danh sách thả xuống, mỗi dòng không chỉ là Tên, mà
+              còn có cả Avatar (ảnh tròn) và Email (chữ mờ ở dưới). Bạn bắt buộc
+              phải dùng Micro để tự thiết kế nội dung bên trong{" "}
+              <DocsCode>SelectItem</DocsCode>.
             </p>
           </div>
         </div>
@@ -445,8 +546,14 @@ export default function SelectShowcase() {
         />
       }
       tabs={[
-        { label: "Micro (Primitive)", content: <SelectMicroShowcase globalSize={globalSize} /> },
-        { label: "Macro (Preset)", content: <SelectMacroShowcase globalSize={globalSize} /> },
+        {
+          label: "Micro (Primitive)",
+          content: <SelectMicroShowcase globalSize={globalSize} />,
+        },
+        {
+          label: "Macro (Preset)",
+          content: <SelectMacroShowcase globalSize={globalSize} />,
+        },
       ]}
     />
   );

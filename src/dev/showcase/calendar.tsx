@@ -43,8 +43,8 @@ export default function CalendarShowcase() {
 
       <ExampleGrid columns={2}>
         {/* ── Single Date ── */}
-        <ExampleSection 
-          label="Single Date" 
+        <ExampleSection
+          label="Single Date"
           description="Chọn một ngày duy nhất."
           codeString={`const [date, setDate] = React.useState<Date | undefined>(new Date())
 

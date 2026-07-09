@@ -24,30 +24,45 @@ export default function AspectRatioShowcase() {
 
       {/* ── Common Ratios ── */}
       <ExampleGrid columns={3}>
-        <ExampleSection label="16:9" description="Widescreen — video, hero banners">
+        <ExampleSection
+          label="16:9"
+          description="Widescreen — video, hero banners"
+        >
           <AspectRatio
             ratio={16 / 9}
             className="bg-muted rounded-xl overflow-hidden flex items-center justify-center border border-border w-full"
           >
-            <span className="text-foreground font-mono text-lg font-semibold">16:9</span>
+            <span className="text-foreground font-mono text-lg font-semibold">
+              16:9
+            </span>
           </AspectRatio>
         </ExampleSection>
 
-        <ExampleSection label="4:3" description="Classic — presentations, old TV">
+        <ExampleSection
+          label="4:3"
+          description="Classic — presentations, old TV"
+        >
           <AspectRatio
             ratio={4 / 3}
             className="bg-muted rounded-xl overflow-hidden flex items-center justify-center border border-border w-full"
           >
-            <span className="text-foreground font-mono text-lg font-semibold">4:3</span>
+            <span className="text-foreground font-mono text-lg font-semibold">
+              4:3
+            </span>
           </AspectRatio>
         </ExampleSection>
 
-        <ExampleSection label="1:1" description="Square — avatars, social media">
+        <ExampleSection
+          label="1:1"
+          description="Square — avatars, social media"
+        >
           <AspectRatio
             ratio={1}
             className="bg-muted rounded-xl overflow-hidden flex items-center justify-center border border-border w-full"
           >
-            <span className="text-foreground font-mono text-lg font-semibold">1:1</span>
+            <span className="text-foreground font-mono text-lg font-semibold">
+              1:1
+            </span>
           </AspectRatio>
         </ExampleSection>
       </ExampleGrid>
@@ -58,7 +73,10 @@ export default function AspectRatioShowcase() {
           label="16:9 Image"
           description="Tỷ lệ khung hình hạn chế hình ảnh 16:9."
         >
-          <AspectRatio ratio={16 / 9} className="rounded-xl overflow-hidden w-full">
+          <AspectRatio
+            ratio={16 / 9}
+            className="rounded-xl overflow-hidden w-full"
+          >
             <img
               src="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80"
               alt="Landscape photo"
@@ -86,8 +104,7 @@ export default function AspectRatioShowcase() {
         <ExampleSection
           label="Video Embed"
           description="Duy trì tỷ lệ 16:9 cho video nhúng."
-        
-        codeString={`<AspectRatio
+          codeString={`<AspectRatio
   ratio={16 / 9}
   className="rounded-xl overflow-hidden bg-muted border border-border w-full"
 >
@@ -107,7 +124,8 @@ export default function AspectRatioShowcase() {
     <span className="text-xs font-mono">iframe / video</span>
   </div>
 </AspectRatio>
-`}>
+`}
+        >
           <AspectRatio
             ratio={16 / 9}
             className="rounded-xl overflow-hidden bg-muted border border-border w-full"
@@ -133,8 +151,7 @@ export default function AspectRatioShowcase() {
         <ExampleSection
           label="Map Embed"
           description="Duy trì tỷ lệ 4:3 cho bản đồ nhúng."
-        
-        codeString={`<AspectRatio
+          codeString={`<AspectRatio
   ratio={4 / 3}
   className="rounded-xl overflow-hidden bg-muted border border-border w-full"
 >
@@ -156,7 +173,8 @@ export default function AspectRatioShowcase() {
     <span className="text-xs font-mono">map / iframe</span>
   </div>
 </AspectRatio>
-`}>
+`}
+        >
           <AspectRatio
             ratio={4 / 3}
             className="rounded-xl overflow-hidden bg-muted border border-border w-full"

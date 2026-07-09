@@ -7,12 +7,21 @@ import {
   ShowcaseDocs,
   DocsH3,
   DocsP,
-  DocsCode
+  DocsCode,
 } from "@/dev/components/showcase";
 
 import { type Size } from "@/lib/types";
 import { cn } from "@/lib/utils";
-import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose } from "@/components/micro/dialog";
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+  DialogClose,
+} from "@/components/micro/dialog";
 import { DialogPreset } from "@/components/macro/dialog-preset";
 import { Button } from "@/components/micro/button";
 import { Input } from "@/components/micro/input";
@@ -32,29 +41,36 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Basic Usage"
           description="DialogPreset với title, description và footer đơn giản."
-        
           codeString={`<DialogPreset
-  size={globalSize}
   title="Update Subscription"
   description="Are you sure you want to upgrade your plan to Pro? This will charge your card immediately."
-  trigger={<Button variant="outline" size={globalSize}>Upgrade Plan</Button>}
+  trigger={<Button variant="outline">Upgrade Plan</Button>}
   footer={
     <>
-      <Button variant="ghost" size={globalSize}>Cancel</Button>
-      <Button color="primary" size={globalSize}>Confirm</Button>
+      <Button variant="ghost">Cancel</Button>
+      <Button color="primary">Confirm</Button>
     </>
   }
 />
-`}>
+`}
+        >
           <DialogPreset
             size={globalSize}
             title="Update Subscription"
             description="Are you sure you want to upgrade your plan to Pro? This will charge your card immediately."
-            trigger={<Button variant="outline" size={globalSize}>Upgrade Plan</Button>}
+            trigger={
+              <Button variant="outline" size={globalSize}>
+                Upgrade Plan
+              </Button>
+            }
             footer={
               <>
-                <Button variant="ghost" size={globalSize}>Cancel</Button>
-                <Button color="primary" size={globalSize}>Confirm</Button>
+                <Button variant="ghost" size={globalSize}>
+                  Cancel
+                </Button>
+                <Button color="primary" size={globalSize}>
+                  Confirm
+                </Button>
               </>
             }
           />
@@ -63,13 +79,11 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Forms & Custom Content"
           description="Sử dụng children để render form hoặc nội dung phức tạp."
-        
           codeString={`<DialogPreset
-  size={globalSize}
   title="Edit profile"
   description="Make changes to your profile here. Click save when you're done."
-  trigger={<Button variant="outline" size={globalSize}>Edit Profile</Button>}
-  footer={<Button type="submit" size={globalSize}>Save changes</Button>}
+  trigger={<Button variant="outline">Edit Profile</Button>}
+  footer={<Button type="submit">Save changes</Button>}
 >
   <div className="grid gap-4 py-4">
     <div className="grid grid-cols-4 items-center gap-4">
@@ -94,13 +108,22 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
     </div>
   </div>
 </DialogPreset>
-`}>
+`}
+        >
           <DialogPreset
             size={globalSize}
             title="Edit profile"
             description="Make changes to your profile here. Click save when you're done."
-            trigger={<Button variant="outline" size={globalSize}>Edit Profile</Button>}
-            footer={<Button type="submit" size={globalSize}>Save changes</Button>}
+            trigger={
+              <Button variant="outline" size={globalSize}>
+                Edit Profile
+              </Button>
+            }
+            footer={
+              <Button type="submit" size={globalSize}>
+                Save changes
+              </Button>
+            }
           >
             <div className="grid gap-4 py-4">
               <div className="grid grid-cols-4 items-center gap-4">
@@ -132,17 +155,15 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="No Close Button"
           description="Ẩn nút X ở góc trên bằng showCloseButton={false}."
-        
           codeString={`<DialogPreset
-  size={globalSize}
   showCloseButton={false}
   title="Terms of Service"
   description="You must accept the new terms to continue using the application."
-  trigger={<Button variant="outline" size={globalSize}>View Terms</Button>}
+  trigger={<Button variant="outline">View Terms</Button>}
   footer={
     <>
-      <Button variant="outline" size={globalSize}>Decline</Button>
-      <Button size={globalSize}>Accept</Button>
+      <Button variant="outline">Decline</Button>
+      <Button>Accept</Button>
     </>
   }
 >
@@ -150,22 +171,30 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
     By clicking accept, you agree to our updated Terms of Service and Privacy Policy.
   </p>
 </DialogPreset>
-`}>
+`}
+        >
           <DialogPreset
             size={globalSize}
             showCloseButton={false}
             title="Terms of Service"
             description="You must accept the new terms to continue using the application."
-            trigger={<Button variant="outline" size={globalSize}>View Terms</Button>}
+            trigger={
+              <Button variant="outline" size={globalSize}>
+                View Terms
+              </Button>
+            }
             footer={
               <>
-                <Button variant="outline" size={globalSize}>Decline</Button>
+                <Button variant="outline" size={globalSize}>
+                  Decline
+                </Button>
                 <Button size={globalSize}>Accept</Button>
               </>
             }
           >
             <p className="text-sm text-muted-foreground">
-              By clicking accept, you agree to our updated Terms of Service and Privacy Policy.
+              By clicking accept, you agree to our updated Terms of Service and
+              Privacy Policy.
             </p>
           </DialogPreset>
         </ExampleSection>
@@ -173,28 +202,33 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Large Content Sizing"
           description="Sử dụng size='lg' cho nội dung lớn hơn."
-        
           codeString={`<DialogPreset
-  size={globalSize}
   title="Detailed Report"
   description="Monthly analytics and performance overview."
-  trigger={<Button variant="outline" size={globalSize}>View Report</Button>}
-  footer={<Button size={globalSize}>Download PDF</Button>}
+  trigger={<Button variant="outline">View Report</Button>}
+  footer={<Button>Download PDF</Button>}
 >
   <div className="h-[200px] flex items-center justify-center rounded-md border border-dashed bg-muted/20">
     <span className="text-muted-foreground text-sm">Large Content Area</span>
   </div>
 </DialogPreset>
-`}>
+`}
+        >
           <DialogPreset
             size={globalSize}
             title="Detailed Report"
             description="Monthly analytics and performance overview."
-            trigger={<Button variant="outline" size={globalSize}>View Report</Button>}
+            trigger={
+              <Button variant="outline" size={globalSize}>
+                View Report
+              </Button>
+            }
             footer={<Button size={globalSize}>Download PDF</Button>}
           >
             <div className="h-[200px] flex items-center justify-center rounded-md border border-dashed bg-muted/20">
-              <span className="text-muted-foreground text-sm">Large Content Area</span>
+              <span className="text-muted-foreground text-sm">
+                Large Content Area
+              </span>
             </div>
           </DialogPreset>
         </ExampleSection>
@@ -204,10 +238,9 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Controlled State"
           description="Sử dụng open và onOpenChange để quản lý trạng thái đóng mở bằng React state."
-        
           codeString={`<div className="w-full flex flex-col gap-4 items-center justify-center">
   <div className="flex gap-4 items-center">
-    <Button onClick={() => setControlledOpen(true)} variant="outline" size={globalSize}>
+    <Button onClick={() => setControlledOpen(true)} variant="outline">
       Open Controlled Dialog
     </Button>
     <span className="text-sm text-muted-foreground font-mono">
@@ -218,11 +251,10 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
   <DialogPreset
     open={controlledOpen}
     onOpenChange={setControlledOpen}
-    size={globalSize}
     title="Controlled Dialog"
     description="Trạng thái của hộp thoại này được quản lý hoàn toàn bởi React state bên ngoài."
     footer={
-      <Button color="primary" onClick={() => setControlledOpen(false)} size={globalSize}>
+      <Button color="primary" onClick={() => setControlledOpen(false)}>
         Close Manually
       </Button>
     }
@@ -230,10 +262,15 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
     <p className="text-sm text-foreground">Bạn có thể đóng bằng nút bên dưới hoặc dấu X.</p>
   </DialogPreset>
 </div>
-`}>
+`}
+        >
           <div className="w-full flex flex-col gap-4 items-center justify-center">
             <div className="flex gap-4 items-center">
-              <Button onClick={() => setControlledOpen(true)} variant="outline" size={globalSize}>
+              <Button
+                onClick={() => setControlledOpen(true)}
+                variant="outline"
+                size={globalSize}
+              >
                 Open Controlled Dialog
               </Button>
               <span className="text-sm text-muted-foreground font-mono">
@@ -248,12 +285,18 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
               title="Controlled Dialog"
               description="Trạng thái của hộp thoại này được quản lý hoàn toàn bởi React state bên ngoài."
               footer={
-                <Button color="primary" onClick={() => setControlledOpen(false)} size={globalSize}>
+                <Button
+                  color="primary"
+                  onClick={() => setControlledOpen(false)}
+                  size={globalSize}
+                >
                   Close Manually
                 </Button>
               }
             >
-              <p className="text-sm text-foreground">Bạn có thể đóng bằng nút bên dưới hoặc dấu X.</p>
+              <p className="text-sm text-foreground">
+                Bạn có thể đóng bằng nút bên dưới hoặc dấu X.
+              </p>
             </DialogPreset>
           </div>
         </ExampleSection>
@@ -261,24 +304,22 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Sticky Footer (Long Content)"
           description="Layout in-flow giúp footer luôn dính ở dưới cùng khi có thanh cuộn."
-        
           codeString={`<DialogPreset
   trigger={
-    <Button variant="outline" size={globalSize}>
+    <Button variant="outline">
       View Long Content
     </Button>
   }
-  size={globalSize}
   title="Terms & Conditions"
   description="Cuộn xuống dưới cùng để có thể đồng ý với điều khoản."
   footer={
     <div className="flex w-full sm:justify-end gap-2">
       <DialogClose
-        render={<Button variant="ghost" size={globalSize} />}
+        render={<Button variant="ghost" />}
       >
         Cancel
       </DialogClose>
-      <Button size={globalSize}>I Agree</Button>
+      <Button>I Agree</Button>
     </div>
   }
 >
@@ -295,7 +336,8 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
     </span>
   </div>
 </DialogPreset>
-`}>
+`}
+        >
           <DialogPreset
             trigger={
               <Button variant="outline" size={globalSize}>
@@ -322,7 +364,9 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
               </span>
               <div className="flex flex-col items-center gap-2">
                 <span className="text-4xl">👇</span>
-                <span className="text-sm text-muted-foreground">Keep scrolling</span>
+                <span className="text-sm text-muted-foreground">
+                  Keep scrolling
+                </span>
               </div>
               <span className="text-sm font-medium text-muted-foreground">
                 END OF CONTENT
@@ -340,7 +384,12 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
 // ──────────────────────────────────────────────────────────
 function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
   const [controlledOpen, setControlledOpen] = useState(false);
-  const contentClass = globalSize === "sm" ? "sm:max-w-md" : globalSize === "md" ? "sm:max-w-lg" : "sm:max-w-xl";
+  const contentClass =
+    globalSize === "sm"
+      ? "sm:max-w-md"
+      : globalSize === "md"
+        ? "sm:max-w-lg"
+        : "sm:max-w-xl";
 
   return (
     <div className="space-y-10">
@@ -348,11 +397,10 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Basic Usage"
           description="Sử dụng các thành phần rời rạc để tạo dialog cơ bản."
-        
           codeString={`<Dialog>
   <DialogTrigger
     render={
-      <Button variant="outline" size={globalSize}>
+      <Button variant="outline">
         Upgrade Plan
       </Button>
     }
@@ -367,11 +415,11 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
     </DialogHeader>
     <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t bg-muted/50 p-4">
       <DialogClose
-        render={<Button variant="ghost" size={globalSize} />}
+        render={<Button variant="ghost" />}
       >
         Cancel
       </DialogClose>
-      <Button color="primary" size={globalSize}>
+      <Button color="primary">
         Confirm
       </Button>
     </DialogFooter>
@@ -390,7 +438,8 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
     </DialogClose>
   </DialogContent>
 </Dialog>
-`}>
+`}
+        >
           <Dialog>
             <DialogTrigger
               render={
@@ -437,11 +486,10 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Forms & Custom Content"
           description="Sử dụng form bên trong DialogContent."
-        
           codeString={`<Dialog>
   <DialogTrigger
     render={
-      <Button variant="outline" size={globalSize}>
+      <Button variant="outline">
         Edit Profile
       </Button>
     }
@@ -477,7 +525,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
       </div>
     </div>
     <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t bg-muted/50 p-4">
-      <Button type="submit" size={globalSize}>
+      <Button type="submit">
         Save changes
       </Button>
     </DialogFooter>
@@ -496,7 +544,8 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
     </DialogClose>
   </DialogContent>
 </Dialog>
-`}>
+`}
+        >
           <Dialog>
             <DialogTrigger
               render={
@@ -598,11 +647,10 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Large Content Sizing"
           description="Sử dụng sm:max-w-lg cho nội dung lớn hơn."
-        
           codeString={`<Dialog>
   <DialogTrigger
     render={
-      <Button variant="outline" size={globalSize}>
+      <Button variant="outline">
         View Report
       </Button>
     }
@@ -620,7 +668,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
       </span>
     </div>
     <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t bg-muted/50 p-4">
-      <Button size={globalSize}>Download PDF</Button>
+      <Button>Download PDF</Button>
     </DialogFooter>
     <DialogClose
       render={
@@ -637,7 +685,8 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
     </DialogClose>
   </DialogContent>
 </Dialog>
-`}>
+`}
+        >
           <Dialog>
             <DialogTrigger
               render={
@@ -683,10 +732,9 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Controlled State"
           description="Sử dụng open và onOpenChange để quản lý trạng thái đóng mở bằng React state."
-        
           codeString={`<div className="w-full flex flex-col gap-4 items-center justify-center">
   <div className="flex gap-4 items-center">
-    <Button onClick={() => setControlledOpen(true)} variant="outline" size={globalSize}>
+    <Button onClick={() => setControlledOpen(true)} variant="outline">
       Open Controlled Dialog
     </Button>
     <span className="text-sm text-muted-foreground font-mono">
@@ -704,7 +752,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
       </DialogHeader>
       <p className="text-sm text-foreground">Bạn có thể đóng bằng nút bên dưới hoặc dấu X.</p>
       <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t bg-muted/50 p-4">
-        <Button color="primary" onClick={() => setControlledOpen(false)} size={globalSize}>
+        <Button color="primary" onClick={() => setControlledOpen(false)}>
           Close Manually
         </Button>
       </DialogFooter>
@@ -724,10 +772,15 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
     </DialogContent>
   </Dialog>
 </div>
-`}>
+`}
+        >
           <div className="w-full flex flex-col gap-4 items-center justify-center">
             <div className="flex gap-4 items-center">
-              <Button onClick={() => setControlledOpen(true)} variant="outline" size={globalSize}>
+              <Button
+                onClick={() => setControlledOpen(true)}
+                variant="outline"
+                size={globalSize}
+              >
                 Open Controlled Dialog
               </Button>
               <span className="text-sm text-muted-foreground font-mono">
@@ -740,12 +793,19 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                 <DialogHeader>
                   <DialogTitle>Controlled Dialog</DialogTitle>
                   <DialogDescription>
-                    Trạng thái của hộp thoại này được quản lý hoàn toàn bởi React state bên ngoài.
+                    Trạng thái của hộp thoại này được quản lý hoàn toàn bởi
+                    React state bên ngoài.
                   </DialogDescription>
                 </DialogHeader>
-                <p className="text-sm text-foreground">Bạn có thể đóng bằng nút bên dưới hoặc dấu X.</p>
+                <p className="text-sm text-foreground">
+                  Bạn có thể đóng bằng nút bên dưới hoặc dấu X.
+                </p>
                 <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t bg-muted/50 p-4">
-                  <Button color="primary" onClick={() => setControlledOpen(false)} size={globalSize}>
+                  <Button
+                    color="primary"
+                    onClick={() => setControlledOpen(false)}
+                    size={globalSize}
+                  >
                     Close Manually
                   </Button>
                 </DialogFooter>
@@ -770,11 +830,10 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Sticky Footer (Long Content)"
           description="Ghi đè class của DialogContent thành flex-col để khóa scroll ở phần body."
-        
           codeString={`<Dialog>
   <DialogTrigger
     render={
-      <Button variant="outline" size={globalSize}>
+      <Button variant="outline">
         View Long Content
       </Button>
     }
@@ -802,11 +861,11 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
     </div>
     <DialogFooter className="shrink-0 rounded-b-xl border-t bg-muted/50 p-4">
       <DialogClose
-        render={<Button variant="ghost" size={globalSize} />}
+        render={<Button variant="ghost" />}
       >
         Cancel
       </DialogClose>
-      <Button size={globalSize}>I Agree</Button>
+      <Button>I Agree</Button>
     </DialogFooter>
     <DialogClose
       render={
@@ -823,7 +882,8 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
     </DialogClose>
   </DialogContent>
 </Dialog>
-`}>
+`}
+        >
           <Dialog>
             <DialogTrigger
               render={
@@ -832,7 +892,12 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                 </Button>
               }
             />
-            <DialogContent className={cn(contentClass, "flex flex-col gap-0 p-0 overflow-hidden")}>
+            <DialogContent
+              className={cn(
+                contentClass,
+                "flex flex-col gap-0 p-0 overflow-hidden",
+              )}
+            >
               <DialogHeader className="shrink-0 p-4 pb-0">
                 <DialogTitle>Terms & Conditions</DialogTitle>
                 <DialogDescription>
@@ -846,7 +911,9 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                   </span>
                   <div className="flex flex-col items-center gap-2">
                     <span className="text-4xl">👇</span>
-                    <span className="text-sm text-muted-foreground">Keep scrolling</span>
+                    <span className="text-sm text-muted-foreground">
+                      Keep scrolling
+                    </span>
                   </div>
                   <span className="text-sm font-medium text-muted-foreground">
                     END OF CONTENT
@@ -917,10 +984,13 @@ export default function DialogShowcase() {
         <ShowcaseDocs>
           <DocsH3>Cấu trúc và Định tuyến</DocsH3>
           <DocsP>
-            <DocsCode>DialogPreset</DocsCode> là một component Macro giúp rút gọn API của Dialog, bao gồm Trigger, Header, Content và Footer.
+            <DocsCode>DialogPreset</DocsCode> là một component Macro giúp rút
+            gọn API của Dialog, bao gồm Trigger, Header, Content và Footer.
           </DocsP>
           <DocsP>
-            Dialog luôn được render thông qua Portal để tránh bị che khuất bởi các container có <DocsCode>overflow: hidden</DocsCode> hoặc <DocsCode>z-index</DocsCode> thấp.
+            Dialog luôn được render thông qua Portal để tránh bị che khuất bởi
+            các container có <DocsCode>overflow: hidden</DocsCode> hoặc{" "}
+            <DocsCode>z-index</DocsCode> thấp.
           </DocsP>
         </ShowcaseDocs>
       }

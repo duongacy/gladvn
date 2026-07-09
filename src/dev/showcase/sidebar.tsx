@@ -1,5 +1,11 @@
 import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
-import { Package2Icon, SettingsIcon, UserIcon, FolderIcon, MoreHorizontalIcon } from "lucide-react";
+import {
+  Package2Icon,
+  SettingsIcon,
+  UserIcon,
+  FolderIcon,
+  MoreHorizontalIcon,
+} from "lucide-react";
 
 import {
   Sidebar,
@@ -11,15 +17,15 @@ import {
 } from "@/components/micro/sidebar";
 
 export default function SidebarShowcase() {
-  const { sidebarRef, toggleSidebar, defaultState } = useSidebarToggle("expanded");
+  const { sidebarRef, toggleSidebar, defaultState } =
+    useSidebarToggle("expanded");
 
   return (
     <div className="space-y-10">
       <SectionHeader
         title="Sidebar (Ultra Primitive)"
         description="Sidebar nguyên thủy nhất, chỉ nhận context state, không có JS lằng nhằng, CSS thuần túy đóng mở tức thì."
-      >
-      </SectionHeader>
+      ></SectionHeader>
 
       <ExampleSection
         label="Dumb Component Architecture"
@@ -49,13 +55,16 @@ return (
 );`}
       >
         <div className="rounded-xl border overflow-hidden flex h-[500px] w-full bg-background">
-          <Sidebar ref={sidebarRef} defaultState={defaultState} expandedWidth={300}>
+          <Sidebar
+            ref={sidebarRef}
+            defaultState={defaultState}
+            expandedWidth={300}
+          >
             {/* Logo */}
             <SidebarLogo icon={<Package2Icon />} text="Acme Corp" />
 
             {/* Menu chính */}
             <div className="flex-1 py-2 flex flex-col gap-4">
-
               <div className="flex flex-col gap-1">
                 <SidebarLabel icon={<FolderIcon />} text="Projects" />
                 <SidebarMenuItemList>
@@ -72,7 +81,6 @@ return (
                   <SidebarMenuItem text="Permissions" />
                 </SidebarMenuItemList>
               </div>
-
             </div>
 
             {/* Footer */}
@@ -84,7 +92,8 @@ return (
           <main className="flex-1 flex flex-col bg-muted/10 p-6">
             <h1 className="text-xl font-bold">Main Application</h1>
             <p className="text-muted-foreground mt-4">
-              Hãy bấm menu State ở phía trên cùng, hoặc bấm nút Toggle bên dưới để chuyển qua lại giữa Expanded và Collapsed.
+              Hãy bấm menu State ở phía trên cùng, hoặc bấm nút Toggle bên dưới
+              để chuyển qua lại giữa Expanded và Collapsed.
             </p>
             <div className="mt-6">
               <button

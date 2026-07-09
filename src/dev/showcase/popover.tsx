@@ -1,8 +1,19 @@
 import { useState } from "react";
-import { SectionHeader, ExampleSection, ExampleGrid } from "@/dev/components/showcase";
+import {
+  SectionHeader,
+  ExampleSection,
+  ExampleGrid,
+} from "@/dev/components/showcase";
 
 import { type Size } from "@/lib/types";
-import { Popover, PopoverTrigger, PopoverContent, PopoverHeader, PopoverTitle, PopoverDescription } from "@/components/micro/popover";
+import {
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverHeader,
+  PopoverTitle,
+  PopoverDescription,
+} from "@/components/micro/popover";
 import { Button } from "@/components/micro/button";
 import { Input } from "@/components/micro/input";
 import { Label } from "@/components/micro/label";
@@ -54,11 +65,19 @@ export default function PopoverShowcase() {
               <div className="grid gap-4 mt-4">
                 <div className="grid grid-cols-3 items-center gap-4">
                   <Label htmlFor="width">Width</Label>
-                  <Input id="width" defaultValue="100%" className="col-span-2 h-8" />
+                  <Input
+                    id="width"
+                    defaultValue="100%"
+                    className="col-span-2 h-8"
+                  />
                 </div>
                 <div className="grid grid-cols-3 items-center gap-4">
                   <Label htmlFor="height">Height</Label>
-                  <Input id="height" defaultValue="200px" className="col-span-2 h-8" />
+                  <Input
+                    id="height"
+                    defaultValue="200px"
+                    className="col-span-2 h-8"
+                  />
                 </div>
               </div>
             </PopoverContent>
@@ -73,7 +92,12 @@ export default function PopoverShowcase() {
             <Popover>
               <PopoverTrigger
                 render={
-                  <Button variant="ghost" size="md" iconOnly className="rounded-full">
+                  <Button
+                    variant="ghost"
+                    size="md"
+                    iconOnly
+                    className="rounded-full"
+                  >
                     <Bell className="size-4" />
                   </Button>
                 }
@@ -87,7 +111,7 @@ export default function PopoverShowcase() {
                 </PopoverHeader>
               </PopoverContent>
             </Popover>
-            
+
             <Popover>
               <PopoverTrigger
                 render={
@@ -101,9 +125,18 @@ export default function PopoverShowcase() {
                   <PopoverTitle>Cài đặt nhanh</PopoverTitle>
                 </PopoverHeader>
                 <div className="flex flex-col gap-2 mt-2">
-                  <Button variant="ghost" className="justify-start">Tài khoản</Button>
-                  <Button variant="ghost" className="justify-start">Giao diện</Button>
-                  <Button variant="ghost" className="justify-start text-destructive hover:text-destructive">Đăng xuất</Button>
+                  <Button variant="ghost" className="justify-start">
+                    Tài khoản
+                  </Button>
+                  <Button variant="ghost" className="justify-start">
+                    Giao diện
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    className="justify-start text-destructive hover:text-destructive"
+                  >
+                    Đăng xuất
+                  </Button>
                 </div>
               </PopoverContent>
             </Popover>
@@ -128,12 +161,20 @@ export default function PopoverShowcase() {
             <Popover key={side}>
               <PopoverTrigger
                 render={
-                  <Button variant="outline" size={globalSize} className="capitalize">
+                  <Button
+                    variant="outline"
+                    size={globalSize}
+                    className="capitalize"
+                  >
                     {side}
                   </Button>
                 }
               />
-              <PopoverContent side={side} sideOffset={8} className="w-48 text-center text-sm p-4">
+              <PopoverContent
+                side={side}
+                sideOffset={8}
+                className="w-48 text-center text-sm p-4"
+              >
                 Hiển thị ở phía <strong className="capitalize">{side}</strong>
               </PopoverContent>
             </Popover>
@@ -180,19 +221,30 @@ return (
               <PopoverHeader>
                 <PopoverTitle>Controlled Mode</PopoverTitle>
                 <PopoverDescription>
-                  Popover này được control bởi state. Bạn có thể đóng nó bằng nút bên dưới hoặc click ra ngoài.
+                  Popover này được control bởi state. Bạn có thể đóng nó bằng
+                  nút bên dưới hoặc click ra ngoài.
                 </PopoverDescription>
               </PopoverHeader>
               <div className="mt-4 flex justify-end">
-                <Button size="sm" color="secondary" onClick={() => setIsOpen(false)}>
+                <Button
+                  size="sm"
+                  color="secondary"
+                  onClick={() => setIsOpen(false)}
+                >
                   Đóng Popover
                 </Button>
               </div>
             </PopoverContent>
           </Popover>
-          
+
           <div className="text-sm text-muted-foreground">
-            Trạng thái hiện tại: <strong data-active={isOpen ? "" : undefined} className="data-active:text-primary">{isOpen ? "Mở" : "Đóng"}</strong>
+            Trạng thái hiện tại:{" "}
+            <strong
+              data-active={isOpen ? "" : undefined}
+              className="data-active:text-primary"
+            >
+              {isOpen ? "Mở" : "Đóng"}
+            </strong>
           </div>
         </div>
       </ExampleSection>

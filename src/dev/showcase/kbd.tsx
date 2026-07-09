@@ -9,10 +9,7 @@ export default function KbdShowcase() {
         description="Hiển thị phím tắt nội tuyến."
       />
 
-      <ExampleSection
-        label="Default"
-        description="Chỉ báo phím tắt."
-      >
+      <ExampleSection label="Default" description="Chỉ báo phím tắt.">
         <p className="text-sm text-muted-foreground">
           Press <Kbd>⌘</Kbd> <Kbd>K</Kbd> to open the command menu.
         </p>

@@ -4,7 +4,16 @@ import {
   ExampleGrid,
 } from "@/dev/components/showcase";
 import { Button } from "@/components/micro/button";
-import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/micro/drawer";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/micro/drawer";
 
 export default function DrawerShowcase() {
   return (
@@ -18,8 +27,7 @@ export default function DrawerShowcase() {
         <ExampleSection
           label="Bottom Drawer"
           description="Kiểu trang tính dưới cùng mặc định."
-        
-        codeString={`<Drawer>
+          codeString={`<Drawer>
   <DrawerTrigger asChild>
     <Button variant="outline">Open Bottom</Button>
   </DrawerTrigger>
@@ -68,7 +76,8 @@ export default function DrawerShowcase() {
     </div>
   </DrawerContent>
 </Drawer>
-`}>
+`}
+        >
           <Drawer>
             <DrawerTrigger asChild>
               <Button variant="outline">Open Bottom</Button>
@@ -123,8 +132,7 @@ export default function DrawerShowcase() {
         <ExampleSection
           label="Simple Message"
           description="Ngăn kéo có nội dung văn bản đơn giản."
-        
-        codeString={`<Drawer>
+          codeString={`<Drawer>
   <DrawerTrigger asChild>
     <Button variant="outline">Show Info</Button>
   </DrawerTrigger>
@@ -146,7 +154,8 @@ export default function DrawerShowcase() {
     </div>
   </DrawerContent>
 </Drawer>
-`}>
+`}
+        >
           <Drawer>
             <DrawerTrigger asChild>
               <Button variant="outline">Show Info</Button>
@@ -173,8 +182,7 @@ export default function DrawerShowcase() {
         <ExampleSection
           label="Left / Right Drawers"
           description="Drawer mở từ cạnh trái hoặc phải — phù hợp cho Sidebar và Filter panel."
-        
-        codeString={`<Drawer direction="left">
+          codeString={`<Drawer direction="left">
     <DrawerTrigger asChild>
       <Button variant="outline">Open Left</Button>
     </DrawerTrigger>
@@ -224,64 +232,64 @@ export default function DrawerShowcase() {
       </DrawerFooter>
     </DrawerContent>
   </Drawer>
-`}>
+`}
+        >
           <Drawer direction="left">
-              <DrawerTrigger asChild>
-                <Button variant="outline">Open Left</Button>
-              </DrawerTrigger>
-              <DrawerContent>
-                <DrawerHeader>
-                  <DrawerTitle>Sidebar Menu</DrawerTitle>
-                  <DrawerDescription>
-                    Điều hướng từ cạnh trái của màn hình.
-                  </DrawerDescription>
-                </DrawerHeader>
-                <div className="flex-1 p-4">
-                  <ul className="space-y-4 text-sm">
-                    <li>Dashboard</li>
-                    <li>Settings</li>
-                    <li>Profile</li>
-                  </ul>
-                </div>
-                <DrawerFooter>
-                  <DrawerClose asChild>
-                    <Button variant="outline">Close</Button>
-                  </DrawerClose>
-                </DrawerFooter>
-              </DrawerContent>
-            </Drawer>
+            <DrawerTrigger asChild>
+              <Button variant="outline">Open Left</Button>
+            </DrawerTrigger>
+            <DrawerContent>
+              <DrawerHeader>
+                <DrawerTitle>Sidebar Menu</DrawerTitle>
+                <DrawerDescription>
+                  Điều hướng từ cạnh trái của màn hình.
+                </DrawerDescription>
+              </DrawerHeader>
+              <div className="flex-1 p-4">
+                <ul className="space-y-4 text-sm">
+                  <li>Dashboard</li>
+                  <li>Settings</li>
+                  <li>Profile</li>
+                </ul>
+              </div>
+              <DrawerFooter>
+                <DrawerClose asChild>
+                  <Button variant="outline">Close</Button>
+                </DrawerClose>
+              </DrawerFooter>
+            </DrawerContent>
+          </Drawer>
 
-            <Drawer direction="right">
-              <DrawerTrigger asChild>
-                <Button variant="outline">Open Right</Button>
-              </DrawerTrigger>
-              <DrawerContent>
-                <DrawerHeader>
-                  <DrawerTitle>Filters</DrawerTitle>
-                  <DrawerDescription>
-                    Bộ lọc tìm kiếm từ cạnh phải.
-                  </DrawerDescription>
-                </DrawerHeader>
-                <div className="flex-1 space-y-2 p-4">
-                  <div className="h-4 w-1/2 rounded bg-muted" />
-                  <div className="h-4 w-3/4 rounded bg-muted" />
-                  <div className="h-4 w-2/3 rounded bg-muted" />
-                </div>
-                <DrawerFooter>
-                  <Button>Apply Filters</Button>
-                  <DrawerClose asChild>
-                    <Button variant="outline">Cancel</Button>
-                  </DrawerClose>
-                </DrawerFooter>
-              </DrawerContent>
-            </Drawer>
+          <Drawer direction="right">
+            <DrawerTrigger asChild>
+              <Button variant="outline">Open Right</Button>
+            </DrawerTrigger>
+            <DrawerContent>
+              <DrawerHeader>
+                <DrawerTitle>Filters</DrawerTitle>
+                <DrawerDescription>
+                  Bộ lọc tìm kiếm từ cạnh phải.
+                </DrawerDescription>
+              </DrawerHeader>
+              <div className="flex-1 space-y-2 p-4">
+                <div className="h-4 w-1/2 rounded bg-muted" />
+                <div className="h-4 w-3/4 rounded bg-muted" />
+                <div className="h-4 w-2/3 rounded bg-muted" />
+              </div>
+              <DrawerFooter>
+                <Button>Apply Filters</Button>
+                <DrawerClose asChild>
+                  <Button variant="outline">Cancel</Button>
+                </DrawerClose>
+              </DrawerFooter>
+            </DrawerContent>
+          </Drawer>
         </ExampleSection>
 
         <ExampleSection
           label="Top Drawer"
           description="Drawer mở từ phía trên — phù hợp cho notifications, alerts, hoặc search."
-        
-        codeString={`<Drawer direction="top">
+          codeString={`<Drawer direction="top">
   <DrawerTrigger asChild>
     <Button variant="outline">Open Top</Button>
   </DrawerTrigger>
@@ -306,7 +314,8 @@ export default function DrawerShowcase() {
     </div>
   </DrawerContent>
 </Drawer>
-`}>
+`}
+        >
           <Drawer direction="top">
             <DrawerTrigger asChild>
               <Button variant="outline">Open Top</Button>

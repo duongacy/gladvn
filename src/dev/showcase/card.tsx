@@ -11,7 +11,14 @@ import {
 import { MonoSelect } from "@/dev/components/mono-select";
 
 import { type Size } from "@/lib/types";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/micro/card";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from "@/components/micro/card";
 import { CardPreset } from "@/components/macro/card-preset";
 import { Button } from "@/components/micro/button";
 import { Input } from "@/components/micro/input";
@@ -27,7 +34,12 @@ function CardMacroShowcase({ globalSize }: { globalSize: Size }) {
       <ShowcaseDocs>
         <DocsH3>Khi nào nên dùng Macro</DocsH3>
         <DocsP>
-          <DocsCode>CardPreset</DocsCode> giúp rút gọn cú pháp khi tạo Card. Thay vì phải gọi 5 component nhỏ (Header, Title, Description, Content, Footer), bạn chỉ cần dùng 1 component và truyền các prop <DocsCode>title</DocsCode>, <DocsCode>description</DocsCode>, <DocsCode>footer</DocsCode>. Nội dung chính được truyền qua <DocsCode>children</DocsCode>.
+          <DocsCode>CardPreset</DocsCode> giúp rút gọn cú pháp khi tạo Card.
+          Thay vì phải gọi 5 component nhỏ (Header, Title, Description, Content,
+          Footer), bạn chỉ cần dùng 1 component và truyền các prop{" "}
+          <DocsCode>title</DocsCode>, <DocsCode>description</DocsCode>,{" "}
+          <DocsCode>footer</DocsCode>. Nội dung chính được truyền qua{" "}
+          <DocsCode>children</DocsCode>.
         </DocsP>
       </ShowcaseDocs>
 
@@ -62,9 +74,7 @@ function CardMacroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Không có Footer"
           description="Bỏ qua prop footer để ẩn hoàn toàn phần chân trang."
-        
           codeString={`<CardPreset
-  size={globalSize}
   title="Notification Preferences"
   description="Chọn những thông tin mà bạn muốn nhận thông báo."
   className="w-full"
@@ -73,7 +83,8 @@ function CardMacroShowcase({ globalSize }: { globalSize: Size }) {
     Switches and toggles go here.
   </div>
 </CardPreset>
-`}>
+`}
+        >
           <CardPreset
             size={globalSize}
             title="Notification Preferences"
@@ -118,7 +129,9 @@ function CardMacroShowcase({ globalSize }: { globalSize: Size }) {
           >
             <div className="text-sm text-muted-foreground bg-muted/30 p-4 rounded-lg border border-dashed border-border/50 flex items-center justify-between">
               <span className="font-mono">sk_live_123...</span>
-              <Button size="sm" variant="outline">Copy</Button>
+              <Button size="sm" variant="outline">
+                Copy
+              </Button>
             </div>
           </CardPreset>
         </ExampleSection>
@@ -155,7 +168,9 @@ function CardMacroShowcase({ globalSize }: { globalSize: Size }) {
             description="Thay đổi tên hiển thị và email của bạn."
             footer={
               <div className="flex justify-between w-full">
-                <Button variant="ghost" size={globalSize}>Cancel</Button>
+                <Button variant="ghost" size={globalSize}>
+                  Cancel
+                </Button>
                 <Button size={globalSize}>Save</Button>
               </div>
             }
@@ -168,7 +183,11 @@ function CardMacroShowcase({ globalSize }: { globalSize: Size }) {
               </div>
               <div className="flex flex-col space-y-1.5">
                 <Label htmlFor="macro-email">Email</Label>
-                <Input id="macro-email" type="email" placeholder="hello@example.com" />
+                <Input
+                  id="macro-email"
+                  type="email"
+                  placeholder="hello@example.com"
+                />
               </div>
             </div>
           </CardPreset>
@@ -187,15 +206,17 @@ function CardMicroShowcase({ globalSize }: { globalSize: Size }) {
       <ShowcaseDocs>
         <DocsH3>Khi nào nên dùng Micro</DocsH3>
         <DocsP>
-          Dùng <DocsCode>Card</DocsCode> và các thành phần con khi bạn cần tạo bố cục Card đặc biệt mà <DocsCode>CardPreset</DocsCode> không hỗ trợ (ví dụ: Card không có Header, Header phức tạp với nhiều Button, hoặc bố cục dạng lưới KPI).
+          Dùng <DocsCode>Card</DocsCode> và các thành phần con khi bạn cần tạo
+          bố cục Card đặc biệt mà <DocsCode>CardPreset</DocsCode> không hỗ trợ
+          (ví dụ: Card không có Header, Header phức tạp với nhiều Button, hoặc
+          bố cục dạng lưới KPI).
         </DocsP>
       </ShowcaseDocs>
 
       <ExampleSection
         label="Cơ bản (Standard)"
         description="Lắp ráp thủ công từ CardHeader, CardTitle, CardContent, CardFooter."
-      
-        codeString={`<Card size={globalSize} className="w-full max-w-sm">
+        codeString={`<Card className="w-full max-w-sm">
   <CardHeader>
     <CardTitle>Create project</CardTitle>
     <CardDescription>Deploy your new project in one-click.</CardDescription>
@@ -211,15 +232,18 @@ function CardMicroShowcase({ globalSize }: { globalSize: Size }) {
     </form>
   </CardContent>
   <CardFooter className="flex justify-between">
-    <Button variant="outline" size={globalSize}>Cancel</Button>
-    <Button size={globalSize}>Deploy</Button>
+    <Button variant="outline">Cancel</Button>
+    <Button>Deploy</Button>
   </CardFooter>
 </Card>
-`}>
+`}
+      >
         <Card size={globalSize} className="w-full max-w-sm">
           <CardHeader>
             <CardTitle>Create project</CardTitle>
-            <CardDescription>Deploy your new project in one-click.</CardDescription>
+            <CardDescription>
+              Deploy your new project in one-click.
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <form>
@@ -232,7 +256,9 @@ function CardMicroShowcase({ globalSize }: { globalSize: Size }) {
             </form>
           </CardContent>
           <CardFooter className="flex justify-between">
-            <Button variant="outline" size={globalSize}>Cancel</Button>
+            <Button variant="outline" size={globalSize}>
+              Cancel
+            </Button>
             <Button size={globalSize}>Deploy</Button>
           </CardFooter>
         </Card>
@@ -256,8 +282,7 @@ function CardMicroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Header đặc chế"
           description="Tích hợp menu góc phải mà Preset khó thực hiện."
-        
-          codeString={`<Card size={globalSize} className="w-full">
+          codeString={`<Card className="w-full">
   <CardHeader>
     <div className="flex items-center justify-between">
       <div className="flex flex-col gap-1.5">
@@ -288,7 +313,8 @@ function CardMicroShowcase({ globalSize }: { globalSize: Size }) {
     </div>
   </CardHeader>
 </Card>
-`}>
+`}
+        >
           <Card size={globalSize} className="w-full">
             <CardHeader>
               <div className="flex items-center justify-between">
@@ -299,7 +325,12 @@ function CardMicroShowcase({ globalSize }: { globalSize: Size }) {
                   </div>
                   <CardDescription>You have 3 unread messages.</CardDescription>
                 </div>
-                <Button variant="ghost" size="sm" iconOnly className="h-8 w-8 rounded-full">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  iconOnly
+                  className="h-8 w-8 rounded-full"
+                >
                   <span className="sr-only">Open menu</span>
                   <svg
                     width="15"
@@ -327,9 +358,8 @@ function CardMicroShowcase({ globalSize }: { globalSize: Size }) {
         label="Thẻ chỉ số KPI (Stats Cards)"
         description="Thiết kế thẻ dashboard thông dụng trong thực tế."
         fullWidth
-      
         codeString={`<div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
-  <Card size={globalSize}>
+  <Card>
     <CardHeader className="pb-2">
       <CardDescription>Total Revenue</CardDescription>
       <CardTitle className="text-3xl">\$45,231.89</CardTitle>
@@ -338,7 +368,7 @@ function CardMicroShowcase({ globalSize }: { globalSize: Size }) {
       <p className="text-xs text-muted-foreground">+20.1% from last month</p>
     </CardContent>
   </Card>
-  <Card size={globalSize}>
+  <Card>
     <CardHeader className="pb-2">
       <CardDescription>Subscriptions</CardDescription>
       <CardTitle className="text-3xl">+2,350</CardTitle>
@@ -347,7 +377,7 @@ function CardMicroShowcase({ globalSize }: { globalSize: Size }) {
       <p className="text-xs text-muted-foreground">+180.1% from last month</p>
     </CardContent>
   </Card>
-  <Card size={globalSize}>
+  <Card>
     <CardHeader className="pb-2">
       <CardDescription>Active Now</CardDescription>
       <CardTitle className="text-3xl">+573</CardTitle>
@@ -357,7 +387,8 @@ function CardMicroShowcase({ globalSize }: { globalSize: Size }) {
     </CardContent>
   </Card>
 </div>
-`}>
+`}
+      >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
           <Card size={globalSize}>
             <CardHeader className="pb-2">
@@ -365,7 +396,9 @@ function CardMicroShowcase({ globalSize }: { globalSize: Size }) {
               <CardTitle className="text-3xl">$45,231.89</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-xs text-muted-foreground">+20.1% from last month</p>
+              <p className="text-xs text-muted-foreground">
+                +20.1% from last month
+              </p>
             </CardContent>
           </Card>
           <Card size={globalSize}>
@@ -374,7 +407,9 @@ function CardMicroShowcase({ globalSize }: { globalSize: Size }) {
               <CardTitle className="text-3xl">+2,350</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-xs text-muted-foreground">+180.1% from last month</p>
+              <p className="text-xs text-muted-foreground">
+                +180.1% from last month
+              </p>
             </CardContent>
           </Card>
           <Card size={globalSize}>
@@ -383,7 +418,9 @@ function CardMicroShowcase({ globalSize }: { globalSize: Size }) {
               <CardTitle className="text-3xl">+573</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-xs text-muted-foreground">+201 since last hour</p>
+              <p className="text-xs text-muted-foreground">
+                +201 since last hour
+              </p>
             </CardContent>
           </Card>
         </div>
@@ -414,8 +451,14 @@ export default function CardShowcase() {
         />
       }
       tabs={[
-        { label: "Micro (Primitive)", content: <CardMicroShowcase globalSize={globalSize} /> },
-        { label: "Macro (Preset)", content: <CardMacroShowcase globalSize={globalSize} /> },
+        {
+          label: "Micro (Primitive)",
+          content: <CardMicroShowcase globalSize={globalSize} />,
+        },
+        {
+          label: "Macro (Preset)",
+          content: <CardMacroShowcase globalSize={globalSize} />,
+        },
       ]}
     />
   );

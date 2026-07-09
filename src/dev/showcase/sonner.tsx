@@ -13,8 +13,7 @@ export default function SonnerShowcase() {
       <ExampleSection
         label="Toast Types"
         description="Nhấp vào từng nút để kích hoạt một loại bánh mì nướng khác nhau."
-      
-      codeString={`<div className="flex flex-wrap gap-2">
+        codeString={`<div className="flex flex-wrap gap-2">
   <Button
     variant="outline"
     onClick={() =>
@@ -55,7 +54,8 @@ export default function SonnerShowcase() {
     Info
   </Button>
 </div>
-`}>
+`}
+      >
         <div className="flex flex-wrap gap-2">
           <Button
             variant="outline"

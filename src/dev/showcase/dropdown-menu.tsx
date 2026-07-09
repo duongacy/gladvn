@@ -13,7 +13,22 @@ import {
 } from "lucide-react";
 
 import { type Size } from "@/lib/types";
-import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuGroup, DropdownMenuShortcut, DropdownMenuCheckboxItem, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSub, DropdownMenuSubTrigger, DropdownMenuSubContent } from "@/components/micro/dropdown-menu";
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuGroup,
+  DropdownMenuShortcut,
+  DropdownMenuCheckboxItem,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuSub,
+  DropdownMenuSubTrigger,
+  DropdownMenuSubContent,
+} from "@/components/micro/dropdown-menu";
 import { Button } from "@/components/micro/button";
 import { SelectPreset } from "@/components/macro/select-preset";
 
@@ -44,11 +59,10 @@ export default function DropdownMenuShowcase() {
         <ExampleSection
           label="Standard Dropdown"
           description="Menu cơ bản với các phím tắt và action nguy hiểm."
-        
-        codeString={`<DropdownMenu>
+          codeString={`<DropdownMenu>
   <DropdownMenuTrigger
     render={
-      <Button variant="outline" size={globalSize}>
+      <Button variant="outline">
         Open Menu
       </Button>
     }
@@ -87,7 +101,8 @@ export default function DropdownMenuShowcase() {
     </DropdownMenuItem>
   </DropdownMenuContent>
 </DropdownMenu>
-`}>
+`}
+        >
           <DropdownMenu>
             <DropdownMenuTrigger
               render={
@@ -135,11 +150,10 @@ export default function DropdownMenuShowcase() {
         <ExampleSection
           label="With Disabled Items"
           description="Một số mục không tương tác."
-        
-        codeString={`<DropdownMenu>
+          codeString={`<DropdownMenu>
   <DropdownMenuTrigger
     render={
-      <Button variant="outline" size={globalSize}>
+      <Button variant="outline">
         Actions
       </Button>
     }
@@ -166,7 +180,8 @@ export default function DropdownMenuShowcase() {
     </DropdownMenuItem>
   </DropdownMenuContent>
 </DropdownMenu>
-`}>
+`}
+        >
           <DropdownMenu>
             <DropdownMenuTrigger
               render={

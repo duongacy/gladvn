@@ -32,18 +32,21 @@ export default function ToggleShowcase() {
       </SectionHeader>
 
       <ExampleGrid columns={2}>
-        <ExampleSection label="Standard" description="Nút chuyển đổi duy nhất."
+        <ExampleSection
+          label="Standard"
+          description="Nút chuyển đổi duy nhất."
           codeString={`<div className="flex gap-2">
-  <Toggle aria-label="Toggle italic" size={globalSize}>
+  <Toggle aria-label="Toggle italic">
     <ItalicIcon className="size-4 mr-2" />
     Italic
   </Toggle>
-  <Toggle aria-label="Toggle bold" size={globalSize}>
+  <Toggle aria-label="Toggle bold">
     <BoldIcon className="size-4 mr-2" />
     Bold
   </Toggle>
 </div>
-`}>
+`}
+        >
           <div className="flex gap-2">
             <Toggle aria-label="Toggle italic" size={globalSize}>
               <ItalicIcon className="size-4 mr-2" />
@@ -59,18 +62,17 @@ export default function ToggleShowcase() {
         <ExampleSection
           label="Outline Variant"
           description="Chuyển đổi với phong cách phác thảo."
-        
-        codeString={`<div className="flex gap-2">
+          codeString={`<div className="flex gap-2">
   <Toggle
     variant="outline"
     aria-label="Toggle underline"
-    size={globalSize}
   >
     <UnderlineIcon className="size-4 mr-2" />
     Underline
   </Toggle>
 </div>
-`}>
+`}
+        >
           <div className="flex gap-2">
             <Toggle
               variant="outline"

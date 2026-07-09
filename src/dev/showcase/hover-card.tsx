@@ -2,7 +2,11 @@ import { CalendarIcon } from "lucide-react";
 import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/micro/avatar";
 import { Button } from "@/components/micro/button";
-import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/micro/hover-card";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/micro/hover-card";
 
 export default function HoverCardShowcase() {
   return (
@@ -15,8 +19,7 @@ export default function HoverCardShowcase() {
       <ExampleSection
         label="Default"
         description="Di chuột qua liên kết để xem bản xem trước."
-      
-      codeString={`<HoverCard>
+        codeString={`<HoverCard>
   <HoverCardTrigger render={<Button variant="link" />}>
     @nextjs
   </HoverCardTrigger>
@@ -41,7 +44,8 @@ export default function HoverCardShowcase() {
     </div>
   </HoverCardContent>
 </HoverCard>
-`}>
+`}
+      >
         <HoverCard>
           <HoverCardTrigger render={<Button variant="link" />}>
             @nextjs

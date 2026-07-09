@@ -37,7 +37,11 @@ function EmptyMacroShowcase() {
       <ShowcaseDocs>
         <DocsH3>Khi nào nên dùng Macro</DocsH3>
         <DocsP>
-          <DocsCode>EmptyPreset</DocsCode> đóng gói toàn bộ cấu trúc của trạng thái trống. Truyền trực tiếp các props <DocsCode>icon</DocsCode>, <DocsCode>title</DocsCode>, <DocsCode>description</DocsCode> và <DocsCode>action</DocsCode> để render nhanh mà không cần lồng ghép thẻ.
+          <DocsCode>EmptyPreset</DocsCode> đóng gói toàn bộ cấu trúc của trạng
+          thái trống. Truyền trực tiếp các props <DocsCode>icon</DocsCode>,{" "}
+          <DocsCode>title</DocsCode>, <DocsCode>description</DocsCode> và{" "}
+          <DocsCode>action</DocsCode> để render nhanh mà không cần lồng ghép
+          thẻ.
         </DocsP>
       </ShowcaseDocs>
 
@@ -184,7 +188,11 @@ function EmptyMicroShowcase() {
       <ShowcaseDocs>
         <DocsH3>Khi nào nên dùng Micro</DocsH3>
         <DocsP>
-          Dùng các thành phần con (<DocsCode>EmptyHeader</DocsCode>, <DocsCode>EmptyMedia</DocsCode>, <DocsCode>EmptyContent</DocsCode>...) khi bạn cần thay đổi trật tự cấu trúc (ví dụ: chuyển nút lên trên), chèn thêm nội dung đặc biệt hoặc render Icon dưới dạng file SVG tùy chỉnh phức tạp thay vì Lucide Icon.
+          Dùng các thành phần con (<DocsCode>EmptyHeader</DocsCode>,{" "}
+          <DocsCode>EmptyMedia</DocsCode>, <DocsCode>EmptyContent</DocsCode>...)
+          khi bạn cần thay đổi trật tự cấu trúc (ví dụ: chuyển nút lên trên),
+          chèn thêm nội dung đặc biệt hoặc render Icon dưới dạng file SVG tùy
+          chỉnh phức tạp thay vì Lucide Icon.
         </DocsP>
       </ShowcaseDocs>
 
@@ -192,7 +200,6 @@ function EmptyMicroShowcase() {
         <ExampleSection
           label="Cơ bản (Default)"
           description="Trạng thái trống cơ bản với cấu trúc thủ công."
-        
           codeString={`<Empty className="w-full min-h-[280px]">
   <EmptyHeader>
     <EmptyTitle>No customers found</EmptyTitle>
@@ -209,7 +216,8 @@ function EmptyMicroShowcase() {
     </EmptyAction>
   </EmptyContent>
 </Empty>
-`}>
+`}
+        >
           <Empty className="w-full min-h-[280px]">
             <EmptyHeader>
               <EmptyTitle>No customers found</EmptyTitle>
@@ -323,7 +331,6 @@ function EmptyMicroShowcase() {
         label="Cấu trúc tùy chỉnh nâng cao"
         description="Nút xóa bộ lọc nằm tách biệt khỏi hành động chính."
         fullWidth
-      
         codeString={`<div className="w-full max-w-md">
   <Empty className="w-full min-h-[240px]">
     <EmptyHeader>
@@ -342,7 +349,8 @@ function EmptyMicroShowcase() {
     </EmptyContent>
   </Empty>
 </div>
-`}>
+`}
+      >
         <div className="w-full max-w-md">
           <Empty className="w-full min-h-[240px]">
             <EmptyHeader>

@@ -30,11 +30,9 @@ export default function ToastShowcase() {
       <ExampleSection
         label="Toast Notifications"
         description="Nhấp để kích hoạt các lời chúc mừng khác nhau."
-      
-      codeString={`<div className="flex flex-wrap gap-3">
+        codeString={`<div className="flex flex-wrap gap-3">
   <Button
     variant="outline"
-    size={globalSize}
     onClick={() => {
       toast("Event has been created", {
         description: "Sunday, December 03, 2023 at 9:00 AM",
@@ -50,7 +48,6 @@ export default function ToastShowcase() {
   <Button
     variant="outline"
     color="success"
-    size={globalSize}
     onClick={() => {
       toast.success("Profile updated successfully");
     }}
@@ -60,7 +57,6 @@ export default function ToastShowcase() {
   <Button
     variant="outline"
     color="destructive"
-    size={globalSize}
     onClick={() => {
       toast.error("Failed to update profile");
     }}
@@ -68,7 +64,8 @@ export default function ToastShowcase() {
     Error Toast
   </Button>
 </div>
-`}>
+`}
+      >
         <div className="flex flex-wrap gap-3">
           <Button
             variant="outline"

@@ -1,5 +1,9 @@
 import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
-import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/micro/resizable";
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "@/components/micro/resizable";
 
 export default function ResizableShowcase() {
   return (
@@ -12,8 +16,7 @@ export default function ResizableShowcase() {
       <ExampleSection
         label="Horizontal Split"
         description="Kéo tay cầm để thay đổi kích thước bảng."
-      
-      codeString={`<ResizablePanelGroup
+        codeString={`<ResizablePanelGroup
   orientation="horizontal"
   className="max-w-md rounded-xl border bg-card"
 >
@@ -29,7 +32,8 @@ export default function ResizableShowcase() {
     </div>
   </ResizablePanel>
 </ResizablePanelGroup>
-`}>
+`}
+      >
         <ResizablePanelGroup
           orientation="horizontal"
           className="max-w-md rounded-xl border bg-card"
@@ -51,8 +55,7 @@ export default function ResizableShowcase() {
       <ExampleSection
         label="Nested Layout"
         description="Bố cục phức tạp với các nhóm có thể thay đổi kích thước lồng nhau."
-      
-      codeString={`<ResizablePanelGroup
+        codeString={`<ResizablePanelGroup
   orientation="horizontal"
   className="max-w-md rounded-xl border bg-card"
 >
@@ -78,7 +81,8 @@ export default function ResizableShowcase() {
     </ResizablePanelGroup>
   </ResizablePanel>
 </ResizablePanelGroup>
-`}>
+`}
+      >
         <ResizablePanelGroup
           orientation="horizontal"
           className="max-w-md rounded-xl border bg-card"

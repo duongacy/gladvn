@@ -1,4 +1,11 @@
-import { ExampleSection, Showcase, ShowcaseDocs, DocsH3, DocsP, DocsCode } from "@/dev/components/showcase";
+import {
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+  DocsH3,
+  DocsP,
+  DocsCode,
+} from "@/dev/components/showcase";
 import { Separator } from "@/components/micro/separator";
 
 // ──────────────────────────────────────────────────────────
@@ -10,7 +17,9 @@ function SeparatorMicroShowcase() {
       <ShowcaseDocs>
         <DocsH3>Separator (Phân cách)</DocsH3>
         <DocsP>
-          <DocsCode>Separator</DocsCode> không có phiên bản Macro vì bản chất nó chỉ là một đường kẻ phân tách giao diện. Mặc định là đường kẻ ngang (<DocsCode>orientation="horizontal"</DocsCode>).
+          <DocsCode>Separator</DocsCode> không có phiên bản Macro vì bản chất nó
+          chỉ là một đường kẻ phân tách giao diện. Mặc định là đường kẻ ngang (
+          <DocsCode>orientation="horizontal"</DocsCode>).
         </DocsP>
       </ShowcaseDocs>
 
@@ -18,8 +27,7 @@ function SeparatorMicroShowcase() {
         label="Ngang (Horizontal)"
         description="Sử dụng để phân tách các khối nội dung từ trên xuống dưới."
         fullWidth
-      
-      codeString={`<div className="w-full max-w-sm rounded-lg border bg-card p-6">
+        codeString={`<div className="w-full max-w-sm rounded-lg border bg-card p-6">
   <div className="space-y-1">
     <h4 className="text-sm font-medium leading-none">
       Sadcn UI
@@ -33,12 +41,11 @@ function SeparatorMicroShowcase() {
     Cập nhật lần cuối: Hôm nay
   </div>
 </div>
-`}>
+`}
+      >
         <div className="w-full max-w-sm rounded-lg border bg-card p-6">
           <div className="space-y-1">
-            <h4 className="text-sm font-medium leading-none">
-              Sadcn UI
-            </h4>
+            <h4 className="text-sm font-medium leading-none">Sadcn UI</h4>
             <p className="text-sm text-muted-foreground">
               Bộ UI Component mã nguồn mở.
             </p>
@@ -53,21 +60,25 @@ function SeparatorMicroShowcase() {
       <ExampleSection
         label="Dọc (Vertical)"
         description="Sử dụng để phân tách các mục nằm ngang (như menu, thanh công cụ)."
-      
-      codeString={`<div className="flex h-5 items-center space-x-4 text-sm">
+        codeString={`<div className="flex h-5 items-center space-x-4 text-sm">
   <div className="font-medium hover:underline cursor-pointer">Blog</div>
   <Separator orientation="vertical" />
   <div className="font-medium hover:underline cursor-pointer">Tài liệu</div>
   <Separator orientation="vertical" />
   <div className="font-medium hover:underline cursor-pointer">Mã nguồn</div>
 </div>
-`}>
+`}
+      >
         <div className="flex h-5 items-center space-x-4 text-sm">
           <div className="font-medium hover:underline cursor-pointer">Blog</div>
           <Separator orientation="vertical" />
-          <div className="font-medium hover:underline cursor-pointer">Tài liệu</div>
+          <div className="font-medium hover:underline cursor-pointer">
+            Tài liệu
+          </div>
           <Separator orientation="vertical" />
-          <div className="font-medium hover:underline cursor-pointer">Mã nguồn</div>
+          <div className="font-medium hover:underline cursor-pointer">
+            Mã nguồn
+          </div>
         </div>
       </ExampleSection>
     </div>

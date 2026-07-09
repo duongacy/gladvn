@@ -1,7 +1,16 @@
 import { ExampleSection, SectionHeader } from "@/dev/components/showcase";
 import { Button } from "@/components/micro/button";
 import { Input } from "@/components/micro/input";
-import { Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "@/components/micro/sheet";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/micro/sheet";
 
 export default function SheetShowcase() {
   return (

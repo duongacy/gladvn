@@ -48,7 +48,7 @@ export default function BadgeShowcase() {
           <Badge color="info">Info</Badge>
           <Badge color="muted">Muted</Badge>
         </ExampleSection>
-        
+
         <ExampleSection
           label="Soft Colors"
           description="Mã thông báo màu ngữ nghĩa được áp dụng cho huy hiệu (Soft)."
@@ -60,13 +60,27 @@ export default function BadgeShowcase() {
 <Badge variant="soft" color="info">Info</Badge>
 <Badge variant="soft" color="muted">Muted</Badge>`}
         >
-          <Badge variant="soft" color="primary">Primary</Badge>
-          <Badge variant="soft" color="secondary">Secondary</Badge>
-          <Badge variant="soft" color="destructive">Destructive</Badge>
-          <Badge variant="soft" color="warning">Warning</Badge>
-          <Badge variant="soft" color="success">Success</Badge>
-          <Badge variant="soft" color="info">Info</Badge>
-          <Badge variant="soft" color="muted">Muted</Badge>
+          <Badge variant="soft" color="primary">
+            Primary
+          </Badge>
+          <Badge variant="soft" color="secondary">
+            Secondary
+          </Badge>
+          <Badge variant="soft" color="destructive">
+            Destructive
+          </Badge>
+          <Badge variant="soft" color="warning">
+            Warning
+          </Badge>
+          <Badge variant="soft" color="success">
+            Success
+          </Badge>
+          <Badge variant="soft" color="info">
+            Info
+          </Badge>
+          <Badge variant="soft" color="muted">
+            Muted
+          </Badge>
         </ExampleSection>
       </ExampleGrid>
 
@@ -122,10 +136,18 @@ export default function BadgeShowcase() {
 <Badge color="destructive" variant="soft">Expired</Badge>
 <Badge color="muted" variant="outline">Archived</Badge>`}
         >
-          <Badge color="success" variant="soft">Active</Badge>
-          <Badge color="secondary" variant="soft">Inactive</Badge>
-          <Badge color="destructive" variant="soft">Expired</Badge>
-          <Badge color="muted" variant="outline">Archived</Badge>
+          <Badge color="success" variant="soft">
+            Active
+          </Badge>
+          <Badge color="secondary" variant="soft">
+            Inactive
+          </Badge>
+          <Badge color="destructive" variant="soft">
+            Expired
+          </Badge>
+          <Badge color="muted" variant="outline">
+            Archived
+          </Badge>
         </ExampleSection>
         <ExampleSection
           label="Tags & Categories"
@@ -135,10 +157,18 @@ export default function BadgeShowcase() {
 <Badge variant="outline" color="info">Tailwind</Badge>
 <Badge variant="outline" color="warning">Vite</Badge>`}
         >
-          <Badge variant="outline" color="primary">React</Badge>
-          <Badge variant="outline" color="secondary">TypeScript</Badge>
-          <Badge variant="outline" color="info">Tailwind</Badge>
-          <Badge variant="outline" color="warning">Vite</Badge>
+          <Badge variant="outline" color="primary">
+            React
+          </Badge>
+          <Badge variant="outline" color="secondary">
+            TypeScript
+          </Badge>
+          <Badge variant="outline" color="info">
+            Tailwind
+          </Badge>
+          <Badge variant="outline" color="warning">
+            Vite
+          </Badge>
         </ExampleSection>
       </ExampleGrid>
 
@@ -158,9 +188,7 @@ export default function BadgeShowcase() {
   Outline Link
 </Badge>`}
       >
-        <Badge render={<a href="#" />}>
-          Clickable Badge
-        </Badge>
+        <Badge render={<a href="#" />}>Clickable Badge</Badge>
         <Badge color="secondary" render={<a href="#" />}>
           Secondary Link
         </Badge>

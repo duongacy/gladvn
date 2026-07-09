@@ -1,13 +1,27 @@
 import { useState } from "react";
 import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
-import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow, TableFooter } from "@/components/micro/table";
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+  TableFooter,
+} from "@/components/micro/table";
 
 type SortDirection = "asc" | "desc" | "none";
 
 const DUMMY_DATA = [
   { id: "INV001", status: "Paid", method: "Credit Card", amount: "$250.00" },
   { id: "INV002", status: "Pending", method: "PayPal", amount: "$150.00" },
-  { id: "INV003", status: "Unpaid", method: "Bank Transfer", amount: "$350.00" },
+  {
+    id: "INV003",
+    status: "Unpaid",
+    method: "Bank Transfer",
+    amount: "$350.00",
+  },
 ];
 
 export default function TableShowcase() {
@@ -21,10 +35,7 @@ export default function TableShowcase() {
 
   return (
     <div className="space-y-10">
-      <SectionHeader
-        title="Table"
-        description="Một thành phần bảng đáp ứng."
-      />
+      <SectionHeader title="Table" description="Một thành phần bảng đáp ứng." />
 
       <ExampleSection
         label="Default"
@@ -103,7 +114,7 @@ return (
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead 
+              <TableHead
                 className="w-[100px]"
                 sortDirection={invoiceSort}
                 sortOptions={["asc", "desc"]}

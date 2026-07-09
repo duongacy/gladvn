@@ -86,7 +86,28 @@ export default function AspectRatioShowcase() {
         <ExampleSection
           label="Video Embed"
           description="Duy trì tỷ lệ 16:9 cho video nhúng."
-        >
+        
+        codeString={`<AspectRatio
+  ratio={16 / 9}
+  className="rounded-xl overflow-hidden bg-muted border border-border w-full"
+>
+  <div className="w-full h-full flex flex-col items-center justify-center gap-2 text-muted-foreground">
+    <svg
+      width="48"
+      height="48"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <polygon points="5 3 19 12 5 21 5 3" />
+    </svg>
+    <span className="text-xs font-mono">iframe / video</span>
+  </div>
+</AspectRatio>
+`}>
           <AspectRatio
             ratio={16 / 9}
             className="rounded-xl overflow-hidden bg-muted border border-border w-full"
@@ -112,7 +133,30 @@ export default function AspectRatioShowcase() {
         <ExampleSection
           label="Map Embed"
           description="Duy trì tỷ lệ 4:3 cho bản đồ nhúng."
-        >
+        
+        codeString={`<AspectRatio
+  ratio={4 / 3}
+  className="rounded-xl overflow-hidden bg-muted border border-border w-full"
+>
+  <div className="w-full h-full flex flex-col items-center justify-center gap-2 text-muted-foreground">
+    <svg
+      width="48"
+      height="48"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6" />
+      <line x1="8" y1="2" x2="8" y2="18" />
+      <line x1="16" y1="6" x2="16" y2="22" />
+    </svg>
+    <span className="text-xs font-mono">map / iframe</span>
+  </div>
+</AspectRatio>
+`}>
           <AspectRatio
             ratio={4 / 3}
             className="rounded-xl overflow-hidden bg-muted border border-border w-full"

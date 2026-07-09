@@ -42,7 +42,19 @@ export default function ToggleGroupShowcase() {
         <ExampleSection
           label="Single Selection"
           description="Chỉ có một mục có thể hoạt động."
-        >
+        
+        codeString={`<ToggleGroup defaultValue={["center"]} size={globalSize}>
+  <ToggleGroupItem value="left" aria-label="Align left">
+    <AlignLeftIcon className="size-4" />
+  </ToggleGroupItem>
+  <ToggleGroupItem value="center" aria-label="Align center">
+    <AlignCenterIcon className="size-4" />
+  </ToggleGroupItem>
+  <ToggleGroupItem value="right" aria-label="Align right">
+    <AlignRightIcon className="size-4" />
+  </ToggleGroupItem>
+</ToggleGroup>
+`}>
           <ToggleGroup defaultValue={["center"]} size={globalSize}>
             <ToggleGroupItem value="left" aria-label="Align left">
               <AlignLeftIcon className="size-4" />
@@ -59,7 +71,22 @@ export default function ToggleGroupShowcase() {
         <ExampleSection
           label="Multiple Selection"
           description="Nhiều mục có thể được kích hoạt."
-        >
+        
+        codeString={`<ToggleGroup
+  defaultValue={["bold", "italic"]}
+  size={globalSize}
+>
+  <ToggleGroupItem value="bold" aria-label="Toggle bold">
+    <BoldIcon className="size-4" />
+  </ToggleGroupItem>
+  <ToggleGroupItem value="italic" aria-label="Toggle italic">
+    <ItalicIcon className="size-4" />
+  </ToggleGroupItem>
+  <ToggleGroupItem value="underline" aria-label="Toggle underline">
+    <UnderlineIcon className="size-4" />
+  </ToggleGroupItem>
+</ToggleGroup>
+`}>
           <ToggleGroup
             defaultValue={["bold", "italic"]}
             size={globalSize}

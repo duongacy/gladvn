@@ -51,7 +51,17 @@ export default function ItemShowcase() {
         <ExampleSection
           label="With Media"
           description="Vật phẩm có biểu tượng hoặc hình đại diện."
-        >
+        
+        codeString={`<Item size={globalSize} className="w-full">
+  <ItemMedia className="bg-primary/10 text-primary rounded-md p-2">
+    <UserIcon className="size-4" />
+  </ItemMedia>
+  <ItemContent>
+    <ItemTitle>User Profile</ItemTitle>
+    <ItemDescription>Manage your account</ItemDescription>
+  </ItemContent>
+</Item>
+`}>
           <Item size={globalSize} className="w-full">
             <ItemMedia className="bg-primary/10 text-primary rounded-md p-2">
               <UserIcon className="size-4" />
@@ -68,7 +78,20 @@ export default function ItemShowcase() {
         <ExampleSection
           label="Variants"
           description="Các phong cách hình ảnh khác nhau (phác thảo, tắt tiếng)."
-        >
+        
+        codeString={`<div className="flex flex-col gap-3 w-full">
+  <Item variant="outline" size={globalSize}>
+    <ItemContent>
+      <ItemTitle>Outline Variant</ItemTitle>
+    </ItemContent>
+  </Item>
+  <Item variant="muted" size={globalSize}>
+    <ItemContent>
+      <ItemTitle>Muted Variant</ItemTitle>
+    </ItemContent>
+  </Item>
+</div>
+`}>
           <div className="flex flex-col gap-3 w-full">
             <Item variant="outline" size={globalSize}>
               <ItemContent>
@@ -86,7 +109,26 @@ export default function ItemShowcase() {
         <ExampleSection
           label="Media Variants"
           description="Mục có thể được tạo kiểu cho phương tiện cụ thể như biểu tượng hoặc hình ảnh."
-        >
+        
+        codeString={`<div className="flex flex-col gap-3 w-full">
+  <Item size={globalSize}>
+    <ItemMedia variant="icon" className="bg-primary/10 text-primary">
+      <CheckIcon className="size-4" />
+    </ItemMedia>
+    <ItemContent>
+      <ItemTitle>Icon Variant</ItemTitle>
+    </ItemContent>
+  </Item>
+  <Item size={globalSize}>
+    <ItemMedia variant="image" className="bg-muted">
+      <UserIcon className="size-4 text-muted-foreground" />
+    </ItemMedia>
+    <ItemContent>
+      <ItemTitle>Image Variant</ItemTitle>
+    </ItemContent>
+  </Item>
+</div>
+`}>
           <div className="flex flex-col gap-3 w-full">
             <Item size={globalSize}>
               <ItemMedia variant="icon" className="bg-primary/10 text-primary">
@@ -110,7 +152,21 @@ export default function ItemShowcase() {
         <ExampleSection
           label="With Actions"
           description="Mục có các nút hành động ở cuối."
-        >
+        
+        codeString={`<Item size={globalSize} className="w-full">
+  <ItemContent>
+    <ItemTitle>Actionable Item</ItemTitle>
+  </ItemContent>
+  <ItemActions>
+    <Button variant="ghost" size="sm" className="size-8 p-0">
+      <HeartIcon className="size-4" />
+    </Button>
+    <Button variant="ghost" size="sm" className="size-8 p-0">
+      <MoreVerticalIcon className="size-4" />
+    </Button>
+  </ItemActions>
+</Item>
+`}>
           <Item size={globalSize} className="w-full">
             <ItemContent>
               <ItemTitle>Actionable Item</ItemTitle>
@@ -155,7 +211,22 @@ export default function ItemShowcase() {
       <ExampleSection
         label="With Header and Footer"
         description="Mục phức tạp với các vùng vị trí cụ thể."
-      >
+      
+      codeString={`<Item
+  size={globalSize}
+  className="w-full max-w-sm mx-auto flex-col items-start gap-2"
+>
+  <ItemHeader className="text-xs text-muted-foreground">
+    Order #12345
+  </ItemHeader>
+  <ItemContent>
+    <ItemTitle>Mechanical Keyboard v2</ItemTitle>
+  </ItemContent>
+  <ItemFooter className="text-xs text-success flex items-center gap-1">
+    <CheckIcon className="size-3" /> Delivered
+  </ItemFooter>
+</Item>
+`}>
         <Item
           size={globalSize}
           className="w-full max-w-sm mx-auto flex-col items-start gap-2"

@@ -192,7 +192,7 @@ return (
           </Popover>
           
           <div className="text-sm text-muted-foreground">
-            Trạng thái hiện tại: <strong className={isOpen ? "text-primary" : ""}>{isOpen ? "Mở" : "Đóng"}</strong>
+            Trạng thái hiện tại: <strong data-active={isOpen ? "" : undefined} className="data-active:text-primary">{isOpen ? "Mở" : "Đóng"}</strong>
           </div>
         </div>
       </ExampleSection>

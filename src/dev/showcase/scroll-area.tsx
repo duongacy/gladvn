@@ -18,7 +18,20 @@ function ScrollAreaMicroShowcase() {
         <ExampleSection
           label="Cuộn dọc (Vertical)"
           description="Danh sách các mục có thể cuộn từ trên xuống dưới."
-        >
+        
+        codeString={`<ScrollArea className="h-72 w-full max-w-sm rounded-xl border bg-card">
+  <div className="p-4">
+    <h4 className="mb-4 text-sm font-medium leading-none">
+      Cài đặt hệ thống
+    </h4>
+    {Array.from({ length: 20 }).map((_, i) => (
+      <div key={i} className="text-sm py-3 border-b last:border-0 hover:bg-muted/50 cursor-pointer">
+        Tùy chọn {i + 1}
+      </div>
+    ))}
+  </div>
+</ScrollArea>
+`}>
           <ScrollArea className="h-72 w-full max-w-sm rounded-xl border bg-card">
             <div className="p-4">
               <h4 className="mb-4 text-sm font-medium leading-none">
@@ -36,7 +49,26 @@ function ScrollAreaMicroShowcase() {
         <ExampleSection
           label="Cuộn ngang (Horizontal)"
           description="Trình bày danh sách phần tử nằm ngang (thường dùng cho ảnh, card)."
-        >
+        
+        codeString={`<ScrollArea className="w-full max-w-sm whitespace-nowrap rounded-xl border bg-card p-4">
+  <div className="flex w-max space-x-4">
+    {Array.from({ length: 5 }).map((_, i) => (
+      <div key={i} className="w-[150px] shrink-0">
+        <div className="overflow-hidden rounded-md bg-muted aspect-[3/4] mb-2 flex items-center justify-center">
+          <span className="text-xs text-muted-foreground">
+            Ảnh bìa {i + 1}
+          </span>
+        </div>
+        <p className="text-sm font-medium">Tác phẩm {i + 1}</p>
+        <p className="text-xs text-muted-foreground">
+          Họa sĩ {i + 1}
+        </p>
+      </div>
+    ))}
+  </div>
+  <ScrollBar orientation="horizontal" />
+</ScrollArea>
+`}>
           <ScrollArea className="w-full max-w-sm whitespace-nowrap rounded-xl border bg-card p-4">
             <div className="flex w-max space-x-4">
               {Array.from({ length: 5 }).map((_, i) => (

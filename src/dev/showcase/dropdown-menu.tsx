@@ -44,7 +44,50 @@ export default function DropdownMenuShowcase() {
         <ExampleSection
           label="Standard Dropdown"
           description="Menu cơ bản với các phím tắt và action nguy hiểm."
-        >
+        
+        codeString={`<DropdownMenu>
+  <DropdownMenuTrigger
+    render={
+      <Button variant="outline" size={globalSize}>
+        Open Menu
+      </Button>
+    }
+  />
+  <DropdownMenuContent className="w-56">
+    <DropdownMenuLabel>My Account</DropdownMenuLabel>
+    <DropdownMenuSeparator />
+    <DropdownMenuGroup>
+      <DropdownMenuItem>
+        <UserIcon className="mr-2 h-4 w-4" />
+        <span>Profile</span>
+        <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
+      </DropdownMenuItem>
+      <DropdownMenuItem>
+        <SettingsIcon className="mr-2 h-4 w-4" />
+        <span>Settings</span>
+        <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
+      </DropdownMenuItem>
+      <DropdownMenuItem>
+        <CreditCardIcon className="mr-2 h-4 w-4" />
+        <span>Billing</span>
+        <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
+      </DropdownMenuItem>
+    </DropdownMenuGroup>
+    <DropdownMenuSeparator />
+    <DropdownMenuItem>
+      <LogOutIcon className="mr-2 h-4 w-4" />
+      <span>Log out</span>
+      <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
+    </DropdownMenuItem>
+    <DropdownMenuSeparator />
+    <DropdownMenuItem variant="destructive">
+      <LogOutIcon className="mr-2 h-4 w-4" />
+      <span>Delete Account</span>
+      <DropdownMenuShortcut>⌘⌫</DropdownMenuShortcut>
+    </DropdownMenuItem>
+  </DropdownMenuContent>
+</DropdownMenu>
+`}>
           <DropdownMenu>
             <DropdownMenuTrigger
               render={
@@ -92,7 +135,38 @@ export default function DropdownMenuShowcase() {
         <ExampleSection
           label="With Disabled Items"
           description="Một số mục không tương tác."
-        >
+        
+        codeString={`<DropdownMenu>
+  <DropdownMenuTrigger
+    render={
+      <Button variant="outline" size={globalSize}>
+        Actions
+      </Button>
+    }
+  />
+  <DropdownMenuContent className="w-56">
+    <DropdownMenuLabel>Actions</DropdownMenuLabel>
+    <DropdownMenuSeparator />
+    <DropdownMenuItem>
+      <UserIcon className="mr-2 h-4 w-4" />
+      <span>Edit Profile</span>
+    </DropdownMenuItem>
+    <DropdownMenuItem disabled>
+      <CreditCardIcon className="mr-2 h-4 w-4" />
+      <span>Upgrade Plan</span>
+    </DropdownMenuItem>
+    <DropdownMenuItem disabled>
+      <HelpCircleIcon className="mr-2 h-4 w-4" />
+      <span>Support (Offline)</span>
+    </DropdownMenuItem>
+    <DropdownMenuSeparator />
+    <DropdownMenuItem>
+      <LogOutIcon className="mr-2 h-4 w-4" />
+      <span>Log out</span>
+    </DropdownMenuItem>
+  </DropdownMenuContent>
+</DropdownMenu>
+`}>
           <DropdownMenu>
             <DropdownMenuTrigger
               render={

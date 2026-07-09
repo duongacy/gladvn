@@ -13,7 +13,49 @@ export default function SonnerShowcase() {
       <ExampleSection
         label="Toast Types"
         description="Nhấp vào từng nút để kích hoạt một loại bánh mì nướng khác nhau."
-      >
+      
+      codeString={`<div className="flex flex-wrap gap-2">
+  <Button
+    variant="outline"
+    onClick={() =>
+      toast("Event has been created", {
+        description: "Sunday, December 03, 2023 at 9:00 AM",
+        action: { label: "Undo", onClick: () => console.log("Undo") },
+      })
+    }
+  >
+    Default Toast
+  </Button>
+  <Button
+    variant="outline"
+    color="success"
+    onClick={() => toast.success("Successfully saved!")}
+  >
+    Success
+  </Button>
+  <Button
+    variant="outline"
+    color="destructive"
+    onClick={() => toast.error("An error occurred.")}
+  >
+    Error
+  </Button>
+  <Button
+    variant="outline"
+    color="warning"
+    onClick={() => toast.warning("Connection is unstable.")}
+  >
+    Warning
+  </Button>
+  <Button
+    variant="outline"
+    color="info"
+    onClick={() => toast.info("Update is available.")}
+  >
+    Info
+  </Button>
+</div>
+`}>
         <div className="flex flex-wrap gap-2">
           <Button
             variant="outline"

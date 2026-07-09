@@ -18,7 +18,22 @@ function SeparatorMicroShowcase() {
         label="Ngang (Horizontal)"
         description="Sử dụng để phân tách các khối nội dung từ trên xuống dưới."
         fullWidth
-      >
+      
+      codeString={`<div className="w-full max-w-sm rounded-lg border bg-card p-6">
+  <div className="space-y-1">
+    <h4 className="text-sm font-medium leading-none">
+      Sadcn UI
+    </h4>
+    <p className="text-sm text-muted-foreground">
+      Bộ UI Component mã nguồn mở.
+    </p>
+  </div>
+  <Separator className="my-4" />
+  <div className="text-sm text-muted-foreground">
+    Cập nhật lần cuối: Hôm nay
+  </div>
+</div>
+`}>
         <div className="w-full max-w-sm rounded-lg border bg-card p-6">
           <div className="space-y-1">
             <h4 className="text-sm font-medium leading-none">
@@ -38,7 +53,15 @@ function SeparatorMicroShowcase() {
       <ExampleSection
         label="Dọc (Vertical)"
         description="Sử dụng để phân tách các mục nằm ngang (như menu, thanh công cụ)."
-      >
+      
+      codeString={`<div className="flex h-5 items-center space-x-4 text-sm">
+  <div className="font-medium hover:underline cursor-pointer">Blog</div>
+  <Separator orientation="vertical" />
+  <div className="font-medium hover:underline cursor-pointer">Tài liệu</div>
+  <Separator orientation="vertical" />
+  <div className="font-medium hover:underline cursor-pointer">Mã nguồn</div>
+</div>
+`}>
         <div className="flex h-5 items-center space-x-4 text-sm">
           <div className="font-medium hover:underline cursor-pointer">Blog</div>
           <Separator orientation="vertical" />

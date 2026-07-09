@@ -18,7 +18,7 @@ import { Textarea } from "@/components/micro/textarea";
 const inputGroupVariants = cva(
   [
     // Base layout
-    "group/input-group @container/input-group relative flex min-w-0 items-center rounded-lg border border-input transition-colors outline-none",
+    "group/input-group @container/input-group relative flex min-w-0 items-center overflow-hidden rounded-lg border border-input transition-colors outline-none",
     // Combobox focus delegation
     "in-data-[slot=combobox-content]:focus-within:border-inherit in-data-[slot=combobox-content]:focus-within:ring-0",
     // Disabled state
@@ -34,9 +34,9 @@ const inputGroupVariants = cva(
   {
     variants: {
       size: {
-        sm: "input-group-sm min-h-7 text-xs",
-        md: "input-group-md min-h-8 text-sm",
-        lg: "input-group-lg min-h-9 text-sm",
+        sm: "min-h-7 text-xs",
+        md: "min-h-8 text-sm",
+        lg: "min-h-9 text-sm",
       },
     },
   },
@@ -59,6 +59,7 @@ const InputGroup = React.forwardRef<
     <div
       ref={ref}
       data-slot="input-group"
+      data-size={size}
       role="group"
       className={cn(inputGroupVariants({ size }), className)}
       {...props}
@@ -71,22 +72,21 @@ const inputGroupAddonVariants = cva(
   [
     // Base styling
     "flex h-auto cursor-text items-center justify-center gap-2 font-medium text-muted-foreground select-none",
-    // Disabled state (delegated from wrapper)
-    "group-data-[disabled=true]/input-group:opacity-50",
+    // Disabled state handled by has-disabled on wrapper
     // Invalid state (delegated from wrapper)
     "group-has-[[data-slot][aria-invalid=true]]/input-group:text-destructive",
     // Padding based on wrapper size
-    "group-[.input-group-sm]/input-group:py-0.5 group-[.input-group-md]/input-group:py-1.5 group-[.input-group-lg]/input-group:py-1.5",
+    "group-data-[size=sm]/input-group:py-0.5 group-data-[size=md]/input-group:py-1.5 group-data-[size=lg]/input-group:py-1.5",
     // Inner elements styling
-    "[&>kbd]:rounded-sm [&>svg:not([class*='size-'])]:size-4 group-[.input-group-sm]/input-group:[&>svg:not([class*='size-'])]:size-3.5",
+    "[&>svg:not([class*='size-'])]:size-4 group-data-[size=sm]/input-group:[&>svg:not([class*='size-'])]:size-3.5",
   ],
   {
     variants: {
       align: {
         "inline-start": "order-first pl-2",
         "inline-end": "order-last pr-2",
-        "block-start": "order-first w-full justify-start px-2.5 pt-2 [.border-b]:pb-2",
-        "block-end": "order-last w-full justify-start px-2.5 pb-2 [.border-t]:pt-2",
+        "block-start": "order-first w-full justify-start px-2.5 py-2",
+        "block-end": "order-last w-full justify-start px-2.5 py-2",
       },
     },
   },
@@ -99,7 +99,6 @@ const InputGroupAddon = React.forwardRef<
   return (
     <div
       ref={ref}
-      role="group"
       data-slot="input-group-addon"
       data-align={align}
       className={cn(inputGroupAddonVariants({ align }), className)}
@@ -162,7 +161,7 @@ const InputGroupText = React.forwardRef<
     <span
       ref={ref}
       className={cn(
-        "flex items-center gap-2 text-muted-foreground [&>svg]:pointer-events-none [&>svg:not([class*='size-'])]:size-4 group-[.input-group-sm]/input-group:[&>svg:not([class*='size-'])]:size-3.5",
+        "flex items-center gap-2 text-muted-foreground [&>svg]:pointer-events-none [&>svg:not([class*='size-'])]:size-4 group-data-[size=sm]/input-group:[&>svg:not([class*='size-'])]:size-3.5",
         className,
       )}
       {...props}
@@ -181,9 +180,9 @@ const InputGroupInput = React.forwardRef<
       data-slot="input-group-control"
       className={cn(
         "flex-1 rounded-none border-0 bg-transparent shadow-none ring-0 focus-visible:ring-0 focus-visible:ring-offset-0 disabled:bg-transparent disabled:opacity-100 aria-invalid:ring-0 aria-invalid:focus-visible:ring-0 aria-invalid:focus-visible:ring-offset-0 dark:bg-transparent dark:disabled:bg-transparent",
-        "group-[.input-group-sm]/input-group:h-7 group-[.input-group-sm]/input-group:px-2 group-[.input-group-sm]/input-group:py-0.5 group-[.input-group-sm]/input-group:text-xs",
-        "group-[.input-group-md]/input-group:h-8 group-[.input-group-md]/input-group:px-2.5 group-[.input-group-md]/input-group:py-1 group-[.input-group-md]/input-group:text-sm",
-        "group-[.input-group-lg]/input-group:h-9 group-[.input-group-lg]/input-group:px-3 group-[.input-group-lg]/input-group:py-1.5 group-[.input-group-lg]/input-group:text-sm",
+        "group-data-[size=sm]/input-group:h-7 group-data-[size=sm]/input-group:px-2 group-data-[size=sm]/input-group:py-0.5 group-data-[size=sm]/input-group:text-xs",
+        "group-data-[size=md]/input-group:h-8 group-data-[size=md]/input-group:px-2.5 group-data-[size=md]/input-group:py-1 group-data-[size=md]/input-group:text-sm",
+        "group-data-[size=lg]/input-group:h-9 group-data-[size=lg]/input-group:px-3 group-data-[size=lg]/input-group:py-1.5 group-data-[size=lg]/input-group:text-sm",
         className,
       )}
       {...props}
@@ -202,9 +201,9 @@ const InputGroupTextarea = React.forwardRef<
       data-slot="input-group-control"
       className={cn(
         "flex-1 resize-none rounded-none border-0 bg-transparent py-2 shadow-none ring-0 focus-visible:ring-0 focus-visible:ring-offset-0 disabled:bg-transparent disabled:opacity-100 aria-invalid:ring-0 aria-invalid:focus-visible:ring-0 aria-invalid:focus-visible:ring-offset-0 dark:bg-transparent dark:disabled:bg-transparent",
-        "group-[.input-group-sm]/input-group:text-xs group-[.input-group-sm]/input-group:px-2",
-        "group-[.input-group-md]/input-group:text-sm group-[.input-group-md]/input-group:px-2.5",
-        "group-[.input-group-lg]/input-group:text-sm group-[.input-group-lg]/input-group:px-3",
+        "group-data-[size=sm]/input-group:text-xs group-data-[size=sm]/input-group:px-2",
+        "group-data-[size=md]/input-group:text-sm group-data-[size=md]/input-group:px-2.5",
+        "group-data-[size=lg]/input-group:text-sm group-data-[size=lg]/input-group:px-3",
         className,
       )}
       {...props}

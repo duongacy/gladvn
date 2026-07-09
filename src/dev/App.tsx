@@ -10,66 +10,17 @@ import { useTheme } from "@/components/micro/theme-provider";
 
 const components: Record<string, React.LazyExoticComponent<any>> = {};
 COMPONENTS.forEach((comp) => {
-  if (comp.hasMicro) {
-    components[`micro-${comp.id}`] = lazy(() => import(`./showcase/${comp.id}.tsx`));
-  }
-  if (comp.hasMacro) {
-    components[`macro-${comp.id}`] = lazy(() => import(`./showcase/macro/${comp.id}.tsx`));
-  }
+  // We only load the unified showcase file now
+  components[comp.id] = lazy(() => import(`./showcase/${comp.id}.tsx`));
 });
 
 function ComponentViewer({ id }: { id: string }) {
   const compDef = COMPONENTS.find((c) => c.id === id);
-  const [activeTab, setActiveTab] = useState<"micro" | "macro">("macro");
   
-  useEffect(() => {
-    if (compDef?.hasMacro) setActiveTab("macro");
-    else setActiveTab("micro");
-  }, [id, compDef]);
-
   if (!compDef) return null;
 
-  const MicroComp = compDef.hasMicro ? components[`micro-${id}`] : null;
-  const MacroComp = compDef.hasMacro ? components[`macro-${id}`] : null;
+  const Comp = components[id];
 
-  if (MicroComp && MacroComp) {
-    return (
-      <div className="w-full flex flex-col gap-8">
-        <div className="flex w-full items-center justify-start border-b border-border/40 pb-4">
-          <div className="inline-flex items-center justify-center rounded-lg bg-muted/60 p-1 text-muted-foreground">
-            <button
-              onClick={() => setActiveTab("macro")}
-              className={`inline-flex items-center justify-center whitespace-nowrap rounded-md px-4 py-1.5 text-sm font-medium transition-all ${
-                activeTab === "macro"
-                  ? "bg-background text-foreground shadow-sm"
-                  : "hover:text-foreground"
-              }`}
-            >
-              Macro (Preset)
-            </button>
-            <button
-              onClick={() => setActiveTab("micro")}
-              className={`inline-flex items-center justify-center whitespace-nowrap rounded-md px-4 py-1.5 text-sm font-medium transition-all ${
-                activeTab === "micro"
-                  ? "bg-background text-foreground shadow-sm"
-                  : "hover:text-foreground"
-              }`}
-            >
-              Micro (Primitive)
-            </button>
-          </div>
-        </div>
-        
-        <div className="mt-2">
-          <Suspense fallback={<div className="p-12 text-center text-muted-foreground animate-pulse">Loading...</div>}>
-            {activeTab === "macro" ? <MacroComp /> : <MicroComp />}
-          </Suspense>
-        </div>
-      </div>
-    );
-  }
-
-  const Comp = MicroComp || MacroComp;
   return (
     <div className="mt-2">
       <Suspense fallback={<div className="p-12 text-center text-muted-foreground animate-pulse">Loading...</div>}>

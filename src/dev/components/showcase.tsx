@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import reactElementToJSXString from "react-element-to-jsx-string";
-import { CopyIcon, CheckIcon } from "lucide-react";
+import { CopyIcon, CheckIcon, BookOpenIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { COLORS, COLOR_INFO } from "@/dev/data";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/micro/tabs";
@@ -38,24 +38,41 @@ export function SectionHeader({
 /* ─────────────────────────────────────────────────────────────────
    ShowcaseDocs  –  Documentation block
    ────────────────────────────────────────────────────────────── */
-import { BookOpenIcon } from "lucide-react";
-
 export function ShowcaseDocs({ children }: { children: React.ReactNode }) {
   return (
-    <div className="mb-12 overflow-hidden rounded-2xl border border-border/60 bg-background shadow-sm">
-      <div className="flex items-center gap-2 border-b border-border/50 bg-muted/30 px-6 py-3.5">
-        <BookOpenIcon className="size-4 text-muted-foreground" />
-        <h3 className="text-sm font-semibold text-foreground">Usage Guidelines</h3>
+    <div className="mb-12 overflow-hidden rounded-2xl border border-amber-500/20 bg-amber-500/5 shadow-sm">
+      <div className="flex items-center gap-2 border-b border-amber-500/20 bg-amber-500/10 px-6 py-3.5">
+        <BookOpenIcon className="size-4 text-amber-700 dark:text-amber-500" />
+        <h3 className="text-sm font-semibold text-amber-900 dark:text-amber-200">Usage Guidelines</h3>
       </div>
-      <div className="px-6 py-5 text-[15px] leading-relaxed text-muted-foreground 
-        [&>h3]:mt-8 [&>h3:first-child]:mt-1 [&>h3]:mb-3 [&>h3]:text-base [&>h3]:font-semibold [&>h3]:text-foreground 
-        [&>ul]:mb-6 [&>ul]:list-inside [&>ul]:list-disc [&>ul]:space-y-2 [&>ul>li>b]:text-foreground [&>ul>li>b]:font-medium
-        [&>p]:mb-6 [&>p:last-child]:mb-1
-        [&_code]:rounded-md [&_code]:border [&_code]:border-border/50 [&_code]:bg-muted/30 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-[13px] [&_code]:text-foreground"
-      >
+      <div className="px-6 py-5 text-[15px] leading-relaxed text-muted-foreground">
         {children}
       </div>
     </div>
+  );
+}
+
+export function DocsH3({ children }: { children: React.ReactNode }) {
+  return <h3 className="mt-8 first:mt-1 mb-3 text-base font-semibold text-foreground">{children}</h3>;
+}
+
+export function DocsP({ children }: { children: React.ReactNode }) {
+  return <p className="mb-6 last:mb-1">{children}</p>;
+}
+
+export function DocsUl({ children }: { children: React.ReactNode }) {
+  return <ul className="mb-6 list-inside list-disc space-y-2">{children}</ul>;
+}
+
+export function DocsLi({ children }: { children: React.ReactNode }) {
+  return <li>{children}</li>;
+}
+
+export function DocsCode({ children }: { children: React.ReactNode }) {
+  return (
+    <code className="rounded-md border border-amber-500/20 bg-amber-500/10 px-1.5 py-0.5 font-mono text-[13px] text-amber-900 dark:text-amber-200">
+      {children}
+    </code>
   );
 }
 
@@ -147,12 +164,14 @@ export function ExampleSection({
             className={cn(
               "relative flex items-center justify-center rounded-2xl border border-border/80 bg-background/50 backdrop-blur-sm p-8 shadow-sm transition-all duration-300 hover:shadow-md hover:border-ring/30",
               "min-h-[120px]",
-              fullWidth && "[&>*]:w-full",
               className,
             )}
           >
             <div className="absolute inset-0 -z-10 opacity-[0.03] dark:opacity-[0.05] [background-size:24px_24px] [background-image:radial-gradient(circle_at_center,var(--color-foreground)_1.5px,transparent_1.5px)]" />
-            <div className="relative z-10 flex w-full flex-wrap items-center justify-center gap-4">
+            <div className={cn(
+              "relative z-10 flex w-full flex-wrap items-center justify-center gap-4",
+              fullWidth && "flex-col items-stretch"
+            )}>
               {children}
             </div>
           </div>
@@ -269,6 +288,89 @@ export function ColorSwatch({ color }: { color: (typeof COLORS)[number] }) {
           {info.label}
         </span>
       </div>
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   Showcase  –  The unified showcase layout wrapper
+   ────────────────────────────────────────────────────────────── */
+
+export interface ShowcaseTab {
+  label: string;
+  content: React.ReactNode;
+}
+
+export interface ShowcaseProps {
+  title: React.ReactNode;
+  description?: React.ReactNode;
+  generalConcept?: React.ReactNode;
+  tabs: ShowcaseTab[];
+}
+
+export function Showcase({ title, description, generalConcept, tabs }: ShowcaseProps) {
+  const hasTabs = tabs.length >= 2;
+
+  const content = (
+    <>
+      {/* 1 & 2: Title, TabsList, and Description */}
+      <div className="flex flex-col gap-1 mb-2">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <h2 className="text-3xl font-bold tracking-tight bg-gradient-to-br from-foreground to-foreground/60 bg-clip-text text-transparent">
+            {title}
+          </h2>
+          {hasTabs && (
+            <div className="shrink-0 sm:pb-0.5">
+              <TabsList>
+                {tabs.map((tab) => (
+                  <TabsTrigger
+                    key={tab.label}
+                    value={tab.label}
+                    className="px-4 py-1.5"
+                  >
+                    {tab.label}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </div>
+          )}
+        </div>
+        {description && (
+          <p className="text-[15px] text-muted-foreground">{description}</p>
+        )}
+      </div>
+
+      {/* 3: General Concept */}
+      {generalConcept && (
+        <div className="mt-2">
+          {generalConcept}
+        </div>
+      )}
+
+      {/* 4 & 5: Active Content */}
+      <div className="mt-2">
+        {hasTabs ? (
+          tabs.map((tab) => (
+            <TabsContent key={tab.label} value={tab.label} className="mt-0 focus-visible:outline-none">
+              {tab.content}
+            </TabsContent>
+          ))
+        ) : (
+          tabs[0]?.content
+        )}
+      </div>
+    </>
+  );
+
+  return (
+    <div className="w-full flex flex-col gap-8">
+      {hasTabs ? (
+        <Tabs defaultValue={tabs[0]!.label} className="w-full">
+          {content}
+        </Tabs>
+      ) : (
+        content
+      )}
     </div>
   );
 }

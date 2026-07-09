@@ -11,6 +11,8 @@ import { Field, FieldLabel, FieldDescription, FieldContent } from "@/components/
 import { InputGroup, InputGroupAddon, InputGroupText, InputGroupInput } from "@/components/micro/input-group";
 import { MonoSelect } from "@/dev/components/mono-select";
 
+import { InputPreset } from "@/components/macro/input-preset";
+
 export default function InputShowcase() {
   const [globalSize, setGlobalSize] = useState<Size>("md");
 
@@ -113,13 +115,14 @@ export default function InputShowcase() {
               Bạn cần một ô nhập <strong>"Tiêu đề bài viết"</strong> với label, gợi ý và thông báo lỗi validate. Không có layout tuỳ biến gì đặc biệt.
             </p>
             <div className="rounded-lg bg-muted/50 p-3">
-              <Field size={globalSize} className="w-full">
-                <FieldLabel htmlFor="uc-cms">Tiêu đề bài viết</FieldLabel>
-                <FieldDescription>Tối đa 120 ký tự, hiển thị trên trang chủ.</FieldDescription>
-                <FieldContent>
-                  <Input id="uc-cms" size={globalSize} placeholder="Nhập tiêu đề..." />
-                </FieldContent>
-              </Field>
+              <InputPreset
+                id="uc-cms"
+                size={globalSize}
+                label="Tiêu đề bài viết"
+                description="Tối đa 120 ký tự, hiển thị trên trang chủ."
+                placeholder="Nhập tiêu đề..."
+                className="w-full"
+              />
             </div>
             <div className="rounded-md border border-green-500/20 bg-green-500/5 px-3 py-2">
               <p className="text-xs font-medium text-green-700 dark:text-green-400">✅ Dùng <code className="font-mono">InputPreset</code> — Label + description + error tích hợp sẵn, chỉ 1 dòng code.</p>
@@ -168,12 +171,14 @@ export default function InputShowcase() {
               Bạn cần ô nhập <strong>mật khẩu</strong> có nút ẩn/hiện. Nếu dùng micro, bạn phải tự quản lý <code className="font-mono text-[11px]">useState(showPassword)</code> và tự render nút toggle.
             </p>
             <div className="rounded-lg bg-muted/50 p-3">
-              <Field size={globalSize} className="w-full">
-                <FieldLabel htmlFor="uc-password">Mật khẩu</FieldLabel>
-                <FieldContent>
-                  <Input id="uc-password" size={globalSize} type="password" placeholder="••••••••" />
-                </FieldContent>
-              </Field>
+              <InputPreset
+                id="uc-password"
+                size={globalSize}
+                type="password"
+                label="Mật khẩu"
+                placeholder="••••••••"
+                className="w-full"
+              />
             </div>
             <div className="rounded-md border border-green-500/20 bg-green-500/5 px-3 py-2">
               <p className="text-xs font-medium text-green-700 dark:text-green-400">✅ Dùng <code className="font-mono">InputPreset type="password"</code> — Toggle tự động, zero boilerplate.</p>

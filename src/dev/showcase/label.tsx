@@ -29,6 +29,10 @@ export default function LabelShowcase() {
       <ExampleSection
         label="Default"
         description="Cách sử dụng nhãn tiêu chuẩn."
+        codeString={`<Label htmlFor="terms">
+  Accept terms and conditions
+</Label>
+`}
       >
         <Label htmlFor="terms" size={globalSize}>
           Accept terms and conditions

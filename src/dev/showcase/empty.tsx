@@ -69,6 +69,13 @@ function EmptyMacroShowcase() {
         <ExampleSection
           label="Không có Icon (Without Icon)"
           description="Bỏ prop icon — phù hợp khi không cần hình ảnh minh họa."
+          codeString={`<EmptyPreset
+  title="No notifications"
+  description="You're all caught up. Check back later."
+  action={<Button variant="outline">Refresh</Button>}
+  className="w-full min-h-[280px]"
+/>
+`}
         >
           <EmptyPreset
             title="No notifications"
@@ -101,6 +108,11 @@ function EmptyMacroShowcase() {
         <ExampleSection
           label="Tối giản (Minimal)"
           description="Chỉ có tiêu đề."
+          codeString={`<EmptyPreset
+  title="Nothing here yet"
+  className="w-full min-h-[240px]"
+/>
+`}
         >
           <EmptyPreset
             title="Nothing here yet"
@@ -285,6 +297,15 @@ function EmptyMicroShowcase() {
         <ExampleSection
           label="Chỉ văn bản (Text Only)"
           description="Không icon, không action."
+          codeString={`<Empty className="w-full min-h-[200px]">
+  <EmptyHeader>
+    <EmptyTitle>No results</EmptyTitle>
+    <EmptyDescription>
+      Try adjusting your filters or search terms.
+    </EmptyDescription>
+  </EmptyHeader>
+</Empty>
+`}
         >
           <Empty className="w-full min-h-[200px]">
             <EmptyHeader>

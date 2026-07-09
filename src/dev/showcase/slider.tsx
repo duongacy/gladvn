@@ -208,6 +208,20 @@ function SliderMicroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Cơ bản (Primitive)"
           description="Thanh trượt trần truồng không có Field hay Label bọc ngoài."
+          codeString={`<CompositionalSlider
+  defaultValue={[40]}
+  max={100}
+  step={1}
+  className="w-full"
+>
+  <SliderControl>
+    <SliderTrack>
+      <SliderIndicator />
+    </SliderTrack>
+    <SliderThumb />
+  </SliderControl>
+</CompositionalSlider>
+`}
         >
           <CompositionalSlider
             size={globalSize}
@@ -228,6 +242,22 @@ function SliderMicroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Nhiều Thumb (Multi-thumb)"
           description="Chỉ cần render nhiều SliderThumb, hệ thống sẽ tự chia."
+          codeString={`<CompositionalSlider
+  defaultValue={[20, 50, 80]}
+  max={100}
+  step={1}
+  className="w-full"
+>
+  <SliderControl>
+    <SliderTrack>
+      <SliderIndicator />
+    </SliderTrack>
+    <SliderThumb />
+    <SliderThumb />
+    <SliderThumb />
+  </SliderControl>
+</CompositionalSlider>
+`}
         >
           <CompositionalSlider
             size={globalSize}
@@ -252,6 +282,27 @@ function SliderMicroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Ghép nối Field thủ công"
           description="Lắp ráp với Field để có nhãn và mô tả."
+          codeString={`<Field className="w-full">
+  <FieldLabel>Mật độ hiển thị</FieldLabel>
+  <FieldContent>
+    <CompositionalSlider
+      defaultValue={[50]}
+      max={100}
+      step={1}
+    >
+      <SliderControl>
+        <SliderTrack>
+          <SliderIndicator />
+        </SliderTrack>
+        <SliderThumb />
+      </SliderControl>
+    </CompositionalSlider>
+  </FieldContent>
+  <FieldDescription>
+    Điều chỉnh khoảng cách giữa các phần tử.
+  </FieldDescription>
+</Field>
+`}
         >
           <Field size={globalSize} className="w-full">
             <FieldLabel>Mật độ hiển thị</FieldLabel>
@@ -279,6 +330,26 @@ function SliderMicroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Trạng thái Lỗi thủ công"
           description="Tự gắn aria-invalid vào Slider và dùng FieldError."
+          codeString={`<Field className="w-full gap-2" data-invalid={true}>
+  <FieldLabel>Ngân sách tối đa</FieldLabel>
+  <FieldContent>
+    <CompositionalSlider
+      defaultValue={[120]}
+      max={100}
+      step={1}
+      aria-invalid={true}
+    >
+      <SliderControl>
+        <SliderTrack>
+          <SliderIndicator />
+        </SliderTrack>
+        <SliderThumb />
+      </SliderControl>
+    </CompositionalSlider>
+  </FieldContent>
+  <FieldError>Ngân sách của bạn chỉ còn \$100.</FieldError>
+</Field>
+`}
         >
           <Field size={globalSize} className="w-full gap-2" data-invalid={true}>
             <FieldLabel>Ngân sách tối đa</FieldLabel>

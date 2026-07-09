@@ -51,6 +51,24 @@ export default function InputGroupShowcase() {
         <ExampleSection
           label="URL Input"
           description="Đầu vào với các phần bổ sung tiền tố và hậu tố."
+          codeString={`<Field className="w-full max-w-md">
+  <FieldLabel htmlFor="tf-group">Website</FieldLabel>
+  <FieldDescription>
+    Combine text inputs with addons for things like URLs or prices.
+  </FieldDescription>
+  <FieldContent>
+    <InputGroup>
+      <InputGroupAddon>
+        <InputGroupText>https://</InputGroupText>
+      </InputGroupAddon>
+      <InputGroupInput id="tf-group" placeholder="gladcn.ui" />
+      <InputGroupAddon>
+        <InputGroupText>.com</InputGroupText>
+      </InputGroupAddon>
+    </InputGroup>
+  </FieldContent>
+</Field>
+`}
         >
           <Field size={globalSize} className="w-full max-w-md">
             <FieldLabel htmlFor="tf-group">Website</FieldLabel>
@@ -250,6 +268,22 @@ export default function InputGroupShowcase() {
       <ExampleSection
         label="With Textarea"
         description="Nhóm đầu vào được áp dụng cho thành phần vùng văn bản."
+        codeString={`<Field className="w-full max-w-md">
+  <FieldLabel htmlFor="tf-comment">Comment</FieldLabel>
+  <FieldContent>
+    <InputGroup className="h-auto">
+      <InputGroupAddon className="self-start">
+        <InputGroupText>@</InputGroupText>
+      </InputGroupAddon>
+      <InputGroupTextarea
+        id="tf-comment"
+        placeholder="Write a comment..."
+        rows={4}
+      />
+    </InputGroup>
+  </FieldContent>
+</Field>
+`}
       >
         <Field size={globalSize} className="w-full max-w-md">
           <FieldLabel htmlFor="tf-comment">Comment</FieldLabel>
@@ -272,6 +306,36 @@ export default function InputGroupShowcase() {
       <ExampleSection
         label="Addon Alignments"
         description="Addon của nhóm đầu vào hỗ trợ nhiều cách sắp xếp khác nhau: bắt đầu nội tuyến, kết thúc nội tuyến, bắt đầu khối, kết thúc khối."
+        codeString={`<ExampleGrid columns={2}>
+  <InputGroup>
+    <InputGroupAddon align="inline-start">
+      <InputGroupText>start</InputGroupText>
+    </InputGroupAddon>
+    <InputGroupInput placeholder="inline-start" />
+  </InputGroup>
+
+  <InputGroup>
+    <InputGroupInput placeholder="inline-end" />
+    <InputGroupAddon align="inline-end">
+      <InputGroupText>end</InputGroupText>
+    </InputGroupAddon>
+  </InputGroup>
+
+  <InputGroup>
+    <InputGroupAddon align="block-start">
+      <InputGroupText>block-start</InputGroupText>
+    </InputGroupAddon>
+    <InputGroupInput placeholder="block-start" />
+  </InputGroup>
+
+  <InputGroup>
+    <InputGroupInput placeholder="block-end" />
+    <InputGroupAddon align="block-end">
+      <InputGroupText>block-end</InputGroupText>
+    </InputGroupAddon>
+  </InputGroup>
+</ExampleGrid>
+`}
       >
         <ExampleGrid columns={2}>
           <InputGroup size={globalSize}>

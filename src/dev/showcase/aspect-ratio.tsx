@@ -27,6 +27,15 @@ export default function AspectRatioShowcase() {
         <ExampleSection
           label="16:9"
           description="Widescreen — video, hero banners"
+          codeString={`<AspectRatio
+  ratio={16 / 9}
+  className="bg-muted rounded-xl overflow-hidden flex items-center justify-center border border-border w-full"
+>
+  <span className="text-foreground font-mono text-lg font-semibold">
+    16:9
+  </span>
+</AspectRatio>
+`}
         >
           <AspectRatio
             ratio={16 / 9}
@@ -41,6 +50,15 @@ export default function AspectRatioShowcase() {
         <ExampleSection
           label="4:3"
           description="Classic — presentations, old TV"
+          codeString={`<AspectRatio
+  ratio={4 / 3}
+  className="bg-muted rounded-xl overflow-hidden flex items-center justify-center border border-border w-full"
+>
+  <span className="text-foreground font-mono text-lg font-semibold">
+    4:3
+  </span>
+</AspectRatio>
+`}
         >
           <AspectRatio
             ratio={4 / 3}
@@ -55,6 +73,15 @@ export default function AspectRatioShowcase() {
         <ExampleSection
           label="1:1"
           description="Square — avatars, social media"
+          codeString={`<AspectRatio
+  ratio={1}
+  className="bg-muted rounded-xl overflow-hidden flex items-center justify-center border border-border w-full"
+>
+  <span className="text-foreground font-mono text-lg font-semibold">
+    1:1
+  </span>
+</AspectRatio>
+`}
         >
           <AspectRatio
             ratio={1}
@@ -72,6 +99,17 @@ export default function AspectRatioShowcase() {
         <ExampleSection
           label="16:9 Image"
           description="Tỷ lệ khung hình hạn chế hình ảnh 16:9."
+          codeString={`<AspectRatio
+  ratio={16 / 9}
+  className="rounded-xl overflow-hidden w-full"
+>
+  <img
+    src="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80"
+    alt="Landscape photo"
+    className="w-full h-full object-cover"
+  />
+</AspectRatio>
+`}
         >
           <AspectRatio
             ratio={16 / 9}
@@ -88,6 +126,14 @@ export default function AspectRatioShowcase() {
         <ExampleSection
           label="1:1 Image"
           description="Tỷ lệ khung hình vuông cho avatar hoặc social post."
+          codeString={`<AspectRatio ratio={1} className="rounded-xl overflow-hidden w-full">
+  <img
+    src="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80"
+    alt="Square cropped photo"
+    className="w-full h-full object-cover"
+  />
+</AspectRatio>
+`}
         >
           <AspectRatio ratio={1} className="rounded-xl overflow-hidden w-full">
             <img
@@ -202,7 +248,19 @@ export default function AspectRatioShowcase() {
 
       {/* ── Custom Ratio ── */}
       <ExampleGrid columns={3}>
-        <ExampleSection label="Ratio 2.35" description="Custom ratio 2.35">
+        <ExampleSection
+          label="Ratio 2.35"
+          description="Custom ratio 2.35"
+          codeString={`<AspectRatio
+  ratio={2.35}
+  className="bg-muted rounded-xl overflow-hidden flex items-center justify-center border border-dashed border-border w-full"
+>
+  <span className="text-muted-foreground font-mono text-sm">
+    ratio={2.35}
+  </span>
+</AspectRatio>
+`}
+        >
           <AspectRatio
             ratio={2.35}
             className="bg-muted rounded-xl overflow-hidden flex items-center justify-center border border-dashed border-border w-full"
@@ -212,7 +270,19 @@ export default function AspectRatioShowcase() {
             </span>
           </AspectRatio>
         </ExampleSection>
-        <ExampleSection label="Ratio 1.85" description="Custom ratio 1.85">
+        <ExampleSection
+          label="Ratio 1.85"
+          description="Custom ratio 1.85"
+          codeString={`<AspectRatio
+  ratio={1.85}
+  className="bg-muted rounded-xl overflow-hidden flex items-center justify-center border border-dashed border-border w-full"
+>
+  <span className="text-muted-foreground font-mono text-sm">
+    ratio={1.85}
+  </span>
+</AspectRatio>
+`}
+        >
           <AspectRatio
             ratio={1.85}
             className="bg-muted rounded-xl overflow-hidden flex items-center justify-center border border-dashed border-border w-full"
@@ -222,7 +292,19 @@ export default function AspectRatioShowcase() {
             </span>
           </AspectRatio>
         </ExampleSection>
-        <ExampleSection label="Ratio 0.8" description="Custom ratio 0.8">
+        <ExampleSection
+          label="Ratio 0.8"
+          description="Custom ratio 0.8"
+          codeString={`<AspectRatio
+  ratio={0.8}
+  className="bg-muted rounded-xl overflow-hidden flex items-center justify-center border border-dashed border-border w-full"
+>
+  <span className="text-muted-foreground font-mono text-sm">
+    ratio={0.8}
+  </span>
+</AspectRatio>
+`}
+        >
           <AspectRatio
             ratio={0.8}
             className="bg-muted rounded-xl overflow-hidden flex items-center justify-center border border-dashed border-border w-full"

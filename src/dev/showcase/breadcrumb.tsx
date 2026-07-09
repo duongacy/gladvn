@@ -111,6 +111,22 @@ function BreadcrumbMicroShowcase() {
         label="Cơ bản (Default)"
         description="Lắp ráp thủ công các item với dấu phân cách chevron mặc định."
         fullWidth
+        codeString={`<Breadcrumb className="w-full max-w-lg">
+  <BreadcrumbList>
+    <BreadcrumbItem>
+      <BreadcrumbLink href="/">Trang chủ</BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbLink href="/components">Thành phần</BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+    </BreadcrumbItem>
+  </BreadcrumbList>
+</Breadcrumb>
+`}
       >
         <Breadcrumb className="w-full max-w-lg">
           <BreadcrumbList>

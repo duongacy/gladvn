@@ -51,6 +51,13 @@ function TextareaMacroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Tiêu chuẩn"
           description="Trường văn bản nhiều dòng với nhãn và mô tả."
+          codeString={`<TextareaPreset
+  label="Phản hồi (Feedback)"
+  description="Đóng góp ý kiến của bạn về sản phẩm."
+  placeholder="Viết phản hồi..."
+  className="w-full"
+/>
+`}
         >
           <TextareaPreset
             label="Phản hồi (Feedback)"
@@ -64,6 +71,14 @@ function TextareaMacroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Lỗi xác thực (Validation Error)"
           description="Hiển thị thông báo lỗi khi đầu vào không hợp lệ."
+          codeString={`<TextareaPreset
+  label="Khiếu nại"
+  placeholder="Mô tả vấn đề..."
+  errorMessage="Vui lòng cung cấp ít nhất 20 ký tự để chúng tôi hỗ trợ tốt hơn."
+  className="w-full"
+  rows={3}
+/>
+`}
         >
           <TextareaPreset
             label="Khiếu nại"
@@ -140,6 +155,15 @@ return (
         <ExampleSection
           label="Khóa / Bất hoạt (Disabled)"
           description="Trường văn bản không thể tương tác."
+          codeString={`<TextareaPreset
+  label="Ghi chú lưu trữ"
+  description="Những ghi chú này ở dạng chỉ đọc."
+  defaultValue="Dự án này đã hoàn thành vào năm 2023. Không thể thay đổi nội dung."
+  disabled
+  className="w-full"
+  rows={4}
+/>
+`}
         >
           <TextareaPreset
             label="Ghi chú lưu trữ"
@@ -204,6 +228,12 @@ function TextareaMicroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Cơ bản (Primitive)"
           description="Khung nhập văn bản nhiều dòng không có nhãn."
+          codeString={`<Textarea
+  rows={4}
+  placeholder="Viết một đoạn văn dài ở đây..."
+  className="w-full"
+/>
+`}
         >
           <Textarea
             size={globalSize}
@@ -216,6 +246,12 @@ function TextareaMicroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Auto Resize (CSS content)"
           description="Giãn chiều cao tự động nhờ class field-sizing-content (nếu trình duyệt hỗ trợ)."
+          codeString={`<Textarea
+  placeholder="Gõ nhiều dòng để xem nó tự giãn..."
+  defaultValue={"Dòng 1\nDòng 2\nDòng 3\nDòng 4"}
+  className="w-full"
+/>
+`}
         >
           <Textarea
             size={globalSize}
@@ -230,6 +266,22 @@ function TextareaMicroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="InputGroup + Textarea"
           description="Textarea bên trong InputGroup với Addon. Sử dụng InputGroupTextarea."
+          codeString={`<Field className="w-full">
+  <FieldLabel htmlFor="tf-group-textarea">Bình luận</FieldLabel>
+  <FieldContent>
+    <InputGroup className="items-start">
+      <InputGroupAddon align="inline-start" className="mt-2">
+        <InputGroupText>💬</InputGroupText>
+      </InputGroupAddon>
+      <InputGroupTextarea
+        id="tf-group-textarea"
+        rows={3}
+        placeholder="Để lại bình luận của bạn..."
+      />
+    </InputGroup>
+  </FieldContent>
+</Field>
+`}
         >
           <Field size={globalSize} className="w-full">
             <FieldLabel htmlFor="tf-group-textarea">Bình luận</FieldLabel>
@@ -251,6 +303,20 @@ function TextareaMicroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Trạng thái Lỗi thủ công"
           description="Tự gắn aria-invalid vào Textarea và dùng FieldError."
+          codeString={`<Field className="w-full">
+  <FieldLabel htmlFor="tf-invalid">Mô tả hệ thống</FieldLabel>
+  <FieldContent>
+    <Textarea
+      id="tf-invalid"
+      rows={3}
+      aria-invalid
+      placeholder="Mô tả..."
+      defaultValue="Quá ngắn"
+    />
+  </FieldContent>
+  <FieldError>Mô tả không đạt đủ độ dài tối thiểu.</FieldError>
+</Field>
+`}
         >
           <Field size={globalSize} className="w-full">
             <FieldLabel htmlFor="tf-invalid">Mô tả hệ thống</FieldLabel>

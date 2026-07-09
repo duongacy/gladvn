@@ -611,6 +611,37 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="No Close Button"
           description="Không render nút XIcon thủ công."
+          codeString={`<Dialog>
+  <DialogTrigger
+    render={
+      <Button variant="outline">
+        View Terms
+      </Button>
+    }
+  />
+  <DialogContent className={contentClass}>
+    <DialogHeader>
+      <DialogTitle>Terms of Service</DialogTitle>
+      <DialogDescription>
+        You must accept the new terms to continue using the
+        application.
+      </DialogDescription>
+    </DialogHeader>
+    <p className="text-sm text-muted-foreground">
+      By clicking accept, you agree to our updated Terms of Service
+      and Privacy Policy.
+    </p>
+    <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t bg-muted/50 p-4">
+      <DialogClose
+        render={<Button variant="outline" />}
+      >
+        Decline
+      </DialogClose>
+      <Button>Accept</Button>
+    </DialogFooter>
+  </DialogContent>
+</Dialog>
+`}
         >
           <Dialog>
             <DialogTrigger

@@ -216,6 +216,54 @@ export default function DropdownMenuShowcase() {
         <ExampleSection
           label="Advanced Dropdown"
           description="Menu có các hộp kiểm, mục radio và menu con."
+          codeString={`<DropdownMenu>
+  <DropdownMenuTrigger
+    render={
+      <Button variant="outline">
+        Advanced
+      </Button>
+    }
+  />
+  <DropdownMenuContent className="w-56">
+    <DropdownMenuLabel>Appearance</DropdownMenuLabel>
+    <DropdownMenuSeparator />
+    <DropdownMenuCheckboxItem
+      checked={showStatusBar}
+      onCheckedChange={setShowStatusBar}
+    >
+      Show Status Bar
+    </DropdownMenuCheckboxItem>
+    <DropdownMenuCheckboxItem disabled>
+      Show Activity Bar
+    </DropdownMenuCheckboxItem>
+    <DropdownMenuCheckboxItem
+      checked={showPanel}
+      onCheckedChange={setShowPanel}
+    >
+      Show Panel
+    </DropdownMenuCheckboxItem>
+    <DropdownMenuSeparator />
+    <DropdownMenuSub>
+      <DropdownMenuSubTrigger>Theme</DropdownMenuSubTrigger>
+      <DropdownMenuSubContent>
+        <DropdownMenuItem>Light</DropdownMenuItem>
+        <DropdownMenuItem>Dark</DropdownMenuItem>
+        <DropdownMenuItem>System</DropdownMenuItem>
+      </DropdownMenuSubContent>
+    </DropdownMenuSub>
+    <DropdownMenuSeparator />
+    <DropdownMenuRadioGroup value="bottom">
+      <DropdownMenuRadioItem value="top">Top</DropdownMenuRadioItem>
+      <DropdownMenuRadioItem value="bottom">
+        Bottom
+      </DropdownMenuRadioItem>
+      <DropdownMenuRadioItem value="right">
+        Right
+      </DropdownMenuRadioItem>
+    </DropdownMenuRadioGroup>
+  </DropdownMenuContent>
+</DropdownMenu>
+`}
         >
           <DropdownMenu>
             <DropdownMenuTrigger
@@ -268,6 +316,28 @@ export default function DropdownMenuShowcase() {
         <ExampleSection
           label="Inset Items"
           description="Dùng prop inset trên label và items khi menu không có icon — giữ alignment đồng đều."
+          codeString={`<DropdownMenu>
+  <DropdownMenuTrigger
+    render={
+      <Button variant="outline">
+        View Options
+      </Button>
+    }
+  />
+  <DropdownMenuContent className="w-48">
+    <DropdownMenuLabel inset>View</DropdownMenuLabel>
+    <DropdownMenuSeparator />
+    <DropdownMenuItem inset>Zoom In</DropdownMenuItem>
+    <DropdownMenuItem inset>Zoom Out</DropdownMenuItem>
+    <DropdownMenuItem inset>Reset Zoom</DropdownMenuItem>
+    <DropdownMenuSeparator />
+    <DropdownMenuLabel inset>Layout</DropdownMenuLabel>
+    <DropdownMenuSeparator />
+    <DropdownMenuItem inset>Single Column</DropdownMenuItem>
+    <DropdownMenuItem inset>Two Columns</DropdownMenuItem>
+  </DropdownMenuContent>
+</DropdownMenu>
+`}
         >
           <DropdownMenu>
             <DropdownMenuTrigger

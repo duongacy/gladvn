@@ -111,6 +111,12 @@ function AccordionMacroShowcase() {
         <ExampleSection
           label="Tiêu Chuẩn (Standard)"
           description="Accordion mở đơn cơ bản."
+          codeString={`<AccordionPreset
+  className="w-full"
+  defaultValue={["item-1"]}
+  items={presetItems}
+/>
+`}
         >
           <AccordionPreset
             className="w-full"
@@ -122,6 +128,13 @@ function AccordionMacroShowcase() {
         <ExampleSection
           label="Mở Nhiều (Multiple Expansion)"
           description="Cho phép mở nhiều mục cùng một lúc."
+          codeString={`<AccordionPreset
+  className="w-full"
+  multiple
+  defaultValue={["item-1", "item-2"]}
+  items={presetItems}
+/>
+`}
         >
           <AccordionPreset
             className="w-full"
@@ -169,6 +182,30 @@ return (
         <ExampleSection
           label="Disabled (Vô hiệu hoá)"
           description="Từng mục riêng lẻ có thể bị vô hiệu hóa trong khi các mục khác vẫn tương tác bình thường."
+          codeString={`<AccordionPreset
+  className="w-full"
+  items={[
+    {
+      value: "enabled-1",
+      title: "Available Feature",
+      content:
+        "This feature is available and can be expanded normally.",
+    },
+    {
+      value: "disabled-1",
+      title: "Premium Feature (Locked)",
+      content: "This content is hidden behind a premium plan.",
+      disabled: true,
+    },
+    {
+      value: "enabled-2",
+      title: "Another Feature",
+      content:
+        "This is another available feature you can interact with freely.",
+    },
+  ]}
+/>
+`}
         >
           <AccordionPreset
             className="w-full"
@@ -200,6 +237,26 @@ return (
         <ExampleSection
           label="Nội Dung Phức Tạp"
           description="Render các React Node bên trong nội dung."
+          codeString={`<AccordionPreset
+  className="w-full"
+  items={[
+    {
+      value: "profile",
+      title: "User Profile Settings",
+      content: (
+        <div className="flex flex-col items-start gap-3">
+          <p className="text-sm">
+            Update your personal information and preferences.
+          </p>
+          <button className="rounded-md bg-primary px-3 py-1.5 text-sm font-medium text-primary-foreground">
+            Edit Profile
+          </button>
+        </div>
+      ),
+    },
+  ]}
+/>
+`}
         >
           <AccordionPreset
             className="w-full"
@@ -225,6 +282,46 @@ return (
         <ExampleSection
           label="Lồng Nhau (Nested Accordions)"
           description="Nội dung bên trong có thể chứa một Accordion khác."
+          codeString={`<AccordionPreset
+  className="w-full"
+  items={[
+    {
+      value: "getting-started",
+      title: "Getting Started",
+      content: (
+        <AccordionPreset
+          className="w-full"
+          items={[
+            {
+              value: "installation",
+              title: "Installation",
+              content:
+                "Run npm install to add the component to your project.",
+            },
+          ]}
+        />
+      ),
+    },
+    {
+      value: "advanced",
+      title: "Advanced Usage",
+      content: (
+        <AccordionPreset
+          className="w-full"
+          items={[
+            {
+              value: "controlled",
+              title: "Controlled Mode",
+              content:
+                "Use the value and onValueChange props to control which items are open.",
+            },
+          ]}
+        />
+      ),
+    },
+  ]}
+/>
+`}
         >
           <AccordionPreset
             className="w-full"
@@ -352,6 +449,28 @@ function AccordionMicroShowcase() {
         <ExampleSection
           label="Disabled (Vô hiệu hoá)"
           description="Từng mục riêng lẻ có thể bị vô hiệu hóa trong khi các mục khác vẫn tương tác bình thường."
+          codeString={`<Accordion className="w-full">
+  <AccordionItem value="enabled-1">
+    <AccordionTrigger>Available Feature</AccordionTrigger>
+    <AccordionContent>
+      This feature is available and can be expanded normally. Click to
+      see the details.
+    </AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="disabled-1" disabled>
+    <AccordionTrigger>Premium Feature (Locked)</AccordionTrigger>
+    <AccordionContent>
+      This content is hidden behind a premium plan.
+    </AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="enabled-2">
+    <AccordionTrigger>Another Feature</AccordionTrigger>
+    <AccordionContent>
+      This is another available feature you can interact with freely.
+    </AccordionContent>
+  </AccordionItem>
+</Accordion>
+`}
         >
           <Accordion className="w-full">
             <AccordionItem value="enabled-1">
@@ -379,6 +498,48 @@ function AccordionMicroShowcase() {
         <ExampleSection
           label="Lồng Nhau (Nested Accordions)"
           description="Nội dung bên trong có thể chứa một Accordion khác để tạo cấu trúc nhiều cấp."
+          codeString={`<Accordion className="w-full max-w-lg">
+  <AccordionItem value="getting-started">
+    <AccordionTrigger>Getting Started</AccordionTrigger>
+    <AccordionContent>
+      <Accordion>
+        <AccordionItem value="installation">
+          <AccordionTrigger>Installation</AccordionTrigger>
+          <AccordionContent>
+            Run npm install to add the component to your project.
+          </AccordionContent>
+        </AccordionItem>
+        <AccordionItem value="configuration">
+          <AccordionTrigger>Configuration</AccordionTrigger>
+          <AccordionContent>
+            Import and wrap your content with the Accordion component.
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
+    </AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="advanced">
+    <AccordionTrigger>Advanced Usage</AccordionTrigger>
+    <AccordionContent>
+      <Accordion>
+        <AccordionItem value="controlled">
+          <AccordionTrigger>Controlled Mode</AccordionTrigger>
+          <AccordionContent>
+            Use the value and onValueChange props to control which
+            items are open.
+          </AccordionContent>
+        </AccordionItem>
+        <AccordionItem value="animation">
+          <AccordionTrigger>Custom Animation</AccordionTrigger>
+          <AccordionContent>
+            Override transition duration and easing via className.
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
+    </AccordionContent>
+  </AccordionItem>
+</Accordion>
+`}
         >
           <Accordion className="w-full max-w-lg">
             <AccordionItem value="getting-started">
@@ -461,6 +622,95 @@ function AccordionMicroShowcase() {
         label="🧭 Use Case Comparison"
         description="Các kịch bản thực tế giúp bạn quyết định nên dùng Micro (Accordion) hay Macro (AccordionPreset)."
         fullWidth
+        codeString={`<div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+  {/* ── Story 1: Macro wins ── */}
+  <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
+    <div className="flex items-start gap-3">
+      <span className="mt-0.5 shrink-0 rounded-full bg-green-500/10 p-1.5 text-green-600">
+        <SettingsIcon className="size-4" aria-hidden="true" />
+      </span>
+      <div>
+        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+          Story 1 · Dùng Macro
+        </p>
+        <h3 className="mt-0.5 text-sm font-semibold text-foreground">
+          Render danh sách FAQ từ API
+        </h3>
+      </div>
+    </div>
+
+    <p className="text-xs text-muted-foreground leading-relaxed">
+      Bạn nhận được một mảng dữ liệu FAQ (hỏi đáp) từ server. Nội dung
+      đơn giản chỉ là text. Dùng Macro để tiết kiệm code.
+    </p>
+
+    <div className="rounded-lg bg-muted/50 p-3">
+      <AccordionPreset
+        className="w-full"
+        items={presetItemsForCompare.slice(0, 2)}
+      />
+    </div>
+
+    <div className="rounded-md border border-green-500/20 bg-green-500/5 px-3 py-2">
+      <p className="text-xs font-medium text-green-700 dark:text-green-400">
+        ✅ Dùng <code className="font-mono">AccordionPreset</code> — Tự
+        động lặp qua array, không cần viết lại JSX cho từng thẻ Item.
+      </p>
+    </div>
+  </div>
+
+  {/* ── Story 2: Micro wins ── */}
+  <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
+    <div className="flex items-start gap-3">
+      <span className="mt-0.5 shrink-0 rounded-full bg-blue-500/10 p-1.5 text-blue-600">
+        <BoxIcon className="size-4" aria-hidden="true" />
+      </span>
+      <div>
+        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+          Story 2 · Dùng Micro
+        </p>
+        <h3 className="mt-0.5 text-sm font-semibold text-foreground">
+          Tuỳ biến Trigger / Form phức tạp
+        </h3>
+      </div>
+    </div>
+
+    <p className="text-xs text-muted-foreground leading-relaxed">
+      Trigger cần hiển thị Icon hoặc Badge. Nội dung bên trong là một
+      Form phức tạp (chứ không phải text đơn thuần). Macro không thể làm
+      được việc này.
+    </p>
+
+    <div className="rounded-lg bg-muted/50 p-3">
+      <Accordion className="w-full">
+        <AccordionItem value="settings">
+          <AccordionTrigger className="gap-3">
+            <SlidersHorizontalIcon className="size-4 text-primary" />
+            <span className="flex-1 text-left">Advanced Settings</span>
+            <span className="mr-2 rounded bg-primary/10 px-2 py-0.5 text-[10px] uppercase tracking-wider text-primary">
+              New
+            </span>
+          </AccordionTrigger>
+          <AccordionContent>
+            <div className="flex items-center gap-3 rounded border border-border p-3 text-xs text-muted-foreground">
+              <span>
+                Nội dung tuỳ biến hoàn toàn, ví dụ: Form, Toggle, v.v.
+              </span>
+            </div>
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
+    </div>
+
+    <div className="rounded-md border border-blue-500/20 bg-blue-500/5 px-3 py-2">
+      <p className="text-xs font-medium text-blue-700 dark:text-blue-400">
+        ✅ Dùng <code className="font-mono">Accordion</code> (Micro) —
+        Toàn quyền kiểm soát cấu trúc HTML của Trigger và Content.
+      </p>
+    </div>
+  </div>
+</div>
+`}
       >
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {/* ── Story 1: Macro wins ── */}

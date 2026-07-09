@@ -68,6 +68,13 @@ function InputMacroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Tiêu chuẩn"
           description="Trường nhập văn bản hoàn chỉnh có nhãn và mô tả."
+          codeString={`<InputPreset
+  label="Tên đăng nhập"
+  description="Đây sẽ là tên hiển thị công khai của bạn."
+  placeholder="johndoe"
+  className="w-full"
+/>
+`}
         >
           <InputPreset
             size={globalSize}
@@ -81,6 +88,14 @@ function InputMacroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Lỗi xác thực (Validation Error)"
           description="Hiển thị thông báo lỗi và viền đỏ báo hiệu khi truyền errorMessage."
+          codeString={`<InputPreset
+  label="Mật khẩu"
+  type="password"
+  placeholder="Nhập mật khẩu..."
+  errorMessage="Mật khẩu phải chứa ít nhất 8 ký tự."
+  className="w-full"
+/>
+`}
         >
           <InputPreset
             size={globalSize}
@@ -97,6 +112,15 @@ function InputMacroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Với Tiền tố / Hậu tố (Adornments)"
           description="Tự động bọc bằng InputGroup, có thể truyền chuỗi hoặc icon."
+          codeString={`<InputPreset
+  label="Website URL"
+  type="url"
+  placeholder="example"
+  startAdornment="https://"
+  endAdornment=".com"
+  className="w-full"
+/>
+`}
         >
           <InputPreset
             size={globalSize}
@@ -112,6 +136,14 @@ function InputMacroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Khóa / Bất hoạt (Disabled)"
           description="Người dùng không thể tương tác với form."
+          codeString={`<InputPreset
+  label="Tên dự án"
+  description="Tên dự án không thể thay đổi sau khi khởi tạo."
+  defaultValue="my-awesome-project"
+  disabled
+  className="w-full"
+/>
+`}
         >
           <InputPreset
             size={globalSize}
@@ -213,6 +245,11 @@ function InputMicroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Cơ bản (Primitive)"
           description="Thẻ input đơn giản không có nhãn."
+          codeString={`<Input
+  placeholder="Nhập địa chỉ email..."
+  className="w-full"
+/>
+`}
         >
           <Input
             size={globalSize}
@@ -224,6 +261,19 @@ function InputMicroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Ghép nối với Field"
           description="Lắp ráp thủ công các thành phần Field để tạo form control."
+          codeString={`<Field className="w-full">
+  <FieldLabel htmlFor="tf-input">Email</FieldLabel>
+  <FieldDescription>
+    Chúng tôi sẽ không bao giờ chia sẻ email của bạn.
+  </FieldDescription>
+  <FieldContent>
+    <Input
+      id="tf-input"
+      placeholder="you@example.com"
+    />
+  </FieldContent>
+</Field>
+`}
         >
           <Field size={globalSize} className="w-full">
             <FieldLabel htmlFor="tf-input">Email</FieldLabel>
@@ -245,6 +295,20 @@ function InputMicroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Trạng thái Lỗi (Error)"
           description="Sử dụng thuộc tính aria-invalid để báo lỗi."
+          codeString={`<Field className="w-full">
+  <FieldLabel htmlFor="tf-error">Tên tài khoản</FieldLabel>
+  <FieldContent>
+    <Input
+      id="tf-error"
+      defaultValue="admin!@#"
+      aria-invalid="true"
+    />
+  </FieldContent>
+  <FieldError>
+    Tên tài khoản không được chứa ký tự đặc biệt.
+  </FieldError>
+</Field>
+`}
         >
           <Field size={globalSize} className="w-full">
             <FieldLabel htmlFor="tf-error">Tên tài khoản</FieldLabel>
@@ -302,6 +366,8 @@ function InputMicroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Input Kiểu Tệp (File)"
           description="Input có hỗ trợ style gốc cho type file."
+          codeString={`<Input type="file" className="w-full pt-0.5" />
+`}
         >
           <Input size={globalSize} type="file" className="w-full pt-0.5" />
         </ExampleSection>
@@ -309,6 +375,12 @@ function InputMicroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Khóa (Disabled)"
           description="Trạng thái không thể tương tác."
+          codeString={`<Input
+  disabled
+  defaultValue="Chỉ đọc"
+  className="w-full"
+/>
+`}
         >
           <Input
             size={globalSize}

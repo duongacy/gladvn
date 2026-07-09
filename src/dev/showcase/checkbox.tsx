@@ -123,6 +123,12 @@ function CheckboxMacroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Tiêu chuẩn"
           description="Checkbox cơ bản kèm nhãn và mô tả."
+          codeString={`<CheckboxPreset
+  label="Đồng ý với điều khoản"
+  description="Bạn phải đồng ý với các điều khoản và điều kiện sử dụng."
+  className="w-full"
+/>
+`}
         >
           <CheckboxPreset
             size={globalSize}
@@ -192,6 +198,19 @@ function CheckboxMacroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="React Node Label (Custom Content)"
           description="Label có thể chứa các component React phức tạp như Badge."
+          codeString={`<CheckboxPreset
+  label={
+    <span className="flex items-center gap-2">
+      Tham gia chương trình BETA{" "}
+      <span className="rounded bg-primary/20 px-1.5 py-0.5 text-[10px] font-semibold text-primary">
+        NEW
+      </span>
+    </span>
+  }
+  description="Được trải nghiệm sớm các tính năng mới trước khi phát hành chính thức. Có thể xảy ra lỗi."
+  className="w-full"
+/>
+`}
         >
           <CheckboxPreset
             size={globalSize}

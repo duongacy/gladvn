@@ -370,6 +370,39 @@ function RadioGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Ghép nối Field thủ công"
           description="Tạo layout RadioGroup phức tạp với Field."
+          codeString={`<Field data-invalid={true} className="w-full gap-4">
+  <FieldLabel>Gói cước của bạn</FieldLabel>
+  <RadioGroup defaultValue="monthly" className="flex flex-col gap-2">
+    <Field orientation="horizontal">
+      <RadioGroupItem
+        value="monthly"
+        id="plan-1"
+        aria-invalid={true}
+      />
+      <FieldLabel
+        htmlFor="plan-1"
+        className="font-normal cursor-pointer"
+      >
+        Thanh toán tháng (\$10/mo)
+      </FieldLabel>
+    </Field>
+    <Field orientation="horizontal">
+      <RadioGroupItem
+        value="yearly"
+        id="plan-2"
+        aria-invalid={true}
+      />
+      <FieldLabel
+        htmlFor="plan-2"
+        className="font-normal cursor-pointer"
+      >
+        Thanh toán năm (\$100/yr)
+      </FieldLabel>
+    </Field>
+  </RadioGroup>
+  <FieldError>Thẻ của bạn đã bị từ chối.</FieldError>
+</Field>
+`}
         >
           <Field data-invalid={true} className="w-full gap-4">
             <FieldLabel>Gói cước của bạn</FieldLabel>

@@ -46,6 +46,15 @@ export default function ItemShowcase() {
         <ExampleSection
           label="Basic Content"
           description="Một mục có cấu trúc với tiêu đề và mô tả."
+          codeString={`<Item className="w-full">
+  <ItemContent>
+    <ItemTitle>Basic Item Content</ItemTitle>
+    <ItemDescription>
+      This item shows structured text.
+    </ItemDescription>
+  </ItemContent>
+</Item>
+`}
         >
           <Item size={globalSize} className="w-full">
             <ItemContent>
@@ -195,6 +204,26 @@ export default function ItemShowcase() {
       <ExampleSection
         label="Item Group"
         description="Các mục được nhóm bằng dấu phân cách."
+        codeString={`<ItemGroup className="w-full max-w-sm mx-auto">
+  <Item>
+    <ItemContent>
+      <ItemTitle>Account Settings</ItemTitle>
+    </ItemContent>
+  </Item>
+  <ItemSeparator />
+  <Item>
+    <ItemContent>
+      <ItemTitle>Notification Preferences</ItemTitle>
+    </ItemContent>
+  </Item>
+  <ItemSeparator />
+  <Item>
+    <ItemContent>
+      <ItemTitle className="text-destructive">Delete Account</ItemTitle>
+    </ItemContent>
+  </Item>
+</ItemGroup>
+`}
       >
         <ItemGroup className="w-full max-w-sm mx-auto">
           <Item size={globalSize}>

@@ -48,6 +48,22 @@ export default function ButtonShowcase() {
       <ExampleSection
         label="Variants"
         description="Tất cả các kiểu hiển thị hiện có."
+        codeString={`<Button variant="solid">
+  Solid
+</Button>
+<Button variant="outline">
+  Outline
+</Button>
+<Button variant="soft">
+  Soft
+</Button>
+<Button variant="ghost">
+  Ghost
+</Button>
+<Button variant="link">
+  Link
+</Button>
+`}
       >
         <Button size={globalSize} variant="solid">
           Solid
@@ -70,6 +86,34 @@ export default function ButtonShowcase() {
       <ExampleSection
         label="Colors"
         description="Màu sắc theo ngữ nghĩa đi kèm với biến thể solid."
+        codeString={`<Button color="primary">
+  Primary
+</Button>
+<Button color="secondary">
+  Secondary
+</Button>
+<Button color="destructive">
+  Destructive
+</Button>
+<Button color="warning">
+  Warning
+</Button>
+<Button color="success">
+  Success
+</Button>
+<Button color="info">
+  Info
+</Button>
+<Button color="tertiary">
+  Tertiary
+</Button>
+<Button color="muted">
+  Muted
+</Button>
+<Button color="accent">
+  Accent
+</Button>
+`}
       >
         <Button size={globalSize} color="primary">
           Primary
@@ -105,6 +149,15 @@ export default function ButtonShowcase() {
         <ExampleSection
           label="With Icon"
           description="Nút kèm biểu tượng ở đầu hoặc cuối."
+          codeString={`<Button variant="outline">
+  <ButtonIcon render={<MailIcon />} />
+  Login with Email
+</Button>
+<Button>
+  <ButtonIcon render={<DownloadIcon />} />
+  Download
+</Button>
+`}
         >
           <Button size={globalSize} variant="outline">
             <ButtonIcon render={<MailIcon />} />
@@ -119,6 +172,16 @@ export default function ButtonShowcase() {
         <ExampleSection
           label="Icon Only"
           description="Nút hình vuông chỉ chứa biểu tượng."
+          codeString={`<Button variant="outline" iconOnly={true}>
+  <ButtonIcon render={<PlusIcon />} />
+</Button>
+<Button variant="ghost" iconOnly={true}>
+  <ButtonIcon render={<MailIcon />} />
+</Button>
+<Button variant="soft" iconOnly={true}>
+  <ButtonIcon render={<DownloadIcon />} />
+</Button>
+`}
         >
           <Button size={globalSize} variant="outline" iconOnly={true}>
             <ButtonIcon render={<PlusIcon />} />
@@ -136,6 +199,22 @@ export default function ButtonShowcase() {
       <ExampleSection
         label="Disabled"
         description="Trạng thái nút không thể tương tác."
+        codeString={`<Button disabled>
+  Solid Disabled
+</Button>
+<Button variant="outline" disabled>
+  Outline Disabled
+</Button>
+<Button variant="soft" disabled>
+  Soft Disabled
+</Button>
+<Button variant="ghost" disabled>
+  Ghost Disabled
+</Button>
+<Button variant="link" disabled>
+  Link Disabled
+</Button>
+`}
       >
         <Button size={globalSize} disabled>
           Solid Disabled

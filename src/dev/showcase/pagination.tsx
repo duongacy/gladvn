@@ -63,6 +63,8 @@ return (
         <ExampleSection
           label="Nhiều trang (Many Pages)"
           description="Tự động thêm dấu ba chấm (ellipsis) khi số trang lớn."
+          codeString={`<PaginationPreset currentPage={50} totalPages={100} />
+`}
         >
           <PaginationPreset currentPage={50} totalPages={100} />
         </ExampleSection>
@@ -72,6 +74,8 @@ return (
         <ExampleSection
           label="Trang đầu tiên (First Page)"
           description="Nút Previous tự động bị mờ đi."
+          codeString={`<PaginationPreset currentPage={1} totalPages={5} />
+`}
         >
           <PaginationPreset currentPage={1} totalPages={5} />
         </ExampleSection>
@@ -79,6 +83,8 @@ return (
         <ExampleSection
           label="Trang cuối cùng (Last Page)"
           description="Nút Next tự động bị mờ đi."
+          codeString={`<PaginationPreset currentPage={5} totalPages={5} />
+`}
         >
           <PaginationPreset currentPage={5} totalPages={5} />
         </ExampleSection>
@@ -105,6 +111,35 @@ function PaginationMicroShowcase({ globalSize }: { globalSize: Size }) {
       <ExampleSection
         label="Cơ bản (Default)"
         description="Lắp ráp thủ công các item và link. Hỗ trợ prop size."
+        codeString={`<Pagination>
+  <PaginationContent>
+    <PaginationItem>
+      <PaginationPrevious href="#" />
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationLink href="#">
+        1
+      </PaginationLink>
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationLink href="#" isActive>
+        2
+      </PaginationLink>
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationLink href="#">
+        3
+      </PaginationLink>
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationEllipsis />
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationNext href="#" />
+    </PaginationItem>
+  </PaginationContent>
+</Pagination>
+`}
       >
         <Pagination>
           <PaginationContent>

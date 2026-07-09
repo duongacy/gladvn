@@ -324,6 +324,43 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Cơ bản & Phân nhóm"
           description="Sử dụng InputGroup, ComboboxAnchor, ComboboxGroup."
+          codeString={`<Field className="w-full">
+  <FieldLabel>Tìm kiếm Framework</FieldLabel>
+  <FieldContent>
+    <Combobox items={allFrameworks}>
+      <ComboboxAnchor className="w-full">
+        <InputGroup className="w-full">
+          <ComboboxInput
+            placeholder="Tìm framework..."
+            render={<InputGroupInput />}
+          />
+          <InputGroupAddon align="inline-end">
+            <ComboboxTrigger className="flex h-full cursor-default items-center justify-center px-2.5 outline-none group-has-data-[slot=combobox-clear]/input-group:hidden disabled:cursor-not-allowed disabled:opacity-50" />
+            <ComboboxClear />
+          </InputGroupAddon>
+        </InputGroup>
+      </ComboboxAnchor>
+      <ComboboxContent>
+        <ComboboxEmpty>Không tìm thấy.</ComboboxEmpty>
+        <ComboboxList>
+          <ComboboxGroup>
+            <ComboboxLabel>Frontend</ComboboxLabel>
+            <ComboboxItem value="react">React</ComboboxItem>
+            <ComboboxItem value="vue">Vue</ComboboxItem>
+            <ComboboxItem value="svelte">Svelte</ComboboxItem>
+          </ComboboxGroup>
+          <ComboboxSeparator />
+          <ComboboxGroup>
+            <ComboboxLabel>Backend</ComboboxLabel>
+            <ComboboxItem value="express">Express</ComboboxItem>
+            <ComboboxItem value="nest">NestJS</ComboboxItem>
+          </ComboboxGroup>
+        </ComboboxList>
+      </ComboboxContent>
+    </Combobox>
+  </FieldContent>
+</Field>
+`}
         >
           <Field size={globalSize} className="w-full">
             <FieldLabel>Tìm kiếm Framework</FieldLabel>
@@ -366,6 +403,35 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Chọn nhiều (Multi-select Chips)"
           description="Sử dụng ComboboxChips và ComboboxChip thay cho Input."
+          codeString={`<Field className="w-full">
+  <FieldLabel>Gán thẻ (Tags)</FieldLabel>
+  <FieldContent>
+    <Combobox items={tagItems} multiple>
+      <ComboboxChips>
+        <ComboboxChip value="bug">Lỗi (Bug)</ComboboxChip>
+        <ComboboxChip value="feature">
+          Tính năng (Feature)
+        </ComboboxChip>
+        <ComboboxChipsInput placeholder="Thêm thẻ..." />
+      </ComboboxChips>
+      <ComboboxContent>
+        <ComboboxEmpty>Không tìm thấy thẻ.</ComboboxEmpty>
+        <ComboboxList>
+          <ComboboxItem value="bug">Lỗi (Bug)</ComboboxItem>
+          <ComboboxItem value="feature">
+            Tính năng (Feature)
+          </ComboboxItem>
+          <ComboboxItem value="enhancement">Cải thiện</ComboboxItem>
+          <ComboboxItem value="docs">Tài liệu</ComboboxItem>
+        </ComboboxList>
+      </ComboboxContent>
+    </Combobox>
+  </FieldContent>
+  <FieldDescription>
+    Bạn có thể chọn nhiều thẻ cùng lúc.
+  </FieldDescription>
+</Field>
+`}
         >
           <Field size={globalSize} className="w-full">
             <FieldLabel>Gán thẻ (Tags)</FieldLabel>

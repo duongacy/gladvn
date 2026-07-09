@@ -23,7 +23,12 @@ export default function SpinnerShowcase() {
         />
       </SectionHeader>
 
-      <ExampleSection label="Default" description="Máy quay tiêu chuẩn.">
+      <ExampleSection
+        label="Default"
+        description="Máy quay tiêu chuẩn."
+        codeString={`<Spinner />
+`}
+      >
         <Spinner size={globalSize} />
       </ExampleSection>
     </div>

@@ -46,6 +46,42 @@ export default function PopoverShowcase() {
         <ExampleSection
           label="Default"
           description="Cửa sổ Popover tiêu chuẩn."
+          codeString={`<Popover>
+  <PopoverTrigger
+    render={
+      <Button variant="outline">
+        Open Popover
+      </Button>
+    }
+  />
+  <PopoverContent className="w-80" sideOffset={8}>
+    <PopoverHeader>
+      <PopoverTitle>Dimensions</PopoverTitle>
+      <PopoverDescription>
+        Cài đặt kích thước cho layer.
+      </PopoverDescription>
+    </PopoverHeader>
+    <div className="grid gap-4 mt-4">
+      <div className="grid grid-cols-3 items-center gap-4">
+        <Label htmlFor="width">Width</Label>
+        <Input
+          id="width"
+          defaultValue="100%"
+          className="col-span-2 h-8"
+        />
+      </div>
+      <div className="grid grid-cols-3 items-center gap-4">
+        <Label htmlFor="height">Height</Label>
+        <Input
+          id="height"
+          defaultValue="200px"
+          className="col-span-2 h-8"
+        />
+      </div>
+    </div>
+  </PopoverContent>
+</Popover>
+`}
         >
           <Popover>
             <PopoverTrigger
@@ -87,6 +123,60 @@ export default function PopoverShowcase() {
         <ExampleSection
           label="Icon Trigger"
           description="Mở Popover bằng Icon Button."
+          codeString={`<div className="flex gap-4">
+  <Popover>
+    <PopoverTrigger
+      render={
+        <Button
+          variant="ghost"
+          size="md"
+          iconOnly
+          className="rounded-full"
+        >
+          <Bell className="size-4" />
+        </Button>
+      }
+    />
+    <PopoverContent className="w-64" sideOffset={8} align="start">
+      <PopoverHeader>
+        <PopoverTitle>Thông báo</PopoverTitle>
+        <PopoverDescription>
+          Bạn có 3 tin nhắn chưa đọc.
+        </PopoverDescription>
+      </PopoverHeader>
+    </PopoverContent>
+  </Popover>
+
+  <Popover>
+    <PopoverTrigger
+      render={
+        <Button variant="outline" size="md" iconOnly>
+          <Settings className="size-4" />
+        </Button>
+      }
+    />
+    <PopoverContent className="w-56" sideOffset={8}>
+      <PopoverHeader>
+        <PopoverTitle>Cài đặt nhanh</PopoverTitle>
+      </PopoverHeader>
+      <div className="flex flex-col gap-2 mt-2">
+        <Button variant="ghost" className="justify-start">
+          Tài khoản
+        </Button>
+        <Button variant="ghost" className="justify-start">
+          Giao diện
+        </Button>
+        <Button
+          variant="ghost"
+          className="justify-start text-destructive hover:text-destructive"
+        >
+          Đăng xuất
+        </Button>
+      </div>
+    </PopoverContent>
+  </Popover>
+</div>
+`}
         >
           <div className="flex gap-4">
             <Popover>

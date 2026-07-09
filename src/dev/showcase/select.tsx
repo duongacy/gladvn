@@ -306,6 +306,27 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Cơ bản (Primitive)"
           description="Ghép nối thủ công bằng cách bọc Field."
+          codeString={`<Field className="w-full">
+  <FieldLabel>Framework</FieldLabel>
+  <FieldContent>
+    <Select items={{ next: "Next.js", vite: "Vite", remix: "Remix" }}>
+      <SelectTrigger>
+        <SelectValue placeholder="Chọn framework..." />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectScrollUpButton />
+        <SelectItem value="next">Next.js</SelectItem>
+        <SelectItem value="vite">Vite</SelectItem>
+        <SelectItem value="remix">Remix</SelectItem>
+        <SelectScrollDownButton />
+      </SelectContent>
+    </Select>
+  </FieldContent>
+  <FieldDescription>
+    Chọn công nghệ bạn muốn sử dụng.
+  </FieldDescription>
+</Field>
+`}
         >
           <Field size={globalSize} className="w-full">
             <FieldLabel>Framework</FieldLabel>
@@ -332,6 +353,37 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Phân nhóm (Grouped)"
           description="Sử dụng SelectGroup, SelectLabel và SelectSeparator."
+          codeString={`<Field className="w-full">
+  <FieldLabel>Trái cây</FieldLabel>
+  <FieldContent>
+    <Select
+      items={{
+        orange: "Orange",
+        lemon: "Lemon",
+        strawberry: "Strawberry",
+        blueberry: "Blueberry",
+      }}
+    >
+      <SelectTrigger>
+        <SelectValue placeholder="Chọn loại quả..." />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectGroup>
+          <SelectLabel>Họ cam chanh (Citrus)</SelectLabel>
+          <SelectItem value="orange">Orange</SelectItem>
+          <SelectItem value="lemon">Lemon</SelectItem>
+        </SelectGroup>
+        <SelectSeparator />
+        <SelectGroup>
+          <SelectLabel>Họ dâu (Berry)</SelectLabel>
+          <SelectItem value="strawberry">Strawberry</SelectItem>
+          <SelectItem value="blueberry">Blueberry</SelectItem>
+        </SelectGroup>
+      </SelectContent>
+    </Select>
+  </FieldContent>
+</Field>
+`}
         >
           <Field size={globalSize} className="w-full">
             <FieldLabel>Trái cây</FieldLabel>
@@ -370,6 +422,21 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Trạng thái Lỗi thủ công"
           description="Tự gắn aria-invalid vào Select."
+          codeString={`<Field data-invalid={true} className="w-full">
+  <FieldLabel>Dự án</FieldLabel>
+  <FieldContent>
+    <Select items={{ p1: "Project 1" }}>
+      <SelectTrigger aria-invalid={true}>
+        <SelectValue placeholder="Chọn dự án..." />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectItem value="p1">Project 1</SelectItem>
+      </SelectContent>
+    </Select>
+  </FieldContent>
+  <FieldError>Vui lòng chọn một dự án hợp lệ.</FieldError>
+</Field>
+`}
         >
           <Field size={globalSize} data-invalid={true} className="w-full">
             <FieldLabel>Dự án</FieldLabel>
@@ -390,6 +457,23 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Disabled thủ công"
           description="Khóa SelectTrigger."
+          codeString={`<Field className="w-full">
+  <FieldLabel>Múi giờ</FieldLabel>
+  <FieldContent>
+    <Select items={{ gmt: "GMT+7" }}>
+      <SelectTrigger disabled>
+        <SelectValue placeholder="Chọn múi giờ..." />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectItem value="gmt">GMT+7 (Indochina Time)</SelectItem>
+      </SelectContent>
+    </Select>
+  </FieldContent>
+  <FieldDescription>
+    Múi giờ tự động lấy theo hệ thống.
+  </FieldDescription>
+</Field>
+`}
         >
           <Field size={globalSize} className="w-full">
             <FieldLabel>Múi giờ</FieldLabel>

@@ -262,6 +262,21 @@ function AvatarMicroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Nhóm cơ bản (Basic Group)"
           description="Xếp chồng nhiều avatar lên nhau."
+          codeString={`<AvatarGroup>
+  <Avatar>
+    <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+    <AvatarFallback>CN</AvatarFallback>
+  </Avatar>
+  <Avatar>
+    <AvatarImage src="https://github.com/vercel.png" alt="@vercel" />
+    <AvatarFallback>VC</AvatarFallback>
+  </Avatar>
+  <Avatar>
+    <AvatarImage src="https://github.com/leerob.png" alt="@leerob" />
+    <AvatarFallback>LR</AvatarFallback>
+  </Avatar>
+</AvatarGroup>
+`}
         >
           <AvatarGroup>
             <Avatar size={globalSize}>
@@ -282,6 +297,18 @@ function AvatarMicroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Kèm bộ đếm (With Count)"
           description="Hiển thị những avatar còn lại bị ẩn."
+          codeString={`<AvatarGroup>
+  <Avatar>
+    <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+    <AvatarFallback>CN</AvatarFallback>
+  </Avatar>
+  <Avatar>
+    <AvatarImage src="https://github.com/vercel.png" alt="@vercel" />
+    <AvatarFallback>VC</AvatarFallback>
+  </Avatar>
+  <AvatarGroupCount>+12</AvatarGroupCount>
+</AvatarGroup>
+`}
         >
           <AvatarGroup>
             <Avatar size={globalSize}>

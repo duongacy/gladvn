@@ -108,6 +108,12 @@ function ProgressMicroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Chỉ Thanh tiến trình (Core)"
           description="Thanh tiến trình tiêu chuẩn sử dụng API tổng hợp thuần túy (không nhãn)."
+          codeString={`<Progress value={60} className="w-full max-w-sm">
+  <ProgressTrack>
+    <ProgressIndicator />
+  </ProgressTrack>
+</Progress>
+`}
         >
           <Progress value={60} size={globalSize} className="w-full max-w-sm">
             <ProgressTrack>
@@ -119,6 +125,12 @@ function ProgressMicroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Tuỳ chỉnh màu sắc (Custom Color)"
           description="Can thiệp trực tiếp vào ProgressIndicator để đổi màu."
+          codeString={`<Progress value={45} className="w-full max-w-sm">
+  <ProgressTrack>
+    <ProgressIndicator className="bg-red-500" />
+  </ProgressTrack>
+</Progress>
+`}
         >
           <Progress value={45} size={globalSize} className="w-full max-w-sm">
             <ProgressTrack>

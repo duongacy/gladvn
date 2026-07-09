@@ -268,6 +268,15 @@ function CardMicroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Chỉ có nội dung (Content Only)"
           description="Dùng Card như một container bọc ngoài đơn giản."
+          codeString={`<Card className="w-full">
+  <CardContent>
+    <p className="text-sm text-muted-foreground pt-4 md:pt-6">
+      This is a simple content-only card without a header or footer.
+      Useful for wrapping any content in a card container.
+    </p>
+  </CardContent>
+</Card>
+`}
         >
           <Card size={globalSize} className="w-full">
             <CardContent>

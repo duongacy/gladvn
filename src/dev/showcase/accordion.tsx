@@ -8,6 +8,7 @@ import {
   DocsP,
   DocsUl,
   DocsLi,
+  DocsCode,
 } from "@/dev/components/showcase";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/micro/accordion";
 import { AccordionPreset } from "@/components/macro/accordion-preset";
@@ -116,7 +117,7 @@ return (
     multiple
     value={controlledValue}
     onValueChange={setControlledValue}
-    items={faqItems}
+    items={presetItems}
   />
 );`}
         >
@@ -242,14 +243,28 @@ function AccordionMicroShowcase() {
   return (
     <div className="space-y-10 mt-6">
       <ShowcaseDocs>
-        <h3>Khi nào nên dùng</h3>
-        <p>Dùng để gom nhóm các khối nội dung lớn nhằm tiết kiệm không gian hiển thị (ví dụ: FAQ, Advanced Settings). Không nên dùng Accordion nếu nội dung bên trong quá quan trọng và cần user phải nhìn thấy ngay lập tức.</p>
+        <DocsH3>Khi nào nên dùng</DocsH3>
+        <DocsP>Dùng để gom nhóm các khối nội dung lớn nhằm tiết kiệm không gian hiển thị (ví dụ: FAQ, Advanced Settings). Không nên dùng Accordion nếu nội dung bên trong quá quan trọng và cần user phải nhìn thấy ngay lập tức.</DocsP>
       </ShowcaseDocs>
 
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Mở Đơn (Single Expand)"
           description="Chỉ một mục được phép mở tại một thời điểm (mặc định)."
+          codeString={`<Accordion className="w-full" defaultValue={["Is it accessible?"]}>
+  <AccordionItem value="Is it accessible?">
+    <AccordionTrigger>Is it accessible?</AccordionTrigger>
+    <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern. Keyboard navigation and screen readers are fully supported.</AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="Is it styled?">
+    <AccordionTrigger>Is it styled?</AccordionTrigger>
+    <AccordionContent>Yes. It comes with default styles that match the other components' aesthetic. You can override every token via CSS variables.</AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="Is it animated?">
+    <AccordionTrigger>Is it animated?</AccordionTrigger>
+    <AccordionContent>Yes. It's animated by default with smooth expand/collapse transitions, but you can disable animation if you prefer.</AccordionContent>
+  </AccordionItem>
+</Accordion>`}
         >
           <Accordion className="w-full" defaultValue={[firstQ]}>
             {faqItems.slice(0, 3).map(({ q, a }) => (
@@ -264,6 +279,20 @@ function AccordionMicroShowcase() {
         <ExampleSection
           label="Mở Nhiều (Multiple Expand)"
           description="Cho phép mở nhiều mục cùng lúc."
+          codeString={`<Accordion className="w-full" multiple defaultValue={["Is it accessible?", "Is it styled?"]}>
+  <AccordionItem value="Is it accessible?">
+    <AccordionTrigger>Is it accessible?</AccordionTrigger>
+    <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern. Keyboard navigation and screen readers are fully supported.</AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="Is it styled?">
+    <AccordionTrigger>Is it styled?</AccordionTrigger>
+    <AccordionContent>Yes. It comes with default styles that match the other components' aesthetic. You can override every token via CSS variables.</AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="Is it animated?">
+    <AccordionTrigger>Is it animated?</AccordionTrigger>
+    <AccordionContent>Yes. It's animated by default with smooth expand/collapse transitions, but you can disable animation if you prefer.</AccordionContent>
+  </AccordionItem>
+</Accordion>`}
         >
           <Accordion className="w-full" multiple defaultValue={[firstQ, secondQ]}>
             {faqItems.slice(0, 3).map(({ q, a }) => (
@@ -355,6 +384,24 @@ function AccordionMicroShowcase() {
       <ExampleSection
         label="FAQ Hoàn Chỉnh"
         description="Ví dụ một phần hỏi đáp FAQ hoàn chỉnh."
+        codeString={`<Accordion className="w-full max-w-lg">
+  <AccordionItem value="Is it accessible?">
+    <AccordionTrigger>Is it accessible?</AccordionTrigger>
+    <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern. Keyboard navigation and screen readers are fully supported.</AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="Is it styled?">
+    <AccordionTrigger>Is it styled?</AccordionTrigger>
+    <AccordionContent>Yes. It comes with default styles that match the other components' aesthetic. You can override every token via CSS variables.</AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="Is it animated?">
+    <AccordionTrigger>Is it animated?</AccordionTrigger>
+    <AccordionContent>Yes. It's animated by default with smooth expand/collapse transitions, but you can disable animation if you prefer.</AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="Can I nest accordions?">
+    <AccordionTrigger>Can I nest accordions?</AccordionTrigger>
+    <AccordionContent>Yes. You can nest accordion components inside each other to create multi-level collapsible sections.</AccordionContent>
+  </AccordionItem>
+</Accordion>`}
       >
         <Accordion className="w-full max-w-lg">
           {faqItems.map(({ q, a }) => (

@@ -1,9 +1,14 @@
 import { useState } from "react";
 import {
-  SectionHeader,
   ExampleSection,
   ExampleGrid,
   ShowcaseDocs,
+  Showcase,
+  DocsH3,
+  DocsP,
+  DocsUl,
+  DocsLi,
+  DocsCode,
 } from "@/dev/components/showcase";
 import {
   InfoIcon,
@@ -15,37 +20,149 @@ import {
 
 import { type Size } from "@/lib/types";
 import { Alert, AlertDescription, AlertTitle, AlertAction, AlertIcon } from "@/components/micro/alert";
+import { AlertPreset } from "@/components/macro/alert-preset";
 import { Button } from "@/components/micro/button";
-import { SelectPreset } from "@/components/macro/select-preset";
+import { MonoSelect } from "@/dev/components/mono-select";
 
-export default function AlertShowcase() {
-  const [globalSize, setGlobalSize] = useState<Size>("md");
+// ──────────────────────────────────────────────────────────
+// SECTION 1: Macro Content (không export)
+// ──────────────────────────────────────────────────────────
+function AlertMacroShowcase({ globalSize }: { globalSize: Size }) {
+  const [controlledOpen, setControlledOpen] = useState(true);
 
   return (
-    <div className="space-y-10">
-      <SectionHeader
-        title="Alert (Micro)"
-        description="Hiển thị một thông báo nổi bật để thu hút sự chú ý của người dùng."
-      >
-        <SelectPreset
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as Size)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-          className="w-[120px] h-8 text-xs bg-background"
-        />
-      </SectionHeader>
-
+    <div className="space-y-10 mt-6">
       <ShowcaseDocs>
-        <h3>Khi nào nên dùng</h3>
-        <p>Dùng để hiển thị một thông báo quan trọng thu hút sự chú ý của người dùng (ví dụ: lỗi, cảnh báo, hoặc thông báo thành công). Không nên dùng Alert cho các thông báo mang tính tạm thời tự biến mất (hãy dùng Toast/Sonner).</p>
+        <DocsH3>Khi nào nên dùng Macro</DocsH3>
+        <DocsP>Bản Macro (<DocsCode>AlertPreset</DocsCode>) là lựa chọn tuyệt vời khi bạn muốn hiển thị một cảnh báo ngắn gọn và cho phép người dùng tự tắt (dismiss) nó mà không phải tự viết logic <DocsCode>useState</DocsCode>. Nó đóng gói sẵn tất cả các thành phần (Icon, Title, Description, Close Button) vào một prop API duy nhất.</DocsP>
         
-        <h3>Micro vs Macro</h3>
-        <p>Phiên bản <strong>Micro</strong> (<code>Alert</code>) là một Box thuần tuý không ép buộc layout. Bạn phải dùng class Flexbox (<code>flex items-start</code>) và thẻ <code>div</code> bọc ngoài để tự cấu trúc (Pure Composition) giống như các ví dụ bên dưới.</p>
-        <p>Phiên bản <strong>Macro</strong> (<code>AlertPreset</code>) đã được đóng gói sẵn layout Flexbox, chỉ cần truyền props (title, description, icon) vào để dùng ngay.</p>
+        <DocsH3>Controlled vs Uncontrolled</DocsH3>
+        <DocsUl>
+          <DocsLi><b>Uncontrolled (Mặc định):</b> Nếu truyền <DocsCode>dismissible=true</DocsCode>, component tự quản lý state để tắt (ẩn) Alert khi click vào nút X.</DocsLi>
+          <DocsLi><b>Controlled:</b> Có thể kiểm soát state đóng/mở thông qua React state và truyền hàm vào <DocsCode>onDismiss</DocsCode>. Tuy nhiên thông thường Alert chỉ bị huỷ (unmount), nên nếu bạn kiểm soát thì hãy render nó có điều kiện bên ngoài.</DocsLi>
+        </DocsUl>
+      </ShowcaseDocs>
+
+      <ExampleGrid columns={2}>
+        <ExampleSection
+          label="Tiêu chuẩn (Standard)"
+          description="Truyền props trực tiếp thay vì lồng children."
+          fullWidth
+        >
+          <AlertPreset 
+            color="info" 
+            size={globalSize}
+            title="Có bản cập nhật mới" 
+            description="Phiên bản 2.0.4 đã sẵn sàng để tải xuống." 
+            icon={<InfoIcon />}
+          />
+        </ExampleSection>
+
+        <ExampleSection
+          label="Tự Đóng (Dismissible)"
+          description="Thêm dismissible=true để hiển thị nút [X]. Thử bấm vào nút X bên dưới."
+          fullWidth
+        >
+          <AlertPreset 
+            color="warning" 
+            size={globalSize}
+            title="Phiên bản sắp hết hạn" 
+            description="Phiên đăng nhập của bạn sẽ hết hạn trong 5 phút." 
+            icon={<TriangleAlertIcon />}
+            dismissible
+          />
+        </ExampleSection>
+      </ExampleGrid>
+
+      <ExampleGrid columns={2}>
+        <ExampleSection
+          label="Controlled"
+          description="Quản lý trạng thái đóng mở thông qua state bên ngoài bằng React (Conditional Rendering)."
+          fullWidth
+          codeString={`const [controlledOpen, setControlledOpen] = useState(true);
+          
+return (
+  <>
+    <div className="mb-4">
+      <Button size="sm" variant="outline" onClick={() => setControlledOpen(true)} disabled={controlledOpen}>
+        Mở lại Alert
+      </Button>
+    </div>
+    {controlledOpen && (
+      <AlertPreset 
+        color="destructive"
+        size="${globalSize}"
+        title="Bảo trì hệ thống" 
+        description="Hệ thống sẽ tạm ngừng hoạt động để bảo trì vào lúc nửa đêm." 
+        icon={<TriangleAlertIcon />}
+        dismissible
+        onDismiss={() => setControlledOpen(false)}
+      />
+    )}
+  </>
+);`}
+        >
+          <div className="flex w-full flex-col gap-3">
+            <div className="flex items-center justify-between">
+              <p className="text-xs text-muted-foreground">
+                State:{" "}
+                <code className="rounded bg-muted px-1.5 py-0.5 text-xs font-mono">
+                  {controlledOpen ? "true" : "false"}
+                </code>
+              </p>
+              <Button size="sm" variant="outline" className="h-7 text-xs" onClick={() => setControlledOpen(true)} disabled={controlledOpen}>
+                Mở lại Alert
+              </Button>
+            </div>
+            {controlledOpen && (
+              <AlertPreset 
+                color="destructive" 
+                size={globalSize}
+                title="Bảo trì hệ thống" 
+                description="Hệ thống sẽ tạm ngừng hoạt động để bảo trì vào lúc nửa đêm." 
+                icon={<TriangleAlertIcon />}
+                dismissible
+                onDismiss={() => setControlledOpen(false)}
+              />
+            )}
+          </div>
+        </ExampleSection>
+
+        <ExampleSection
+          label="Nội Dung Phức Tạp (Complex Content)"
+          description="Có thể truyền ReactNode hoặc thay thế toàn bộ bằng thẻ children."
+        >
+          <div className="flex w-full flex-col gap-4 max-w-xl">
+            <AlertPreset 
+              color="success" 
+              size={globalSize}
+              title="Thanh toán thành công" 
+              icon={<CheckCircle2Icon />}
+              dismissible
+              action={
+                <Button size="sm" variant="outline" className="h-7 px-2 text-xs">
+                  Xem biên lai
+                </Button>
+              }
+            >
+              <p className="text-sm mt-1 text-success/90">Hoá đơn #1234 của bạn đã được thanh toán hoàn tất.</p>
+            </AlertPreset>
+          </div>
+        </ExampleSection>
+      </ExampleGrid>
+    </div>
+  );
+}
+
+// ──────────────────────────────────────────────────────────
+// SECTION 2: Micro Content (không export)
+// ──────────────────────────────────────────────────────────
+function AlertMicroShowcase({ globalSize }: { globalSize: Size }) {
+  return (
+    <div className="space-y-10 mt-6">
+      <ShowcaseDocs>
+        <DocsH3>Khi nào nên dùng Micro</DocsH3>
+        <DocsP>Phiên bản <b>Micro</b> (<DocsCode>Alert</DocsCode>) là một Box thuần tuý không ép buộc layout. Bạn phải dùng class Flexbox (<DocsCode>flex items-start</DocsCode>) và thẻ <DocsCode>div</DocsCode> bọc ngoài để tự cấu trúc (Pure Composition) giống như các ví dụ bên dưới.</DocsP>
       </ShowcaseDocs>
 
       {/* ── Semantic Colors ──────────────────────── */}
@@ -175,6 +292,128 @@ export default function AlertShowcase() {
           </AlertDescription>
         </Alert>
       </ExampleSection>
+
+      {/* ── Use Case Comparison ─────────────────────── */}
+      <ExampleSection
+        label="🧭 Use Case Comparison"
+        description="Các kịch bản thực tế giúp bạn quyết định nên dùng Micro hay Macro."
+        fullWidth
+      >
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          {/* ── Story 1: Macro wins ── */}
+          <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
+            <div className="flex items-start gap-3">
+              <span className="mt-0.5 shrink-0 rounded-full bg-green-500/10 p-1.5 text-green-600">
+                <CheckCircle2Icon className="size-4" aria-hidden="true" />
+              </span>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                  Story 1 · Dùng Macro
+                </p>
+                <h3 className="mt-0.5 text-sm font-semibold text-foreground">
+                  Thông báo chuẩn, cho phép tự đóng
+                </h3>
+              </div>
+            </div>
+
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              Phần lớn các cảnh báo trong ứng dụng đều đi kèm Icon, Tiêu đề, Nội dung, và nút X để tự tắt (Dismiss). Dùng Macro sẽ tiết kiệm cực kỳ nhiều code.
+            </p>
+
+            <div className="rounded-lg bg-muted/50 p-3">
+              <AlertPreset 
+                color="info" 
+                size="sm"
+                title="Có bản cập nhật mới" 
+                description="Phiên bản 2.0.4 đã sẵn sàng để tải xuống." 
+                icon={<InfoIcon />}
+                dismissible
+              />
+            </div>
+
+            <div className="rounded-md border border-green-500/20 bg-green-500/5 px-3 py-2">
+              <p className="text-xs font-medium text-green-700 dark:text-green-400">
+                ✅ Dùng <code className="font-mono">AlertPreset</code> — Prop <code className="font-mono">dismissible</code> tự động xử lý state tắt Alert.
+              </p>
+            </div>
+          </div>
+
+          {/* ── Story 2: Micro wins ── */}
+          <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
+            <div className="flex items-start gap-3">
+              <span className="mt-0.5 shrink-0 rounded-full bg-blue-500/10 p-1.5 text-blue-600">
+                <CheckCircle2Icon className="size-4" aria-hidden="true" />
+              </span>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                  Story 2 · Dùng Micro
+                </p>
+                <h3 className="mt-0.5 text-sm font-semibold text-foreground">
+                  Giao diện Alert không theo chuẩn
+                </h3>
+              </div>
+            </div>
+
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              Khi bạn cần tạo một Alert với layout đặc biệt, ví dụ như không có icon, hoặc muốn chèn form vào giữa. Macro sẽ bị hạn chế vì đã chốt sẵn layout Flexbox ngang.
+            </p>
+
+            <div className="rounded-lg bg-muted/50 p-3">
+              <Alert color="warning" size="sm" className="flex flex-col gap-0.5">
+                <AlertTitle>Bản dùng thử hết hạn</AlertTitle>
+                <AlertDescription>
+                  Chỉ còn 3 ngày nữa. Vui lòng thanh toán!
+                </AlertDescription>
+                <Button variant="soft" color="warning" size="sm" className="mt-2 w-fit">
+                  Nâng Cấp Ngay
+                </Button>
+              </Alert>
+            </div>
+
+            <div className="rounded-md border border-blue-500/20 bg-blue-500/5 px-3 py-2">
+              <p className="text-xs font-medium text-blue-700 dark:text-blue-400">
+                ✅ Dùng <code className="font-mono">Alert</code> (Micro) — Bạn tự viết class <code className="font-mono">flex-col</code>, tự chèn nội dung thoải mái.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </ExampleSection>
     </div>
+  );
+}
+
+// ──────────────────────────────────────────────────────────
+// SECTION 3: Entry point (export default)
+// ──────────────────────────────────────────────────────────
+export default function AlertShowcase() {
+  const [globalSize, setGlobalSize] = useState<Size>("md");
+
+  return (
+    <Showcase
+      title="Alert"
+      description="Hiển thị một thông báo nổi bật để thu hút sự chú ý của người dùng."
+      actions={
+        <MonoSelect
+          value={globalSize}
+          onValueChange={(v) => setGlobalSize(v as Size)}
+          options={[
+            { value: "sm", label: "Size: sm" },
+            { value: "md", label: "Size: md" },
+            { value: "lg", label: "Size: lg" },
+          ]}
+        />
+      }
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsH3>Khi nào nên dùng chung</DocsH3>
+          <DocsP>Dùng để hiển thị một thông báo quan trọng thu hút sự chú ý của người dùng (ví dụ: lỗi, cảnh báo, hoặc thông báo thành công). Không nên dùng Alert cho các thông báo mang tính tạm thời tự biến mất (hãy dùng Toast/Sonner).</DocsP>
+        </ShowcaseDocs>
+      }
+      tabs={[
+        { label: "Micro (Primitive)", content: <AlertMicroShowcase globalSize={globalSize} /> },
+        { label: "Macro (Preset)", content: <AlertMacroShowcase globalSize={globalSize} /> },
+      ]}
+    />
   );
 }

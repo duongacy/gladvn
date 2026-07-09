@@ -1,37 +1,67 @@
-import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
+import { ExampleSection, Showcase, ShowcaseDocs, DocsH3, DocsP, DocsCode } from "@/dev/components/showcase";
 import { Separator } from "@/components/micro/separator";
 
-export default function SeparatorShowcase() {
+// ──────────────────────────────────────────────────────────
+// SECTION 1: Micro Content (Only Micro exists)
+// ──────────────────────────────────────────────────────────
+function SeparatorMicroShowcase() {
   return (
-    <div className="space-y-10">
-      <SectionHeader
-        title="Separator"
-        description="Phân tách nội dung một cách trực quan hoặc ngữ nghĩa."
-      />
+    <div className="space-y-10 mt-6">
+      <ShowcaseDocs>
+        <DocsH3>Separator (Phân cách)</DocsH3>
+        <DocsP>
+          <DocsCode>Separator</DocsCode> không có phiên bản Macro vì bản chất nó chỉ là một đường kẻ phân tách giao diện. Mặc định là đường kẻ ngang (<DocsCode>orientation="horizontal"</DocsCode>).
+        </DocsP>
+      </ShowcaseDocs>
 
       <ExampleSection
-        label="Default"
-        description="Dải phân cách ngang và dọc."
+        label="Ngang (Horizontal)"
+        description="Sử dụng để phân tách các khối nội dung từ trên xuống dưới."
+        fullWidth
       >
-        <div className="w-full max-w-sm">
+        <div className="w-full max-w-sm rounded-lg border bg-card p-6">
           <div className="space-y-1">
             <h4 className="text-sm font-medium leading-none">
-              Radix Primitives
+              Sadcn UI
             </h4>
             <p className="text-sm text-muted-foreground">
-              An open-source UI component library.
+              Bộ UI Component mã nguồn mở.
             </p>
           </div>
           <Separator className="my-4" />
-          <div className="flex h-5 items-center space-x-4 text-sm">
-            <div>Blog</div>
-            <Separator orientation="vertical" />
-            <div>Docs</div>
-            <Separator orientation="vertical" />
-            <div>Source</div>
+          <div className="text-sm text-muted-foreground">
+            Cập nhật lần cuối: Hôm nay
           </div>
         </div>
       </ExampleSection>
+
+      <ExampleSection
+        label="Dọc (Vertical)"
+        description="Sử dụng để phân tách các mục nằm ngang (như menu, thanh công cụ)."
+      >
+        <div className="flex h-5 items-center space-x-4 text-sm">
+          <div className="font-medium hover:underline cursor-pointer">Blog</div>
+          <Separator orientation="vertical" />
+          <div className="font-medium hover:underline cursor-pointer">Tài liệu</div>
+          <Separator orientation="vertical" />
+          <div className="font-medium hover:underline cursor-pointer">Mã nguồn</div>
+        </div>
+      </ExampleSection>
     </div>
+  );
+}
+
+// ──────────────────────────────────────────────────────────
+// SECTION 3: Entry point
+// ──────────────────────────────────────────────────────────
+export default function SeparatorShowcase() {
+  return (
+    <Showcase
+      title="Separator"
+      description="Thành phần phân cách trực quan hoặc ngữ nghĩa giữa các khối nội dung (Đường kẻ)."
+      tabs={[
+        { label: "Micro (Primitive)", content: <SeparatorMicroShowcase /> },
+      ]}
+    />
   );
 }

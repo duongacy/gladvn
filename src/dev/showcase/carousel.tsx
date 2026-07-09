@@ -1,10 +1,17 @@
+import { useState } from "react";
 import {
+  Showcase,
+  ShowcaseDocs,
+  DocsH3,
+  DocsP,
+  DocsCode,
   ExampleSection,
-  SectionHeader
+  ExampleGrid,
 } from "@/dev/components/showcase";
 import { cn } from "@/lib/utils";
 import { Card, CardContent } from "@/components/micro/card";
 import { Carousel, CarouselContent, CarouselDots, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/micro/carousel";
+import { CarouselPreset } from "@/components/macro/carousel-preset";
 
 const SLIDES = [
   { id: 1, title: "Modern Aesthetics", desc: "Crafting beautiful interfaces with tailwind.", bg: "bg-gradient-to-tr from-violet-500 to-purple-500" },
@@ -14,30 +21,221 @@ const SLIDES = [
   { id: 5, title: "Dark Mode Ready", desc: "Looks stunning on dark and light mode.", bg: "bg-gradient-to-tr from-amber-500 to-orange-500" },
 ];
 
-export default function CarouselShowcase() {
-  return (
-    <div className="space-y-10">
-      <SectionHeader
-        title="Carousel"
-        description="Băng chuyền cao cấp có chuyển động, vuốt và phân trang được xây dựng bằng Embla."
-      />
+function ControlledCarouselDemo() {
+  const [index, setIndex] = useState(0);
 
-      {/* ── Hero Banner ── */}
+  return (
+    <div className="w-full max-w-sm flex flex-col items-center gap-6">
+      <div className="flex gap-2">
+        {[0, 1, 2].map((i) => (
+          <button
+            key={i}
+            onClick={() => setIndex(i)}
+            data-active={index === i ? "" : undefined}
+            className="px-4 py-2 text-sm font-medium rounded-md transition-colors bg-muted text-muted-foreground hover:bg-muted/80 data-active:bg-primary data-active:text-primary-foreground data-active:shadow-sm data-active:hover:bg-primary/90"
+          >
+            Slide {i + 1}
+          </button>
+        ))}
+      </div>
+
+      <div className="w-full px-12">
+        <CarouselPreset
+          index={index}
+          onIndexChange={setIndex}
+          showDots={false}
+          items={[
+            { id: "c1", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-slate-100 dark:bg-slate-800 rounded-lg"><span className="text-4xl font-semibold">1</span></div></div> },
+            { id: "c2", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-slate-100 dark:bg-slate-800 rounded-lg"><span className="text-4xl font-semibold">2</span></div></div> },
+            { id: "c3", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-slate-100 dark:bg-slate-800 rounded-lg"><span className="text-4xl font-semibold">3</span></div></div> },
+          ]}
+        />
+      </div>
+      <p className="text-sm text-muted-foreground text-center">
+        Current Index in State: <span className="font-mono font-bold text-foreground">{index}</span>
+      </p>
+    </div>
+  );
+}
+
+// ──────────────────────────────────────────────────────────
+// SECTION 1: Macro Content
+// ──────────────────────────────────────────────────────────
+function CarouselMacroShowcase() {
+  return (
+    <div className="space-y-10 mt-6">
+      <ShowcaseDocs>
+        <DocsH3>Khi nào nên dùng Macro</DocsH3>
+        <DocsP>
+          <DocsCode>CarouselPreset</DocsCode> hỗ trợ render mảng các <DocsCode>items</DocsCode> thành các slide. Bạn không cần phải viết lặp lại <DocsCode>CarouselItem</DocsCode>, mũi tên điều hướng, hay các chấm trang (Dots). Mọi thứ đều được hiển thị tự động.
+        </DocsP>
+      </ShowcaseDocs>
+
+      <ExampleGrid columns={2}>
+        <ExampleSection label="Tiêu chuẩn (Standard)" description="Băng chuyền cơ bản nhất với cầu trượt."
+          codeString={`<CarouselPreset
+  items={[
+    { id: "std-1", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg"><span className="text-4xl font-semibold">1</span></div></div> },
+    { id: "std-2", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg"><span className="text-4xl font-semibold">2</span></div></div> },
+    { id: "std-3", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg"><span className="text-4xl font-semibold">3</span></div></div> },
+  ]}
+/>`}
+        >
+          <div className="w-full max-w-sm px-12">
+            <CarouselPreset
+              items={[
+                { id: "std-1", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg"><span className="text-4xl font-semibold">1</span></div></div> },
+                { id: "std-2", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg"><span className="text-4xl font-semibold">2</span></div></div> },
+                { id: "std-3", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg"><span className="text-4xl font-semibold">3</span></div></div> },
+              ]}
+            />
+          </div>
+        </ExampleSection>
+
+        <ExampleSection label="Thư viện ảnh (Image Gallery)" description="Sử dụng hình ảnh thực làm nội dung slide."
+          codeString={`<CarouselPreset
+  items={[
+    { id: "img-1", content: <img src="https://images.unsplash.com/photo-1707343843437-caacff5cfa74?q=80&w=600&h=400&auto=format&fit=crop" alt="Slide 1" className="rounded-xl object-cover" /> },
+    { id: "img-2", content: <img src="https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?q=80&w=600&h=400&auto=format&fit=crop" alt="Slide 2" className="rounded-xl object-cover" /> },
+    { id: "img-3", content: <img src="https://images.unsplash.com/photo-1707343843437-caacff5cfa74?q=80&w=600&h=400&auto=format&fit=crop" alt="Slide 3" className="rounded-xl object-cover" /> },
+  ]}
+/>`}
+        >
+          <div className="w-full max-w-sm px-12">
+            <CarouselPreset
+              items={[
+                { id: "img-1", content: <img src="https://images.unsplash.com/photo-1707343843437-caacff5cfa74?q=80&w=600&h=400&auto=format&fit=crop" alt="Slide 1" className="rounded-xl object-cover" /> },
+                { id: "img-2", content: <img src="https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?q=80&w=600&h=400&auto=format&fit=crop" alt="Slide 2" className="rounded-xl object-cover" /> },
+                { id: "img-3", content: <img src="https://images.unsplash.com/photo-1707343843437-caacff5cfa74?q=80&w=600&h=400&auto=format&fit=crop" alt="Slide 3" className="rounded-xl object-cover" /> },
+              ]}
+            />
+          </div>
+        </ExampleSection>
+      </ExampleGrid>
+
+      <ExampleGrid columns={2}>
+        <ExampleSection label="Vòng lặp vô hạn (Loop Enabled)" description="Chỉ hiển thị dấu chấm (ẩn mũi tên)."
+          codeString={`<CarouselPreset
+  opts={{ loop: true }}
+  showArrows={false}
+  items={[
+    { id: "loop-1", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-gradient-to-tr from-violet-500 to-purple-500 rounded-lg text-white"><span className="text-4xl font-semibold">1</span></div></div> },
+    { id: "loop-2", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-gradient-to-tr from-pink-500 to-rose-500 rounded-lg text-white"><span className="text-4xl font-semibold">2</span></div></div> },
+    { id: "loop-3", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-gradient-to-tr from-blue-500 to-cyan-500 rounded-lg text-white"><span className="text-4xl font-semibold">3</span></div></div> },
+  ]}
+/>`}
+        >
+          <div className="w-full max-w-sm">
+            <CarouselPreset
+              opts={{ loop: true }}
+              showArrows={false}
+              items={[
+                { id: "loop-1", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-gradient-to-tr from-violet-500 to-purple-500 rounded-lg text-white"><span className="text-4xl font-semibold">1</span></div></div> },
+                { id: "loop-2", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-gradient-to-tr from-pink-500 to-rose-500 rounded-lg text-white"><span className="text-4xl font-semibold">2</span></div></div> },
+                { id: "loop-3", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-gradient-to-tr from-blue-500 to-cyan-500 rounded-lg text-white"><span className="text-4xl font-semibold">3</span></div></div> },
+              ]}
+            />
+          </div>
+        </ExampleSection>
+
+        <ExampleSection label="Chỉ mũi tên (Arrows Only)" description="Mũi tên điều hướng không có dấu chấm."
+          codeString={`<CarouselPreset
+  showDots={false}
+  items={[
+    { id: "arr-1", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg"><span className="text-4xl font-semibold">A</span></div></div> },
+    { id: "arr-2", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg"><span className="text-4xl font-semibold">B</span></div></div> },
+    { id: "arr-3", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg"><span className="text-4xl font-semibold">C</span></div></div> },
+  ]}
+/>`}
+        >
+          <div className="w-full max-w-sm px-12">
+            <CarouselPreset
+              showDots={false}
+              items={[
+                { id: "arr-1", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg"><span className="text-4xl font-semibold">A</span></div></div> },
+                { id: "arr-2", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg"><span className="text-4xl font-semibold">B</span></div></div> },
+                { id: "arr-3", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg"><span className="text-4xl font-semibold">C</span></div></div> },
+              ]}
+            />
+          </div>
+        </ExampleSection>
+      </ExampleGrid>
+
+      <ExampleGrid columns={2}>
+        <ExampleSection 
+          label="Điều khiển từ bên ngoài (Controlled Mode)" 
+          description="Sử dụng biến state React để điều khiển slide."
+          codeString={`const [index, setIndex] = useState(0);
+
+return (
+  <CarouselPreset
+    index={index}
+    onIndexChange={setIndex}
+    items={[...]}
+  />
+);`}
+        >
+          <ControlledCarouselDemo />
+        </ExampleSection>
+
+        <ExampleSection label="Theo chiều dọc (Vertical Orientation)" description="Băng chuyền macro cuộn theo chiều dọc."
+          codeString={`<CarouselPreset
+  className="w-full"
+  orientation="vertical"
+  contentClassName="h-[300px]"
+  itemClassName="basis-[250px]"
+  items={[
+    { id: "v1", content: <div className="h-full w-full border rounded-xl flex items-center justify-center bg-muted/20 text-4xl font-semibold">A</div> },
+    { id: "v2", content: <div className="h-full w-full border rounded-xl flex items-center justify-center bg-muted/20 text-4xl font-semibold">B</div> },
+    { id: "v3", content: <div className="h-full w-full border rounded-xl flex items-center justify-center bg-muted/20 text-4xl font-semibold">C</div> },
+  ]}
+/>`}
+        >
+          <div className="w-full max-w-sm px-12 py-12 flex justify-center">
+            <CarouselPreset
+              className="w-full"
+              orientation="vertical"
+              contentClassName="h-[300px]"
+              itemClassName="basis-[250px]"
+              items={[
+                { id: "v1", content: <div className="h-full w-full border rounded-xl flex items-center justify-center bg-muted/20 text-4xl font-semibold">A</div> },
+                { id: "v2", content: <div className="h-full w-full border rounded-xl flex items-center justify-center bg-muted/20 text-4xl font-semibold">B</div> },
+                { id: "v3", content: <div className="h-full w-full border rounded-xl flex items-center justify-center bg-muted/20 text-4xl font-semibold">C</div> },
+              ]}
+            />
+          </div>
+        </ExampleSection>
+      </ExampleGrid>
+    </div>
+  );
+}
+
+// ──────────────────────────────────────────────────────────
+// SECTION 2: Micro Content
+// ──────────────────────────────────────────────────────────
+function CarouselMicroShowcase() {
+  return (
+    <div className="space-y-10 mt-6">
+      <ShowcaseDocs>
+        <DocsH3>Khi nào nên dùng Micro</DocsH3>
+        <DocsP>
+          Dùng <DocsCode>Carousel</DocsCode> và lắp ráp thủ công khi bạn muốn một UI tuỳ chỉnh mạnh như: Mũi tên nằm đè trên ảnh (Overlay Navigation), nhiều Card trên cùng một Slide, hoặc các hiệu ứng tương tác (hover scale) riêng biệt.
+        </DocsP>
+      </ShowcaseDocs>
+
       <ExampleSection
-        label="Hero Banner"
-        description="Biểu ngữ có chiều rộng đầy đủ với điều hướng lớp phủ, mũi tên kính mờ và phân trang tương tác."
-        codeString={`<Carousel opts={{ loop: true }} className="group relative w-full overflow-hidden rounded-2xl shadow-xl border border-border/50">
+        label="Hero Banner (Overlay Navigation)"
+        description="Mũi tên kính mờ nằm đè trên Banner, chỉ hiện khi hover. Dấu chấm nằm sát mép dưới."
+        codeString={`<Carousel opts={{ loop: true }} className="group relative w-full overflow-hidden rounded-2xl shadow-xl">
   <CarouselContent className="-ml-4">
-    <CarouselItem className="pl-4">
-      {/* ...slide content... */}
-    </CarouselItem>
+    <CarouselItem className="pl-4">...</CarouselItem>
   </CarouselContent>
-  <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-between p-4 transition-opacity duration-300 sm:p-6">
-    <CarouselPrevious className="pointer-events-auto opacity-80 backdrop-blur-md hover:opacity-100 bg-background/50 border-white/20 text-foreground" />
-    <CarouselNext className="pointer-events-auto opacity-80 backdrop-blur-md hover:opacity-100 bg-background/50 border-white/20 text-foreground" />
+  <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-between p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+    <CarouselPrevious className="pointer-events-auto bg-background/50 backdrop-blur-md" />
+    <CarouselNext className="pointer-events-auto bg-background/50 backdrop-blur-md" />
   </div>
   <div className="absolute bottom-4 left-0 right-0 z-10">
-    <CarouselDots className="[&>[data-slot=carousel-dot][data-active]]:bg-white [&>[data-slot=carousel-dot]]:bg-white/40 hover:[&>[data-slot=carousel-dot]]:bg-white/60" />
+    <CarouselDots className="[&>[data-slot=carousel-dot][data-active]]:bg-white [&>[data-slot=carousel-dot]]:bg-white/40" />
   </div>
 </Carousel>`}
       >
@@ -57,14 +255,11 @@ export default function CarouselShowcase() {
               ))}
             </CarouselContent>
 
-            {/* Overlay Navigation - only visible on group hover for desktop, always visible on mobile */}
-            {/* Using Pure Composition: the wrapper defines the flex layout, the arrows define their own appearance */}
-            <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-between p-4 transition-opacity duration-300 sm:p-6">
-              <CarouselPrevious className="pointer-events-auto opacity-80 backdrop-blur-md hover:opacity-100 bg-background/50 border-white/20 text-foreground" />
-              <CarouselNext className="pointer-events-auto opacity-80 backdrop-blur-md hover:opacity-100 bg-background/50 border-white/20 text-foreground" />
+            <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-between p-4 transition-opacity duration-300 sm:p-6 opacity-0 group-hover:opacity-100">
+              <CarouselPrevious className="pointer-events-auto backdrop-blur-md bg-background/30 hover:bg-background/50 border-white/20 text-white" />
+              <CarouselNext className="pointer-events-auto backdrop-blur-md bg-background/30 hover:bg-background/50 border-white/20 text-white" />
             </div>
 
-            {/* Pagination Dots overlay at bottom */}
             <div className="absolute bottom-4 left-0 right-0 z-10">
               <CarouselDots className="[&>[data-slot=carousel-dot][data-active]]:bg-white [&>[data-slot=carousel-dot]]:bg-white/40 hover:[&>[data-slot=carousel-dot]]:bg-white/60" />
             </div>
@@ -72,28 +267,42 @@ export default function CarouselShowcase() {
         </div>
       </ExampleSection>
 
-      {/* ── Product Gallery ── */}
       <ExampleSection
-        label="Product Gallery"
-        description="Băng chuyền gồm nhiều mục để hiển thị sản phẩm hoặc thẻ có hoạt ảnh vi mô."
-        codeString={`<Carousel opts={{ align: "start" }} className="w-full relative">
-  <CarouselContent className="-ml-4">
-    <CarouselItem className="pl-4 md:basis-1/2 lg:basis-1/3">
-      {/* ...product card... */}
-    </CarouselItem>
-  </CarouselContent>
-  <CarouselPrevious className="absolute -left-12 top-1/2 -translate-y-1/2 border-border shadow-sm hover:bg-accent" />
-  <CarouselNext className="absolute -right-12 top-1/2 -translate-y-1/2 border-border shadow-sm hover:bg-accent" />
-</Carousel>`}
-      >
+        label="Nhiều phần tử trên 1 slide (Product Gallery)"
+        description="Hiển thị nhiều Card (vd: basis-1/2, lg:basis-1/3) trên cùng một Slide của Băng chuyền."
+      
+        codeString={`<div className="mx-auto w-full max-w-5xl px-12">
+  <Carousel opts={{ align: "start" }} className="w-full relative">
+    <CarouselContent className="-ml-4">
+      {Array.from({ length: 10 }).map((_, index) => (
+        <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
+          <div className="p-1">
+            <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+              <div className="aspect-4/3 bg-muted flex items-center justify-center relative group">
+                <span className="text-4xl font-black text-muted-foreground/30 transition-transform duration-500 group-hover:scale-110">
+                  0{index + 1}
+                </span>
+                <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex items-end p-4">
+                  <span className="text-white font-medium">View Item {index + 1}</span>
+                </div>
+              </div>
+              <CardContent className="p-4">
+                <div className="text-sm font-medium text-muted-foreground mb-1">Category</div>
+                <h4 className="font-semibold text-lg leading-none">Featured Item {index + 1}</h4>
+              </CardContent>
+            </Card>
+          </div>
+        </CarouselItem>
+      ))}
+    </CarouselContent>
+
+    <CarouselPrevious className="absolute -left-12 top-1/2 -translate-y-1/2 border-border shadow-sm hover:bg-accent" />
+    <CarouselNext className="absolute -right-12 top-1/2 -translate-y-1/2 border-border shadow-sm hover:bg-accent" />
+  </Carousel>
+</div>
+`}>
         <div className="mx-auto w-full max-w-5xl px-12">
-          {/* Note the explicit positioning injected via Pure Composition for the arrows here */}
-          <Carousel
-            opts={{
-              align: "start",
-            }}
-            className="w-full relative"
-          >
+          <Carousel opts={{ align: "start" }} className="w-full relative">
             <CarouselContent className="-ml-4">
               {Array.from({ length: 10 }).map((_, index) => (
                 <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
@@ -117,94 +326,27 @@ export default function CarouselShowcase() {
               ))}
             </CarouselContent>
 
-            {/* Pure Composition: Injecting absolute layout manually for this specific gallery layout */}
             <CarouselPrevious className="absolute -left-12 top-1/2 -translate-y-1/2 border-border shadow-sm hover:bg-accent" />
             <CarouselNext className="absolute -right-12 top-1/2 -translate-y-1/2 border-border shadow-sm hover:bg-accent" />
           </Carousel>
         </div>
       </ExampleSection>
-
-      {/* ── Compact Cards ── */}
-      <ExampleSection
-        label="Compact layout"
-        description="Bố cục băng chuyền nhỏ gọn có các dấu chấm, thường được sử dụng để làm quen hoặc hướng dẫn."
-        codeString={`<Carousel className="w-full">
-  <CarouselContent className="-ml-4">
-    <CarouselItem className="pl-4">
-      {/* ...compact card... */}
-    </CarouselItem>
-  </CarouselContent>
-  <div className="mt-4">
-    <CarouselDots />
-  </div>
-</Carousel>`}
-      >
-        <div className="mx-auto w-full max-w-sm">
-          <Carousel className="w-full">
-            <CarouselContent className="-ml-4">
-              {Array.from({ length: 5 }).map((_, index) => (
-                <CarouselItem key={index} className="pl-4">
-                  <div className="p-2">
-                    <Card className="border-2 border-primary/10 bg-primary/5">
-                      <CardContent className="flex aspect-square flex-col items-center justify-center p-6 text-center">
-                        <div className="rounded-full bg-primary/10 p-4 mb-4">
-                          <span className="text-4xl font-bold text-primary">
-                            {index + 1}
-                          </span>
-                        </div>
-                        <h3 className="font-semibold">Step {index + 1}</h3>
-                        <p className="text-sm text-muted-foreground mt-2">
-                          Swipe to see the next step in the process.
-                        </p>
-                      </CardContent>
-                    </Card>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <div className="mt-4">
-              <CarouselDots />
-            </div>
-          </Carousel>
-        </div>
-      </ExampleSection>
-
-      {/* ── Vertical Carousel ── */}
-      <ExampleSection
-        label="Vertical Orientation"
-        description="Một băng chuyền cuộn theo chiều dọc. Lưu ý việc sử dụng pt-4 thay vì pl-4 cho các khoảng trống."
-        codeString={`<Carousel orientation="vertical" className="w-full">
-  <CarouselContent className="h-[400px] -mt-4">
-    <CarouselItem className="pt-4 basis-1/2">
-      {/* ...vertical card... */}
-    </CarouselItem>
-  </CarouselContent>
-  <CarouselPrevious className="absolute -top-12 left-1/2 -translate-x-1/2 rotate-90" />
-  <CarouselNext className="absolute -bottom-12 left-1/2 -translate-x-1/2 rotate-90" />
-</Carousel>`}
-      >
-        <div className="mx-auto w-full max-w-xs py-12 flex justify-center">
-          <Carousel orientation="vertical" className="w-full">
-            <CarouselContent className="h-[400px] -mt-4">
-              {Array.from({ length: 5 }).map((_, index) => (
-                <CarouselItem key={index} className="pt-4 basis-1/2">
-                  <div className="p-1 h-full">
-                    <Card className="h-full flex items-center justify-center bg-muted/40 border-2">
-                      <span className="text-4xl font-bold text-muted-foreground/50">
-                        {index + 1}
-                      </span>
-                    </Card>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-
-            {/* Custom positioning for vertical arrows using pure composition */}
-            <CarouselPrevious className="absolute -top-12 left-1/2 -translate-x-1/2 rotate-90" />
-            <CarouselNext className="absolute -bottom-12 left-1/2 -translate-x-1/2 rotate-90" />
-          </Carousel>
-        </div>
-      </ExampleSection>
     </div>
+  );
+}
+
+// ──────────────────────────────────────────────────────────
+// SECTION 3: Entry point
+// ──────────────────────────────────────────────────────────
+export default function CarouselShowcase() {
+  return (
+    <Showcase
+      title="Carousel"
+      description="Băng chuyền vuốt chuyển động cao cấp được xây dựng bằng Embla."
+      tabs={[
+        { label: "Micro (Primitive)", content: <CarouselMicroShowcase /> },
+        { label: "Macro (Preset)", content: <CarouselMacroShowcase /> },
+      ]}
+    />
   );
 }

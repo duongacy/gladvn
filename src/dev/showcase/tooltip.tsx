@@ -1,72 +1,57 @@
 import { useState } from "react";
-import { SectionHeader, ExampleSection, ExampleGrid } from "@/dev/components/showcase";
+import { Showcase, ShowcaseDocs, DocsH3, DocsP, DocsCode, ExampleSection, ExampleGrid } from "@/dev/components/showcase";
 import { MonoSelect } from "@/dev/components/mono-select";
-import { PlusIcon, HeartIcon, InfoIcon, ShieldAlertIcon } from "lucide-react";
+import { InfoIcon, ShieldAlertIcon } from "lucide-react";
 
 import { type Size } from "@/lib/types";
 import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/micro/tooltip";
 import { Button } from "@/components/micro/button";
 
-export default function TooltipShowcase() {
-  const [globalSize, setGlobalSize] = useState<Size>("md");
-
+// ──────────────────────────────────────────────────────────
+// SECTION 1: Micro Content (Only Micro exists)
+// ──────────────────────────────────────────────────────────
+function TooltipMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
-    <div className="space-y-10">
-      <SectionHeader
-        title="Tooltip"
-        description="A popup that displays information related to an element when it receives keyboard focus or the mouse hovers over it."
-      >
-        <MonoSelect
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as Size)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-        />
-      </SectionHeader>
+    <div className="space-y-10 mt-6">
+      <ShowcaseDocs>
+        <DocsH3>Tooltip (Gợi ý)</DocsH3>
+        <DocsP>
+          <DocsCode>Tooltip</DocsCode> không có phiên bản Macro vì bản chất nó chỉ là một popup hiển thị chữ. Bạn cần bọc toàn bộ ứng dụng hoặc nhóm các tooltip lại bằng <DocsCode>TooltipProvider</DocsCode> để quản lý delay xuất hiện đồng bộ.
+        </DocsP>
+      </ShowcaseDocs>
 
       <ExampleSection
-        label="Placements"
-        description="Tooltips can be positioned on any side of the trigger."
+        label="Vị trí (Placements)"
+        description="Tooltip có thể được đặt ở bất kỳ cạnh nào của trigger bằng thuộc tính side."
       >
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-4 max-w-md w-full place-items-center">
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger
-                render={
-                  <Button variant="outline" size={globalSize}>Top</Button>
-                }
+                render={<Button variant="outline" size={globalSize}>Trên (Top)</Button>}
               />
-              <TooltipContent side="top">Tooltip on top</TooltipContent>
+              <TooltipContent side="top">Tooltip nằm trên</TooltipContent>
             </Tooltip>
 
             <Tooltip>
               <TooltipTrigger
-                render={
-                  <Button variant="outline" size={globalSize}>Bottom</Button>
-                }
+                render={<Button variant="outline" size={globalSize}>Dưới (Bottom)</Button>}
               />
-              <TooltipContent side="bottom">Tooltip on bottom</TooltipContent>
+              <TooltipContent side="bottom">Tooltip nằm dưới</TooltipContent>
             </Tooltip>
 
             <Tooltip>
               <TooltipTrigger
-                render={
-                  <Button variant="outline" size={globalSize}>Left</Button>
-                }
+                render={<Button variant="outline" size={globalSize}>Trái (Left)</Button>}
               />
-              <TooltipContent side="left">Tooltip on left</TooltipContent>
+              <TooltipContent side="left">Tooltip nằm trái</TooltipContent>
             </Tooltip>
 
             <Tooltip>
               <TooltipTrigger
-                render={
-                  <Button variant="outline" size={globalSize}>Right</Button>
-                }
+                render={<Button variant="outline" size={globalSize}>Phải (Right)</Button>}
               />
-              <TooltipContent side="right">Tooltip on right</TooltipContent>
+              <TooltipContent side="right">Tooltip nằm phải</TooltipContent>
             </Tooltip>
           </TooltipProvider>
         </div>
@@ -74,8 +59,8 @@ export default function TooltipShowcase() {
 
       <ExampleGrid columns={2}>
         <ExampleSection
-          label="Long Content"
-          description="Tooltips automatically constrain their width and wrap long text."
+          label="Nội dung dài (Long Content)"
+          description="Tooltip tự động giới hạn chiều rộng và xuống dòng khi nội dung quá dài."
         >
           <TooltipProvider>
             <Tooltip>
@@ -88,7 +73,7 @@ export default function TooltipShowcase() {
               />
               <TooltipContent>
                 <p>
-                  This is a significantly longer tooltip content that demonstrates how the tooltip handles wrapping text when it exceeds its maximum width constraint.
+                  Đây là một đoạn nội dung tooltip khá dài nhằm mục đích trình diễn cách mà Tooltip tự động cắt và xuống dòng khi vượt quá chiều rộng tối đa (max-width) cho phép.
                 </p>
               </TooltipContent>
             </Tooltip>
@@ -96,12 +81,11 @@ export default function TooltipShowcase() {
         </ExampleSection>
 
         <ExampleSection
-          label="Disabled Trigger"
-          description="Tooltips can still show when the underlying button is visually disabled, but often require a wrapper if native disabled is used."
+          label="Trigger bị vô hiệu (Disabled Trigger)"
+          description="Để bắt sự kiện hover trên nút disabled, cần bọc nó trong một thẻ span có tabIndex."
         >
           <TooltipProvider>
             <Tooltip>
-              {/* Note: We need a generic wrapper to capture hover events for disabled buttons */}
               <TooltipTrigger
                 render={
                   <span tabIndex={0} className="inline-block cursor-not-allowed">
@@ -112,7 +96,7 @@ export default function TooltipShowcase() {
                 }
               />
               <TooltipContent side="right">
-                <p>You do not have permission.</p>
+                <p>Bạn không có quyền thực hiện hành động này.</p>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
@@ -120,44 +104,67 @@ export default function TooltipShowcase() {
       </ExampleGrid>
 
       <ExampleSection
-        label="Custom Delay"
-        description="You can customize the delay before the tooltip appears using the delay prop on the Provider."
+        label="Độ trễ tuỳ chỉnh (Custom Delay)"
+        description="Thay đổi thời gian trễ trước khi tooltip xuất hiện thông qua thuộc tính delay của TooltipProvider."
+        fullWidth
       >
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <TooltipProvider delay={0}>
             <Tooltip>
               <TooltipTrigger
-                render={
-                  <Button variant="outline" size={globalSize}>Instant (0ms)</Button>
-                }
+                render={<Button variant="outline" size={globalSize} className="w-full">Tức thì (0ms)</Button>}
               />
-              <TooltipContent>Appears immediately</TooltipContent>
+              <TooltipContent>Xuất hiện ngay lập tức</TooltipContent>
             </Tooltip>
           </TooltipProvider>
 
           <TooltipProvider delay={500}>
             <Tooltip>
               <TooltipTrigger
-                render={
-                  <Button variant="outline" size={globalSize}>Default (500ms)</Button>
-                }
+                render={<Button variant="outline" size={globalSize} className="w-full">Mặc định (500ms)</Button>}
               />
-              <TooltipContent>Appears after half a second</TooltipContent>
+              <TooltipContent>Xuất hiện sau nửa giây</TooltipContent>
             </Tooltip>
           </TooltipProvider>
 
           <TooltipProvider delay={2000}>
             <Tooltip>
               <TooltipTrigger
-                render={
-                  <Button variant="outline" size={globalSize}>Slow (2000ms)</Button>
-                }
+                render={<Button variant="outline" size={globalSize} className="w-full">Chậm (2000ms)</Button>}
               />
-              <TooltipContent>Takes a while to appear</TooltipContent>
+              <TooltipContent>Xuất hiện sau 2 giây chờ đợi</TooltipContent>
             </Tooltip>
           </TooltipProvider>
         </div>
       </ExampleSection>
     </div>
+  );
+}
+
+// ──────────────────────────────────────────────────────────
+// SECTION 3: Entry point
+// ──────────────────────────────────────────────────────────
+export default function TooltipShowcase() {
+  const [globalSize, setGlobalSize] = useState<Size>("md");
+
+  return (
+    <Showcase
+      title="Tooltip"
+      description="Một popup nhỏ hiển thị thông tin bổ sung khi người dùng di chuột hoặc trỏ tiêu điểm vào một phần tử."
+      actions={
+        <MonoSelect
+          value={globalSize}
+          onValueChange={(v) => setGlobalSize(v as Size)}
+          options={[
+            { value: "sm", label: "Size: sm" },
+            { value: "md", label: "Size: md" },
+            { value: "lg", label: "Size: lg" },
+          ]}
+        />
+      }
+      tabs={[
+        { label: "Micro (Primitive)", content: <TooltipMicroShowcase globalSize={globalSize} /> },
+      ]}
+    />
   );
 }

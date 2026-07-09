@@ -305,10 +305,11 @@ export interface ShowcaseProps {
   title: React.ReactNode;
   description?: React.ReactNode;
   generalConcept?: React.ReactNode;
+  actions?: React.ReactNode;
   tabs: ShowcaseTab[];
 }
 
-export function Showcase({ title, description, generalConcept, tabs }: ShowcaseProps) {
+export function Showcase({ title, description, generalConcept, actions, tabs }: ShowcaseProps) {
   const hasTabs = tabs.length >= 2;
 
   const content = (
@@ -316,9 +317,12 @@ export function Showcase({ title, description, generalConcept, tabs }: ShowcaseP
       {/* 1 & 2: Title, TabsList, and Description */}
       <div className="flex flex-col gap-1 mb-2">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-          <h2 className="text-3xl font-bold tracking-tight bg-gradient-to-br from-foreground to-foreground/60 bg-clip-text text-transparent">
-            {title}
-          </h2>
+          <div className="flex items-center gap-4">
+            <h2 className="text-3xl font-bold tracking-tight bg-gradient-to-br from-foreground to-foreground/60 bg-clip-text text-transparent">
+              {title}
+            </h2>
+            {actions && <div className="shrink-0">{actions}</div>}
+          </div>
           {hasTabs && (
             <div className="shrink-0 sm:pb-0.5">
               <TabsList>

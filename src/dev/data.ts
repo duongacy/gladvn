@@ -332,6 +332,13 @@ export const COMPONENTS = [
     status: "stable",
   },
   {
+    id: "theme-provider",
+    label: "Theme Provider",
+    hasMicro: true,
+    hasMacro: false,
+    status: "stable",
+  },
+  {
     id: "tooltip",
     label: "Tooltip",
     hasMicro: true,

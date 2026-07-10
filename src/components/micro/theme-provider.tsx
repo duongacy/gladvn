@@ -11,10 +11,10 @@ import * as React from "react";
 
 type ThemeMode = "light" | "dark";
 
-interface ThemeContextValue {
+type ThemeContextValue = {
   mode: ThemeMode;
   setMode: (mode: ThemeMode) => void;
-}
+};
 
 const ThemeContext = React.createContext<ThemeContextValue | undefined>(
   undefined,
@@ -62,9 +62,6 @@ function useTheme(): ThemeContextValue | undefined {
  *   <Sidebar />
  * </ThemeProvider>
  * ```
- */
-/**
- * @description Context provider for managing light/dark themes.
  */
 function ThemeProvider({
   initialMode = "light",

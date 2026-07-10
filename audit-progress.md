@@ -108,4 +108,4 @@ Danh sách các nhóm component cần ưu tiên hoàn thiện sớm nhất để
 - [x] `spinner.tsx`
 - [ ] `theme-provider.tsx`
 - [ ] `toggle-group.tsx`
-- [ ] `toggle.tsx`
+- [x] `toggle.tsx`

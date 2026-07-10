@@ -323,7 +323,7 @@ export const COMPONENTS = [
     hasMacro: true,
     status: "stable",
   },
-  { id: "toggle", label: "Toggle", hasMicro: true, hasMacro: false },
+  { id: "toggle", label: "Toggle", hasMicro: true, hasMacro: false, status: "stable" },
   {
     id: "toggle-group",
     label: "Toggle Group",

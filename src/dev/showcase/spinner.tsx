@@ -31,30 +31,6 @@ function SpinnerMicroShowcase({ globalSize }: { globalSize: Size }) {
         <Spinner size={globalSize} />
       </ExampleSection>
 
-      {/* Sizes */}
-      <ExampleSection
-        label="Sizes"
-        description="3 kích thước: sm (3.5), md (4), lg (5) — tương đồng với thang size của Button."
-        codeString={`<Spinner size="sm" />
-<Spinner size="md" />
-<Spinner size="lg" />`}
-      >
-        <div className="flex items-center gap-6">
-          <div className="flex flex-col items-center gap-2">
-            <Spinner size="sm" />
-            <span className="text-xs text-muted-foreground">sm</span>
-          </div>
-          <div className="flex flex-col items-center gap-2">
-            <Spinner size="md" />
-            <span className="text-xs text-muted-foreground">md</span>
-          </div>
-          <div className="flex flex-col items-center gap-2">
-            <Spinner size="lg" />
-            <span className="text-xs text-muted-foreground">lg</span>
-          </div>
-        </div>
-      </ExampleSection>
-
       {/* Colors */}
       <ExampleGrid columns={2}>
         <ExampleSection

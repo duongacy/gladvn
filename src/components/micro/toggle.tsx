@@ -17,6 +17,7 @@ const toggleVariants = cva(
   {
     variants: {
       variant: {
+        default: "",
         outline:
           "border border-input bg-transparent hover:bg-muted hover:text-foreground",
       },
@@ -26,6 +27,10 @@ const toggleVariants = cva(
         lg: "h-9 min-w-9 px-4 text-sm",
       },
     },
+    defaultVariants: {
+      variant: "default",
+      size: "md",
+    },
   },
 );
 
@@ -33,19 +38,19 @@ const toggleVariants = cva(
  * @description A two-state button that can be either on or off.
  * @example
  * <Toggle aria-label="Toggle italic">
- *   <Italic className="h-4 w-4" />
+ *   <ItalicIcon />
  * </Toggle>
  */
 function Toggle({
   className,
-  variant = "outline",
+  variant = "default",
   size = "md",
   ...props
 }: TogglePrimitive.Props & VariantProps<typeof toggleVariants>) {
   return (
     <TogglePrimitive
       data-slot="toggle"
-      className={cn(toggleVariants({ variant, size, className }))}
+      className={toggleVariants({ variant, size, className })}
       {...props}
     />
   );

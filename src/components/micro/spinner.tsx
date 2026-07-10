@@ -5,12 +5,13 @@
  * - Form Control Parity
  * - CSS Delegated Logic
  */
-import { cn } from "@/lib/utils";
-import { VariantProps, cva } from "class-variance-authority";
-import { Loader2Icon } from "lucide-react";
 import * as React from "react";
+import { type VariantProps, cva } from "class-variance-authority";
+import { Loader2Icon } from "lucide-react";
 
-const spinnerVariants = cva("animate-spin", {
+import { cn } from "@/lib/utils";
+
+const spinnerVariants = cva("animate-spin motion-reduce:animate-none", {
   variants: {
     size: {
       sm: "size-3.5",
@@ -18,15 +19,18 @@ const spinnerVariants = cva("animate-spin", {
       lg: "size-5",
     },
   },
+  defaultVariants: {
+    size: "md",
+  },
 });
 
-export interface SpinnerProps
-  extends React.ComponentProps<"svg">, VariantProps<typeof spinnerVariants> {}
+export type SpinnerProps = React.ComponentProps<"svg"> &
+  VariantProps<typeof spinnerVariants>;
 
 /**
  * @description A loading indicator component.
  * @example
- * <Spinner size="md" color="primary" />
+ * <Spinner size="md" />
  */
 function Spinner({ className, size = "md", ...props }: SpinnerProps) {
   return (
@@ -34,7 +38,7 @@ function Spinner({ className, size = "md", ...props }: SpinnerProps) {
       data-slot="spinner"
       role="status"
       aria-label="Loading"
-      className={cn(spinnerVariants({ size, className }))}
+      className={spinnerVariants({ size, className })}
       {...props}
     />
   );

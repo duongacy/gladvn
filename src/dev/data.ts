@@ -294,7 +294,7 @@ export const COMPONENTS = [
     status: "stable",
   },
   { id: "sonner", label: "Sonner", hasMicro: true, hasMacro: false, status: "stable" },
-  { id: "spinner", label: "Spinner", hasMicro: true, hasMacro: false },
+  { id: "spinner", label: "Spinner", hasMicro: true, hasMacro: false, status: "stable" },
   {
     id: "switch",
     label: "Switch",

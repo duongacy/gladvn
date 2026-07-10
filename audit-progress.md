@@ -105,7 +105,7 @@ Danh sách các nhóm component cần ưu tiên hoàn thiện sớm nhất để
 - [x] `sidebar.tsx`
 - [x] `skeleton.tsx`
 - [x] `sonner.tsx`
-- [ ] `spinner.tsx`
+- [x] `spinner.tsx`
 - [ ] `theme-provider.tsx`
 - [ ] `toggle-group.tsx`
 - [ ] `toggle.tsx`

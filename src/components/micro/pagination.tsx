@@ -14,6 +14,13 @@ import {
 
 import { Button } from "@/components/micro/button";
 import { cn } from "@/lib/utils";
+import type { Size } from "@/lib/types";
+
+const ellipsisSizeMap: Record<Size, { container: string; icon: string }> = {
+  sm: { container: "size-7", icon: "[&>svg:not([class*='size-'])]:size-3" },
+  md: { container: "size-9", icon: "[&>svg:not([class*='size-'])]:size-4" },
+  lg: { container: "size-11", icon: "[&>svg:not([class*='size-'])]:size-5" },
+};
 
 /**
  * @description Pagination with page navigation, next and previous links.
@@ -66,7 +73,7 @@ function PaginationLink({
     <Button
       variant={isActive ? "outline" : "ghost"}
       size={size}
-      className={cn(className)}
+      className={className}
       nativeButton={false}
       render={
         <a
@@ -118,18 +125,19 @@ function PaginationNext({
   );
 }
 
+type PaginationEllipsisProps = React.ComponentProps<"span"> & { size?: Size };
+
 function PaginationEllipsis({
   className,
+  size = "md",
   ...props
-}: React.ComponentProps<"span">) {
+}: PaginationEllipsisProps) {
+  const { container, icon } = ellipsisSizeMap[size];
   return (
     <span
       aria-hidden
       data-slot="pagination-ellipsis"
-      className={cn(
-        "flex size-9 items-center justify-center [&>svg:not([class*='size-'])]:size-4",
-        className,
-      )}
+      className={cn("flex items-center justify-center", container, icon, className)}
       {...props}
     >
       <MoreHorizontalIcon aria-hidden="true" />

@@ -110,7 +110,7 @@ const PaginationPreset = React.forwardRef<
             if (pageNumber === "...") {
               return (
                 <PaginationItem key={`ellipsis-${index}`}>
-                  <PaginationEllipsis />
+                  <PaginationEllipsis size={size} />
                 </PaginationItem>
               );
             }

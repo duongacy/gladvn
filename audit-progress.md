@@ -93,7 +93,7 @@ Danh sách các nhóm component cần ưu tiên hoàn thiện sớm nhất để
 - [x] `dropdown-menu.tsx`
 - [x] `empty.tsx`
 - [x] `field.tsx` (Bỏ qua showcase)
-- [ ] `hover-card.tsx`
+- [x] `hover-card.tsx`
 - [ ] `item.tsx`
 - [ ] `kbd.tsx`
 - [ ] `menubar.tsx`

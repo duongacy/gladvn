@@ -188,7 +188,13 @@ export const COMPONENTS = [
     status: "stable",
   },
 
-  { id: "hover-card", label: "Hover Card", hasMicro: true, hasMacro: false },
+  {
+    id: "hover-card",
+    label: "Hover Card",
+    hasMicro: true,
+    hasMacro: false,
+    status: "stable",
+  },
   {
     id: "input",
     label: "Input",

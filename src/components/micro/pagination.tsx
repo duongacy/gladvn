@@ -6,14 +6,14 @@
  * - CSS Delegated Logic
  */
 import * as React from "react";
-
-import { Button } from "@/components/micro/button";
-import { cn } from "@/lib/utils";
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
   MoreHorizontalIcon,
 } from "lucide-react";
+
+import { Button } from "@/components/micro/button";
+import { cn } from "@/lib/utils";
 
 /**
  * @description Pagination with page navigation, next and previous links.
@@ -59,7 +59,7 @@ type PaginationLinkProps = {
 function PaginationLink({
   className,
   isActive,
-  size = "sm",
+  size = "md",
   ...props
 }: PaginationLinkProps) {
   return (
@@ -72,7 +72,7 @@ function PaginationLink({
         <a
           aria-current={isActive ? "page" : undefined}
           data-slot="pagination-link"
-          data-active={isActive}
+          data-active={isActive ? "" : undefined}
           {...props}
         />
       }
@@ -83,16 +83,17 @@ function PaginationLink({
 function PaginationPrevious({
   className,
   text = "Previous",
+  size = "md",
   ...props
 }: React.ComponentProps<typeof PaginationLink> & { text?: string }) {
   return (
     <PaginationLink
       aria-label="Go to previous page"
-      size="md"
-      className={cn("pl-1.5", className)}
+      size={size}
+      className={cn("pl-2.5", className)}
       {...props}
     >
-      <ChevronLeftIcon data-icon="inline-start" />
+      <ChevronLeftIcon aria-hidden="true" data-icon="inline-start" />
       <span className="hidden sm:block">{text}</span>
     </PaginationLink>
   );
@@ -101,17 +102,18 @@ function PaginationPrevious({
 function PaginationNext({
   className,
   text = "Next",
+  size = "md",
   ...props
 }: React.ComponentProps<typeof PaginationLink> & { text?: string }) {
   return (
     <PaginationLink
       aria-label="Go to next page"
-      size="md"
-      className={cn("pr-1.5", className)}
+      size={size}
+      className={cn("pr-2.5", className)}
       {...props}
     >
       <span className="hidden sm:block">{text}</span>
-      <ChevronRightIcon data-icon="inline-end" />
+      <ChevronRightIcon aria-hidden="true" data-icon="inline-end" />
     </PaginationLink>
   );
 }
@@ -125,12 +127,12 @@ function PaginationEllipsis({
       aria-hidden
       data-slot="pagination-ellipsis"
       className={cn(
-        "flex size-8 items-center justify-center [&>svg:not([class*='size-'])]:size-4",
+        "flex size-9 items-center justify-center [&>svg:not([class*='size-'])]:size-4",
         className,
       )}
       {...props}
     >
-      <MoreHorizontalIcon />
+      <MoreHorizontalIcon aria-hidden="true" />
       <span className="sr-only">More pages</span>
     </span>
   );

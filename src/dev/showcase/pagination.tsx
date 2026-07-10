@@ -25,7 +25,7 @@ import { type Size } from "@/lib/types";
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Macro Content
 // ──────────────────────────────────────────────────────────
-function PaginationMacroShowcase() {
+function PaginationMacroShowcase({ globalSize }: { globalSize: Size }) {
   const [currentPage, setCurrentPage] = useState(1);
 
   return (
@@ -48,6 +48,7 @@ return (
             currentPage={currentPage}
             totalPages={10}
             onPageChange={setCurrentPage}
+            size={globalSize}
           />
         </ExampleSection>
 
@@ -57,7 +58,7 @@ return (
           codeString={`<PaginationPreset currentPage={50} totalPages={100} />
 `}
         >
-          <PaginationPreset currentPage={50} totalPages={100} />
+          <PaginationPreset currentPage={50} totalPages={100} size={globalSize} />
         </ExampleSection>
       </ExampleGrid>
 
@@ -68,7 +69,7 @@ return (
           codeString={`<PaginationPreset currentPage={1} totalPages={5} />
 `}
         >
-          <PaginationPreset currentPage={1} totalPages={5} />
+          <PaginationPreset currentPage={1} totalPages={5} size={globalSize} />
         </ExampleSection>
 
         <ExampleSection
@@ -77,7 +78,7 @@ return (
           codeString={`<PaginationPreset currentPage={5} totalPages={5} />
 `}
         >
-          <PaginationPreset currentPage={5} totalPages={5} />
+          <PaginationPreset currentPage={5} totalPages={5} size={globalSize} />
         </ExampleSection>
       </ExampleGrid>
     </div>
@@ -299,7 +300,7 @@ export default function PaginationShowcase() {
           label: "Micro (Primitive)",
           content: <PaginationMicroShowcase globalSize={globalSize} />,
         },
-        { label: "Macro (Preset)", content: <PaginationMacroShowcase /> },
+        { label: "Macro (Preset)", content: <PaginationMacroShowcase globalSize={globalSize} /> },
       ]}
     />
   );

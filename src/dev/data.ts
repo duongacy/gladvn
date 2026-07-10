@@ -239,7 +239,7 @@ export const COMPONENTS = [
     hasMacro: false,
     status: "stable",
   },
-  { id: "pagination", label: "Pagination", hasMicro: true, hasMacro: true },
+  { id: "pagination", label: "Pagination", hasMicro: true, hasMacro: true, status: "stable" },
   {
     id: "popover",
     label: "Popover",

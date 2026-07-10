@@ -1,3 +1,5 @@
+import * as React from "react";
+
 import {
   Pagination,
   PaginationContent,
@@ -7,15 +9,15 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/micro/pagination";
-import * as React from "react";
+import type { Size } from "@/lib/types";
 
-export interface PaginationPresetProps extends React.ComponentProps<
-  typeof Pagination
-> {
+export interface PaginationPresetProps
+  extends React.ComponentProps<typeof Pagination> {
   currentPage: number;
   totalPages: number;
   onPageChange?: (page: number) => void;
   siblingCount?: number;
+  size?: Size;
 }
 
 function generatePaginationRange(
@@ -65,7 +67,7 @@ function generatePaginationRange(
 }
 
 const PaginationPreset = React.forwardRef<
-  HTMLDivElement,
+  HTMLElement,
   PaginationPresetProps
 >(
   (
@@ -74,6 +76,7 @@ const PaginationPreset = React.forwardRef<
       totalPages,
       onPageChange,
       siblingCount = 1,
+      size = "md",
       className,
       ...paginationProps
     },
@@ -86,69 +89,67 @@ const PaginationPreset = React.forwardRef<
     );
 
     return (
-      <div className={className} ref={ref}>
-        <div className="@container/pagination size-full">
-          <Pagination className="size-full" {...paginationProps}>
-            <PaginationContent>
-              <PaginationItem>
-                <PaginationPrevious
+      <Pagination ref={ref} className={className} {...paginationProps}>
+        <PaginationContent>
+          <PaginationItem>
+            <PaginationPrevious
+              href="#"
+              size={size}
+              onClick={(e) => {
+                e.preventDefault();
+                if (currentPage > 1) onPageChange?.(currentPage - 1);
+              }}
+              aria-disabled={currentPage === 1}
+              className={
+                currentPage === 1 ? "pointer-events-none opacity-50" : ""
+              }
+            />
+          </PaginationItem>
+
+          {paginationRange.map((pageNumber, index) => {
+            if (pageNumber === "...") {
+              return (
+                <PaginationItem key={`ellipsis-${index}`}>
+                  <PaginationEllipsis />
+                </PaginationItem>
+              );
+            }
+
+            return (
+              <PaginationItem key={`page-${pageNumber}`}>
+                <PaginationLink
                   href="#"
+                  size={size}
+                  isActive={pageNumber === currentPage}
                   onClick={(e) => {
                     e.preventDefault();
-                    if (currentPage > 1) onPageChange?.(currentPage - 1);
+                    onPageChange?.(pageNumber as number);
                   }}
-                  aria-disabled={currentPage === 1}
-                  className={
-                    currentPage === 1 ? "pointer-events-none opacity-50" : ""
-                  }
-                />
+                >
+                  {pageNumber}
+                </PaginationLink>
               </PaginationItem>
+            );
+          })}
 
-              {paginationRange.map((pageNumber, index) => {
-                if (pageNumber === "...") {
-                  return (
-                    <PaginationItem key={`ellipsis-${index}`}>
-                      <PaginationEllipsis />
-                    </PaginationItem>
-                  );
-                }
-
-                return (
-                  <PaginationItem key={`page-${pageNumber}`}>
-                    <PaginationLink
-                      href="#"
-                      isActive={pageNumber === currentPage}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        onPageChange?.(pageNumber as number);
-                      }}
-                    >
-                      {pageNumber}
-                    </PaginationLink>
-                  </PaginationItem>
-                );
-              })}
-
-              <PaginationItem>
-                <PaginationNext
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    if (currentPage < totalPages)
-                      onPageChange?.(currentPage + 1);
-                  }}
-                  aria-disabled={currentPage === totalPages}
-                  className={
-                    currentPage === totalPages
-                      ? "pointer-events-none opacity-50"
-                      : ""
-                  }
-                />
-              </PaginationItem>
-            </PaginationContent>
-          </Pagination>
-        </div>
-      </div>
+          <PaginationItem>
+            <PaginationNext
+              href="#"
+              size={size}
+              onClick={(e) => {
+                e.preventDefault();
+                if (currentPage < totalPages) onPageChange?.(currentPage + 1);
+              }}
+              aria-disabled={currentPage === totalPages}
+              className={
+                currentPage === totalPages
+                  ? "pointer-events-none opacity-50"
+                  : ""
+              }
+            />
+          </PaginationItem>
+        </PaginationContent>
+      </Pagination>
     );
   },
 );

@@ -270,7 +270,7 @@ export const COMPONENTS = [
     hasMacro: true,
     status: "stable",
   },
-  { id: "separator", label: "Separator", hasMicro: true, hasMacro: false },
+  { id: "separator", label: "Separator", hasMicro: true, hasMacro: false, status: "stable" },
   {
     id: "sheet",
     label: "Sheet",

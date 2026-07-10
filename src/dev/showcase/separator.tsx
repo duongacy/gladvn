@@ -72,6 +72,30 @@ function SeparatorMicroShowcase() {
           </div>
         </div>
       </ExampleSection>
+      <ExampleSection
+        label="Decorative vs Semantic"
+        description='Semantic (mặc định) được screen reader đọc. Truyền aria-hidden="true" khi Separator chỉ mang tính trang trí thuần.'
+        codeString={`{/* Semantic — screen reader đọc được */}
+<Separator />
+
+{/* Decorative — chỉ là đường kẻ trực quan */}
+<Separator aria-hidden="true" />`}
+      >
+        <div className="flex flex-col gap-6 w-full max-w-sm">
+          <div>
+            <p className="text-xs text-muted-foreground mb-2">
+              Semantic (mặc định — screen reader nhận ra)
+            </p>
+            <Separator />
+          </div>
+          <div>
+            <p className="text-xs text-muted-foreground mb-2">
+              Decorative — <code className="text-xs">aria-hidden="true"</code>
+            </p>
+            <Separator aria-hidden="true" />
+          </div>
+        </div>
+      </ExampleSection>
     </div>
   );
 }

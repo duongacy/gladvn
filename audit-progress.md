@@ -38,7 +38,7 @@ Danh sách các nhóm component cần ưu tiên hoàn thiện sớm nhất để
 **4. Nhóm Data Display & Feedback**
 
 - [x] `table.tsx`
-- [ ] `sonner.tsx`
+- [x] `sonner.tsx`
 - [x] `tooltip.tsx`
 
 ---
@@ -104,7 +104,7 @@ Danh sách các nhóm component cần ưu tiên hoàn thiện sớm nhất để
 - [x] `sheet.tsx`
 - [x] `sidebar.tsx`
 - [x] `skeleton.tsx`
-- [ ] `sonner.tsx`
+- [x] `sonner.tsx`
 - [ ] `spinner.tsx`
 - [ ] `theme-provider.tsx`
 - [ ] `toggle-group.tsx`

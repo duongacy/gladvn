@@ -9,16 +9,16 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/micro/pagination";
+import { cn } from "@/lib/utils";
 import type { Size } from "@/lib/types";
 
-export interface PaginationPresetProps
-  extends React.ComponentProps<typeof Pagination> {
+export type PaginationPresetProps = React.ComponentProps<typeof Pagination> & {
   currentPage: number;
   totalPages: number;
   onPageChange?: (page: number) => void;
   siblingCount?: number;
   size?: Size;
-}
+};
 
 function generatePaginationRange(
   currentPage: number,
@@ -100,9 +100,7 @@ const PaginationPreset = React.forwardRef<
                 if (currentPage > 1) onPageChange?.(currentPage - 1);
               }}
               aria-disabled={currentPage === 1}
-              className={
-                currentPage === 1 ? "pointer-events-none opacity-50" : ""
-              }
+              className={cn({ "pointer-events-none opacity-50": currentPage === 1 })}
             />
           </PaginationItem>
 
@@ -141,11 +139,7 @@ const PaginationPreset = React.forwardRef<
                 if (currentPage < totalPages) onPageChange?.(currentPage + 1);
               }}
               aria-disabled={currentPage === totalPages}
-              className={
-                currentPage === totalPages
-                  ? "pointer-events-none opacity-50"
-                  : ""
-              }
+              className={cn({ "pointer-events-none opacity-50": currentPage === totalPages })}
             />
           </PaginationItem>
         </PaginationContent>

@@ -70,53 +70,121 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
 </Sheet>`}
       >
         <div className="grid grid-cols-2 gap-2">
-          {(["top", "right", "bottom", "left"] as const).map((side) => (
-            <Sheet key={side}>
-              <SheetTrigger
-                render={
-                  <Button variant="outline" size={globalSize} className="w-full capitalize" />
-                }
-              >
-                {side}
-              </SheetTrigger>
-              <SheetContent side={side}>
-                <SheetHeader>
-                  <SheetTitle>Edit Profile</SheetTitle>
-                  <SheetDescription>
-                    Thay đổi thông tin tài khoản của bạn và nhấn Lưu.
-                  </SheetDescription>
-                </SheetHeader>
-                <div className="grid gap-4 py-4 px-4">
-                  <div className="grid grid-cols-4 items-center gap-4">
-                    <Label htmlFor={`name-${side}`} className="text-right">
-                      Tên
-                    </Label>
-                    <Input
-                      id={`name-${side}`}
-                      defaultValue="Pedro Duarte"
-                      className="col-span-3"
-                    />
-                  </div>
-                  <div className="grid grid-cols-4 items-center gap-4">
-                    <Label htmlFor={`username-${side}`} className="text-right">
-                      Username
-                    </Label>
-                    <Input
-                      id={`username-${side}`}
-                      defaultValue="@peduarte"
-                      className="col-span-3"
-                    />
-                  </div>
+          {/* top */}
+          <Sheet>
+            <SheetTrigger
+              render={<Button variant="outline" size={globalSize} className="w-full" />}
+            >
+              top
+            </SheetTrigger>
+            <SheetContent side="top">
+              <SheetHeader>
+                <SheetTitle>Edit Profile</SheetTitle>
+                <SheetDescription>
+                  Thay đổi thông tin tài khoản của bạn và nhấn Lưu.
+                </SheetDescription>
+              </SheetHeader>
+              <div className="grid gap-4 py-4 px-4">
+                <div className="grid grid-cols-4 items-center gap-4">
+                  <Label htmlFor="name-top" className="text-right">Tên</Label>
+                  <Input id="name-top" defaultValue="Pedro Duarte" className="col-span-3" />
                 </div>
-                <SheetFooter>
-                  <SheetClose render={<Button variant="outline" size={globalSize} />}>
-                    Huỷ
-                  </SheetClose>
-                  <Button size={globalSize}>Lưu thay đổi</Button>
-                </SheetFooter>
-              </SheetContent>
-            </Sheet>
-          ))}
+              </div>
+              <SheetFooter>
+                <SheetClose render={<Button variant="outline" size={globalSize} />}>Huỷ</SheetClose>
+                <Button size={globalSize}>Lưu thay đổi</Button>
+              </SheetFooter>
+            </SheetContent>
+          </Sheet>
+
+          {/* right */}
+          <Sheet>
+            <SheetTrigger
+              render={<Button variant="outline" size={globalSize} className="w-full" />}
+            >
+              right
+            </SheetTrigger>
+            <SheetContent side="right">
+              <SheetHeader>
+                <SheetTitle>Edit Profile</SheetTitle>
+                <SheetDescription>
+                  Thay đổi thông tin tài khoản của bạn và nhấn Lưu.
+                </SheetDescription>
+              </SheetHeader>
+              <div className="grid gap-4 py-4 px-4">
+                <div className="grid grid-cols-4 items-center gap-4">
+                  <Label htmlFor="name-right" className="text-right">Tên</Label>
+                  <Input id="name-right" defaultValue="Pedro Duarte" className="col-span-3" />
+                </div>
+                <div className="grid grid-cols-4 items-center gap-4">
+                  <Label htmlFor="username-right" className="text-right">Username</Label>
+                  <Input id="username-right" defaultValue="@peduarte" className="col-span-3" />
+                </div>
+              </div>
+              <SheetFooter>
+                <SheetClose render={<Button variant="outline" size={globalSize} />}>Huỷ</SheetClose>
+                <Button size={globalSize}>Lưu thay đổi</Button>
+              </SheetFooter>
+            </SheetContent>
+          </Sheet>
+
+          {/* bottom */}
+          <Sheet>
+            <SheetTrigger
+              render={<Button variant="outline" size={globalSize} className="w-full" />}
+            >
+              bottom
+            </SheetTrigger>
+            <SheetContent side="bottom">
+              <SheetHeader>
+                <SheetTitle>Edit Profile</SheetTitle>
+                <SheetDescription>
+                  Thay đổi thông tin tài khoản của bạn và nhấn Lưu.
+                </SheetDescription>
+              </SheetHeader>
+              <div className="grid gap-4 py-4 px-4">
+                <div className="grid grid-cols-4 items-center gap-4">
+                  <Label htmlFor="name-bottom" className="text-right">Tên</Label>
+                  <Input id="name-bottom" defaultValue="Pedro Duarte" className="col-span-3" />
+                </div>
+              </div>
+              <SheetFooter>
+                <SheetClose render={<Button variant="outline" size={globalSize} />}>Huỷ</SheetClose>
+                <Button size={globalSize}>Lưu thay đổi</Button>
+              </SheetFooter>
+            </SheetContent>
+          </Sheet>
+
+          {/* left */}
+          <Sheet>
+            <SheetTrigger
+              render={<Button variant="outline" size={globalSize} className="w-full" />}
+            >
+              left
+            </SheetTrigger>
+            <SheetContent side="left">
+              <SheetHeader>
+                <SheetTitle>Edit Profile</SheetTitle>
+                <SheetDescription>
+                  Thay đổi thông tin tài khoản của bạn và nhấn Lưu.
+                </SheetDescription>
+              </SheetHeader>
+              <div className="grid gap-4 py-4 px-4">
+                <div className="grid grid-cols-4 items-center gap-4">
+                  <Label htmlFor="name-left" className="text-right">Tên</Label>
+                  <Input id="name-left" defaultValue="Pedro Duarte" className="col-span-3" />
+                </div>
+                <div className="grid grid-cols-4 items-center gap-4">
+                  <Label htmlFor="username-left" className="text-right">Username</Label>
+                  <Input id="username-left" defaultValue="@peduarte" className="col-span-3" />
+                </div>
+              </div>
+              <SheetFooter>
+                <SheetClose render={<Button variant="outline" size={globalSize} />}>Huỷ</SheetClose>
+                <Button size={globalSize}>Lưu thay đổi</Button>
+              </SheetFooter>
+            </SheetContent>
+          </Sheet>
         </div>
       </ExampleSection>
 

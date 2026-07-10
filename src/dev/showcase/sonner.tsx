@@ -282,6 +282,7 @@ toast.dismiss(toastId);`}
                 onClick={() =>
                   toast(`Toast: ${pos}`, {
                     description: `position="${pos}"`,
+                    position: pos,
                   })
                 }
               >

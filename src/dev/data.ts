@@ -271,7 +271,13 @@ export const COMPONENTS = [
     status: "stable",
   },
   { id: "separator", label: "Separator", hasMicro: true, hasMacro: false },
-  { id: "sheet", label: "Sheet", hasMicro: true, hasMacro: false },
+  {
+    id: "sheet",
+    label: "Sheet",
+    hasMicro: true,
+    hasMacro: false,
+    status: "stable",
+  },
   { id: "sidebar", label: "Sidebar", hasMicro: true, hasMacro: false },
   {
     id: "skeleton",

@@ -4,9 +4,9 @@ Tiến trình pair-coding audit các UI components theo thứ tự bảng chữ 
 
 ## Tổng quan tiến độ
 
-**Đã Audit:** 35 components
+**Đã Audit:** 36 components
 **Đang xử lý / Bug:** 0 component
-**Chưa Audit:** 18 components
+**Chưa Audit:** 17 components
 
 ---
 
@@ -32,7 +32,7 @@ Danh sách các nhóm component cần ưu tiên hoàn thiện sớm nhất để
 **3. Nhóm Overlays & Modals**
 
 - [x] `dialog.tsx` / `alert-dialog.tsx`
-- [ ] `sheet.tsx` / `drawer.tsx`
+- [x] `sheet.tsx` / [ ] `drawer.tsx`
 - [x] `dropdown-menu.tsx` / `popover.tsx`
 
 **4. Nhóm Data Display & Feedback**
@@ -101,7 +101,7 @@ Danh sách các nhóm component cần ưu tiên hoàn thiện sớm nhất để
 - [ ] `resizable.tsx`
 - [ ] `scroll-area.tsx`
 - [ ] `separator.tsx`
-- [ ] `sheet.tsx`
+- [x] `sheet.tsx`
 - [x] `sidebar.tsx`
 - [x] `skeleton.tsx`
 - [ ] `sonner.tsx`

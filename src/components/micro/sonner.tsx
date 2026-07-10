@@ -19,7 +19,7 @@ import {
 import { Spinner } from "@/components/micro/spinner";
 import { useTheme } from "@/components/micro/theme-provider";
 
-const Toaster = ({ ...props }: ToasterProps) => {
+function Toaster({ ...props }: ToasterProps) {
   const themeContext = useTheme();
   const theme = themeContext?.mode;
 
@@ -80,6 +80,6 @@ const Toaster = ({ ...props }: ToasterProps) => {
       {...props}
     />
   );
-};
+}
 
 export { Toaster };

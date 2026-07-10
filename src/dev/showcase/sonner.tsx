@@ -243,7 +243,7 @@ toast.dismiss(toastId);`}
       {/* ── Position ── */}
       <ExampleSection
         label="Position"
-        description="Vị trí của Toaster được cấu hình một lần duy nhất trên component <Toaster> ở root layout — không set per-toast."
+        description="Toaster nhận prop position để xác định vị trí hiển thị — cấu hình một lần ở root layout. Nhấn vào từng vùng để xem toast xuất hiện ở đâu."
         codeString={`// Trong root layout (app/layout.tsx):
 <Toaster position="bottom-right" /> // mặc định
 
@@ -251,14 +251,42 @@ toast.dismiss(toastId);`}
 // "top-left" | "top-center" | "top-right"
 // "bottom-left" | "bottom-center" | "bottom-right"`}
       >
-        <p className="text-sm text-muted-foreground">
-          Toaster hiện tại đặt ở{" "}
-          <code className="rounded bg-muted px-1 py-0.5 text-xs font-mono">
-            bottom-right
-          </code>{" "}
-          (mặc định). Thay đổi <DocsCode>position</DocsCode> prop trên{" "}
-          <DocsCode>&lt;Toaster&gt;</DocsCode> trong root layout.
-        </p>
+        {/* Visual 3×2 position grid */}
+        <div className="w-full max-w-sm">
+          <p className="mb-3 text-xs text-muted-foreground">
+            Vị trí hiện tại:{" "}
+            <code className="rounded bg-muted px-1 py-0.5 font-mono">
+              bottom-right
+            </code>{" "}
+            (cấu hình trong root layout)
+          </p>
+          <div className="grid grid-cols-3 gap-1.5">
+            {(
+              [
+                "top-left",
+                "top-center",
+                "top-right",
+                "bottom-left",
+                "bottom-center",
+                "bottom-right",
+              ] as const
+            ).map((pos) => (
+              <Button
+                key={pos}
+                variant="outline"
+                size="sm"
+                className="text-xs"
+                onClick={() =>
+                  toast(`Toast: ${pos}`, {
+                    description: `position="${pos}"`,
+                  })
+                }
+              >
+                {pos}
+              </Button>
+            ))}
+          </div>
+        </div>
       </ExampleSection>
     </div>
   );

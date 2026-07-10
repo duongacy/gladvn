@@ -7,30 +7,50 @@
  */
 "use client";
 
+import * as React from "react";
 import { Toggle as TogglePrimitive } from "@base-ui/react/toggle";
 import { ToggleGroup as ToggleGroupPrimitive } from "@base-ui/react/toggle-group";
 import { type VariantProps } from "class-variance-authority";
-import * as React from "react";
 
 import { toggleVariants } from "@/components/micro/toggle";
 import { cn } from "@/lib/utils";
 
-const ToggleGroupContext = React.createContext<
-  VariantProps<typeof toggleVariants> & {
-    spacing?: number;
-    orientation?: "horizontal" | "vertical";
-  }
->({
+// ──────────────────────────────────────────────────────────
+// Context
+// ──────────────────────────────────────────────────────────
+type ToggleGroupContextValue = VariantProps<typeof toggleVariants> & {
+  spacing?: number;
+  orientation?: "horizontal" | "vertical";
+};
+
+const ToggleGroupContext = React.createContext<ToggleGroupContextValue>({
+  variant: "default",
   size: "md",
   spacing: 2,
   orientation: "horizontal",
 });
 
+// ──────────────────────────────────────────────────────────
+// Types
+// ──────────────────────────────────────────────────────────
+type ToggleGroupProps = ToggleGroupPrimitive.Props &
+  VariantProps<typeof toggleVariants> & {
+    spacing?: number;
+    orientation?: "horizontal" | "vertical";
+  };
+
+type ToggleGroupItemProps = TogglePrimitive.Props &
+  VariantProps<typeof toggleVariants>;
+
+// ──────────────────────────────────────────────────────────
+// Components
+// ──────────────────────────────────────────────────────────
+
 /**
  * @description A set of two-state buttons that can be toggled on or off.
  * @requires ToggleGroupItem
  * @example
- * <ToggleGroup type="single">
+ * <ToggleGroup>
  *   <ToggleGroupItem value="a">A</ToggleGroupItem>
  * </ToggleGroup>
  */
@@ -38,15 +58,13 @@ function ToggleGroup({
   className,
   variant,
   size,
+  // spacing is a dynamic numeric value — CSS variable is the only viable approach
+  // since Tailwind cannot generate arbitrary gap-{n} utilities at runtime.
   spacing = 2,
   orientation = "horizontal",
   children,
   ...props
-}: ToggleGroupPrimitive.Props &
-  VariantProps<typeof toggleVariants> & {
-    spacing?: number;
-    orientation?: "horizontal" | "vertical";
-  }) {
+}: ToggleGroupProps) {
   return (
     <ToggleGroupPrimitive
       data-slot="toggle-group"
@@ -76,20 +94,20 @@ function ToggleGroupItem({
   variant,
   size = "md",
   ...props
-}: TogglePrimitive.Props & VariantProps<typeof toggleVariants>) {
+}: ToggleGroupItemProps) {
   const context = React.useContext(ToggleGroupContext);
 
   return (
     <TogglePrimitive
       data-slot="toggle-group-item"
-      data-variant={context.variant || variant}
-      data-size={context.size || size}
+      data-variant={context.variant ?? variant}
+      data-size={context.size ?? size}
       data-spacing={context.spacing}
       className={cn(
         "shrink-0 group-data-[spacing=0]/toggle-group:rounded-none group-data-[spacing=0]/toggle-group:px-2 focus:z-10 focus-visible:z-10 group-data-[spacing=0]/toggle-group:has-data-[icon=inline-end]:pr-1.5 group-data-[spacing=0]/toggle-group:has-data-[icon=inline-start]:pl-1.5 group-data-horizontal/toggle-group:data-[spacing=0]:first:rounded-l-lg group-data-vertical/toggle-group:data-[spacing=0]:first:rounded-t-lg group-data-horizontal/toggle-group:data-[spacing=0]:last:rounded-r-lg group-data-vertical/toggle-group:data-[spacing=0]:last:rounded-b-lg group-data-horizontal/toggle-group:data-[spacing=0]:data-[variant=outline]:border-l-0 group-data-vertical/toggle-group:data-[spacing=0]:data-[variant=outline]:border-t-0 group-data-horizontal/toggle-group:data-[spacing=0]:data-[variant=outline]:first:border-l group-data-vertical/toggle-group:data-[spacing=0]:data-[variant=outline]:first:border-t",
         toggleVariants({
-          variant: context.variant || variant,
-          size: context.size || size,
+          variant: context.variant ?? variant,
+          size: context.size ?? size,
         }),
         className,
       )}

@@ -329,6 +329,7 @@ export const COMPONENTS = [
     label: "Toggle Group",
     hasMicro: true,
     hasMacro: false,
+    status: "stable",
   },
   {
     id: "tooltip",

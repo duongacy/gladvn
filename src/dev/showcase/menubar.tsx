@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import {
   Menubar,
   MenubarCheckboxItem,
@@ -17,14 +19,14 @@ import {
 } from "@/components/micro/menubar";
 import {
   DocsP,
+  ExampleGrid,
   ExampleSection,
   Showcase,
   ShowcaseDocs,
 } from "@/dev/components/showcase";
-import { useState } from "react";
 
 // ──────────────────────────────────────────────────────────
-// SECTION 2: Micro Content (không export)
+// SECTION 1: Micro Content
 // ──────────────────────────────────────────────────────────
 function MenubarMicroShowcase() {
   const [showBookmarks, setShowBookmarks] = useState(true);
@@ -33,9 +35,10 @@ function MenubarMicroShowcase() {
 
   return (
     <div className="space-y-10 mt-6">
+      {/* Full Demo */}
       <ExampleSection
         label="Full Menubar"
-        description="Thanh menu với các menu con, hộp kiểm và các mục radio."
+        description="Thanh menu đầy đủ: Items, Checkbox, Radio, Submenu, Shortcut, Separator."
         codeString={`<Menubar className="w-fit">
   <MenubarMenu>
     <MenubarTrigger>File</MenubarTrigger>
@@ -104,8 +107,7 @@ function MenubarMicroShowcase() {
       <MenubarItem inset>Add Profile...</MenubarItem>
     </MenubarContent>
   </MenubarMenu>
-</Menubar>
-`}
+</Menubar>`}
       >
         <Menubar className="w-fit">
           <MenubarMenu>
@@ -177,12 +179,184 @@ function MenubarMicroShowcase() {
           </MenubarMenu>
         </Menubar>
       </ExampleSection>
+
+      {/* Checkbox & Radio */}
+      <ExampleGrid columns={2}>
+        <ExampleSection
+          label="Checkbox Items"
+          description="MenubarCheckboxItem cho phép bật/tắt từng tùy chọn độc lập nhau."
+          codeString={`<Menubar className="w-fit">
+  <MenubarMenu>
+    <MenubarTrigger>View</MenubarTrigger>
+    <MenubarContent>
+      <MenubarCheckboxItem
+        checked={showBookmarks}
+        onCheckedChange={setShowBookmarks}
+      >
+        Show Bookmarks Bar
+      </MenubarCheckboxItem>
+      <MenubarCheckboxItem
+        checked={showFullUrls}
+        onCheckedChange={setShowFullUrls}
+      >
+        Show Full URLs
+      </MenubarCheckboxItem>
+    </MenubarContent>
+  </MenubarMenu>
+</Menubar>`}
+        >
+          <Menubar className="w-fit">
+            <MenubarMenu>
+              <MenubarTrigger>View</MenubarTrigger>
+              <MenubarContent>
+                <MenubarCheckboxItem
+                  checked={showBookmarks}
+                  onCheckedChange={setShowBookmarks}
+                >
+                  Show Bookmarks Bar
+                </MenubarCheckboxItem>
+                <MenubarCheckboxItem
+                  checked={showFullUrls}
+                  onCheckedChange={setShowFullUrls}
+                >
+                  Show Full URLs
+                </MenubarCheckboxItem>
+              </MenubarContent>
+            </MenubarMenu>
+          </Menubar>
+        </ExampleSection>
+
+        <ExampleSection
+          label="Radio Group"
+          description="MenubarRadioGroup cho phép chọn một giá trị duy nhất từ danh sách."
+          codeString={`<Menubar className="w-fit">
+  <MenubarMenu>
+    <MenubarTrigger>Profile</MenubarTrigger>
+    <MenubarContent>
+      <MenubarLabel inset>Account</MenubarLabel>
+      <MenubarSeparator />
+      <MenubarRadioGroup value={profile} onValueChange={setProfile}>
+        <MenubarRadioItem value="pedro">Pedro</MenubarRadioItem>
+        <MenubarRadioItem value="colm">Colm</MenubarRadioItem>
+        <MenubarRadioItem value="andy">Andy</MenubarRadioItem>
+      </MenubarRadioGroup>
+    </MenubarContent>
+  </MenubarMenu>
+</Menubar>`}
+        >
+          <Menubar className="w-fit">
+            <MenubarMenu>
+              <MenubarTrigger>Profile</MenubarTrigger>
+              <MenubarContent>
+                <MenubarLabel inset>Account</MenubarLabel>
+                <MenubarSeparator />
+                <MenubarRadioGroup value={profile} onValueChange={setProfile}>
+                  <MenubarRadioItem value="pedro">Pedro</MenubarRadioItem>
+                  <MenubarRadioItem value="colm">Colm</MenubarRadioItem>
+                  <MenubarRadioItem value="andy">Andy</MenubarRadioItem>
+                </MenubarRadioGroup>
+              </MenubarContent>
+            </MenubarMenu>
+          </Menubar>
+        </ExampleSection>
+      </ExampleGrid>
+
+      {/* Submenu & Disabled */}
+      <ExampleGrid columns={2}>
+        <ExampleSection
+          label="Submenu"
+          description="MenubarSub tạo menu lồng nhau. Hover hoặc click vào SubTrigger để mở."
+          codeString={`<Menubar className="w-fit">
+  <MenubarMenu>
+    <MenubarTrigger>File</MenubarTrigger>
+    <MenubarContent>
+      <MenubarSub>
+        <MenubarSubTrigger>Share</MenubarSubTrigger>
+        <MenubarSubContent>
+          <MenubarItem>Email link</MenubarItem>
+          <MenubarItem>Messages</MenubarItem>
+          <MenubarItem>Notes</MenubarItem>
+        </MenubarSubContent>
+      </MenubarSub>
+      <MenubarItem>
+        Print... <MenubarShortcut>⌘P</MenubarShortcut>
+      </MenubarItem>
+    </MenubarContent>
+  </MenubarMenu>
+</Menubar>`}
+        >
+          <Menubar className="w-fit">
+            <MenubarMenu>
+              <MenubarTrigger>File</MenubarTrigger>
+              <MenubarContent>
+                <MenubarSub>
+                  <MenubarSubTrigger>Share</MenubarSubTrigger>
+                  <MenubarSubContent>
+                    <MenubarItem>Email link</MenubarItem>
+                    <MenubarItem>Messages</MenubarItem>
+                    <MenubarItem>Notes</MenubarItem>
+                  </MenubarSubContent>
+                </MenubarSub>
+                <MenubarItem>
+                  Print... <MenubarShortcut>⌘P</MenubarShortcut>
+                </MenubarItem>
+              </MenubarContent>
+            </MenubarMenu>
+          </Menubar>
+        </ExampleSection>
+
+        <ExampleSection
+          label="Disabled Items"
+          description="Items bị vô hiệu hóa không thể tương tác và hiển thị ở trạng thái mờ."
+          codeString={`<Menubar className="w-fit">
+  <MenubarMenu>
+    <MenubarTrigger>Edit</MenubarTrigger>
+    <MenubarContent>
+      <MenubarItem>
+        Undo <MenubarShortcut>⌘Z</MenubarShortcut>
+      </MenubarItem>
+      <MenubarItem disabled>
+        Redo <MenubarShortcut>⌘Y</MenubarShortcut>
+      </MenubarItem>
+      <MenubarSeparator />
+      <MenubarItem disabled>
+        Cut <MenubarShortcut>⌘X</MenubarShortcut>
+      </MenubarItem>
+      <MenubarItem>
+        Copy <MenubarShortcut>⌘C</MenubarShortcut>
+      </MenubarItem>
+    </MenubarContent>
+  </MenubarMenu>
+</Menubar>`}
+        >
+          <Menubar className="w-fit">
+            <MenubarMenu>
+              <MenubarTrigger>Edit</MenubarTrigger>
+              <MenubarContent>
+                <MenubarItem>
+                  Undo <MenubarShortcut>⌘Z</MenubarShortcut>
+                </MenubarItem>
+                <MenubarItem disabled>
+                  Redo <MenubarShortcut>⌘Y</MenubarShortcut>
+                </MenubarItem>
+                <MenubarSeparator />
+                <MenubarItem disabled>
+                  Cut <MenubarShortcut>⌘X</MenubarShortcut>
+                </MenubarItem>
+                <MenubarItem>
+                  Copy <MenubarShortcut>⌘C</MenubarShortcut>
+                </MenubarItem>
+              </MenubarContent>
+            </MenubarMenu>
+          </Menubar>
+        </ExampleSection>
+      </ExampleGrid>
     </div>
   );
 }
 
 // ──────────────────────────────────────────────────────────
-// SECTION 3: Entry point (export default)
+// SECTION 2: Entry point (export default)
 // ──────────────────────────────────────────────────────────
 export default function MenubarShowcase() {
   return (

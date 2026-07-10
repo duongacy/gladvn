@@ -96,7 +96,7 @@ Danh sách các nhóm component cần ưu tiên hoàn thiện sớm nhất để
 - [x] `hover-card.tsx`
 - [ ] `item.tsx`
 - [x] `kbd.tsx`
-- [ ] `menubar.tsx`
+- [x] `menubar.tsx`
 - [x] `pagination.tsx`
 - [ ] `resizable.tsx`
 - [ ] `scroll-area.tsx`

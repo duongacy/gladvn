@@ -231,7 +231,7 @@ export const COMPONENTS = [
     hasMacro: false,
     status: "stable",
   },
-  { id: "menubar", label: "Menubar", hasMicro: true, hasMacro: false },
+  { id: "menubar", label: "Menubar", hasMicro: true, hasMacro: false, status: "stable" },
   {
     id: "navigation-menu",
     label: "Navigation Menu",

@@ -7,15 +7,17 @@
  */
 "use client";
 
-import { Spinner } from "@/components/micro/spinner";
-import { useTheme } from "@/components/micro/theme-provider";
+import { Toaster as Sonner, type ToasterProps } from "sonner";
+import * as React from "react";
 import {
   CircleCheckIcon,
   InfoIcon,
   OctagonXIcon,
   TriangleAlertIcon,
 } from "lucide-react";
-import { Toaster as Sonner, type ToasterProps } from "sonner";
+
+import { Spinner } from "@/components/micro/spinner";
+import { useTheme } from "@/components/micro/theme-provider";
 
 const Toaster = ({ ...props }: ToasterProps) => {
   const themeContext = useTheme();
@@ -26,10 +28,10 @@ const Toaster = ({ ...props }: ToasterProps) => {
       theme={theme}
       className="toaster group"
       icons={{
-        success: <CircleCheckIcon className="size-4" />,
-        info: <InfoIcon className="size-4" />,
-        warning: <TriangleAlertIcon className="size-4" />,
-        error: <OctagonXIcon className="size-4" />,
+        success: <CircleCheckIcon aria-hidden="true" className="size-4" />,
+        info: <InfoIcon aria-hidden="true" className="size-4" />,
+        warning: <TriangleAlertIcon aria-hidden="true" className="size-4" />,
+        error: <OctagonXIcon aria-hidden="true" className="size-4" />,
         loading: <Spinner size="md" />,
       }}
       richColors

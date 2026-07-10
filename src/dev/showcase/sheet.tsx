@@ -1,5 +1,18 @@
+import {
+  DocsCode,
+  DocsP,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+  SizeToggle,
+} from "@/dev/components/showcase";
+import { FilterIcon, PanelRightIcon, SettingsIcon } from "lucide-react";
+import { useState } from "react";
+
 import { Button } from "@/components/micro/button";
 import { Input } from "@/components/micro/input";
+import { Label } from "@/components/micro/label";
 import {
   Sheet,
   SheetClose,
@@ -10,34 +23,31 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/micro/sheet";
-import { ExampleSection, Showcase } from "@/dev/components/showcase";
+import { type Size } from "@/lib/types";
 
-function SheetMicroShowcase() {
+// ──────────────────────────────────────────────────────────
+// SECTION 2: Micro Content (không export)
+// ──────────────────────────────────────────────────────────
+function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="space-y-10 mt-6">
+      {/* ── Sides ── */}
       <ExampleSection
-        label="Directions"
-        description="Tấm có thể trượt từ bất kỳ cạnh nào."
+        label="Hướng trượt (Side)"
+        description="Sheet có thể trượt ra từ bốn cạnh: right (mặc định), left, top, bottom."
         codeString={`<Sheet>
-  <SheetTrigger asChild>
-    <Button variant="outline">Open</Button>
-  </SheetTrigger>
+  <SheetTrigger render={<Button variant="outline">Open Right</Button>} />
   <SheetContent side="right">
     <SheetHeader>
-      <SheetTitle>Edit profile</SheetTitle>
-      <SheetDescription>Make changes to your profile here. Click save when you're done.</SheetDescription>
+      <SheetTitle>Edit Profile</SheetTitle>
+      <SheetDescription>Thay đổi thông tin và nhấn Lưu.</SheetDescription>
     </SheetHeader>
-    <div className="grid gap-4 py-4">
-      <div className="grid grid-cols-4 items-center gap-4">
-        <span className="text-right text-sm">Name</span>
-        <Input id="name" defaultValue="Pedro Duarte" className="col-span-3" />
-      </div>
-    </div>
+    {/* content */}
     <SheetFooter>
-      <SheetClose asChild>
-        <Button variant="outline">Cancel</Button>
-      </SheetClose>
-      <Button type="submit">Save changes</Button>
+      <SheetClose render={<Button variant="outline" />}>Huỷ</SheetClose>
+      <Button>Lưu</Button>
     </SheetFooter>
   </SheetContent>
 </Sheet>`}
@@ -46,49 +56,269 @@ function SheetMicroShowcase() {
           {(["top", "right", "bottom", "left"] as const).map((side) => (
             <Sheet key={side}>
               <SheetTrigger
-                render={<Button variant="outline" className="capitalize" />}
+                render={
+                  <Button variant="outline" size={globalSize} className="w-full capitalize" />
+                }
               >
                 {side}
               </SheetTrigger>
               <SheetContent side={side}>
                 <SheetHeader>
-                  <SheetTitle>Edit profile</SheetTitle>
+                  <SheetTitle>Edit Profile</SheetTitle>
                   <SheetDescription>
-                    Make changes to your profile here. Click save when you're
-                    done.
+                    Thay đổi thông tin tài khoản của bạn và nhấn Lưu.
                   </SheetDescription>
                 </SheetHeader>
-                <div className="grid gap-4 py-4">
+                <div className="grid gap-4 py-4 px-4">
                   <div className="grid grid-cols-4 items-center gap-4">
-                    <span className="text-right text-sm">Name</span>
+                    <Label htmlFor={`name-${side}`} className="text-right">
+                      Tên
+                    </Label>
                     <Input
-                      id="name"
+                      id={`name-${side}`}
                       defaultValue="Pedro Duarte"
+                      className="col-span-3"
+                    />
+                  </div>
+                  <div className="grid grid-cols-4 items-center gap-4">
+                    <Label htmlFor={`username-${side}`} className="text-right">
+                      Username
+                    </Label>
+                    <Input
+                      id={`username-${side}`}
+                      defaultValue="@peduarte"
                       className="col-span-3"
                     />
                   </div>
                 </div>
                 <SheetFooter>
-                  <SheetClose render={<Button variant="outline" />}>
-                    Cancel
+                  <SheetClose render={<Button variant="outline" size={globalSize} />}>
+                    Huỷ
                   </SheetClose>
-                  <Button type="submit">Save changes</Button>
+                  <Button size={globalSize}>Lưu thay đổi</Button>
                 </SheetFooter>
               </SheetContent>
             </Sheet>
           ))}
         </div>
       </ExampleSection>
+
+      {/* ── showCloseButton ── */}
+      <ExampleGrid columns={2}>
+        <ExampleSection
+          label="Có nút đóng (mặc định)"
+          description="showCloseButton={true} — nút X tự động hiển thị ở góc trên phải."
+          codeString={`<SheetContent side="right">
+  {/* nút X xuất hiện tự động */}
+</SheetContent>`}
+        >
+          <Sheet>
+            <SheetTrigger
+              render={<Button variant="outline" size={globalSize} />}
+            >
+              <PanelRightIcon aria-hidden="true" />
+              Mở Sheet
+            </SheetTrigger>
+            <SheetContent side="right">
+              <SheetHeader>
+                <SheetTitle>Có nút đóng</SheetTitle>
+                <SheetDescription>Nút X xuất hiện tự động.</SheetDescription>
+              </SheetHeader>
+            </SheetContent>
+          </Sheet>
+        </ExampleSection>
+
+        <ExampleSection
+          label="Ẩn nút đóng"
+          description="showCloseButton={false} — dùng khi muốn tự control nút đóng bên trong nội dung."
+          codeString={`<SheetContent side="right" showCloseButton={false}>
+  {/* consumer tự render nút đóng */}
+  <SheetClose render={<Button variant="ghost" />}>Đóng</SheetClose>
+</SheetContent>`}
+        >
+          <Sheet>
+            <SheetTrigger
+              render={<Button variant="outline" size={globalSize} />}
+            >
+              <PanelRightIcon aria-hidden="true" />
+              Không có X
+            </SheetTrigger>
+            <SheetContent side="right" showCloseButton={false}>
+              <SheetHeader>
+                <SheetTitle>Ẩn nút đóng</SheetTitle>
+                <SheetDescription>
+                  Consumer tự render nút đóng trong footer.
+                </SheetDescription>
+              </SheetHeader>
+              <SheetFooter>
+                <SheetClose render={<Button variant="outline" size={globalSize} className="w-full" />}>
+                  Đóng thủ công
+                </SheetClose>
+              </SheetFooter>
+            </SheetContent>
+          </Sheet>
+        </ExampleSection>
+      </ExampleGrid>
+
+      {/* ── Controlled ── */}
+      <ExampleSection
+        label="Controlled State"
+        description="Quản lý trạng thái đóng/mở qua React state với open và onOpenChange."
+        codeString={`const [open, setOpen] = useState(false);
+
+<Sheet open={open} onOpenChange={setOpen}>
+  <SheetTrigger render={<Button variant="outline" />}>
+    Toggle Sheet
+  </SheetTrigger>
+  <SheetContent side="right">
+    <SheetHeader>
+      <SheetTitle>Controlled</SheetTitle>
+    </SheetHeader>
+    <SheetFooter>
+      <Button onClick={() => setOpen(false)}>Đóng bằng state</Button>
+    </SheetFooter>
+  </SheetContent>
+</Sheet>`}
+      >
+        <div className="flex items-center gap-4">
+          <Sheet open={open} onOpenChange={setOpen}>
+            <SheetTrigger
+              render={<Button variant="outline" size={globalSize} />}
+            >
+              <SettingsIcon aria-hidden="true" />
+              Toggle Controlled
+            </SheetTrigger>
+            <SheetContent side="right">
+              <SheetHeader>
+                <SheetTitle>Controlled Mode</SheetTitle>
+                <SheetDescription>
+                  Sheet được điều khiển hoàn toàn bởi React state.
+                </SheetDescription>
+              </SheetHeader>
+              <SheetFooter>
+                <Button size={globalSize} onClick={() => setOpen(false)}>
+                  Đóng bằng state
+                </Button>
+              </SheetFooter>
+            </SheetContent>
+          </Sheet>
+          <p className="text-sm text-muted-foreground">
+            Trạng thái:{" "}
+            <strong
+              data-active={open ? "" : undefined}
+              className="data-active:text-primary"
+            >
+              {open ? "Mở" : "Đóng"}
+            </strong>
+          </p>
+        </div>
+      </ExampleSection>
+
+      {/* ── Real-world: Filter Panel ── */}
+      <ExampleSection
+        label="Use case — Filter Panel"
+        description="Sheet dùng làm bảng lọc dữ liệu bên phải — pattern phổ biến trong dashboard, table view."
+        codeString={`<Sheet>
+  <SheetTrigger render={<Button variant="outline"><FilterIcon />Lọc</Button>} />
+  <SheetContent side="right">
+    <SheetHeader>
+      <SheetTitle>Bộ lọc</SheetTitle>
+      <SheetDescription>Tinh chỉnh kết quả theo điều kiện.</SheetDescription>
+    </SheetHeader>
+    <div className="flex flex-col gap-4 p-4">
+      <div className="flex flex-col gap-2">
+        <Label htmlFor="status">Trạng thái</Label>
+        <Input id="status" placeholder="Tất cả" />
+      </div>
+      <div className="flex flex-col gap-2">
+        <Label htmlFor="date-from">Từ ngày</Label>
+        <Input id="date-from" type="date" />
+      </div>
+    </div>
+    <SheetFooter>
+      <SheetClose render={<Button variant="outline" />}>Xoá bộ lọc</SheetClose>
+      <Button>Áp dụng</Button>
+    </SheetFooter>
+  </SheetContent>
+</Sheet>`}
+      >
+        <Sheet>
+          <SheetTrigger
+            render={<Button variant="outline" size={globalSize} />}
+          >
+            <FilterIcon aria-hidden="true" />
+            Lọc dữ liệu
+          </SheetTrigger>
+          <SheetContent side="right">
+            <SheetHeader>
+              <SheetTitle>Bộ lọc</SheetTitle>
+              <SheetDescription>
+                Tinh chỉnh kết quả hiển thị theo điều kiện.
+              </SheetDescription>
+            </SheetHeader>
+            <div className="flex flex-col gap-4 p-4">
+              <div className="flex flex-col gap-2">
+                <Label htmlFor="filter-status">Trạng thái</Label>
+                <Input id="filter-status" placeholder="Tất cả" />
+              </div>
+              <div className="flex flex-col gap-2">
+                <Label htmlFor="filter-date-from">Từ ngày</Label>
+                <Input id="filter-date-from" type="date" />
+              </div>
+              <div className="flex flex-col gap-2">
+                <Label htmlFor="filter-date-to">Đến ngày</Label>
+                <Input id="filter-date-to" type="date" />
+              </div>
+            </div>
+            <SheetFooter>
+              <SheetClose
+                render={<Button variant="outline" size={globalSize} />}
+              >
+                Xoá bộ lọc
+              </SheetClose>
+              <Button size={globalSize}>Áp dụng</Button>
+            </SheetFooter>
+          </SheetContent>
+        </Sheet>
+      </ExampleSection>
     </div>
   );
 }
 
+// ──────────────────────────────────────────────────────────
+// SECTION 3: Entry point (export default)
+// ──────────────────────────────────────────────────────────
 export default function SheetShowcase() {
+  const [globalSize, setGlobalSize] = useState<Size>("md");
+
   return (
     <Showcase
       title="Sheet"
-      description="Mở rộng thành phần Hộp thoại để hiển thị nội dung bổ sung cho nội dung chính của màn hình."
-      tabs={[{ label: "Micro (Primitive)", content: <SheetMicroShowcase /> }]}
+      description="Panel trượt từ cạnh màn hình — mở rộng Dialog để hiển thị nội dung bổ sung mà không rời trang."
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsP>
+            <DocsCode>Sheet</DocsCode> là một biến thể của Dialog, nhưng thay
+            vì hiện ở giữa màn hình, nó trượt ra từ một cạnh (right, left, top,
+            bottom). Phù hợp cho navigation drawer, filter panel, settings
+            sidebar, hay form chỉnh sửa.
+          </DocsP>
+          <DocsP>
+            <DocsCode>SheetContent</DocsCode> tự tích hợp{" "}
+            <DocsCode>Portal</DocsCode> và <DocsCode>Overlay</DocsCode> bên
+            trong. Prop <DocsCode>showCloseButton</DocsCode> cho phép bật/tắt
+            nút X tự động. Dùng <DocsCode>open</DocsCode> /{" "}
+            <DocsCode>onOpenChange</DocsCode> để controlled mode.
+          </DocsP>
+        </ShowcaseDocs>
+      }
+      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
+      tabs={[
+        {
+          label: "Micro (Primitive)",
+          content: <SheetMicroShowcase globalSize={globalSize} />,
+        },
+      ]}
     />
   );
 }

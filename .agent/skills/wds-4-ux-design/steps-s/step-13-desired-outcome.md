@@ -1,11 +1,11 @@
 ---
-name: 'step-13-desired-outcome'
-description: 'Define the desired outcome for both business and user on this page'
+name: "step-13-desired-outcome"
+description: "Define the desired outcome for both business and user on this page"
 
 # File References
-nextStepFile: './step-14-variants.md'
-workflowFile: '../workflow.md'
-activityWorkflowFile: '../workflow-suggest.md'
+nextStepFile: "./step-14-variants.md"
+workflowFile: "../workflow.md"
+activityWorkflowFile: "../workflow-suggest.md"
 ---
 
 # Step 13: Desired Outcome

@@ -1,6 +1,12 @@
-import * as React from "react";
-import { Tabs, TabsList, TabsTrigger, TabsContent, type tabsListVariants } from "@/components/micro/tabs";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+  type tabsListVariants,
+} from "@/components/micro/tabs";
 import { type VariantProps } from "class-variance-authority";
+import * as React from "react";
 
 export interface TabsPresetItem {
   value: string;
@@ -23,7 +29,11 @@ const TabsPreset = React.forwardRef<
     <Tabs ref={ref} {...tabsProps}>
       <TabsList variant={variant} className={listClassName}>
         {items.map((tab) => (
-          <TabsTrigger key={tab.value} value={tab.value} disabled={tab.disabled}>
+          <TabsTrigger
+            key={tab.value}
+            value={tab.value}
+            disabled={tab.disabled}
+          >
             {tab.title}
           </TabsTrigger>
         ))}

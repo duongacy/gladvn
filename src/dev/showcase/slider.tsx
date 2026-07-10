@@ -1,31 +1,31 @@
-import { useState } from "react";
 import {
-  ExampleSection,
-  ExampleGrid,
-  ShowcaseDocs,
-  Showcase,
+  DocsCode,
   DocsH3,
   DocsP,
-  DocsCode,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+  SizeToggle,
 } from "@/dev/components/showcase";
-import { MonoSelect } from "@/dev/components/mono-select";
 import { type Size } from "@/lib/types";
+import { useState } from "react";
 
+import { SliderPreset } from "@/components/macro/slider-preset";
+import {
+  Field,
+  FieldContent,
+  FieldDescription,
+  FieldError,
+  FieldLabel,
+} from "@/components/micro/field";
 import {
   Slider as CompositionalSlider,
   SliderControl,
-  SliderTrack,
   SliderIndicator,
   SliderThumb,
+  SliderTrack,
 } from "@/components/micro/slider";
-import {
-  Field,
-  FieldLabel,
-  FieldDescription,
-  FieldContent,
-  FieldError,
-} from "@/components/micro/field";
-import { SliderPreset } from "@/components/macro/slider-preset";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Macro Content
@@ -36,16 +36,6 @@ function SliderMacroShowcase({ globalSize }: { globalSize: Size }) {
 
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Khi nào nên dùng Macro</DocsH3>
-        <DocsP>
-          <DocsCode>SliderPreset</DocsCode> đóng gói sẵn Slider + Label +
-          Description + Error Message. Nó tự động xử lý ID linking cho khả năng
-          truy cập (Accessibility). Dùng Macro cho 95% trường hợp làm form lấy
-          giá trị số hoặc bộ lọc (filter).
-        </DocsP>
-      </ShowcaseDocs>
-
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Tiêu chuẩn"
@@ -193,17 +183,6 @@ return (
 function SliderMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Khi nào nên dùng Micro</DocsH3>
-        <DocsP>
-          Dùng <DocsCode>CompositionalSlider</DocsCode> và các thành phần con (
-          <DocsCode>SliderControl</DocsCode>, <DocsCode>SliderTrack</DocsCode>,{" "}
-          <DocsCode>SliderThumb</DocsCode>) khi bạn cần tuỳ biến giao diện cực
-          hạn (ví dụ: track đổi màu theo giá trị, thumb có hình dáng đặc biệt)
-          hoặc không cần label.
-        </DocsP>
-      </ShowcaseDocs>
-
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Cơ bản (Primitive)"
@@ -497,17 +476,30 @@ export default function SliderShowcase() {
     <Showcase
       title="Slider"
       description="Thành phần điều khiển cho phép người dùng chọn một hoặc nhiều giá trị trong một phạm vi (range) nhất định."
-      actions={
-        <MonoSelect
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as Size)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-        />
+      generalConcept={
+        <div className="space-y-4">
+          <ShowcaseDocs>
+            <DocsH3>Khi nào nên dùng Macro</DocsH3>
+            <DocsP>
+              <DocsCode>SliderPreset</DocsCode> đóng gói sẵn Slider + Label +
+              Description + Error Message. Nó tự động xử lý ID linking cho khả
+              năng truy cập (Accessibility). Dùng Macro cho 95% trường hợp làm
+              form lấy giá trị số hoặc bộ lọc (filter).
+            </DocsP>
+          </ShowcaseDocs>
+          <ShowcaseDocs>
+            <DocsH3>Khi nào nên dùng Micro</DocsH3>
+            <DocsP>
+              Dùng <DocsCode>CompositionalSlider</DocsCode> và các thành phần
+              con (<DocsCode>SliderControl</DocsCode>,{" "}
+              <DocsCode>SliderTrack</DocsCode>, <DocsCode>SliderThumb</DocsCode>
+              ) khi bạn cần tuỳ biến giao diện cực hạn (ví dụ: track đổi màu
+              theo giá trị, thumb có hình dáng đặc biệt) hoặc không cần label.
+            </DocsP>
+          </ShowcaseDocs>
+        </div>
       }
+      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
       tabs={[
         {
           label: "Micro (Primitive)",

@@ -1,26 +1,42 @@
-import { useState } from "react";
-import { toast } from "sonner";
 import {
   BoxIcon,
+  CheckIcon,
+  ComponentIcon,
+  CopyIcon,
+  LayersIcon,
+  PaintbrushIcon,
   PaletteIcon,
   ZapIcon,
-  LayersIcon,
-  ComponentIcon,
-  PaintbrushIcon,
-  CopyIcon,
-  CheckIcon,
 } from "lucide-react";
+import { useState } from "react";
+import { toast } from "sonner";
 
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/micro/accordion";
+import { Badge } from "@/components/micro/badge";
+import { Button } from "@/components/micro/button";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/micro/card";
+import { Label } from "@/components/micro/label";
+import { Progress } from "@/components/micro/progress";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/micro/select";
+import { Switch } from "@/components/micro/switch";
 import { ColorSwatch } from "@/dev/components/showcase";
 import { COLORS, STATS } from "@/dev/data";
-import { Button } from "@/components/micro/button";
-import { Badge } from "@/components/micro/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/micro/card";
-import { Label } from "@/components/micro/label";
-import { Switch } from "@/components/micro/switch";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/micro/select";
-import { Progress } from "@/components/micro/progress";
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/micro/accordion";
 
 export default function OverviewSection() {
   const [copied, setCopied] = useState(false);
@@ -52,10 +68,7 @@ export default function OverviewSection() {
           />
           <div className="relative z-10 flex flex-col h-full">
             <div>
-              <Badge
-                color="secondary"
-                className="mb-3 px-2.5 py-0.5 shadow-sm"
-              >
+              <Badge color="secondary" className="mb-3 px-2.5 py-0.5 shadow-sm">
                 ✨ gladcn UI v0.2.1
               </Badge>
               <h2 className="text-3xl font-bold tracking-tight mb-2">

@@ -1,9 +1,9 @@
 ---
-name: 'step-01-scope-and-plan'
-description: 'Read the approved spec, extract every deliverable, and create a sequenced implementation plan'
+name: "step-01-scope-and-plan"
+description: "Read the approved spec, extract every deliverable, and create a sequenced implementation plan"
 
 # File References
-nextStepFile: './step-02-setup-environment.md'
+nextStepFile: "./step-02-setup-environment.md"
 ---
 
 # Step 1: Scope and Plan
@@ -123,10 +123,12 @@ Record the inventory, implementation order, and acceptance criteria in the dialo
 Display: "**Select an Option:** [C] Continue to Step 2: Setup Environment"
 
 #### Menu Handling Logic:
+
 - IF C: Update design log, then load, read entire file, then execute {nextStepFile}
 - IF Any other comments or queries: help user respond then [Redisplay Menu Options]
 
 #### EXECUTION RULES:
+
 - ALWAYS halt and wait for user input after presenting menu
 - ONLY proceed to next step when user selects 'C'
 - User can chat or ask questions - always respond and then redisplay menu options
@@ -140,6 +142,7 @@ ONLY WHEN the implementation plan is complete with inventoried work items, seque
 ## 🚨 SYSTEM SUCCESS/FAILURE METRICS
 
 ### ✅ SUCCESS:
+
 - Spec read in full — no sections skipped
 - All pages, components, and features inventoried
 - Dependencies mapped, implementation order defined
@@ -149,6 +152,7 @@ ONLY WHEN the implementation plan is complete with inventoried work items, seque
 - Plan documented in dialog file
 
 ### ❌ SYSTEM FAILURE:
+
 - Beginning implementation before planning is complete
 - Skipping sections of the spec
 - Not extracting acceptance criteria

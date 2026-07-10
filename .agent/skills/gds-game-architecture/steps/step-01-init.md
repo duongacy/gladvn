@@ -1,22 +1,22 @@
 ---
-name: 'step-01-init'
-description: 'Initialize the architecture workflow, validate readiness, and discover input documents'
+name: "step-01-init"
+description: "Initialize the architecture workflow, validate readiness, and discover input documents"
 
 # Path Definitions
-workflow_path: '{installed_path}'
+workflow_path: "{installed_path}"
 
 # File References
-thisStepFile: './step-01-init.md'
-continueStepFile: './step-01b-continue.md'
-nextStepFile: './step-02-context.md'
-workflowFile: '{workflow_path}/workflow.md'
-outputFile: '{output_folder}/game-architecture.md'
-templateFile: '{workflow_path}/templates/architecture-template.md'
+thisStepFile: "./step-01-init.md"
+continueStepFile: "./step-01b-continue.md"
+nextStepFile: "./step-02-context.md"
+workflowFile: "{workflow_path}/workflow.md"
+outputFile: "{output_folder}/game-architecture.md"
+templateFile: "{workflow_path}/templates/architecture-template.md"
 
 # Knowledge Bases
-decisionCatalog: '{workflow_path}/decision-catalog.yaml'
-architecturePatterns: '{workflow_path}/architecture-patterns.yaml'
-patternCategories: '{workflow_path}/pattern-categories.csv'
+decisionCatalog: "{workflow_path}/decision-catalog.yaml"
+architecturePatterns: "{workflow_path}/architecture-patterns.yaml"
+patternCategories: "{workflow_path}/pattern-categories.csv"
 ---
 
 # Step 1: Initialize Architecture Workflow
@@ -166,18 +166,18 @@ Create `{outputFile}` with frontmatter:
 
 ```markdown
 ---
-title: 'Game Architecture'
-project: '{{project_name}}'
-date: '{{date}}'
-author: '{{user_name}}'
-version: '1.0'
+title: "Game Architecture"
+project: "{{project_name}}"
+date: "{{date}}"
+author: "{{user_name}}"
+version: "1.0"
 stepsCompleted: [1]
-status: 'in-progress'
+status: "in-progress"
 
 # Source Documents
-gdd: '{{gdd_file}}'
-epics: '{{epics_file_or_null}}'
-brief: '{{brief_file_or_null}}'
+gdd: "{{gdd_file}}"
+epics: "{{epics_file_or_null}}"
+brief: "{{brief_file_or_null}}"
 ---
 
 # Game Architecture

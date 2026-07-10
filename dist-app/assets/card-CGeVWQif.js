@@ -1,1 +1,176 @@
-import{Nn as e,cr as t,dr as n,i as r,n as i,r as a,s as o}from"./showcase-vJrKG7HA.js";import{At as s,Ft as c,It as l,Lt as u,Mt as d,Nt as f,Pt as p,jt as m}from"./index-Dk0REsC9.js";import{t as h}from"./select-preset-B6grUIWS.js";import{t as g}from"./input-CyfiqGPM.js";var _=n(t(),1),v=e(),y=_.forwardRef(({title:e,description:t,footer:n,children:r,...i},a)=>(0,v.jsxs)(m,{ref:a,...i,children:[(e||t)&&(0,v.jsxs)(c,{children:[e&&(0,v.jsx)(l,{children:e}),t&&(0,v.jsx)(f,{children:t})]}),r&&(0,v.jsx)(d,{children:r}),n&&(0,v.jsx)(p,{children:n})]}));y.displayName=`CardPreset`;function b(){let[e,t]=(0,_.useState)(`md`);return(0,v.jsxs)(`div`,{className:`space-y-10`,children:[(0,v.jsx)(r,{title:`Card Preset (Macro)`,description:`Một thành phần của các nguyên hàm Card để nhanh chóng xây dựng các thẻ tiêu chuẩn mà không cần bản soạn sẵn.`,children:(0,v.jsx)(h,{value:e,onValueChange:e=>t(e),options:[{value:`sm`,label:`Size: sm`},{value:`md`,label:`Size: md`},{value:`lg`,label:`Size: lg`}],className:`w-[120px] h-8 text-xs bg-background`})}),(0,v.jsxs)(i,{columns:2,children:[(0,v.jsx)(a,{label:`Standard Preset`,description:`Chuyển tiêu đề, mô tả và chân trang làm đạo cụ.`,children:(0,v.jsx)(y,{size:e,title:`Account Settings`,description:`Quản lý các cài đặt và tùy chọn cho tài khoản của bạn.`,footer:(0,v.jsx)(o,{size:e,children:`Save Changes`}),className:`w-full`,children:(0,v.jsx)(`div`,{className:`text-sm text-muted-foreground bg-muted/30 p-4 rounded-lg border border-dashed border-border/50`,children:`Settings form content goes here.`})})}),(0,v.jsx)(a,{label:`No Footer`,description:`Bỏ qua phần chân trang để ẩn hoàn toàn phần chân trang.`,children:(0,v.jsx)(y,{size:e,title:`Notification Preferences`,description:`Chọn những thông tin mà bạn muốn nhận thông báo.`,className:`w-full`,children:(0,v.jsx)(`div`,{className:`text-sm text-muted-foreground bg-muted/30 p-4 rounded-lg border border-dashed border-border/50`,children:`Switches and toggles go here.`})})}),(0,v.jsx)(a,{label:`Custom Title Node`,description:`Tiêu đề hỗ trợ chấp nhận ReactNode, cho phép biểu tượng và huy hiệu.`,children:(0,v.jsx)(y,{size:e,title:(0,v.jsxs)(`div`,{className:`flex items-center gap-2`,children:[(0,v.jsx)(`span`,{children:`API Keys`}),(0,v.jsx)(u,{color:`warning`,children:`Experimental`})]}),description:`Quản lý các khóa API bí mật của bạn để truy cập từ bên ngoài.`,className:`w-full`,children:(0,v.jsxs)(`div`,{className:`text-sm text-muted-foreground bg-muted/30 p-4 rounded-lg border border-dashed border-border/50 flex items-center justify-between`,children:[(0,v.jsx)(`span`,{className:`font-mono`,children:`sk_live_123...`}),(0,v.jsx)(o,{size:`sm`,variant:`outline`,children:`Copy`})]})})}),(0,v.jsx)(a,{label:`With Form Controls`,description:`Sử dụng trẻ em để hiển thị các hình thức và bố cục phức tạp.`,children:(0,v.jsx)(y,{size:e,title:`Update Profile`,description:`Thay đổi tên hiển thị và email của bạn.`,footer:(0,v.jsxs)(`div`,{className:`flex justify-between w-full`,children:[(0,v.jsx)(o,{variant:`ghost`,size:e,children:`Cancel`}),(0,v.jsx)(o,{size:e,children:`Save`})]}),className:`w-full`,children:(0,v.jsxs)(`div`,{className:`grid gap-4`,children:[(0,v.jsxs)(`div`,{className:`flex flex-col space-y-1.5`,children:[(0,v.jsx)(s,{htmlFor:`name`,children:`Name`}),(0,v.jsx)(g,{id:`name`,placeholder:`Enter your name`})]}),(0,v.jsxs)(`div`,{className:`flex flex-col space-y-1.5`,children:[(0,v.jsx)(s,{htmlFor:`email`,children:`Email`}),(0,v.jsx)(g,{id:`email`,type:`email`,placeholder:`hello@example.com`})]})]})})})]})]})}export{b as default};
+import {
+  Nn as e,
+  cr as t,
+  dr as n,
+  i as r,
+  n as i,
+  r as a,
+  s as o,
+} from "./showcase-vJrKG7HA.js";
+import {
+  At as s,
+  Ft as c,
+  It as l,
+  Lt as u,
+  Mt as d,
+  Nt as f,
+  Pt as p,
+  jt as m,
+} from "./index-Dk0REsC9.js";
+import { t as h } from "./select-preset-B6grUIWS.js";
+import { t as g } from "./input-CyfiqGPM.js";
+var _ = n(t(), 1),
+  v = e(),
+  y = _.forwardRef(
+    ({ title: e, description: t, footer: n, children: r, ...i }, a) =>
+      (0, v.jsxs)(m, {
+        ref: a,
+        ...i,
+        children: [
+          (e || t) &&
+            (0, v.jsxs)(c, {
+              children: [
+                e && (0, v.jsx)(l, { children: e }),
+                t && (0, v.jsx)(f, { children: t }),
+              ],
+            }),
+          r && (0, v.jsx)(d, { children: r }),
+          n && (0, v.jsx)(p, { children: n }),
+        ],
+      }),
+  );
+y.displayName = `CardPreset`;
+function b() {
+  let [e, t] = (0, _.useState)(`md`);
+  return (0, v.jsxs)(`div`, {
+    className: `space-y-10`,
+    children: [
+      (0, v.jsx)(r, {
+        title: `Card Preset (Macro)`,
+        description: `Một thành phần của các nguyên hàm Card để nhanh chóng xây dựng các thẻ tiêu chuẩn mà không cần bản soạn sẵn.`,
+        children: (0, v.jsx)(h, {
+          value: e,
+          onValueChange: (e) => t(e),
+          options: [
+            { value: `sm`, label: `Size: sm` },
+            { value: `md`, label: `Size: md` },
+            { value: `lg`, label: `Size: lg` },
+          ],
+          className: `w-[120px] h-8 text-xs bg-background`,
+        }),
+      }),
+      (0, v.jsxs)(i, {
+        columns: 2,
+        children: [
+          (0, v.jsx)(a, {
+            label: `Standard Preset`,
+            description: `Chuyển tiêu đề, mô tả và chân trang làm đạo cụ.`,
+            children: (0, v.jsx)(y, {
+              size: e,
+              title: `Account Settings`,
+              description: `Quản lý các cài đặt và tùy chọn cho tài khoản của bạn.`,
+              footer: (0, v.jsx)(o, { size: e, children: `Save Changes` }),
+              className: `w-full`,
+              children: (0, v.jsx)(`div`, {
+                className: `text-sm text-muted-foreground bg-muted/30 p-4 rounded-lg border border-dashed border-border/50`,
+                children: `Settings form content goes here.`,
+              }),
+            }),
+          }),
+          (0, v.jsx)(a, {
+            label: `No Footer`,
+            description: `Bỏ qua phần chân trang để ẩn hoàn toàn phần chân trang.`,
+            children: (0, v.jsx)(y, {
+              size: e,
+              title: `Notification Preferences`,
+              description: `Chọn những thông tin mà bạn muốn nhận thông báo.`,
+              className: `w-full`,
+              children: (0, v.jsx)(`div`, {
+                className: `text-sm text-muted-foreground bg-muted/30 p-4 rounded-lg border border-dashed border-border/50`,
+                children: `Switches and toggles go here.`,
+              }),
+            }),
+          }),
+          (0, v.jsx)(a, {
+            label: `Custom Title Node`,
+            description: `Tiêu đề hỗ trợ chấp nhận ReactNode, cho phép biểu tượng và huy hiệu.`,
+            children: (0, v.jsx)(y, {
+              size: e,
+              title: (0, v.jsxs)(`div`, {
+                className: `flex items-center gap-2`,
+                children: [
+                  (0, v.jsx)(`span`, { children: `API Keys` }),
+                  (0, v.jsx)(u, { color: `warning`, children: `Experimental` }),
+                ],
+              }),
+              description: `Quản lý các khóa API bí mật của bạn để truy cập từ bên ngoài.`,
+              className: `w-full`,
+              children: (0, v.jsxs)(`div`, {
+                className: `text-sm text-muted-foreground bg-muted/30 p-4 rounded-lg border border-dashed border-border/50 flex items-center justify-between`,
+                children: [
+                  (0, v.jsx)(`span`, {
+                    className: `font-mono`,
+                    children: `sk_live_123...`,
+                  }),
+                  (0, v.jsx)(o, {
+                    size: `sm`,
+                    variant: `outline`,
+                    children: `Copy`,
+                  }),
+                ],
+              }),
+            }),
+          }),
+          (0, v.jsx)(a, {
+            label: `With Form Controls`,
+            description: `Sử dụng trẻ em để hiển thị các hình thức và bố cục phức tạp.`,
+            children: (0, v.jsx)(y, {
+              size: e,
+              title: `Update Profile`,
+              description: `Thay đổi tên hiển thị và email của bạn.`,
+              footer: (0, v.jsxs)(`div`, {
+                className: `flex justify-between w-full`,
+                children: [
+                  (0, v.jsx)(o, {
+                    variant: `ghost`,
+                    size: e,
+                    children: `Cancel`,
+                  }),
+                  (0, v.jsx)(o, { size: e, children: `Save` }),
+                ],
+              }),
+              className: `w-full`,
+              children: (0, v.jsxs)(`div`, {
+                className: `grid gap-4`,
+                children: [
+                  (0, v.jsxs)(`div`, {
+                    className: `flex flex-col space-y-1.5`,
+                    children: [
+                      (0, v.jsx)(s, { htmlFor: `name`, children: `Name` }),
+                      (0, v.jsx)(g, {
+                        id: `name`,
+                        placeholder: `Enter your name`,
+                      }),
+                    ],
+                  }),
+                  (0, v.jsxs)(`div`, {
+                    className: `flex flex-col space-y-1.5`,
+                    children: [
+                      (0, v.jsx)(s, { htmlFor: `email`, children: `Email` }),
+                      (0, v.jsx)(g, {
+                        id: `email`,
+                        type: `email`,
+                        placeholder: `hello@example.com`,
+                      }),
+                    ],
+                  }),
+                ],
+              }),
+            }),
+          }),
+        ],
+      }),
+    ],
+  });
+}
+export { b as default };

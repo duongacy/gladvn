@@ -1,11 +1,11 @@
 ---
-name: 'step-03a-execute-review'
-description: 'Autonomous execution loop - automate and code review'
-nextStep: './step-03b-execute-finish.md'
-scriptsDir: '../scripts/story-automator'
-outputFile: '{output_folder}/story-automator/orchestration-{epic_id}-{timestamp}.md'
-retryStrategy: '../data/retry-fallback-strategy.md'
-reviewLoop: '../data/code-review-loop.md'
+name: "step-03a-execute-review"
+description: "Autonomous execution loop - automate and code review"
+nextStep: "./step-03b-execute-finish.md"
+scriptsDir: "../scripts/story-automator"
+outputFile: "{output_folder}/story-automator/orchestration-{epic_id}-{timestamp}.md"
+retryStrategy: "../data/retry-fallback-strategy.md"
+reviewLoop: "../data/code-review-loop.md"
 ---
 
 # Step 3a: Execute Review Phase
@@ -27,7 +27,8 @@ Set: `scripts="{scriptsDir}"`
 ## Story Loop (Continue from Step 3)
 
 ### C. Automate (Guardrails)
-*Skip if `overrides.skipAutomate`*
+
+_Skip if `overrides.skipAutomate`_
 
 **Apply retry/fallback pattern from `{retryStrategy}`:** Non-blocking, but still retry on failure.
 
@@ -68,6 +69,7 @@ result=$("$scripts" monitor-session "$session" --json --agent "$current_agent")
 **See `{reviewLoop}` for complete script-based review cycle with v2.3 per-task agent configuration.**
 
 **MANDATORY log-summary contract (every review cycle):**
+
 - Run a single grep/regex pass over review output first.
 - Return only compact fields to parent flow: `next_action`, `confidence`, `error_class`, `issues_count`, `top_issues`.
 - Do not carry full log payloads forward unless escalation requires raw evidence.
@@ -92,6 +94,7 @@ review_summary=$("$scripts" orchestrator-helper parse-output "$review_log" revie
 ```
 
 Key points:
+
 - Up to 5 cycles using `story-automator tmux-wrapper spawn review` + `story-automator monitor-session`
 - **Agent:** Uses per-task config from state document (`resolve_agent_for_task "review"`)
 - **Verification:** Uses `--workflow review --story-key` for sprint-status verification
@@ -122,4 +125,5 @@ echo "- **[$(date -u +%Y-%m-%dT%H:%M:%SZ)]** Code review complete, proceeding to
 ---
 
 ## Then
+
 → Immediately load and execute `{nextStep}`

@@ -1,7 +1,7 @@
 ---
-name: 'step-v-02-report'
-description: 'Validate story progress consistency and present final validation report'
-outputFile: '{output_folder}/story-automator/orchestration-{epic_id}-{timestamp}.md'
+name: "step-v-02-report"
+description: "Validate story progress consistency and present final validation report"
+outputFile: "{output_folder}/story-automator/orchestration-{epic_id}-{timestamp}.md"
 ---
 
 # Validation Step 2: Progress Consistency + Final Report
@@ -22,6 +22,7 @@ outputFile: '{output_folder}/story-automator/orchestration-{epic_id}-{timestamp}
 ### 1. Load Validation Context from Step 1
 
 Use carried-forward context:
+
 - `state_path`
 - `validation`
 - `sessions`
@@ -34,6 +35,7 @@ Load the selected state document again (resolved as `{state_path}` for this run)
 ### 2. Validate Story Progress Thoroughly
 
 Run a single prefilter pass first and keep parent context compact:
+
 ```bash
 # Focused extraction before deep checks
 progress_focus=$(rg -n "done|in_progress|blocked|review|create|dev|automate|commit|ERROR|WARN|FAIL" "$state_path" | head -n 200)
@@ -43,6 +45,7 @@ fi
 ```
 
 Return only compact progress fields to the final report synthesis:
+
 - `story_count`
 - `progress_rows`
 - `inconsistency_count`
@@ -50,12 +53,14 @@ Return only compact progress fields to the final report synthesis:
 - `critical_issues[]`
 
 For each story in `storyRange`:
+
 - Check progress table has an entry for the story
 - Verify task sequence is coherent (`create -> dev -> automate -> review -> commit`)
 - Flag impossible regressions (for example, `review=done` while `dev` missing)
 - Detect potentially stuck stories (same `currentStep` for too long without action-log movement)
 
 Deterministic checks (example pattern):
+
 ```bash
 # Example only: derive summary values from state/action log without loading full logs
 story_count=$(echo "$validation" | jq -r '.storyRangeCount // 0')
@@ -63,6 +68,7 @@ progress_rows=$(rg -n "^[[:space:]]*\\|[[:space:]]*[0-9]+\\.[0-9]+" "$state_path
 ```
 
 If `story_count >= 4`, run per-story consistency checks in parallel and return compact rows only:
+
 ```bash
 story_ids=$(echo "$validation" | jq -r '.storyRange[]?')
 tmp_progress=$(mktemp)
@@ -76,11 +82,13 @@ rm -f "$tmp_progress"
 ### 3. Consolidate Findings
 
 Create final status buckets:
+
 - **Structure:** from `validation`
 - **Sessions:** from `sessions`, `orphaned_refs`, `untracked_live`
 - **Progress:** from step-2 checks above
 
 Mark severity:
+
 - **CRITICAL:** malformed state / irrecoverable sequence corruption
 - **WARNING:** stale or inconsistent but recoverable
 - **INFO:** healthy or minor notes
@@ -112,4 +120,5 @@ Display: "**Validation complete.** Review the issues above and use the edit work
 ---
 
 ## Then
+
 → End workflow (validation completed in 2 steps)

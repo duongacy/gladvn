@@ -1,24 +1,24 @@
 ---
-name: 'step-04-decisions'
-description: 'Facilitate collaborative architectural decision making for game systems'
+name: "step-04-decisions"
+description: "Facilitate collaborative architectural decision making for game systems"
 
 # Path Definitions
-workflow_path: '{installed_path}'
+workflow_path: "{installed_path}"
 
 # File References
-thisStepFile: './step-04-decisions.md'
-nextStepFile: './step-05-crosscutting.md'
-workflowFile: '{workflow_path}/workflow.md'
-outputFile: '{output_folder}/game-architecture.md'
+thisStepFile: "./step-04-decisions.md"
+nextStepFile: "./step-05-crosscutting.md"
+workflowFile: "{workflow_path}/workflow.md"
+outputFile: "{output_folder}/game-architecture.md"
 
 # Knowledge Bases
-decisionCatalog: '{workflow_path}/decision-catalog.yaml'
-architecturePatterns: '{workflow_path}/architecture-patterns.yaml'
-engineKnowledge: '{workflow_path}/knowledge/{selected_engine}-engine.md'
+decisionCatalog: "{workflow_path}/decision-catalog.yaml"
+architecturePatterns: "{workflow_path}/architecture-patterns.yaml"
+engineKnowledge: "{workflow_path}/knowledge/{selected_engine}-engine.md"
 
 # Task References
-advancedElicitationTask: 'skill:bmad-advanced-elicitation'
-partyModeWorkflow: 'skill:bmad-party-mode'
+advancedElicitationTask: "skill:bmad-advanced-elicitation"
+partyModeWorkflow: "skill:bmad-party-mode"
 ---
 
 # Step 4: Architectural Decisions

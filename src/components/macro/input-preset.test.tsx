@@ -1,6 +1,5 @@
-import React from "react";
-import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
+import { describe, expect, it } from "vitest";
 import { InputPreset } from "./input-preset";
 
 describe("InputPreset", () => {
@@ -16,7 +15,9 @@ describe("InputPreset", () => {
   });
 
   it("renders description when provided", () => {
-    render(<InputPreset label="Email" description="Enter your email address" />);
+    render(
+      <InputPreset label="Email" description="Enter your email address" />,
+    );
     expect(screen.getByText("Enter your email address")).toBeInTheDocument();
   });
 

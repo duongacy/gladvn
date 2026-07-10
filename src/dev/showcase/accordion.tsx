@@ -1,23 +1,19 @@
-import { useState } from "react";
-import {
-  ExampleSection,
-  ExampleGrid,
-  ShowcaseDocs,
-  Showcase,
-  DocsH3,
-  DocsP,
-  DocsUl,
-  DocsLi,
-  DocsCode,
-} from "@/dev/components/showcase";
+import { AccordionPreset } from "@/components/macro/accordion-preset";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/micro/accordion";
-import { AccordionPreset } from "@/components/macro/accordion-preset";
-import { SettingsIcon, BoxIcon, SlidersHorizontalIcon } from "lucide-react";
+import {
+  DocsP,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+} from "@/dev/components/showcase";
+import { BoxIcon, SettingsIcon, SlidersHorizontalIcon } from "lucide-react";
+import { useState } from "react";
 
 // ──────────────────────────────────────────────────────────
 // Shared Data
@@ -41,9 +37,6 @@ const faqItems = [
   },
 ];
 
-const firstQ = faqItems[0]?.q ?? "";
-const secondQ = faqItems[1]?.q ?? "";
-
 const presetItems = [
   {
     value: "item-1",
@@ -64,12 +57,6 @@ const presetItems = [
   },
 ];
 
-const presetItemsForCompare = faqItems.map((item) => ({
-  value: item.q,
-  title: item.q,
-  content: item.a,
-}));
-
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Macro Content (không export)
 // ──────────────────────────────────────────────────────────
@@ -78,35 +65,6 @@ function AccordionMacroShowcase() {
 
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Khi nào nên dùng</DocsH3>
-        <DocsP>
-          Đây là phiên bản <b>được khuyên dùng mặc định</b> cho 90% các trường
-          hợp cần Accordion (như FAQ, điều khoản, menu con). Thay vì phải render
-          thủ công từng thẻ Root, Item, Trigger, Content, bạn chỉ cần truyền vào
-          một array <DocsCode>items</DocsCode>.
-        </DocsP>
-
-        <DocsH3>Ưu điểm</DocsH3>
-        <DocsUl>
-          <DocsLi>Code siêu ngắn gọn, data-driven, dễ bảo trì.</DocsLi>
-          <DocsLi>Đảm bảo chuẩn xác về Type và cấu trúc Headless UI.</DocsLi>
-          <DocsLi>
-            Vẫn hỗ trợ nhét React Component phức tạp vào thẻ{" "}
-            <DocsCode>content</DocsCode> (như ví dụ Complex Content và Nested
-            bên dưới).
-          </DocsLi>
-        </DocsUl>
-
-        <DocsH3>Lưu ý</DocsH3>
-        <DocsP>
-          Bản Macro này đã được gói ghém (encapsulated) layout cẩn thận. Bạn có
-          thể thoải mái truyền <DocsCode>className</DocsCode> vào thẳng thẻ{" "}
-          <DocsCode>&lt;AccordionPreset /&gt;</DocsCode> để giới hạn width hay
-          margin mà không sợ vỡ layout bên trong.
-        </DocsP>
-      </ShowcaseDocs>
-
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Tiêu Chuẩn (Standard)"
@@ -114,14 +72,49 @@ function AccordionMacroShowcase() {
           codeString={`<AccordionPreset
   className="w-full"
   defaultValue={["item-1"]}
-  items={presetItems}
+  items={[
+              {
+                value: "item-1",
+                title: "Is it accessible?",
+                content: "Yes. It adheres to the WAI-ARIA design pattern. Keyboard navigation and screen readers are fully supported.",
+              },
+              {
+                value: "item-2",
+                title: "Is it styled?",
+                content: "Yes. It comes with default styles that match the other components' aesthetic.",
+              },
+              {
+                value: "item-3",
+                title: "Is it animated?",
+                content: "Yes. It's animated by default with smooth transitions.",
+              },
+            ]}
 />
 `}
         >
           <AccordionPreset
             className="w-full"
             defaultValue={["item-1"]}
-            items={presetItems}
+            items={[
+              {
+                value: "item-1",
+                title: "Is it accessible?",
+                content:
+                  "Yes. It adheres to the WAI-ARIA design pattern. Keyboard navigation and screen readers are fully supported.",
+              },
+              {
+                value: "item-2",
+                title: "Is it styled?",
+                content:
+                  "Yes. It comes with default styles that match the other components' aesthetic.",
+              },
+              {
+                value: "item-3",
+                title: "Is it animated?",
+                content:
+                  "Yes. It's animated by default with smooth transitions.",
+              },
+            ]}
           />
         </ExampleSection>
 
@@ -132,7 +125,23 @@ function AccordionMacroShowcase() {
   className="w-full"
   multiple
   defaultValue={["item-1", "item-2"]}
-  items={presetItems}
+  items={[
+              {
+                value: "item-1",
+                title: "Is it accessible?",
+                content: "Yes. It adheres to the WAI-ARIA design pattern. Keyboard navigation and screen readers are fully supported.",
+              },
+              {
+                value: "item-2",
+                title: "Is it styled?",
+                content: "Yes. It comes with default styles that match the other components' aesthetic.",
+              },
+              {
+                value: "item-3",
+                title: "Is it animated?",
+                content: "Yes. It's animated by default with smooth transitions.",
+              },
+            ]}
 />
 `}
         >
@@ -140,7 +149,26 @@ function AccordionMacroShowcase() {
             className="w-full"
             multiple
             defaultValue={["item-1", "item-2"]}
-            items={presetItems}
+            items={[
+              {
+                value: "item-1",
+                title: "Is it accessible?",
+                content:
+                  "Yes. It adheres to the WAI-ARIA design pattern. Keyboard navigation and screen readers are fully supported.",
+              },
+              {
+                value: "item-2",
+                title: "Is it styled?",
+                content:
+                  "Yes. It comes with default styles that match the other components' aesthetic.",
+              },
+              {
+                value: "item-3",
+                title: "Is it animated?",
+                content:
+                  "Yes. It's animated by default with smooth transitions.",
+              },
+            ]}
           />
         </ExampleSection>
       </ExampleGrid>
@@ -156,7 +184,23 @@ return (
     multiple
     value={controlledValue}
     onValueChange={setControlledValue}
-    items={presetItems}
+    items={[
+              {
+                value: "item-1",
+                title: "Is it accessible?",
+                content: "Yes. It adheres to the WAI-ARIA design pattern. Keyboard navigation and screen readers are fully supported.",
+              },
+              {
+                value: "item-2",
+                title: "Is it styled?",
+                content: "Yes. It comes with default styles that match the other components' aesthetic.",
+              },
+              {
+                value: "item-3",
+                title: "Is it animated?",
+                content: "Yes. It's animated by default with smooth transitions.",
+              },
+            ]}
   />
 );`}
         >
@@ -174,7 +218,26 @@ return (
               multiple
               value={controlledValue}
               onValueChange={setControlledValue}
-              items={presetItems}
+              items={[
+                {
+                  value: "item-1",
+                  title: "Is it accessible?",
+                  content:
+                    "Yes. It adheres to the WAI-ARIA design pattern. Keyboard navigation and screen readers are fully supported.",
+                },
+                {
+                  value: "item-2",
+                  title: "Is it styled?",
+                  content:
+                    "Yes. It comes with default styles that match the other components' aesthetic.",
+                },
+                {
+                  value: "item-3",
+                  title: "Is it animated?",
+                  content:
+                    "Yes. It's animated by default with smooth transitions.",
+                },
+              ]}
             />
           </div>
         </ExampleSection>
@@ -374,15 +437,6 @@ return (
 function AccordionMicroShowcase() {
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Khi nào nên dùng</DocsH3>
-        <DocsP>
-          Dùng để gom nhóm các khối nội dung lớn nhằm tiết kiệm không gian hiển
-          thị (ví dụ: FAQ, Advanced Settings). Không nên dùng Accordion nếu nội
-          dung bên trong quá quan trọng và cần user phải nhìn thấy ngay lập tức.
-        </DocsP>
-      </ShowcaseDocs>
-
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Mở Đơn (Single Expand)"
@@ -402,13 +456,26 @@ function AccordionMicroShowcase() {
   </AccordionItem>
 </Accordion>`}
         >
-          <Accordion className="w-full" defaultValue={[firstQ]}>
-            {faqItems.slice(0, 3).map(({ q, a }) => (
-              <AccordionItem key={q} value={q}>
-                <AccordionTrigger>{q}</AccordionTrigger>
-                <AccordionContent>{a}</AccordionContent>
-              </AccordionItem>
-            ))}
+          <Accordion className="w-full" defaultValue={["Is it accessible?"]}>
+            <AccordionItem value="Is it accessible?">
+              <AccordionTrigger>Is it accessible?</AccordionTrigger>
+              <AccordionContent>
+                Yes. It adheres to the WAI-ARIA design pattern.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="Is it styled?">
+              <AccordionTrigger>Is it styled?</AccordionTrigger>
+              <AccordionContent>
+                Yes. It comes with default styles that match the other
+                components' aesthetic.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="Is it animated?">
+              <AccordionTrigger>Is it animated?</AccordionTrigger>
+              <AccordionContent>
+                Yes. It's animated by default with smooth transitions.
+              </AccordionContent>
+            </AccordionItem>
           </Accordion>
         </ExampleSection>
 
@@ -433,14 +500,27 @@ function AccordionMicroShowcase() {
           <Accordion
             className="w-full"
             multiple
-            defaultValue={[firstQ, secondQ]}
+            defaultValue={["Is it accessible?", "Is it styled?"]}
           >
-            {faqItems.slice(0, 3).map(({ q, a }) => (
-              <AccordionItem key={q} value={q}>
-                <AccordionTrigger>{q}</AccordionTrigger>
-                <AccordionContent>{a}</AccordionContent>
-              </AccordionItem>
-            ))}
+            <AccordionItem value="Is it accessible?">
+              <AccordionTrigger>Is it accessible?</AccordionTrigger>
+              <AccordionContent>
+                Yes. It adheres to the WAI-ARIA design pattern.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="Is it styled?">
+              <AccordionTrigger>Is it styled?</AccordionTrigger>
+              <AccordionContent>
+                Yes. It comes with default styles that match the other
+                components' aesthetic.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="Is it animated?">
+              <AccordionTrigger>Is it animated?</AccordionTrigger>
+              <AccordionContent>
+                Yes. It's animated by default with smooth transitions.
+              </AccordionContent>
+            </AccordionItem>
           </Accordion>
         </ExampleSection>
       </ExampleGrid>
@@ -608,12 +688,32 @@ function AccordionMicroShowcase() {
 </Accordion>`}
       >
         <Accordion className="w-full max-w-lg">
-          {faqItems.map(({ q, a }) => (
-            <AccordionItem key={q} value={q}>
-              <AccordionTrigger>{q}</AccordionTrigger>
-              <AccordionContent>{a}</AccordionContent>
-            </AccordionItem>
-          ))}
+          <AccordionItem value="Is it accessible?">
+            <AccordionTrigger>Is it accessible?</AccordionTrigger>
+            <AccordionContent>
+              Yes. It adheres to the WAI-ARIA design pattern.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="Is it styled?">
+            <AccordionTrigger>Is it styled?</AccordionTrigger>
+            <AccordionContent>
+              Yes. It comes with default styles that match the other components'
+              aesthetic.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="Is it animated?">
+            <AccordionTrigger>Is it animated?</AccordionTrigger>
+            <AccordionContent>
+              Yes. It's animated by default with smooth transitions.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="Can I nest accordions?">
+            <AccordionTrigger>Can I nest accordions?</AccordionTrigger>
+            <AccordionContent>
+              Yes. You can nest accordion components inside each other to create
+              multi-level collapsible sections.
+            </AccordionContent>
+          </AccordionItem>
         </Accordion>
       </ExampleSection>
 
@@ -647,7 +747,10 @@ function AccordionMicroShowcase() {
     <div className="rounded-lg bg-muted/50 p-3">
       <AccordionPreset
         className="w-full"
-        items={presetItemsForCompare.slice(0, 2)}
+        items={[
+  { value: "Is it accessible?", title: "Is it accessible?", content: "Yes. It adheres to the WAI-ARIA design pattern." },
+  { value: "Is it styled?", title: "Is it styled?", content: "Yes. It comes with default styles that match the other components' aesthetic." },
+]}
       />
     </div>
 
@@ -737,7 +840,19 @@ function AccordionMicroShowcase() {
             <div className="rounded-lg bg-muted/50 p-3">
               <AccordionPreset
                 className="w-full"
-                items={presetItemsForCompare.slice(0, 2)}
+                items={[
+                  {
+                    value: "Is it accessible?",
+                    title: "Is it accessible?",
+                    content: "Yes. It adheres to the WAI-ARIA design pattern.",
+                  },
+                  {
+                    value: "Is it styled?",
+                    title: "Is it styled?",
+                    content:
+                      "Yes. It comes with default styles that match the other components' aesthetic.",
+                  },
+                ]}
               />
             </div>
 
@@ -813,6 +928,16 @@ export default function AccordionShowcase() {
     <Showcase
       title="Accordion"
       description="Tập hợp các tiêu đề có thể tương tác xếp chồng lên nhau theo chiều dọc, mỗi tiêu đề sẽ mở ra một phần nội dung."
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsP>
+            Dùng để gom nhóm các khối nội dung lớn nhằm tiết kiệm không gian
+            hiển thị (ví dụ: FAQ, Advanced Settings). Không nên dùng Accordion
+            nếu nội dung bên trong quá quan trọng và cần user phải nhìn thấy
+            ngay lập tức.
+          </DocsP>
+        </ShowcaseDocs>
+      }
       tabs={[
         { label: "Micro (Primitive)", content: <AccordionMicroShowcase /> },
         { label: "Macro (Preset)", content: <AccordionMacroShowcase /> },

@@ -1,14 +1,15 @@
 ---
-name: 'step-02a-preflight-config'
-description: 'Configure agents and execution settings, then create state document'
-nextStep: './step-02b-preflight-finalize.md'
-stateTemplate: '../templates/state-document.md'
-outputFolder: '{output_folder}/story-automator'
-outputFile: '{outputFolder}/orchestration-{epic_id}-{timestamp}.md'
-buildStateDoc: '../scripts/story-automator'
-agentConfigPrompts: '../data/agent-config-prompts.md'
-agentConfigPresets: '../data/agent-config-presets.json'
+name: "step-02a-preflight-config"
+description: "Configure agents and execution settings, then create state document"
+nextStep: "./step-02b-preflight-finalize.md"
+stateTemplate: "../templates/state-document.md"
+outputFolder: "{output_folder}/story-automator"
+outputFile: "{outputFolder}/orchestration-{epic_id}-{timestamp}.md"
+buildStateDoc: "../scripts/story-automator"
+agentConfigPrompts: "../data/agent-config-prompts.md"
+agentConfigPresets: "../data/agent-config-presets.json"
 ---
+
 # Step 2a: Pre-flight Configuration
 
 **Goal:** Configure agents and execution settings, then create the orchestration state document.
@@ -58,6 +59,7 @@ Store `preset_count` — this determines whether [L]oad option appears in the me
 **2b. Present Complexity-Based Agent Options**
 
 Display prompts from `{agentConfigPrompts}`, selecting the appropriate table variant:
+
 - If `skip_automate` is false: show table WITH `auto` column
 - If `skip_automate` is true: show table WITHOUT `auto` column
 - If `preset_count > 0`: include [L]oad saved option
@@ -83,6 +85,7 @@ agent_config_json='{
 ```
 
 Store:
+
 - `agent_config_json` = full config object
 - `primary_agent` = default primary (for backwards compatibility)
 
@@ -98,6 +101,7 @@ Only when user chose **[U]niform** or **[C]ustom**, follow the Save Configuratio
 ### 3. Review
 
 Display configuration summary:
+
 - Epic and story range
 - Custom instructions (if any)
 - Agent configuration
@@ -108,6 +112,7 @@ Pause for confirmation before starting execution.
 ### 3b. Confirm Autonomous Start (Optional Checkpoint)
 
 Before creating state and launching autonomous phases, confirm:
+
 ```
 Proceed with autonomous execution after preflight? [Y/n]
 ```
@@ -120,6 +125,7 @@ Proceed with autonomous execution after preflight? [Y/n]
 ### 4. Create State Document
 
 From `{stateTemplate}`:
+
 - Generate: `orchestration-{epic_id}-{timestamp}.md`
 - Fill frontmatter with all config
 - Initialize story progress table
@@ -127,6 +133,7 @@ From `{stateTemplate}`:
 - Save to `{outputFolder}`
 
 Deterministic creation:
+
 ```bash
 agent_cmd="claude --dangerously-skip-permissions"
 if [ "$primary_agent" = "codex" ]; then agent_cmd="codex exec --full-auto"; fi
@@ -159,4 +166,5 @@ Persist any preflight notes to `{outputFile}`, update frontmatter (append `step-
 ---
 
 ## Then
+
 → Load, read entire file, and execute `{nextStep}`

@@ -7,12 +7,30 @@ import {
   ZapIcon,
 } from "lucide-react";
 
-import { SectionHeader, ShowcaseBlock } from "@/dev/components/showcase";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/micro/accordion";
-import { Avatar, AvatarBadge, AvatarFallback, AvatarGroup, AvatarGroupCount, AvatarImage } from "@/components/micro/avatar";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/micro/accordion";
+import {
+  Avatar,
+  AvatarBadge,
+  AvatarFallback,
+  AvatarGroup,
+  AvatarGroupCount,
+  AvatarImage,
+} from "@/components/micro/avatar";
 import { Badge } from "@/components/micro/badge";
 import { Button } from "@/components/micro/button";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/micro/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/micro/card";
+import { SectionHeader, ShowcaseBlock } from "@/dev/components/showcase";
 
 export default function DisplaySection() {
   return (
@@ -138,44 +156,42 @@ export default function DisplaySection() {
               </tr>
             </thead>
             <tbody className="divide-y">
-              {([
-                { label: "Secondary", props: { color: "secondary" } },
-                { label: "Destructive", props: { color: "destructive" } },
-                { label: "Outline", props: { variant: "outline" } },
-              ] as const).map(({ label, props }) => (
-                  <tr
-                    key={label}
-                    className="group hover:bg-muted/30 transition-colors"
-                  >
-                    <td className="py-4 pr-4">
-                      <span className="text-sm font-medium capitalize">
-                        {label}
-                      </span>
-                    </td>
-                    <td className="py-4 pr-4">
-                      <Badge {...props as any}>Badge</Badge>
-                    </td>
-                    <td className="py-4 pr-4">
-                      <Badge {...props as any}>
-                        <CheckCircle2Icon data-icon="inline-start" /> Status
-                      </Badge>
-                    </td>
-                    <td className="py-4 pr-4">
-                      <Badge {...props as any}>
-                        Updates <BellIcon data-icon="inline-end" />
-                      </Badge>
-                    </td>
-                    <td className="py-4 pr-4">
-                      <Badge
-                        {...props as any}
-                        render={<a href="#link" />}
-                      >
-                        Clickable
-                      </Badge>
-                    </td>
-                  </tr>
-                ),
-              )}
+              {(
+                [
+                  { label: "Secondary", props: { color: "secondary" } },
+                  { label: "Destructive", props: { color: "destructive" } },
+                  { label: "Outline", props: { variant: "outline" } },
+                ] as const
+              ).map(({ label, props }) => (
+                <tr
+                  key={label}
+                  className="group hover:bg-muted/30 transition-colors"
+                >
+                  <td className="py-4 pr-4">
+                    <span className="text-sm font-medium capitalize">
+                      {label}
+                    </span>
+                  </td>
+                  <td className="py-4 pr-4">
+                    <Badge {...(props as any)}>Badge</Badge>
+                  </td>
+                  <td className="py-4 pr-4">
+                    <Badge {...(props as any)}>
+                      <CheckCircle2Icon data-icon="inline-start" /> Status
+                    </Badge>
+                  </td>
+                  <td className="py-4 pr-4">
+                    <Badge {...(props as any)}>
+                      Updates <BellIcon data-icon="inline-end" />
+                    </Badge>
+                  </td>
+                  <td className="py-4 pr-4">
+                    <Badge {...(props as any)} render={<a href="#link" />}>
+                      Clickable
+                    </Badge>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>

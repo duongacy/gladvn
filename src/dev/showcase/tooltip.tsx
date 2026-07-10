@@ -1,24 +1,24 @@
-import { useState } from "react";
 import {
-  Showcase,
-  ShowcaseDocs,
+  DocsCode,
   DocsH3,
   DocsP,
-  DocsCode,
-  ExampleSection,
   ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+  SizeToggle,
 } from "@/dev/components/showcase";
-import { MonoSelect } from "@/dev/components/mono-select";
 import { InfoIcon, ShieldAlertIcon } from "lucide-react";
+import { useState } from "react";
 
-import { type Size } from "@/lib/types";
+import { Button } from "@/components/micro/button";
 import {
   Tooltip,
-  TooltipTrigger,
   TooltipContent,
   TooltipProvider,
+  TooltipTrigger,
 } from "@/components/micro/tooltip";
-import { Button } from "@/components/micro/button";
+import { type Size } from "@/lib/types";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Micro Content (Only Micro exists)
@@ -26,16 +26,6 @@ import { Button } from "@/components/micro/button";
 function TooltipMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Tooltip (Gợi ý)</DocsH3>
-        <DocsP>
-          <DocsCode>Tooltip</DocsCode> không có phiên bản Macro vì bản chất nó
-          chỉ là một popup hiển thị chữ. Bạn cần bọc toàn bộ ứng dụng hoặc nhóm
-          các tooltip lại bằng <DocsCode>TooltipProvider</DocsCode> để quản lý
-          delay xuất hiện đồng bộ.
-        </DocsP>
-      </ShowcaseDocs>
-
       <ExampleSection
         label="Vị trí (Placements)"
         description="Tooltip có thể được đặt ở bất kỳ cạnh nào của trigger bằng thuộc tính side."
@@ -312,17 +302,18 @@ export default function TooltipShowcase() {
     <Showcase
       title="Tooltip"
       description="Một popup nhỏ hiển thị thông tin bổ sung khi người dùng di chuột hoặc trỏ tiêu điểm vào một phần tử."
-      actions={
-        <MonoSelect
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as Size)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-        />
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsH3>Tooltip (Gợi ý)</DocsH3>
+          <DocsP>
+            <DocsCode>Tooltip</DocsCode> không có phiên bản Macro vì bản chất nó
+            chỉ là một popup hiển thị chữ. Bạn cần bọc toàn bộ ứng dụng hoặc
+            nhóm các tooltip lại bằng <DocsCode>TooltipProvider</DocsCode> để
+            quản lý delay xuất hiện đồng bộ.
+          </DocsP>
+        </ShowcaseDocs>
       }
+      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
       tabs={[
         {
           label: "Micro (Primitive)",

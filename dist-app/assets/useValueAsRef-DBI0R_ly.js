@@ -1,1 +1,16 @@
-import{Gn as e,Wn as t}from"./showcase-vJrKG7HA.js";function n(n){let i=t(r,n).current;return i.next=n,e(i.effect),i}function r(e){let t={current:e,next:e,effect:()=>{t.current=t.next}};return t}export{n as t};
+import { Gn as e, Wn as t } from "./showcase-vJrKG7HA.js";
+function n(n) {
+  let i = t(r, n).current;
+  return ((i.next = n), e(i.effect), i);
+}
+function r(e) {
+  let t = {
+    current: e,
+    next: e,
+    effect: () => {
+      t.current = t.next;
+    },
+  };
+  return t;
+}
+export { n as t };

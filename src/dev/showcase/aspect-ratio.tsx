@@ -1,9 +1,12 @@
-import {
-  SectionHeader,
-  ExampleSection,
-  ExampleGrid,
-} from "@/dev/components/showcase";
 import { AspectRatio } from "@/components/micro/aspect-ratio";
+import {
+  DocsH3,
+  DocsP,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+} from "@/dev/components/showcase";
 
 const commonRatios = [
   { label: "16:9", ratio: 16 / 9, desc: "Widescreen — video, hero banners" },
@@ -14,14 +17,9 @@ const commonRatios = [
   { label: "9:16", ratio: 9 / 16, desc: "Portrait — mobile, stories" },
 ];
 
-export default function AspectRatioShowcase() {
+function AspectRatioMicroShowcase() {
   return (
-    <div className="space-y-10">
-      <SectionHeader
-        title="Aspect Ratio"
-        description="Hiển thị nội dung theo tỷ lệ mong muốn. Hữu ích cho hình ảnh, video, bản đồ và phương tiện nhúng."
-      />
-
+    <div className="space-y-10 mt-6">
       {/* ── Common Ratios ── */}
       <ExampleGrid columns={3}>
         <ExampleSection
@@ -316,5 +314,26 @@ export default function AspectRatioShowcase() {
         </ExampleSection>
       </ExampleGrid>
     </div>
+  );
+}
+
+export default function AspectRatioShowcase() {
+  return (
+    <Showcase
+      title="Aspect Ratio"
+      description="Hiển thị nội dung theo tỷ lệ mong muốn. Hữu ích cho hình ảnh, video, bản đồ và phương tiện nhúng."
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsH3>Aspect Ratio</DocsH3>
+          <DocsP>
+            Sử dụng để duy trì một tỷ lệ kích thước cố định, thường cho ảnh hoặc
+            video.
+          </DocsP>
+        </ShowcaseDocs>
+      }
+      tabs={[
+        { label: "Micro (Primitive)", content: <AspectRatioMicroShowcase /> },
+      ]}
+    />
   );
 }

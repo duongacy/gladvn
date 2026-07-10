@@ -1,1 +1,309 @@
-import{Nn as e,cr as t,dr as n,i as r,n as i,r as a}from"./showcase-vJrKG7HA.js";import{t as o}from"./select-preset-B6grUIWS.js";import{a as s,i as c,n as l,o as u,r as d,t as f}from"./avatar-D0dgnK-Y.js";var p=n(t(),1),m=e(),h=[{src:`https://github.com/shadcn.png`,alt:`@shadcn`,initials:`CN`},{src:`https://github.com/vercel.png`,alt:`@vercel`,initials:`VC`},{src:`https://github.com/leerob.png`,alt:`@leerob`,initials:`LR`},{src:`https://github.com/rauchg.png`,alt:`@rauchg`,initials:`GR`},{src:`https://github.com/timneutkens.png`,alt:`@timneutkens`,initials:`TN`}];function g(){let[e,t]=(0,p.useState)(`md`);return(0,m.jsxs)(`div`,{className:`space-y-10`,children:[(0,m.jsx)(r,{title:`Avatar`,description:`Một phần tử hình ảnh có dự phòng để đại diện cho người dùng.`,children:(0,m.jsx)(o,{value:e,onValueChange:e=>t(e),options:[{value:`sm`,label:`Size: sm`},{value:`md`,label:`Size: md`},{value:`lg`,label:`Size: lg`}],className:`w-[120px] h-8 text-xs bg-background`})}),(0,m.jsx)(a,{label:`With Image`,description:`Hình đại diện hiển thị ảnh người dùng với tên viết tắt dự phòng.`,children:(0,m.jsxs)(`div`,{className:`flex items-center gap-4`,children:[(0,m.jsxs)(f,{size:e,children:[(0,m.jsx)(u,{src:`https://github.com/shadcn.png`,alt:`@shadcn`}),(0,m.jsx)(d,{children:`CN`})]}),(0,m.jsxs)(f,{size:e,children:[(0,m.jsx)(u,{src:`https://github.com/vercel.png`,alt:`@vercel`}),(0,m.jsx)(d,{children:`VC`})]}),(0,m.jsxs)(f,{size:e,children:[(0,m.jsx)(u,{src:`https://github.com/leerob.png`,alt:`@leerob`}),(0,m.jsx)(d,{children:`LR`})]})]})}),(0,m.jsxs)(i,{columns:2,children:[(0,m.jsx)(a,{label:`Fallback Only`,description:`Khi không có hình ảnh nào được cung cấp, tên viết tắt sẽ được hiển thị.`,children:(0,m.jsxs)(`div`,{className:`flex items-center gap-4`,children:[(0,m.jsx)(f,{size:e,children:(0,m.jsx)(d,{children:`CN`})}),(0,m.jsx)(f,{size:e,children:(0,m.jsx)(d,{children:`AB`})}),(0,m.jsx)(f,{size:e,children:(0,m.jsx)(d,{children:`JD`})})]})}),(0,m.jsx)(a,{label:`Broken Image`,description:`Dự phòng được hiển thị khi URL hình ảnh không tải được.`,children:(0,m.jsxs)(`div`,{className:`flex items-center gap-4`,children:[(0,m.jsxs)(f,{size:e,children:[(0,m.jsx)(u,{src:`https://broken-url.invalid/avatar.png`,alt:`broken`}),(0,m.jsx)(d,{children:`BR`})]}),(0,m.jsxs)(f,{size:e,children:[(0,m.jsx)(u,{src:``,alt:`empty`}),(0,m.jsx)(d,{children:`EM`})]})]})})]}),(0,m.jsx)(a,{label:`With Badge`,description:`Huy hiệu chỉ báo trạng thái được đặt ở góc dưới bên phải.`,children:(0,m.jsxs)(`div`,{className:`flex items-center gap-6`,children:[(0,m.jsxs)(`div`,{className:`flex flex-col items-center gap-2`,children:[(0,m.jsxs)(f,{size:e,children:[(0,m.jsx)(u,{src:`https://github.com/shadcn.png`,alt:`@shadcn`}),(0,m.jsx)(d,{children:`CN`}),(0,m.jsx)(l,{className:`absolute z-10 right-0 bottom-0 bg-green-500`})]}),(0,m.jsx)(`span`,{className:`text-xs text-muted-foreground`,children:`Online`})]}),(0,m.jsxs)(`div`,{className:`flex flex-col items-center gap-2`,children:[(0,m.jsxs)(f,{size:e,children:[(0,m.jsx)(u,{src:`https://github.com/vercel.png`,alt:`@vercel`}),(0,m.jsx)(d,{children:`VC`}),(0,m.jsx)(l,{className:`absolute z-10 right-0 bottom-0 bg-yellow-500`})]}),(0,m.jsx)(`span`,{className:`text-xs text-muted-foreground`,children:`Away`})]}),(0,m.jsxs)(`div`,{className:`flex flex-col items-center gap-2`,children:[(0,m.jsxs)(f,{size:e,children:[(0,m.jsx)(u,{src:`https://github.com/leerob.png`,alt:`@leerob`}),(0,m.jsx)(d,{children:`LR`}),(0,m.jsx)(l,{className:`absolute z-10 right-0 bottom-0 bg-muted-foreground/50`})]}),(0,m.jsx)(`span`,{className:`text-xs text-muted-foreground`,children:`Offline`})]})]})}),(0,m.jsx)(a,{label:`Avatar Group`,description:`Hình đại diện xếp chồng lên nhau với bố cục chồng chéo dành cho các nhóm hoặc cộng tác viên.`,children:(0,m.jsxs)(`div`,{className:`flex flex-col gap-6`,children:[(0,m.jsxs)(`div`,{className:`flex flex-col gap-2`,children:[(0,m.jsx)(`span`,{className:`text-sm text-muted-foreground font-medium`,children:`Basic group`}),(0,m.jsx)(c,{children:h.slice(0,4).map(t=>(0,m.jsxs)(f,{size:e,children:[(0,m.jsx)(u,{src:t.src,alt:t.alt}),(0,m.jsx)(d,{children:t.initials})]},t.alt))})]}),(0,m.jsxs)(`div`,{className:`flex flex-col gap-2`,children:[(0,m.jsx)(`span`,{className:`text-sm text-muted-foreground font-medium`,children:`With overflow count`}),(0,m.jsxs)(c,{children:[h.slice(0,3).map(t=>(0,m.jsxs)(f,{size:e,children:[(0,m.jsx)(u,{src:t.src,alt:t.alt}),(0,m.jsx)(d,{children:t.initials})]},t.alt)),(0,m.jsx)(s,{size:e,children:`+12`})]})]}),(0,m.jsxs)(`div`,{className:`flex flex-col gap-2`,children:[(0,m.jsx)(`span`,{className:`text-sm text-muted-foreground font-medium`,children:`Fallback-only group`}),(0,m.jsxs)(c,{children:[(0,m.jsx)(f,{size:e,children:(0,m.jsx)(d,{children:`AB`})}),(0,m.jsx)(f,{size:e,children:(0,m.jsx)(d,{children:`CD`})}),(0,m.jsx)(f,{size:e,children:(0,m.jsx)(d,{children:`EF`})}),(0,m.jsx)(s,{size:e,children:`+5`})]})]})]})})]})}export{g as default};
+import {
+  Nn as e,
+  cr as t,
+  dr as n,
+  i as r,
+  n as i,
+  r as a,
+} from "./showcase-vJrKG7HA.js";
+import { t as o } from "./select-preset-B6grUIWS.js";
+import {
+  a as s,
+  i as c,
+  n as l,
+  o as u,
+  r as d,
+  t as f,
+} from "./avatar-D0dgnK-Y.js";
+var p = n(t(), 1),
+  m = e(),
+  h = [
+    { src: `https://github.com/shadcn.png`, alt: `@shadcn`, initials: `CN` },
+    { src: `https://github.com/vercel.png`, alt: `@vercel`, initials: `VC` },
+    { src: `https://github.com/leerob.png`, alt: `@leerob`, initials: `LR` },
+    { src: `https://github.com/rauchg.png`, alt: `@rauchg`, initials: `GR` },
+    {
+      src: `https://github.com/timneutkens.png`,
+      alt: `@timneutkens`,
+      initials: `TN`,
+    },
+  ];
+function g() {
+  let [e, t] = (0, p.useState)(`md`);
+  return (0, m.jsxs)(`div`, {
+    className: `space-y-10`,
+    children: [
+      (0, m.jsx)(r, {
+        title: `Avatar`,
+        description: `Một phần tử hình ảnh có dự phòng để đại diện cho người dùng.`,
+        children: (0, m.jsx)(o, {
+          value: e,
+          onValueChange: (e) => t(e),
+          options: [
+            { value: `sm`, label: `Size: sm` },
+            { value: `md`, label: `Size: md` },
+            { value: `lg`, label: `Size: lg` },
+          ],
+          className: `w-[120px] h-8 text-xs bg-background`,
+        }),
+      }),
+      (0, m.jsx)(a, {
+        label: `With Image`,
+        description: `Hình đại diện hiển thị ảnh người dùng với tên viết tắt dự phòng.`,
+        children: (0, m.jsxs)(`div`, {
+          className: `flex items-center gap-4`,
+          children: [
+            (0, m.jsxs)(f, {
+              size: e,
+              children: [
+                (0, m.jsx)(u, {
+                  src: `https://github.com/shadcn.png`,
+                  alt: `@shadcn`,
+                }),
+                (0, m.jsx)(d, { children: `CN` }),
+              ],
+            }),
+            (0, m.jsxs)(f, {
+              size: e,
+              children: [
+                (0, m.jsx)(u, {
+                  src: `https://github.com/vercel.png`,
+                  alt: `@vercel`,
+                }),
+                (0, m.jsx)(d, { children: `VC` }),
+              ],
+            }),
+            (0, m.jsxs)(f, {
+              size: e,
+              children: [
+                (0, m.jsx)(u, {
+                  src: `https://github.com/leerob.png`,
+                  alt: `@leerob`,
+                }),
+                (0, m.jsx)(d, { children: `LR` }),
+              ],
+            }),
+          ],
+        }),
+      }),
+      (0, m.jsxs)(i, {
+        columns: 2,
+        children: [
+          (0, m.jsx)(a, {
+            label: `Fallback Only`,
+            description: `Khi không có hình ảnh nào được cung cấp, tên viết tắt sẽ được hiển thị.`,
+            children: (0, m.jsxs)(`div`, {
+              className: `flex items-center gap-4`,
+              children: [
+                (0, m.jsx)(f, {
+                  size: e,
+                  children: (0, m.jsx)(d, { children: `CN` }),
+                }),
+                (0, m.jsx)(f, {
+                  size: e,
+                  children: (0, m.jsx)(d, { children: `AB` }),
+                }),
+                (0, m.jsx)(f, {
+                  size: e,
+                  children: (0, m.jsx)(d, { children: `JD` }),
+                }),
+              ],
+            }),
+          }),
+          (0, m.jsx)(a, {
+            label: `Broken Image`,
+            description: `Dự phòng được hiển thị khi URL hình ảnh không tải được.`,
+            children: (0, m.jsxs)(`div`, {
+              className: `flex items-center gap-4`,
+              children: [
+                (0, m.jsxs)(f, {
+                  size: e,
+                  children: [
+                    (0, m.jsx)(u, {
+                      src: `https://broken-url.invalid/avatar.png`,
+                      alt: `broken`,
+                    }),
+                    (0, m.jsx)(d, { children: `BR` }),
+                  ],
+                }),
+                (0, m.jsxs)(f, {
+                  size: e,
+                  children: [
+                    (0, m.jsx)(u, { src: ``, alt: `empty` }),
+                    (0, m.jsx)(d, { children: `EM` }),
+                  ],
+                }),
+              ],
+            }),
+          }),
+        ],
+      }),
+      (0, m.jsx)(a, {
+        label: `With Badge`,
+        description: `Huy hiệu chỉ báo trạng thái được đặt ở góc dưới bên phải.`,
+        children: (0, m.jsxs)(`div`, {
+          className: `flex items-center gap-6`,
+          children: [
+            (0, m.jsxs)(`div`, {
+              className: `flex flex-col items-center gap-2`,
+              children: [
+                (0, m.jsxs)(f, {
+                  size: e,
+                  children: [
+                    (0, m.jsx)(u, {
+                      src: `https://github.com/shadcn.png`,
+                      alt: `@shadcn`,
+                    }),
+                    (0, m.jsx)(d, { children: `CN` }),
+                    (0, m.jsx)(l, {
+                      className: `absolute z-10 right-0 bottom-0 bg-green-500`,
+                    }),
+                  ],
+                }),
+                (0, m.jsx)(`span`, {
+                  className: `text-xs text-muted-foreground`,
+                  children: `Online`,
+                }),
+              ],
+            }),
+            (0, m.jsxs)(`div`, {
+              className: `flex flex-col items-center gap-2`,
+              children: [
+                (0, m.jsxs)(f, {
+                  size: e,
+                  children: [
+                    (0, m.jsx)(u, {
+                      src: `https://github.com/vercel.png`,
+                      alt: `@vercel`,
+                    }),
+                    (0, m.jsx)(d, { children: `VC` }),
+                    (0, m.jsx)(l, {
+                      className: `absolute z-10 right-0 bottom-0 bg-yellow-500`,
+                    }),
+                  ],
+                }),
+                (0, m.jsx)(`span`, {
+                  className: `text-xs text-muted-foreground`,
+                  children: `Away`,
+                }),
+              ],
+            }),
+            (0, m.jsxs)(`div`, {
+              className: `flex flex-col items-center gap-2`,
+              children: [
+                (0, m.jsxs)(f, {
+                  size: e,
+                  children: [
+                    (0, m.jsx)(u, {
+                      src: `https://github.com/leerob.png`,
+                      alt: `@leerob`,
+                    }),
+                    (0, m.jsx)(d, { children: `LR` }),
+                    (0, m.jsx)(l, {
+                      className: `absolute z-10 right-0 bottom-0 bg-muted-foreground/50`,
+                    }),
+                  ],
+                }),
+                (0, m.jsx)(`span`, {
+                  className: `text-xs text-muted-foreground`,
+                  children: `Offline`,
+                }),
+              ],
+            }),
+          ],
+        }),
+      }),
+      (0, m.jsx)(a, {
+        label: `Avatar Group`,
+        description: `Hình đại diện xếp chồng lên nhau với bố cục chồng chéo dành cho các nhóm hoặc cộng tác viên.`,
+        children: (0, m.jsxs)(`div`, {
+          className: `flex flex-col gap-6`,
+          children: [
+            (0, m.jsxs)(`div`, {
+              className: `flex flex-col gap-2`,
+              children: [
+                (0, m.jsx)(`span`, {
+                  className: `text-sm text-muted-foreground font-medium`,
+                  children: `Basic group`,
+                }),
+                (0, m.jsx)(c, {
+                  children: h
+                    .slice(0, 4)
+                    .map((t) =>
+                      (0, m.jsxs)(
+                        f,
+                        {
+                          size: e,
+                          children: [
+                            (0, m.jsx)(u, { src: t.src, alt: t.alt }),
+                            (0, m.jsx)(d, { children: t.initials }),
+                          ],
+                        },
+                        t.alt,
+                      ),
+                    ),
+                }),
+              ],
+            }),
+            (0, m.jsxs)(`div`, {
+              className: `flex flex-col gap-2`,
+              children: [
+                (0, m.jsx)(`span`, {
+                  className: `text-sm text-muted-foreground font-medium`,
+                  children: `With overflow count`,
+                }),
+                (0, m.jsxs)(c, {
+                  children: [
+                    h
+                      .slice(0, 3)
+                      .map((t) =>
+                        (0, m.jsxs)(
+                          f,
+                          {
+                            size: e,
+                            children: [
+                              (0, m.jsx)(u, { src: t.src, alt: t.alt }),
+                              (0, m.jsx)(d, { children: t.initials }),
+                            ],
+                          },
+                          t.alt,
+                        ),
+                      ),
+                    (0, m.jsx)(s, { size: e, children: `+12` }),
+                  ],
+                }),
+              ],
+            }),
+            (0, m.jsxs)(`div`, {
+              className: `flex flex-col gap-2`,
+              children: [
+                (0, m.jsx)(`span`, {
+                  className: `text-sm text-muted-foreground font-medium`,
+                  children: `Fallback-only group`,
+                }),
+                (0, m.jsxs)(c, {
+                  children: [
+                    (0, m.jsx)(f, {
+                      size: e,
+                      children: (0, m.jsx)(d, { children: `AB` }),
+                    }),
+                    (0, m.jsx)(f, {
+                      size: e,
+                      children: (0, m.jsx)(d, { children: `CD` }),
+                    }),
+                    (0, m.jsx)(f, {
+                      size: e,
+                      children: (0, m.jsx)(d, { children: `EF` }),
+                    }),
+                    (0, m.jsx)(s, { size: e, children: `+5` }),
+                  ],
+                }),
+              ],
+            }),
+          ],
+        }),
+      }),
+    ],
+  });
+}
+export { g as default };

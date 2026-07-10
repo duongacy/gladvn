@@ -1,11 +1,11 @@
 ---
-name: 'step-06-states'
-description: 'Define all possible page and component states'
+name: "step-06-states"
+description: "Define all possible page and component states"
 
 # File References
-nextStepFile: './step-07-validation.md'
-workflowFile: '../workflow.md'
-activityWorkflowFile: '../workflow-specify.md'
+nextStepFile: "./step-07-validation.md"
+workflowFile: "../workflow.md"
+activityWorkflowFile: "../workflow-specify.md"
 ---
 
 # Step 6: States

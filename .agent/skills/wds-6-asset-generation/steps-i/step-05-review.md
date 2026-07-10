@@ -1,7 +1,7 @@
 ---
-name: 'step-05-review'
-description: 'Review the complete icon set for visual consistency, clarity, and completeness'
-workflowFile: '../workflow.md'
+name: "step-05-review"
+description: "Review the complete icon set for visual consistency, clarity, and completeness"
+workflowFile: "../workflow.md"
 ---
 
 # Step 5: Review and Iterate

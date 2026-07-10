@@ -1,18 +1,13 @@
-import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
 import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/micro/resizable";
+import { ExampleSection, Showcase } from "@/dev/components/showcase";
 
-export default function ResizableShowcase() {
+function ResizableMicroShowcase() {
   return (
-    <div className="space-y-10">
-      <SectionHeader
-        title="Resizable"
-        description="Các nhóm và bố cục bảng điều khiển có thể thay đổi kích thước có thể truy cập được với sự hỗ trợ của bàn phím."
-      />
-
+    <div className="space-y-10 mt-6">
       <ExampleSection
         label="Horizontal Split"
         description="Kéo tay cầm để thay đổi kích thước bảng."
@@ -111,5 +106,17 @@ export default function ResizableShowcase() {
         </ResizablePanelGroup>
       </ExampleSection>
     </div>
+  );
+}
+
+export default function ResizableShowcase() {
+  return (
+    <Showcase
+      title="Resizable"
+      description="Các nhóm và bố cục bảng điều khiển có thể thay đổi kích thước có thể truy cập được với sự hỗ trợ của bàn phím."
+      tabs={[
+        { label: "Micro (Primitive)", content: <ResizableMicroShowcase /> },
+      ]}
+    />
   );
 }

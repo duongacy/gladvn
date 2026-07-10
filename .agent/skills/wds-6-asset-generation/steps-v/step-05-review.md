@@ -1,7 +1,7 @@
 ---
-name: 'step-05-review'
-description: 'Review all motion content for consistency, performance, and accessibility compliance'
-workflowFile: '../workflow.md'
+name: "step-05-review"
+description: "Review all motion content for consistency, performance, and accessibility compliance"
+workflowFile: "../workflow.md"
 ---
 
 # Step 5: Review and Iterate

@@ -1,23 +1,23 @@
 ---
-name: 'step-01-validate-prerequisites'
-description: 'Validate required documents exist and extract all requirements for epic and story creation'
+name: "step-01-validate-prerequisites"
+description: "Validate required documents exist and extract all requirements for epic and story creation"
 
 # Path Definitions
-workflow_path: '{installed_path}'
+workflow_path: "{installed_path}"
 
 # File References
-thisStepFile: './step-01-validate-prerequisites.md'
-nextStepFile: './step-02-design-epics.md'
-workflowFile: '{workflow_path}/workflow.md'
-outputFile: '{planning_artifacts}/epics.md'
-epicsTemplate: '{workflow_path}/templates/epics-template.md'
+thisStepFile: "./step-01-validate-prerequisites.md"
+nextStepFile: "./step-02-design-epics.md"
+workflowFile: "{workflow_path}/workflow.md"
+outputFile: "{planning_artifacts}/epics.md"
+epicsTemplate: "{workflow_path}/templates/epics-template.md"
 
 # Task References
-advancedElicitationTask: 'skill:bmad-advanced-elicitation'
-partyModeWorkflow: 'skill:bmad-party-mode'
+advancedElicitationTask: "skill:bmad-advanced-elicitation"
+partyModeWorkflow: "skill:bmad-party-mode"
 
 # Template References
-epicsTemplate: '{workflow_path}/templates/epics-template.md'
+epicsTemplate: "{workflow_path}/templates/epics-template.md"
 ---
 
 # Step 1: Validate Prerequisites and Extract Requirements

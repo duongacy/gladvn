@@ -1,20 +1,20 @@
 ---
-name: 'step-08-validation'
-description: 'Validate architectural coherence and completeness'
+name: "step-08-validation"
+description: "Validate architectural coherence and completeness"
 
 # Path Definitions
-workflow_path: '{installed_path}'
+workflow_path: "{installed_path}"
 
 # File References
-thisStepFile: './step-08-validation.md'
-nextStepFile: './step-09-complete.md'
-workflowFile: '{workflow_path}/workflow.md'
-outputFile: '{output_folder}/game-architecture.md'
-checklistFile: '{workflow_path}/checklist.md'
+thisStepFile: "./step-08-validation.md"
+nextStepFile: "./step-09-complete.md"
+workflowFile: "{workflow_path}/workflow.md"
+outputFile: "{output_folder}/game-architecture.md"
+checklistFile: "{workflow_path}/checklist.md"
 
 # Task References
-advancedElicitationTask: 'skill:bmad-advanced-elicitation'
-partyModeWorkflow: 'skill:bmad-party-mode'
+advancedElicitationTask: "skill:bmad-advanced-elicitation"
+partyModeWorkflow: "skill:bmad-party-mode"
 ---
 
 # Step 8: Validation
@@ -96,14 +96,16 @@ How should we resolve these?
 Verifying every GDD requirement has architectural support:
 
 **Core Systems:**
-| System | Architecture Support | Status |
-| ------ | -------------------- | ------ |
-{{systems_coverage_table}}
+
+| System                     | Architecture Support | Status |
+| -------------------------- | -------------------- | ------ |
+| {{systems_coverage_table}} |
 
 **Technical Requirements:**
-| Requirement | How Addressed | Status |
-| ----------- | ------------- | ------ |
-{{requirements_coverage_table}}
+
+| Requirement                     | How Addressed | Status |
+| ------------------------------- | ------------- | ------ |
+| {{requirements_coverage_table}} |
 
 {{if_gaps_found}}
 **Gaps Found:**

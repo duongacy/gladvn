@@ -7,8 +7,8 @@
  */
 import * as React from "react";
 
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/micro/button";
+import { cn } from "@/lib/utils";
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
@@ -25,7 +25,10 @@ function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
       role="navigation"
       aria-label="pagination"
       data-slot="pagination"
-      className={cn("group/pagination @container/pagination mx-auto flex w-full justify-center", className)}
+      className={cn(
+        "group/pagination mx-auto flex w-full justify-center",
+        className,
+      )}
       {...props}
     />
   );

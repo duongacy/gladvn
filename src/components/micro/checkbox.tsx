@@ -7,13 +7,13 @@
  */
 "use client";
 
-import * as React from "react";
 import { Checkbox as CheckboxPrimitive } from "@base-ui/react/checkbox";
+import * as React from "react";
 
 import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "@/lib/utils";
 import { type Size } from "@/lib/types";
+import { cn } from "@/lib/utils";
 
 const checkboxVariants = cva(
   "group/checkbox peer relative flex shrink-0 items-center justify-center rounded-sm border border-input after:absolute after:content-[''] transition-colors outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-offset-1 focus-visible:ring-offset-background disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:border-destructive aria-invalid:focus-visible:ring-3 aria-invalid:focus-visible:ring-destructive/50 aria-invalid:data-checked:border-destructive aria-invalid:data-checked:bg-destructive aria-invalid:data-checked:text-destructive-foreground dark:bg-input/30 dark:aria-invalid:border-destructive/50 dark:aria-invalid:focus-visible:ring-destructive/50 data-checked:border-primary data-checked:bg-primary data-checked:text-primary-foreground dark:data-checked:bg-primary",
@@ -37,9 +37,9 @@ const checkboxVariants = cva(
 const Checkbox = React.forwardRef<
   React.ComponentRef<typeof CheckboxPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root> &
-  Omit<VariantProps<typeof checkboxVariants>, "size"> & {
-    size?: Size;
-  }
+    Omit<VariantProps<typeof checkboxVariants>, "size"> & {
+      size?: Size;
+    }
 >(function Checkbox({ className, size = "md", ...props }, ref) {
   return (
     <CheckboxPrimitive.Root

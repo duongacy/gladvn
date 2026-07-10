@@ -1,19 +1,19 @@
 ---
-name: 'step-05-world'
-description: 'Build the world including setting, history, factions, and key locations'
+name: "step-05-world"
+description: "Build the world including setting, history, factions, and key locations"
 
 # Path Definitions
-workflow_path: '{installed_path}'
+workflow_path: "{installed_path}"
 
 # File References
-thisStepFile: './step-05-world.md'
-nextStepFile: './step-06-dialogue.md'
-workflowFile: '{workflow_path}/workflow.md'
-outputFile: '{output_folder}/narrative-design.md'
+thisStepFile: "./step-05-world.md"
+nextStepFile: "./step-06-dialogue.md"
+workflowFile: "{workflow_path}/workflow.md"
+outputFile: "{output_folder}/narrative-design.md"
 
 # Task References
-advancedElicitationTask: 'skill:bmad-advanced-elicitation'
-partyModeWorkflow: 'skill:bmad-party-mode'
+advancedElicitationTask: "skill:bmad-advanced-elicitation"
+partyModeWorkflow: "skill:bmad-party-mode"
 ---
 
 # Step 5: World Building

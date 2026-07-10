@@ -1,26 +1,26 @@
 ---
-name: 'step-01b-continue'
-description: 'Continue an existing narrative workflow from where it left off'
+name: "step-01b-continue"
+description: "Continue an existing narrative workflow from where it left off"
 
 # Path Definitions
-workflow_path: '{installed_path}'
+workflow_path: "{installed_path}"
 
 # File References
-thisStepFile: './step-01b-continue.md'
-workflowFile: '{workflow_path}/workflow.md'
-outputFile: '{output_folder}/narrative-design.md'
+thisStepFile: "./step-01b-continue.md"
+workflowFile: "{workflow_path}/workflow.md"
+outputFile: "{output_folder}/narrative-design.md"
 
 # Step Files (for routing)
-step02: './step-02-foundation.md'
-step03: './step-03-story.md'
-step04: './step-04-characters.md'
-step05: './step-05-world.md'
-step06: './step-06-dialogue.md'
-step07: './step-07-environmental.md'
-step08: './step-08-delivery.md'
-step09: './step-09-integration.md'
-step10: './step-10-production.md'
-step11: './step-11-complete.md'
+step02: "./step-02-foundation.md"
+step03: "./step-03-story.md"
+step04: "./step-04-characters.md"
+step05: "./step-05-world.md"
+step06: "./step-06-dialogue.md"
+step07: "./step-07-environmental.md"
+step08: "./step-08-delivery.md"
+step09: "./step-09-integration.md"
+step10: "./step-10-production.md"
+step11: "./step-11-complete.md"
 ---
 
 # Step 1b: Continue Existing Narrative

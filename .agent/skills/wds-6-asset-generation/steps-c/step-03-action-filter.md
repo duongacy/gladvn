@@ -1,7 +1,7 @@
 ---
-name: 'step-03-action-filter'
-description: 'Apply Action Mapping to define the required user action and filter content for relevance'
-nextStepFile: './step-04-empowerment-frame.md'
+name: "step-03-action-filter"
+description: "Apply Action Mapping to define the required user action and filter content for relevance"
+nextStepFile: "./step-04-empowerment-frame.md"
 ---
 
 # Step 3: Define Required Action
@@ -74,6 +74,7 @@ From the Trigger Map driving forces: **"By taking this action, how does the user
 ### 4. Determine Essential Information
 
 Work backward from the action:
+
 - To do the action, the user must understand X
 - To understand X, they need to know Y
 - To know Y, we must tell them Z

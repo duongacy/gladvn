@@ -1,7 +1,7 @@
 ---
-name: 'step-05-execute-export'
-description: 'Send validated HTML to Figma via MCP and verify the export succeeded'
-workflowFile: '../workflow.md'
+name: "step-05-execute-export"
+description: "Send validated HTML to Figma via MCP and verify the export succeeded"
+workflowFile: "../workflow.md"
 ---
 
 # Step 5: Send to Figma

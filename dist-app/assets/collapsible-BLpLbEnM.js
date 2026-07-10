@@ -1,1 +1,435 @@
-import{Gn as e,I as t,In as n,It as r,Nn as i,Pn as a,Un as o,cr as s,dr as c,i as l,n as u,or as d,qn as f,r as p,s as m}from"./showcase-vJrKG7HA.js";import{a as h,i as g,n as _,o as v,r as y,t as b}from"./useCollapsiblePanel-LBfYe00b.js";var x=d(`chevrons-up-down`,[[`path`,{d:`m7 15 5 5 5-5`,key:`1hf1tw`}],[`path`,{d:`m7 9 5-5 5 5`,key:`sgt6xg`}]]),S={..._,...t},C=c(s(),1),w=i(),T=C.forwardRef(function(e,t){let{render:n,className:r,defaultOpen:i=!1,disabled:s=!1,onOpenChange:c,open:l,style:u,...d}=e,f=o(c),p=v({open:l,defaultOpen:i,onOpenChange:f,disabled:s}),m=C.useMemo(()=>({open:p.open,disabled:p.disabled,transitionStatus:p.transitionStatus}),[p.open,p.disabled,p.transitionStatus]),h=C.useMemo(()=>({...p,onOpenChange:f,state:m}),[p,f,m]),_=a(`div`,e,{state:m,ref:t,props:d,stateAttributesMapping:S});return(0,w.jsx)(g.Provider,{value:h,children:_})}),E={...y,...t},D=C.forwardRef(function(e,t){let{panelId:n,open:i,handleTrigger:o,state:s,disabled:c}=h(),{className:l,disabled:u=c,render:d,nativeButton:f=!0,style:p,...m}=e,{getButtonProps:g,buttonRef:_}=r({disabled:u,focusableWhenDisabled:!0,native:f});return a(`button`,e,{state:s,ref:[t,_],props:[{"aria-controls":i?n:void 0,"aria-expanded":i,onClick:o},m,g],stateAttributesMapping:E})}),O=function(e){return e.collapsiblePanelHeight=`--collapsible-panel-height`,e.collapsiblePanelWidth=`--collapsible-panel-width`,e}({}),k=C.forwardRef(function(t,r){let{className:i,hiddenUntilFound:o,keepMounted:s,render:c,id:l,style:u,...d}=t,{mounted:f,onOpenChange:p,open:m,panelId:g,setMounted:_,setPanelIdState:v,setOpen:y,state:x,transitionStatus:C}=h(),w=o??!1,T=s??!1;e(()=>{if(l)return v(l),()=>{v(void 0)}},[l,v]);let{height:E,props:D,ref:k,shouldPreventOpenAnimation:A,shouldRender:j,transitionStatus:M,width:N}=b({externalRef:r,hiddenUntilFound:w,id:g,keepMounted:T,mounted:f,onOpenChange:p,open:m,setMounted:_,setOpen:y,transitionStatus:C}),P={...x,transitionStatus:M},F=n(u,P),I=a(`div`,{...t,style:void 0},{state:P,ref:k,props:[D,{style:{[O.collapsiblePanelHeight]:E===void 0?`auto`:`${E}px`,[O.collapsiblePanelWidth]:N===void 0?`auto`:`${N}px`}},d,F?{style:F}:void 0,A?{style:{animationName:`none`}}:void 0],stateAttributesMapping:S});return j?I:null}),A=C.forwardRef(({className:e,...t},n)=>(0,w.jsx)(T,{ref:n,"data-slot":`collapsible`,className:e,...t}));A.displayName=`Collapsible`;var j=C.forwardRef(({className:e,...t},n)=>(0,w.jsx)(D,{ref:n,"data-slot":`collapsible-trigger`,className:e,...t}));j.displayName=`CollapsibleTrigger`;var M=C.forwardRef(({className:e,...t},n)=>(0,w.jsx)(k,{ref:n,"data-slot":`collapsible-content`,className:f(`flex flex-col justify-end overflow-hidden h-(--collapsible-panel-height) transition-[height] duration-200 ease-out data-starting-style:h-0 data-ending-style:h-0 [&[hidden]:not([hidden='until-found'])]:hidden`,e),...t}));M.displayName=`CollapsibleContent`;function N(){let[e,t]=C.useState(!1);return(0,w.jsxs)(`div`,{className:`space-y-10`,children:[(0,w.jsx)(l,{title:`Collapsible`,description:`Một thành phần tương tác giúp mở rộng/thu gọn một bảng điều khiển.`}),(0,w.jsxs)(u,{columns:2,children:[(0,w.jsx)(p,{label:`Default`,description:`Nhấn để mở rộng hoặc thu gọn.`,children:(0,w.jsxs)(A,{className:`w-full space-y-2`,children:[(0,w.jsxs)(`div`,{className:`flex items-center justify-between space-x-4 px-4`,children:[(0,w.jsx)(`h4`,{className:`text-sm font-semibold`,children:`@peduarte starred 3 repositories`}),(0,w.jsxs)(j,{render:(0,w.jsx)(m,{variant:`ghost`,size:`sm`,className:`w-9 p-0`}),children:[(0,w.jsx)(x,{className:`h-4 w-4`}),(0,w.jsx)(`span`,{className:`sr-only`,children:`Toggle`})]})]}),(0,w.jsx)(`div`,{className:`rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm`,children:`@radix-ui/primitives`}),(0,w.jsx)(M,{children:(0,w.jsxs)(`div`,{className:`flex flex-col gap-2`,children:[(0,w.jsx)(`div`,{className:`rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm`,children:`@radix-ui/colors`}),(0,w.jsx)(`div`,{className:`rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm`,children:`@stitches/react`})]})})]})}),(0,w.jsx)(p,{label:`Default Open`,description:`Bắt đầu ở trạng thái mở rộng.`,children:(0,w.jsxs)(A,{defaultOpen:!0,className:`w-full space-y-2`,children:[(0,w.jsxs)(`div`,{className:`flex items-center justify-between space-x-4 px-4`,children:[(0,w.jsx)(`h4`,{className:`text-sm font-semibold`,children:`Recent activity`}),(0,w.jsxs)(j,{render:(0,w.jsx)(m,{variant:`ghost`,size:`sm`,className:`w-9 p-0`}),children:[(0,w.jsx)(x,{className:`h-4 w-4`}),(0,w.jsx)(`span`,{className:`sr-only`,children:`Toggle`})]})]}),(0,w.jsx)(`div`,{className:`rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm`,children:`Pushed to main`}),(0,w.jsx)(M,{children:(0,w.jsxs)(`div`,{className:`flex flex-col gap-2`,children:[(0,w.jsx)(`div`,{className:`rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm`,children:`Merged PR #42`}),(0,w.jsx)(`div`,{className:`rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm`,children:`Opened issue #43`})]})})]})}),(0,w.jsx)(p,{label:`Controlled Mode`,description:`Trạng thái mở được kiểm soát bằng state.`,children:(0,w.jsxs)(`div`,{className:`w-full space-y-4`,children:[(0,w.jsxs)(`div`,{className:`flex items-center gap-4 rounded-md border border-dashed p-4`,children:[(0,w.jsx)(m,{size:`sm`,onClick:()=>t(!e),children:e?`Đóng bảng bên dưới (External)`:`Mở bảng bên dưới (External)`}),(0,w.jsxs)(`span`,{className:`text-sm text-muted-foreground`,children:[`State hiện tại: `,(0,w.jsx)(`strong`,{className:`text-foreground`,children:e?`Mở`:`Đóng`})]})]}),(0,w.jsxs)(A,{open:e,onOpenChange:t,className:`w-full space-y-2 rounded-md border p-4 bg-muted/20`,children:[(0,w.jsxs)(`div`,{className:`flex items-center justify-between`,children:[(0,w.jsx)(`h4`,{className:`text-sm font-semibold`,children:`Bảng hiển thị nội dung`}),(0,w.jsxs)(j,{render:(0,w.jsx)(m,{variant:`ghost`,size:`sm`,className:`w-9 p-0`}),children:[(0,w.jsx)(x,{className:`h-4 w-4`}),(0,w.jsx)(`span`,{className:`sr-only`,children:`Toggle`})]})]}),(0,w.jsx)(M,{children:(0,w.jsx)(`div`,{className:`flex flex-col gap-2 pt-2`,children:(0,w.jsx)(`div`,{className:`rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm text-center`,children:`Nội dung này được điều khiển bởi nút bên ngoài hoặc mũi tên ở trên!`})})})]})]})}),(0,w.jsx)(p,{label:`Disabled`,description:`Không thể tương tác (Vô hiệu hóa).`,children:(0,w.jsxs)(A,{disabled:!0,className:`w-full space-y-2`,children:[(0,w.jsxs)(`div`,{className:`flex items-center justify-between space-x-4 px-4 opacity-50`,children:[(0,w.jsx)(`h4`,{className:`text-sm font-semibold`,children:`Archived Repositories`}),(0,w.jsxs)(j,{render:(0,w.jsx)(m,{variant:`ghost`,size:`sm`,className:`w-9 p-0`}),children:[(0,w.jsx)(x,{className:`h-4 w-4`}),(0,w.jsx)(`span`,{className:`sr-only`,children:`Toggle`})]})]}),(0,w.jsx)(`div`,{className:`rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm opacity-50`,children:`@radix-ui/react-toolbar`}),(0,w.jsx)(M,{children:(0,w.jsx)(`div`,{className:`flex flex-col gap-2`,children:(0,w.jsx)(`div`,{className:`rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm opacity-50`,children:`@radix-ui/react-popover`})})})]})})]})]})}export{N as default};
+import {
+  Gn as e,
+  I as t,
+  In as n,
+  It as r,
+  Nn as i,
+  Pn as a,
+  Un as o,
+  cr as s,
+  dr as c,
+  i as l,
+  n as u,
+  or as d,
+  qn as f,
+  r as p,
+  s as m,
+} from "./showcase-vJrKG7HA.js";
+import {
+  a as h,
+  i as g,
+  n as _,
+  o as v,
+  r as y,
+  t as b,
+} from "./useCollapsiblePanel-LBfYe00b.js";
+var x = d(`chevrons-up-down`, [
+    [`path`, { d: `m7 15 5 5 5-5`, key: `1hf1tw` }],
+    [`path`, { d: `m7 9 5-5 5 5`, key: `sgt6xg` }],
+  ]),
+  S = { ..._, ...t },
+  C = c(s(), 1),
+  w = i(),
+  T = C.forwardRef(function (e, t) {
+    let {
+        render: n,
+        className: r,
+        defaultOpen: i = !1,
+        disabled: s = !1,
+        onOpenChange: c,
+        open: l,
+        style: u,
+        ...d
+      } = e,
+      f = o(c),
+      p = v({ open: l, defaultOpen: i, onOpenChange: f, disabled: s }),
+      m = C.useMemo(
+        () => ({
+          open: p.open,
+          disabled: p.disabled,
+          transitionStatus: p.transitionStatus,
+        }),
+        [p.open, p.disabled, p.transitionStatus],
+      ),
+      h = C.useMemo(() => ({ ...p, onOpenChange: f, state: m }), [p, f, m]),
+      _ = a(`div`, e, {
+        state: m,
+        ref: t,
+        props: d,
+        stateAttributesMapping: S,
+      });
+    return (0, w.jsx)(g.Provider, { value: h, children: _ });
+  }),
+  E = { ...y, ...t },
+  D = C.forwardRef(function (e, t) {
+    let { panelId: n, open: i, handleTrigger: o, state: s, disabled: c } = h(),
+      {
+        className: l,
+        disabled: u = c,
+        render: d,
+        nativeButton: f = !0,
+        style: p,
+        ...m
+      } = e,
+      { getButtonProps: g, buttonRef: _ } = r({
+        disabled: u,
+        focusableWhenDisabled: !0,
+        native: f,
+      });
+    return a(`button`, e, {
+      state: s,
+      ref: [t, _],
+      props: [
+        { "aria-controls": i ? n : void 0, "aria-expanded": i, onClick: o },
+        m,
+        g,
+      ],
+      stateAttributesMapping: E,
+    });
+  }),
+  O = (function (e) {
+    return (
+      (e.collapsiblePanelHeight = `--collapsible-panel-height`),
+      (e.collapsiblePanelWidth = `--collapsible-panel-width`),
+      e
+    );
+  })({}),
+  k = C.forwardRef(function (t, r) {
+    let {
+        className: i,
+        hiddenUntilFound: o,
+        keepMounted: s,
+        render: c,
+        id: l,
+        style: u,
+        ...d
+      } = t,
+      {
+        mounted: f,
+        onOpenChange: p,
+        open: m,
+        panelId: g,
+        setMounted: _,
+        setPanelIdState: v,
+        setOpen: y,
+        state: x,
+        transitionStatus: C,
+      } = h(),
+      w = o ?? !1,
+      T = s ?? !1;
+    e(() => {
+      if (l)
+        return (
+          v(l),
+          () => {
+            v(void 0);
+          }
+        );
+    }, [l, v]);
+    let {
+        height: E,
+        props: D,
+        ref: k,
+        shouldPreventOpenAnimation: A,
+        shouldRender: j,
+        transitionStatus: M,
+        width: N,
+      } = b({
+        externalRef: r,
+        hiddenUntilFound: w,
+        id: g,
+        keepMounted: T,
+        mounted: f,
+        onOpenChange: p,
+        open: m,
+        setMounted: _,
+        setOpen: y,
+        transitionStatus: C,
+      }),
+      P = { ...x, transitionStatus: M },
+      F = n(u, P),
+      I = a(
+        `div`,
+        { ...t, style: void 0 },
+        {
+          state: P,
+          ref: k,
+          props: [
+            D,
+            {
+              style: {
+                [O.collapsiblePanelHeight]: E === void 0 ? `auto` : `${E}px`,
+                [O.collapsiblePanelWidth]: N === void 0 ? `auto` : `${N}px`,
+              },
+            },
+            d,
+            F ? { style: F } : void 0,
+            A ? { style: { animationName: `none` } } : void 0,
+          ],
+          stateAttributesMapping: S,
+        },
+      );
+    return j ? I : null;
+  }),
+  A = C.forwardRef(({ className: e, ...t }, n) =>
+    (0, w.jsx)(T, { ref: n, "data-slot": `collapsible`, className: e, ...t }),
+  );
+A.displayName = `Collapsible`;
+var j = C.forwardRef(({ className: e, ...t }, n) =>
+  (0, w.jsx)(D, {
+    ref: n,
+    "data-slot": `collapsible-trigger`,
+    className: e,
+    ...t,
+  }),
+);
+j.displayName = `CollapsibleTrigger`;
+var M = C.forwardRef(({ className: e, ...t }, n) =>
+  (0, w.jsx)(k, {
+    ref: n,
+    "data-slot": `collapsible-content`,
+    className: f(
+      `flex flex-col justify-end overflow-hidden h-(--collapsible-panel-height) transition-[height] duration-200 ease-out data-starting-style:h-0 data-ending-style:h-0 [&[hidden]:not([hidden='until-found'])]:hidden`,
+      e,
+    ),
+    ...t,
+  }),
+);
+M.displayName = `CollapsibleContent`;
+function N() {
+  let [e, t] = C.useState(!1);
+  return (0, w.jsxs)(`div`, {
+    className: `space-y-10`,
+    children: [
+      (0, w.jsx)(l, {
+        title: `Collapsible`,
+        description: `Một thành phần tương tác giúp mở rộng/thu gọn một bảng điều khiển.`,
+      }),
+      (0, w.jsxs)(u, {
+        columns: 2,
+        children: [
+          (0, w.jsx)(p, {
+            label: `Default`,
+            description: `Nhấn để mở rộng hoặc thu gọn.`,
+            children: (0, w.jsxs)(A, {
+              className: `w-full space-y-2`,
+              children: [
+                (0, w.jsxs)(`div`, {
+                  className: `flex items-center justify-between space-x-4 px-4`,
+                  children: [
+                    (0, w.jsx)(`h4`, {
+                      className: `text-sm font-semibold`,
+                      children: `@peduarte starred 3 repositories`,
+                    }),
+                    (0, w.jsxs)(j, {
+                      render: (0, w.jsx)(m, {
+                        variant: `ghost`,
+                        size: `sm`,
+                        className: `w-9 p-0`,
+                      }),
+                      children: [
+                        (0, w.jsx)(x, { className: `h-4 w-4` }),
+                        (0, w.jsx)(`span`, {
+                          className: `sr-only`,
+                          children: `Toggle`,
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+                (0, w.jsx)(`div`, {
+                  className: `rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm`,
+                  children: `@radix-ui/primitives`,
+                }),
+                (0, w.jsx)(M, {
+                  children: (0, w.jsxs)(`div`, {
+                    className: `flex flex-col gap-2`,
+                    children: [
+                      (0, w.jsx)(`div`, {
+                        className: `rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm`,
+                        children: `@radix-ui/colors`,
+                      }),
+                      (0, w.jsx)(`div`, {
+                        className: `rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm`,
+                        children: `@stitches/react`,
+                      }),
+                    ],
+                  }),
+                }),
+              ],
+            }),
+          }),
+          (0, w.jsx)(p, {
+            label: `Default Open`,
+            description: `Bắt đầu ở trạng thái mở rộng.`,
+            children: (0, w.jsxs)(A, {
+              defaultOpen: !0,
+              className: `w-full space-y-2`,
+              children: [
+                (0, w.jsxs)(`div`, {
+                  className: `flex items-center justify-between space-x-4 px-4`,
+                  children: [
+                    (0, w.jsx)(`h4`, {
+                      className: `text-sm font-semibold`,
+                      children: `Recent activity`,
+                    }),
+                    (0, w.jsxs)(j, {
+                      render: (0, w.jsx)(m, {
+                        variant: `ghost`,
+                        size: `sm`,
+                        className: `w-9 p-0`,
+                      }),
+                      children: [
+                        (0, w.jsx)(x, { className: `h-4 w-4` }),
+                        (0, w.jsx)(`span`, {
+                          className: `sr-only`,
+                          children: `Toggle`,
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+                (0, w.jsx)(`div`, {
+                  className: `rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm`,
+                  children: `Pushed to main`,
+                }),
+                (0, w.jsx)(M, {
+                  children: (0, w.jsxs)(`div`, {
+                    className: `flex flex-col gap-2`,
+                    children: [
+                      (0, w.jsx)(`div`, {
+                        className: `rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm`,
+                        children: `Merged PR #42`,
+                      }),
+                      (0, w.jsx)(`div`, {
+                        className: `rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm`,
+                        children: `Opened issue #43`,
+                      }),
+                    ],
+                  }),
+                }),
+              ],
+            }),
+          }),
+          (0, w.jsx)(p, {
+            label: `Controlled Mode`,
+            description: `Trạng thái mở được kiểm soát bằng state.`,
+            children: (0, w.jsxs)(`div`, {
+              className: `w-full space-y-4`,
+              children: [
+                (0, w.jsxs)(`div`, {
+                  className: `flex items-center gap-4 rounded-md border border-dashed p-4`,
+                  children: [
+                    (0, w.jsx)(m, {
+                      size: `sm`,
+                      onClick: () => t(!e),
+                      children: e
+                        ? `Đóng bảng bên dưới (External)`
+                        : `Mở bảng bên dưới (External)`,
+                    }),
+                    (0, w.jsxs)(`span`, {
+                      className: `text-sm text-muted-foreground`,
+                      children: [
+                        `State hiện tại: `,
+                        (0, w.jsx)(`strong`, {
+                          className: `text-foreground`,
+                          children: e ? `Mở` : `Đóng`,
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+                (0, w.jsxs)(A, {
+                  open: e,
+                  onOpenChange: t,
+                  className: `w-full space-y-2 rounded-md border p-4 bg-muted/20`,
+                  children: [
+                    (0, w.jsxs)(`div`, {
+                      className: `flex items-center justify-between`,
+                      children: [
+                        (0, w.jsx)(`h4`, {
+                          className: `text-sm font-semibold`,
+                          children: `Bảng hiển thị nội dung`,
+                        }),
+                        (0, w.jsxs)(j, {
+                          render: (0, w.jsx)(m, {
+                            variant: `ghost`,
+                            size: `sm`,
+                            className: `w-9 p-0`,
+                          }),
+                          children: [
+                            (0, w.jsx)(x, { className: `h-4 w-4` }),
+                            (0, w.jsx)(`span`, {
+                              className: `sr-only`,
+                              children: `Toggle`,
+                            }),
+                          ],
+                        }),
+                      ],
+                    }),
+                    (0, w.jsx)(M, {
+                      children: (0, w.jsx)(`div`, {
+                        className: `flex flex-col gap-2 pt-2`,
+                        children: (0, w.jsx)(`div`, {
+                          className: `rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm text-center`,
+                          children: `Nội dung này được điều khiển bởi nút bên ngoài hoặc mũi tên ở trên!`,
+                        }),
+                      }),
+                    }),
+                  ],
+                }),
+              ],
+            }),
+          }),
+          (0, w.jsx)(p, {
+            label: `Disabled`,
+            description: `Không thể tương tác (Vô hiệu hóa).`,
+            children: (0, w.jsxs)(A, {
+              disabled: !0,
+              className: `w-full space-y-2`,
+              children: [
+                (0, w.jsxs)(`div`, {
+                  className: `flex items-center justify-between space-x-4 px-4 opacity-50`,
+                  children: [
+                    (0, w.jsx)(`h4`, {
+                      className: `text-sm font-semibold`,
+                      children: `Archived Repositories`,
+                    }),
+                    (0, w.jsxs)(j, {
+                      render: (0, w.jsx)(m, {
+                        variant: `ghost`,
+                        size: `sm`,
+                        className: `w-9 p-0`,
+                      }),
+                      children: [
+                        (0, w.jsx)(x, { className: `h-4 w-4` }),
+                        (0, w.jsx)(`span`, {
+                          className: `sr-only`,
+                          children: `Toggle`,
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+                (0, w.jsx)(`div`, {
+                  className: `rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm opacity-50`,
+                  children: `@radix-ui/react-toolbar`,
+                }),
+                (0, w.jsx)(M, {
+                  children: (0, w.jsx)(`div`, {
+                    className: `flex flex-col gap-2`,
+                    children: (0, w.jsx)(`div`, {
+                      className: `rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm opacity-50`,
+                      children: `@radix-ui/react-popover`,
+                    }),
+                  }),
+                }),
+              ],
+            }),
+          }),
+        ],
+      }),
+    ],
+  });
+}
+export { N as default };

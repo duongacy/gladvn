@@ -1,15 +1,16 @@
-import { toast } from "sonner";
-import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
 import { Button } from "@/components/micro/button";
+import {
+  DocsH3,
+  DocsP,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+} from "@/dev/components/showcase";
+import { toast } from "sonner";
 
-export default function SonnerShowcase() {
+function SonnerMicroShowcase() {
   return (
-    <div className="space-y-10">
-      <SectionHeader
-        title="Sonner"
-        description="Một thành phần nâng cốc chúc mừng cho React."
-      />
-
+    <div className="space-y-10 mt-6">
       <ExampleSection
         label="Toast Types"
         description="Nhấp vào từng nút để kích hoạt một loại bánh mì nướng khác nhau."
@@ -99,5 +100,23 @@ export default function SonnerShowcase() {
         </div>
       </ExampleSection>
     </div>
+  );
+}
+
+export default function SonnerShowcase() {
+  return (
+    <Showcase
+      title="Sonner"
+      description="Thành phần hiển thị thông báo toast."
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsH3>Sonner</DocsH3>
+          <DocsP>
+            Sonner cung cấp hệ thống thông báo dễ sử dụng và tùy biến.
+          </DocsP>
+        </ShowcaseDocs>
+      }
+      tabs={[{ label: "Micro (Primitive)", content: <SonnerMicroShowcase /> }]}
+    />
   );
 }

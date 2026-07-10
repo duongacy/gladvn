@@ -1,29 +1,27 @@
-import { useState } from "react";
 import {
+  DocsP,
+  ExampleGrid,
+  ExampleSection,
   Showcase,
   ShowcaseDocs,
-  DocsH3,
-  DocsP,
-  DocsCode,
-  ExampleSection,
-  ExampleGrid,
+  SizeToggle,
 } from "@/dev/components/showcase";
-import { MonoSelect } from "@/dev/components/mono-select";
+import { useState } from "react";
 
-import { type Size } from "@/lib/types";
+import { CardPreset } from "@/components/macro/card-preset";
+import { Badge } from "@/components/micro/badge";
+import { Button } from "@/components/micro/button";
 import {
   Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
-  CardDescription,
-  CardContent,
-  CardFooter,
 } from "@/components/micro/card";
-import { CardPreset } from "@/components/macro/card-preset";
-import { Button } from "@/components/micro/button";
 import { Input } from "@/components/micro/input";
 import { Label } from "@/components/micro/label";
-import { Badge } from "@/components/micro/badge";
+import { type Size } from "@/lib/types";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Macro Content
@@ -31,18 +29,6 @@ import { Badge } from "@/components/micro/badge";
 function CardMacroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Khi nào nên dùng Macro</DocsH3>
-        <DocsP>
-          <DocsCode>CardPreset</DocsCode> giúp rút gọn cú pháp khi tạo Card.
-          Thay vì phải gọi 5 component nhỏ (Header, Title, Description, Content,
-          Footer), bạn chỉ cần dùng 1 component và truyền các prop{" "}
-          <DocsCode>title</DocsCode>, <DocsCode>description</DocsCode>,{" "}
-          <DocsCode>footer</DocsCode>. Nội dung chính được truyền qua{" "}
-          <DocsCode>children</DocsCode>.
-        </DocsP>
-      </ShowcaseDocs>
-
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Tiêu chuẩn (Standard)"
@@ -203,16 +189,6 @@ function CardMacroShowcase({ globalSize }: { globalSize: Size }) {
 function CardMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Khi nào nên dùng Micro</DocsH3>
-        <DocsP>
-          Dùng <DocsCode>Card</DocsCode> và các thành phần con khi bạn cần tạo
-          bố cục Card đặc biệt mà <DocsCode>CardPreset</DocsCode> không hỗ trợ
-          (ví dụ: Card không có Header, Header phức tạp với nhiều Button, hoặc
-          bố cục dạng lưới KPI).
-        </DocsP>
-      </ShowcaseDocs>
-
       <ExampleSection
         label="Cơ bản (Standard)"
         description="Lắp ráp thủ công từ CardHeader, CardTitle, CardContent, CardFooter."
@@ -448,17 +424,17 @@ export default function CardShowcase() {
     <Showcase
       title="Card"
       description="Thẻ hiển thị thông tin đóng gói có cấu trúc (tiêu đề, nội dung, footer)."
-      actions={
-        <MonoSelect
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as Size)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-        />
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsP>
+            Dùng để nhóm các thông tin liên quan lại với nhau trong một
+            container có cấu trúc rõ ràng. Thường được sử dụng để hiển thị các
+            mục dữ liệu, bảng điều khiển (dashboard), hoặc các biểu mẫu (form)
+            nhỏ.
+          </DocsP>
+        </ShowcaseDocs>
       }
+      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
       tabs={[
         {
           label: "Micro (Primitive)",

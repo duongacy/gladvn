@@ -1,23 +1,23 @@
 ---
-name: 'step-07-patterns'
-description: 'Design implementation patterns and novel architectural patterns for consistency'
+name: "step-07-patterns"
+description: "Design implementation patterns and novel architectural patterns for consistency"
 
 # Path Definitions
-workflow_path: '{installed_path}'
+workflow_path: "{installed_path}"
 
 # File References
-thisStepFile: './step-07-patterns.md'
-nextStepFile: './step-08-validation.md'
-workflowFile: '{workflow_path}/workflow.md'
-outputFile: '{output_folder}/game-architecture.md'
+thisStepFile: "./step-07-patterns.md"
+nextStepFile: "./step-08-validation.md"
+workflowFile: "{workflow_path}/workflow.md"
+outputFile: "{output_folder}/game-architecture.md"
 
 # Knowledge Bases
-patternCategories: '{workflow_path}/pattern-categories.csv'
-engineKnowledge: '{workflow_path}/knowledge/{selected_engine}-engine.md'
+patternCategories: "{workflow_path}/pattern-categories.csv"
+engineKnowledge: "{workflow_path}/knowledge/{selected_engine}-engine.md"
 
 # Task References
-advancedElicitationTask: 'skill:bmad-advanced-elicitation'
-partyModeWorkflow: 'skill:bmad-party-mode'
+advancedElicitationTask: "skill:bmad-advanced-elicitation"
+partyModeWorkflow: "skill:bmad-party-mode"
 ---
 
 # Step 7: Implementation Patterns

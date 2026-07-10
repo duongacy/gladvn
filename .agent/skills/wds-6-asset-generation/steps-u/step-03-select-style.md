@@ -1,7 +1,7 @@
 ---
-name: 'step-03-select-style'
-description: 'Confirm rendering approach, state visualization, and design system token mapping for UI elements'
-nextStepFile: './step-04-generate.md'
+name: "step-03-select-style"
+description: "Confirm rendering approach, state visualization, and design system token mapping for UI elements"
+nextStepFile: "./step-04-generate.md"
 ---
 
 # Step 3: Select Style

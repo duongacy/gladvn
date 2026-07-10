@@ -1,7 +1,7 @@
 ---
-name: 'step-01-load-context'
-description: 'Load design system components, tokens, and page context for UI element asset generation'
-nextStepFile: './step-02-inventory.md'
+name: "step-01-load-context"
+description: "Load design system components, tokens, and page context for UI element asset generation"
+nextStepFile: "./step-02-inventory.md"
 ---
 
 # Step 1: Load Context

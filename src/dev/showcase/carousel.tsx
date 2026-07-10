@@ -1,14 +1,4 @@
-import { useState } from "react";
-import {
-  Showcase,
-  ShowcaseDocs,
-  DocsH3,
-  DocsP,
-  DocsCode,
-  ExampleSection,
-  ExampleGrid,
-} from "@/dev/components/showcase";
-import { cn } from "@/lib/utils";
+import { CarouselPreset } from "@/components/macro/carousel-preset";
 import { Card, CardContent } from "@/components/micro/card";
 import {
   Carousel,
@@ -18,7 +8,15 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/micro/carousel";
-import { CarouselPreset } from "@/components/macro/carousel-preset";
+import {
+  DocsP,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+} from "@/dev/components/showcase";
+import { cn } from "@/lib/utils";
+import { useState } from "react";
 
 const SLIDES = [
   {
@@ -124,16 +122,6 @@ function ControlledCarouselDemo() {
 function CarouselMacroShowcase() {
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Khi nào nên dùng Macro</DocsH3>
-        <DocsP>
-          <DocsCode>CarouselPreset</DocsCode> hỗ trợ render mảng các{" "}
-          <DocsCode>items</DocsCode> thành các slide. Bạn không cần phải viết
-          lặp lại <DocsCode>CarouselItem</DocsCode>, mũi tên điều hướng, hay các
-          chấm trang (Dots). Mọi thứ đều được hiển thị tự động.
-        </DocsP>
-      </ShowcaseDocs>
-
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Tiêu chuẩn (Standard)"
@@ -418,16 +406,6 @@ return (
 function CarouselMicroShowcase() {
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Khi nào nên dùng Micro</DocsH3>
-        <DocsP>
-          Dùng <DocsCode>Carousel</DocsCode> và lắp ráp thủ công khi bạn muốn
-          một UI tuỳ chỉnh mạnh như: Mũi tên nằm đè trên ảnh (Overlay
-          Navigation), nhiều Card trên cùng một Slide, hoặc các hiệu ứng tương
-          tác (hover scale) riêng biệt.
-        </DocsP>
-      </ShowcaseDocs>
-
       <ExampleSection
         label="Hero Banner (Overlay Navigation)"
         description="Mũi tên kính mờ nằm đè trên Banner, chỉ hiện khi hover. Dấu chấm nằm sát mép dưới."
@@ -566,6 +544,15 @@ export default function CarouselShowcase() {
     <Showcase
       title="Carousel"
       description="Băng chuyền vuốt chuyển động cao cấp được xây dựng bằng Embla."
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsP>
+            Dùng để duyệt qua một tập hợp các nội dung (như hình ảnh, thẻ bài,
+            hoặc biểu ngữ) theo dạng trượt ngang hoặc dọc. Thích hợp cho không
+            gian hiển thị giới hạn cần hiển thị nhiều mục.
+          </DocsP>
+        </ShowcaseDocs>
+      }
       tabs={[
         { label: "Micro (Primitive)", content: <CarouselMicroShowcase /> },
         { label: "Macro (Preset)", content: <CarouselMacroShowcase /> },

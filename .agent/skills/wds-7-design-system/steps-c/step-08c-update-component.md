@@ -1,9 +1,9 @@
 ---
-name: 'step-08c-update-component'
-description: 'Update an existing component definition with new states, styling, or behavior'
+name: "step-08c-update-component"
+description: "Update an existing component definition with new states, styling, or behavior"
 
 # File References
-nextStepFile: './step-08d-add-variant.md'
+nextStepFile: "./step-08d-add-variant.md"
 ---
 
 # Step 8c: Update Component

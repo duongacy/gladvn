@@ -1,19 +1,19 @@
 ---
-name: 'step-08-delivery'
-description: 'Design narrative delivery methods including cutscenes, in-game storytelling, and endings'
+name: "step-08-delivery"
+description: "Design narrative delivery methods including cutscenes, in-game storytelling, and endings"
 
 # Path Definitions
-workflow_path: '{installed_path}'
+workflow_path: "{installed_path}"
 
 # File References
-thisStepFile: './step-08-delivery.md'
-nextStepFile: './step-09-integration.md'
-workflowFile: '{workflow_path}/workflow.md'
-outputFile: '{output_folder}/narrative-design.md'
+thisStepFile: "./step-08-delivery.md"
+nextStepFile: "./step-09-integration.md"
+workflowFile: "{workflow_path}/workflow.md"
+outputFile: "{output_folder}/narrative-design.md"
 
 # Task References
-advancedElicitationTask: 'skill:bmad-advanced-elicitation'
-partyModeWorkflow: 'skill:bmad-party-mode'
+advancedElicitationTask: "skill:bmad-advanced-elicitation"
+partyModeWorkflow: "skill:bmad-party-mode"
 ---
 
 # Step 8: Narrative Delivery

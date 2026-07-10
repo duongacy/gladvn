@@ -1,7 +1,7 @@
 ---
-name: 'step-04-generate'
-description: 'Craft detailed prompts and generate full page design compositions'
-nextStepFile: './step-05-review.md'
+name: "step-04-generate"
+description: "Craft detailed prompts and generate full page design compositions"
+nextStepFile: "./step-05-review.md"
 ---
 
 # Step 4: Generate Page Designs

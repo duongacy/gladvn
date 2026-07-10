@@ -16,6 +16,7 @@ description: 'Conduct game market research on competition and players. Use when 
 ## CONFIGURATION
 
 Load config from `{module_config}` and resolve:
+
 - `project_name`, `output_folder`, `planning_artifacts`, `user_name`
 - `communication_language`, `document_output_language`, `game_dev_experience`
 - `date` as a system-generated value
@@ -27,6 +28,7 @@ Load config from `{module_config}` and resolve:
 **What game, genre, or game market area do you want to research?**
 
 For example:
+
 - 'The open-world RPG market on PC and console'
 - 'Mobile casual games targeting casual players'
 - 'Indie roguelikes on Steam and itch.io'
@@ -35,6 +37,7 @@ For example:
 ### Topic Clarification
 
 Based on the user's topic, briefly clarify:
+
 1. **Core Topic**: "What exactly about [topic] are you most interested in?"
 2. **Research Goals**: "What do you hope to achieve with this research?"
 3. **Scope**: "Should we focus broadly or dive deep into specific aspects (e.g., specific platforms, player demographics, or competitor studios)?"

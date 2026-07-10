@@ -1,8 +1,8 @@
 ---
-name: 'step-03b-subagent-backend'
-description: 'Subagent: Generate backend tests only (unit, integration, contract)'
+name: "step-03b-subagent-backend"
+description: "Subagent: Generate backend tests only (unit, integration, contract)"
 subagent: true
-outputFile: '/tmp/tea-automate-backend-tests-{{timestamp}}.json'
+outputFile: "/tmp/tea-automate-backend-tests-{{timestamp}}.json"
 ---
 
 # Subagent 3B-backend: Generate Backend Tests
@@ -185,7 +185,11 @@ Write JSON to temp file: `/tmp/tea-automate-backend-tests-{{timestamp}}.json`
   "status": "complete",
   "success": true,
   "subagent": "backend-tests",
-  "knowledge_fragments_used": ["test-levels-framework", "test-priorities-matrix", "data-factories"],
+  "knowledge_fragments_used": [
+    "test-levels-framework",
+    "test-priorities-matrix",
+    "data-factories"
+  ],
   "summary": "Generated 15 backend test cases (10 unit, 4 integration, 1 contract)"
 }
 ```
@@ -205,9 +209,7 @@ Write JSON to temp file: `/tmp/tea-automate-backend-tests-{{timestamp}}.json`
   "success": false,
   "subagent": "backend-tests",
   "error": "Error message describing what went wrong",
-  "partial_output": {
-    /* any tests generated before error */
-  }
+  "partial_output": {/* any tests generated before error */}
 }
 ```
 

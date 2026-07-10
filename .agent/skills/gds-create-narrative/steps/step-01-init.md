@@ -1,17 +1,17 @@
 ---
-name: 'step-01-init'
-description: 'Initialize narrative workflow, load GDD context, and assess narrative complexity'
+name: "step-01-init"
+description: "Initialize narrative workflow, load GDD context, and assess narrative complexity"
 
 # Path Definitions
-workflow_path: '{installed_path}'
+workflow_path: "{installed_path}"
 
 # File References
-thisStepFile: './step-01-init.md'
-continueStepFile: './step-01b-continue.md'
-nextStepFile: './step-02-foundation.md'
-workflowFile: '{workflow_path}/workflow.md'
-outputFile: '{output_folder}/narrative-design.md'
-templateFile: '{workflow_path}/templates/narrative-template.md'
+thisStepFile: "./step-01-init.md"
+continueStepFile: "./step-01b-continue.md"
+nextStepFile: "./step-02-foundation.md"
+workflowFile: "{workflow_path}/workflow.md"
+outputFile: "{output_folder}/narrative-design.md"
+templateFile: "{workflow_path}/templates/narrative-template.md"
 ---
 
 # Step 1: Initialize Narrative Workflow
@@ -172,15 +172,15 @@ Create `{outputFile}` with frontmatter:
 
 ```markdown
 ---
-title: 'Narrative Design Document'
-project: '{{game_name}}'
-date: '{{date}}'
-author: '{{user_name}}'
-version: '1.0'
+title: "Narrative Design Document"
+project: "{{game_name}}"
+date: "{{date}}"
+author: "{{user_name}}"
+version: "1.0"
 stepsCompleted: [1]
-status: 'in-progress'
-narrativeComplexity: '{{selected_complexity}}'
-gdd: '{{gdd_file}}'
+status: "in-progress"
+narrativeComplexity: "{{selected_complexity}}"
+gdd: "{{gdd_file}}"
 ---
 
 # Narrative Design Document

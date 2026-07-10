@@ -1,7 +1,7 @@
 ---
-name: 'step-02-inventory'
-description: 'Build a complete icon inventory organized by category, usage, and batch opportunity'
-nextStepFile: './step-03-select-style.md'
+name: "step-02-inventory"
+description: "Build a complete icon inventory organized by category, usage, and batch opportunity"
+nextStepFile: "./step-03-select-style.md"
 ---
 
 # Step 2: Asset Inventory

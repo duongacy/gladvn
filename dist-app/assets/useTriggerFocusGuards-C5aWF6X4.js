@@ -1,1 +1,46 @@
-import{cr as e,dr as t,hn as n,on as r,sr as i,vt as a}from"./showcase-vJrKG7HA.js";import{F as o,L as s,R as c,z as l}from"./popupStateMapping-wxS0crot.js";var u=t(e(),1),d=t(i(),1);function f(e,t){let i=u.useRef(null);function f(t){d.flushSync(()=>{e.setOpen(!1,r(n,t.nativeEvent,t.currentTarget))}),c(i.current)?.focus()}function p(i){let c=e.select(`positionerElement`);if(c&&l(i,c))e.context.beforeContentFocusGuardRef.current?.focus();else{d.flushSync(()=>{e.setOpen(!1,r(n,i.nativeEvent,i.currentTarget))});let l=s(e.context.triggerFocusTargetRef.current||t.current);for(;l!==null&&a(c,l);){let e=l;if(l=o(l),l===e)break}l?.focus()}}return{preFocusGuardRef:i,handlePreFocusGuardFocus:f,handleFocusTargetFocus:p}}export{f as t};
+import {
+  cr as e,
+  dr as t,
+  hn as n,
+  on as r,
+  sr as i,
+  vt as a,
+} from "./showcase-vJrKG7HA.js";
+import {
+  F as o,
+  L as s,
+  R as c,
+  z as l,
+} from "./popupStateMapping-wxS0crot.js";
+var u = t(e(), 1),
+  d = t(i(), 1);
+function f(e, t) {
+  let i = u.useRef(null);
+  function f(t) {
+    (d.flushSync(() => {
+      e.setOpen(!1, r(n, t.nativeEvent, t.currentTarget));
+    }),
+      c(i.current)?.focus());
+  }
+  function p(i) {
+    let c = e.select(`positionerElement`);
+    if (c && l(i, c)) e.context.beforeContentFocusGuardRef.current?.focus();
+    else {
+      d.flushSync(() => {
+        e.setOpen(!1, r(n, i.nativeEvent, i.currentTarget));
+      });
+      let l = s(e.context.triggerFocusTargetRef.current || t.current);
+      for (; l !== null && a(c, l);) {
+        let e = l;
+        if (((l = o(l)), l === e)) break;
+      }
+      l?.focus();
+    }
+  }
+  return {
+    preFocusGuardRef: i,
+    handlePreFocusGuardFocus: f,
+    handleFocusTargetFocus: p,
+  };
+}
+export { f as t };

@@ -1,9 +1,9 @@
 ---
-name: 'step-06-present-decision'
-description: 'Present complete analysis to designer with trade-offs for informed decision'
+name: "step-06-present-decision"
+description: "Present complete analysis to designer with trade-offs for informed decision"
 
 # File References
-nextStepFile: './step-07-execute-decision.md'
+nextStepFile: "./step-07-execute-decision.md"
 ---
 
 # Step 6: Present Decision

@@ -1,32 +1,21 @@
-import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
-import {
-  Package2Icon,
-  SettingsIcon,
-  UserIcon,
-  FolderIcon,
-  MoreHorizontalIcon,
-} from "lucide-react";
+import { ExampleSection, Showcase } from "@/dev/components/showcase";
+import { FolderIcon, Package2Icon, SettingsIcon, UserIcon } from "lucide-react";
 
 import {
   Sidebar,
-  SidebarLogo,
   SidebarLabel,
-  SidebarMenuItemList,
+  SidebarLogo,
   SidebarMenuItem,
+  SidebarMenuItemList,
   useSidebarToggle,
 } from "@/components/micro/sidebar";
 
-export default function SidebarShowcase() {
+function SidebarMicroShowcase() {
   const { sidebarRef, toggleSidebar, defaultState } =
     useSidebarToggle("expanded");
 
   return (
-    <div className="space-y-10">
-      <SectionHeader
-        title="Sidebar (Ultra Primitive)"
-        description="Sidebar nguyên thủy nhất, chỉ nhận context state, không có JS lằng nhằng, CSS thuần túy đóng mở tức thì."
-      ></SectionHeader>
-
+    <div className="space-y-10 mt-6">
       <ExampleSection
         label="Dumb Component Architecture"
         description="Sidebar không có transition width, sử dụng display: none để ẩn ngay lập tức, không gây hiệu ứng giật khung."
@@ -107,5 +96,15 @@ return (
         </div>
       </ExampleSection>
     </div>
+  );
+}
+
+export default function SidebarShowcase() {
+  return (
+    <Showcase
+      title="Sidebar (Ultra Primitive)"
+      description="Sidebar nguyên thủy nhất, chỉ nhận context state, không có JS lằng nhằng, CSS thuần túy đóng mở tức thì."
+      tabs={[{ label: "Micro (Primitive)", content: <SidebarMicroShowcase /> }]}
+    />
   );
 }

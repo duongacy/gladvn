@@ -36,7 +36,15 @@ engine_mcps:
           - "In Unity: Tools > MCP Unity > Server Window > Configure"
           - "Click Start Server"
         requirements: "Unity 6+, Node.js 18+, npm 9+"
-        supported_clients: ["Claude Desktop", "Claude Code", "Cursor", "Windsurf", "Codex CLI", "GitHub Copilot"]
+        supported_clients:
+          [
+            "Claude Desktop",
+            "Claude Code",
+            "Cursor",
+            "Windsurf",
+            "Codex CLI",
+            "GitHub Copilot",
+          ]
         license: "MIT"
         benefit_summary: "AI agents get 30+ tools to directly inspect and modify your Unity scenes, GameObjects, components, and materials - no copy-pasting descriptions needed."
 
@@ -320,7 +328,8 @@ engine_mcps:
           - "Or configure in claude_desktop_config.json / .mcp.json"
           - "Optional: get API key at context7.com/dashboard for higher rate limits"
         requirements: "Node.js (for npx) or Docker"
-        supported_clients: ["Claude Desktop", "Claude Code", "Cursor", "Windsurf", "Zed"]
+        supported_clients:
+          ["Claude Desktop", "Claude Code", "Cursor", "Windsurf", "Zed"]
         license: "Apache-2.0"
         benefit_summary: "AI agents look up current library documentation instead of relying on training data - reduces outdated API usage across any engine or framework."
 

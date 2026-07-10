@@ -1,1 +1,196 @@
-import{Nn as e,cr as t,dr as n,i as r,n as i,r as a,s as o}from"./showcase-vJrKG7HA.js";import{t as s}from"./search-Ba8-HPrO.js";import{n as c,o as l,r as u,t as d}from"./field-DA6j2oEX.js";import{t as f}from"./select-preset-B6grUIWS.js";import{a as p,i as m,n as h,o as g,r as _,t as v}from"./input-group-CEoiDdE-.js";var y=n(t(),1),b=e();function x(){let[e,t]=(0,y.useState)(`md`);return(0,b.jsxs)(`div`,{className:`space-y-10`,children:[(0,b.jsx)(r,{title:`Input Group`,description:`Kết hợp kiểu nhập văn bản với các tiện ích bổ sung cho những thứ như URL hoặc giá cả.`,children:(0,b.jsx)(f,{value:e,onValueChange:e=>t(e),options:[{value:`sm`,label:`Size: sm`},{value:`md`,label:`Size: md`},{value:`lg`,label:`Size: lg`}],className:`w-[120px] h-8 text-xs bg-background`})}),(0,b.jsxs)(i,{columns:2,children:[(0,b.jsx)(a,{label:`URL Input`,description:`Đầu vào với các phần bổ sung tiền tố và hậu tố.`,children:(0,b.jsx)(`div`,{className:`w-full max-w-md`,children:(0,b.jsxs)(d,{size:e,children:[(0,b.jsx)(l,{htmlFor:`tf-group`,children:`Website`}),(0,b.jsx)(u,{children:`Combine text inputs with addons for things like URLs or prices.`}),(0,b.jsx)(c,{children:(0,b.jsxs)(v,{size:e,children:[(0,b.jsx)(h,{children:(0,b.jsx)(p,{children:`https://`})}),(0,b.jsx)(m,{id:`tf-group`,placeholder:`gladcn.ui`}),(0,b.jsx)(h,{children:(0,b.jsx)(p,{children:`.com`})})]})})]})})}),(0,b.jsx)(a,{label:`With Button`,description:`Đầu vào kết hợp với một nút hành động.`,children:(0,b.jsx)(`div`,{className:`w-full max-w-md`,children:(0,b.jsxs)(d,{size:e,children:[(0,b.jsx)(l,{htmlFor:`tf-search`,children:`Search`}),(0,b.jsx)(c,{children:(0,b.jsxs)(v,{size:e,children:[(0,b.jsx)(m,{id:`tf-search`,placeholder:`Search...`}),(0,b.jsx)(_,{children:(0,b.jsxs)(o,{variant:`solid`,size:e,children:[(0,b.jsx)(s,{className:`size-4 mr-2`}),` Find`]})})]})})]})})})]}),(0,b.jsx)(a,{label:`With Textarea`,description:`Nhóm đầu vào được áp dụng cho thành phần vùng văn bản.`,children:(0,b.jsx)(`div`,{className:`w-full max-w-md`,children:(0,b.jsxs)(d,{size:e,children:[(0,b.jsx)(l,{htmlFor:`tf-comment`,children:`Comment`}),(0,b.jsx)(c,{children:(0,b.jsxs)(v,{size:e,className:`h-auto`,children:[(0,b.jsx)(h,{className:`items-start pt-2`,children:(0,b.jsx)(p,{children:`@`})}),(0,b.jsx)(g,{id:`tf-comment`,placeholder:`Write a comment...`,rows:4})]})})]})})}),(0,b.jsx)(a,{label:`Addon Alignments`,description:`Addon của nhóm đầu vào hỗ trợ nhiều cách sắp xếp khác nhau: bắt đầu nội tuyến, kết thúc nội tuyến, bắt đầu khối, kết thúc khối.`,children:(0,b.jsxs)(i,{columns:2,children:[(0,b.jsxs)(v,{size:e,children:[(0,b.jsx)(h,{align:`inline-start`,children:(0,b.jsx)(p,{children:`start`})}),(0,b.jsx)(m,{placeholder:`inline-start`})]}),(0,b.jsxs)(v,{size:e,children:[(0,b.jsx)(m,{placeholder:`inline-end`}),(0,b.jsx)(h,{align:`inline-end`,children:(0,b.jsx)(p,{children:`end`})})]}),(0,b.jsxs)(v,{size:e,children:[(0,b.jsx)(h,{align:`block-start`,children:(0,b.jsx)(p,{children:`block-start`})}),(0,b.jsx)(m,{placeholder:`block-start`})]}),(0,b.jsxs)(v,{size:e,children:[(0,b.jsx)(m,{placeholder:`block-end`}),(0,b.jsx)(h,{align:`block-end`,children:(0,b.jsx)(p,{children:`block-end`})})]})]})})]})}export{x as default};
+import {
+  Nn as e,
+  cr as t,
+  dr as n,
+  i as r,
+  n as i,
+  r as a,
+  s as o,
+} from "./showcase-vJrKG7HA.js";
+import { t as s } from "./search-Ba8-HPrO.js";
+import { n as c, o as l, r as u, t as d } from "./field-DA6j2oEX.js";
+import { t as f } from "./select-preset-B6grUIWS.js";
+import {
+  a as p,
+  i as m,
+  n as h,
+  o as g,
+  r as _,
+  t as v,
+} from "./input-group-CEoiDdE-.js";
+var y = n(t(), 1),
+  b = e();
+function x() {
+  let [e, t] = (0, y.useState)(`md`);
+  return (0, b.jsxs)(`div`, {
+    className: `space-y-10`,
+    children: [
+      (0, b.jsx)(r, {
+        title: `Input Group`,
+        description: `Kết hợp kiểu nhập văn bản với các tiện ích bổ sung cho những thứ như URL hoặc giá cả.`,
+        children: (0, b.jsx)(f, {
+          value: e,
+          onValueChange: (e) => t(e),
+          options: [
+            { value: `sm`, label: `Size: sm` },
+            { value: `md`, label: `Size: md` },
+            { value: `lg`, label: `Size: lg` },
+          ],
+          className: `w-[120px] h-8 text-xs bg-background`,
+        }),
+      }),
+      (0, b.jsxs)(i, {
+        columns: 2,
+        children: [
+          (0, b.jsx)(a, {
+            label: `URL Input`,
+            description: `Đầu vào với các phần bổ sung tiền tố và hậu tố.`,
+            children: (0, b.jsx)(`div`, {
+              className: `w-full max-w-md`,
+              children: (0, b.jsxs)(d, {
+                size: e,
+                children: [
+                  (0, b.jsx)(l, { htmlFor: `tf-group`, children: `Website` }),
+                  (0, b.jsx)(u, {
+                    children: `Combine text inputs with addons for things like URLs or prices.`,
+                  }),
+                  (0, b.jsx)(c, {
+                    children: (0, b.jsxs)(v, {
+                      size: e,
+                      children: [
+                        (0, b.jsx)(h, {
+                          children: (0, b.jsx)(p, { children: `https://` }),
+                        }),
+                        (0, b.jsx)(m, {
+                          id: `tf-group`,
+                          placeholder: `gladcn.ui`,
+                        }),
+                        (0, b.jsx)(h, {
+                          children: (0, b.jsx)(p, { children: `.com` }),
+                        }),
+                      ],
+                    }),
+                  }),
+                ],
+              }),
+            }),
+          }),
+          (0, b.jsx)(a, {
+            label: `With Button`,
+            description: `Đầu vào kết hợp với một nút hành động.`,
+            children: (0, b.jsx)(`div`, {
+              className: `w-full max-w-md`,
+              children: (0, b.jsxs)(d, {
+                size: e,
+                children: [
+                  (0, b.jsx)(l, { htmlFor: `tf-search`, children: `Search` }),
+                  (0, b.jsx)(c, {
+                    children: (0, b.jsxs)(v, {
+                      size: e,
+                      children: [
+                        (0, b.jsx)(m, {
+                          id: `tf-search`,
+                          placeholder: `Search...`,
+                        }),
+                        (0, b.jsx)(_, {
+                          children: (0, b.jsxs)(o, {
+                            variant: `solid`,
+                            size: e,
+                            children: [
+                              (0, b.jsx)(s, { className: `size-4 mr-2` }),
+                              ` Find`,
+                            ],
+                          }),
+                        }),
+                      ],
+                    }),
+                  }),
+                ],
+              }),
+            }),
+          }),
+        ],
+      }),
+      (0, b.jsx)(a, {
+        label: `With Textarea`,
+        description: `Nhóm đầu vào được áp dụng cho thành phần vùng văn bản.`,
+        children: (0, b.jsx)(`div`, {
+          className: `w-full max-w-md`,
+          children: (0, b.jsxs)(d, {
+            size: e,
+            children: [
+              (0, b.jsx)(l, { htmlFor: `tf-comment`, children: `Comment` }),
+              (0, b.jsx)(c, {
+                children: (0, b.jsxs)(v, {
+                  size: e,
+                  className: `h-auto`,
+                  children: [
+                    (0, b.jsx)(h, {
+                      className: `items-start pt-2`,
+                      children: (0, b.jsx)(p, { children: `@` }),
+                    }),
+                    (0, b.jsx)(g, {
+                      id: `tf-comment`,
+                      placeholder: `Write a comment...`,
+                      rows: 4,
+                    }),
+                  ],
+                }),
+              }),
+            ],
+          }),
+        }),
+      }),
+      (0, b.jsx)(a, {
+        label: `Addon Alignments`,
+        description: `Addon của nhóm đầu vào hỗ trợ nhiều cách sắp xếp khác nhau: bắt đầu nội tuyến, kết thúc nội tuyến, bắt đầu khối, kết thúc khối.`,
+        children: (0, b.jsxs)(i, {
+          columns: 2,
+          children: [
+            (0, b.jsxs)(v, {
+              size: e,
+              children: [
+                (0, b.jsx)(h, {
+                  align: `inline-start`,
+                  children: (0, b.jsx)(p, { children: `start` }),
+                }),
+                (0, b.jsx)(m, { placeholder: `inline-start` }),
+              ],
+            }),
+            (0, b.jsxs)(v, {
+              size: e,
+              children: [
+                (0, b.jsx)(m, { placeholder: `inline-end` }),
+                (0, b.jsx)(h, {
+                  align: `inline-end`,
+                  children: (0, b.jsx)(p, { children: `end` }),
+                }),
+              ],
+            }),
+            (0, b.jsxs)(v, {
+              size: e,
+              children: [
+                (0, b.jsx)(h, {
+                  align: `block-start`,
+                  children: (0, b.jsx)(p, { children: `block-start` }),
+                }),
+                (0, b.jsx)(m, { placeholder: `block-start` }),
+              ],
+            }),
+            (0, b.jsxs)(v, {
+              size: e,
+              children: [
+                (0, b.jsx)(m, { placeholder: `block-end` }),
+                (0, b.jsx)(h, {
+                  align: `block-end`,
+                  children: (0, b.jsx)(p, { children: `block-end` }),
+                }),
+              ],
+            }),
+          ],
+        }),
+      }),
+    ],
+  });
+}
+export { x as default };

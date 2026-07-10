@@ -1,7 +1,7 @@
 ---
-name: 'step-04-generate'
-description: 'Craft optimized prompts and generate wireframes through MCP service or prompt export'
-nextStepFile: './step-05-review.md'
+name: "step-04-generate"
+description: "Craft optimized prompts and generate wireframes through MCP service or prompt export"
+nextStepFile: "./step-05-review.md"
 ---
 
 # Step 4: Generate Wireframes

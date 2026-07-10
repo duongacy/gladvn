@@ -1,11 +1,11 @@
 ---
-name: 'step-11-entry-point'
-description: 'Define where users arrive from for this specific page'
+name: "step-11-entry-point"
+description: "Define where users arrive from for this specific page"
 
 # File References
-nextStepFile: './step-12-mental-state.md'
-workflowFile: '../workflow.md'
-activityWorkflowFile: '../workflow-suggest.md'
+nextStepFile: "./step-12-mental-state.md"
+workflowFile: "../workflow.md"
+activityWorkflowFile: "../workflow-suggest.md"
 ---
 
 # Step 11: Page Entry Point
@@ -62,6 +62,7 @@ Define where users arrive from for this specific page — the page-level entry p
 How do users get to this page?
 
 Examples:
+
 - Google search (external)
 - Social media ad (external)
 - Email link (external)

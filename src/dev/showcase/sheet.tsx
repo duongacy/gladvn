@@ -1,4 +1,3 @@
-import { ExampleSection, SectionHeader } from "@/dev/components/showcase";
 import { Button } from "@/components/micro/button";
 import { Input } from "@/components/micro/input";
 import {
@@ -11,15 +10,11 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/micro/sheet";
+import { ExampleSection, Showcase } from "@/dev/components/showcase";
 
-export default function SheetShowcase() {
+function SheetMicroShowcase() {
   return (
-    <div className="space-y-10">
-      <SectionHeader
-        title="Sheet"
-        description="Mở rộng thành phần Hộp thoại để hiển thị nội dung bổ sung cho nội dung chính của màn hình."
-      />
-
+    <div className="space-y-10 mt-6">
       <ExampleSection
         label="Directions"
         description="Tấm có thể trượt từ bất kỳ cạnh nào."
@@ -85,5 +80,15 @@ export default function SheetShowcase() {
         </div>
       </ExampleSection>
     </div>
+  );
+}
+
+export default function SheetShowcase() {
+  return (
+    <Showcase
+      title="Sheet"
+      description="Mở rộng thành phần Hộp thoại để hiển thị nội dung bổ sung cho nội dung chính của màn hình."
+      tabs={[{ label: "Micro (Primitive)", content: <SheetMicroShowcase /> }]}
+    />
   );
 }

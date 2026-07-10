@@ -7,6 +7,8 @@
  */
 "use client";
 
+import { Spinner } from "@/components/micro/spinner";
+import { useTheme } from "@/components/micro/theme-provider";
 import {
   CircleCheckIcon,
   InfoIcon,
@@ -14,8 +16,6 @@ import {
   TriangleAlertIcon,
 } from "lucide-react";
 import { Toaster as Sonner, type ToasterProps } from "sonner";
-import { Spinner } from "@/components/micro/spinner";
-import { useTheme } from "@/components/micro/theme-provider";
 
 const Toaster = ({ ...props }: ToasterProps) => {
   const themeContext = useTheme();

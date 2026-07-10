@@ -1,11 +1,11 @@
 ---
-name: 'step-02-define-component'
-description: 'Create a new design system component or update an existing one'
+name: "step-02-define-component"
+description: "Create a new design system component or update an existing one"
 
 # File References
-nextStepFile: './step-03-validate-usage.md'
-workflowFile: '../workflow.md'
-activityWorkflowFile: '../workflow-design-system.md'
+nextStepFile: "./step-03-validate-usage.md"
+workflowFile: "../workflow.md"
+activityWorkflowFile: "../workflow-design-system.md"
 ---
 
 # Step 2: Define or Update Component

@@ -3,7 +3,7 @@ name: step-01-scenario-coverage
 description: Verify that all strategic context chains from the Trigger Map are covered by at least one scenario
 
 # File References
-nextStepFile: './step-02-navigation-patterns.md'
+nextStepFile: "./step-02-navigation-patterns.md"
 ---
 
 # Validation Step 1: Scenario Coverage
@@ -64,6 +64,7 @@ Read all scenario outlines from `{output_folder}/C-UX-Scenarios/`.
 ### 3. Cross-Reference
 
 For each strategic context chain, verify:
+
 - [ ] At least one scenario addresses this chain
 - [ ] The scenario Trigger Map Connections section explicitly references the strategic context components
 - [ ] Priority 1 chains have dedicated scenarios (not just secondary coverage)
@@ -82,6 +83,7 @@ For each strategic context chain, verify:
 ```
 
 **Severity:**
+
 - ❌ Critical: Priority 1 chain with no scenario
 - ⚠️ Warning: Priority 2-3 chain with no scenario
 - ✅ Pass: Chain covered by at least one scenario

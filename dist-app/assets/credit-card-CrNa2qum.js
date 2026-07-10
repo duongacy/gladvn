@@ -1,1 +1,9 @@
-import{or as e}from"./showcase-vJrKG7HA.js";var t=e(`credit-card`,[[`rect`,{width:`20`,height:`14`,x:`2`,y:`5`,rx:`2`,key:`ynyp8z`}],[`line`,{x1:`2`,x2:`22`,y1:`10`,y2:`10`,key:`1b3vmo`}]]);export{t};
+import { or as e } from "./showcase-vJrKG7HA.js";
+var t = e(`credit-card`, [
+  [
+    `rect`,
+    { width: `20`, height: `14`, x: `2`, y: `5`, rx: `2`, key: `ynyp8z` },
+  ],
+  [`line`, { x1: `2`, x2: `22`, y1: `10`, y2: `10`, key: `1b3vmo` }],
+]);
+export { t };

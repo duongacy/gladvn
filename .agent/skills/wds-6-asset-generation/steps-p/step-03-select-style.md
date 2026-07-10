@@ -1,7 +1,7 @@
 ---
-name: 'step-03-select-style'
-description: 'Choose design style and content style that define the visual character of page designs'
-nextStepFile: './step-04-generate.md'
+name: "step-03-select-style"
+description: "Choose design style and content style that define the visual character of page designs"
+nextStepFile: "./step-04-generate.md"
 ---
 
 # Step 3: Select Style

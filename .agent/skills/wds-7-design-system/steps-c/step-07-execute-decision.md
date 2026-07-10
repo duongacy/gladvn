@@ -1,9 +1,9 @@
 ---
-name: 'step-07-execute-decision'
-description: 'Execute the designer decision: reuse, add variant, or create new component'
+name: "step-07-execute-decision"
+description: "Execute the designer decision: reuse, add variant, or create new component"
 
 # File References
-nextStepFile: './step-08a-initialize-design-system.md'
+nextStepFile: "./step-08a-initialize-design-system.md"
 ---
 
 # Step 7: Execute Decision
@@ -117,7 +117,7 @@ Create reference to existing component:
 Continue Button:
   component: Button.primary [btn-001]
   why: Navigate to next step in onboarding
-  label: 'Continue'
+  label: "Continue"
 ```
 
 ### Step 4: Update Component Usage
@@ -231,7 +231,7 @@ Create reference with variant specified:
 Continue Button:
   component: Button.navigation [btn-001]  ← Variant specified
   why: Navigate to next step in onboarding
-  label: 'Continue'
+  label: "Continue"
 ```
 
 ### Step 5: Update Usage Tracking
@@ -374,7 +374,7 @@ Create reference in page spec:
 Continue Button:
   component: NavigationButton [btn-002]
   why: Navigate to next step in onboarding
-  label: 'Continue'
+  label: "Continue"
 ```
 
 ### Step 6: Update Design System Index

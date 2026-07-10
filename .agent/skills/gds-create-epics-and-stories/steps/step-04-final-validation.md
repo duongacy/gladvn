@@ -1,21 +1,21 @@
 ---
-name: 'step-04-final-validation'
-description: 'Validate complete coverage of all requirements and ensure implementation readiness'
+name: "step-04-final-validation"
+description: "Validate complete coverage of all requirements and ensure implementation readiness"
 
 # Path Definitions
-workflow_path: '{installed_path}'
+workflow_path: "{installed_path}"
 
 # File References
-thisStepFile: './step-04-final-validation.md'
-workflowFile: '{workflow_path}/workflow.md'
-outputFile: '{planning_artifacts}/epics.md'
+thisStepFile: "./step-04-final-validation.md"
+workflowFile: "{workflow_path}/workflow.md"
+outputFile: "{planning_artifacts}/epics.md"
 
 # Task References
-advancedElicitationTask: 'skill:bmad-advanced-elicitation'
-partyModeWorkflow: 'skill:bmad-party-mode'
+advancedElicitationTask: "skill:bmad-advanced-elicitation"
+partyModeWorkflow: "skill:bmad-party-mode"
 
 # Template References
-epicsTemplate: '{workflow_path}/templates/epics-template.md'
+epicsTemplate: "{workflow_path}/templates/epics-template.md"
 ---
 
 # Step 4: Final Validation

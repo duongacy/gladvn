@@ -1,1 +1,123 @@
-import{Hn as e,It as t,Kn as n,Nn as r,Pn as i,Rt as a,cr as o,dr as s,h as c,on as l,or as u,qn as d,wn as f}from"./showcase-vJrKG7HA.js";import{t as p}from"./CompositeItem-lQIM2wtg.js";var m=u(`bold`,[[`path`,{d:`M6 12h9a4 4 0 0 1 0 8H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a4 4 0 0 1 0 8`,key:`mg9rjx`}]]),h=u(`italic`,[[`line`,{x1:`19`,x2:`10`,y1:`4`,y2:`4`,key:`15jd3p`}],[`line`,{x1:`14`,x2:`5`,y1:`20`,y2:`20`,key:`bu0au3`}],[`line`,{x1:`15`,x2:`9`,y1:`4`,y2:`20`,key:`uljnxc`}]]),g=u(`underline`,[[`path`,{d:`M6 4v6a6 6 0 0 0 12 0V4`,key:`9kb039`}],[`line`,{x1:`4`,x2:`20`,y1:`20`,y2:`20`,key:`nun2al`}]]),_=s(o(),1),v=_.createContext(void 0);function y(t=!0){let n=_.useContext(v);if(n===void 0&&!t)throw Error(e(7));return n}var b=r(),x=_.forwardRef(function(e,r){let{className:o,defaultPressed:s=!1,disabled:c=!1,form:u,onPressedChange:d,pressed:m,render:h,type:g,value:v,nativeButton:x=!0,style:S,...C}=e,w=a(v||void 0),T=y(),E=T?.value??[],D=T?void 0:s,O=(c||T?.disabled)??!1,[k,A]=n({controlled:T?w!==void 0&&E.indexOf(w)>-1:m,default:D,name:`Toggle`,state:`pressed`}),{getButtonProps:j,buttonRef:M}=t({disabled:O,native:x}),N={disabled:O,pressed:k},P=[M,r],F=[{"aria-pressed":k,onClick(e){let t=!k,n=l(f,e.nativeEvent);d?.(t,n),!n.isCanceled&&(w&&T?.setGroupValue?.(w,t,n),!n.isCanceled&&A(t))}},C,j],I=i(`button`,e,{enabled:!T,state:N,ref:P,props:F}),L=_.useMemo(()=>({disabled:O,focusableWhenDisabled:!1}),[O]);return T?(0,b.jsx)(p,{tag:`button`,render:h,className:o,style:S,metadata:L,state:N,refs:P,props:F}):I}),S=c(`group/toggle inline-flex items-center justify-center gap-2 rounded-lg text-sm font-medium whitespace-nowrap transition-all outline-none hover:bg-muted hover:text-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-offset-1 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:border-destructive aria-invalid:focus-visible:ring-3 aria-invalid:focus-visible:ring-destructive/50 dark:aria-invalid:focus-visible:ring-destructive/50 aria-pressed:bg-muted aria-pressed:text-foreground data-[state=on]:bg-muted data-[state=on]:text-foreground [&>svg]:pointer-events-none [&>svg]:shrink-0 [&>svg:not([class*='size-'])]:size-4 bg-transparent`,{variants:{variant:{outline:`border border-input bg-transparent hover:bg-muted hover:text-foreground`},size:{sm:`h-7 min-w-7 px-2.5 text-xs [&>svg:not([class*='size-'])]:size-3.5`,md:`h-8 min-w-8 px-3 text-sm`,lg:`h-9 min-w-9 px-4 text-sm`}}});function C({className:e,variant:t=`outline`,size:n=`md`,...r}){return(0,b.jsx)(x,{"data-slot":`toggle`,className:d(S({variant:t,size:n,className:e})),...r})}export{g as a,v as i,S as n,h as o,x as r,m as s,C as t};
+import {
+  Hn as e,
+  It as t,
+  Kn as n,
+  Nn as r,
+  Pn as i,
+  Rt as a,
+  cr as o,
+  dr as s,
+  h as c,
+  on as l,
+  or as u,
+  qn as d,
+  wn as f,
+} from "./showcase-vJrKG7HA.js";
+import { t as p } from "./CompositeItem-lQIM2wtg.js";
+var m = u(`bold`, [
+    [
+      `path`,
+      {
+        d: `M6 12h9a4 4 0 0 1 0 8H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a4 4 0 0 1 0 8`,
+        key: `mg9rjx`,
+      },
+    ],
+  ]),
+  h = u(`italic`, [
+    [`line`, { x1: `19`, x2: `10`, y1: `4`, y2: `4`, key: `15jd3p` }],
+    [`line`, { x1: `14`, x2: `5`, y1: `20`, y2: `20`, key: `bu0au3` }],
+    [`line`, { x1: `15`, x2: `9`, y1: `4`, y2: `20`, key: `uljnxc` }],
+  ]),
+  g = u(`underline`, [
+    [`path`, { d: `M6 4v6a6 6 0 0 0 12 0V4`, key: `9kb039` }],
+    [`line`, { x1: `4`, x2: `20`, y1: `20`, y2: `20`, key: `nun2al` }],
+  ]),
+  _ = s(o(), 1),
+  v = _.createContext(void 0);
+function y(t = !0) {
+  let n = _.useContext(v);
+  if (n === void 0 && !t) throw Error(e(7));
+  return n;
+}
+var b = r(),
+  x = _.forwardRef(function (e, r) {
+    let {
+        className: o,
+        defaultPressed: s = !1,
+        disabled: c = !1,
+        form: u,
+        onPressedChange: d,
+        pressed: m,
+        render: h,
+        type: g,
+        value: v,
+        nativeButton: x = !0,
+        style: S,
+        ...C
+      } = e,
+      w = a(v || void 0),
+      T = y(),
+      E = T?.value ?? [],
+      D = T ? void 0 : s,
+      O = (c || T?.disabled) ?? !1,
+      [k, A] = n({
+        controlled: T ? w !== void 0 && E.indexOf(w) > -1 : m,
+        default: D,
+        name: `Toggle`,
+        state: `pressed`,
+      }),
+      { getButtonProps: j, buttonRef: M } = t({ disabled: O, native: x }),
+      N = { disabled: O, pressed: k },
+      P = [M, r],
+      F = [
+        {
+          "aria-pressed": k,
+          onClick(e) {
+            let t = !k,
+              n = l(f, e.nativeEvent);
+            (d?.(t, n),
+              !n.isCanceled &&
+                (w && T?.setGroupValue?.(w, t, n), !n.isCanceled && A(t)));
+          },
+        },
+        C,
+        j,
+      ],
+      I = i(`button`, e, { enabled: !T, state: N, ref: P, props: F }),
+      L = _.useMemo(() => ({ disabled: O, focusableWhenDisabled: !1 }), [O]);
+    return T
+      ? (0, b.jsx)(p, {
+          tag: `button`,
+          render: h,
+          className: o,
+          style: S,
+          metadata: L,
+          state: N,
+          refs: P,
+          props: F,
+        })
+      : I;
+  }),
+  S = c(
+    `group/toggle inline-flex items-center justify-center gap-2 rounded-lg text-sm font-medium whitespace-nowrap transition-all outline-none hover:bg-muted hover:text-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-offset-1 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:border-destructive aria-invalid:focus-visible:ring-3 aria-invalid:focus-visible:ring-destructive/50 dark:aria-invalid:focus-visible:ring-destructive/50 aria-pressed:bg-muted aria-pressed:text-foreground data-[state=on]:bg-muted data-[state=on]:text-foreground [&>svg]:pointer-events-none [&>svg]:shrink-0 [&>svg:not([class*='size-'])]:size-4 bg-transparent`,
+    {
+      variants: {
+        variant: {
+          outline: `border border-input bg-transparent hover:bg-muted hover:text-foreground`,
+        },
+        size: {
+          sm: `h-7 min-w-7 px-2.5 text-xs [&>svg:not([class*='size-'])]:size-3.5`,
+          md: `h-8 min-w-8 px-3 text-sm`,
+          lg: `h-9 min-w-9 px-4 text-sm`,
+        },
+      },
+    },
+  );
+function C({ className: e, variant: t = `outline`, size: n = `md`, ...r }) {
+  return (0, b.jsx)(x, {
+    "data-slot": `toggle`,
+    className: d(S({ variant: t, size: n, className: e })),
+    ...r,
+  });
+}
+export { g as a, v as i, S as n, h as o, x as r, m as s, C as t };

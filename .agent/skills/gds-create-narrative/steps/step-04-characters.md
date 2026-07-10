@@ -1,19 +1,19 @@
 ---
-name: 'step-04-characters'
-description: 'Develop all characters including protagonists, antagonists, supporting cast, and their arcs'
+name: "step-04-characters"
+description: "Develop all characters including protagonists, antagonists, supporting cast, and their arcs"
 
 # Path Definitions
-workflow_path: '{installed_path}'
+workflow_path: "{installed_path}"
 
 # File References
-thisStepFile: './step-04-characters.md'
-nextStepFile: './step-05-world.md'
-workflowFile: '{workflow_path}/workflow.md'
-outputFile: '{output_folder}/narrative-design.md'
+thisStepFile: "./step-04-characters.md"
+nextStepFile: "./step-05-world.md"
+workflowFile: "{workflow_path}/workflow.md"
+outputFile: "{output_folder}/narrative-design.md"
 
 # Task References
-advancedElicitationTask: 'skill:bmad-advanced-elicitation'
-partyModeWorkflow: 'skill:bmad-party-mode'
+advancedElicitationTask: "skill:bmad-advanced-elicitation"
+partyModeWorkflow: "skill:bmad-party-mode"
 ---
 
 # Step 4: Characters

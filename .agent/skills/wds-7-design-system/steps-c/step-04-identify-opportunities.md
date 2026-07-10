@@ -1,9 +1,9 @@
 ---
-name: 'step-04-identify-opportunities'
-description: 'Identify potential benefits of each design system decision option: reuse, variant, or create new'
+name: "step-04-identify-opportunities"
+description: "Identify potential benefits of each design system decision option: reuse, variant, or create new"
 
 # File References
-nextStepFile: './step-05-identify-risks.md'
+nextStepFile: "./step-05-identify-risks.md"
 ---
 
 # Step 4: Identify Opportunities

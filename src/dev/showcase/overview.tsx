@@ -1,4 +1,5 @@
 import {
+  ArrowRightIcon,
   BlocksIcon,
   BoxIcon,
   CheckIcon,
@@ -10,16 +11,12 @@ import {
   PaletteIcon,
   ShieldCheckIcon,
   SlidersHorizontalIcon,
-  ZapIcon,
-  ArrowRightIcon,
   SparklesIcon,
-  ChevronDownIcon,
 } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
-import { ColorSwatch } from "@/dev/components/showcase";
-import { COLORS, STATS } from "@/dev/data";
+import { ProgressPreset as Progress } from "@/components/macro/progress-preset";
 import { Badge } from "@/components/micro/badge";
 import { Button } from "@/components/micro/button";
 import {
@@ -29,7 +26,6 @@ import {
   CardTitle,
 } from "@/components/micro/card";
 import { Label } from "@/components/micro/label";
-import { ProgressPreset as Progress } from "@/components/macro/progress-preset";
 import {
   Select,
   SelectContent,
@@ -38,6 +34,8 @@ import {
   SelectValue,
 } from "@/components/micro/select";
 import { Switch } from "@/components/micro/switch";
+import { ColorSwatch } from "@/dev/components/showcase";
+import { COLORS, STATS } from "@/dev/data";
 export default function OverviewSection() {
   const [copied, setCopied] = useState(false);
   const [mounted, setMounted] = useState(false);

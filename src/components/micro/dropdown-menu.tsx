@@ -7,8 +7,8 @@
  */
 "use client";
 
-import * as React from "react";
 import { Menu as MenuPrimitive } from "@base-ui/react/menu";
+import * as React from "react";
 
 import { cn } from "@/lib/utils";
 import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react";
@@ -29,7 +29,11 @@ const DropdownMenuTrigger = React.forwardRef<
   HTMLButtonElement,
   MenuPrimitive.Trigger.Props
 >(({ ...props }, ref) => (
-  <MenuPrimitive.Trigger ref={ref} data-slot="dropdown-menu-trigger" {...props} />
+  <MenuPrimitive.Trigger
+    ref={ref}
+    data-slot="dropdown-menu-trigger"
+    {...props}
+  />
 ));
 DropdownMenuTrigger.displayName = "DropdownMenuTrigger";
 
@@ -42,8 +46,15 @@ const DropdownMenuContent = React.forwardRef<
     >
 >(
   (
-    { align = "start", alignOffset = 0, side = "bottom", sideOffset = 4, className, ...props },
-    ref
+    {
+      align = "start",
+      alignOffset = 0,
+      side = "bottom",
+      sideOffset = 4,
+      className,
+      ...props
+    },
+    ref,
   ) => {
     return (
       <MenuPrimitive.Portal>
@@ -66,7 +77,7 @@ const DropdownMenuContent = React.forwardRef<
         </MenuPrimitive.Positioner>
       </MenuPrimitive.Portal>
     );
-  }
+  },
 );
 DropdownMenuContent.displayName = "DropdownMenuContent";
 
@@ -148,21 +159,33 @@ DropdownMenuSubTrigger.displayName = "DropdownMenuSubTrigger";
 const DropdownMenuSubContent = React.forwardRef<
   React.ElementRef<typeof DropdownMenuContent>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuContent>
->(({ align = "start", alignOffset = -3, side = "right", sideOffset = 0, className, ...props }, ref) => (
-  <DropdownMenuContent
-    ref={ref}
-    data-slot="dropdown-menu-sub-content"
-    className={cn(
-      "w-auto min-w-[96px] rounded-lg bg-popover p-1 text-popover-foreground shadow-lg ring-1 ring-foreground/10 duration-100 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
+>(
+  (
+    {
+      align = "start",
+      alignOffset = -3,
+      side = "right",
+      sideOffset = 0,
       className,
-    )}
-    align={align}
-    alignOffset={alignOffset}
-    side={side}
-    sideOffset={sideOffset}
-    {...props}
-  />
-));
+      ...props
+    },
+    ref,
+  ) => (
+    <DropdownMenuContent
+      ref={ref}
+      data-slot="dropdown-menu-sub-content"
+      className={cn(
+        "w-auto min-w-[96px] rounded-lg bg-popover p-1 text-popover-foreground shadow-lg ring-1 ring-foreground/10 duration-100 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
+        className,
+      )}
+      align={align}
+      alignOffset={alignOffset}
+      side={side}
+      sideOffset={sideOffset}
+      {...props}
+    />
+  ),
+);
 DropdownMenuSubContent.displayName = "DropdownMenuSubContent";
 
 const DropdownMenuCheckboxItem = React.forwardRef<
@@ -267,18 +290,18 @@ DropdownMenuShortcut.displayName = "DropdownMenuShortcut";
 
 export {
   DropdownMenu,
-  DropdownMenuPortal,
-  DropdownMenuTrigger,
+  DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuGroup,
-  DropdownMenuLabel,
   DropdownMenuItem,
-  DropdownMenuCheckboxItem,
+  DropdownMenuLabel,
+  DropdownMenuPortal,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuSub,
-  DropdownMenuSubTrigger,
   DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
 };

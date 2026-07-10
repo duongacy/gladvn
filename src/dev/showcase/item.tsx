@@ -1,47 +1,32 @@
-import { useState } from "react";
-import {
-  SectionHeader,
-  ExampleSection,
-  ExampleGrid,
-} from "@/dev/components/showcase";
-import { CheckIcon, HeartIcon, MoreVerticalIcon, UserIcon } from "lucide-react";
-import { type Size } from "@/lib/types";
+import { Button } from "@/components/micro/button";
 import {
   Item,
-  ItemGroup,
-  ItemHeader,
-  ItemFooter,
-  ItemSeparator,
-  ItemMedia,
   ItemActions,
   ItemContent,
-  ItemTitle,
   ItemDescription,
+  ItemFooter,
+  ItemGroup,
+  ItemHeader,
+  ItemMedia,
+  ItemSeparator,
+  ItemTitle,
 } from "@/components/micro/item";
-import { Button } from "@/components/micro/button";
-import { SelectPreset } from "@/components/macro/select-preset";
+import {
+  DocsH3,
+  DocsP,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+  SizeToggle,
+} from "@/dev/components/showcase";
+import { type Size } from "@/lib/types";
+import { CheckIcon, HeartIcon, MoreVerticalIcon, UserIcon } from "lucide-react";
+import { useState } from "react";
 
-export default function ItemShowcase() {
-  const [globalSize, setGlobalSize] = useState<Size>("md");
-
+function ItemMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
-    <div className="space-y-10">
-      <SectionHeader
-        title="Item"
-        description="Một vùng chứa linh hoạt cho các mục danh sách hoặc khối nội dung có cấu trúc."
-      >
-        <SelectPreset
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as Size)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-          className="w-[120px] h-8 text-xs bg-background"
-        />
-      </SectionHeader>
-
+    <div className="space-y-10 mt-6">
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Basic Content"
@@ -280,5 +265,32 @@ export default function ItemShowcase() {
         </Item>
       </ExampleSection>
     </div>
+  );
+}
+
+export default function ItemShowcase() {
+  const [globalSize, setGlobalSize] = useState<Size>("md");
+
+  return (
+    <Showcase
+      title="Item"
+      description="Một vùng chứa linh hoạt cho các mục danh sách hoặc khối nội dung có cấu trúc."
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsH3>Item</DocsH3>
+          <DocsP>
+            Sử dụng để tạo danh sách hoặc khối nội dung có biểu tượng, tiêu đề,
+            mô tả và hành động.
+          </DocsP>
+        </ShowcaseDocs>
+      }
+      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
+      tabs={[
+        {
+          label: "Micro (Primitive)",
+          content: <ItemMicroShowcase globalSize={globalSize} />,
+        },
+      ]}
+    />
   );
 }

@@ -41,27 +41,27 @@ awareness_strategy:
     - "{what they know}"
     - "{what they don't know}"
     - "{how they feel}"
-  
+
   end_level: "{awareness level}"
   end_characteristics:
     - "{what they'll know}"
     - "{what they'll understand}"
     - "{how they'll feel}"
-  
+
   language_guidelines:
     use: ["{appropriate terms}"]
     avoid: ["{confusing jargon}"]
     tone: "{conversational, authoritative, empathetic, etc.}"
-  
+
   information_priorities:
     essential: ["{must include}"]
     helpful: ["{nice to include if space}"]
     avoid: ["{too advanced, confusing, or premature}"]
-  
+
   credibility_required:
     type: "{personal story, expert credentials, data, social proof}"
     examples: ["{specific proof elements}"]
-  
+
   emotional_journey:
     starting_emotion: "{frustrated, confused, etc.}"
     bridge: "{how we facilitate the shift}"
@@ -79,24 +79,24 @@ action_filter:
   required_action:
     description: "{Specific action user must be able to take}"
     success_criteria: "{How we know they can do it}"
-  
+
   business_impact:
     connection: "{How this action drives the business goal}"
     logic: "{Action → Outcome → Goal}"
-  
+
   user_motivation:
     positive_driver: "{How action satisfies their wish}"
     negative_driver: "{How action addresses their fear}"
-  
+
   essential_information:
     - "{Information element 1 - WHY needed for action}"
     - "{Information element 2 - WHY needed for action}"
     - "{Information element 3 - WHY needed for action}"
-  
+
   cut_list:
     - "{Nice-to-know info that doesn't enable action}"
     - "{Impressive but irrelevant content}"
-  
+
   action_barriers:
     - barrier: "{e.g., confusion about next steps}"
       solution: "{Content that removes this barrier}"
@@ -117,32 +117,32 @@ empowerment_frame:
       description: "{Where user is now}"
       feelings: ["{frustrated}", "{uncertain}", "{behind}"]
       capabilities: "{What they can't do yet}"
-    
+
     badass_state:
       description: "{Where they're going}"
       feelings: ["{confident}", "{capable}", "{ahead}"]
       capabilities: "{What they'll be able to do}"
-    
+
     visibility: "{How we make the transformation visible and achievable}"
-  
+
   aha_moment:
     insight: "{Key realization that shifts perspective}"
     why_powerful: "{Why this unlocks confidence}"
-  
+
   capability_framing:
     - feature: "{Product feature}"
       reframed: "{What USER can do because of it}"
     - feature: "{Product feature}"
       reframed: "{What USER can do because of it}"
-  
+
   cognitive_load:
     potential_issues:
       - issue: "{Where content might overwhelm}"
         solution: "{How we reduce load}"
-    
+
     simplifications:
       - "{What we simplified or cut}"
-  
+
   skill_focus:
     primary_skill: "{Main capability user develops}"
     supporting_skills: ["{Related capabilities}"]
@@ -166,7 +166,7 @@ structural_order:
       - order: 2
         element: "{Validation or aspiration}"
         rationale: "{Why this comes second}"
-  
+
   section_how:
     purpose: "Method / Bridge from emotion to specifics"
     content_elements:
@@ -179,7 +179,7 @@ structural_order:
       - order: 3
         element: "{Transformation path}"
         rationale: "{Why this comes last in HOW}"
-  
+
   section_what:
     purpose: "Specifics / Proof / Action"
     content_elements:
@@ -192,7 +192,7 @@ structural_order:
       - order: 3
         element: "{CTA}"
         rationale: "{Why action comes last}"
-  
+
   flow_validation:
     feels_natural: "{yes/no + notes}"
     persuasive_arc: "{Does WHY → HOW → WHAT create emotional → logical → action flow?}"
@@ -208,7 +208,7 @@ structural_order:
 
 **Variation A: {Name - e.g., "Wish-Focused"}**
 
-*Rationale:* {Why this approach, what driving force it emphasizes}
+_Rationale:_ {Why this approach, what driving force it emphasizes}
 
 ```
 WHY Section:
@@ -225,7 +225,7 @@ WHAT Section:
 
 **Variation B: {Name}**
 
-*Rationale:* {Why this approach}
+_Rationale:_ {Why this approach}
 
 ```
 WHY Section:
@@ -240,9 +240,9 @@ WHAT Section:
 
 ---
 
-**Variation C: {Name}** *(if applicable)*
+**Variation C: {Name}** _(if applicable)_
 
-*Rationale:* {Why this approach}
+_Rationale:_ {Why this approach}
 
 ```
 WHY Section:
@@ -294,7 +294,7 @@ WHAT Section:
 **This content serves:**
 
 - **Business Goal:** {How this drives the goal}
-- **User Driving Forces:** 
+- **User Driving Forces:**
   - Positive: {How it satisfies wish}
   - Negative: {How it addresses fear}
 - **Customer Awareness Journey:** {START → END validated}
@@ -307,21 +307,25 @@ WHAT Section:
 ## Implementation Notes
 
 **Technical/Design Requirements:**
+
 - {Any technical constraints or requirements}
 - {Design system components needed}
 - {Responsive behavior notes}
 
 **Multi-Language Support:**
+
 - English: {Status}
 - {Language 2}: {Status}
 - {Language 3}: {Status}
 
 **Assets Needed:**
+
 - Images: {List image requirements}
 - Videos: {List video requirements}
 - Icons/Graphics: {List graphic requirements}
 
 **Testing Considerations:**
+
 - {A/B test recommendations}
 - {User testing focus areas}
 - {Success metrics to track}
@@ -333,10 +337,12 @@ WHAT Section:
 **Duration:** {Actual time spent}
 
 **Participants:**
+
 - Designer: {name}
 - Agent: {agent name}
 
 **Alpha Feedback:**
+
 - {What worked well}
 - {What felt clunky}
 - {What's missing}
@@ -346,4 +352,3 @@ WHAT Section:
 
 _Created using WDS Content Creation Workshop (5-Model Framework)_  
 _Models: Trigger Map, Customer Awareness Cycle, Action Mapping, Badass Users, Golden Circle_
-

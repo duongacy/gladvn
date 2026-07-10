@@ -5,8 +5,8 @@
  * - Form Control Parity
  * - CSS Delegated Logic
  */
-import * as React from "react";
 import { cn } from "@/lib/utils";
+import * as React from "react";
 
 /**
  * @description Displays content within a desired ratio.

@@ -1,22 +1,22 @@
 ---
-name: 'step-03-ideation'
-description: 'Execute the brainstorming session with game-specific techniques'
+name: "step-03-ideation"
+description: "Execute the brainstorming session with game-specific techniques"
 
 # Path Definitions
-workflow_path: '{installed_path}'
+workflow_path: "{installed_path}"
 
 # File References
-thisStepFile: './step-03-ideation.md'
-nextStepFile: './step-04-complete.md'
-workflowFile: '{workflow_path}/workflow.md'
-outputFile: '{output_folder}/brainstorming-session-{date}.md'
+thisStepFile: "./step-03-ideation.md"
+nextStepFile: "./step-04-complete.md"
+workflowFile: "{workflow_path}/workflow.md"
+outputFile: "{output_folder}/brainstorming-session-{date}.md"
 
 # Core Brainstorming Reference
-coreBrainstorming: 'skill:bmad-brainstorming'
+coreBrainstorming: "skill:bmad-brainstorming"
 
 # Task References
-advancedElicitationTask: 'skill:bmad-advanced-elicitation'
-partyModeWorkflow: 'skill:bmad-party-mode'
+advancedElicitationTask: "skill:bmad-advanced-elicitation"
+partyModeWorkflow: "skill:bmad-party-mode"
 ---
 
 # Step 3: Ideation Session

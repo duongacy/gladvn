@@ -1,42 +1,38 @@
-import { useState } from "react";
 import {
-  ExampleSection,
-  ExampleGrid,
-  ShowcaseDocs,
-  Showcase,
-  DocsH3,
   DocsP,
-  DocsUl,
-  DocsLi,
-  DocsCode,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+  SizeToggle,
 } from "@/dev/components/showcase";
 import {
-  ShieldAlertIcon,
   InfoIcon,
-  MessageSquareWarningIcon,
-  MailWarningIcon,
-  XIcon,
-  TrashIcon,
   LogOutIcon,
+  MailWarningIcon,
+  MessageSquareWarningIcon,
+  ShieldAlertIcon,
+  TrashIcon,
+  XIcon,
 } from "lucide-react";
+import { useState } from "react";
 
-import { type Size } from "@/lib/types";
+import { AlertDialogPreset } from "@/components/macro/alert-dialog-preset";
 import {
   AlertDialog,
-  AlertDialogTrigger,
+  AlertDialogAction,
+  AlertDialogCancel,
   AlertDialogClose,
   AlertDialogContent,
-  AlertDialogHeader,
-  AlertDialogTitle,
   AlertDialogDescription,
   AlertDialogFooter,
-  AlertDialogCancel,
-  AlertDialogAction,
+  AlertDialogHeader,
   AlertDialogMedia,
+  AlertDialogTitle,
+  AlertDialogTrigger,
 } from "@/components/micro/alert-dialog";
-import { AlertDialogPreset } from "@/components/macro/alert-dialog-preset";
 import { Button } from "@/components/micro/button";
-import { MonoSelect } from "@/dev/components/mono-select";
+import { type Size } from "@/lib/types";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Macro Content (không export)
@@ -46,16 +42,6 @@ function AlertDialogMacroShowcase({ globalSize }: { globalSize: Size }) {
 
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Giới thiệu Macro</DocsH3>
-        <DocsP>
-          Thành phần này được thiết kế để giải quyết 99% các trường hợp sử dụng
-          thực tế. Nó bọc sẵn các Primitive (Micro), tự động bố cục Icon, Tiêu
-          đề, Nội dung và Nút bấm bằng Flexbox một cách hoàn hảo mà không cần
-          bạn phải viết thêm class hay wrapper nào.
-        </DocsP>
-      </ShowcaseDocs>
-
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Hành Động Nguy Danger (Destructive)"
@@ -370,24 +356,6 @@ return (
 function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Micro Component (Kiến trúc "Dumb" Primitive)</DocsH3>
-        <DocsP>
-          Bắt đầu từ phiên bản này, các thành phần{" "}
-          <DocsCode>AlertDialogHeader</DocsCode>,{" "}
-          <DocsCode>AlertDialogMedia</DocsCode>, v.v. đã được loại bỏ hoàn toàn
-          các logic CSS Grid phức tạp. Chúng hiện tại chỉ là các khối thẻ{" "}
-          <DocsCode>div</DocsCode> bọc Flexbox cơ bản, cho phép bạn tự do sắp
-          xếp layout theo bất kỳ kiểu nào bạn muốn (ví dụ: bọc bằng thẻ div
-          ngoài, chèn thêm input, thay đổi thứ tự...).
-        </DocsP>
-        <DocsP>
-          <strong>Lưu ý:</strong> Để phục vụ 99% Use Case thực tế (tự động
-          layout Icon và Text), vui lòng sử dụng bản{" "}
-          <b>AlertDialog Preset (Macro)</b>.
-        </DocsP>
-      </ShowcaseDocs>
-
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Sử dụng Cơ bản"
@@ -1028,18 +996,18 @@ export default function AlertDialogShowcase() {
   return (
     <Showcase
       title="Alert Dialog"
-      description="Các thành phần nguyên thủy (Primitives) để xây dựng Hộp thoại Cảnh báo."
-      actions={
-        <MonoSelect
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as Size)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-        />
+      description="Hộp thoại gián đoạn yêu cầu người dùng xác nhận các hành động quan trọng hoặc mang tính phá hủy."
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsP>
+            Dùng để làm gián đoạn người dùng với một thông báo hoặc xác nhận cực
+            kỳ quan trọng, thường mang tính phá huỷ (như Xoá dữ liệu, Đăng xuất)
+            hoặc không thể hoàn tác. Yêu cầu người dùng phải hành động rõ ràng
+            thì mới thoát được cửa sổ.
+          </DocsP>
+        </ShowcaseDocs>
       }
+      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
       tabs={[
         {
           label: "Micro (Primitive)",

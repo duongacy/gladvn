@@ -1,7 +1,7 @@
 ---
-name: 'step-04-generate'
-description: 'Generate video and motion assets using appropriate tools per complexity level'
-nextStepFile: './step-05-review.md'
+name: "step-04-generate"
+description: "Generate video and motion assets using appropriate tools per complexity level"
+nextStepFile: "./step-05-review.md"
 ---
 
 # Step 4: Generate Motion Content

@@ -1,25 +1,25 @@
-import { useState } from "react";
-import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
+import { Controller, useForm } from "react-hook-form";
 import * as z from "zod";
 
 import {
-  ExampleSection,
-  ExampleGrid,
-  ShowcaseDocs,
-  Showcase,
+  DocsCode,
   DocsH3,
   DocsP,
-  DocsCode,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+  SizeToggle,
 } from "@/dev/components/showcase";
-import { MonoSelect } from "@/dev/components/mono-select";
 import { type Size } from "@/lib/types";
 
-import { RadioGroup, RadioGroupItem } from "@/components/micro/radio-group";
-import { Field, FieldLabel, FieldError } from "@/components/micro/field";
-import { Label } from "@/components/micro/label";
 import { RadioGroupPreset } from "@/components/macro/radio-group-preset";
 import { Button } from "@/components/micro/button";
+import { Field, FieldError, FieldLabel } from "@/components/micro/field";
+import { Label } from "@/components/micro/label";
+import { RadioGroup, RadioGroupItem } from "@/components/micro/radio-group";
 
 // ──────────────────────────────────────────────────────────
 // RHF Form Demo (Macro)
@@ -104,17 +104,6 @@ function RadioGroupForm({ size }: { size: Size }) {
 function RadioGroupMacroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Khi nào nên dùng Macro</DocsH3>
-        <DocsP>
-          <DocsCode>RadioGroupPreset</DocsCode> đóng gói sẵn cấu trúc form tiêu
-          chuẩn: Label tổng, Description tổng, Error Message tổng và tự động
-          render danh sách các <DocsCode>options</DocsCode> thành các
-          RadioGroupItem. Dùng Macro cho 95% trường hợp làm form trắc nghiệm,
-          chọn 1 trong nhiều tuỳ chọn.
-        </DocsP>
-      </ShowcaseDocs>
-
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Tiêu chuẩn"
@@ -268,17 +257,6 @@ function RadioGroupMacroShowcase({ globalSize }: { globalSize: Size }) {
 function RadioGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Khi nào nên dùng Micro</DocsH3>
-        <DocsP>
-          Dùng <DocsCode>RadioGroup</DocsCode> và{" "}
-          <DocsCode>RadioGroupItem</DocsCode> nguyên thuỷ khi bạn cần một layout
-          dị biệt (như hiển thị các radio nằm ngang thay vì dọc) hoặc khi mỗi
-          option không đơn thuần là text mà chứa layout hình ảnh phức tạp (như
-          chọn Card hình ảnh thay vì text).
-        </DocsP>
-      </ShowcaseDocs>
-
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Cơ bản (Primitive)"
@@ -611,17 +589,27 @@ export default function RadioGroupShowcase() {
     <Showcase
       title="Radio Group"
       description="Tập hợp các nút chọn một tuỳ chọn duy nhất trong danh sách (Radio Buttons)."
-      actions={
-        <MonoSelect
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as Size)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-        />
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsH3>Khi nào nên dùng Macro</DocsH3>
+          <DocsP>
+            <DocsCode>RadioGroupPreset</DocsCode> đóng gói sẵn cấu trúc form
+            tiêu chuẩn: Label tổng, Description tổng, Error Message tổng và tự
+            động render danh sách các <DocsCode>options</DocsCode> thành các
+            RadioGroupItem. Dùng Macro cho 95% trường hợp làm form trắc nghiệm,
+            chọn 1 trong nhiều tuỳ chọn.
+          </DocsP>
+          <DocsH3>Khi nào nên dùng Micro</DocsH3>
+          <DocsP>
+            Dùng <DocsCode>RadioGroup</DocsCode> và{" "}
+            <DocsCode>RadioGroupItem</DocsCode> nguyên thuỷ khi bạn cần một
+            layout dị biệt (như hiển thị các radio nằm ngang thay vì dọc) hoặc
+            khi mỗi option không đơn thuần là text mà chứa layout hình ảnh phức
+            tạp (như chọn Card hình ảnh thay vì text).
+          </DocsP>
+        </ShowcaseDocs>
       }
+      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
       tabs={[
         {
           label: "Micro (Primitive)",

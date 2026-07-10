@@ -1,20 +1,29 @@
-import { useState } from "react";
-import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
+import { Controller, useForm } from "react-hook-form";
 import * as z from "zod";
 
 import {
-  ExampleSection,
-  ExampleGrid,
-  ShowcaseDocs,
-  Showcase,
+  DocsCode,
   DocsH3,
   DocsP,
-  DocsCode,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+  SizeToggle,
 } from "@/dev/components/showcase";
-import { MonoSelect } from "@/dev/components/mono-select";
 import { type Size } from "@/lib/types";
 
+import { SelectPreset } from "@/components/macro/select-preset";
+import { Button } from "@/components/micro/button";
+import {
+  Field,
+  FieldContent,
+  FieldDescription,
+  FieldError,
+  FieldLabel,
+} from "@/components/micro/field";
 import {
   Select,
   SelectContent,
@@ -27,15 +36,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/micro/select";
-import {
-  Field,
-  FieldLabel,
-  FieldDescription,
-  FieldContent,
-  FieldError,
-} from "@/components/micro/field";
-import { SelectPreset } from "@/components/macro/select-preset";
-import { Button } from "@/components/micro/button";
 
 // ──────────────────────────────────────────────────────────
 // RHF Form Demo (Macro)
@@ -122,16 +122,6 @@ function SelectForm({ size }: { size: Size }) {
 function SelectMacroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Khi nào nên dùng Macro</DocsH3>
-        <DocsP>
-          <DocsCode>SelectPreset</DocsCode> đóng gói sẵn cấu trúc 8 thẻ của
-          Select nguyên thuỷ thành 1 Component duy nhất. Nó dùng prop{" "}
-          <DocsCode>options</DocsCode> để render danh sách thả xuống. Dùng Macro
-          cho 90% trường hợp form nhập liệu chọn 1 giá trị thông thường.
-        </DocsP>
-      </ShowcaseDocs>
-
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Tiêu chuẩn"
@@ -290,18 +280,6 @@ function SelectMacroShowcase({ globalSize }: { globalSize: Size }) {
 function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Khi nào nên dùng Micro</DocsH3>
-        <DocsP>
-          Dùng <DocsCode>Select</DocsCode> và các thành phần con nguyên thuỷ khi
-          bạn cần một danh sách thả xuống có phân nhóm (
-          <DocsCode>SelectGroup</DocsCode>, <DocsCode>SelectLabel</DocsCode>)
-          hoặc khi mỗi tuỳ chọn (<DocsCode>SelectItem</DocsCode>) có thiết kế
-          phức tạp (chứa icon, ảnh đại diện, subtext) thay vì chỉ là text đơn
-          thuần.
-        </DocsP>
-      </ShowcaseDocs>
-
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Cơ bản (Primitive)"
@@ -618,17 +596,27 @@ export default function SelectShowcase() {
     <Showcase
       title="Select"
       description="Thành phần điều khiển hiển thị danh sách các tùy chọn thả xuống để người dùng chọn."
-      actions={
-        <MonoSelect
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as Size)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-        />
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsH3>Khi nào nên dùng Macro</DocsH3>
+          <DocsP>
+            <DocsCode>SelectPreset</DocsCode> đóng gói sẵn cấu trúc 8 thẻ của
+            Select nguyên thuỷ thành 1 Component duy nhất. Nó dùng prop{" "}
+            <DocsCode>options</DocsCode> để render danh sách thả xuống. Dùng
+            Macro cho 90% trường hợp form nhập liệu chọn 1 giá trị thông thường.
+          </DocsP>
+          <DocsH3>Khi nào nên dùng Micro</DocsH3>
+          <DocsP>
+            Dùng <DocsCode>Select</DocsCode> và các thành phần con nguyên thuỷ
+            khi bạn cần một danh sách thả xuống có phân nhóm (
+            <DocsCode>SelectGroup</DocsCode>, <DocsCode>SelectLabel</DocsCode>)
+            hoặc khi mỗi tuỳ chọn (<DocsCode>SelectItem</DocsCode>) có thiết kế
+            phức tạp (chứa icon, ảnh đại diện, subtext) thay vì chỉ là text đơn
+            thuần.
+          </DocsP>
+        </ShowcaseDocs>
       }
+      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
       tabs={[
         {
           label: "Micro (Primitive)",

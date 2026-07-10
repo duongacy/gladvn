@@ -1,18 +1,18 @@
 ---
-name: 'step-09-complete'
-description: 'Complete the architecture workflow with final review and handoff guidance'
+name: "step-09-complete"
+description: "Complete the architecture workflow with final review and handoff guidance"
 
 # Path Definitions
-workflow_path: '{installed_path}'
+workflow_path: "{installed_path}"
 
 # File References
-thisStepFile: './step-09-complete.md'
-workflowFile: '{workflow_path}/workflow.md'
-outputFile: '{output_folder}/game-architecture.md'
+thisStepFile: "./step-09-complete.md"
+workflowFile: "{workflow_path}/workflow.md"
+outputFile: "{output_folder}/game-architecture.md"
 
 # Handoff References
-epicWorkflow: 'skill:gds-create-epics-and-stories'
-projectContextWorkflow: 'skill:gds-generate-project-context'
+epicWorkflow: "skill:gds-create-epics-and-stories"
+projectContextWorkflow: "skill:gds-generate-project-context"
 ---
 
 # Step 9: Completion
@@ -96,9 +96,9 @@ Based on all documented content, synthesize an executive summary:
 {{if_mcps_selected}}
 The following MCP servers were selected during architecture to enhance AI-assisted development:
 
-| MCP Server | Purpose | Install Type |
-| ---------- | ------- | ------------ |
-{{mcp_table_rows}}
+| MCP Server         | Purpose | Install Type |
+| ------------------ | ------- | ------------ |
+| {{mcp_table_rows}} |
 
 **Setup:**
 {{mcp_setup_instructions}}

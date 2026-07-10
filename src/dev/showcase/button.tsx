@@ -1,18 +1,19 @@
 import {
+  DocsP,
   ExampleGrid,
   ExampleSection,
-  SectionHeader,
+  Showcase,
+  ShowcaseDocs,
+  SizeToggle,
 } from "@/dev/components/showcase";
 import { DownloadIcon, MailIcon, PlusIcon } from "lucide-react";
 import { useState } from "react";
 
-import { SelectPreset } from "@/components/macro/select-preset";
 import { Button, ButtonIcon } from "@/components/micro/button";
 import { Spinner } from "@/components/micro/spinner";
 import { type Size } from "@/lib/types";
 
-export default function ButtonShowcase() {
-  const [globalSize, setGlobalSize] = useState<Size>("md");
+function ButtonMicroShowcase({ globalSize }: { globalSize: Size }) {
   const [isDeleting, setIsDeleting] = useState(false);
   const [isSending, setIsSending] = useState(false);
 
@@ -27,23 +28,7 @@ export default function ButtonShowcase() {
   };
 
   return (
-    <div className="space-y-10">
-      <SectionHeader
-        title="Button"
-        description="Kích hoạt một hành động hoặc sự kiện, chẳng hạn như gửi biểu mẫu hoặc mở hộp thoại."
-      >
-        <SelectPreset
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as Size)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-          className="w-[120px] h-8 text-xs bg-background"
-        />
-      </SectionHeader>
-
+    <div className="space-y-10 mt-6">
       {/* ── Variants ── */}
       <ExampleSection
         label="Variants"
@@ -292,5 +277,35 @@ export default function ButtonShowcase() {
         </ExampleSection>
       </ExampleGrid>
     </div>
+  );
+}
+
+// ──────────────────────────────────────────────────────────
+// SECTION 3: Entry point
+// ──────────────────────────────────────────────────────────
+export default function ButtonShowcase() {
+  const [globalSize, setGlobalSize] = useState<Size>("md");
+
+  return (
+    <Showcase
+      title="Button"
+      description="Kích hoạt một hành động hoặc sự kiện, chẳng hạn như gửi biểu mẫu hoặc mở hộp thoại."
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsP>
+            Thành phần cơ bản để người dùng tương tác. Hỗ trợ nhiều biến thể,
+            màu sắc, icon, và trạng thái loading/disabled. Thường được sử dụng
+            trong form, hộp thoại, hoặc thanh công cụ.
+          </DocsP>
+        </ShowcaseDocs>
+      }
+      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
+      tabs={[
+        {
+          label: "Micro (Primitive)",
+          content: <ButtonMicroShowcase globalSize={globalSize} />,
+        },
+      ]}
+    />
   );
 }

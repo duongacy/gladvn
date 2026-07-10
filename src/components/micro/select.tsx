@@ -7,13 +7,13 @@
  */
 "use client";
 
-import * as React from "react";
 import { Select as SelectPrimitive } from "@base-ui/react/select";
 import { cva, type VariantProps } from "class-variance-authority";
+import * as React from "react";
 
-import { cn } from "@/lib/utils";
 import { ThemeWrapper } from "@/components/micro/theme-provider";
-import { ChevronDownIcon, CheckIcon, ChevronUpIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from "lucide-react";
 
 const Select = SelectPrimitive.Root;
 
@@ -58,7 +58,8 @@ const selectTriggerVariants = cva(
 
 const SelectTrigger = React.forwardRef<
   React.ComponentRef<typeof SelectPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger> & VariantProps<typeof selectTriggerVariants>
+  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger> &
+    VariantProps<typeof selectTriggerVariants>
 >(({ className, size = "md", children, ...props }, ref) => (
   <SelectPrimitive.Trigger
     ref={ref}
@@ -83,47 +84,52 @@ const SelectContent = React.forwardRef<
       SelectPrimitive.Positioner.Props,
       "align" | "alignOffset" | "side" | "sideOffset" | "alignItemWithTrigger"
     >
->(({
-  className,
-  children,
-  side = "bottom",
-  sideOffset = 4,
-  align = "center",
-  alignOffset = 0,
-  alignItemWithTrigger = false,
-  ...props
-}, ref) => (
-  <SelectPrimitive.Portal>
-    <ThemeWrapper>
-      <SelectPrimitive.Positioner
-        side={side}
-        sideOffset={sideOffset}
-        align={align}
-        alignOffset={alignOffset}
-        alignItemWithTrigger={alignItemWithTrigger}
-        className="isolate z-50"
-      >
-        <SelectPrimitive.Popup
-          ref={ref}
-          data-slot="select-content"
-          data-align-trigger={alignItemWithTrigger}
-          className={cn(
-            "relative isolate z-50 max-h-(--available-height) w-[calc(var(--anchor-width)+8px)] overflow-x-hidden overflow-y-auto rounded-lg bg-popover p-1 text-popover-foreground shadow-md ring-1 ring-foreground/10 data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
-            alignItemWithTrigger
-              ? "origin-(--transform-origin) data-[align-trigger=true]:animate-none"
-              : "",
-            className,
-          )}
-          {...props}
+>(
+  (
+    {
+      className,
+      children,
+      side = "bottom",
+      sideOffset = 4,
+      align = "center",
+      alignOffset = 0,
+      alignItemWithTrigger = false,
+      ...props
+    },
+    ref,
+  ) => (
+    <SelectPrimitive.Portal>
+      <ThemeWrapper>
+        <SelectPrimitive.Positioner
+          side={side}
+          sideOffset={sideOffset}
+          align={align}
+          alignOffset={alignOffset}
+          alignItemWithTrigger={alignItemWithTrigger}
+          className="isolate z-50"
         >
-          <SelectScrollUpButton />
-          <SelectPrimitive.List>{children}</SelectPrimitive.List>
-          <SelectScrollDownButton />
-        </SelectPrimitive.Popup>
-      </SelectPrimitive.Positioner>
-    </ThemeWrapper>
-  </SelectPrimitive.Portal>
-));
+          <SelectPrimitive.Popup
+            ref={ref}
+            data-slot="select-content"
+            data-align-trigger={alignItemWithTrigger}
+            className={cn(
+              "relative isolate z-50 max-h-(--available-height) w-[calc(var(--anchor-width)+8px)] overflow-x-hidden overflow-y-auto rounded-lg bg-popover p-1 text-popover-foreground shadow-md ring-1 ring-foreground/10 data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
+              alignItemWithTrigger
+                ? "origin-(--transform-origin) data-[align-trigger=true]:animate-none"
+                : "",
+              className,
+            )}
+            {...props}
+          >
+            <SelectScrollUpButton />
+            <SelectPrimitive.List>{children}</SelectPrimitive.List>
+            <SelectScrollDownButton />
+          </SelectPrimitive.Popup>
+        </SelectPrimitive.Positioner>
+      </ThemeWrapper>
+    </SelectPrimitive.Portal>
+  ),
+);
 SelectContent.displayName = "SelectContent";
 
 const SelectLabel = React.forwardRef<
@@ -225,6 +231,6 @@ export {
   SelectScrollUpButton,
   SelectSeparator,
   SelectTrigger,
-  SelectValue,
   selectTriggerVariants,
+  SelectValue,
 };

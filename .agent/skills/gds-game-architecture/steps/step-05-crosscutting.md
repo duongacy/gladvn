@@ -1,19 +1,19 @@
 ---
-name: 'step-05-crosscutting'
-description: 'Address cross-cutting concerns that affect all game systems'
+name: "step-05-crosscutting"
+description: "Address cross-cutting concerns that affect all game systems"
 
 # Path Definitions
-workflow_path: '{installed_path}'
+workflow_path: "{installed_path}"
 
 # File References
-thisStepFile: './step-05-crosscutting.md'
-nextStepFile: './step-06-structure.md'
-workflowFile: '{workflow_path}/workflow.md'
-outputFile: '{output_folder}/game-architecture.md'
+thisStepFile: "./step-05-crosscutting.md"
+nextStepFile: "./step-06-structure.md"
+workflowFile: "{workflow_path}/workflow.md"
+outputFile: "{output_folder}/game-architecture.md"
 
 # Task References
-advancedElicitationTask: 'skill:bmad-advanced-elicitation'
-partyModeWorkflow: 'skill:bmad-party-mode'
+advancedElicitationTask: "skill:bmad-advanced-elicitation"
+partyModeWorkflow: "skill:bmad-party-mode"
 ---
 
 # Step 5: Cross-cutting Concerns

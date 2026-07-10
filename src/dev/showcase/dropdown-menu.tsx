@@ -1,60 +1,48 @@
-import { useState } from "react";
 import {
-  SectionHeader,
-  ExampleSection,
+  DocsP,
   ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+  SizeToggle,
 } from "@/dev/components/showcase";
 import {
-  UserIcon,
-  SettingsIcon,
-  LogOutIcon,
   CreditCardIcon,
   HelpCircleIcon,
+  LogOutIcon,
+  SettingsIcon,
+  UserIcon,
 } from "lucide-react";
+import { useState } from "react";
 
-import { type Size } from "@/lib/types";
+import { Button } from "@/components/micro/button";
 import {
   DropdownMenu,
-  DropdownMenuTrigger,
+  DropdownMenuCheckboxItem,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuGroup,
-  DropdownMenuShortcut,
-  DropdownMenuCheckboxItem,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
   DropdownMenuSub,
-  DropdownMenuSubTrigger,
   DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
 } from "@/components/micro/dropdown-menu";
-import { Button } from "@/components/micro/button";
-import { SelectPreset } from "@/components/macro/select-preset";
+import { type Size } from "@/lib/types";
 
-export default function DropdownMenuShowcase() {
-  const [globalSize, setGlobalSize] = useState<Size>("md");
+// ──────────────────────────────────────────────────────────
+// SECTION 2: Micro Content (không export)
+// ──────────────────────────────────────────────────────────
+function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
   const [showStatusBar, setShowStatusBar] = useState(true);
   const [showPanel, setShowPanel] = useState(false);
 
   return (
-    <div className="space-y-10">
-      <SectionHeader
-        title="Dropdown Menu"
-        description="Hiển thị một menu cho người dùng—chẳng hạn như một tập hợp các hành động hoặc chức năng—được kích hoạt bằng một nút."
-      >
-        <SelectPreset
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as Size)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-          className="w-[120px] h-8 text-xs bg-background"
-        />
-      </SectionHeader>
-
+    <div className="space-y-10 mt-6">
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Standard Dropdown"
@@ -363,5 +351,34 @@ export default function DropdownMenuShowcase() {
         </ExampleSection>
       </ExampleGrid>
     </div>
+  );
+}
+
+// ──────────────────────────────────────────────────────────
+// SECTION 3: Entry point (export default)
+// ──────────────────────────────────────────────────────────
+export default function DropdownMenuShowcase() {
+  const [globalSize, setGlobalSize] = useState<Size>("md");
+
+  return (
+    <Showcase
+      title="Dropdown Menu"
+      description="Hiển thị một menu cho người dùng—chẳng hạn như một tập hợp các hành động hoặc chức năng—được kích hoạt bằng một nút."
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsP>
+            Dropdown Menu dùng để hiển thị các hành động liên quan tới một đối
+            tượng khi click vào nút Trigger.
+          </DocsP>
+        </ShowcaseDocs>
+      }
+      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
+      tabs={[
+        {
+          label: "Micro (Primitive)",
+          content: <DropdownMenuMicroShowcase globalSize={globalSize} />,
+        },
+      ]}
+    />
   );
 }

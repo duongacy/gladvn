@@ -1,15 +1,15 @@
-import * as React from "react";
-import { XIcon } from "lucide-react";
 import {
   Alert,
+  AlertAction,
+  AlertDescription,
   AlertIcon,
   AlertTitle,
-  AlertDescription,
-  AlertAction,
   type AlertProps,
 } from "@/components/micro/alert";
 import { Button } from "@/components/micro/button";
 import { cn } from "@/lib/utils";
+import { XIcon } from "lucide-react";
+import * as React from "react";
 
 export type AlertPresetProps = AlertProps & {
   title?: React.ReactNode;
@@ -36,7 +36,7 @@ const AlertPreset = React.forwardRef<HTMLDivElement, AlertPresetProps>(
       className,
       ...props
     },
-    ref
+    ref,
   ) => {
     const [isOpen, setIsOpen] = React.useState(defaultOpen);
 
@@ -48,14 +48,14 @@ const AlertPreset = React.forwardRef<HTMLDivElement, AlertPresetProps>(
     };
 
     return (
-      <Alert 
-        ref={ref} 
-        color={color} 
+      <Alert
+        ref={ref}
+        color={color}
         className={cn(
-          "flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start", 
+          "flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start",
           dismissible && "pr-8 data-[size=sm]:pr-7 data-[size=lg]:pr-10",
-          className
-        )} 
+          className,
+        )}
         {...props}
       >
         <div className="flex flex-1 items-start gap-3">
@@ -85,7 +85,7 @@ const AlertPreset = React.forwardRef<HTMLDivElement, AlertPresetProps>(
         )}
       </Alert>
     );
-  }
+  },
 );
 
 AlertPreset.displayName = "AlertPreset";

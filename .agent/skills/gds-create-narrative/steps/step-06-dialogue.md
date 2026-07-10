@@ -1,19 +1,19 @@
 ---
-name: 'step-06-dialogue'
-description: 'Define dialogue style, key conversations, and branching systems'
+name: "step-06-dialogue"
+description: "Define dialogue style, key conversations, and branching systems"
 
 # Path Definitions
-workflow_path: '{installed_path}'
+workflow_path: "{installed_path}"
 
 # File References
-thisStepFile: './step-06-dialogue.md'
-nextStepFile: './step-07-environmental.md'
-workflowFile: '{workflow_path}/workflow.md'
-outputFile: '{output_folder}/narrative-design.md'
+thisStepFile: "./step-06-dialogue.md"
+nextStepFile: "./step-07-environmental.md"
+workflowFile: "{workflow_path}/workflow.md"
+outputFile: "{output_folder}/narrative-design.md"
 
 # Task References
-advancedElicitationTask: 'skill:bmad-advanced-elicitation'
-partyModeWorkflow: 'skill:bmad-party-mode'
+advancedElicitationTask: "skill:bmad-advanced-elicitation"
+partyModeWorkflow: "skill:bmad-party-mode"
 ---
 
 # Step 6: Dialogue Systems

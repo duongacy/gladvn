@@ -1,6 +1,5 @@
-import React from "react";
-import { describe, it, expect } from "vitest";
 import { render } from "@testing-library/react";
+import { describe, expect, it } from "vitest";
 import { ProgressPreset } from "./progress-preset";
 
 describe("ProgressPreset", () => {
@@ -12,27 +11,39 @@ describe("ProgressPreset", () => {
 
   it("renders track and indicator", () => {
     const { container } = render(<ProgressPreset value={50} />);
-    expect(container.querySelector("[data-slot='progress-track']")).toBeInTheDocument();
-    expect(container.querySelector("[data-slot='progress-indicator']")).toBeInTheDocument();
+    expect(
+      container.querySelector("[data-slot='progress-track']"),
+    ).toBeInTheDocument();
+    expect(
+      container.querySelector("[data-slot='progress-indicator']"),
+    ).toBeInTheDocument();
   });
 
   it("renders label when provided", () => {
-    const { container } = render(<ProgressPreset value={75} label="Uploading" />);
+    const { container } = render(
+      <ProgressPreset value={75} label="Uploading" />,
+    );
     const label = container.querySelector("[data-slot='progress-label']");
     expect(label).toBeInTheDocument();
     expect(label).toHaveTextContent("Uploading");
   });
 
   it("renders value display when label and showValue are set", () => {
-    const { container } = render(<ProgressPreset value={75} label="Loading" showValue />);
+    const { container } = render(
+      <ProgressPreset value={75} label="Loading" showValue />,
+    );
     const valueEl = container.querySelector("[data-slot='progress-value']");
     expect(valueEl).toBeInTheDocument();
   });
 
   it("does not render label or value when label is not provided", () => {
     const { container } = render(<ProgressPreset value={50} />);
-    expect(container.querySelector("[data-slot='progress-label']")).not.toBeInTheDocument();
-    expect(container.querySelector("[data-slot='progress-value']")).not.toBeInTheDocument();
+    expect(
+      container.querySelector("[data-slot='progress-label']"),
+    ).not.toBeInTheDocument();
+    expect(
+      container.querySelector("[data-slot='progress-value']"),
+    ).not.toBeInTheDocument();
   });
 
   it("supports indeterminate state (no value)", () => {
@@ -45,8 +56,10 @@ describe("ProgressPreset", () => {
     const { container } = render(
       <ProgressPreset value={30}>
         <div data-testid="custom-child">Custom</div>
-      </ProgressPreset>
+      </ProgressPreset>,
     );
-    expect(container.querySelector("[data-testid='custom-child']")).toBeInTheDocument();
+    expect(
+      container.querySelector("[data-testid='custom-child']"),
+    ).toBeInTheDocument();
   });
 });

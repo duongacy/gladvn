@@ -16,6 +16,7 @@ description: 'Conduct technical research on game technologies and architecture. 
 ## CONFIGURATION
 
 Load config from `{module_config}` and resolve:
+
 - `project_name`, `output_folder`, `planning_artifacts`, `user_name`
 - `communication_language`, `document_output_language`, `game_dev_experience`
 - `date` as a system-generated value
@@ -27,6 +28,7 @@ Load config from `{module_config}` and resolve:
 **What game technology, engine, or technical area do you want to research?**
 
 For example:
+
 - 'Unity vs Unreal Engine for a 3D action RPG'
 - 'Netcode solutions for a multiplayer battle royale'
 - 'Procedural generation approaches for dungeon design'
@@ -35,6 +37,7 @@ For example:
 ### Topic Clarification
 
 Based on the user's topic, briefly clarify:
+
 1. **Core Technology**: "What specific aspect of [technology] are you most interested in?"
 2. **Research Goals**: "What do you hope to achieve with this research?"
 3. **Scope**: "Should we focus broadly or dive deep into specific aspects (e.g., a particular engine, platform target, or game genre constraints)?"

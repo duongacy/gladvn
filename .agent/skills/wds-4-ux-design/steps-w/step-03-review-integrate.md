@@ -1,10 +1,10 @@
 ---
-name: 'step-03-review-integrate'
-description: 'Review visual output and integrate it back into the page specification'
+name: "step-03-review-integrate"
+description: "Review visual output and integrate it back into the page specification"
 
 # File References
-workflowFile: '../workflow.md'
-activityWorkflowFile: '../workflow-visual.md'
+workflowFile: "../workflow.md"
+activityWorkflowFile: "../workflow-visual.md"
 ---
 
 # Step 3: Review and Integrate
@@ -57,11 +57,13 @@ Review the visual output and integrate it back into the page specification — u
 ### 1. Present Visual Result
 
 Show the generated visual to the user with notes on:
+
 - What was implemented
 - Any deviations from the specification
 - Suggested improvements
 
 **For Nano Banana results:**
+
 - AI-generated text in images is often garbled -- do NOT rely on the image for exact text content. The spec is the source of truth for all text.
 - Focus review on: **layout correctness**, **color accuracy**, **mood/feeling**, **section presence and order**
 - The image is a design exploration tool, not a pixel-perfect mockup
@@ -75,6 +77,7 @@ Show the generated visual to the user with notes on:
 ### 3. Integrate
 
 Update the page specification with:
+
 - Link to the visual artifact
 - Any design decisions captured during visual creation
 - Notes on visual style that should apply to other pages

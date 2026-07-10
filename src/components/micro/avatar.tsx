@@ -7,11 +7,11 @@
  */
 "use client";
 
-import * as React from "react";
 import { Avatar as AvatarPrimitive } from "@base-ui/react/avatar";
+import * as React from "react";
 
-import { cn } from "@/lib/utils";
 import { type Size } from "@/lib/types";
+import { cn } from "@/lib/utils";
 
 /**
  * @description An image element with a fallback for representing the user.
@@ -107,10 +107,7 @@ const AvatarGroup = React.forwardRef<
     <div
       ref={ref}
       data-slot="avatar-group"
-      className={cn(
-        "group/avatar-group flex -space-x-2",
-        className,
-      )}
+      className={cn("group/avatar-group flex -space-x-2", className)}
       {...props}
     />
   );
@@ -138,9 +135,9 @@ AvatarGroupCount.displayName = "AvatarGroupCount";
 
 export {
   Avatar,
-  AvatarImage,
+  AvatarBadge,
   AvatarFallback,
   AvatarGroup,
   AvatarGroupCount,
-  AvatarBadge,
+  AvatarImage,
 };

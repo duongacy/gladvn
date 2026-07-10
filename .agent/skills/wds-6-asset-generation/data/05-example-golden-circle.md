@@ -69,12 +69,14 @@ structural_order:
 ## Analysis
 
 **WHY Section:**
+
 - Opens with emotional pain (problem recognition)
 - Validates feeling (not alone)
 - Shifts to aspiration (can become authority)
 - **Flow:** Problem → Validation → Aspiration
 
 **HOW Section:**
+
 - Introduces solution approach
 - Explains method (weekly delivery)
 - Shows differentiator (60-second format)
@@ -82,6 +84,7 @@ structural_order:
 - **Flow:** Introduction → Method → Differentiator → Application
 
 **WHAT Section:**
+
 - Names the product (now user is Product Aware)
 - Provides social proof (credibility)
 - Capability-framed CTA (action)

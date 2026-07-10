@@ -7,10 +7,10 @@
  */
 "use client";
 
-import * as React from "react";
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from "embla-carousel-react";
+import * as React from "react";
 
 import { cn } from "@/lib/utils";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
@@ -62,9 +62,8 @@ const Carousel = React.forwardRef<
       children,
       ...props
     },
-    ref
+    ref,
   ) => {
-
     const [carouselRef, api] = useEmblaCarousel(
       {
         ...opts,
@@ -115,7 +114,7 @@ const Carousel = React.forwardRef<
           }
         }
       },
-      [scrollPrev, scrollNext, orientation]
+      [scrollPrev, scrollNext, orientation],
     );
 
     React.useEffect(() => {
@@ -151,7 +150,7 @@ const Carousel = React.forwardRef<
         <div
           ref={ref}
           onKeyDownCapture={handleKeyDown}
-          className={cn("group/carousel @container/carousel relative", className)}
+          className={cn("group/carousel relative", className)}
           role="region"
           aria-roledescription="carousel"
           data-slot="carousel"
@@ -162,7 +161,7 @@ const Carousel = React.forwardRef<
         </div>
       </CarouselContext.Provider>
     );
-  }
+  },
 );
 Carousel.displayName = "Carousel";
 
@@ -182,15 +181,11 @@ const CarouselContent = React.forwardRef<
         ref.current = node;
       }
     },
-    [carouselRef, ref]
+    [carouselRef, ref],
   );
 
   return (
-    <div
-      ref={setRefs}
-      className="overflow-hidden"
-      data-slot="carousel-content"
-    >
+    <div ref={setRefs} className="overflow-hidden" data-slot="carousel-content">
       <div
         className={cn(
           "flex group-data-[orientation=vertical]/carousel:flex-col",
@@ -207,24 +202,21 @@ const CarouselItem = React.forwardRef<
   HTMLDivElement,
   React.ComponentProps<"div">
 >(({ className, ...props }, ref) => {
-
   return (
     <div
       ref={ref}
       role="group"
       aria-roledescription="slide"
       data-slot="carousel-item"
-      className={cn(
-        "min-w-0 shrink-0 grow-0 basis-full",
-        className,
-      )}
+      className={cn("min-w-0 shrink-0 grow-0 basis-full", className)}
       {...props}
     />
   );
 });
 CarouselItem.displayName = "CarouselItem";
 
-const carouselButtonClasses = "inline-flex size-8 shrink-0 items-center justify-center rounded-full border border-border bg-background touch-manipulation transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50";
+const carouselButtonClasses =
+  "inline-flex size-8 shrink-0 items-center justify-center rounded-full border border-border bg-background touch-manipulation transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50";
 
 const CarouselPrevious = React.forwardRef<
   HTMLButtonElement,
@@ -338,12 +330,12 @@ const CarouselDots = React.forwardRef<
 CarouselDots.displayName = "CarouselDots";
 
 export {
-  type CarouselApi,
   Carousel,
   CarouselContent,
-  CarouselItem,
-  CarouselPrevious,
-  CarouselNext,
   CarouselDots,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
   useCarousel,
+  type CarouselApi,
 };

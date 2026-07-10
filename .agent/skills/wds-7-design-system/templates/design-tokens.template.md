@@ -47,8 +47,8 @@ gray-900: #111827
 ### Font Families
 
 ```yaml
-font-sans: 'Inter, system-ui, sans-serif'
-font-mono: 'JetBrains Mono, monospace'
+font-sans: "Inter, system-ui, sans-serif"
+font-mono: "JetBrains Mono, monospace"
 ```
 
 ### Font Sizes

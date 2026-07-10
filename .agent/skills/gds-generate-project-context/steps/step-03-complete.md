@@ -188,12 +188,20 @@ Update the project context file with completion information:
 
 ```yaml
 ---
-project_name: '{{project_name}}'
-user_name: '{{user_name}}'
-date: '{{date}}'
+project_name: "{{project_name}}"
+user_name: "{{user_name}}"
+date: "{{date}}"
 sections_completed:
-  ['technology_stack', 'engine_rules', 'performance_rules', 'organization_rules', 'testing_rules', 'platform_rules', 'anti_patterns']
-status: 'complete'
+  [
+    "technology_stack",
+    "engine_rules",
+    "performance_rules",
+    "organization_rules",
+    "testing_rules",
+    "platform_rules",
+    "anti_patterns",
+  ]
+status: "complete"
 rule_count: { { total_rules } }
 optimized_for_llm: true
 ---

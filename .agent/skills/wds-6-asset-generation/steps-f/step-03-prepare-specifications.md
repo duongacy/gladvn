@@ -1,7 +1,7 @@
 ---
-name: 'step-03-prepare-specifications'
-description: 'Locate or create specifications with OBJECT IDs for consistent Figma layer naming'
-nextStepFile: './step-04-generate-validate.md'
+name: "step-03-prepare-specifications"
+description: "Locate or create specifications with OBJECT IDs for consistent Figma layer naming"
+nextStepFile: "./step-04-generate-validate.md"
 ---
 
 # Step 3: Prepare Specifications
@@ -54,6 +54,7 @@ Locate existing specifications with OBJECT IDs for all components in the export 
 ### 1. Search for Specification Documents
 
 Search for specification files containing OBJECT IDs:
+
 - `docs/C-UX-Scenarios/` for scenario specifications
 - `docs/D-Design-System/` for component documentation
 - Search for files containing "OBJECT ID"
@@ -66,6 +67,7 @@ If specifications exist with OBJECT IDs: extract all OBJECT ID field values, map
 ### 3. Handle Missing Specifications
 
 If no specifications exist, offer to:
+
 1. Analyze the code and reverse-engineer specifications
 2. Generate OBJECT IDs following project conventions
 3. Create a specification document for review

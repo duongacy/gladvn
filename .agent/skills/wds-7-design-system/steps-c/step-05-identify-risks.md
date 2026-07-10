@@ -1,9 +1,9 @@
 ---
-name: 'step-05-identify-risks'
-description: 'Identify potential risks and problems with each design system decision option'
+name: "step-05-identify-risks"
+description: "Identify potential risks and problems with each design system decision option"
 
 # File References
-nextStepFile: './step-06-present-decision.md'
+nextStepFile: "./step-06-present-decision.md"
 ---
 
 # Step 5: Identify Risks

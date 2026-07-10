@@ -16,62 +16,62 @@ Danh sách các nhóm component cần ưu tiên hoàn thiện sớm nhất để
 
 **1. Nhóm Form & Data Entry (Ưu tiên số 1) - HOÀN THÀNH 100%**
 
-- [X] `input.tsx` / `textarea.tsx`
-- [X] `select.tsx`
-- [X] `combobox.tsx`
-- [X] `checkbox.tsx`
-- [X] `switch.tsx` / `radio-group.tsx`
+- [x] `input.tsx` / `textarea.tsx`
+- [x] `select.tsx`
+- [x] `combobox.tsx`
+- [x] `checkbox.tsx`
+- [x] `switch.tsx` / `radio-group.tsx`
 
 **2. Nhóm Navigation & Layout**
 
 - [ ] `sidebar.tsx`
-- [X] `navigation-menu.tsx`
-- [X] `tabs.tsx`
-- [X] `card.tsx`
+- [x] `navigation-menu.tsx`
+- [x] `tabs.tsx`
+- [x] `card.tsx`
 
 **3. Nhóm Overlays & Modals**
 
-- [X] `dialog.tsx` / `alert-dialog.tsx`
+- [x] `dialog.tsx` / `alert-dialog.tsx`
 - [ ] `sheet.tsx` / `drawer.tsx`
-- [X] `dropdown-menu.tsx` / `popover.tsx`
+- [x] `dropdown-menu.tsx` / `popover.tsx`
 
 **4. Nhóm Data Display & Feedback**
 
-- [X] `table.tsx`
+- [x] `table.tsx`
 - [ ] `sonner.tsx`
-- [X] `tooltip.tsx`
+- [x] `tooltip.tsx`
 
 ---
 
 ## 🟢 Đã Audit
 
-- [X] `accordion.tsx`
-- [X] `alert-dialog.tsx`
-- [X] `alert.tsx`
-- [X] `aspect-ratio.tsx`
-- [X] `avatar.tsx`
-- [X] `badge.tsx`
-- [X] `breadcrumb.tsx`
-- [X] `button.tsx`
-- [X] `calendar.tsx`
-- [X] `card.tsx`
-- [X] `carousel.tsx`
-- [X] `checkbox.tsx`
-- [X] `collapsible.tsx`
-- [X] `combobox.tsx`
-- [X] `dialog.tsx`
-- [X] `input.tsx`
-- [X] `label.tsx`
-- [X] `progress.tsx`
-- [X] `popover.tsx`
-- [X] `radio-group.tsx`
-- [X] `select.tsx`
-- [X] `slider.tsx`
-- [X] `switch.tsx`
-- [X] `table.tsx`
-- [X] `tabs.tsx`
-- [X] `textarea.tsx`
-- [X] `tooltip.tsx`
+- [x] `accordion.tsx`
+- [x] `alert-dialog.tsx`
+- [x] `alert.tsx`
+- [x] `aspect-ratio.tsx`
+- [x] `avatar.tsx`
+- [x] `badge.tsx`
+- [x] `breadcrumb.tsx`
+- [x] `button.tsx`
+- [x] `calendar.tsx`
+- [x] `card.tsx`
+- [x] `carousel.tsx`
+- [x] `checkbox.tsx`
+- [x] `collapsible.tsx`
+- [x] `combobox.tsx`
+- [x] `dialog.tsx`
+- [x] `input.tsx`
+- [x] `label.tsx`
+- [x] `progress.tsx`
+- [x] `popover.tsx`
+- [x] `radio-group.tsx`
+- [x] `select.tsx`
+- [x] `slider.tsx`
+- [x] `switch.tsx`
+- [x] `table.tsx`
+- [x] `tabs.tsx`
+- [x] `textarea.tsx`
+- [x] `tooltip.tsx`
 
 ---
 
@@ -84,13 +84,13 @@ Danh sách các nhóm component cần ưu tiên hoàn thiện sớm nhất để
 ## 🔴 Chưa Audit (Từ C trở đi)
 
 - [ ] `chart.tsx`
-- [X] `command.tsx`
-- [X] `context-menu.tsx`
-- [X] `direction.tsx`
-- [X] `drawer.tsx`
-- [X] `dropdown-menu.tsx`
-- [X] `empty.tsx`
-- [X] `field.tsx`
+- [x] `command.tsx`
+- [x] `context-menu.tsx`
+- [x] `direction.tsx`
+- [x] `drawer.tsx`
+- [x] `dropdown-menu.tsx`
+- [x] `empty.tsx`
+- [x] `field.tsx`
 - [ ] `hover-card.tsx`
 - [ ] `input-group.tsx`
 - [ ] `input-otp.tsx`
@@ -102,8 +102,8 @@ Danh sách các nhóm component cần ưu tiên hoàn thiện sớm nhất để
 - [ ] `scroll-area.tsx`
 - [ ] `separator.tsx`
 - [ ] `sheet.tsx`
-- [X] `sidebar.tsx`
-- [X] `skeleton.tsx`
+- [x] `sidebar.tsx`
+- [x] `skeleton.tsx`
 - [ ] `sonner.tsx`
 - [ ] `spinner.tsx`
 - [ ] `theme-provider.tsx`

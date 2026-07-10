@@ -1,11 +1,11 @@
 ---
-name: 'step-02-create-delivery'
-description: 'Package complete testable flow into Design Delivery YAML file'
+name: "step-02-create-delivery"
+description: "Package complete testable flow into Design Delivery YAML file"
 
 # File References
-nextStepFile: './step-03-create-test-scenario.md'
-workflowFile: '../workflow.md'
-activityWorkflowFile: '../workflow-handover.md'
+nextStepFile: "./step-03-create-test-scenario.md"
+workflowFile: "../workflow.md"
+activityWorkflowFile: "../workflow-handover.md"
 ---
 
 # Step 2: Create Design Delivery

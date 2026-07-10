@@ -1,9 +1,9 @@
 ---
-name: 'step-08a-initialize-design-system'
-description: 'Create design system folder structure and initialize for the first component'
+name: "step-08a-initialize-design-system"
+description: "Create design system folder structure and initialize for the first component"
 
 # File References
-nextStepFile: './step-08b-create-new-component.md'
+nextStepFile: "./step-08b-create-new-component.md"
 ---
 
 # Step 8a: Initialize Design System

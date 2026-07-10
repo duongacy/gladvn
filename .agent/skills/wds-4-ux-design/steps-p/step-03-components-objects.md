@@ -1,11 +1,11 @@
 ---
-name: 'step-03-components-objects'
-description: 'Identify all interactive elements, route to object-specific instructions, and assign Object IDs'
+name: "step-03-components-objects"
+description: "Identify all interactive elements, route to object-specific instructions, and assign Object IDs"
 
 # File References
-nextStepFile: './step-04-content-languages.md'
-workflowFile: '../workflow.md'
-activityWorkflowFile: '../workflow-specify.md'
+nextStepFile: "./step-04-content-languages.md"
+workflowFile: "../workflow.md"
+activityWorkflowFile: "../workflow-specify.md"
 ---
 
 # Step 3: Components & Object IDs

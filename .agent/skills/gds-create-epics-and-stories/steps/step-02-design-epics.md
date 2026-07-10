@@ -1,22 +1,22 @@
 ---
-name: 'step-02-design-epics'
-description: 'Design and approve the epics_list that will organize all requirements into user-value-focused epics'
+name: "step-02-design-epics"
+description: "Design and approve the epics_list that will organize all requirements into user-value-focused epics"
 
 # Path Definitions
-workflow_path: '{installed_path}'
+workflow_path: "{installed_path}"
 
 # File References
-thisStepFile: './step-02-design-epics.md'
-nextStepFile: './step-03-create-stories.md'
-workflowFile: '{workflow_path}/workflow.md'
-outputFile: '{planning_artifacts}/epics.md'
+thisStepFile: "./step-02-design-epics.md"
+nextStepFile: "./step-03-create-stories.md"
+workflowFile: "{workflow_path}/workflow.md"
+outputFile: "{planning_artifacts}/epics.md"
 
 # Task References
-advancedElicitationTask: 'skill:bmad-advanced-elicitation'
-partyModeWorkflow: 'skill:bmad-party-mode'
+advancedElicitationTask: "skill:bmad-advanced-elicitation"
+partyModeWorkflow: "skill:bmad-party-mode"
 
 # Template References
-epicsTemplate: '{workflow_path}/templates/epics-template.md'
+epicsTemplate: "{workflow_path}/templates/epics-template.md"
 ---
 
 # Step 2: Design Epic List

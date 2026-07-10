@@ -1,6 +1,5 @@
-import React from "react";
-import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
+import { describe, expect, it } from "vitest";
 import { TextareaPreset } from "./textarea-preset";
 
 describe("TextareaPreset", () => {
@@ -33,6 +32,8 @@ describe("TextareaPreset", () => {
 
   it("passes placeholder to textarea", () => {
     render(<TextareaPreset placeholder="Write something..." />);
-    expect(screen.getByPlaceholderText("Write something...")).toBeInTheDocument();
+    expect(
+      screen.getByPlaceholderText("Write something..."),
+    ).toBeInTheDocument();
   });
 });

@@ -1,10 +1,10 @@
-import * as React from "react";
 import {
   Accordion,
+  AccordionContent,
   AccordionItem,
   AccordionTrigger,
-  AccordionContent,
 } from "@/components/micro/accordion";
+import * as React from "react";
 
 export interface AccordionPresetItem {
   value: string;
@@ -24,7 +24,11 @@ const AccordionPreset = React.forwardRef<
   return (
     <Accordion ref={ref} {...accordionProps}>
       {items.map((item) => (
-        <AccordionItem key={item.value} value={item.value} disabled={item.disabled}>
+        <AccordionItem
+          key={item.value}
+          value={item.value}
+          disabled={item.disabled}
+        >
           <AccordionTrigger>{item.title}</AccordionTrigger>
           <AccordionContent>{item.content}</AccordionContent>
         </AccordionItem>

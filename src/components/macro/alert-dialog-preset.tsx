@@ -1,20 +1,20 @@
 "use client";
 
-import * as React from "react";
-import { type Size, type Color, type Variant } from "@/lib/types";
 import {
   AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
   AlertDialogContent,
-  AlertDialogHeader,
-  AlertDialogTitle,
   AlertDialogDescription,
   AlertDialogFooter,
-  AlertDialogTrigger,
+  AlertDialogHeader,
   AlertDialogMedia,
-  AlertDialogCancel,
-  AlertDialogAction,
+  AlertDialogTitle,
+  AlertDialogTrigger,
 } from "@/components/micro/alert-dialog";
+import { type Color, type Size, type Variant } from "@/lib/types";
 import { cn } from "@/lib/utils";
+import * as React from "react";
 
 type AlertDialogPresetProps = Omit<
   React.ComponentProps<typeof AlertDialog>,
@@ -58,10 +58,9 @@ function AlertDialogPreset({
       {trigger && <AlertDialogTrigger render={trigger} />}
       <AlertDialogContent size={size}>
         <div
-          className={cn(
-            "flex flex-col gap-1.5",
-            { "sm:flex-row sm:gap-4": !!icon },
-          )}
+          className={cn("flex flex-col gap-1.5", {
+            "sm:flex-row sm:gap-4": !!icon,
+          })}
         >
           {icon && (
             <AlertDialogMedia className="mx-auto mb-2 shrink-0 sm:mx-0 sm:mb-0">
@@ -77,9 +76,7 @@ function AlertDialogPreset({
           </AlertDialogHeader>
         </div>
         {(cancelLabel || actionLabel) && (
-          <AlertDialogFooter
-            className="group-data-[size=sm]/alert-dialog-content:grid group-data-[size=sm]/alert-dialog-content:grid-cols-2 group-data-[size=sm]/alert-dialog-content:sm:flex group-data-[size=sm]/alert-dialog-content:sm:justify-end"
-          >
+          <AlertDialogFooter className="group-data-[size=sm]/alert-dialog-content:grid group-data-[size=sm]/alert-dialog-content:grid-cols-2 group-data-[size=sm]/alert-dialog-content:sm:flex group-data-[size=sm]/alert-dialog-content:sm:justify-end">
             {cancelLabel && (
               <AlertDialogCancel
                 size={size}

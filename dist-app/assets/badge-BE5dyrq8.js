@@ -1,1 +1,227 @@
-import{Nn as e,i as t,ir as n,n as r,r as i}from"./showcase-vJrKG7HA.js";import{t as a}from"./info-DF5q0VCE.js";import{t as o}from"./triangle-alert-CiHAIrN2.js";import{t as s}from"./x-Ddx7uGRS.js";import{Lt as c}from"./index-Dk0REsC9.js";var l=e();function u(){return(0,l.jsxs)(`div`,{className:`space-y-10`,children:[(0,l.jsx)(t,{title:`Badge`,description:`Hiển thị huy hiệu hoặc thành phần trông giống huy hiệu.`}),(0,l.jsx)(i,{label:`Variants`,description:`Tất cả các kiểu hiển thị hiện có.`,children:(0,l.jsxs)(`div`,{className:`flex flex-wrap gap-3`,children:[(0,l.jsx)(c,{variant:`solid`,children:`Solid`}),(0,l.jsx)(c,{variant:`soft`,children:`Soft`}),(0,l.jsx)(c,{variant:`outline`,children:`Outline`})]})}),(0,l.jsx)(i,{label:`Colors`,description:`Mã thông báo màu ngữ nghĩa được áp dụng cho huy hiệu.`,children:(0,l.jsxs)(`div`,{className:`flex flex-col gap-4`,children:[(0,l.jsxs)(`div`,{className:`flex flex-wrap gap-3`,children:[(0,l.jsx)(c,{color:`primary`,children:`Primary`}),(0,l.jsx)(c,{color:`secondary`,children:`Secondary`}),(0,l.jsx)(c,{color:`destructive`,children:`Destructive`}),(0,l.jsx)(c,{color:`warning`,children:`Warning`}),(0,l.jsx)(c,{color:`success`,children:`Success`}),(0,l.jsx)(c,{color:`info`,children:`Info`}),(0,l.jsx)(c,{color:`muted`,children:`Muted`})]}),(0,l.jsxs)(`div`,{className:`flex flex-wrap gap-3`,children:[(0,l.jsx)(c,{variant:`soft`,color:`primary`,children:`Primary`}),(0,l.jsx)(c,{variant:`soft`,color:`secondary`,children:`Secondary`}),(0,l.jsx)(c,{variant:`soft`,color:`destructive`,children:`Destructive`}),(0,l.jsx)(c,{variant:`soft`,color:`warning`,children:`Warning`}),(0,l.jsx)(c,{variant:`soft`,color:`success`,children:`Success`}),(0,l.jsx)(c,{variant:`soft`,color:`info`,children:`Info`}),(0,l.jsx)(c,{variant:`soft`,color:`muted`,children:`Muted`})]})]})}),(0,l.jsx)(i,{label:`With Icons`,description:`Huy hiệu có biểu tượng nội tuyến để bổ sung ngữ cảnh.`,children:(0,l.jsxs)(`div`,{className:`flex flex-wrap gap-3`,children:[(0,l.jsxs)(c,{color:`success`,children:[(0,l.jsx)(n,{className:`size-3.5`}),`Approved`]}),(0,l.jsxs)(c,{color:`destructive`,children:[(0,l.jsx)(s,{className:`size-3.5`}),`Rejected`]}),(0,l.jsxs)(c,{color:`warning`,variant:`soft`,children:[(0,l.jsx)(o,{className:`size-3.5`}),`Pending`]}),(0,l.jsxs)(c,{color:`info`,variant:`outline`,children:[(0,l.jsx)(a,{className:`size-3.5`}),`Draft`]})]})}),(0,l.jsx)(i,{label:`Use Cases`,description:`Các mẫu huy hiệu phổ biến trong thế giới thực.`,children:(0,l.jsxs)(r,{columns:2,children:[(0,l.jsxs)(`div`,{className:`flex flex-col gap-3`,children:[(0,l.jsx)(`span`,{className:`text-sm text-muted-foreground font-medium`,children:`Status indicators`}),(0,l.jsxs)(`div`,{className:`flex flex-wrap gap-2`,children:[(0,l.jsx)(c,{color:`success`,variant:`soft`,children:`Active`}),(0,l.jsx)(c,{color:`secondary`,variant:`soft`,children:`Inactive`}),(0,l.jsx)(c,{color:`destructive`,variant:`soft`,children:`Expired`}),(0,l.jsx)(c,{color:`muted`,variant:`outline`,children:`Archived`})]})]}),(0,l.jsxs)(`div`,{className:`flex flex-col gap-3`,children:[(0,l.jsx)(`span`,{className:`text-sm text-muted-foreground font-medium`,children:`Tags & categories`}),(0,l.jsxs)(`div`,{className:`flex flex-wrap gap-2`,children:[(0,l.jsx)(c,{variant:`outline`,color:`primary`,children:`React`}),(0,l.jsx)(c,{variant:`outline`,color:`secondary`,children:`TypeScript`}),(0,l.jsx)(c,{variant:`outline`,color:`info`,children:`Tailwind`}),(0,l.jsx)(c,{variant:`outline`,color:`warning`,children:`Vite`})]})]})]})}),(0,l.jsx)(i,{label:`As Link`,description:`Huy hiệu được hiển thị dưới dạng phần tử neo bằng cách sử dụng giá trị hiển thị.`,children:(0,l.jsxs)(`div`,{className:`flex flex-wrap gap-3`,children:[(0,l.jsx)(c,{render:(0,l.jsx)(`a`,{href:`#`}),children:`Clickable Badge`}),(0,l.jsx)(c,{color:`secondary`,render:(0,l.jsx)(`a`,{href:`#`}),children:`Secondary Link`}),(0,l.jsx)(c,{variant:`outline`,render:(0,l.jsx)(`a`,{href:`#`}),children:`Outline Link`})]})})]})}export{u as default};
+import {
+  Nn as e,
+  i as t,
+  ir as n,
+  n as r,
+  r as i,
+} from "./showcase-vJrKG7HA.js";
+import { t as a } from "./info-DF5q0VCE.js";
+import { t as o } from "./triangle-alert-CiHAIrN2.js";
+import { t as s } from "./x-Ddx7uGRS.js";
+import { Lt as c } from "./index-Dk0REsC9.js";
+var l = e();
+function u() {
+  return (0, l.jsxs)(`div`, {
+    className: `space-y-10`,
+    children: [
+      (0, l.jsx)(t, {
+        title: `Badge`,
+        description: `Hiển thị huy hiệu hoặc thành phần trông giống huy hiệu.`,
+      }),
+      (0, l.jsx)(i, {
+        label: `Variants`,
+        description: `Tất cả các kiểu hiển thị hiện có.`,
+        children: (0, l.jsxs)(`div`, {
+          className: `flex flex-wrap gap-3`,
+          children: [
+            (0, l.jsx)(c, { variant: `solid`, children: `Solid` }),
+            (0, l.jsx)(c, { variant: `soft`, children: `Soft` }),
+            (0, l.jsx)(c, { variant: `outline`, children: `Outline` }),
+          ],
+        }),
+      }),
+      (0, l.jsx)(i, {
+        label: `Colors`,
+        description: `Mã thông báo màu ngữ nghĩa được áp dụng cho huy hiệu.`,
+        children: (0, l.jsxs)(`div`, {
+          className: `flex flex-col gap-4`,
+          children: [
+            (0, l.jsxs)(`div`, {
+              className: `flex flex-wrap gap-3`,
+              children: [
+                (0, l.jsx)(c, { color: `primary`, children: `Primary` }),
+                (0, l.jsx)(c, { color: `secondary`, children: `Secondary` }),
+                (0, l.jsx)(c, {
+                  color: `destructive`,
+                  children: `Destructive`,
+                }),
+                (0, l.jsx)(c, { color: `warning`, children: `Warning` }),
+                (0, l.jsx)(c, { color: `success`, children: `Success` }),
+                (0, l.jsx)(c, { color: `info`, children: `Info` }),
+                (0, l.jsx)(c, { color: `muted`, children: `Muted` }),
+              ],
+            }),
+            (0, l.jsxs)(`div`, {
+              className: `flex flex-wrap gap-3`,
+              children: [
+                (0, l.jsx)(c, {
+                  variant: `soft`,
+                  color: `primary`,
+                  children: `Primary`,
+                }),
+                (0, l.jsx)(c, {
+                  variant: `soft`,
+                  color: `secondary`,
+                  children: `Secondary`,
+                }),
+                (0, l.jsx)(c, {
+                  variant: `soft`,
+                  color: `destructive`,
+                  children: `Destructive`,
+                }),
+                (0, l.jsx)(c, {
+                  variant: `soft`,
+                  color: `warning`,
+                  children: `Warning`,
+                }),
+                (0, l.jsx)(c, {
+                  variant: `soft`,
+                  color: `success`,
+                  children: `Success`,
+                }),
+                (0, l.jsx)(c, {
+                  variant: `soft`,
+                  color: `info`,
+                  children: `Info`,
+                }),
+                (0, l.jsx)(c, {
+                  variant: `soft`,
+                  color: `muted`,
+                  children: `Muted`,
+                }),
+              ],
+            }),
+          ],
+        }),
+      }),
+      (0, l.jsx)(i, {
+        label: `With Icons`,
+        description: `Huy hiệu có biểu tượng nội tuyến để bổ sung ngữ cảnh.`,
+        children: (0, l.jsxs)(`div`, {
+          className: `flex flex-wrap gap-3`,
+          children: [
+            (0, l.jsxs)(c, {
+              color: `success`,
+              children: [(0, l.jsx)(n, { className: `size-3.5` }), `Approved`],
+            }),
+            (0, l.jsxs)(c, {
+              color: `destructive`,
+              children: [(0, l.jsx)(s, { className: `size-3.5` }), `Rejected`],
+            }),
+            (0, l.jsxs)(c, {
+              color: `warning`,
+              variant: `soft`,
+              children: [(0, l.jsx)(o, { className: `size-3.5` }), `Pending`],
+            }),
+            (0, l.jsxs)(c, {
+              color: `info`,
+              variant: `outline`,
+              children: [(0, l.jsx)(a, { className: `size-3.5` }), `Draft`],
+            }),
+          ],
+        }),
+      }),
+      (0, l.jsx)(i, {
+        label: `Use Cases`,
+        description: `Các mẫu huy hiệu phổ biến trong thế giới thực.`,
+        children: (0, l.jsxs)(r, {
+          columns: 2,
+          children: [
+            (0, l.jsxs)(`div`, {
+              className: `flex flex-col gap-3`,
+              children: [
+                (0, l.jsx)(`span`, {
+                  className: `text-sm text-muted-foreground font-medium`,
+                  children: `Status indicators`,
+                }),
+                (0, l.jsxs)(`div`, {
+                  className: `flex flex-wrap gap-2`,
+                  children: [
+                    (0, l.jsx)(c, {
+                      color: `success`,
+                      variant: `soft`,
+                      children: `Active`,
+                    }),
+                    (0, l.jsx)(c, {
+                      color: `secondary`,
+                      variant: `soft`,
+                      children: `Inactive`,
+                    }),
+                    (0, l.jsx)(c, {
+                      color: `destructive`,
+                      variant: `soft`,
+                      children: `Expired`,
+                    }),
+                    (0, l.jsx)(c, {
+                      color: `muted`,
+                      variant: `outline`,
+                      children: `Archived`,
+                    }),
+                  ],
+                }),
+              ],
+            }),
+            (0, l.jsxs)(`div`, {
+              className: `flex flex-col gap-3`,
+              children: [
+                (0, l.jsx)(`span`, {
+                  className: `text-sm text-muted-foreground font-medium`,
+                  children: `Tags & categories`,
+                }),
+                (0, l.jsxs)(`div`, {
+                  className: `flex flex-wrap gap-2`,
+                  children: [
+                    (0, l.jsx)(c, {
+                      variant: `outline`,
+                      color: `primary`,
+                      children: `React`,
+                    }),
+                    (0, l.jsx)(c, {
+                      variant: `outline`,
+                      color: `secondary`,
+                      children: `TypeScript`,
+                    }),
+                    (0, l.jsx)(c, {
+                      variant: `outline`,
+                      color: `info`,
+                      children: `Tailwind`,
+                    }),
+                    (0, l.jsx)(c, {
+                      variant: `outline`,
+                      color: `warning`,
+                      children: `Vite`,
+                    }),
+                  ],
+                }),
+              ],
+            }),
+          ],
+        }),
+      }),
+      (0, l.jsx)(i, {
+        label: `As Link`,
+        description: `Huy hiệu được hiển thị dưới dạng phần tử neo bằng cách sử dụng giá trị hiển thị.`,
+        children: (0, l.jsxs)(`div`, {
+          className: `flex flex-wrap gap-3`,
+          children: [
+            (0, l.jsx)(c, {
+              render: (0, l.jsx)(`a`, { href: `#` }),
+              children: `Clickable Badge`,
+            }),
+            (0, l.jsx)(c, {
+              color: `secondary`,
+              render: (0, l.jsx)(`a`, { href: `#` }),
+              children: `Secondary Link`,
+            }),
+            (0, l.jsx)(c, {
+              variant: `outline`,
+              render: (0, l.jsx)(`a`, { href: `#` }),
+              children: `Outline Link`,
+            }),
+          ],
+        }),
+      }),
+    ],
+  });
+}
+export { u as default };

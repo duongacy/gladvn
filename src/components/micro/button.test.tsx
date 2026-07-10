@@ -1,6 +1,5 @@
-import React from "react";
-import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
+import { describe, expect, it } from "vitest";
 import { Button } from "./button";
 
 describe("Button", () => {
@@ -17,7 +16,7 @@ describe("Button", () => {
     render(
       <Button variant="outline" color="destructive">
         Delete
-      </Button>
+      </Button>,
     );
     const button = screen.getByRole("button", { name: "Delete" });
     expect(button).toHaveAttribute("data-variant", "outline");

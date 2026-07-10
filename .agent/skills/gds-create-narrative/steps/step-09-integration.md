@@ -1,19 +1,19 @@
 ---
-name: 'step-09-integration'
-description: 'Define how narrative integrates with gameplay including gating, agency, and ludonarrative harmony'
+name: "step-09-integration"
+description: "Define how narrative integrates with gameplay including gating, agency, and ludonarrative harmony"
 
 # Path Definitions
-workflow_path: '{installed_path}'
+workflow_path: "{installed_path}"
 
 # File References
-thisStepFile: './step-09-integration.md'
-nextStepFile: './step-10-production.md'
-workflowFile: '{workflow_path}/workflow.md'
-outputFile: '{output_folder}/narrative-design.md'
+thisStepFile: "./step-09-integration.md"
+nextStepFile: "./step-10-production.md"
+workflowFile: "{workflow_path}/workflow.md"
+outputFile: "{output_folder}/narrative-design.md"
 
 # Task References
-advancedElicitationTask: 'skill:bmad-advanced-elicitation'
-partyModeWorkflow: 'skill:bmad-party-mode'
+advancedElicitationTask: "skill:bmad-advanced-elicitation"
+partyModeWorkflow: "skill:bmad-party-mode"
 ---
 
 # Step 9: Gameplay Integration

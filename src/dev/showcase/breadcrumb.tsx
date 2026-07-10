@@ -1,13 +1,11 @@
-import { SlashIcon } from "lucide-react";
 import {
+  DocsP,
+  ExampleGrid,
+  ExampleSection,
   Showcase,
   ShowcaseDocs,
-  DocsH3,
-  DocsP,
-  DocsCode,
-  ExampleSection,
-  ExampleGrid,
 } from "@/dev/components/showcase";
+import { SlashIcon } from "lucide-react";
 
 import { BreadcrumbPreset } from "@/components/macro/breadcrumb-preset";
 import {
@@ -32,16 +30,6 @@ import {
 function BreadcrumbMacroShowcase() {
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Khi nào nên dùng Macro</DocsH3>
-        <DocsP>
-          <DocsCode>BreadcrumbPreset</DocsCode> cho phép bạn truyền vào một mảng
-          các object <DocsCode>items</DocsCode> và nó sẽ tự động render toàn bộ
-          cấu trúc danh sách (Link, Separator, Page) cho bạn, tiết kiệm rất
-          nhiều code cho các thanh điều hướng tĩnh.
-        </DocsP>
-      </ShowcaseDocs>
-
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Tiêu chuẩn (Standard)"
@@ -97,16 +85,6 @@ function BreadcrumbMacroShowcase() {
 function BreadcrumbMicroShowcase() {
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Khi nào nên dùng Micro</DocsH3>
-        <DocsP>
-          Dùng <DocsCode>Breadcrumb</DocsCode> và các thành phần con khi bạn cần
-          chèn các thành phần UI phức tạp vào giữa đường dẫn (ví dụ:{" "}
-          <DocsCode>DropdownMenu</DocsCode> khi danh sách quá dài, hoặc đổi Icon
-          của <DocsCode>BreadcrumbSeparator</DocsCode>).
-        </DocsP>
-      </ShowcaseDocs>
-
       <ExampleSection
         label="Cơ bản (Default)"
         description="Lắp ráp thủ công các item với dấu phân cách chevron mặc định."
@@ -267,7 +245,16 @@ export default function BreadcrumbShowcase() {
   return (
     <Showcase
       title="Breadcrumb"
-      description="Thanh điều hướng hiển thị đường dẫn hiện tại của người dùng trong hệ thống phân cấp trang web."
+      description="Hiển thị đường dẫn điều hướng, giúp người dùng biết vị trí hiện tại trong hệ thống."
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsP>
+            Dùng để hiển thị đường dẫn điều hướng, giúp người dùng nhận biết vị
+            trí hiện tại của họ trong cấu trúc của ứng dụng và cho phép họ dễ
+            dàng quay lại các trang cấp cao hơn.
+          </DocsP>
+        </ShowcaseDocs>
+      }
       tabs={[
         { label: "Micro (Primitive)", content: <BreadcrumbMicroShowcase /> },
         { label: "Macro (Preset)", content: <BreadcrumbMacroShowcase /> },

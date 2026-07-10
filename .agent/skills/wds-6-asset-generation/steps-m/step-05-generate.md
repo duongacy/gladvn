@@ -1,7 +1,7 @@
 ---
-name: 'step-05-generate'
-description: 'Execute image generation for all batches with reference chaining for consistency'
-nextStepFile: './step-06-review.md'
+name: "step-05-generate"
+description: "Execute image generation for all batches with reference chaining for consistency"
+nextStepFile: "./step-06-review.md"
 ---
 
 # Step 5: Generate Images

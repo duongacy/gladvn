@@ -1,10 +1,10 @@
 ---
-name: 'step-10-final-validation'
-description: 'Cross-reference all sections, verify sketch coverage, check for broken links, and generate comprehensive quality report'
+name: "step-10-final-validation"
+description: "Cross-reference all sections, verify sketch coverage, check for broken links, and generate comprehensive quality report"
 
 # File References
-workflowFile: '../workflow.md'
-activityWorkflowFile: '../workflow-validate.md'
+workflowFile: "../workflow.md"
+activityWorkflowFile: "../workflow-validate.md"
 ---
 
 # Step 10: Final Validation & Quality Report
@@ -57,6 +57,7 @@ Cross-reference all sections, verify sketch coverage, check for broken links, va
 ### 1. Cross-Reference Sections
 
 Verify:
+
 - Cross-references between sections are consistent
 - All sketch elements are documented in Page Sections
 - All Object IDs in sections appear in Object Registry
@@ -89,26 +90,33 @@ Synthesize findings from Steps 1-9 into comprehensive quality report:
 **Overall Status:** PASS / NEEDS WORK / CRITICAL ISSUES
 
 ## Executive Summary
+
 [Brief overview of specification quality]
 
 ## Critical Issues (Must Fix Before Handoff)
+
 [List critical issues from all steps]
 
 ## Warnings (Should Fix)
+
 [List warnings from all steps]
 
 ## Info (Nice to Have)
+
 [List informational items]
 
 ## Coverage Metrics
+
 - Object Registry Coverage: X%
 - Sketch Coverage: X%
 - Design System References: X%
 
 ## Recommendations
+
 [Prioritized list of fixes]
 
 ## Next Steps
+
 [What to do next based on findings]
 ```
 

@@ -1,7 +1,7 @@
 ---
 name: scenarios-validate
 description: Validate UX scenario outlines against WDS quality standards
-validateWorkflow: './steps-v/step-01-scenario-coverage.md'
+validateWorkflow: "./steps-v/step-01-scenario-coverage.md"
 ---
 
 # Validate UX Scenarios
@@ -15,6 +15,7 @@ validateWorkflow: './steps-v/step-01-scenario-coverage.md'
 ## INITIALIZATION
 
 ### Design Log
+
 Read `{output_folder}/_progress/00-design-log.md`. Check Current and Backlog for context.
 
 ### Configuration Loading

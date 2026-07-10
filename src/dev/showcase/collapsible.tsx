@@ -1,27 +1,24 @@
-import * as React from "react";
-import { ChevronsUpDownIcon } from "lucide-react";
-import {
-  SectionHeader,
-  ExampleSection,
-  ExampleGrid,
-} from "@/dev/components/showcase";
 import { Button } from "@/components/micro/button";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/micro/collapsible";
+import {
+  DocsP,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+} from "@/dev/components/showcase";
+import { ChevronsUpDownIcon } from "lucide-react";
+import * as React from "react";
 
-export default function CollapsibleShowcase() {
+function CollapsibleMicroShowcase() {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
-    <div className="space-y-10">
-      <SectionHeader
-        title="Collapsible"
-        description="Một thành phần tương tác giúp mở rộng/thu gọn một bảng điều khiển."
-      />
-
+    <div className="space-y-10 mt-6">
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Default"
@@ -270,5 +267,32 @@ return (
         </ExampleSection>
       </ExampleGrid>
     </div>
+  );
+}
+
+// ──────────────────────────────────────────────────────────
+// SECTION 3: Entry point
+// ──────────────────────────────────────────────────────────
+export default function CollapsibleShowcase() {
+  return (
+    <Showcase
+      title="Collapsible"
+      description="Một thành phần tương tác giúp mở rộng/thu gọn một bảng điều khiển."
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsP>
+            Dùng để ẩn/hiện các phần nội dung phụ, giúp tiết kiệm không gian màn
+            hình. Thường được sử dụng cho phần bình luận, chi tiết đơn hàng,
+            hoặc các danh sách dài có thể thu gọn.
+          </DocsP>
+        </ShowcaseDocs>
+      }
+      tabs={[
+        {
+          label: "Micro (Primitive)",
+          content: <CollapsibleMicroShowcase />,
+        },
+      ]}
+    />
   );
 }

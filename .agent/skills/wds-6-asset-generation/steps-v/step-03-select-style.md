@@ -1,7 +1,7 @@
 ---
-name: 'step-03-select-style'
-description: 'Define motion personality, timing parameters, and video visual treatment'
-nextStepFile: './step-04-generate.md'
+name: "step-03-select-style"
+description: "Define motion personality, timing parameters, and video visual treatment"
+nextStepFile: "./step-04-generate.md"
 ---
 
 # Step 3: Select Style

@@ -1,1 +1,100 @@
-import{Nn as e,cr as t,dr as n,i as r,n as i,r as a}from"./showcase-vJrKG7HA.js";import{t as o}from"./slider-preset-D1Mdnga8.js";var s=n(t(),1),c=e();function l(){let[e,t]=(0,s.useState)(`md`);return(0,c.jsxs)(`div`,{className:`space-y-10`,children:[(0,c.jsx)(r,{title:`Slider (Macro)`,description:`Một thành phần cài sẵn bao gồm Thanh trượt, Trường, Nhãn và Mô tả.`}),(0,c.jsxs)(i,{columns:2,children:[(0,c.jsx)(a,{label:`Standard`,description:`Thanh trượt cơ bản có nhãn và mô tả.`,children:(0,c.jsx)(`div`,{className:`w-full max-w-sm`,children:(0,c.jsx)(o,{size:e,label:`Volume`,description:`Điều chỉnh âm lượng hệ thống.`,defaultValue:[50],max:100,step:1})})}),(0,c.jsx)(a,{label:`Error State`,description:`Thể hiện các đạo cụ errorMessage và showError.`,children:(0,c.jsxs)(`div`,{className:`w-full max-w-sm flex flex-col gap-6`,children:[(0,c.jsx)(o,{size:e,label:`Volume (Invalid)`,defaultValue:[110],max:100,step:1,errorMessage:`Volume cannot exceed 100.`}),(0,c.jsx)(o,{size:e,label:`Volume (Hidden Error)`,description:`Văn bản lỗi bị ẩn bằng showError={false}`,defaultValue:[110],max:100,errorMessage:`Hidden error.`,showError:!1})]})}),(0,c.jsx)(a,{label:`Disabled State`,description:`Một thanh trượt không tương tác.`,children:(0,c.jsx)(`div`,{className:`w-full max-w-sm`,children:(0,c.jsx)(o,{size:e,label:`Brightness`,description:`Độ sáng được hệ thống điều khiển tự động.`,defaultValue:[75],max:100,disabled:!0})})}),(0,c.jsx)(a,{label:`Range Slider`,description:`Sử dụng nhiều giá trị để tạo một phạm vi.`,children:(0,c.jsx)(`div`,{className:`w-full max-w-sm`,children:(0,c.jsx)(o,{size:e,label:`Price Range`,description:`Chọn giá tối thiểu và tối đa.`,defaultValue:[25,75],max:100,step:5})})})]})]})}export{l as default};
+import {
+  Nn as e,
+  cr as t,
+  dr as n,
+  i as r,
+  n as i,
+  r as a,
+} from "./showcase-vJrKG7HA.js";
+import { t as o } from "./slider-preset-D1Mdnga8.js";
+var s = n(t(), 1),
+  c = e();
+function l() {
+  let [e, t] = (0, s.useState)(`md`);
+  return (0, c.jsxs)(`div`, {
+    className: `space-y-10`,
+    children: [
+      (0, c.jsx)(r, {
+        title: `Slider (Macro)`,
+        description: `Một thành phần cài sẵn bao gồm Thanh trượt, Trường, Nhãn và Mô tả.`,
+      }),
+      (0, c.jsxs)(i, {
+        columns: 2,
+        children: [
+          (0, c.jsx)(a, {
+            label: `Standard`,
+            description: `Thanh trượt cơ bản có nhãn và mô tả.`,
+            children: (0, c.jsx)(`div`, {
+              className: `w-full max-w-sm`,
+              children: (0, c.jsx)(o, {
+                size: e,
+                label: `Volume`,
+                description: `Điều chỉnh âm lượng hệ thống.`,
+                defaultValue: [50],
+                max: 100,
+                step: 1,
+              }),
+            }),
+          }),
+          (0, c.jsx)(a, {
+            label: `Error State`,
+            description: `Thể hiện các đạo cụ errorMessage và showError.`,
+            children: (0, c.jsxs)(`div`, {
+              className: `w-full max-w-sm flex flex-col gap-6`,
+              children: [
+                (0, c.jsx)(o, {
+                  size: e,
+                  label: `Volume (Invalid)`,
+                  defaultValue: [110],
+                  max: 100,
+                  step: 1,
+                  errorMessage: `Volume cannot exceed 100.`,
+                }),
+                (0, c.jsx)(o, {
+                  size: e,
+                  label: `Volume (Hidden Error)`,
+                  description: `Văn bản lỗi bị ẩn bằng showError={false}`,
+                  defaultValue: [110],
+                  max: 100,
+                  errorMessage: `Hidden error.`,
+                  showError: !1,
+                }),
+              ],
+            }),
+          }),
+          (0, c.jsx)(a, {
+            label: `Disabled State`,
+            description: `Một thanh trượt không tương tác.`,
+            children: (0, c.jsx)(`div`, {
+              className: `w-full max-w-sm`,
+              children: (0, c.jsx)(o, {
+                size: e,
+                label: `Brightness`,
+                description: `Độ sáng được hệ thống điều khiển tự động.`,
+                defaultValue: [75],
+                max: 100,
+                disabled: !0,
+              }),
+            }),
+          }),
+          (0, c.jsx)(a, {
+            label: `Range Slider`,
+            description: `Sử dụng nhiều giá trị để tạo một phạm vi.`,
+            children: (0, c.jsx)(`div`, {
+              className: `w-full max-w-sm`,
+              children: (0, c.jsx)(o, {
+                size: e,
+                label: `Price Range`,
+                description: `Chọn giá tối thiểu và tối đa.`,
+                defaultValue: [25, 75],
+                max: 100,
+                step: 5,
+              }),
+            }),
+          }),
+        ],
+      }),
+    ],
+  });
+}
+export { l as default };

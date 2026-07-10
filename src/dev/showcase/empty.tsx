@@ -1,32 +1,32 @@
 import {
+  DocsP,
+  ExampleGrid,
+  ExampleSection,
   Showcase,
   ShowcaseDocs,
-  DocsH3,
-  DocsP,
-  DocsCode,
-  ExampleSection,
-  ExampleGrid,
 } from "@/dev/components/showcase";
 
 import {
-  PlusIcon,
-  FolderOpenIcon,
-  SearchIcon,
-  InboxIcon,
+  CheckCircle2Icon,
   FileTextIcon,
+  FolderOpenIcon,
+  InboxIcon,
+  LayersIcon,
+  PlusIcon,
+  SearchIcon,
 } from "lucide-react";
 
+import { EmptyPreset } from "@/components/macro/empty-preset";
+import { Button } from "@/components/micro/button";
 import {
   Empty,
-  EmptyTitle,
-  EmptyDescription,
   EmptyAction,
-  EmptyHeader,
   EmptyContent,
+  EmptyDescription,
+  EmptyHeader,
   EmptyMedia,
+  EmptyTitle,
 } from "@/components/micro/empty";
-import { Button } from "@/components/micro/button";
-import { EmptyPreset } from "@/components/macro/empty-preset";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Macro Content
@@ -34,17 +34,6 @@ import { EmptyPreset } from "@/components/macro/empty-preset";
 function EmptyMacroShowcase() {
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Khi nào nên dùng Macro</DocsH3>
-        <DocsP>
-          <DocsCode>EmptyPreset</DocsCode> đóng gói toàn bộ cấu trúc của trạng
-          thái trống. Truyền trực tiếp các props <DocsCode>icon</DocsCode>,{" "}
-          <DocsCode>title</DocsCode>, <DocsCode>description</DocsCode> và{" "}
-          <DocsCode>action</DocsCode> để render nhanh mà không cần lồng ghép
-          thẻ.
-        </DocsP>
-      </ShowcaseDocs>
-
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Tiêu chuẩn (Standard)"
@@ -197,17 +186,6 @@ function EmptyMacroShowcase() {
 function EmptyMicroShowcase() {
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Khi nào nên dùng Micro</DocsH3>
-        <DocsP>
-          Dùng các thành phần con (<DocsCode>EmptyHeader</DocsCode>,{" "}
-          <DocsCode>EmptyMedia</DocsCode>, <DocsCode>EmptyContent</DocsCode>...)
-          khi bạn cần thay đổi trật tự cấu trúc (ví dụ: chuyển nút lên trên),
-          chèn thêm nội dung đặc biệt hoặc render Icon dưới dạng file SVG tùy
-          chỉnh phức tạp thay vì Lucide Icon.
-        </DocsP>
-      </ShowcaseDocs>
-
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Cơ bản (Default)"
@@ -391,6 +369,100 @@ function EmptyMicroShowcase() {
           </Empty>
         </div>
       </ExampleSection>
+
+      {/* ── Use Case Comparison ─────────────────────── */}
+      <ExampleSection
+        label="🧭 Use Case Comparison"
+        description="Các kịch bản thực tế giúp bạn quyết định nên dùng Micro hay Macro."
+        fullWidth
+        codeString={`<div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+  {/* ── Story 1: Macro wins ── */}
+  <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
+    <div className="flex items-start gap-3">
+      <span className="mt-0.5 shrink-0 rounded-full bg-green-500/10 p-1.5 text-green-600">
+        <CheckCircle2Icon className="size-4" aria-hidden="true" />
+      </span>
+      <div>
+        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+          Story 1 · Dùng Macro
+        </p>
+        <h3 className="mt-0.5 text-sm font-semibold text-foreground">
+          Giao diện trống tiêu chuẩn
+        </h3>
+      </div>
+    </div>
+    <p className="text-xs text-muted-foreground leading-relaxed">
+      Dùng \`EmptyPreset\` khi bạn chỉ cần một cấu trúc trạng thái trống mặc định, bao gồm icon, tiêu đề, mô tả và nút hành động. Giúp rút ngắn code đáng kể.
+    </p>
+  </div>
+
+  {/* ── Story 2: Micro wins ── */}
+  <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
+    <div className="flex items-start gap-3">
+      <span className="mt-0.5 shrink-0 rounded-full bg-blue-500/10 p-1.5 text-blue-600">
+        <LayersIcon className="size-4" aria-hidden="true" />
+      </span>
+      <div>
+        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+          Story 2 · Dùng Micro
+        </p>
+        <h3 className="mt-0.5 text-sm font-semibold text-foreground">
+          Bố cục tuỳ biến phức tạp
+        </h3>
+      </div>
+    </div>
+    <p className="text-xs text-muted-foreground leading-relaxed">
+      Dùng các thành phần con khi cần render SVG animation tuỳ chỉnh, hoán đổi vị trí của phần mô tả hoặc nút, thêm nội dung phụ như danh sách liên kết.
+    </p>
+  </div>
+</div>`}
+      >
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          {/* ── Story 1: Macro wins ── */}
+          <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
+            <div className="flex items-start gap-3">
+              <span className="mt-0.5 shrink-0 rounded-full bg-green-500/10 p-1.5 text-green-600">
+                <CheckCircle2Icon className="size-4" aria-hidden="true" />
+              </span>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                  Story 1 · Dùng Macro
+                </p>
+                <h3 className="mt-0.5 text-sm font-semibold text-foreground">
+                  Giao diện trống tiêu chuẩn
+                </h3>
+              </div>
+            </div>
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              Dùng <code>EmptyPreset</code> khi bạn chỉ cần một cấu trúc trạng
+              thái trống mặc định, bao gồm icon, tiêu đề, mô tả và nút hành
+              động. Giúp rút ngắn code đáng kể.
+            </p>
+          </div>
+
+          {/* ── Story 2: Micro wins ── */}
+          <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
+            <div className="flex items-start gap-3">
+              <span className="mt-0.5 shrink-0 rounded-full bg-blue-500/10 p-1.5 text-blue-600">
+                <LayersIcon className="size-4" aria-hidden="true" />
+              </span>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                  Story 2 · Dùng Micro
+                </p>
+                <h3 className="mt-0.5 text-sm font-semibold text-foreground">
+                  Bố cục tuỳ biến phức tạp
+                </h3>
+              </div>
+            </div>
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              Dùng các thành phần con khi cần render SVG animation tuỳ chỉnh,
+              hoán đổi vị trí của phần mô tả hoặc nút, thêm nội dung phụ như
+              danh sách liên kết.
+            </p>
+          </div>
+        </div>
+      </ExampleSection>
     </div>
   );
 }
@@ -403,6 +475,15 @@ export default function EmptyShowcase() {
     <Showcase
       title="Empty"
       description="Trạng thái trống hiển thị khi không có dữ liệu, chưa có nội dung, hoặc tìm kiếm không ra kết quả."
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsP>
+            Dùng để thông báo cho người dùng rằng không có dữ liệu để hiển thị ở
+            đây. Nó thường đi kèm với hình ảnh hoặc biểu tượng (icon) minh họa
+            và một hành động hướng dẫn để lấp đầy nội dung này (ví dụ: Tạo mới).
+          </DocsP>
+        </ShowcaseDocs>
+      }
       tabs={[
         { label: "Micro (Primitive)", content: <EmptyMicroShowcase /> },
         { label: "Macro (Preset)", content: <EmptyMacroShowcase /> },

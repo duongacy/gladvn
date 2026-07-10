@@ -63,6 +63,7 @@ empowerment_frame:
 ## Key Transformations
 
 **Current → Badass:**
+
 - From: "Behind and embarrassed" → To: "Ahead and confident"
 - From: "Can't discuss trends" → To: "Leads trend conversations"
 - Path made real: 2,000 already there + immediate application
@@ -71,11 +72,13 @@ empowerment_frame:
 "60 seconds is enough" - removes the massive barrier of thinking staying ahead requires hours of work
 
 **Feature → Capability Reframing:**
+
 - "AI analyzes sources" → "You'll spot trends first" (about THEM, not us)
 - "Weekly email" → "Always something new to discuss" (capability, not delivery)
 - "60-second explainers" → "Understand fast enough to use same day" (skill outcome)
 
 **Cognitive Load Reduction:**
+
 - Addressed fear of "another thing to manage" → "Weekly + 60 seconds + ritual"
 - Removed uncertainty → "Conversation starters included"
 - Cut all non-essential: company history, technical details, multiple CTAs

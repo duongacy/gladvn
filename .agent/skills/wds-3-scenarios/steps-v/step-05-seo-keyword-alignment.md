@@ -3,7 +3,7 @@ name: step-05-seo-keyword-alignment
 description: Verify that scenario pages align with the SEO keyword strategy defined in Phase 1
 
 # File References
-workflowFile: '../workflow.md'
+workflowFile: "../workflow.md"
 ---
 
 # Validation Step 5: SEO Keyword Alignment
@@ -63,6 +63,7 @@ If no SEO keyword map exists, note this as a gap and skip to the final report (i
 ### 2. Page-Keyword Mapping
 
 For each unique page across all scenarios:
+
 - [ ] Page has at least one primary keyword assigned (from Phase 1 keyword map)
 - [ ] Keywords match the page user intent (not forced)
 - [ ] No two pages compete for the same primary keyword
@@ -77,6 +78,7 @@ For each unique page across all scenarios:
 ### 4. URL Slug Alignment
 
 If URL slugs were defined in the keyword map:
+
 - [ ] Scenario page names align with planned URL slugs
 - [ ] No naming conflicts between scenario names and SEO slugs
 

@@ -7,11 +7,11 @@
  */
 "use client";
 
-import * as React from "react";
 import { Progress as ProgressPrimitive } from "@base-ui/react/progress";
+import * as React from "react";
 
+import { type Color, type Size } from "@/lib/types";
 import { cn } from "@/lib/utils";
-import { type Size, type Color } from "@/lib/types";
 
 const ProgressContext = React.createContext<{ size: Size; color: Color }>({
   size: "md",
@@ -137,8 +137,8 @@ function ProgressValue({ className, ...props }: ProgressPrimitive.Value.Props) {
 
 export {
   Progress,
-  ProgressTrack,
   ProgressIndicator,
   ProgressLabel,
+  ProgressTrack,
   ProgressValue,
 };

@@ -1,11 +1,11 @@
 ---
-name: 'step-04-content-languages'
-description: 'Specify all text content in all supported languages'
+name: "step-04-content-languages"
+description: "Specify all text content in all supported languages"
 
 # File References
-nextStepFile: './step-05-interactions.md'
-workflowFile: '../workflow.md'
-activityWorkflowFile: '../workflow-specify.md'
+nextStepFile: "./step-05-interactions.md"
+workflowFile: "../workflow.md"
+activityWorkflowFile: "../workflow-specify.md"
 ---
 
 # Step 4: Content & Languages

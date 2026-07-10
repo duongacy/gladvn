@@ -1,43 +1,28 @@
-import { useState } from "react";
 import {
-  SectionHeader,
-  ExampleSection,
+  DocsH3,
+  DocsP,
   ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+  SizeToggle,
 } from "@/dev/components/showcase";
 import {
-  AlignLeftIcon,
   AlignCenterIcon,
+  AlignLeftIcon,
   AlignRightIcon,
   BoldIcon,
   ItalicIcon,
   UnderlineIcon,
 } from "lucide-react";
+import { useState } from "react";
 
-import { type Size } from "@/lib/types";
 import { ToggleGroup, ToggleGroupItem } from "@/components/micro/toggle-group";
-import { SelectPreset } from "@/components/macro/select-preset";
+import { type Size } from "@/lib/types";
 
-export default function ToggleGroupShowcase() {
-  const [globalSize, setGlobalSize] = useState<Size>("md");
-
+function ToggleGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
-    <div className="space-y-10">
-      <SectionHeader
-        title="Toggle Group"
-        description="Một tập hợp các nút hai trạng thái có thể bật hoặc tắt."
-      >
-        <SelectPreset
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as Size)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-          className="w-[120px] h-8 text-xs bg-background"
-        />
-      </SectionHeader>
-
+    <div className="space-y-10 mt-6">
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Single Selection"
@@ -100,5 +85,29 @@ export default function ToggleGroupShowcase() {
         </ExampleSection>
       </ExampleGrid>
     </div>
+  );
+}
+
+export default function ToggleGroupShowcase() {
+  const [globalSize, setGlobalSize] = useState<Size>("md");
+
+  return (
+    <Showcase
+      title="Toggle Group"
+      description="Một tập hợp các nút hai trạng thái có thể bật hoặc tắt."
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsH3>Toggle Group</DocsH3>
+          <DocsP>Sử dụng để tạo nhóm các nút bật/tắt liên kết với nhau.</DocsP>
+        </ShowcaseDocs>
+      }
+      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
+      tabs={[
+        {
+          label: "Micro (Primitive)",
+          content: <ToggleGroupMicroShowcase globalSize={globalSize} />,
+        },
+      ]}
+    />
   );
 }

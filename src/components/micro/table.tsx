@@ -7,31 +7,27 @@
  */
 "use client";
 
-import * as React from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import * as React from "react";
 
 import { cn } from "@/lib/utils";
 
-const Table = React.forwardRef<
-  HTMLDivElement,
-  React.ComponentProps<"div">
->(({ className, children, ...props }, ref) => {
-  return (
-    <div
-      ref={ref}
-      data-slot="table-container"
-      className={cn("group/table @container/table relative w-full overflow-auto", className)}
-      {...props}
-    >
-      <table
-        data-slot="table"
-        className="w-full caption-bottom text-sm"
+const Table = React.forwardRef<HTMLDivElement, React.ComponentProps<"div">>(
+  ({ className, children, ...props }, ref) => {
+    return (
+      <div
+        ref={ref}
+        data-slot="table-container"
+        className={cn("group/table relative w-full overflow-auto", className)}
+        {...props}
       >
-        {children}
-      </table>
-    </div>
-  );
-});
+        <table data-slot="table" className="w-full caption-bottom text-sm">
+          {children}
+        </table>
+      </div>
+    );
+  },
+);
 Table.displayName = "Table";
 
 const TableHeader = React.forwardRef<
@@ -109,13 +105,23 @@ interface TableHeadProps extends React.ComponentProps<"th"> {
 }
 
 const TableHead = React.forwardRef<HTMLTableCellElement, TableHeadProps>(
-  ({ className, sortDirection, sortOptions = ["asc", "desc", "none"], onSort, children, ...props }, ref) => {
-
+  (
+    {
+      className,
+      sortDirection,
+      sortOptions = ["asc", "desc", "none"],
+      onSort,
+      children,
+      ...props
+    },
+    ref,
+  ) => {
     const handleSortClick = () => {
       if (!onSort || !sortDirection || sortOptions.length === 0) return;
 
       const currentIndex = sortOptions.indexOf(sortDirection);
-      const nextIndex = currentIndex === -1 ? 0 : (currentIndex + 1) % sortOptions.length;
+      const nextIndex =
+        currentIndex === -1 ? 0 : (currentIndex + 1) % sortOptions.length;
 
       onSort(sortOptions[nextIndex]!);
     };
@@ -194,11 +200,11 @@ TableCaption.displayName = "TableCaption";
 
 export {
   Table,
-  TableHeader,
   TableBody,
+  TableCaption,
+  TableCell,
   TableFooter,
   TableHead,
+  TableHeader,
   TableRow,
-  TableCell,
-  TableCaption,
 };

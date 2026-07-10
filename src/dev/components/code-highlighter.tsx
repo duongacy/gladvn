@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createHighlighter, type Highlighter } from "shiki";
 
 // Singleton highlighter — loaded once, reused across all CodeHighlighter instances

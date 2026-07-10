@@ -1,1 +1,95 @@
-import{Fn as e,Nn as t,cr as n,dr as r,qn as i,u as a}from"./showcase-vJrKG7HA.js";import{t as o}from"./chevron-right-B7sWI4XD.js";import{t as s}from"./ellipsis-CftvGmJF.js";var c=r(n(),1),l=t(),u=c.forwardRef(({className:e,...t},n)=>(0,l.jsx)(`nav`,{ref:n,"aria-label":`breadcrumb`,"data-slot":`breadcrumb`,className:i(e),...t}));u.displayName=`Breadcrumb`;var d=c.forwardRef(({className:e,...t},n)=>(0,l.jsx)(`ol`,{ref:n,"data-slot":`breadcrumb-list`,className:i(`flex flex-wrap items-center gap-1.5 text-sm wrap-break-word text-muted-foreground`,e),...t}));d.displayName=`BreadcrumbList`;var f=c.forwardRef(({className:e,...t},n)=>(0,l.jsx)(`li`,{ref:n,"data-slot":`breadcrumb-item`,className:i(`inline-flex items-center gap-1`,e),...t}));f.displayName=`BreadcrumbItem`;var p=c.forwardRef(({className:t,render:n,...r},o)=>a({defaultTagName:`a`,props:e({ref:o,className:i(`transition-colors hover:text-foreground`,t)},r),render:n,state:{slot:`breadcrumb-link`}}));p.displayName=`BreadcrumbLink`;var m=c.forwardRef(({className:e,...t},n)=>(0,l.jsx)(`span`,{ref:n,"data-slot":`breadcrumb-page`,role:`link`,"aria-disabled":`true`,"aria-current":`page`,className:i(`font-normal text-foreground`,e),...t}));m.displayName=`BreadcrumbPage`;var h=c.forwardRef(({children:e,className:t,...n},r)=>(0,l.jsx)(`li`,{ref:r,"data-slot":`breadcrumb-separator`,role:`presentation`,"aria-hidden":`true`,className:i(t),...n,children:e??(0,l.jsx)(o,{className:`size-3.5`})}));h.displayName=`BreadcrumbSeparator`;var g=c.forwardRef(({className:e,...t},n)=>(0,l.jsxs)(`span`,{ref:n,"data-slot":`breadcrumb-ellipsis`,role:`presentation`,"aria-hidden":`true`,className:i(`flex size-5 items-center justify-center`,e),...t,children:[(0,l.jsx)(s,{className:`size-4`}),(0,l.jsx)(`span`,{className:`sr-only`,children:`More`})]}));g.displayName=`BreadcrumbEllipsis`;export{d as a,p as i,g as n,m as o,f as r,h as s,u as t};
+import {
+  Fn as e,
+  Nn as t,
+  cr as n,
+  dr as r,
+  qn as i,
+  u as a,
+} from "./showcase-vJrKG7HA.js";
+import { t as o } from "./chevron-right-B7sWI4XD.js";
+import { t as s } from "./ellipsis-CftvGmJF.js";
+var c = r(n(), 1),
+  l = t(),
+  u = c.forwardRef(({ className: e, ...t }, n) =>
+    (0, l.jsx)(`nav`, {
+      ref: n,
+      "aria-label": `breadcrumb`,
+      "data-slot": `breadcrumb`,
+      className: i(e),
+      ...t,
+    }),
+  );
+u.displayName = `Breadcrumb`;
+var d = c.forwardRef(({ className: e, ...t }, n) =>
+  (0, l.jsx)(`ol`, {
+    ref: n,
+    "data-slot": `breadcrumb-list`,
+    className: i(
+      `flex flex-wrap items-center gap-1.5 text-sm wrap-break-word text-muted-foreground`,
+      e,
+    ),
+    ...t,
+  }),
+);
+d.displayName = `BreadcrumbList`;
+var f = c.forwardRef(({ className: e, ...t }, n) =>
+  (0, l.jsx)(`li`, {
+    ref: n,
+    "data-slot": `breadcrumb-item`,
+    className: i(`inline-flex items-center gap-1`, e),
+    ...t,
+  }),
+);
+f.displayName = `BreadcrumbItem`;
+var p = c.forwardRef(({ className: t, render: n, ...r }, o) =>
+  a({
+    defaultTagName: `a`,
+    props: e(
+      { ref: o, className: i(`transition-colors hover:text-foreground`, t) },
+      r,
+    ),
+    render: n,
+    state: { slot: `breadcrumb-link` },
+  }),
+);
+p.displayName = `BreadcrumbLink`;
+var m = c.forwardRef(({ className: e, ...t }, n) =>
+  (0, l.jsx)(`span`, {
+    ref: n,
+    "data-slot": `breadcrumb-page`,
+    role: `link`,
+    "aria-disabled": `true`,
+    "aria-current": `page`,
+    className: i(`font-normal text-foreground`, e),
+    ...t,
+  }),
+);
+m.displayName = `BreadcrumbPage`;
+var h = c.forwardRef(({ children: e, className: t, ...n }, r) =>
+  (0, l.jsx)(`li`, {
+    ref: r,
+    "data-slot": `breadcrumb-separator`,
+    role: `presentation`,
+    "aria-hidden": `true`,
+    className: i(t),
+    ...n,
+    children: e ?? (0, l.jsx)(o, { className: `size-3.5` }),
+  }),
+);
+h.displayName = `BreadcrumbSeparator`;
+var g = c.forwardRef(({ className: e, ...t }, n) =>
+  (0, l.jsxs)(`span`, {
+    ref: n,
+    "data-slot": `breadcrumb-ellipsis`,
+    role: `presentation`,
+    "aria-hidden": `true`,
+    className: i(`flex size-5 items-center justify-center`, e),
+    ...t,
+    children: [
+      (0, l.jsx)(s, { className: `size-4` }),
+      (0, l.jsx)(`span`, { className: `sr-only`, children: `More` }),
+    ],
+  }),
+);
+g.displayName = `BreadcrumbEllipsis`;
+export { d as a, p as i, g as n, m as o, f as r, h as s, u as t };

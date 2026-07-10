@@ -1,24 +1,24 @@
 ---
-name: 'step-01b-continue'
-description: 'Continue an existing architecture workflow from where it left off'
+name: "step-01b-continue"
+description: "Continue an existing architecture workflow from where it left off"
 
 # Path Definitions
-workflow_path: '{installed_path}'
+workflow_path: "{installed_path}"
 
 # File References
-thisStepFile: './step-01b-continue.md'
-workflowFile: '{workflow_path}/workflow.md'
-outputFile: '{output_folder}/game-architecture.md'
+thisStepFile: "./step-01b-continue.md"
+workflowFile: "{workflow_path}/workflow.md"
+outputFile: "{output_folder}/game-architecture.md"
 
 # Step Files (for routing)
-step02: './step-02-context.md'
-step03: './step-03-starter.md'
-step04: './step-04-decisions.md'
-step05: './step-05-crosscutting.md'
-step06: './step-06-structure.md'
-step07: './step-07-patterns.md'
-step08: './step-08-validation.md'
-step09: './step-09-complete.md'
+step02: "./step-02-context.md"
+step03: "./step-03-starter.md"
+step04: "./step-04-decisions.md"
+step05: "./step-05-crosscutting.md"
+step06: "./step-06-structure.md"
+step07: "./step-07-patterns.md"
+step08: "./step-08-validation.md"
+step09: "./step-09-complete.md"
 ---
 
 # Step 1b: Continue Existing Architecture

@@ -1,1 +1,7 @@
-import{cr as e,dr as t}from"./showcase-vJrKG7HA.js";import{c as n,l as r}from"./DialogTrigger-u4Orh-SU.js";var i=t(e(),1);function a(e){return n(e,i.useContext(r)?`drawer`:`dialog`)}export{a as t};
+import { cr as e, dr as t } from "./showcase-vJrKG7HA.js";
+import { c as n, l as r } from "./DialogTrigger-u4Orh-SU.js";
+var i = t(e(), 1);
+function a(e) {
+  return n(e, i.useContext(r) ? `drawer` : `dialog`);
+}
+export { a as t };

@@ -1,6 +1,3 @@
-import React from "react";
-import { cn } from "@/lib/utils";
-import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -10,6 +7,14 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/micro/navigation-menu";
+import {
+  DocsP,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+} from "@/dev/components/showcase";
+import { cn } from "@/lib/utils";
+import React from "react";
 
 const ListItem = React.forwardRef<
   React.ComponentRef<"a">,
@@ -39,14 +44,12 @@ const ListItem = React.forwardRef<
 });
 ListItem.displayName = "ListItem";
 
-export default function NavigationMenuShowcase() {
+// ──────────────────────────────────────────────────────────
+// SECTION 2: Micro Content (không export)
+// ──────────────────────────────────────────────────────────
+function NavigationMenuMicroShowcase() {
   return (
-    <div className="space-y-10">
-      <SectionHeader
-        title="Navigation Menu"
-        description="Một bộ sưu tập các liên kết để điều hướng các trang web."
-      />
-
+    <div className="space-y-10 mt-6">
       <ExampleSection
         label="Default"
         description="Điều hướng đa cấp với bảng thả xuống."
@@ -243,5 +246,32 @@ export default function NavigationMenuShowcase() {
         </NavigationMenu>
       </ExampleSection>
     </div>
+  );
+}
+
+// ──────────────────────────────────────────────────────────
+// SECTION 3: Entry point (export default)
+// ──────────────────────────────────────────────────────────
+export default function NavigationMenuShowcase() {
+  return (
+    <Showcase
+      title="Navigation Menu"
+      description="Một bộ sưu tập các liên kết để điều hướng các trang web."
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsP>
+            Navigation Menu là một hệ thống điều hướng chính (thường nằm ở
+            header) cho phép người dùng khám phá trang web thông qua các danh
+            sách mục và bảng thả xuống mượt mà.
+          </DocsP>
+        </ShowcaseDocs>
+      }
+      tabs={[
+        {
+          label: "Micro (Primitive)",
+          content: <NavigationMenuMicroShowcase />,
+        },
+      ]}
+    />
   );
 }

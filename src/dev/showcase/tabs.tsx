@@ -1,21 +1,21 @@
 import {
-  Showcase,
-  ShowcaseDocs,
+  DocsCode,
   DocsH3,
   DocsP,
-  DocsCode,
-  ExampleSection,
   ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
 } from "@/dev/components/showcase";
 
+import { TabsPreset } from "@/components/macro/tabs-preset";
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
 } from "@/components/micro/tabs";
-import { TabsPreset } from "@/components/macro/tabs-preset";
-import { SettingsIcon, UserIcon, BellIcon, CreditCardIcon } from "lucide-react";
+import { BellIcon, CreditCardIcon, UserIcon } from "lucide-react";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Macro Content
@@ -23,16 +23,6 @@ import { SettingsIcon, UserIcon, BellIcon, CreditCardIcon } from "lucide-react";
 function TabsMacroShowcase() {
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Khi nào nên dùng Macro</DocsH3>
-        <DocsP>
-          <DocsCode>TabsPreset</DocsCode> là một component đóng gói sẵn, nhận
-          vào mảng <DocsCode>items</DocsCode> chứa thông tin cấu hình của các
-          tabs (value, title, content, disabled, ...). Thích hợp cho các tab đơn
-          giản, render từ dữ liệu cấu hình có sẵn.
-        </DocsP>
-      </ShowcaseDocs>
-
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Tiêu chuẩn (Standard)"
@@ -340,17 +330,6 @@ function TabsMacroShowcase() {
 function TabsMicroShowcase() {
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Khi nào nên dùng Micro</DocsH3>
-        <DocsP>
-          Dùng <DocsCode>Tabs</DocsCode> và các thành phần con (
-          <DocsCode>TabsList</DocsCode>, <DocsCode>TabsTrigger</DocsCode>,{" "}
-          <DocsCode>TabsContent</DocsCode>) khi bạn muốn tự kiểm soát cấu trúc
-          HTML, muốn đính kèm Icon vào Trigger, hoặc xây dựng các dạng Tab không
-          theo khuôn mẫu (ví dụ: đặt List dọc, List rời rạc).
-        </DocsP>
-      </ShowcaseDocs>
-
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Cơ bản (Default)"
@@ -651,6 +630,29 @@ export default function TabsShowcase() {
     <Showcase
       title="Tabs"
       description="Một tập hợp các phần nội dung được xếp lớp—được gọi là bảng tab—được hiển thị lần lượt."
+      generalConcept={
+        <div className="space-y-4">
+          <ShowcaseDocs>
+            <DocsH3>Khi nào nên dùng Macro</DocsH3>
+            <DocsP>
+              <DocsCode>TabsPreset</DocsCode> là một component đóng gói sẵn,
+              nhận vào mảng <DocsCode>items</DocsCode> chứa thông tin cấu hình
+              của các tabs (value, title, content, disabled, ...). Thích hợp cho
+              các tab đơn giản, render từ dữ liệu cấu hình có sẵn.
+            </DocsP>
+          </ShowcaseDocs>
+          <ShowcaseDocs>
+            <DocsH3>Khi nào nên dùng Micro</DocsH3>
+            <DocsP>
+              Dùng <DocsCode>Tabs</DocsCode> và các thành phần con (
+              <DocsCode>TabsList</DocsCode>, <DocsCode>TabsTrigger</DocsCode>,{" "}
+              <DocsCode>TabsContent</DocsCode>) khi bạn muốn tự kiểm soát cấu
+              trúc HTML, muốn đính kèm Icon vào Trigger, hoặc xây dựng các dạng
+              Tab không theo khuôn mẫu (ví dụ: đặt List dọc, List rời rạc).
+            </DocsP>
+          </ShowcaseDocs>
+        </div>
+      }
       tabs={[
         { label: "Micro (Primitive)", content: <TabsMicroShowcase /> },
         { label: "Macro (Preset)", content: <TabsMacroShowcase /> },

@@ -1,7 +1,7 @@
 ---
-name: 'step-03-select-style'
-description: 'Choose wireframe fidelity level, design style influence, and annotation options'
-nextStepFile: './step-04-generate.md'
+name: "step-03-select-style"
+description: "Choose wireframe fidelity level, design style influence, and annotation options"
+nextStepFile: "./step-04-generate.md"
 ---
 
 # Step 3: Select Style

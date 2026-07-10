@@ -62,6 +62,7 @@ docs/C-UX-Scenarios/01-Customer-Onboarding/1.6-Add-Dog/
 **Best practice**: Use hardcoded translations directly in HTML/JS for readability.
 
 **Why?**
+
 - ✅ Code is immediately readable
 - ✅ No separate translation files to manage
 - ✅ Easy to see what user sees
@@ -74,41 +75,41 @@ docs/C-UX-Scenarios/01-Customer-Onboarding/1.6-Add-Dog/
 ```javascript
 // Define translations inline
 const strings = {
-  sv: { 
-    bookWalk: 'Boka promenad', 
-    cancel: 'Avbryt',
-    save: 'Spara',
-    delete: 'Ta bort'
+  sv: {
+    bookWalk: "Boka promenad",
+    cancel: "Avbryt",
+    save: "Spara",
+    delete: "Ta bort",
   },
-  en: { 
-    bookWalk: 'Book walk', 
-    cancel: 'Cancel',
-    save: 'Save',
-    delete: 'Delete'
-  }
+  en: {
+    bookWalk: "Book walk",
+    cancel: "Cancel",
+    save: "Save",
+    delete: "Delete",
+  },
 };
 
-let currentLang = 'sv'; // or get from localStorage
+let currentLang = "sv"; // or get from localStorage
 
 // Update UI text
 function updateLanguage(lang) {
   currentLang = lang;
-  document.querySelectorAll('[data-i18n]').forEach(el => {
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.dataset.i18n;
     el.textContent = strings[lang][key];
   });
-  localStorage.setItem('language', lang);
+  localStorage.setItem("language", lang);
 }
 
 // Language toggle
-document.getElementById('lang-toggle').addEventListener('click', () => {
-  const newLang = currentLang === 'sv' ? 'en' : 'sv';
+document.getElementById("lang-toggle").addEventListener("click", () => {
+  const newLang = currentLang === "sv" ? "en" : "sv";
   updateLanguage(newLang);
 });
 
 // Initialize on load
-document.addEventListener('DOMContentLoaded', () => {
-  const savedLang = localStorage.getItem('language') || 'sv';
+document.addEventListener("DOMContentLoaded", () => {
+  const savedLang = localStorage.getItem("language") || "sv";
   updateLanguage(savedLang);
 });
 ```
@@ -123,23 +124,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <!-- Option 2: Hardcoded with comment (simple) -->
 <button data-object-id="calendar-book-btn">
-  Boka promenad <!-- Book walk -->
+  Boka promenad
+  <!-- Book walk -->
 </button>
 
 <!-- Language toggle -->
-<button id="lang-toggle" class="language-toggle">
-  🇸🇪 / 🇬🇧
-</button>
+<button id="lang-toggle" class="language-toggle">🇸🇪 / 🇬🇧</button>
 ```
 
 ### When to Include Language Switching
 
 **Include if**:
+
 - Project defines multiple languages in project brief
 - Stakeholders need to see different languages
 - User testing requires language options
 
 **Skip if**:
+
 - Single language project
 - Prototype for internal team only
 - Time-constrained
@@ -161,7 +163,10 @@ document.addEventListener('DOMContentLoaded', () => {
     <!-- Google Fonts (if using Inter) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Page Styles -->
     <link rel="stylesheet" href="[Page-Number]-[Page-Name]-Preview.css" />
@@ -169,9 +174,17 @@ document.addEventListener('DOMContentLoaded', () => {
   <body>
     <!-- Header -->
     <header class="page-header">
-      <button id="[page]-header-back" data-object-id="[page]-header-back" onclick="handleBack()">← Back</button>
+      <button
+        id="[page]-header-back"
+        data-object-id="[page]-header-back"
+        onclick="handleBack()"
+      >
+        ← Back
+      </button>
 
-      <h1 id="[page]-header-title" data-object-id="[page]-header-title">[Page Title]</h1>
+      <h1 id="[page]-header-title" data-object-id="[page]-header-title">
+        [Page Title]
+      </h1>
 
       <!-- Optional: Language selector, actions, etc. -->
     </header>
@@ -196,7 +209,12 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
 
         <!-- Submit Button -->
-        <button type="submit" id="[page]-button-submit" data-object-id="[page]-button-submit" class="submit-button">
+        <button
+          type="submit"
+          id="[page]-button-submit"
+          data-object-id="[page]-button-submit"
+          class="submit-button"
+        >
           <span id="submitButtonText">[Button Text]</span>
           <svg id="submitButtonSpinner" class="hidden spinner">
             <!-- Spinner SVG -->
@@ -251,7 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 body {
   font-family:
-    'Inter',
+    "Inter",
     -apple-system,
     BlinkMacSystemFont,
     sans-serif;
@@ -773,7 +791,7 @@ function applyLanguage(lang) {
 ```javascript
 const user = await DogWeekAPI.getUser();
 if (user) {
-  console.log('Logged in as:', user.firstName);
+  console.log("Logged in as:", user.firstName);
 }
 ```
 
@@ -781,10 +799,10 @@ if (user) {
 
 ```javascript
 const userData = {
-  firstName: 'Patrick',
-  lastName: 'Parent',
-  email: 'patrick@example.com',
-  phoneNumber: '+46701234567',
+  firstName: "Patrick",
+  lastName: "Parent",
+  email: "patrick@example.com",
+  phoneNumber: "+46701234567",
 };
 
 const user = await DogWeekAPI.createUserProfile(userData);
@@ -794,9 +812,9 @@ const user = await DogWeekAPI.createUserProfile(userData);
 
 ```javascript
 const familyData = {
-  name: 'The Johnsons',
-  description: 'Our lovely dog family',
-  location: 'Stockholm, Sweden',
+  name: "The Johnsons",
+  description: "Our lovely dog family",
+  location: "Stockholm, Sweden",
 };
 
 const family = await DogWeekAPI.createFamily(familyData);
@@ -806,12 +824,12 @@ const family = await DogWeekAPI.createFamily(familyData);
 
 ```javascript
 const dogData = {
-  name: 'Rufus',
-  breed: 'Golden Retriever',
-  gender: 'male',
-  birthDate: '2020-05-15',
-  color: 'Golden',
-  picture: '[base64-image-data]',
+  name: "Rufus",
+  breed: "Golden Retriever",
+  gender: "male",
+  birthDate: "2020-05-15",
+  color: "Golden",
+  picture: "[base64-image-data]",
 };
 
 const dog = await DogWeekAPI.addDog(dogData);
@@ -893,10 +911,10 @@ const members = await DogWeekAPI.getFamilyMembers();
 
 ```javascript
 function handlePictureUpload() {
-  document.getElementById('pictureInput').click();
+  document.getElementById("pictureInput").click();
 }
 
-document.getElementById('pictureInput').addEventListener('change', (e) => {
+document.getElementById("pictureInput").addEventListener("change", (e) => {
   const file = e.target.files[0];
   if (file) {
     const reader = new FileReader();
@@ -922,7 +940,12 @@ document.getElementById('pictureInput').addEventListener('change', (e) => {
 </button>
 
 <div id="dropdown" class="dropdown hidden">
-  <input type="text" id="searchInput" oninput="filterOptions()" placeholder="Search..." />
+  <input
+    type="text"
+    id="searchInput"
+    oninput="filterOptions()"
+    placeholder="Search..."
+  />
   <div id="optionsList"></div>
 </div>
 ```
@@ -931,8 +954,10 @@ document.getElementById('pictureInput').addEventListener('change', (e) => {
 
 ```javascript
 function filterOptions() {
-  const query = document.getElementById('searchInput').value.toLowerCase();
-  const filtered = allOptions.filter((opt) => opt.toLowerCase().includes(query));
+  const query = document.getElementById("searchInput").value.toLowerCase();
+  const filtered = allOptions.filter((opt) =>
+    opt.toLowerCase().includes(query),
+  );
   renderOptions(filtered);
 }
 ```
@@ -971,13 +996,13 @@ function switchLanguage(lang) {
 
 ```javascript
 function setLoadingState(isLoading) {
-  const btn = document.getElementById('submitButton');
-  const text = btn.querySelector('.text');
-  const spinner = btn.querySelector('.spinner');
+  const btn = document.getElementById("submitButton");
+  const text = btn.querySelector(".text");
+  const spinner = btn.querySelector(".spinner");
 
   btn.disabled = isLoading;
-  text.classList.toggle('hidden', isLoading);
-  spinner.classList.toggle('hidden', !isLoading);
+  text.classList.toggle("hidden", isLoading);
+  spinner.classList.toggle("hidden", !isLoading);
 }
 
 // Usage
@@ -999,17 +1024,17 @@ try {
 
 ```javascript
 function showToast(message, duration = 3000) {
-  const toast = document.getElementById('toast');
+  const toast = document.getElementById("toast");
   toast.textContent = message;
-  toast.classList.remove('hidden');
+  toast.classList.remove("hidden");
 
   setTimeout(() => {
-    toast.classList.add('hidden');
+    toast.classList.add("hidden");
   }, duration);
 }
 
 // Usage
-showToast('Dog added successfully! ✓');
+showToast("Dog added successfully! ✓");
 ```
 
 ---

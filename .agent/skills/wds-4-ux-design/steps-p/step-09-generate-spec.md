@@ -1,10 +1,10 @@
 ---
-name: 'step-09-generate-spec'
-description: 'Compile all gathered information into the complete page specification document'
+name: "step-09-generate-spec"
+description: "Compile all gathered information into the complete page specification document"
 
 # File References
-workflowFile: '../workflow.md'
-activityWorkflowFile: '../workflow-specify.md'
+workflowFile: "../workflow.md"
+activityWorkflowFile: "../workflow-specify.md"
 ---
 
 # Step 9: Generate Specification Document

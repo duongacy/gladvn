@@ -1,9 +1,9 @@
 ---
-name: 'step-08d-add-variant'
-description: 'Add a new variant to an existing component in the design system'
+name: "step-08d-add-variant"
+description: "Add a new variant to an existing component in the design system"
 
 # File References
-nextStepFile: './step-08e-generate-catalog.md'
+nextStepFile: "./step-08e-generate-catalog.md"
 ---
 
 # Step 8d: Add Variant

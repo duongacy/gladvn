@@ -1,7 +1,7 @@
 ---
-name: 'step-03-select-style'
-description: 'Choose content style and visual parameters for image generation per batch'
-nextStepFile: './step-04-references.md'
+name: "step-03-select-style"
+description: "Choose content style and visual parameters for image generation per batch"
+nextStepFile: "./step-04-references.md"
 ---
 
 # Step 3: Select Style

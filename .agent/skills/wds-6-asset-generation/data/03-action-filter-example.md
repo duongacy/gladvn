@@ -50,11 +50,13 @@ action_filter:
 Click → Email capture → Subscription → 500 signups goal
 
 **User Motivation:**
+
 - Wish: "Be beauty authority" → Gets trend info
 - Fear: "Miss trends" → Regular updates
 
 **Essential Information (5 elements):**
 All focused on enabling confident click by addressing barriers:
+
 1. What: Weekly trend alerts (clarifies offering)
 2. When: Every Monday (sets expectation)
 3. Time: 60 seconds (shows manageable)
@@ -63,12 +65,14 @@ All focused on enabling confident click by addressing barriers:
 
 **Cut List (3 elements):**
 All "nice to know" but don't enable the action:
+
 - Company story (impressive but irrelevant)
 - Technical details (doesn't reduce barriers)
 - Team bios (interesting but unnecessary)
 
 **Barriers Addressed (3):**
 Each barrier gets specific content solution:
+
 - Email overload → "Weekly, 60 seconds, unsubscribe"
 - Uncertainty → "Top 5 trends + testimonial"
 - Distrust → "2,000 using it" (social proof)
@@ -78,16 +82,19 @@ Each barrier gets specific content solution:
 ## Key Insights
 
 **Information is filtered through action:**
+
 - Only 5 essential elements kept
 - 3 "nice to know" elements cut
 - Everything serves the signup action
 
 **Barriers drive content:**
+
 - Each barrier identified gets targeted content
 - Not generic "benefits" but specific barrier removal
 - Content is strategic, not decorative
 
 **Business + User alignment:**
+
 - Action serves business goal (email capture → signups)
 - Action serves user motivation (authority wish, trends fear)
 - Win-win: both parties get what they need

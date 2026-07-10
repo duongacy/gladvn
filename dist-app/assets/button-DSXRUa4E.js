@@ -1,1 +1,229 @@
-import{Nn as e,c as t,cr as n,dr as r,i,n as a,or as o,r as s,s as c}from"./showcase-vJrKG7HA.js";import{t as l}from"./spinner-DUT2A4pL.js";import{t as u}from"./plus-CfSiH_cg.js";import{t as d}from"./select-preset-B6grUIWS.js";var f=o(`download`,[[`path`,{d:`M12 15V3`,key:`m9g1x1`}],[`path`,{d:`M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4`,key:`ih7n3h`}],[`path`,{d:`m7 10 5 5 5-5`,key:`brsn70`}]]),p=o(`mail`,[[`path`,{d:`m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7`,key:`132q7q`}],[`rect`,{x:`2`,y:`4`,width:`20`,height:`16`,rx:`2`,key:`izxlao`}]]),m=r(n(),1),h=e();function g(){let[e,n]=(0,m.useState)(`md`),[r,o]=(0,m.useState)(!1),[g,_]=(0,m.useState)(!1);return(0,h.jsxs)(`div`,{className:`space-y-10`,children:[(0,h.jsx)(i,{title:`Button`,description:`Kích hoạt một hành động hoặc sự kiện, chẳng hạn như gửi biểu mẫu hoặc mở hộp thoại.`,children:(0,h.jsx)(d,{value:e,onValueChange:e=>n(e),options:[{value:`sm`,label:`Size: sm`},{value:`md`,label:`Size: md`},{value:`lg`,label:`Size: lg`}],className:`w-[120px] h-8 text-xs bg-background`})}),(0,h.jsxs)(s,{label:`Variants`,description:`Tất cả các kiểu hiển thị hiện có.`,children:[(0,h.jsx)(c,{size:e,variant:`solid`,children:`Solid`}),(0,h.jsx)(c,{size:e,variant:`outline`,children:`Outline`}),(0,h.jsx)(c,{size:e,variant:`soft`,children:`Soft`}),(0,h.jsx)(c,{size:e,variant:`ghost`,children:`Ghost`}),(0,h.jsx)(c,{size:e,variant:`link`,children:`Link`})]}),(0,h.jsxs)(s,{label:`Colors`,description:`Màu sắc theo ngữ nghĩa đi kèm với biến thể solid.`,children:[(0,h.jsx)(c,{size:e,color:`primary`,children:`Primary`}),(0,h.jsx)(c,{size:e,color:`secondary`,children:`Secondary`}),(0,h.jsx)(c,{size:e,color:`destructive`,children:`Destructive`}),(0,h.jsx)(c,{size:e,color:`warning`,children:`Warning`}),(0,h.jsx)(c,{size:e,color:`success`,children:`Success`}),(0,h.jsx)(c,{size:e,color:`info`,children:`Info`}),(0,h.jsx)(c,{size:e,color:`tertiary`,children:`Tertiary`}),(0,h.jsx)(c,{size:e,color:`muted`,children:`Muted`}),(0,h.jsx)(c,{size:e,color:`accent`,children:`Accent`})]}),(0,h.jsxs)(a,{columns:2,children:[(0,h.jsxs)(s,{label:`With Icon`,description:`Nút kèm biểu tượng ở đầu hoặc cuối.`,children:[(0,h.jsxs)(c,{size:e,variant:`outline`,children:[(0,h.jsx)(t,{render:(0,h.jsx)(p,{})}),`Login with Email`]}),(0,h.jsxs)(c,{size:e,children:[(0,h.jsx)(t,{render:(0,h.jsx)(f,{})}),`Download`]})]}),(0,h.jsxs)(s,{label:`Icon Only`,description:`Nút hình vuông chỉ chứa biểu tượng.`,children:[(0,h.jsx)(c,{size:e,variant:`outline`,iconOnly:!0,children:(0,h.jsx)(t,{render:(0,h.jsx)(u,{})})}),(0,h.jsx)(c,{size:e,variant:`ghost`,iconOnly:!0,children:(0,h.jsx)(t,{render:(0,h.jsx)(p,{})})}),(0,h.jsx)(c,{size:e,variant:`soft`,iconOnly:!0,children:(0,h.jsx)(t,{render:(0,h.jsx)(f,{})})})]})]}),(0,h.jsxs)(s,{label:`Disabled`,description:`Trạng thái nút không thể tương tác.`,children:[(0,h.jsx)(c,{size:e,disabled:!0,children:`Solid Disabled`}),(0,h.jsx)(c,{size:e,variant:`outline`,disabled:!0,children:`Outline Disabled`}),(0,h.jsx)(c,{size:e,variant:`soft`,disabled:!0,children:`Soft Disabled`}),(0,h.jsx)(c,{size:e,variant:`ghost`,disabled:!0,children:`Ghost Disabled`}),(0,h.jsx)(c,{size:e,variant:`link`,disabled:!0,children:`Link Disabled`})]}),(0,h.jsxs)(a,{columns:2,children:[(0,h.jsx)(s,{label:`Loading State`,description:`Nút kèm spinner trong quá trình xử lý bất đồng bộ.`,fullWidth:!0,children:(0,h.jsxs)(`div`,{className:`flex flex-col gap-3 w-full max-w-xs mx-auto`,children:[(0,h.jsxs)(c,{size:e,color:`primary`,className:`w-full`,disabled:g,onClick:()=>{_(!0),setTimeout(()=>_(!1),1500)},children:[g&&(0,h.jsx)(l,{}),g?`Sending...`:`Send Message`]}),(0,h.jsx)(c,{size:e,variant:`outline`,className:`w-full`,children:`Save Draft`})]})}),(0,h.jsx)(s,{label:`Destructive`,description:`Xác nhận một hành động nguy hiểm.`,fullWidth:!0,children:(0,h.jsxs)(`div`,{className:`w-full max-w-xs mx-auto rounded-lg border border-destructive/20 bg-destructive/5 p-4 flex flex-col gap-2`,children:[(0,h.jsx)(`p`,{className:`text-sm font-medium`,children:`Delete Workspace`}),(0,h.jsx)(`p`,{className:`text-xs text-muted-foreground`,children:`This action cannot be undone. All data will be lost.`}),(0,h.jsxs)(c,{size:e,color:`destructive`,className:`w-full mt-1`,disabled:r,onClick:()=>{o(!0),setTimeout(()=>o(!1),1500)},children:[r&&(0,h.jsx)(l,{}),r?`Deleting...`:`Delete Permanently`]})]})})]})]})}export{g as default};
+import {
+  Nn as e,
+  c as t,
+  cr as n,
+  dr as r,
+  i,
+  n as a,
+  or as o,
+  r as s,
+  s as c,
+} from "./showcase-vJrKG7HA.js";
+import { t as l } from "./spinner-DUT2A4pL.js";
+import { t as u } from "./plus-CfSiH_cg.js";
+import { t as d } from "./select-preset-B6grUIWS.js";
+var f = o(`download`, [
+    [`path`, { d: `M12 15V3`, key: `m9g1x1` }],
+    [`path`, { d: `M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4`, key: `ih7n3h` }],
+    [`path`, { d: `m7 10 5 5 5-5`, key: `brsn70` }],
+  ]),
+  p = o(`mail`, [
+    [`path`, { d: `m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7`, key: `132q7q` }],
+    [
+      `rect`,
+      { x: `2`, y: `4`, width: `20`, height: `16`, rx: `2`, key: `izxlao` },
+    ],
+  ]),
+  m = r(n(), 1),
+  h = e();
+function g() {
+  let [e, n] = (0, m.useState)(`md`),
+    [r, o] = (0, m.useState)(!1),
+    [g, _] = (0, m.useState)(!1);
+  return (0, h.jsxs)(`div`, {
+    className: `space-y-10`,
+    children: [
+      (0, h.jsx)(i, {
+        title: `Button`,
+        description: `Kích hoạt một hành động hoặc sự kiện, chẳng hạn như gửi biểu mẫu hoặc mở hộp thoại.`,
+        children: (0, h.jsx)(d, {
+          value: e,
+          onValueChange: (e) => n(e),
+          options: [
+            { value: `sm`, label: `Size: sm` },
+            { value: `md`, label: `Size: md` },
+            { value: `lg`, label: `Size: lg` },
+          ],
+          className: `w-[120px] h-8 text-xs bg-background`,
+        }),
+      }),
+      (0, h.jsxs)(s, {
+        label: `Variants`,
+        description: `Tất cả các kiểu hiển thị hiện có.`,
+        children: [
+          (0, h.jsx)(c, { size: e, variant: `solid`, children: `Solid` }),
+          (0, h.jsx)(c, { size: e, variant: `outline`, children: `Outline` }),
+          (0, h.jsx)(c, { size: e, variant: `soft`, children: `Soft` }),
+          (0, h.jsx)(c, { size: e, variant: `ghost`, children: `Ghost` }),
+          (0, h.jsx)(c, { size: e, variant: `link`, children: `Link` }),
+        ],
+      }),
+      (0, h.jsxs)(s, {
+        label: `Colors`,
+        description: `Màu sắc theo ngữ nghĩa đi kèm với biến thể solid.`,
+        children: [
+          (0, h.jsx)(c, { size: e, color: `primary`, children: `Primary` }),
+          (0, h.jsx)(c, { size: e, color: `secondary`, children: `Secondary` }),
+          (0, h.jsx)(c, {
+            size: e,
+            color: `destructive`,
+            children: `Destructive`,
+          }),
+          (0, h.jsx)(c, { size: e, color: `warning`, children: `Warning` }),
+          (0, h.jsx)(c, { size: e, color: `success`, children: `Success` }),
+          (0, h.jsx)(c, { size: e, color: `info`, children: `Info` }),
+          (0, h.jsx)(c, { size: e, color: `tertiary`, children: `Tertiary` }),
+          (0, h.jsx)(c, { size: e, color: `muted`, children: `Muted` }),
+          (0, h.jsx)(c, { size: e, color: `accent`, children: `Accent` }),
+        ],
+      }),
+      (0, h.jsxs)(a, {
+        columns: 2,
+        children: [
+          (0, h.jsxs)(s, {
+            label: `With Icon`,
+            description: `Nút kèm biểu tượng ở đầu hoặc cuối.`,
+            children: [
+              (0, h.jsxs)(c, {
+                size: e,
+                variant: `outline`,
+                children: [
+                  (0, h.jsx)(t, { render: (0, h.jsx)(p, {}) }),
+                  `Login with Email`,
+                ],
+              }),
+              (0, h.jsxs)(c, {
+                size: e,
+                children: [
+                  (0, h.jsx)(t, { render: (0, h.jsx)(f, {}) }),
+                  `Download`,
+                ],
+              }),
+            ],
+          }),
+          (0, h.jsxs)(s, {
+            label: `Icon Only`,
+            description: `Nút hình vuông chỉ chứa biểu tượng.`,
+            children: [
+              (0, h.jsx)(c, {
+                size: e,
+                variant: `outline`,
+                iconOnly: !0,
+                children: (0, h.jsx)(t, { render: (0, h.jsx)(u, {}) }),
+              }),
+              (0, h.jsx)(c, {
+                size: e,
+                variant: `ghost`,
+                iconOnly: !0,
+                children: (0, h.jsx)(t, { render: (0, h.jsx)(p, {}) }),
+              }),
+              (0, h.jsx)(c, {
+                size: e,
+                variant: `soft`,
+                iconOnly: !0,
+                children: (0, h.jsx)(t, { render: (0, h.jsx)(f, {}) }),
+              }),
+            ],
+          }),
+        ],
+      }),
+      (0, h.jsxs)(s, {
+        label: `Disabled`,
+        description: `Trạng thái nút không thể tương tác.`,
+        children: [
+          (0, h.jsx)(c, { size: e, disabled: !0, children: `Solid Disabled` }),
+          (0, h.jsx)(c, {
+            size: e,
+            variant: `outline`,
+            disabled: !0,
+            children: `Outline Disabled`,
+          }),
+          (0, h.jsx)(c, {
+            size: e,
+            variant: `soft`,
+            disabled: !0,
+            children: `Soft Disabled`,
+          }),
+          (0, h.jsx)(c, {
+            size: e,
+            variant: `ghost`,
+            disabled: !0,
+            children: `Ghost Disabled`,
+          }),
+          (0, h.jsx)(c, {
+            size: e,
+            variant: `link`,
+            disabled: !0,
+            children: `Link Disabled`,
+          }),
+        ],
+      }),
+      (0, h.jsxs)(a, {
+        columns: 2,
+        children: [
+          (0, h.jsx)(s, {
+            label: `Loading State`,
+            description: `Nút kèm spinner trong quá trình xử lý bất đồng bộ.`,
+            fullWidth: !0,
+            children: (0, h.jsxs)(`div`, {
+              className: `flex flex-col gap-3 w-full max-w-xs mx-auto`,
+              children: [
+                (0, h.jsxs)(c, {
+                  size: e,
+                  color: `primary`,
+                  className: `w-full`,
+                  disabled: g,
+                  onClick: () => {
+                    (_(!0), setTimeout(() => _(!1), 1500));
+                  },
+                  children: [
+                    g && (0, h.jsx)(l, {}),
+                    g ? `Sending...` : `Send Message`,
+                  ],
+                }),
+                (0, h.jsx)(c, {
+                  size: e,
+                  variant: `outline`,
+                  className: `w-full`,
+                  children: `Save Draft`,
+                }),
+              ],
+            }),
+          }),
+          (0, h.jsx)(s, {
+            label: `Destructive`,
+            description: `Xác nhận một hành động nguy hiểm.`,
+            fullWidth: !0,
+            children: (0, h.jsxs)(`div`, {
+              className: `w-full max-w-xs mx-auto rounded-lg border border-destructive/20 bg-destructive/5 p-4 flex flex-col gap-2`,
+              children: [
+                (0, h.jsx)(`p`, {
+                  className: `text-sm font-medium`,
+                  children: `Delete Workspace`,
+                }),
+                (0, h.jsx)(`p`, {
+                  className: `text-xs text-muted-foreground`,
+                  children: `This action cannot be undone. All data will be lost.`,
+                }),
+                (0, h.jsxs)(c, {
+                  size: e,
+                  color: `destructive`,
+                  className: `w-full mt-1`,
+                  disabled: r,
+                  onClick: () => {
+                    (o(!0), setTimeout(() => o(!1), 1500));
+                  },
+                  children: [
+                    r && (0, h.jsx)(l, {}),
+                    r ? `Deleting...` : `Delete Permanently`,
+                  ],
+                }),
+              ],
+            }),
+          }),
+        ],
+      }),
+    ],
+  });
+}
+export { g as default };

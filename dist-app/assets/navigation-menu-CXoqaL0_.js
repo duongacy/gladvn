@@ -1,1 +1,1492 @@
-import{A as e,An as t,Bt as n,Cn as r,F as i,Fn as a,Gn as o,Hn as s,I as c,It as l,Kn as u,L as d,Ln as f,N as p,Nn as m,O as h,Pn as g,Qt as _,Rn as v,Rt as y,Sn as b,Tn as x,Un as S,Vt as C,Yt as ee,_ as w,_t as T,cr as te,dr as E,g as D,gt as ne,h as O,hn as k,i as A,k as re,kn as j,lt as M,on as N,qn as P,r as ie,sr as ae,vt as F,yt as I,zt as oe}from"./showcase-vJrKG7HA.js";import{n as se}from"./useTimeout-DMagV02N.js";import{F as ce,I as le,L as ue,M as de,N as fe,S as pe,T as L,U as me,a as R,b as z,c as he,d as ge,f as _e,h as ve,i as ye,l as be,p as xe,r as Se,u as Ce,w as we,x as Te,z as Ee}from"./popupStateMapping-wxS0crot.js";import{t as De}from"./useValueAsRef-DBI0R_ly.js";import{t as Oe}from"./addEventListener-VyGXw_SB.js";import{a as ke,i as Ae,n as je,o as Me,r as B,t as Ne}from"./safePolygon-B0gZX8K1.js";import{t as V}from"./getEmptyRootContext-K4Tz2k65.js";import{S as Pe,T as Fe,Vt as Ie,it as Le,w as Re,x as ze,yt as Be}from"./index-Dk0REsC9.js";import{t as Ve}from"./CompositeItem-lQIM2wtg.js";function He(e){let t=C(e),n=parseFloat(t.width)||0,r=parseFloat(t.height)||0,i=_(e),a=i?e.offsetWidth:n,o=i?e.offsetHeight:r;return(M(n)!==a||M(r)!==o)&&(n=a,r=o),{width:n,height:r}}var H=E(te(),1),Ue=H.createContext(void 0);function U(e){let t=H.useContext(Ue);if(t===void 0&&!e)throw Error(s(41));return t}var We=H.createContext(void 0);function Ge(){return H.useContext(We)}var W=function(e){return e.availableWidth=`--available-width`,e.availableHeight=`--available-height`,e.anchorWidth=`--anchor-width`,e.anchorHeight=`--anchor-height`,e.transformOrigin=`--transform-origin`,e.positionerWidth=`--positioner-width`,e.positionerHeight=`--positioner-height`,e}({}),G=function(e){return e.popupWidth=`--popup-width`,e.popupHeight=`--popup-height`,e}({});function Ke(e,t,n,r){e.style.setProperty(G.popupWidth,`${n}px`),e.style.setProperty(G.popupHeight,`${r}px`),t.style.setProperty(W.positionerWidth,`${n}px`),t.style.setProperty(W.positionerHeight,`${r}px`)}var K=m(),q=new Set([j,x,k]);function qe(e){let t=parseFloat(e.style.getPropertyValue(W.positionerWidth))||0,n=parseFloat(e.style.getPropertyValue(W.positionerHeight))||0;return t<=0||n<=0?null:{width:t,height:n}}var J=H.forwardRef(function(e,t){let{defaultValue:r=null,value:i,onValueChange:a,actionsRef:s,delay:c=50,closeDelay:l=50,orientation:d=`horizontal`,onOpenChangeComplete:f}=e,p=_e()!=null,m=U(!0),[g,v]=u({controlled:i,default:r,name:`NavigationMenu`,state:`value`}),y=g!=null,b=H.useRef(void 0),x=H.useRef(null),[C,ee]=H.useState(null),[w,te]=H.useState(null),[E,D]=H.useState(null),[ne,O]=H.useState(null),[k,A]=H.useState(null),[j,M]=H.useState(void 0),[N,P]=H.useState(!1),ie=H.useRef(null),ae=H.useRef(null),I=H.useRef(null),oe=H.useRef(null),se=H.useRef(null),ce=H.useRef(null),le=H.useRef({abortController:null,owner:null}),{mounted:ue,setMounted:de,transitionStatus:fe}=h(y);o(()=>{if(y||!C||!w)return;let e=qe(C);e&&Ke(w,C,e.width,e.height)},[y,w,C]),H.useEffect(()=>{P(!1)},[g]);let pe=S((e,t)=>{e??(b.current=t.reason),e!==g&&a?.(e,t),!t.isCanceled&&(e??(A(null),M(void 0)),v(e),p&&e==null&&t.reason===`link-press`&&m&&m.setValue(null,t))}),L=S(()=>{let e=T(n(x.current));!(b.current&&q.has(b.current))&&_(ie.current)&&(e===n(w).body||F(w,e))&&w&&(ie.current.focus({preventScroll:!0}),ie.current=void 0),de(!1),f?.(!1),A(null),M(void 0),ae.current=null,b.current=void 0});H.useImperativeHandle(s,()=>({unmount:L}),[L]),re({enabled:!s,open:y,ref:{current:w},onComplete(){y||L()}}),re({enabled:!s,open:y,ref:{current:ne},onComplete(){y||L()}});let me=y?k:null,R=H.useMemo(()=>({open:y,value:g,setValue:pe,mounted:ue,transitionStatus:fe,positionerElement:C,setPositionerElement:ee,popupElement:w,setPopupElement:te,viewportElement:E,setViewportElement:D,viewportTargetElement:ne,setViewportTargetElement:O,activationDirection:me,setActivationDirection:A,floatingRootContext:j,setFloatingRootContext:M,currentContentRef:ae,nested:p,rootRef:x,beforeInsideRef:I,afterInsideRef:oe,beforeOutsideRef:se,afterOutsideRef:ce,prevTriggerElementRef:ie,popupAutoSizeResetRef:le,delay:c,closeDelay:l,orientation:d,viewportInert:N,setViewportInert:P}),[y,g,pe,ue,fe,C,w,E,ne,me,j,p,c,l,d,N]),z=(0,K.jsx)(Ue.Provider,{value:R,children:(0,K.jsx)(Je,{componentProps:e,forwardedRef:t,children:e.children})});return p?z:(0,K.jsx)(Ce,{children:z})});function Je(e){let{className:t,render:n,defaultValue:r,value:i,onValueChange:a,actionsRef:o,delay:s,closeDelay:c,orientation:l,onOpenChangeComplete:u,style:d,...f}=e.componentProps,p=ge(),{rootRef:m,nested:h,open:_}=U(),v={open:_,nested:h},y=g(h?`div`:`nav`,e.componentProps,{state:v,ref:[e.forwardedRef,m],props:f});return(0,K.jsx)(We.Provider,{value:p,children:(0,K.jsx)(be,{id:p,children:y})})}var Ye=`data-base-ui-navigation-menu-trigger`,Xe=H.createContext(void 0);function Ze(){return H.useContext(Xe)}var Y=H.forwardRef(function(e,t){let{render:n,className:r,style:i,...a}=e,o=Ge(),{orientation:s,open:c,floatingRootContext:l,positionerElement:u,value:d,closeDelay:f,viewportElement:p,nested:m}=U(),h=H.useMemo(()=>V(),[]),_=l||h,y=u!=null||d==null;B(_,{enabled:!!l&&(u!=null||p!=null||d==null),closeDelay:f,nodeId:o});let b=he(_,{enabled:y,outsidePressEvent:`intentional`,outsidePress(e){return I(e)?.closest(`[${Ye}]`)===null}}),x=l?b:void 0,S={open:c},C=m?v:{onKeyDown(e){(s===`horizontal`&&(e.key===`ArrowLeft`||e.key===`ArrowRight`)||s===`vertical`&&(e.key===`ArrowUp`||e.key===`ArrowDown`))&&e.stopPropagation()}},ee=[x?.floating||v,C,a],w=g(`ul`,e,{state:S,ref:t,props:ee,enabled:m});return m?(0,K.jsx)(Xe.Provider,{value:x,children:w}):(0,K.jsx)(Xe.Provider,{value:x,children:(0,K.jsx)(D,{render:n,className:r,style:i,state:S,refs:[t],props:ee,loopFocus:!1,orientation:s,tag:`ul`})})}),Qe=H.createContext(void 0);function $e(){let e=H.useContext(Qe);if(!e)throw Error(s(39));return e}var et=H.forwardRef(function(e,t){let{render:n,className:r,style:i,value:a,...o}=e,s=y(),c=a??s,l=g(`li`,e,{ref:t,props:o}),u=H.useMemo(()=>({value:c}),[c]);return(0,K.jsx)(Qe.Provider,{value:u,children:l})}),tt=E(ae(),1),nt={...Se,...c,activationDirection(e){return e?{"data-activation-direction":e}:null}},X=H.forwardRef(function(e,t){let{render:n,className:r,style:i,keepMounted:a=!1,...s}=e,{mounted:c,viewportElement:l,value:u,activationDirection:f,currentContentRef:p,viewportTargetElement:m}=U(),{value:g}=$e(),_=Ge(),y=c&&u===g,b=H.useRef(null),[x,C]=H.useState(!1),[ee,w]=H.useState(!1),{mounted:T,setMounted:te,transitionStatus:E}=h(y);T&&!c&&te(!1),re({ref:b,open:y,onComplete(){y||te(!1)}}),o(()=>{y&&b.current&&(p.current=b.current)},[y,p]);let ne={open:y,transitionStatus:E,activationDirection:f},O=S(e=>{e&&y&&(p.current=e)}),k={onFocus(e){I(e.nativeEvent)?.hasAttribute(`data-base-ui-focus-guard`)||w(!0)},onBlur(e){F(e.currentTarget,e.relatedTarget)||w(!1)}},A=!y&&T?{style:{position:`absolute`,top:0,left:0},inert:d(!ee),...k}:k,j=m||l,M=a&&!T,N=a&&!j&&!x;return a&&j&&!x&&C(!0),N?(0,K.jsx)(D,{render:n,className:r,style:i,state:ne,refs:[t],props:[A,{hidden:!0},s],stateAttributesMapping:nt}):!j||!T&&!a?null:tt.createPortal((0,K.jsx)(be,{id:_,children:(0,K.jsx)(D,{render:n,className:r,style:i,state:ne,refs:[t,b,O],props:[A,M?{hidden:!0}:v,s],stateAttributesMapping:nt})}),j)});function rt({currentTarget:e,relatedTarget:t},n){let{popupElement:r,rootRef:i,tree:a,nodeId:o}=n,s=a?me(a.nodesRef.current,o).some(e=>F(e.context?.elements.floating,t)):[];return r?!F(r,e)&&!F(r,t)&&!F(i.current,t)&&!s&&!(F(r,t)&&t?.hasAttribute(`data-base-ui-focus-guard`)):!F(i.current,t)&&!s}var it={width:0,height:0},at=H.forwardRef(function(n,s){let{render:c,className:u,style:d,nativeButton:m=!0,disabled:h,...g}=n,{value:v,setValue:y,mounted:b,open:x,positionerElement:C,setActivationDirection:T,setFloatingRootContext:te,popupElement:E,viewportElement:D,transitionStatus:O,rootRef:A,beforeOutsideRef:re,afterOutsideRef:M,afterInsideRef:P,beforeInsideRef:ie,prevTriggerElementRef:ae,popupAutoSizeResetRef:I,currentContentRef:oe,delay:de,closeDelay:fe,orientation:L,setViewportInert:me,nested:R}=U(),{value:z}=$e(),he=Ge(),ge=xe(),_e=Ze(),ve=w(),be=se(),Se=p(),Ce=p(),Te=p(),B=p(),[V,Pe]=H.useState(null),[Fe,Ie]=H.useState(!0),[Re,ze]=H.useState(``),Ue=H.useRef(null),We=H.useRef(!1),q=H.useRef(it),qe=H.useRef(!1),J=x&&v===z,Je=De(J),Xe=(C!=null||v==null)&&!h,Y=C||D,Qe=(Y!=null||v==null)&&!h,et=e(E,!1,!1),nt=H.useCallback(e=>{Ue.current=e,Pe(e)},[]),X=S((e=!1)=>{!e&&I.current.owner!==z||(I.current.abortController?.abort(),I.current.abortController=null,I.current.owner=null)});o(()=>{J||(Ce.cancel(),B.cancel(),X())},[J,Ce,B,X]);function at(){E&&(E.style.setProperty(G.popupWidth,`auto`),E.style.setProperty(G.popupHeight,`auto`))}function ot(){!E||!C||(E.style.removeProperty(G.popupWidth),E.style.removeProperty(G.popupHeight),C.style.removeProperty(W.positionerWidth),C.style.removeProperty(W.positionerHeight))}function ct(){X(!0);let e=new AbortController;I.current.abortController=e,I.current.owner=z,et(()=>{I.current.abortController!==e||I.current.owner!==z||(I.current.abortController=null,I.current.owner=null,at())},e.signal)}let lt=S((e,t,n={})=>{if(!E||!C)return;X(!0);let{syncPositioner:r=!1}=n;ot();let{width:i,height:a}=He(E),o=i||q.current.width,s=a||q.current.height;(t===0||e===0)&&(e=o,t=s),E.style.setProperty(G.popupWidth,`${e}px`),E.style.setProperty(G.popupHeight,`${t}px`),C.style.setProperty(W.positionerWidth,`${r?e:o}px`),C.style.setProperty(W.positionerHeight,`${r?t:s}px`),B.request(()=>{Je.current&&(E.style.setProperty(G.popupWidth,`${o}px`),E.style.setProperty(G.popupHeight,`${s}px`),r&&(C.style.setProperty(W.positionerWidth,`${o}px`),C.style.setProperty(W.positionerHeight,`${s}px`)),ct())})}),ut=S((e,t)=>{!E||!C||(B.cancel(),Ce.cancel(),X(!0),!(e===0||t===0)&&(Ke(E,C,e,t),Ce.request(()=>{Ce.request(()=>{ot();let{width:n,height:r}=He(E),i=n||e||q.current.width,a=r||t||q.current.height;Ke(E,C,e,t),B.request(()=>{Je.current&&(Ke(E,C,i,a),ct())})})})))}),dt=S(()=>{if(!E||!C)return;B.cancel(),X(!0),ot();let{width:e,height:t}=He(E);e===0||t===0||(q.current={width:e,height:t},at(),C.style.setProperty(W.positionerWidth,`${e}px`),C.style.setProperty(W.positionerHeight,`${t}px`))}),ft=S(()=>{if(!E)return{size:q.current,syncPositioner:!1};let e=E.style.getPropertyValue(G.popupWidth),t=E.style.getPropertyValue(G.popupHeight);return e!==``&&e!==`auto`&&t!==``&&t!==`auto`?{size:{width:E.offsetWidth||q.current.width,height:E.offsetHeight||q.current.height},syncPositioner:!0}:{size:q.current,syncPositioner:!1}});H.useEffect(()=>{x||(be.clear(),Ce.cancel(),Te.cancel(),B.cancel(),X(!0),qe.current=!1,ze(``))},[be,x,Ce,Te,B,X]),H.useEffect(()=>{b||(q.current=it)},[b]),o(()=>{if(!E||typeof ResizeObserver!=`function`)return;let e=new ResizeObserver(()=>{q.current={width:E.offsetWidth,height:E.offsetHeight}});return e.observe(E),()=>{e.disconnect()}},[E]),H.useEffect(()=>{if(!x||!J||!E||!C)return;let e=ee(C);function t(){Te.cancel(),Te.request(dt)}let n=Oe(e,`resize`,t);return()=>{Te.cancel(),n()}},[x,J,E,C,Te,dt]),H.useEffect(()=>{let e=oe.current;if(!e||!E||!J||typeof MutationObserver!=`function`)return;let t=new MutationObserver(()=>{if(O===`starting`||E.hasAttribute(i.startingStyle)){dt();return}let{size:e,syncPositioner:t}=ft();if(t){ut(e.width,e.height);return}lt(e.width,e.height)});return t.observe(e,{childList:!0,subtree:!0,characterData:!0,attributes:!0,attributeFilter:[`hidden`]}),()=>{t.disconnect()}},[oe,E,J,O,ft,ut,lt,dt]),H.useEffect(()=>(J&&x&&E&&We.current&&(We.current=!1,Se.request(()=>{re.current?.focus()})),()=>{Se.cancel()}),[re,Se,J,x,E]),o(()=>{if(Je.current&&x&&E){let e=oe.current?.querySelector(`[data-nested]`)!=null;if(O===`starting`&&e)return B.request(dt),()=>{B.cancel()};if(qe.current){qe.current=!1;return}let{width:t,height:n}=He(E);lt(t,n)}},[oe,lt,Je,x,E,B,dt,O]);function pt(e,t){let n=t.reason===j;if(!Xe||Re===`touch`&&n||!e&&v!==z)return;function r(){n&&(Ie(!0),be.clear(),be.start(500,()=>{Ie(!1)})),e?y(z,t):(y(null,t),ze(``))}n?tt.flushSync(r):r()}let Z=Le({open:x,onOpenChange:pt,elements:{reference:V,floating:Y}}),Q=Me(Z),mt=Re!==`touch`;H.useEffect(()=>{x||(Z.context.dataRef.current.openEvent=void 0,Q.pointerType=void 0,Q.interactedInside=!1,Q.restTimeoutPending=!1,Q.openChangeTimeout.clear(),Q.restTimeout.clear(),ke(Q))},[Z,Q,x]);let ht=S(()=>!R||C||!Ue.current||!Y?null:st(Ue.current,Y,he));function gt(){return!R||!C?Ue.current?.closest(`ul`)??null:null}let _t=je(Z,{enabled:Qe,move:!1,handleClose:Ne({blockPointerEvents:mt,getScope:gt}),restMs:b&&C?0:de,delay:{close:fe},triggerElementRef:Ue,getHandleCloseContext:ht}),vt=H.useMemo(()=>_t?{reference:_t}:void 0,[_t]),yt=Be(Z,{enabled:Xe,stickIfOpen:Fe,toggle:J}),bt=H.useMemo(()=>a(yt.reference,vt?.reference),[yt.reference,vt]);o(()=>{J&&(te(Z),ae.current=V)},[J,Z,te,ae,V]);function xt(e){tt.flushSync(()=>{let n=_(e.currentTarget)?e.currentTarget:null,r=ae.current?.getBoundingClientRect();if(b&&r&&V){let e=V.getBoundingClientRect(),t=e.left>r.left,n=e.top>r.top;L===`horizontal`&&e.left!==r.left?T(t?`right`:`left`):L===`vertical`&&e.top!==r.top&&T(n?`down`:`up`)}if(e.type!==`click`&&v!=null&&(Z.context.dataRef.current.openEvent=void 0),!(Re===`touch`&&e.type!==`click`)&&(v!=null&&e.type!==`keydown`&&y(z,N(e.type===`mouseenter`?j:t,e.nativeEvent)),e.type===`mouseenter`&&mt&&(!R||!C)&&Y&&n)){let e=()=>{let e=gt()??n.ownerDocument.body;Ae(Q,{scopeElement:e,referenceElement:n,floatingElement:Y})};v!=null&&v!==z?queueMicrotask(e):e()}})}let St=S(e=>{if(h)return;if(!E||!C){xt(e);return}let{width:t,height:n}=He(E),r=v!=null&&v!==z&&(e.type===`click`||Re!==`touch`);xt(e),r&&(qe.current=!0),lt(t,n)}),Ct={open:J};function wt(e){ze(e.pointerType)}function Tt(e){wt(e),ke(Q)}let Et={tabIndex:0,onMouseEnter:St,onClick:St,onPointerEnter:wt,onPointerDown:Tt,"aria-expanded":J,"aria-controls":J?E?.id:void 0,[Ye]:``,onFocus(){J&&me(!1)},onMouseMove(){We.current=!1},onKeyDown(e){if(We.current=!0,R)return;let t=ve===`rtl`?`ArrowLeft`:`ArrowRight`,n=L===`horizontal`&&e.key===`ArrowDown`,i=L===`vertical`&&e.key===t;(n||i)&&(y(z,N(r,e.nativeEvent)),St(e),ne(e))},onBlur(e){C&&E&&rt({currentTarget:e.currentTarget,relatedTarget:e.relatedTarget},{popupElement:E,rootRef:A,tree:ge,nodeId:he})&&y(null,N(k,e.nativeEvent))}},{getButtonProps:Dt,buttonRef:Ot}=l({disabled:h,focusableWhenDisabled:!0,native:m}),$=Y;return(0,K.jsxs)(H.Fragment,{children:[(0,K.jsx)(Ve,{tag:`button`,render:c,className:u,style:d,state:Ct,stateAttributesMapping:ye,refs:[s,nt,Ot],props:[bt,_e?.reference||f,Et,g,Dt]}),J&&(0,K.jsxs)(H.Fragment,{children:[(0,K.jsx)(we,{ref:re,onFocus:e=>{$&&Ee(e,$)?ie.current?.focus():le(V)?.focus()}}),(0,K.jsx)(`span`,{"aria-owns":D?.id,style:pe}),(0,K.jsx)(we,{ref:M,onFocus:e=>{if($&&Ee(e,$))tt.flushSync(()=>{me(!1)}),(P.current||V)?.focus();else{let t=ce(V);R&&!C&&$&&t&&F($,t)&&(t=ue(P.current)),t?.focus(),(!R||C)&&!F(A.current,t)&&y(null,N(`focus-out`,e.nativeEvent))}}})]})]})});function ot(e,t){let n=e.getBoundingClientRect(),r=t.getBoundingClientRect(),i=n.left+n.width/2,a=n.top+n.height/2,o=r.left+r.width/2,s=r.top+r.height/2,c=o-i,l=s-a;return Math.abs(c)>=Math.abs(l)?c>=0?`right`:`left`:l>=0?`bottom`:`top`}function st(e,t,n){return{placement:ot(e,t),elements:{domReference:e,floating:t},nodeId:n}}var ct=H.createContext(void 0);function lt(){let e=H.useContext(ct);if(e===void 0)throw Error(s(40));return e}var ut=H.forwardRef(function(e,t){let{keepMounted:n=!1,...r}=e,{mounted:i}=U();return i||n?(0,K.jsx)(ct.Provider,{value:n,children:(0,K.jsx)(ve,{ref:t,...r})}):null}),dt=H.createContext(void 0);function ft(e=!1){let t=H.useContext(dt);if(!t&&!e)throw Error(s(42));return t}var pt=V(),Z=H.forwardRef(function(e,t){let{open:n,mounted:r,positionerElement:i,setPositionerElement:a,floatingRootContext:o,nested:s,transitionStatus:c}=U(),{className:l,render:u,anchor:d,positionMethod:f=`absolute`,side:p=`bottom`,align:m=`center`,sideOffset:h=0,alignOffset:g=0,collisionBoundary:_=`clipping-ancestors`,collisionPadding:v=5,collisionAvoidance:y=s?Te:z,arrowPadding:b=5,sticky:x=!1,disableAnchorTracking:S=!1,style:C,...w}=e,T=lt(),te=Ge(),E=se(),D=se(),[ne,O]=H.useState(n),k=H.useRef(n),A=H.useRef(null),re=H.useRef(null);H.useEffect(()=>{if(!i)return;function e(e){i&&Ee(e)&&(e.type===`focusin`?fe:de)(i)}return L(Oe(i,`focusin`,e,!0),Oe(i,`focusout`,e,!0))},[i]);let j=(o||pt).useState(`domReferenceElement`),M=Re({anchor:d??j??re,positionMethod:f,mounted:r,side:p,sideOffset:h,align:m,alignOffset:g,arrowPadding:b,collisionBoundary:_,collisionPadding:v,sticky:x,disableAnchorTracking:S,keepMounted:T,floatingRootContext:o,collisionAvoidance:y,nodeId:te,adaptiveOrigin:Fe}),N={open:n,side:M.side,align:M.align,anchorHidden:M.anchorHidden,instant:ne};H.useEffect(()=>{if(!n)return;k.current&&E.start(0,()=>{k.current=!1,D.isStarted()||O(!1)});function e(){tt.flushSync(()=>{O(!0)}),D.start(100,()=>{O(!1)})}return Oe(ee(i),`resize`,e)},[n,E,D,i]);let P=ze(e,N,{styles:M.positionerStyles,transitionStatus:c,props:w,refs:[t,a,A],hidden:!r,inert:!n});return(0,K.jsx)(dt.Provider,{value:M,children:P})}),Q=V();function mt({children:e}){let{beforeInsideRef:t,beforeOutsideRef:n,afterInsideRef:r,afterOutsideRef:i,positionerElement:a,viewportElement:o,floatingRootContext:s}=U(),c=!!ft(!0),l=a||o;return!s&&!c?e:(0,K.jsxs)(H.Fragment,{children:[(0,K.jsx)(we,{ref:t,onFocus:e=>{l&&Ee(e,l)?ce(l)?.focus():n.current?.focus()}}),e,(0,K.jsx)(we,{ref:r,onFocus:e=>{l&&Ee(e,l)?le(l)?.focus():i.current?.focus()}})]})}var ht=H.forwardRef(function(e,t){let{render:n,className:r,style:i,children:a,id:s,...c}=e,l=oe(s),{setViewportElement:u,setViewportTargetElement:f,floatingRootContext:p,prevTriggerElementRef:m,viewportInert:h,setViewportInert:_}=U(),v=!!ft(!0),y=(p||Q).useState(`domReferenceElement`);o(()=>{y&&(m.current=y)},[y,m]);let b=g(`div`,e,{ref:[t,u],props:[{id:l,onBlur(e){let t=e.relatedTarget,n=e.currentTarget;t&&!F(n,t)&&t!==y&&_(!0)},...!v&&h&&{inert:d(!0)},children:v?a:(0,K.jsx)(mt,{children:(0,K.jsx)(`div`,{ref:f,children:a})})},c]});return v?(0,K.jsx)(mt,{children:b}):b}),gt={...Se,...c},_t=H.forwardRef(function(e,t){let{render:n,className:r,style:i,id:a,...o}=e,{open:s,transitionStatus:c,setPopupElement:l}=U(),u=ft(),d=w(),f=y(a),p={open:s,transitionStatus:c,side:u.side,align:u.align,anchorHidden:u.anchorHidden},m=u.side===`left`;d===`rtl`?m||=u.side===`inline-end`:m||=u.side===`inline-start`;let h=u.side===`top`||m;return g(`nav`,e,{state:p,ref:[t,l],props:[{id:f,tabIndex:-1,style:h?{position:`absolute`,[u.side===`top`?`bottom`:`top`]:`0`,[m?`right`:`left`]:`0`}:{}},Pe(c),o],stateAttributesMapping:gt})}),vt=H.forwardRef(function(e,t){let{className:n,render:r,active:i=!1,closeOnClick:a=!1,style:o,...s}=e,{setValue:c,popupElement:l,positionerElement:u,rootRef:d}=U(),f=Ge(),p=xe();return(0,K.jsx)(Ve,{tag:`a`,render:r,className:n,style:o,state:{active:i},refs:[t],props:[{"aria-current":i?`page`:void 0,tabIndex:void 0,onClick(e){a&&c(null,N(b,e.nativeEvent))},onBlur(e){u&&l&&rt({currentTarget:e.currentTarget,relatedTarget:e.relatedTarget},{popupElement:l,rootRef:d,tree:p,nodeId:f})&&c(null,N(k,e.nativeEvent))}},s]})}),yt=H.forwardRef(function(e,t){let{render:n,className:r,style:i,...a}=e,{value:o}=$e(),{open:s,value:c}=U();return g(`span`,e,{state:{open:s&&c===o},ref:t,props:[{"aria-hidden":!0,children:`▼`},a],stateAttributesMapping:R})});function bt({align:e=`start`,className:t,children:n,...r}){return(0,K.jsxs)(J,{"data-slot":`navigation-menu`,className:P(`group/navigation-menu relative flex max-w-max flex-1 items-center justify-center`,t),...r,children:[n,(0,K.jsx)(Et,{align:e})]})}function xt({className:e,...t}){return(0,K.jsx)(Y,{"data-slot":`navigation-menu-list`,className:P(`group flex flex-1 list-none items-center justify-center gap-0`,e),...t})}function St({className:e,...t}){return(0,K.jsx)(et,{"data-slot":`navigation-menu-item`,className:P(`relative`,e),...t})}var Ct=O(`group/navigation-menu-trigger inline-flex h-9 w-max items-center justify-center rounded-lg px-2.5 py-1.5 text-sm font-medium transition-all outline-none hover:bg-muted focus:bg-muted focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-offset-1 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 data-popup-open:bg-muted/50 data-popup-open:hover:bg-muted data-open:bg-muted/50 data-open:hover:bg-muted data-open:focus:bg-muted`);function wt({className:e,children:t,...n}){return(0,K.jsxs)(at,{"data-slot":`navigation-menu-trigger`,className:P(Ct(),`group`,e),...n,children:[t,` `,(0,K.jsx)(Ie,{className:`relative top-px ml-1 size-3 transition duration-300 group-data-popup-open/navigation-menu-trigger:rotate-180 group-data-open/navigation-menu-trigger:rotate-180`,"aria-hidden":`true`})]})}function Tt({className:e,...t}){return(0,K.jsx)(X,{"data-slot":`navigation-menu-content`,className:P(`data-ending-style:data-activation-direction=left:translate-x-[50%] data-ending-style:data-activation-direction=right:translate-x-[-50%] data-starting-style:data-activation-direction=left:translate-x-[-50%] data-starting-style:data-activation-direction=right:translate-x-[50%] h-full w-auto p-1 transition-[opacity,transform,translate] duration-[0.35s] ease-[cubic-bezier(0.22,1,0.36,1)] group-data-[viewport=false]/navigation-menu:rounded-lg group-data-[viewport=false]/navigation-menu:bg-popover group-data-[viewport=false]/navigation-menu:text-popover-foreground group-data-[viewport=false]/navigation-menu:shadow group-data-[viewport=false]/navigation-menu:ring-1 group-data-[viewport=false]/navigation-menu:ring-foreground/10 group-data-[viewport=false]/navigation-menu:duration-300 data-ending-style:opacity-0 data-starting-style:opacity-0 data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52 data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52 data-[motion^=from-]:animate-in data-[motion^=from-]:fade-in data-[motion^=to-]:animate-out data-[motion^=to-]:fade-out [&_[data-slot=navigation-menu-link]]:focus:ring-0 [&_[data-slot=navigation-menu-link]]:focus:outline-none group-data-[viewport=false]/navigation-menu:data-open:animate-in group-data-[viewport=false]/navigation-menu:data-open:fade-in-0 group-data-[viewport=false]/navigation-menu:data-open:zoom-in-95 group-data-[viewport=false]/navigation-menu:data-closed:animate-out group-data-[viewport=false]/navigation-menu:data-closed:fade-out-0 group-data-[viewport=false]/navigation-menu:data-closed:zoom-out-95`,e),...t})}function Et({className:e,side:t=`bottom`,sideOffset:n=8,align:r=`start`,alignOffset:i=0,...a}){return(0,K.jsx)(ut,{children:(0,K.jsx)(Z,{side:t,sideOffset:n,align:r,alignOffset:i,className:P(`isolate z-50 h-(--positioner-height) w-(--positioner-width) max-w-(--available-width) transition-[top,left,right,bottom] duration-[0.35s] ease-[cubic-bezier(0.22,1,0.36,1)] data-instant:transition-none data-[side=bottom]:before:top-[-10px] data-[side=bottom]:before:right-0 data-[side=bottom]:before:left-0`,e),...a,children:(0,K.jsx)(_t,{className:`data-ending-style:easing-[ease] xs:w-(--popup-width) relative h-(--popup-height) w-(--popup-width) origin-(--transform-origin) rounded-lg bg-popover text-popover-foreground shadow ring-1 ring-foreground/10 transition-[opacity,transform,width,height,scale,translate] duration-[0.35s] ease-[cubic-bezier(0.22,1,0.36,1)] outline-none data-ending-style:scale-90 data-ending-style:opacity-0 data-ending-style:duration-150 data-starting-style:scale-90 data-starting-style:opacity-0`,children:(0,K.jsx)(ht,{className:`relative size-full overflow-hidden`})})})})}function Dt({className:e,...t}){return(0,K.jsx)(vt,{"data-slot":`navigation-menu-link`,className:P(`flex items-center gap-2 rounded-lg p-2 text-sm transition-all outline-none hover:bg-muted focus:bg-muted focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-offset-1 focus-visible:ring-offset-background in-data-[slot=navigation-menu-content]:rounded-md data-active:bg-muted/50 data-active:hover:bg-muted data-active:focus:bg-muted [&>svg:not([class*='size-'])]:size-4`,e),...t})}function Ot({className:e,...t}){return(0,K.jsx)(yt,{"data-slot":`navigation-menu-indicator`,className:P(`top-full z-1 flex h-1.5 items-end justify-center overflow-hidden data-[state=hidden]:animate-out data-[state=hidden]:fade-out data-[state=visible]:animate-in data-[state=visible]:fade-in`,e),...t,children:(0,K.jsx)(`div`,{className:`relative top-[60%] h-2 w-2 rotate-45 rounded-tl-sm bg-border shadow-md`})})}var $=H.forwardRef(({className:e,title:t,children:n,...r},i)=>(0,K.jsx)(`li`,{children:(0,K.jsx)(Dt,{render:(0,K.jsxs)(`a`,{ref:i,className:P(`block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground`,e),...r,children:[(0,K.jsx)(`div`,{className:`text-sm font-medium leading-none`,children:t}),(0,K.jsx)(`p`,{className:`line-clamp-2 text-sm leading-snug text-muted-foreground`,children:n})]})})}));$.displayName=`ListItem`;function kt(){return(0,K.jsxs)(`div`,{className:`space-y-10`,children:[(0,K.jsx)(A,{title:`Navigation Menu`,description:`Một bộ sưu tập các liên kết để điều hướng các trang web.`}),(0,K.jsx)(ie,{label:`Default`,description:`Điều hướng đa cấp với bảng thả xuống.`,children:(0,K.jsxs)(bt,{children:[(0,K.jsxs)(xt,{children:[(0,K.jsxs)(St,{children:[(0,K.jsx)(wt,{children:`Getting started`}),(0,K.jsx)(Tt,{children:(0,K.jsxs)(`ul`,{className:`grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]`,children:[(0,K.jsx)(`li`,{className:`row-span-3`,children:(0,K.jsxs)(Dt,{render:(0,K.jsx)(`a`,{className:`flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md`,href:`/`}),children:[(0,K.jsx)(`div`,{className:`mb-2 mt-4 text-lg font-medium`,children:`gladcn/ui`}),(0,K.jsx)(`p`,{className:`text-sm leading-tight text-muted-foreground`,children:`Beautifully designed components built with Radix UI and Tailwind CSS.`})]})}),(0,K.jsx)($,{href:`/docs`,title:`Introduction`,children:`Re-usable components built using Radix UI and Tailwind CSS.`}),(0,K.jsx)($,{href:`/docs/installation`,title:`Installation`,children:`How to install dependencies and structure your app.`}),(0,K.jsx)($,{href:`/docs/primitives/typography`,title:`Typography`,children:`Styles for headings, paragraphs, lists...etc`})]})})]}),(0,K.jsxs)(St,{children:[(0,K.jsx)(wt,{children:`Components`}),(0,K.jsx)(Tt,{children:(0,K.jsxs)(`ul`,{className:`grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] `,children:[(0,K.jsx)($,{title:`Alert Dialog`,href:`/docs/primitives/alert-dialog`,children:`A modal dialog that interrupts the user with important content and expects a response.`}),(0,K.jsx)($,{title:`Hover Card`,href:`/docs/primitives/hover-card`,children:`For sighted users to preview content available behind a link.`}),(0,K.jsx)($,{title:`Progress`,href:`/docs/primitives/progress`,children:`Displays an indicator showing the completion progress of a task.`}),(0,K.jsx)($,{title:`Scroll-area`,href:`/docs/primitives/scroll-area`,children:`Visually or semantically separates content.`})]})})]}),(0,K.jsx)(St,{children:(0,K.jsx)(Dt,{href:`/docs`,className:Ct(),children:`Documentation`})})]}),(0,K.jsx)(Et,{children:(0,K.jsx)(Ot,{})})]})})]})}export{kt as default};
+import {
+  A as e,
+  An as t,
+  Bt as n,
+  Cn as r,
+  F as i,
+  Fn as a,
+  Gn as o,
+  Hn as s,
+  I as c,
+  It as l,
+  Kn as u,
+  L as d,
+  Ln as f,
+  N as p,
+  Nn as m,
+  O as h,
+  Pn as g,
+  Qt as _,
+  Rn as v,
+  Rt as y,
+  Sn as b,
+  Tn as x,
+  Un as S,
+  Vt as C,
+  Yt as ee,
+  _ as w,
+  _t as T,
+  cr as te,
+  dr as E,
+  g as D,
+  gt as ne,
+  h as O,
+  hn as k,
+  i as A,
+  k as re,
+  kn as j,
+  lt as M,
+  on as N,
+  qn as P,
+  r as ie,
+  sr as ae,
+  vt as F,
+  yt as I,
+  zt as oe,
+} from "./showcase-vJrKG7HA.js";
+import { n as se } from "./useTimeout-DMagV02N.js";
+import {
+  F as ce,
+  I as le,
+  L as ue,
+  M as de,
+  N as fe,
+  S as pe,
+  T as L,
+  U as me,
+  a as R,
+  b as z,
+  c as he,
+  d as ge,
+  f as _e,
+  h as ve,
+  i as ye,
+  l as be,
+  p as xe,
+  r as Se,
+  u as Ce,
+  w as we,
+  x as Te,
+  z as Ee,
+} from "./popupStateMapping-wxS0crot.js";
+import { t as De } from "./useValueAsRef-DBI0R_ly.js";
+import { t as Oe } from "./addEventListener-VyGXw_SB.js";
+import {
+  a as ke,
+  i as Ae,
+  n as je,
+  o as Me,
+  r as B,
+  t as Ne,
+} from "./safePolygon-B0gZX8K1.js";
+import { t as V } from "./getEmptyRootContext-K4Tz2k65.js";
+import {
+  S as Pe,
+  T as Fe,
+  Vt as Ie,
+  it as Le,
+  w as Re,
+  x as ze,
+  yt as Be,
+} from "./index-Dk0REsC9.js";
+import { t as Ve } from "./CompositeItem-lQIM2wtg.js";
+function He(e) {
+  let t = C(e),
+    n = parseFloat(t.width) || 0,
+    r = parseFloat(t.height) || 0,
+    i = _(e),
+    a = i ? e.offsetWidth : n,
+    o = i ? e.offsetHeight : r;
+  return (
+    (M(n) !== a || M(r) !== o) && ((n = a), (r = o)),
+    { width: n, height: r }
+  );
+}
+var H = E(te(), 1),
+  Ue = H.createContext(void 0);
+function U(e) {
+  let t = H.useContext(Ue);
+  if (t === void 0 && !e) throw Error(s(41));
+  return t;
+}
+var We = H.createContext(void 0);
+function Ge() {
+  return H.useContext(We);
+}
+var W = (function (e) {
+    return (
+      (e.availableWidth = `--available-width`),
+      (e.availableHeight = `--available-height`),
+      (e.anchorWidth = `--anchor-width`),
+      (e.anchorHeight = `--anchor-height`),
+      (e.transformOrigin = `--transform-origin`),
+      (e.positionerWidth = `--positioner-width`),
+      (e.positionerHeight = `--positioner-height`),
+      e
+    );
+  })({}),
+  G = (function (e) {
+    return (
+      (e.popupWidth = `--popup-width`),
+      (e.popupHeight = `--popup-height`),
+      e
+    );
+  })({});
+function Ke(e, t, n, r) {
+  (e.style.setProperty(G.popupWidth, `${n}px`),
+    e.style.setProperty(G.popupHeight, `${r}px`),
+    t.style.setProperty(W.positionerWidth, `${n}px`),
+    t.style.setProperty(W.positionerHeight, `${r}px`));
+}
+var K = m(),
+  q = new Set([j, x, k]);
+function qe(e) {
+  let t = parseFloat(e.style.getPropertyValue(W.positionerWidth)) || 0,
+    n = parseFloat(e.style.getPropertyValue(W.positionerHeight)) || 0;
+  return t <= 0 || n <= 0 ? null : { width: t, height: n };
+}
+var J = H.forwardRef(function (e, t) {
+  let {
+      defaultValue: r = null,
+      value: i,
+      onValueChange: a,
+      actionsRef: s,
+      delay: c = 50,
+      closeDelay: l = 50,
+      orientation: d = `horizontal`,
+      onOpenChangeComplete: f,
+    } = e,
+    p = _e() != null,
+    m = U(!0),
+    [g, v] = u({
+      controlled: i,
+      default: r,
+      name: `NavigationMenu`,
+      state: `value`,
+    }),
+    y = g != null,
+    b = H.useRef(void 0),
+    x = H.useRef(null),
+    [C, ee] = H.useState(null),
+    [w, te] = H.useState(null),
+    [E, D] = H.useState(null),
+    [ne, O] = H.useState(null),
+    [k, A] = H.useState(null),
+    [j, M] = H.useState(void 0),
+    [N, P] = H.useState(!1),
+    ie = H.useRef(null),
+    ae = H.useRef(null),
+    I = H.useRef(null),
+    oe = H.useRef(null),
+    se = H.useRef(null),
+    ce = H.useRef(null),
+    le = H.useRef({ abortController: null, owner: null }),
+    { mounted: ue, setMounted: de, transitionStatus: fe } = h(y);
+  (o(() => {
+    if (y || !C || !w) return;
+    let e = qe(C);
+    e && Ke(w, C, e.width, e.height);
+  }, [y, w, C]),
+    H.useEffect(() => {
+      P(!1);
+    }, [g]));
+  let pe = S((e, t) => {
+      (e ?? (b.current = t.reason),
+        e !== g && a?.(e, t),
+        !t.isCanceled &&
+          (e ?? (A(null), M(void 0)),
+          v(e),
+          p &&
+            e == null &&
+            t.reason === `link-press` &&
+            m &&
+            m.setValue(null, t)));
+    }),
+    L = S(() => {
+      let e = T(n(x.current));
+      (!(b.current && q.has(b.current)) &&
+        _(ie.current) &&
+        (e === n(w).body || F(w, e)) &&
+        w &&
+        (ie.current.focus({ preventScroll: !0 }), (ie.current = void 0)),
+        de(!1),
+        f?.(!1),
+        A(null),
+        M(void 0),
+        (ae.current = null),
+        (b.current = void 0));
+    });
+  (H.useImperativeHandle(s, () => ({ unmount: L }), [L]),
+    re({
+      enabled: !s,
+      open: y,
+      ref: { current: w },
+      onComplete() {
+        y || L();
+      },
+    }),
+    re({
+      enabled: !s,
+      open: y,
+      ref: { current: ne },
+      onComplete() {
+        y || L();
+      },
+    }));
+  let me = y ? k : null,
+    R = H.useMemo(
+      () => ({
+        open: y,
+        value: g,
+        setValue: pe,
+        mounted: ue,
+        transitionStatus: fe,
+        positionerElement: C,
+        setPositionerElement: ee,
+        popupElement: w,
+        setPopupElement: te,
+        viewportElement: E,
+        setViewportElement: D,
+        viewportTargetElement: ne,
+        setViewportTargetElement: O,
+        activationDirection: me,
+        setActivationDirection: A,
+        floatingRootContext: j,
+        setFloatingRootContext: M,
+        currentContentRef: ae,
+        nested: p,
+        rootRef: x,
+        beforeInsideRef: I,
+        afterInsideRef: oe,
+        beforeOutsideRef: se,
+        afterOutsideRef: ce,
+        prevTriggerElementRef: ie,
+        popupAutoSizeResetRef: le,
+        delay: c,
+        closeDelay: l,
+        orientation: d,
+        viewportInert: N,
+        setViewportInert: P,
+      }),
+      [y, g, pe, ue, fe, C, w, E, ne, me, j, p, c, l, d, N],
+    ),
+    z = (0, K.jsx)(Ue.Provider, {
+      value: R,
+      children: (0, K.jsx)(Je, {
+        componentProps: e,
+        forwardedRef: t,
+        children: e.children,
+      }),
+    });
+  return p ? z : (0, K.jsx)(Ce, { children: z });
+});
+function Je(e) {
+  let {
+      className: t,
+      render: n,
+      defaultValue: r,
+      value: i,
+      onValueChange: a,
+      actionsRef: o,
+      delay: s,
+      closeDelay: c,
+      orientation: l,
+      onOpenChangeComplete: u,
+      style: d,
+      ...f
+    } = e.componentProps,
+    p = ge(),
+    { rootRef: m, nested: h, open: _ } = U(),
+    v = { open: _, nested: h },
+    y = g(h ? `div` : `nav`, e.componentProps, {
+      state: v,
+      ref: [e.forwardedRef, m],
+      props: f,
+    });
+  return (0, K.jsx)(We.Provider, {
+    value: p,
+    children: (0, K.jsx)(be, { id: p, children: y }),
+  });
+}
+var Ye = `data-base-ui-navigation-menu-trigger`,
+  Xe = H.createContext(void 0);
+function Ze() {
+  return H.useContext(Xe);
+}
+var Y = H.forwardRef(function (e, t) {
+    let { render: n, className: r, style: i, ...a } = e,
+      o = Ge(),
+      {
+        orientation: s,
+        open: c,
+        floatingRootContext: l,
+        positionerElement: u,
+        value: d,
+        closeDelay: f,
+        viewportElement: p,
+        nested: m,
+      } = U(),
+      h = H.useMemo(() => V(), []),
+      _ = l || h,
+      y = u != null || d == null;
+    B(_, {
+      enabled: !!l && (u != null || p != null || d == null),
+      closeDelay: f,
+      nodeId: o,
+    });
+    let b = he(_, {
+        enabled: y,
+        outsidePressEvent: `intentional`,
+        outsidePress(e) {
+          return I(e)?.closest(`[${Ye}]`) === null;
+        },
+      }),
+      x = l ? b : void 0,
+      S = { open: c },
+      C = m
+        ? v
+        : {
+            onKeyDown(e) {
+              ((s === `horizontal` &&
+                (e.key === `ArrowLeft` || e.key === `ArrowRight`)) ||
+                (s === `vertical` &&
+                  (e.key === `ArrowUp` || e.key === `ArrowDown`))) &&
+                e.stopPropagation();
+            },
+          },
+      ee = [x?.floating || v, C, a],
+      w = g(`ul`, e, { state: S, ref: t, props: ee, enabled: m });
+    return m
+      ? (0, K.jsx)(Xe.Provider, { value: x, children: w })
+      : (0, K.jsx)(Xe.Provider, {
+          value: x,
+          children: (0, K.jsx)(D, {
+            render: n,
+            className: r,
+            style: i,
+            state: S,
+            refs: [t],
+            props: ee,
+            loopFocus: !1,
+            orientation: s,
+            tag: `ul`,
+          }),
+        });
+  }),
+  Qe = H.createContext(void 0);
+function $e() {
+  let e = H.useContext(Qe);
+  if (!e) throw Error(s(39));
+  return e;
+}
+var et = H.forwardRef(function (e, t) {
+    let { render: n, className: r, style: i, value: a, ...o } = e,
+      s = y(),
+      c = a ?? s,
+      l = g(`li`, e, { ref: t, props: o }),
+      u = H.useMemo(() => ({ value: c }), [c]);
+    return (0, K.jsx)(Qe.Provider, { value: u, children: l });
+  }),
+  tt = E(ae(), 1),
+  nt = {
+    ...Se,
+    ...c,
+    activationDirection(e) {
+      return e ? { "data-activation-direction": e } : null;
+    },
+  },
+  X = H.forwardRef(function (e, t) {
+    let { render: n, className: r, style: i, keepMounted: a = !1, ...s } = e,
+      {
+        mounted: c,
+        viewportElement: l,
+        value: u,
+        activationDirection: f,
+        currentContentRef: p,
+        viewportTargetElement: m,
+      } = U(),
+      { value: g } = $e(),
+      _ = Ge(),
+      y = c && u === g,
+      b = H.useRef(null),
+      [x, C] = H.useState(!1),
+      [ee, w] = H.useState(!1),
+      { mounted: T, setMounted: te, transitionStatus: E } = h(y);
+    (T && !c && te(!1),
+      re({
+        ref: b,
+        open: y,
+        onComplete() {
+          y || te(!1);
+        },
+      }),
+      o(() => {
+        y && b.current && (p.current = b.current);
+      }, [y, p]));
+    let ne = { open: y, transitionStatus: E, activationDirection: f },
+      O = S((e) => {
+        e && y && (p.current = e);
+      }),
+      k = {
+        onFocus(e) {
+          I(e.nativeEvent)?.hasAttribute(`data-base-ui-focus-guard`) || w(!0);
+        },
+        onBlur(e) {
+          F(e.currentTarget, e.relatedTarget) || w(!1);
+        },
+      },
+      A =
+        !y && T
+          ? {
+              style: { position: `absolute`, top: 0, left: 0 },
+              inert: d(!ee),
+              ...k,
+            }
+          : k,
+      j = m || l,
+      M = a && !T,
+      N = a && !j && !x;
+    return (
+      a && j && !x && C(!0),
+      N
+        ? (0, K.jsx)(D, {
+            render: n,
+            className: r,
+            style: i,
+            state: ne,
+            refs: [t],
+            props: [A, { hidden: !0 }, s],
+            stateAttributesMapping: nt,
+          })
+        : !j || (!T && !a)
+          ? null
+          : tt.createPortal(
+              (0, K.jsx)(be, {
+                id: _,
+                children: (0, K.jsx)(D, {
+                  render: n,
+                  className: r,
+                  style: i,
+                  state: ne,
+                  refs: [t, b, O],
+                  props: [A, M ? { hidden: !0 } : v, s],
+                  stateAttributesMapping: nt,
+                }),
+              }),
+              j,
+            )
+    );
+  });
+function rt({ currentTarget: e, relatedTarget: t }, n) {
+  let { popupElement: r, rootRef: i, tree: a, nodeId: o } = n,
+    s = a
+      ? me(a.nodesRef.current, o).some((e) =>
+          F(e.context?.elements.floating, t),
+        )
+      : [];
+  return r
+    ? !F(r, e) &&
+        !F(r, t) &&
+        !F(i.current, t) &&
+        !s &&
+        !(F(r, t) && t?.hasAttribute(`data-base-ui-focus-guard`))
+    : !F(i.current, t) && !s;
+}
+var it = { width: 0, height: 0 },
+  at = H.forwardRef(function (n, s) {
+    let {
+        render: c,
+        className: u,
+        style: d,
+        nativeButton: m = !0,
+        disabled: h,
+        ...g
+      } = n,
+      {
+        value: v,
+        setValue: y,
+        mounted: b,
+        open: x,
+        positionerElement: C,
+        setActivationDirection: T,
+        setFloatingRootContext: te,
+        popupElement: E,
+        viewportElement: D,
+        transitionStatus: O,
+        rootRef: A,
+        beforeOutsideRef: re,
+        afterOutsideRef: M,
+        afterInsideRef: P,
+        beforeInsideRef: ie,
+        prevTriggerElementRef: ae,
+        popupAutoSizeResetRef: I,
+        currentContentRef: oe,
+        delay: de,
+        closeDelay: fe,
+        orientation: L,
+        setViewportInert: me,
+        nested: R,
+      } = U(),
+      { value: z } = $e(),
+      he = Ge(),
+      ge = xe(),
+      _e = Ze(),
+      ve = w(),
+      be = se(),
+      Se = p(),
+      Ce = p(),
+      Te = p(),
+      B = p(),
+      [V, Pe] = H.useState(null),
+      [Fe, Ie] = H.useState(!0),
+      [Re, ze] = H.useState(``),
+      Ue = H.useRef(null),
+      We = H.useRef(!1),
+      q = H.useRef(it),
+      qe = H.useRef(!1),
+      J = x && v === z,
+      Je = De(J),
+      Xe = (C != null || v == null) && !h,
+      Y = C || D,
+      Qe = (Y != null || v == null) && !h,
+      et = e(E, !1, !1),
+      nt = H.useCallback((e) => {
+        ((Ue.current = e), Pe(e));
+      }, []),
+      X = S((e = !1) => {
+        (!e && I.current.owner !== z) ||
+          (I.current.abortController?.abort(),
+          (I.current.abortController = null),
+          (I.current.owner = null));
+      });
+    o(() => {
+      J || (Ce.cancel(), B.cancel(), X());
+    }, [J, Ce, B, X]);
+    function at() {
+      E &&
+        (E.style.setProperty(G.popupWidth, `auto`),
+        E.style.setProperty(G.popupHeight, `auto`));
+    }
+    function ot() {
+      !E ||
+        !C ||
+        (E.style.removeProperty(G.popupWidth),
+        E.style.removeProperty(G.popupHeight),
+        C.style.removeProperty(W.positionerWidth),
+        C.style.removeProperty(W.positionerHeight));
+    }
+    function ct() {
+      X(!0);
+      let e = new AbortController();
+      ((I.current.abortController = e),
+        (I.current.owner = z),
+        et(() => {
+          I.current.abortController !== e ||
+            I.current.owner !== z ||
+            ((I.current.abortController = null),
+            (I.current.owner = null),
+            at());
+        }, e.signal));
+    }
+    let lt = S((e, t, n = {}) => {
+        if (!E || !C) return;
+        X(!0);
+        let { syncPositioner: r = !1 } = n;
+        ot();
+        let { width: i, height: a } = He(E),
+          o = i || q.current.width,
+          s = a || q.current.height;
+        ((t === 0 || e === 0) && ((e = o), (t = s)),
+          E.style.setProperty(G.popupWidth, `${e}px`),
+          E.style.setProperty(G.popupHeight, `${t}px`),
+          C.style.setProperty(W.positionerWidth, `${r ? e : o}px`),
+          C.style.setProperty(W.positionerHeight, `${r ? t : s}px`),
+          B.request(() => {
+            Je.current &&
+              (E.style.setProperty(G.popupWidth, `${o}px`),
+              E.style.setProperty(G.popupHeight, `${s}px`),
+              r &&
+                (C.style.setProperty(W.positionerWidth, `${o}px`),
+                C.style.setProperty(W.positionerHeight, `${s}px`)),
+              ct());
+          }));
+      }),
+      ut = S((e, t) => {
+        !E ||
+          !C ||
+          (B.cancel(),
+          Ce.cancel(),
+          X(!0),
+          !(e === 0 || t === 0) &&
+            (Ke(E, C, e, t),
+            Ce.request(() => {
+              Ce.request(() => {
+                ot();
+                let { width: n, height: r } = He(E),
+                  i = n || e || q.current.width,
+                  a = r || t || q.current.height;
+                (Ke(E, C, e, t),
+                  B.request(() => {
+                    Je.current && (Ke(E, C, i, a), ct());
+                  }));
+              });
+            })));
+      }),
+      dt = S(() => {
+        if (!E || !C) return;
+        (B.cancel(), X(!0), ot());
+        let { width: e, height: t } = He(E);
+        e === 0 ||
+          t === 0 ||
+          ((q.current = { width: e, height: t }),
+          at(),
+          C.style.setProperty(W.positionerWidth, `${e}px`),
+          C.style.setProperty(W.positionerHeight, `${t}px`));
+      }),
+      ft = S(() => {
+        if (!E) return { size: q.current, syncPositioner: !1 };
+        let e = E.style.getPropertyValue(G.popupWidth),
+          t = E.style.getPropertyValue(G.popupHeight);
+        return e !== `` && e !== `auto` && t !== `` && t !== `auto`
+          ? {
+              size: {
+                width: E.offsetWidth || q.current.width,
+                height: E.offsetHeight || q.current.height,
+              },
+              syncPositioner: !0,
+            }
+          : { size: q.current, syncPositioner: !1 };
+      });
+    (H.useEffect(() => {
+      x ||
+        (be.clear(),
+        Ce.cancel(),
+        Te.cancel(),
+        B.cancel(),
+        X(!0),
+        (qe.current = !1),
+        ze(``));
+    }, [be, x, Ce, Te, B, X]),
+      H.useEffect(() => {
+        b || (q.current = it);
+      }, [b]),
+      o(() => {
+        if (!E || typeof ResizeObserver != `function`) return;
+        let e = new ResizeObserver(() => {
+          q.current = { width: E.offsetWidth, height: E.offsetHeight };
+        });
+        return (
+          e.observe(E),
+          () => {
+            e.disconnect();
+          }
+        );
+      }, [E]),
+      H.useEffect(() => {
+        if (!x || !J || !E || !C) return;
+        let e = ee(C);
+        function t() {
+          (Te.cancel(), Te.request(dt));
+        }
+        let n = Oe(e, `resize`, t);
+        return () => {
+          (Te.cancel(), n());
+        };
+      }, [x, J, E, C, Te, dt]),
+      H.useEffect(() => {
+        let e = oe.current;
+        if (!e || !E || !J || typeof MutationObserver != `function`) return;
+        let t = new MutationObserver(() => {
+          if (O === `starting` || E.hasAttribute(i.startingStyle)) {
+            dt();
+            return;
+          }
+          let { size: e, syncPositioner: t } = ft();
+          if (t) {
+            ut(e.width, e.height);
+            return;
+          }
+          lt(e.width, e.height);
+        });
+        return (
+          t.observe(e, {
+            childList: !0,
+            subtree: !0,
+            characterData: !0,
+            attributes: !0,
+            attributeFilter: [`hidden`],
+          }),
+          () => {
+            t.disconnect();
+          }
+        );
+      }, [oe, E, J, O, ft, ut, lt, dt]),
+      H.useEffect(
+        () => (
+          J &&
+            x &&
+            E &&
+            We.current &&
+            ((We.current = !1),
+            Se.request(() => {
+              re.current?.focus();
+            })),
+          () => {
+            Se.cancel();
+          }
+        ),
+        [re, Se, J, x, E],
+      ),
+      o(() => {
+        if (Je.current && x && E) {
+          let e = oe.current?.querySelector(`[data-nested]`) != null;
+          if (O === `starting` && e)
+            return (
+              B.request(dt),
+              () => {
+                B.cancel();
+              }
+            );
+          if (qe.current) {
+            qe.current = !1;
+            return;
+          }
+          let { width: t, height: n } = He(E);
+          lt(t, n);
+        }
+      }, [oe, lt, Je, x, E, B, dt, O]));
+    function pt(e, t) {
+      let n = t.reason === j;
+      if (!Xe || (Re === `touch` && n) || (!e && v !== z)) return;
+      function r() {
+        (n &&
+          (Ie(!0),
+          be.clear(),
+          be.start(500, () => {
+            Ie(!1);
+          })),
+          e ? y(z, t) : (y(null, t), ze(``)));
+      }
+      n ? tt.flushSync(r) : r();
+    }
+    let Z = Le({
+        open: x,
+        onOpenChange: pt,
+        elements: { reference: V, floating: Y },
+      }),
+      Q = Me(Z),
+      mt = Re !== `touch`;
+    H.useEffect(() => {
+      x ||
+        ((Z.context.dataRef.current.openEvent = void 0),
+        (Q.pointerType = void 0),
+        (Q.interactedInside = !1),
+        (Q.restTimeoutPending = !1),
+        Q.openChangeTimeout.clear(),
+        Q.restTimeout.clear(),
+        ke(Q));
+    }, [Z, Q, x]);
+    let ht = S(() =>
+      !R || C || !Ue.current || !Y ? null : st(Ue.current, Y, he),
+    );
+    function gt() {
+      return !R || !C ? (Ue.current?.closest(`ul`) ?? null) : null;
+    }
+    let _t = je(Z, {
+        enabled: Qe,
+        move: !1,
+        handleClose: Ne({ blockPointerEvents: mt, getScope: gt }),
+        restMs: b && C ? 0 : de,
+        delay: { close: fe },
+        triggerElementRef: Ue,
+        getHandleCloseContext: ht,
+      }),
+      vt = H.useMemo(() => (_t ? { reference: _t } : void 0), [_t]),
+      yt = Be(Z, { enabled: Xe, stickIfOpen: Fe, toggle: J }),
+      bt = H.useMemo(() => a(yt.reference, vt?.reference), [yt.reference, vt]);
+    o(() => {
+      J && (te(Z), (ae.current = V));
+    }, [J, Z, te, ae, V]);
+    function xt(e) {
+      tt.flushSync(() => {
+        let n = _(e.currentTarget) ? e.currentTarget : null,
+          r = ae.current?.getBoundingClientRect();
+        if (b && r && V) {
+          let e = V.getBoundingClientRect(),
+            t = e.left > r.left,
+            n = e.top > r.top;
+          L === `horizontal` && e.left !== r.left
+            ? T(t ? `right` : `left`)
+            : L === `vertical` && e.top !== r.top && T(n ? `down` : `up`);
+        }
+        if (
+          (e.type !== `click` &&
+            v != null &&
+            (Z.context.dataRef.current.openEvent = void 0),
+          !(Re === `touch` && e.type !== `click`) &&
+            (v != null &&
+              e.type !== `keydown` &&
+              y(z, N(e.type === `mouseenter` ? j : t, e.nativeEvent)),
+            e.type === `mouseenter` && mt && (!R || !C) && Y && n))
+        ) {
+          let e = () => {
+            let e = gt() ?? n.ownerDocument.body;
+            Ae(Q, { scopeElement: e, referenceElement: n, floatingElement: Y });
+          };
+          v != null && v !== z ? queueMicrotask(e) : e();
+        }
+      });
+    }
+    let St = S((e) => {
+        if (h) return;
+        if (!E || !C) {
+          xt(e);
+          return;
+        }
+        let { width: t, height: n } = He(E),
+          r = v != null && v !== z && (e.type === `click` || Re !== `touch`);
+        (xt(e), r && (qe.current = !0), lt(t, n));
+      }),
+      Ct = { open: J };
+    function wt(e) {
+      ze(e.pointerType);
+    }
+    function Tt(e) {
+      (wt(e), ke(Q));
+    }
+    let Et = {
+        tabIndex: 0,
+        onMouseEnter: St,
+        onClick: St,
+        onPointerEnter: wt,
+        onPointerDown: Tt,
+        "aria-expanded": J,
+        "aria-controls": J ? E?.id : void 0,
+        [Ye]: ``,
+        onFocus() {
+          J && me(!1);
+        },
+        onMouseMove() {
+          We.current = !1;
+        },
+        onKeyDown(e) {
+          if (((We.current = !0), R)) return;
+          let t = ve === `rtl` ? `ArrowLeft` : `ArrowRight`,
+            n = L === `horizontal` && e.key === `ArrowDown`,
+            i = L === `vertical` && e.key === t;
+          (n || i) && (y(z, N(r, e.nativeEvent)), St(e), ne(e));
+        },
+        onBlur(e) {
+          C &&
+            E &&
+            rt(
+              {
+                currentTarget: e.currentTarget,
+                relatedTarget: e.relatedTarget,
+              },
+              { popupElement: E, rootRef: A, tree: ge, nodeId: he },
+            ) &&
+            y(null, N(k, e.nativeEvent));
+        },
+      },
+      { getButtonProps: Dt, buttonRef: Ot } = l({
+        disabled: h,
+        focusableWhenDisabled: !0,
+        native: m,
+      }),
+      $ = Y;
+    return (0, K.jsxs)(H.Fragment, {
+      children: [
+        (0, K.jsx)(Ve, {
+          tag: `button`,
+          render: c,
+          className: u,
+          style: d,
+          state: Ct,
+          stateAttributesMapping: ye,
+          refs: [s, nt, Ot],
+          props: [bt, _e?.reference || f, Et, g, Dt],
+        }),
+        J &&
+          (0, K.jsxs)(H.Fragment, {
+            children: [
+              (0, K.jsx)(we, {
+                ref: re,
+                onFocus: (e) => {
+                  $ && Ee(e, $) ? ie.current?.focus() : le(V)?.focus();
+                },
+              }),
+              (0, K.jsx)(`span`, { "aria-owns": D?.id, style: pe }),
+              (0, K.jsx)(we, {
+                ref: M,
+                onFocus: (e) => {
+                  if ($ && Ee(e, $))
+                    (tt.flushSync(() => {
+                      me(!1);
+                    }),
+                      (P.current || V)?.focus());
+                  else {
+                    let t = ce(V);
+                    (R && !C && $ && t && F($, t) && (t = ue(P.current)),
+                      t?.focus(),
+                      (!R || C) &&
+                        !F(A.current, t) &&
+                        y(null, N(`focus-out`, e.nativeEvent)));
+                  }
+                },
+              }),
+            ],
+          }),
+      ],
+    });
+  });
+function ot(e, t) {
+  let n = e.getBoundingClientRect(),
+    r = t.getBoundingClientRect(),
+    i = n.left + n.width / 2,
+    a = n.top + n.height / 2,
+    o = r.left + r.width / 2,
+    s = r.top + r.height / 2,
+    c = o - i,
+    l = s - a;
+  return Math.abs(c) >= Math.abs(l)
+    ? c >= 0
+      ? `right`
+      : `left`
+    : l >= 0
+      ? `bottom`
+      : `top`;
+}
+function st(e, t, n) {
+  return {
+    placement: ot(e, t),
+    elements: { domReference: e, floating: t },
+    nodeId: n,
+  };
+}
+var ct = H.createContext(void 0);
+function lt() {
+  let e = H.useContext(ct);
+  if (e === void 0) throw Error(s(40));
+  return e;
+}
+var ut = H.forwardRef(function (e, t) {
+    let { keepMounted: n = !1, ...r } = e,
+      { mounted: i } = U();
+    return i || n
+      ? (0, K.jsx)(ct.Provider, {
+          value: n,
+          children: (0, K.jsx)(ve, { ref: t, ...r }),
+        })
+      : null;
+  }),
+  dt = H.createContext(void 0);
+function ft(e = !1) {
+  let t = H.useContext(dt);
+  if (!t && !e) throw Error(s(42));
+  return t;
+}
+var pt = V(),
+  Z = H.forwardRef(function (e, t) {
+    let {
+        open: n,
+        mounted: r,
+        positionerElement: i,
+        setPositionerElement: a,
+        floatingRootContext: o,
+        nested: s,
+        transitionStatus: c,
+      } = U(),
+      {
+        className: l,
+        render: u,
+        anchor: d,
+        positionMethod: f = `absolute`,
+        side: p = `bottom`,
+        align: m = `center`,
+        sideOffset: h = 0,
+        alignOffset: g = 0,
+        collisionBoundary: _ = `clipping-ancestors`,
+        collisionPadding: v = 5,
+        collisionAvoidance: y = s ? Te : z,
+        arrowPadding: b = 5,
+        sticky: x = !1,
+        disableAnchorTracking: S = !1,
+        style: C,
+        ...w
+      } = e,
+      T = lt(),
+      te = Ge(),
+      E = se(),
+      D = se(),
+      [ne, O] = H.useState(n),
+      k = H.useRef(n),
+      A = H.useRef(null),
+      re = H.useRef(null);
+    H.useEffect(() => {
+      if (!i) return;
+      function e(e) {
+        i && Ee(e) && (e.type === `focusin` ? fe : de)(i);
+      }
+      return L(Oe(i, `focusin`, e, !0), Oe(i, `focusout`, e, !0));
+    }, [i]);
+    let j = (o || pt).useState(`domReferenceElement`),
+      M = Re({
+        anchor: d ?? j ?? re,
+        positionMethod: f,
+        mounted: r,
+        side: p,
+        sideOffset: h,
+        align: m,
+        alignOffset: g,
+        arrowPadding: b,
+        collisionBoundary: _,
+        collisionPadding: v,
+        sticky: x,
+        disableAnchorTracking: S,
+        keepMounted: T,
+        floatingRootContext: o,
+        collisionAvoidance: y,
+        nodeId: te,
+        adaptiveOrigin: Fe,
+      }),
+      N = {
+        open: n,
+        side: M.side,
+        align: M.align,
+        anchorHidden: M.anchorHidden,
+        instant: ne,
+      };
+    H.useEffect(() => {
+      if (!n) return;
+      k.current &&
+        E.start(0, () => {
+          ((k.current = !1), D.isStarted() || O(!1));
+        });
+      function e() {
+        (tt.flushSync(() => {
+          O(!0);
+        }),
+          D.start(100, () => {
+            O(!1);
+          }));
+      }
+      return Oe(ee(i), `resize`, e);
+    }, [n, E, D, i]);
+    let P = ze(e, N, {
+      styles: M.positionerStyles,
+      transitionStatus: c,
+      props: w,
+      refs: [t, a, A],
+      hidden: !r,
+      inert: !n,
+    });
+    return (0, K.jsx)(dt.Provider, { value: M, children: P });
+  }),
+  Q = V();
+function mt({ children: e }) {
+  let {
+      beforeInsideRef: t,
+      beforeOutsideRef: n,
+      afterInsideRef: r,
+      afterOutsideRef: i,
+      positionerElement: a,
+      viewportElement: o,
+      floatingRootContext: s,
+    } = U(),
+    c = !!ft(!0),
+    l = a || o;
+  return !s && !c
+    ? e
+    : (0, K.jsxs)(H.Fragment, {
+        children: [
+          (0, K.jsx)(we, {
+            ref: t,
+            onFocus: (e) => {
+              l && Ee(e, l) ? ce(l)?.focus() : n.current?.focus();
+            },
+          }),
+          e,
+          (0, K.jsx)(we, {
+            ref: r,
+            onFocus: (e) => {
+              l && Ee(e, l) ? le(l)?.focus() : i.current?.focus();
+            },
+          }),
+        ],
+      });
+}
+var ht = H.forwardRef(function (e, t) {
+    let { render: n, className: r, style: i, children: a, id: s, ...c } = e,
+      l = oe(s),
+      {
+        setViewportElement: u,
+        setViewportTargetElement: f,
+        floatingRootContext: p,
+        prevTriggerElementRef: m,
+        viewportInert: h,
+        setViewportInert: _,
+      } = U(),
+      v = !!ft(!0),
+      y = (p || Q).useState(`domReferenceElement`);
+    o(() => {
+      y && (m.current = y);
+    }, [y, m]);
+    let b = g(`div`, e, {
+      ref: [t, u],
+      props: [
+        {
+          id: l,
+          onBlur(e) {
+            let t = e.relatedTarget,
+              n = e.currentTarget;
+            t && !F(n, t) && t !== y && _(!0);
+          },
+          ...(!v && h && { inert: d(!0) }),
+          children: v
+            ? a
+            : (0, K.jsx)(mt, {
+                children: (0, K.jsx)(`div`, { ref: f, children: a }),
+              }),
+        },
+        c,
+      ],
+    });
+    return v ? (0, K.jsx)(mt, { children: b }) : b;
+  }),
+  gt = { ...Se, ...c },
+  _t = H.forwardRef(function (e, t) {
+    let { render: n, className: r, style: i, id: a, ...o } = e,
+      { open: s, transitionStatus: c, setPopupElement: l } = U(),
+      u = ft(),
+      d = w(),
+      f = y(a),
+      p = {
+        open: s,
+        transitionStatus: c,
+        side: u.side,
+        align: u.align,
+        anchorHidden: u.anchorHidden,
+      },
+      m = u.side === `left`;
+    d === `rtl`
+      ? (m ||= u.side === `inline-end`)
+      : (m ||= u.side === `inline-start`);
+    let h = u.side === `top` || m;
+    return g(`nav`, e, {
+      state: p,
+      ref: [t, l],
+      props: [
+        {
+          id: f,
+          tabIndex: -1,
+          style: h
+            ? {
+                position: `absolute`,
+                [u.side === `top` ? `bottom` : `top`]: `0`,
+                [m ? `right` : `left`]: `0`,
+              }
+            : {},
+        },
+        Pe(c),
+        o,
+      ],
+      stateAttributesMapping: gt,
+    });
+  }),
+  vt = H.forwardRef(function (e, t) {
+    let {
+        className: n,
+        render: r,
+        active: i = !1,
+        closeOnClick: a = !1,
+        style: o,
+        ...s
+      } = e,
+      { setValue: c, popupElement: l, positionerElement: u, rootRef: d } = U(),
+      f = Ge(),
+      p = xe();
+    return (0, K.jsx)(Ve, {
+      tag: `a`,
+      render: r,
+      className: n,
+      style: o,
+      state: { active: i },
+      refs: [t],
+      props: [
+        {
+          "aria-current": i ? `page` : void 0,
+          tabIndex: void 0,
+          onClick(e) {
+            a && c(null, N(b, e.nativeEvent));
+          },
+          onBlur(e) {
+            u &&
+              l &&
+              rt(
+                {
+                  currentTarget: e.currentTarget,
+                  relatedTarget: e.relatedTarget,
+                },
+                { popupElement: l, rootRef: d, tree: p, nodeId: f },
+              ) &&
+              c(null, N(k, e.nativeEvent));
+          },
+        },
+        s,
+      ],
+    });
+  }),
+  yt = H.forwardRef(function (e, t) {
+    let { render: n, className: r, style: i, ...a } = e,
+      { value: o } = $e(),
+      { open: s, value: c } = U();
+    return g(`span`, e, {
+      state: { open: s && c === o },
+      ref: t,
+      props: [{ "aria-hidden": !0, children: `▼` }, a],
+      stateAttributesMapping: R,
+    });
+  });
+function bt({ align: e = `start`, className: t, children: n, ...r }) {
+  return (0, K.jsxs)(J, {
+    "data-slot": `navigation-menu`,
+    className: P(
+      `group/navigation-menu relative flex max-w-max flex-1 items-center justify-center`,
+      t,
+    ),
+    ...r,
+    children: [n, (0, K.jsx)(Et, { align: e })],
+  });
+}
+function xt({ className: e, ...t }) {
+  return (0, K.jsx)(Y, {
+    "data-slot": `navigation-menu-list`,
+    className: P(
+      `group flex flex-1 list-none items-center justify-center gap-0`,
+      e,
+    ),
+    ...t,
+  });
+}
+function St({ className: e, ...t }) {
+  return (0, K.jsx)(et, {
+    "data-slot": `navigation-menu-item`,
+    className: P(`relative`, e),
+    ...t,
+  });
+}
+var Ct = O(
+  `group/navigation-menu-trigger inline-flex h-9 w-max items-center justify-center rounded-lg px-2.5 py-1.5 text-sm font-medium transition-all outline-none hover:bg-muted focus:bg-muted focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-offset-1 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 data-popup-open:bg-muted/50 data-popup-open:hover:bg-muted data-open:bg-muted/50 data-open:hover:bg-muted data-open:focus:bg-muted`,
+);
+function wt({ className: e, children: t, ...n }) {
+  return (0, K.jsxs)(at, {
+    "data-slot": `navigation-menu-trigger`,
+    className: P(Ct(), `group`, e),
+    ...n,
+    children: [
+      t,
+      ` `,
+      (0, K.jsx)(Ie, {
+        className: `relative top-px ml-1 size-3 transition duration-300 group-data-popup-open/navigation-menu-trigger:rotate-180 group-data-open/navigation-menu-trigger:rotate-180`,
+        "aria-hidden": `true`,
+      }),
+    ],
+  });
+}
+function Tt({ className: e, ...t }) {
+  return (0, K.jsx)(X, {
+    "data-slot": `navigation-menu-content`,
+    className: P(
+      `data-ending-style:data-activation-direction=left:translate-x-[50%] data-ending-style:data-activation-direction=right:translate-x-[-50%] data-starting-style:data-activation-direction=left:translate-x-[-50%] data-starting-style:data-activation-direction=right:translate-x-[50%] h-full w-auto p-1 transition-[opacity,transform,translate] duration-[0.35s] ease-[cubic-bezier(0.22,1,0.36,1)] group-data-[viewport=false]/navigation-menu:rounded-lg group-data-[viewport=false]/navigation-menu:bg-popover group-data-[viewport=false]/navigation-menu:text-popover-foreground group-data-[viewport=false]/navigation-menu:shadow group-data-[viewport=false]/navigation-menu:ring-1 group-data-[viewport=false]/navigation-menu:ring-foreground/10 group-data-[viewport=false]/navigation-menu:duration-300 data-ending-style:opacity-0 data-starting-style:opacity-0 data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52 data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52 data-[motion^=from-]:animate-in data-[motion^=from-]:fade-in data-[motion^=to-]:animate-out data-[motion^=to-]:fade-out [&_[data-slot=navigation-menu-link]]:focus:ring-0 [&_[data-slot=navigation-menu-link]]:focus:outline-none group-data-[viewport=false]/navigation-menu:data-open:animate-in group-data-[viewport=false]/navigation-menu:data-open:fade-in-0 group-data-[viewport=false]/navigation-menu:data-open:zoom-in-95 group-data-[viewport=false]/navigation-menu:data-closed:animate-out group-data-[viewport=false]/navigation-menu:data-closed:fade-out-0 group-data-[viewport=false]/navigation-menu:data-closed:zoom-out-95`,
+      e,
+    ),
+    ...t,
+  });
+}
+function Et({
+  className: e,
+  side: t = `bottom`,
+  sideOffset: n = 8,
+  align: r = `start`,
+  alignOffset: i = 0,
+  ...a
+}) {
+  return (0, K.jsx)(ut, {
+    children: (0, K.jsx)(Z, {
+      side: t,
+      sideOffset: n,
+      align: r,
+      alignOffset: i,
+      className: P(
+        `isolate z-50 h-(--positioner-height) w-(--positioner-width) max-w-(--available-width) transition-[top,left,right,bottom] duration-[0.35s] ease-[cubic-bezier(0.22,1,0.36,1)] data-instant:transition-none data-[side=bottom]:before:top-[-10px] data-[side=bottom]:before:right-0 data-[side=bottom]:before:left-0`,
+        e,
+      ),
+      ...a,
+      children: (0, K.jsx)(_t, {
+        className: `data-ending-style:easing-[ease] xs:w-(--popup-width) relative h-(--popup-height) w-(--popup-width) origin-(--transform-origin) rounded-lg bg-popover text-popover-foreground shadow ring-1 ring-foreground/10 transition-[opacity,transform,width,height,scale,translate] duration-[0.35s] ease-[cubic-bezier(0.22,1,0.36,1)] outline-none data-ending-style:scale-90 data-ending-style:opacity-0 data-ending-style:duration-150 data-starting-style:scale-90 data-starting-style:opacity-0`,
+        children: (0, K.jsx)(ht, {
+          className: `relative size-full overflow-hidden`,
+        }),
+      }),
+    }),
+  });
+}
+function Dt({ className: e, ...t }) {
+  return (0, K.jsx)(vt, {
+    "data-slot": `navigation-menu-link`,
+    className: P(
+      `flex items-center gap-2 rounded-lg p-2 text-sm transition-all outline-none hover:bg-muted focus:bg-muted focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-offset-1 focus-visible:ring-offset-background in-data-[slot=navigation-menu-content]:rounded-md data-active:bg-muted/50 data-active:hover:bg-muted data-active:focus:bg-muted [&>svg:not([class*='size-'])]:size-4`,
+      e,
+    ),
+    ...t,
+  });
+}
+function Ot({ className: e, ...t }) {
+  return (0, K.jsx)(yt, {
+    "data-slot": `navigation-menu-indicator`,
+    className: P(
+      `top-full z-1 flex h-1.5 items-end justify-center overflow-hidden data-[state=hidden]:animate-out data-[state=hidden]:fade-out data-[state=visible]:animate-in data-[state=visible]:fade-in`,
+      e,
+    ),
+    ...t,
+    children: (0, K.jsx)(`div`, {
+      className: `relative top-[60%] h-2 w-2 rotate-45 rounded-tl-sm bg-border shadow-md`,
+    }),
+  });
+}
+var $ = H.forwardRef(({ className: e, title: t, children: n, ...r }, i) =>
+  (0, K.jsx)(`li`, {
+    children: (0, K.jsx)(Dt, {
+      render: (0, K.jsxs)(`a`, {
+        ref: i,
+        className: P(
+          `block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground`,
+          e,
+        ),
+        ...r,
+        children: [
+          (0, K.jsx)(`div`, {
+            className: `text-sm font-medium leading-none`,
+            children: t,
+          }),
+          (0, K.jsx)(`p`, {
+            className: `line-clamp-2 text-sm leading-snug text-muted-foreground`,
+            children: n,
+          }),
+        ],
+      }),
+    }),
+  }),
+);
+$.displayName = `ListItem`;
+function kt() {
+  return (0, K.jsxs)(`div`, {
+    className: `space-y-10`,
+    children: [
+      (0, K.jsx)(A, {
+        title: `Navigation Menu`,
+        description: `Một bộ sưu tập các liên kết để điều hướng các trang web.`,
+      }),
+      (0, K.jsx)(ie, {
+        label: `Default`,
+        description: `Điều hướng đa cấp với bảng thả xuống.`,
+        children: (0, K.jsxs)(bt, {
+          children: [
+            (0, K.jsxs)(xt, {
+              children: [
+                (0, K.jsxs)(St, {
+                  children: [
+                    (0, K.jsx)(wt, { children: `Getting started` }),
+                    (0, K.jsx)(Tt, {
+                      children: (0, K.jsxs)(`ul`, {
+                        className: `grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]`,
+                        children: [
+                          (0, K.jsx)(`li`, {
+                            className: `row-span-3`,
+                            children: (0, K.jsxs)(Dt, {
+                              render: (0, K.jsx)(`a`, {
+                                className: `flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md`,
+                                href: `/`,
+                              }),
+                              children: [
+                                (0, K.jsx)(`div`, {
+                                  className: `mb-2 mt-4 text-lg font-medium`,
+                                  children: `gladcn/ui`,
+                                }),
+                                (0, K.jsx)(`p`, {
+                                  className: `text-sm leading-tight text-muted-foreground`,
+                                  children: `Beautifully designed components built with Radix UI and Tailwind CSS.`,
+                                }),
+                              ],
+                            }),
+                          }),
+                          (0, K.jsx)($, {
+                            href: `/docs`,
+                            title: `Introduction`,
+                            children: `Re-usable components built using Radix UI and Tailwind CSS.`,
+                          }),
+                          (0, K.jsx)($, {
+                            href: `/docs/installation`,
+                            title: `Installation`,
+                            children: `How to install dependencies and structure your app.`,
+                          }),
+                          (0, K.jsx)($, {
+                            href: `/docs/primitives/typography`,
+                            title: `Typography`,
+                            children: `Styles for headings, paragraphs, lists...etc`,
+                          }),
+                        ],
+                      }),
+                    }),
+                  ],
+                }),
+                (0, K.jsxs)(St, {
+                  children: [
+                    (0, K.jsx)(wt, { children: `Components` }),
+                    (0, K.jsx)(Tt, {
+                      children: (0, K.jsxs)(`ul`, {
+                        className: `grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] `,
+                        children: [
+                          (0, K.jsx)($, {
+                            title: `Alert Dialog`,
+                            href: `/docs/primitives/alert-dialog`,
+                            children: `A modal dialog that interrupts the user with important content and expects a response.`,
+                          }),
+                          (0, K.jsx)($, {
+                            title: `Hover Card`,
+                            href: `/docs/primitives/hover-card`,
+                            children: `For sighted users to preview content available behind a link.`,
+                          }),
+                          (0, K.jsx)($, {
+                            title: `Progress`,
+                            href: `/docs/primitives/progress`,
+                            children: `Displays an indicator showing the completion progress of a task.`,
+                          }),
+                          (0, K.jsx)($, {
+                            title: `Scroll-area`,
+                            href: `/docs/primitives/scroll-area`,
+                            children: `Visually or semantically separates content.`,
+                          }),
+                        ],
+                      }),
+                    }),
+                  ],
+                }),
+                (0, K.jsx)(St, {
+                  children: (0, K.jsx)(Dt, {
+                    href: `/docs`,
+                    className: Ct(),
+                    children: `Documentation`,
+                  }),
+                }),
+              ],
+            }),
+            (0, K.jsx)(Et, { children: (0, K.jsx)(Ot, {}) }),
+          ],
+        }),
+      }),
+    ],
+  });
+}
+export { kt as default };

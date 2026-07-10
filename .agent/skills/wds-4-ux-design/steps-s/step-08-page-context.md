@@ -1,11 +1,11 @@
 ---
-name: 'step-08-page-context'
-description: 'Route user to appropriate page creation workflow based on their context'
+name: "step-08-page-context"
+description: "Route user to appropriate page creation workflow based on their context"
 
 # File References
-nextStepFile: './step-09-page-name.md'
-workflowFile: '../workflow.md'
-activityWorkflowFile: '../workflow-suggest.md'
+nextStepFile: "./step-09-page-name.md"
+workflowFile: "../workflow.md"
+activityWorkflowFile: "../workflow-suggest.md"
 ---
 
 # Step 8: Page Init - Entry Point
@@ -63,6 +63,7 @@ Route user to appropriate page creation workflow based on what they have — a s
 **Understand from conversation context:**
 
 Check what user has said:
+
 - Did they mention having a sketch/wireframe/visualization?
 - Did they upload an image file?
 - Are they describing a page concept without visual?
@@ -71,20 +72,14 @@ Check what user has said:
 **Route based on understanding:**
 
 IF user has sketch/visualization ready:
-  -> Load and execute: `../data/page-creation-flows/workshop-page-process.md`
-     - Intelligent context detection
-     - New page: Full analysis
-     - Updated page: Change detection & incremental update
+-> Load and execute: `../data/page-creation-flows/workshop-page-process.md` - Intelligent context detection - New page: Full analysis - Updated page: Change detection & incremental update
 
 IF user is describing concept without visualization:
-  -> Load and execute: `../data/page-creation-flows/workshop-page-creation.md`
-     - Define page purpose and concept
-     - Choose visualization method naturally
-     - Create conceptual specification
+-> Load and execute: `../data/page-creation-flows/workshop-page-creation.md` - Define page purpose and concept - Choose visualization method naturally - Create conceptual specification
 
 IF unclear what user wants:
-  -> Ask natural clarifying question based on context
-     Example: "Do you have a sketch or wireframe I should look at, or should we define the page concept together?"
+-> Ask natural clarifying question based on context
+Example: "Do you have a sketch or wireframe I should look at, or should we define the page concept together?"
 </action>
 
 ### 2. Philosophy
@@ -92,6 +87,7 @@ IF unclear what user wants:
 **The page is the conceptual entity.**
 
 It has:
+
 - A purpose (what it accomplishes)
 - A user (who it serves)
 - Sections (what areas exist)
@@ -101,6 +97,7 @@ It has:
 **Visualization is how we represent the page.**
 
 Methods include:
+
 - Sketch (hand-drawn or digital)
 - Wireframe (tool-based)
 - ASCII layout (text-based)

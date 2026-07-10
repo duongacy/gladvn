@@ -1,11 +1,11 @@
 ---
-name: 'step-02-entry-point'
-description: 'Determine where the user first encounters this scenario'
+name: "step-02-entry-point"
+description: "Determine where the user first encounters this scenario"
 
 # File References
-nextStepFile: './step-03-mental-state.md'
-workflowFile: '../workflow.md'
-activityWorkflowFile: '../workflow-suggest.md'
+nextStepFile: "./step-03-mental-state.md"
+workflowFile: "../workflow.md"
+activityWorkflowFile: "../workflow-suggest.md"
 ---
 
 # Step 2: Entry Point
@@ -62,6 +62,7 @@ Determine where the user first encounters this scenario — their entry point in
 <ask>**Where does the user first encounter this?**
 
 What's their entry point?
+
 - Google search?
 - Friend recommendation?
 - App store?

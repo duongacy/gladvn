@@ -1,9 +1,9 @@
 ---
-name: 'step-03-calculate-similarity'
-description: 'Interpret comparison data, calculate weighted similarity score, and classify similarity level'
+name: "step-03-calculate-similarity"
+description: "Interpret comparison data, calculate weighted similarity score, and classify similarity level"
 
 # File References
-nextStepFile: './step-04-identify-opportunities.md'
+nextStepFile: "./step-04-identify-opportunities.md"
 ---
 
 # Step 3: Calculate Similarity

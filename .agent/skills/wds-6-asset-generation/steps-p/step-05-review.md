@@ -1,7 +1,7 @@
 ---
-name: 'step-05-review'
-description: 'Review page designs as a cohesive set for design system compliance and consistency'
-workflowFile: '../workflow.md'
+name: "step-05-review"
+description: "Review page designs as a cohesive set for design system compliance and consistency"
+workflowFile: "../workflow.md"
 ---
 
 # Step 5: Review and Iterate

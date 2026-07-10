@@ -1,1 +1,14 @@
-import{Nn as e,cr as t}from"./showcase-vJrKG7HA.js";t();var n=e();function r({value:e,onValueChange:t,options:r}){return(0,n.jsx)(`select`,{value:e,onChange:e=>t(e.target.value),className:`h-8 rounded-md border border-input bg-transparent px-2 py-1 text-xs font-mono shadow-sm focus:outline-none focus:ring-1 focus:ring-ring`,children:r.map(e=>(0,n.jsx)(`option`,{value:e.value,children:e.label},e.value))})}export{r as t};
+import { Nn as e, cr as t } from "./showcase-vJrKG7HA.js";
+t();
+var n = e();
+function r({ value: e, onValueChange: t, options: r }) {
+  return (0, n.jsx)(`select`, {
+    value: e,
+    onChange: (e) => t(e.target.value),
+    className: `h-8 rounded-md border border-input bg-transparent px-2 py-1 text-xs font-mono shadow-sm focus:outline-none focus:ring-1 focus:ring-ring`,
+    children: r.map((e) =>
+      (0, n.jsx)(`option`, { value: e.value, children: e.label }, e.value),
+    ),
+  });
+}
+export { r as t };

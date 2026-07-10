@@ -1,20 +1,20 @@
 ---
-name: 'step-02-context'
-description: 'Load game-specific brainstorming context and techniques'
+name: "step-02-context"
+description: "Load game-specific brainstorming context and techniques"
 
 # Path Definitions
-workflow_path: '{installed_path}'
+workflow_path: "{installed_path}"
 
 # File References
-thisStepFile: './step-02-context.md'
-nextStepFile: './step-03-ideation.md'
-workflowFile: '{workflow_path}/workflow.md'
-outputFile: '{output_folder}/brainstorming-session-{date}.md'
+thisStepFile: "./step-02-context.md"
+nextStepFile: "./step-03-ideation.md"
+workflowFile: "{workflow_path}/workflow.md"
+outputFile: "{output_folder}/brainstorming-session-{date}.md"
 
 # Context Files
-gameContext: '{workflow_path}/game-context.md'
-gameBrainMethods: '{workflow_path}/game-brain-methods.csv'
-coreBrainstorming: 'skill:bmad-brainstorming'
+gameContext: "{workflow_path}/game-context.md"
+gameBrainMethods: "{workflow_path}/game-brain-methods.csv"
+coreBrainstorming: "skill:bmad-brainstorming"
 ---
 
 # Step 2: Load Context

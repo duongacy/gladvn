@@ -9,6 +9,7 @@
 ### NEVER Chain Multiple Workflow Steps
 
 **FORBIDDEN:**
+
 ```bash
 # ❌ WRONG - Chaining steps in a loop bypasses per-step error handling
 for step in create dev; do
@@ -20,6 +21,7 @@ done
 **WHY:** If the monitoring task crashes mid-loop, ALL subsequent steps are lost. The orchestrator loses visibility even though tmux sessions may have completed successfully.
 
 **REQUIRED:**
+
 ```bash
 # ✅ CORRECT - Each step is a separate operation with its own error handling
 # Step A: Create

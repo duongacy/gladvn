@@ -1,16 +1,17 @@
-import * as React from "react";
 import {
   Pagination,
   PaginationContent,
+  PaginationEllipsis,
   PaginationItem,
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-  PaginationEllipsis,
 } from "@/components/micro/pagination";
+import * as React from "react";
 
-export interface PaginationPresetProps
-  extends React.ComponentProps<typeof Pagination> {
+export interface PaginationPresetProps extends React.ComponentProps<
+  typeof Pagination
+> {
   currentPage: number;
   totalPages: number;
   onPageChange?: (page: number) => void;
@@ -20,7 +21,7 @@ export interface PaginationPresetProps
 function generatePaginationRange(
   currentPage: number,
   totalPages: number,
-  siblingCount = 1
+  siblingCount = 1,
 ) {
   const totalPageNumbers = siblingCount + 5;
 
@@ -47,7 +48,7 @@ function generatePaginationRange(
     const rightItemCount = 3 + 2 * siblingCount;
     const rightRange = Array.from(
       { length: rightItemCount },
-      (_, i) => totalPages - rightItemCount + i + 1
+      (_, i) => totalPages - rightItemCount + i + 1,
     );
     return [firstPageIndex, "...", ...rightRange];
   }
@@ -55,7 +56,7 @@ function generatePaginationRange(
   if (shouldShowLeftDots && shouldShowRightDots) {
     const middleRange = Array.from(
       { length: rightSiblingIndex - leftSiblingIndex + 1 },
-      (_, i) => leftSiblingIndex + i
+      (_, i) => leftSiblingIndex + i,
     );
     return [firstPageIndex, "...", ...middleRange, "...", lastPageIndex];
   }
@@ -64,78 +65,93 @@ function generatePaginationRange(
 }
 
 const PaginationPreset = React.forwardRef<
-  React.ComponentRef<typeof Pagination>,
+  HTMLDivElement,
   PaginationPresetProps
->(({
-  currentPage,
-  totalPages,
-  onPageChange,
-  siblingCount = 1,
-  ...paginationProps
-}, ref) => {
-  const paginationRange = generatePaginationRange(
-    currentPage,
-    totalPages,
-    siblingCount
-  );
+>(
+  (
+    {
+      currentPage,
+      totalPages,
+      onPageChange,
+      siblingCount = 1,
+      className,
+      ...paginationProps
+    },
+    ref,
+  ) => {
+    const paginationRange = generatePaginationRange(
+      currentPage,
+      totalPages,
+      siblingCount,
+    );
 
-  return (
-    <Pagination ref={ref} {...paginationProps}>
-      <PaginationContent>
-        <PaginationItem>
-          <PaginationPrevious
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              if (currentPage > 1) onPageChange?.(currentPage - 1);
-            }}
-            aria-disabled={currentPage === 1}
-            className={currentPage === 1 ? "pointer-events-none opacity-50" : ""}
-          />
-        </PaginationItem>
-
-        {paginationRange.map((pageNumber, index) => {
-          if (pageNumber === "...") {
-            return (
-              <PaginationItem key={`ellipsis-${index}`}>
-                <PaginationEllipsis />
+    return (
+      <div className={className} ref={ref}>
+        <div className="@container/pagination size-full">
+          <Pagination className="size-full" {...paginationProps}>
+            <PaginationContent>
+              <PaginationItem>
+                <PaginationPrevious
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (currentPage > 1) onPageChange?.(currentPage - 1);
+                  }}
+                  aria-disabled={currentPage === 1}
+                  className={
+                    currentPage === 1 ? "pointer-events-none opacity-50" : ""
+                  }
+                />
               </PaginationItem>
-            );
-          }
 
-          return (
-            <PaginationItem key={`page-${pageNumber}`}>
-              <PaginationLink
-                href="#"
-                isActive={pageNumber === currentPage}
-                onClick={(e) => {
-                  e.preventDefault();
-                  onPageChange?.(pageNumber as number);
-                }}
-              >
-                {pageNumber}
-              </PaginationLink>
-            </PaginationItem>
-          );
-        })}
+              {paginationRange.map((pageNumber, index) => {
+                if (pageNumber === "...") {
+                  return (
+                    <PaginationItem key={`ellipsis-${index}`}>
+                      <PaginationEllipsis />
+                    </PaginationItem>
+                  );
+                }
 
-        <PaginationItem>
-          <PaginationNext
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              if (currentPage < totalPages) onPageChange?.(currentPage + 1);
-            }}
-            aria-disabled={currentPage === totalPages}
-            className={
-              currentPage === totalPages ? "pointer-events-none opacity-50" : ""
-            }
-          />
-        </PaginationItem>
-      </PaginationContent>
-    </Pagination>
-  );
-});
+                return (
+                  <PaginationItem key={`page-${pageNumber}`}>
+                    <PaginationLink
+                      href="#"
+                      isActive={pageNumber === currentPage}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        onPageChange?.(pageNumber as number);
+                      }}
+                    >
+                      {pageNumber}
+                    </PaginationLink>
+                  </PaginationItem>
+                );
+              })}
+
+              <PaginationItem>
+                <PaginationNext
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (currentPage < totalPages)
+                      onPageChange?.(currentPage + 1);
+                  }}
+                  aria-disabled={currentPage === totalPages}
+                  className={
+                    currentPage === totalPages
+                      ? "pointer-events-none opacity-50"
+                      : ""
+                  }
+                />
+              </PaginationItem>
+            </PaginationContent>
+          </Pagination>
+        </div>
+      </div>
+    );
+  },
+);
 PaginationPreset.displayName = "PaginationPreset";
 
 export { PaginationPreset };

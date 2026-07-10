@@ -73,12 +73,12 @@ WDS Analyst: "Received! Starting validation testing..."
 
 ```yaml
 happy_path:
-  - id: 'HP-001'
-    name: 'New User Complete Onboarding'
+  - id: "HP-001"
+    name: "New User Complete Onboarding"
     steps:
-      - action: 'Open app'
-        expected: 'Welcome screen appears'
-        design_ref: 'C-UX-Scenarios/01-welcome/Frontend/specifications.md'
+      - action: "Open app"
+        expected: "Welcome screen appears"
+        design_ref: "C-UX-Scenarios/01-welcome/Frontend/specifications.md"
 ```
 
 **For each step:**
@@ -112,10 +112,10 @@ HP-001: New User Complete Onboarding
 
 ```yaml
 error_states:
-  - id: 'ES-001'
-    name: 'Email Already Exists'
+  - id: "ES-001"
+    name: "Email Already Exists"
     steps:
-      - action: 'Enter existing email'
+      - action: "Enter existing email"
       - action: "Tap 'Create Account'"
       - expected: "Error message: 'This email is already registered...'"
 ```
@@ -135,13 +135,13 @@ error_states:
 
 ```yaml
 edge_cases:
-  - id: 'EC-001'
-    name: 'User Closes App Mid-Onboarding'
+  - id: "EC-001"
+    name: "User Closes App Mid-Onboarding"
     steps:
-      - action: 'Start onboarding, complete signup'
-      - action: 'Close app (force quit)'
-      - action: 'Reopen app'
-      - expected: 'Resume at Family Setup'
+      - action: "Start onboarding, complete signup"
+      - action: "Close app (force quit)"
+      - action: "Reopen app"
+      - expected: "Resume at Family Setup"
 ```
 
 **Verify:**
@@ -158,15 +158,15 @@ edge_cases:
 
 ```yaml
 design_system_checks:
-  - id: 'DS-001'
-    name: 'Button Components'
+  - id: "DS-001"
+    name: "Button Components"
     checks:
-      - component: 'Primary Button'
-        instances: ['Get Started', 'Create Account']
+      - component: "Primary Button"
+        instances: ["Get Started", "Create Account"]
         verify:
-          - 'Correct size (48px height)'
-          - 'Correct color (primary brand color)'
-          - 'Correct typography (16px, semibold)'
+          - "Correct size (48px height)"
+          - "Correct color (primary brand color)"
+          - "Correct typography (16px, semibold)"
 ```
 
 **Verify:**
@@ -187,53 +187,53 @@ Reference: `../wds-5-agentic-development/guides/SEO-VALIDATION-GUIDE.md`
 
 ```yaml
 seo_checks:
-  - id: 'SEO-001'
-    name: 'Title tag correct'
+  - id: "SEO-001"
+    name: "Title tag correct"
     verify:
-      - 'Title matches specification (≤ 60 chars)'
-      - 'Contains primary keyword'
-      - 'Contains brand name'
+      - "Title matches specification (≤ 60 chars)"
+      - "Contains primary keyword"
+      - "Contains brand name"
 
-  - id: 'SEO-002'
-    name: 'Meta description correct'
+  - id: "SEO-002"
+    name: "Meta description correct"
     verify:
-      - 'Meta description matches specification'
-      - 'Length 150-160 characters'
-      - 'Contains CTA'
+      - "Meta description matches specification"
+      - "Length 150-160 characters"
+      - "Contains CTA"
 
-  - id: 'SEO-003'
-    name: 'Heading structure valid'
+  - id: "SEO-003"
+    name: "Heading structure valid"
     verify:
-      - 'Exactly one H1'
-      - 'H1 contains primary keyword'
-      - 'No skipped heading levels'
+      - "Exactly one H1"
+      - "H1 contains primary keyword"
+      - "No skipped heading levels"
 
-  - id: 'SEO-004'
-    name: 'Image alt text complete'
+  - id: "SEO-004"
+    name: "Image alt text complete"
     verify:
-      - 'All content images have alt text'
-      - 'Alt text in correct language'
-      - 'No images > 200KB (hero < 400KB)'
+      - "All content images have alt text"
+      - "Alt text in correct language"
+      - "No images > 200KB (hero < 400KB)"
 
-  - id: 'SEO-005'
-    name: 'Social sharing tags'
+  - id: "SEO-005"
+    name: "Social sharing tags"
     verify:
-      - 'og:title, og:description, og:image present'
-      - 'twitter:card present'
+      - "og:title, og:description, og:image present"
+      - "twitter:card present"
 
-  - id: 'SEO-006'
-    name: 'Structured data valid'
+  - id: "SEO-006"
+    name: "Structured data valid"
     verify:
-      - 'JSON-LD present and parseable'
-      - 'Schema type matches plan'
+      - "JSON-LD present and parseable"
+      - "Schema type matches plan"
 
-  - id: 'SEO-007'
-    name: 'Technical SEO'
+  - id: "SEO-007"
+    name: "Technical SEO"
     verify:
-      - 'Canonical URL present'
-      - 'hreflang tags present (if multilingual)'
-      - 'robots.txt exists and references sitemap'
-      - 'Security headers present'
+      - "Canonical URL present"
+      - "hreflang tags present (if multilingual)"
+      - "robots.txt exists and references sitemap"
+      - "Security headers present"
 ```
 
 **Verify:**
@@ -253,13 +253,13 @@ seo_checks:
 
 ```yaml
 accessibility:
-  - id: 'A11Y-001'
-    name: 'Screen Reader Navigation'
-    setup: 'Enable VoiceOver (iOS) or TalkBack (Android)'
+  - id: "A11Y-001"
+    name: "Screen Reader Navigation"
+    setup: "Enable VoiceOver (iOS) or TalkBack (Android)"
     verify:
-      - 'All buttons have descriptive labels'
-      - 'Form fields announce their purpose'
-      - 'Error messages are announced'
+      - "All buttons have descriptive labels"
+      - "Form fields announce their purpose"
+      - "Error messages are announced"
 ```
 
 **Verify:**

@@ -1,31 +1,22 @@
+import {
+  DocsCode,
+  DocsP,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+  SizeToggle,
+} from "@/dev/components/showcase";
 import { useState } from "react";
-import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
 
-import { type Size } from "@/lib/types";
 import { Label } from "@/components/micro/label";
-import { SelectPreset } from "@/components/macro/select-preset";
+import { type Size } from "@/lib/types";
 
-export default function LabelShowcase() {
-  const [globalSize, setGlobalSize] = useState<Size>("md");
-
+// ──────────────────────────────────────────────────────────
+// SECTION 2: Micro Content (không export)
+// ──────────────────────────────────────────────────────────
+function LabelMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
-    <div className="space-y-10">
-      <SectionHeader
-        title="Label"
-        description="Hiển thị nhãn có thể truy cập được liên kết với các điều khiển."
-      >
-        <SelectPreset
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as Size)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-          className="w-[120px] h-8 text-xs bg-background"
-        />
-      </SectionHeader>
-
+    <div className="space-y-10 mt-6">
       <ExampleSection
         label="Default"
         description="Cách sử dụng nhãn tiêu chuẩn."
@@ -97,5 +88,36 @@ export default function LabelShowcase() {
         </div>
       </ExampleSection>
     </div>
+  );
+}
+
+// ──────────────────────────────────────────────────────────
+// SECTION 3: Entry point (export default)
+// ──────────────────────────────────────────────────────────
+export default function LabelShowcase() {
+  const [globalSize, setGlobalSize] = useState<Size>("md");
+
+  return (
+    <Showcase
+      title="Label"
+      description="Hiển thị nhãn có thể truy cập được liên kết với các điều khiển."
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsP>
+            Label được sử dụng để gắn nhãn cho các trường nhập liệu form. Nó cải
+            thiện khả năng truy cập (accessibility) bằng cách liên kết văn bản
+            với một form control cụ thể (thông qua thuộc tính{" "}
+            <DocsCode>htmlFor</DocsCode>).
+          </DocsP>
+        </ShowcaseDocs>
+      }
+      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
+      tabs={[
+        {
+          label: "Micro (Primitive)",
+          content: <LabelMicroShowcase globalSize={globalSize} />,
+        },
+      ]}
+    />
   );
 }

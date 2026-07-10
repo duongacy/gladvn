@@ -1,1 +1,276 @@
-import{Nn as e,i as t,qn as n,r}from"./showcase-vJrKG7HA.js";import{Mt as i,jt as a}from"./index-Dk0REsC9.js";import{a as o,i as s,n as c,o as l,r as u,t as d}from"./carousel-Cmm5w0KX.js";var f=e(),p=[{id:1,title:`Modern Aesthetics`,desc:`Crafting beautiful interfaces with tailwind.`,bg:`bg-gradient-to-tr from-violet-500 to-purple-500`},{id:2,title:`Smooth Interactions`,desc:`Fluid animations and micro-interactions.`,bg:`bg-gradient-to-tr from-pink-500 to-rose-500`},{id:3,title:`Highly Customizable`,desc:`Easily adapt to your brand.`,bg:`bg-gradient-to-tr from-blue-500 to-cyan-500`},{id:4,title:`Accessible by Default`,desc:`Keyboard navigation out of the box.`,bg:`bg-gradient-to-tr from-emerald-500 to-teal-500`},{id:5,title:`Dark Mode Ready`,desc:`Looks stunning on dark and light mode.`,bg:`bg-gradient-to-tr from-amber-500 to-orange-500`}];function m(){return(0,f.jsxs)(`div`,{className:`space-y-10`,children:[(0,f.jsx)(t,{title:`Carousel`,description:`Băng chuyền cao cấp có chuyển động, vuốt và phân trang được xây dựng bằng Embla.`}),(0,f.jsx)(r,{label:`Hero Banner`,description:`Biểu ngữ có chiều rộng đầy đủ với điều hướng lớp phủ, mũi tên kính mờ và phân trang tương tác.`,children:(0,f.jsx)(`div`,{className:`mx-auto w-full max-w-4xl`,children:(0,f.jsxs)(d,{opts:{loop:!0},className:`group relative w-full overflow-hidden rounded-2xl shadow-xl border border-border/50`,children:[(0,f.jsx)(c,{className:`-ml-4`,children:p.map(e=>(0,f.jsx)(s,{className:`pl-4`,children:(0,f.jsxs)(`div`,{className:n(`flex aspect-[21/9] flex-col items-center justify-center p-6 text-center text-white`,e.bg),children:[(0,f.jsx)(`h3`,{className:`mb-2 text-3xl font-bold tracking-tight sm:text-5xl`,children:e.title}),(0,f.jsx)(`p`,{className:`max-w-md text-sm text-white/80 sm:text-lg`,children:e.desc})]})},e.id))}),(0,f.jsxs)(`div`,{className:`pointer-events-none absolute inset-0 z-10 flex items-center justify-between p-4 transition-opacity duration-300 sm:p-6`,children:[(0,f.jsx)(l,{className:`pointer-events-auto opacity-80 backdrop-blur-md hover:opacity-100 bg-background/50 border-white/20 text-foreground`}),(0,f.jsx)(o,{className:`pointer-events-auto opacity-80 backdrop-blur-md hover:opacity-100 bg-background/50 border-white/20 text-foreground`})]}),(0,f.jsx)(`div`,{className:`absolute bottom-4 left-0 right-0 z-10`,children:(0,f.jsx)(u,{className:`[&>[data-slot=carousel-dot][data-active]]:bg-white [&>[data-slot=carousel-dot]]:bg-white/40 hover:[&>[data-slot=carousel-dot]]:bg-white/60`})})]})})}),(0,f.jsx)(r,{label:`Product Gallery`,description:`Băng chuyền gồm nhiều mục để hiển thị sản phẩm hoặc thẻ có hoạt ảnh vi mô.`,children:(0,f.jsx)(`div`,{className:`mx-auto w-full max-w-5xl px-12`,children:(0,f.jsxs)(d,{opts:{align:`start`},className:`w-full relative`,children:[(0,f.jsx)(c,{className:`-ml-4`,children:Array.from({length:10}).map((e,t)=>(0,f.jsx)(s,{className:`pl-4 md:basis-1/2 lg:basis-1/3`,children:(0,f.jsx)(`div`,{className:`p-1`,children:(0,f.jsxs)(a,{className:`overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1`,children:[(0,f.jsxs)(`div`,{className:`aspect-4/3 bg-muted flex items-center justify-center relative group`,children:[(0,f.jsxs)(`span`,{className:`text-4xl font-black text-muted-foreground/30 transition-transform duration-500 group-hover:scale-110`,children:[`0`,t+1]}),(0,f.jsx)(`div`,{className:`absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex items-end p-4`,children:(0,f.jsxs)(`span`,{className:`text-white font-medium`,children:[`View Item `,t+1]})})]}),(0,f.jsxs)(i,{className:`p-4`,children:[(0,f.jsx)(`div`,{className:`text-sm font-medium text-muted-foreground mb-1`,children:`Category`}),(0,f.jsxs)(`h4`,{className:`font-semibold text-lg leading-none`,children:[`Featured Item `,t+1]})]})]})})},t))}),(0,f.jsx)(l,{className:`absolute -left-12 top-1/2 -translate-y-1/2 border-border shadow-sm hover:bg-accent`}),(0,f.jsx)(o,{className:`absolute -right-12 top-1/2 -translate-y-1/2 border-border shadow-sm hover:bg-accent`})]})})}),(0,f.jsx)(r,{label:`Compact layout`,description:`Bố cục băng chuyền nhỏ gọn có các dấu chấm, thường được sử dụng để làm quen hoặc hướng dẫn.`,children:(0,f.jsx)(`div`,{className:`mx-auto w-full max-w-sm`,children:(0,f.jsxs)(d,{className:`w-full`,children:[(0,f.jsx)(c,{className:`-ml-4`,children:Array.from({length:5}).map((e,t)=>(0,f.jsx)(s,{className:`pl-4`,children:(0,f.jsx)(`div`,{className:`p-2`,children:(0,f.jsx)(a,{className:`border-2 border-primary/10 bg-primary/5`,children:(0,f.jsxs)(i,{className:`flex aspect-square flex-col items-center justify-center p-6 text-center`,children:[(0,f.jsx)(`div`,{className:`rounded-full bg-primary/10 p-4 mb-4`,children:(0,f.jsx)(`span`,{className:`text-4xl font-bold text-primary`,children:t+1})}),(0,f.jsxs)(`h3`,{className:`font-semibold`,children:[`Step `,t+1]}),(0,f.jsx)(`p`,{className:`text-sm text-muted-foreground mt-2`,children:`Swipe to see the next step in the process.`})]})})})},t))}),(0,f.jsx)(`div`,{className:`mt-4`,children:(0,f.jsx)(u,{})})]})})}),(0,f.jsx)(r,{label:`Vertical Orientation`,description:`Một băng chuyền cuộn theo chiều dọc. Lưu ý việc sử dụng pt-4 thay vì pl-4 cho các khoảng trống.`,children:(0,f.jsx)(`div`,{className:`mx-auto w-full max-w-xs py-12 flex justify-center`,children:(0,f.jsxs)(d,{orientation:`vertical`,className:`w-full`,children:[(0,f.jsx)(c,{className:`h-[400px] -mt-4`,children:Array.from({length:5}).map((e,t)=>(0,f.jsx)(s,{className:`pt-4 basis-1/2`,children:(0,f.jsx)(`div`,{className:`p-1 h-full`,children:(0,f.jsx)(a,{className:`h-full flex items-center justify-center bg-muted/40 border-2`,children:(0,f.jsx)(`span`,{className:`text-4xl font-bold text-muted-foreground/50`,children:t+1})})})},t))}),(0,f.jsx)(l,{className:`absolute -top-12 left-1/2 -translate-x-1/2 rotate-90`}),(0,f.jsx)(o,{className:`absolute -bottom-12 left-1/2 -translate-x-1/2 rotate-90`})]})})})]})}export{m as default};
+import { Nn as e, i as t, qn as n, r } from "./showcase-vJrKG7HA.js";
+import { Mt as i, jt as a } from "./index-Dk0REsC9.js";
+import {
+  a as o,
+  i as s,
+  n as c,
+  o as l,
+  r as u,
+  t as d,
+} from "./carousel-Cmm5w0KX.js";
+var f = e(),
+  p = [
+    {
+      id: 1,
+      title: `Modern Aesthetics`,
+      desc: `Crafting beautiful interfaces with tailwind.`,
+      bg: `bg-gradient-to-tr from-violet-500 to-purple-500`,
+    },
+    {
+      id: 2,
+      title: `Smooth Interactions`,
+      desc: `Fluid animations and micro-interactions.`,
+      bg: `bg-gradient-to-tr from-pink-500 to-rose-500`,
+    },
+    {
+      id: 3,
+      title: `Highly Customizable`,
+      desc: `Easily adapt to your brand.`,
+      bg: `bg-gradient-to-tr from-blue-500 to-cyan-500`,
+    },
+    {
+      id: 4,
+      title: `Accessible by Default`,
+      desc: `Keyboard navigation out of the box.`,
+      bg: `bg-gradient-to-tr from-emerald-500 to-teal-500`,
+    },
+    {
+      id: 5,
+      title: `Dark Mode Ready`,
+      desc: `Looks stunning on dark and light mode.`,
+      bg: `bg-gradient-to-tr from-amber-500 to-orange-500`,
+    },
+  ];
+function m() {
+  return (0, f.jsxs)(`div`, {
+    className: `space-y-10`,
+    children: [
+      (0, f.jsx)(t, {
+        title: `Carousel`,
+        description: `Băng chuyền cao cấp có chuyển động, vuốt và phân trang được xây dựng bằng Embla.`,
+      }),
+      (0, f.jsx)(r, {
+        label: `Hero Banner`,
+        description: `Biểu ngữ có chiều rộng đầy đủ với điều hướng lớp phủ, mũi tên kính mờ và phân trang tương tác.`,
+        children: (0, f.jsx)(`div`, {
+          className: `mx-auto w-full max-w-4xl`,
+          children: (0, f.jsxs)(d, {
+            opts: { loop: !0 },
+            className: `group relative w-full overflow-hidden rounded-2xl shadow-xl border border-border/50`,
+            children: [
+              (0, f.jsx)(c, {
+                className: `-ml-4`,
+                children: p.map((e) =>
+                  (0, f.jsx)(
+                    s,
+                    {
+                      className: `pl-4`,
+                      children: (0, f.jsxs)(`div`, {
+                        className: n(
+                          `flex aspect-[21/9] flex-col items-center justify-center p-6 text-center text-white`,
+                          e.bg,
+                        ),
+                        children: [
+                          (0, f.jsx)(`h3`, {
+                            className: `mb-2 text-3xl font-bold tracking-tight sm:text-5xl`,
+                            children: e.title,
+                          }),
+                          (0, f.jsx)(`p`, {
+                            className: `max-w-md text-sm text-white/80 sm:text-lg`,
+                            children: e.desc,
+                          }),
+                        ],
+                      }),
+                    },
+                    e.id,
+                  ),
+                ),
+              }),
+              (0, f.jsxs)(`div`, {
+                className: `pointer-events-none absolute inset-0 z-10 flex items-center justify-between p-4 transition-opacity duration-300 sm:p-6`,
+                children: [
+                  (0, f.jsx)(l, {
+                    className: `pointer-events-auto opacity-80 backdrop-blur-md hover:opacity-100 bg-background/50 border-white/20 text-foreground`,
+                  }),
+                  (0, f.jsx)(o, {
+                    className: `pointer-events-auto opacity-80 backdrop-blur-md hover:opacity-100 bg-background/50 border-white/20 text-foreground`,
+                  }),
+                ],
+              }),
+              (0, f.jsx)(`div`, {
+                className: `absolute bottom-4 left-0 right-0 z-10`,
+                children: (0, f.jsx)(u, {
+                  className: `[&>[data-slot=carousel-dot][data-active]]:bg-white [&>[data-slot=carousel-dot]]:bg-white/40 hover:[&>[data-slot=carousel-dot]]:bg-white/60`,
+                }),
+              }),
+            ],
+          }),
+        }),
+      }),
+      (0, f.jsx)(r, {
+        label: `Product Gallery`,
+        description: `Băng chuyền gồm nhiều mục để hiển thị sản phẩm hoặc thẻ có hoạt ảnh vi mô.`,
+        children: (0, f.jsx)(`div`, {
+          className: `mx-auto w-full max-w-5xl px-12`,
+          children: (0, f.jsxs)(d, {
+            opts: { align: `start` },
+            className: `w-full relative`,
+            children: [
+              (0, f.jsx)(c, {
+                className: `-ml-4`,
+                children: Array.from({ length: 10 }).map((e, t) =>
+                  (0, f.jsx)(
+                    s,
+                    {
+                      className: `pl-4 md:basis-1/2 lg:basis-1/3`,
+                      children: (0, f.jsx)(`div`, {
+                        className: `p-1`,
+                        children: (0, f.jsxs)(a, {
+                          className: `overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1`,
+                          children: [
+                            (0, f.jsxs)(`div`, {
+                              className: `aspect-4/3 bg-muted flex items-center justify-center relative group`,
+                              children: [
+                                (0, f.jsxs)(`span`, {
+                                  className: `text-4xl font-black text-muted-foreground/30 transition-transform duration-500 group-hover:scale-110`,
+                                  children: [`0`, t + 1],
+                                }),
+                                (0, f.jsx)(`div`, {
+                                  className: `absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex items-end p-4`,
+                                  children: (0, f.jsxs)(`span`, {
+                                    className: `text-white font-medium`,
+                                    children: [`View Item `, t + 1],
+                                  }),
+                                }),
+                              ],
+                            }),
+                            (0, f.jsxs)(i, {
+                              className: `p-4`,
+                              children: [
+                                (0, f.jsx)(`div`, {
+                                  className: `text-sm font-medium text-muted-foreground mb-1`,
+                                  children: `Category`,
+                                }),
+                                (0, f.jsxs)(`h4`, {
+                                  className: `font-semibold text-lg leading-none`,
+                                  children: [`Featured Item `, t + 1],
+                                }),
+                              ],
+                            }),
+                          ],
+                        }),
+                      }),
+                    },
+                    t,
+                  ),
+                ),
+              }),
+              (0, f.jsx)(l, {
+                className: `absolute -left-12 top-1/2 -translate-y-1/2 border-border shadow-sm hover:bg-accent`,
+              }),
+              (0, f.jsx)(o, {
+                className: `absolute -right-12 top-1/2 -translate-y-1/2 border-border shadow-sm hover:bg-accent`,
+              }),
+            ],
+          }),
+        }),
+      }),
+      (0, f.jsx)(r, {
+        label: `Compact layout`,
+        description: `Bố cục băng chuyền nhỏ gọn có các dấu chấm, thường được sử dụng để làm quen hoặc hướng dẫn.`,
+        children: (0, f.jsx)(`div`, {
+          className: `mx-auto w-full max-w-sm`,
+          children: (0, f.jsxs)(d, {
+            className: `w-full`,
+            children: [
+              (0, f.jsx)(c, {
+                className: `-ml-4`,
+                children: Array.from({ length: 5 }).map((e, t) =>
+                  (0, f.jsx)(
+                    s,
+                    {
+                      className: `pl-4`,
+                      children: (0, f.jsx)(`div`, {
+                        className: `p-2`,
+                        children: (0, f.jsx)(a, {
+                          className: `border-2 border-primary/10 bg-primary/5`,
+                          children: (0, f.jsxs)(i, {
+                            className: `flex aspect-square flex-col items-center justify-center p-6 text-center`,
+                            children: [
+                              (0, f.jsx)(`div`, {
+                                className: `rounded-full bg-primary/10 p-4 mb-4`,
+                                children: (0, f.jsx)(`span`, {
+                                  className: `text-4xl font-bold text-primary`,
+                                  children: t + 1,
+                                }),
+                              }),
+                              (0, f.jsxs)(`h3`, {
+                                className: `font-semibold`,
+                                children: [`Step `, t + 1],
+                              }),
+                              (0, f.jsx)(`p`, {
+                                className: `text-sm text-muted-foreground mt-2`,
+                                children: `Swipe to see the next step in the process.`,
+                              }),
+                            ],
+                          }),
+                        }),
+                      }),
+                    },
+                    t,
+                  ),
+                ),
+              }),
+              (0, f.jsx)(`div`, {
+                className: `mt-4`,
+                children: (0, f.jsx)(u, {}),
+              }),
+            ],
+          }),
+        }),
+      }),
+      (0, f.jsx)(r, {
+        label: `Vertical Orientation`,
+        description: `Một băng chuyền cuộn theo chiều dọc. Lưu ý việc sử dụng pt-4 thay vì pl-4 cho các khoảng trống.`,
+        children: (0, f.jsx)(`div`, {
+          className: `mx-auto w-full max-w-xs py-12 flex justify-center`,
+          children: (0, f.jsxs)(d, {
+            orientation: `vertical`,
+            className: `w-full`,
+            children: [
+              (0, f.jsx)(c, {
+                className: `h-[400px] -mt-4`,
+                children: Array.from({ length: 5 }).map((e, t) =>
+                  (0, f.jsx)(
+                    s,
+                    {
+                      className: `pt-4 basis-1/2`,
+                      children: (0, f.jsx)(`div`, {
+                        className: `p-1 h-full`,
+                        children: (0, f.jsx)(a, {
+                          className: `h-full flex items-center justify-center bg-muted/40 border-2`,
+                          children: (0, f.jsx)(`span`, {
+                            className: `text-4xl font-bold text-muted-foreground/50`,
+                            children: t + 1,
+                          }),
+                        }),
+                      }),
+                    },
+                    t,
+                  ),
+                ),
+              }),
+              (0, f.jsx)(l, {
+                className: `absolute -top-12 left-1/2 -translate-x-1/2 rotate-90`,
+              }),
+              (0, f.jsx)(o, {
+                className: `absolute -bottom-12 left-1/2 -translate-x-1/2 rotate-90`,
+              }),
+            ],
+          }),
+        }),
+      }),
+    ],
+  });
+}
+export { m as default };

@@ -1,7 +1,7 @@
 ---
-name: 'step-04-generate'
-description: 'Generate UI element assets for all components in priority order'
-nextStepFile: './step-05-review.md'
+name: "step-04-generate"
+description: "Generate UI element assets for all components in priority order"
+nextStepFile: "./step-05-review.md"
 ---
 
 # Step 4: Generate UI Elements

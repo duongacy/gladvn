@@ -1,52 +1,51 @@
-import { useState } from "react";
-import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
+import { Controller, useForm } from "react-hook-form";
 import * as z from "zod";
 
 import {
-  ExampleSection,
-  ExampleGrid,
-  ShowcaseDocs,
-  Showcase,
-  DocsH3,
-  DocsP,
   DocsCode,
+  DocsP,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+  SizeToggle,
 } from "@/dev/components/showcase";
-import { MonoSelect } from "@/dev/components/mono-select";
 import { type Size } from "@/lib/types";
 
+import { ComboboxPreset } from "@/components/macro/combobox-preset";
+import { Button } from "@/components/micro/button";
 import {
   Combobox,
-  ComboboxInput,
-  ComboboxContent,
-  ComboboxList,
-  ComboboxItem,
-  ComboboxGroup,
-  ComboboxLabel,
-  ComboboxEmpty,
-  ComboboxSeparator,
-  ComboboxChips,
+  ComboboxAnchor,
   ComboboxChip,
+  ComboboxChips,
   ComboboxChipsInput,
+  ComboboxClear,
+  ComboboxContent,
+  ComboboxEmpty,
+  ComboboxGroup,
+  ComboboxInput,
+  ComboboxItem,
+  ComboboxLabel,
+  ComboboxList,
+  ComboboxSeparator,
   ComboboxTrigger,
   ComboboxValue,
-  ComboboxAnchor,
-  ComboboxClear,
 } from "@/components/micro/combobox";
 import {
   Field,
-  FieldLabel,
-  FieldDescription,
   FieldContent,
+  FieldDescription,
   FieldError,
+  FieldLabel,
 } from "@/components/micro/field";
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
 } from "@/components/micro/input-group";
-import { ComboboxPreset } from "@/components/macro/combobox-preset";
-import { Button } from "@/components/micro/button";
 
 const frontendFrameworks = ["react", "vue", "svelte"];
 const backendFrameworks = ["express", "nest"];
@@ -144,17 +143,6 @@ function ComboboxForm({ size }: { size: Size }) {
 function ComboboxMacroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Khi nào nên dùng Macro</DocsH3>
-        <DocsP>
-          <DocsCode>ComboboxPreset</DocsCode> đóng gói kiến trúc siêu phức tạp
-          của Combobox (gồm Input, List, Popover, Clear Button) thành 1
-          component duy nhất giống hệ SelectPreset. Nhận danh sách thả xuống qua
-          prop <DocsCode>options</DocsCode>. Sử dụng Macro cho 99% form có chứa
-          tìm kiếm.
-        </DocsP>
-      </ShowcaseDocs>
-
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Tiêu chuẩn"
@@ -309,17 +297,6 @@ function ComboboxMacroShowcase({ globalSize }: { globalSize: Size }) {
 function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Khi nào nên dùng Micro</DocsH3>
-        <DocsP>
-          Dùng <DocsCode>Combobox</DocsCode> nguyên thuỷ khi bạn cần tính năng
-          Multi-select (chọn nhiều dạng Chips), hoặc muốn phân nhóm (
-          <DocsCode>ComboboxGroup</DocsCode>), hoặc muốn tuỳ biến giao diện
-          Input thành nút Trigger bình thường (
-          <DocsCode>ComboboxTrigger</DocsCode>) thay vì ô nhập chữ.
-        </DocsP>
-      </ShowcaseDocs>
-
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Cơ bản & Phân nhóm"
@@ -772,17 +749,16 @@ export default function ComboboxShowcase() {
     <Showcase
       title="Combobox"
       description="Thành phần mở rộng của Select, cho phép người dùng gõ phím để tìm kiếm và lọc qua các tập dữ liệu lớn."
-      actions={
-        <MonoSelect
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as Size)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-        />
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsP>
+            Dùng để chọn một hoặc nhiều giá trị từ một danh sách lớn. Khác với
+            Select, Combobox có ô nhập liệu để người dùng có thể gõ từ khóa tìm
+            kiếm và lọc các tùy chọn một cách nhanh chóng.
+          </DocsP>
+        </ShowcaseDocs>
       }
+      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
       tabs={[
         {
           label: "Micro (Primitive)",

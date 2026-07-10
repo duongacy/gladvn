@@ -1,11 +1,11 @@
 ---
-name: 'step-06-scenario-name'
-description: 'Choose a descriptive, outcome-focused name for the scenario'
+name: "step-06-scenario-name"
+description: "Choose a descriptive, outcome-focused name for the scenario"
 
 # File References
-nextStepFile: './step-07-create-scenario-folder.md'
-workflowFile: '../workflow.md'
-activityWorkflowFile: '../workflow-suggest.md'
+nextStepFile: "./step-07-create-scenario-folder.md"
+workflowFile: "../workflow.md"
+activityWorkflowFile: "../workflow-suggest.md"
 ---
 
 # Step 6: Scenario Name
@@ -62,6 +62,7 @@ Choose a descriptive, outcome-focused name for this scenario that captures its e
 Make it descriptive and outcome-focused:
 
 Examples:
+
 - "User Onboarding to First Success"
 - "Purchase Journey"
 - "Problem Resolution Flow"

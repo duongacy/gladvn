@@ -5,17 +5,17 @@
  * - Form Control Parity
  * - CSS Delegated Logic
  */
-import * as React from "react";
-import { cva, type VariantProps } from "class-variance-authority";
-import { useRender } from "@base-ui/react/use-render";
 import { mergeProps } from "@base-ui/react/merge-props";
+import { useRender } from "@base-ui/react/use-render";
+import { cva, type VariantProps } from "class-variance-authority";
+import * as React from "react";
 
 import { cn } from "@/lib/utils";
 
 // CSS Delegated Logic:
 // - KHÔNG CÒN MAGIC CSS: Mọi logic layout (như khoảng cách icon, padding action) đều được uỷ quyền cho Macro xử lý.
 const alertVariants = cva(
-  "group/alert @container/alert w-fit h-fit min-w-0 relative rounded-lg border text-left bg-card text-card-foreground",
+  "group/alert relative rounded-lg border text-left bg-card text-card-foreground",
   {
     variants: {
       color: {
@@ -45,21 +45,22 @@ const alertVariants = cva(
 export type AlertProps = Omit<React.ComponentProps<"div">, "color"> &
   VariantProps<typeof alertVariants>;
 
-const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
-  function Alert({ className, color = "info", size = "md", ...props }, ref) {
-    return (
-      <div
-        ref={ref}
-        data-slot="alert"
-        data-size={size}
-        data-color={color}
-        role="alert"
-        className={cn(alertVariants({ color, size }), className)}
-        {...props}
-      />
-    );
-  }
-);
+const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
+  { className, color = "info", size = "md", ...props },
+  ref,
+) {
+  return (
+    <div
+      ref={ref}
+      data-slot="alert"
+      data-size={size}
+      data-color={color}
+      role="alert"
+      className={cn(alertVariants({ color, size }), className)}
+      {...props}
+    />
+  );
+});
 Alert.displayName = "Alert";
 
 export type AlertTitleProps = React.ComponentProps<"div">;
@@ -70,38 +71,36 @@ const AlertTitle = React.forwardRef<HTMLDivElement, AlertTitleProps>(
       <div
         ref={ref}
         data-slot="alert-title"
-        className={cn(
-          "font-medium",
-          className,
-        )}
+        className={cn("font-medium", className)}
         {...props}
       />
     );
-  }
+  },
 );
 AlertTitle.displayName = "AlertTitle";
 
 export type AlertDescriptionProps = React.ComponentProps<"div">;
 
-const AlertDescription = React.forwardRef<HTMLDivElement, AlertDescriptionProps>(
-  function AlertDescription({ className, ...props }, ref) {
-    return (
-      <div
-        ref={ref}
-        data-slot="alert-description"
-        className={cn(
-          "text-balance text-muted-foreground md:text-pretty leading-relaxed",
-          "group-data-[color=info]/alert:text-info/90",
-          "group-data-[color=destructive]/alert:text-destructive/90",
-          "group-data-[color=success]/alert:text-success/90",
-          "group-data-[color=warning]/alert:text-warning/90",
-          className,
-        )}
-        {...props}
-      />
-    );
-  }
-);
+const AlertDescription = React.forwardRef<
+  HTMLDivElement,
+  AlertDescriptionProps
+>(function AlertDescription({ className, ...props }, ref) {
+  return (
+    <div
+      ref={ref}
+      data-slot="alert-description"
+      className={cn(
+        "text-balance text-muted-foreground md:text-pretty leading-relaxed",
+        "group-data-[color=info]/alert:text-info/90",
+        "group-data-[color=destructive]/alert:text-destructive/90",
+        "group-data-[color=success]/alert:text-success/90",
+        "group-data-[color=warning]/alert:text-warning/90",
+        className,
+      )}
+      {...props}
+    />
+  );
+});
 AlertDescription.displayName = "AlertDescription";
 
 export type AlertActionProps = React.ComponentProps<"div">;
@@ -116,7 +115,7 @@ const AlertAction = React.forwardRef<HTMLDivElement, AlertActionProps>(
         {...props}
       />
     );
-  }
+  },
 );
 AlertAction.displayName = "AlertAction";
 
@@ -140,8 +139,8 @@ const AlertIcon = React.forwardRef<HTMLDivElement, AlertIconProps>(
         props,
       ),
     });
-  }
+  },
 );
 AlertIcon.displayName = "AlertIcon";
 
-export { Alert, AlertIcon, AlertTitle, AlertDescription, AlertAction };
+export { Alert, AlertAction, AlertDescription, AlertIcon, AlertTitle };

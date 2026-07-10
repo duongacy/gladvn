@@ -1,36 +1,21 @@
-import { useState } from "react";
 import {
-  SectionHeader,
-  ExampleSection,
+  DocsH3,
+  DocsP,
   ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+  SizeToggle,
 } from "@/dev/components/showcase";
 import { BoldIcon, ItalicIcon, UnderlineIcon } from "lucide-react";
+import { useState } from "react";
 
-import { type Size } from "@/lib/types";
 import { Toggle } from "@/components/micro/toggle";
-import { SelectPreset } from "@/components/macro/select-preset";
+import { type Size } from "@/lib/types";
 
-export default function ToggleShowcase() {
-  const [globalSize, setGlobalSize] = useState<Size>("md");
-
+function ToggleMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
-    <div className="space-y-10">
-      <SectionHeader
-        title="Toggle"
-        description="Nút hai trạng thái có thể bật hoặc tắt."
-      >
-        <SelectPreset
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as Size)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-          className="w-[120px] h-8 text-xs bg-background"
-        />
-      </SectionHeader>
-
+    <div className="space-y-10 mt-6">
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Standard"
@@ -86,5 +71,29 @@ export default function ToggleShowcase() {
         </ExampleSection>
       </ExampleGrid>
     </div>
+  );
+}
+
+export default function ToggleShowcase() {
+  const [globalSize, setGlobalSize] = useState<Size>("md");
+
+  return (
+    <Showcase
+      title="Toggle"
+      description="Nút hai trạng thái có thể bật hoặc tắt."
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsH3>Toggle</DocsH3>
+          <DocsP>Sử dụng để tạo nút bấm có thể bật/tắt trạng thái.</DocsP>
+        </ShowcaseDocs>
+      }
+      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
+      tabs={[
+        {
+          label: "Micro (Primitive)",
+          content: <ToggleMicroShowcase globalSize={globalSize} />,
+        },
+      ]}
+    />
   );
 }

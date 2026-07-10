@@ -1,18 +1,18 @@
 ---
-name: 'step-04-complete'
-description: 'Complete the brainstorming session with summary and next steps'
+name: "step-04-complete"
+description: "Complete the brainstorming session with summary and next steps"
 
 # Path Definitions
-workflow_path: '{installed_path}'
+workflow_path: "{installed_path}"
 
 # File References
-thisStepFile: './step-04-complete.md'
-workflowFile: '{workflow_path}/workflow.md'
-outputFile: '{output_folder}/brainstorming-session-{date}.md'
+thisStepFile: "./step-04-complete.md"
+workflowFile: "{workflow_path}/workflow.md"
+outputFile: "{output_folder}/brainstorming-session-{date}.md"
 
 # Handoff References
-gameBriefWorkflow: 'skill:gds-create-game-brief'
-gddWorkflow: 'skill:gds-gdd'
+gameBriefWorkflow: "skill:gds-create-game-brief"
+gddWorkflow: "skill:gds-gdd"
 ---
 
 # Step 4: Complete Session

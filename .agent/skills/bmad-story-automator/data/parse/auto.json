@@ -1,5 +1,11 @@
 {
-  "requiredKeys": ["status", "tests_added", "coverage_improved", "summary", "next_action"],
+  "requiredKeys": [
+    "status",
+    "tests_added",
+    "coverage_improved",
+    "summary",
+    "next_action"
+  ],
   "schema": {
     "status": "SUCCESS|FAILURE|AMBIGUOUS",
     "tests_added": "integer",

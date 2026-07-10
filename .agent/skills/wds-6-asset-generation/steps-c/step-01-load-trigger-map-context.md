@@ -1,7 +1,7 @@
 ---
-name: 'step-01-load-trigger-map-context'
-description: 'Establish the strategic foundation by loading relevant Trigger Map context for content creation'
-nextStepFile: './step-02-awareness-strategy.md'
+name: "step-01-load-trigger-map-context"
+description: "Establish the strategic foundation by loading relevant Trigger Map context for content creation"
+nextStepFile: "./step-02-awareness-strategy.md"
 ---
 
 # Step 1: Load Trigger Map Context
@@ -54,6 +54,7 @@ Load the relevant Trigger Map context — WHO we are serving, WHAT motivates the
 ### 1. Load the Trigger Map
 
 Search project documentation:
+
 - Check `{output_folder}/B-Trigger-Map/00-trigger-map.md` (the hub document)
 - Check persona documents in `{output_folder}/B-Trigger-Map/`
 - If no Trigger Map folder exists, check Product Brief for business context
@@ -84,6 +85,7 @@ Ask: **"Is this the right strategic context for this content? Any adjustments?"*
 ### 4. Handle Missing Trigger Map
 
 If no Trigger Map exists:
+
 - Explain that the Trigger Map (Phase 2) provides the strategic foundation for content
 - Recommend completing Phase 2 first for best results
 - If the user wants to proceed anyway, use whatever context is available from the Product Brief

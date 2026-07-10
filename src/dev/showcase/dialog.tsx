@@ -1,33 +1,32 @@
-import { useState } from "react";
 import {
-  SectionHeader,
-  ExampleSection,
-  ExampleGrid,
-  Showcase,
-  ShowcaseDocs,
+  DocsCode,
   DocsH3,
   DocsP,
-  DocsCode,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+  SizeToggle,
 } from "@/dev/components/showcase";
+import { CheckCircle2Icon, LayersIcon, XIcon } from "lucide-react";
+import { useState } from "react";
 
-import { type Size } from "@/lib/types";
-import { cn } from "@/lib/utils";
-import {
-  Dialog,
-  DialogTrigger,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-  DialogFooter,
-  DialogClose,
-} from "@/components/micro/dialog";
 import { DialogPreset } from "@/components/macro/dialog-preset";
 import { Button } from "@/components/micro/button";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/micro/dialog";
 import { Input } from "@/components/micro/input";
 import { Label } from "@/components/micro/label";
-import { MonoSelect } from "@/dev/components/mono-select";
-import { XIcon } from "lucide-react";
+import { type Size } from "@/lib/types";
+import { cn } from "@/lib/utils";
 
 // ──────────────────────────────────────────────────────────
 // Macro Showcase
@@ -975,6 +974,100 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
             </DialogContent>
           </Dialog>
         </ExampleSection>
+
+        {/* ── Use Case Comparison ─────────────────────── */}
+        <ExampleSection
+          label="🧭 Use Case Comparison"
+          description="Các kịch bản thực tế giúp bạn quyết định nên dùng Micro hay Macro."
+          fullWidth
+          codeString={`<div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+  {/* ── Story 1: Macro wins ── */}
+  <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
+    <div className="flex items-start gap-3">
+      <span className="mt-0.5 shrink-0 rounded-full bg-green-500/10 p-1.5 text-green-600">
+        <CheckCircle2Icon className="size-4" aria-hidden="true" />
+      </span>
+      <div>
+        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+          Story 1 · Dùng Macro
+        </p>
+        <h3 className="mt-0.5 text-sm font-semibold text-foreground">
+          Cảnh báo hoặc Form cơ bản
+        </h3>
+      </div>
+    </div>
+    <p className="text-xs text-muted-foreground leading-relaxed">
+      Khi bạn chỉ cần một tiêu đề, mô tả và vài nút bấm ở footer (hoặc 1 form ngắn), Macro giúp bạn không phải khai báo hàng loạt component con.
+    </p>
+  </div>
+
+  {/* ── Story 2: Micro wins ── */}
+  <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
+    <div className="flex items-start gap-3">
+      <span className="mt-0.5 shrink-0 rounded-full bg-blue-500/10 p-1.5 text-blue-600">
+        <LayersIcon className="size-4" aria-hidden="true" />
+      </span>
+      <div>
+        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+          Story 2 · Dùng Micro
+        </p>
+        <h3 className="mt-0.5 text-sm font-semibold text-foreground">
+          Layout tuỳ chỉnh phức tạp
+        </h3>
+      </div>
+    </div>
+    <p className="text-xs text-muted-foreground leading-relaxed">
+      Khi bạn muốn Header có hình ảnh/icon đặc biệt, bỏ qua Footer chuẩn, hoặc có layout split-pane phức tạp bên trong Dialog. Micro cho phép bạn tự do thay đổi từng phần.
+    </p>
+  </div>
+</div>`}
+        >
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            {/* ── Story 1: Macro wins ── */}
+            <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
+              <div className="flex items-start gap-3">
+                <span className="mt-0.5 shrink-0 rounded-full bg-green-500/10 p-1.5 text-green-600">
+                  <CheckCircle2Icon className="size-4" aria-hidden="true" />
+                </span>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                    Story 1 · Dùng Macro
+                  </p>
+                  <h3 className="mt-0.5 text-sm font-semibold text-foreground">
+                    Cảnh báo hoặc Form cơ bản
+                  </h3>
+                </div>
+              </div>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                Khi bạn chỉ cần một tiêu đề, mô tả và vài nút bấm ở footer (hoặc
+                1 form ngắn), Macro giúp bạn không phải khai báo hàng loạt
+                component con.
+              </p>
+            </div>
+
+            {/* ── Story 2: Micro wins ── */}
+            <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
+              <div className="flex items-start gap-3">
+                <span className="mt-0.5 shrink-0 rounded-full bg-blue-500/10 p-1.5 text-blue-600">
+                  <LayersIcon className="size-4" aria-hidden="true" />
+                </span>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                    Story 2 · Dùng Micro
+                  </p>
+                  <h3 className="mt-0.5 text-sm font-semibold text-foreground">
+                    Layout tuỳ chỉnh phức tạp
+                  </h3>
+                </div>
+              </div>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                Khi bạn muốn Header có hình ảnh/icon đặc biệt, bỏ qua Footer
+                chuẩn, hoặc có layout split-pane phức tạp bên trong Dialog.
+                Micro cho phép bạn tự do thay đổi từng phần.
+              </p>
+            </div>
+          </div>
+        </ExampleSection>
       </ExampleGrid>
     </div>
   );
@@ -990,17 +1083,7 @@ export default function DialogShowcase() {
     <Showcase
       title="Dialog"
       description="Một cửa sổ phương thức làm gián đoạn người dùng với nội dung quan trọng và mong đợi phản hồi."
-      actions={
-        <MonoSelect
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as Size)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-        />
-      }
+      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
       tabs={[
         {
           label: "Micro (Primitive)",

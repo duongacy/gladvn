@@ -1,1 +1,513 @@
-import{Hn as e,I as t,It as n,L as r,Nn as i,Pn as a,Rn as o,Rt as s,S as c,cr as l,dn as u,dr as d,gn as f,k as p,on as m,vt as h,yt as g}from"./showcase-vJrKG7HA.js";import{E as _,a as v,c as y,h as b,j as x,o as S,r as C,t as w,v as T}from"./popupStateMapping-wxS0crot.js";import{n as E,r as D,t as O}from"./store-Dv6LPur6.js";import{C as k,M as A,at as j,b as M,bt as N,ct as P,ft as F,gt as I,ht as L,lt as ee,mt as te,pt as R,ut as z,xt as B,yt as V}from"./index-Dk0REsC9.js";var H=d(l(),1);function U(e){let{store:t,actionsRef:n}=e,r=t.useState(`open`);te(t,r),z(t);let{forceUnmount:i}=F(r,t),a=H.useCallback(()=>{t.setOpen(!1,m(f))},[t]);H.useImperativeHandle(n,()=>({unmount:i,close:a}),[i,a])}function W({store:e,parentContext:t,isDrawer:n}){let r=e.useState(`open`),i=e.useState(`disablePointerDismissal`),a=e.useState(`modal`),s=e.useState(`popupElement`),c=e.useState(`floatingRootContext`),[l,u]=H.useState(0),[d,f]=H.useState(0),p=l===0,m=y(c,{outsidePressEvent(){return e.context.internalBackdropRef.current||e.context.backdropRef.current?`intentional`:{mouse:a===`trap-focus`?`sloppy`:`intentional`,touch:`sloppy`}},outsidePress(t){if(!e.context.outsidePressEnabledRef.current||`button`in t&&t.button!==0||`touches`in t&&t.touches.length!==1)return!1;let n=g(t);return p&&!i?a&&(e.context.internalBackdropRef.current||e.context.backdropRef.current)?e.context.internalBackdropRef.current===n||e.context.backdropRef.current===n||h(n,s)&&!n?.hasAttribute(`data-base-ui-portal`):!0:!1},escapeKey:p});return M(r&&a===!0,s),e.useContextCallback(`onNestedDialogOpen`,(e,t)=>{u(e),f(t)}),e.useContextCallback(`onNestedDialogClose`,()=>{u(0),f(0)}),H.useEffect(()=>(t?.onNestedDialogOpen&&r&&t.onNestedDialogOpen(l+1,d+ +!!n),t?.onNestedDialogClose&&!r&&t.onNestedDialogClose(),()=>{t?.onNestedDialogClose&&r&&t.onNestedDialogClose()}),[n,r,l,d,t]),R(e,{activeTriggerProps:m.reference??o,inactiveTriggerProps:m.trigger??o,popupProps:m.floating??o,nestedOpenDialogCount:l,nestedOpenDrawerCount:d}),null}var G=H.createContext(!1),K=H.createContext(void 0);function q(t){let n=H.useContext(K);if(t===!1&&n===void 0)throw Error(e(27));return n}var J={...D,modal:x(e=>e.modal),nested:x(e=>e.nested),nestedOpenDialogCount:x(e=>e.nestedOpenDialogCount),nestedOpenDrawerCount:x(e=>e.nestedOpenDrawerCount),disablePointerDismissal:x(e=>e.disablePointerDismissal),openMethod:x(e=>e.openMethod),descriptionElementId:x(e=>e.descriptionElementId),titleElementId:x(e=>e.titleElementId),viewportElement:x(e=>e.viewportElement),role:x(e=>e.role)},Y=class e extends _{constructor(e,t,n=!1){let r=new S,i=X(e);i.floatingRootContext=E(r,t,n),super(i,{popupRef:H.createRef(),backdropRef:H.createRef(),internalBackdropRef:H.createRef(),outsidePressEnabledRef:{current:!0},triggerElements:r,onOpenChange:void 0,onOpenChangeComplete:void 0},J)}setOpen=(e,t)=>{if(t.preventUnmountOnClose=()=>{this.set(`preventUnmountingOnClose`,!0)},!e&&t.trigger==null&&this.state.activeTriggerId!=null&&(t.trigger=this.state.activeTriggerElement??void 0),this.context.onOpenChange?.(e,t),t.isCanceled)return;this.state.floatingRootContext.dispatchOpenChange(e,t);let n={open:e};ee(n,e,t.trigger),this.update(n)};static useStore(t,n){return L(t,(t,r)=>new e(n,t,r),!0).store}};function X(e={}){return{...O(),modal:!0,disablePointerDismissal:!1,popupElement:null,viewportElement:null,descriptionElementId:void 0,titleElementId:void 0,openMethod:null,nested:!1,nestedOpenDialogCount:0,nestedOpenDrawerCount:0,role:`dialog`,...e}}var Z=i();function ne(e,t=`dialog`){let{children:n,open:r,defaultOpen:i=!1,onOpenChange:a,onOpenChangeComplete:o,disablePointerDismissal:s=!1,modal:c=!0,actionsRef:l,handle:u,triggerId:d,defaultTriggerId:f=null}=e,p=t===`drawer`,m=t===`alert-dialog`,h=m?!0:c,g=m||s,_=m?`alertdialog`:`dialog`,v=q(!0),y={modal:h,disablePointerDismissal:g,nested:!!v,role:_},b=Y.useStore(u?.store,{open:i,openProp:r,activeTriggerId:f,triggerIdProp:d,...y});B(()=>{let e=r===void 0&&b.state.open===!1&&i===!0?{open:!0,activeTriggerId:f}:null;m?b.update(e?{...y,...e}:y):e&&b.update(e)}),b.useControlledProp(`openProp`,r),b.useControlledProp(`triggerIdProp`,d),b.useSyncedValues(y),b.useContextCallback(`onOpenChange`,a),b.useContextCallback(`onOpenChangeComplete`,o);let x=b.useState(`open`),S=b.useState(`mounted`),C=b.useState(`payload`);U({store:b,actionsRef:l});let w=x||S,T=H.useMemo(()=>({store:b}),[b]);return(0,Z.jsx)(G.Provider,{value:!1,children:(0,Z.jsxs)(K.Provider,{value:T,children:[w&&(0,Z.jsx)(W,{store:b,parentContext:v?.store.context,isDrawer:p}),typeof n==`function`?n({payload:C}):n]})})}var re={...C,...t},ie=H.forwardRef(function(e,t){let{render:n,className:r,style:i,forceRender:o=!1,...s}=e,{store:c}=q(),l=c.useState(`open`),u=c.useState(`nested`),d=c.useState(`mounted`);return a(`div`,e,{state:{open:l,transitionStatus:c.useState(`transitionStatus`)},ref:[c.context.backdropRef,t],stateAttributesMapping:re,props:[{role:`presentation`,hidden:!d,style:{userSelect:`none`,WebkitUserSelect:`none`}},s],enabled:o||!u})}),ae=H.forwardRef(function(e,t){let{render:r,className:i,style:o,disabled:s=!1,nativeButton:c=!0,...l}=e,{store:d}=q(),f=d.useState(`open`),{getButtonProps:p,buttonRef:h}=n({disabled:s,native:c}),g={disabled:s};function _(e){f&&d.setOpen(!1,m(u,e.nativeEvent))}return a(`button`,e,{state:g,ref:[t,h],props:[{onClick:_},l,p]})}),oe=H.forwardRef(function(e,t){let{render:n,className:r,style:i,id:o,...c}=e,{store:l}=q(),u=s(o);return l.useSyncedValueWithCleanup(`descriptionElementId`,u),a(`p`,e,{ref:t,props:[{id:u},c]})}),se=function(e){return e.nestedDialogs=`--nested-dialogs`,e}({}),Q=function(e){return e[e.open=w.open]=`open`,e[e.closed=w.closed]=`closed`,e[e.startingStyle=w.startingStyle]=`startingStyle`,e[e.endingStyle=w.endingStyle]=`endingStyle`,e.nested=`data-nested`,e.nestedDialogOpen=`data-nested-dialog-open`,e}({}),$=H.createContext(void 0);function ce(){let t=H.useContext($);if(t===void 0)throw Error(e(26));return t}var le={...C,...t,nestedDialogOpen(e){return e?{[Q.nestedDialogOpen]:``}:null}},ue=H.forwardRef(function(e,t){let{render:n,className:r,style:i,finalFocus:o,initialFocus:s,...l}=e,{store:u}=q(),d=u.useState(`descriptionElementId`),f=u.useState(`disablePointerDismissal`),m=u.useState(`floatingRootContext`),h=u.useState(`popupProps`),g=u.useState(`modal`),_=u.useState(`mounted`),v=u.useState(`nested`),y=u.useState(`nestedOpenDialogCount`),b=u.useState(`open`),x=u.useState(`openMethod`),S=u.useState(`titleElementId`),C=u.useState(`transitionStatus`),w=u.useState(`role`),T=m.useState(`floatingId`),E=l.id??T;ce(),p({open:b,ref:u.context.popupRef,onComplete(){b&&u.context.onOpenChangeComplete?.(!0)}});let D=s===void 0?P(u.context.popupRef):s,O=y>0,k=u.useStateSetter(`popupElement`),A=a(`div`,e,{state:{open:b,nested:v,transitionStatus:C,nestedDialogOpen:O},props:[h,{id:E,"aria-labelledby":S??void 0,"aria-describedby":d??void 0,role:w,...j,hidden:!_,onKeyDown(e){c.has(e.key)&&e.stopPropagation()},style:{[se.nestedDialogs]:y}},l],ref:[t,u.context.popupRef,k],stateAttributesMapping:le});return(0,Z.jsx)(N,{context:m,openInteractionType:x,disabled:!_,closeOnFocusOut:!f,initialFocus:D,returnFocus:o,modal:g!==!1,restoreFocus:`popup`,children:A})}),de=H.forwardRef(function(e,t){let{keepMounted:n=!1,...i}=e,{store:a}=q(),o=a.useState(`mounted`),s=a.useState(`modal`),c=a.useState(`open`);return o||n?(0,Z.jsx)($.Provider,{value:n,children:(0,Z.jsxs)(b,{ref:t,...i,children:[o&&s===!0&&(0,Z.jsx)(k,{ref:a.context.internalBackdropRef,inert:r(!c)}),e.children]})}):null}),fe=H.forwardRef(function(e,t){let{render:n,className:r,style:i,id:o,...c}=e,{store:l}=q(),u=s(o);return l.useSyncedValueWithCleanup(`titleElementId`,u),a(`h2`,e,{ref:t,props:[{id:u},c]})}),pe=H.forwardRef(function(t,r){let{render:i,className:o,style:c,disabled:l=!1,nativeButton:u=!0,id:d,payload:f,handle:p,...m}=t,h=q(!0),g=p?.store??h?.store;if(!g)throw Error(e(79));let _=s(d),y=g.useState(`floatingRootContext`),b=g.useState(`isOpenedByTrigger`,_),x=g.useState(`triggerPopupId`,_),S=H.useRef(null),{registerTrigger:C,isMountedByThisTrigger:w}=I(_,S,g,{payload:f}),{getButtonProps:E,buttonRef:D}=n({disabled:l,native:u}),O=V(y,{enabled:y!=null}),k=A(()=>g.select(`open`),e=>{g.set(`openMethod`,e)}),j={disabled:l,open:b},M=g.useState(`triggerProps`,w);return a(`button`,t,{state:j,ref:[D,r,C,S],props:[O.reference,M,k,{[T]:``,id:_,"aria-haspopup":`dialog`,"aria-expanded":b,"aria-controls":x},m,E],stateAttributesMapping:v})});export{oe as a,ne as c,ue as i,G as l,fe as n,ae as o,de as r,ie as s,pe as t};
+import {
+  Hn as e,
+  I as t,
+  It as n,
+  L as r,
+  Nn as i,
+  Pn as a,
+  Rn as o,
+  Rt as s,
+  S as c,
+  cr as l,
+  dn as u,
+  dr as d,
+  gn as f,
+  k as p,
+  on as m,
+  vt as h,
+  yt as g,
+} from "./showcase-vJrKG7HA.js";
+import {
+  E as _,
+  a as v,
+  c as y,
+  h as b,
+  j as x,
+  o as S,
+  r as C,
+  t as w,
+  v as T,
+} from "./popupStateMapping-wxS0crot.js";
+import { n as E, r as D, t as O } from "./store-Dv6LPur6.js";
+import {
+  C as k,
+  M as A,
+  at as j,
+  b as M,
+  bt as N,
+  ct as P,
+  ft as F,
+  gt as I,
+  ht as L,
+  lt as ee,
+  mt as te,
+  pt as R,
+  ut as z,
+  xt as B,
+  yt as V,
+} from "./index-Dk0REsC9.js";
+var H = d(l(), 1);
+function U(e) {
+  let { store: t, actionsRef: n } = e,
+    r = t.useState(`open`);
+  (te(t, r), z(t));
+  let { forceUnmount: i } = F(r, t),
+    a = H.useCallback(() => {
+      t.setOpen(!1, m(f));
+    }, [t]);
+  H.useImperativeHandle(n, () => ({ unmount: i, close: a }), [i, a]);
+}
+function W({ store: e, parentContext: t, isDrawer: n }) {
+  let r = e.useState(`open`),
+    i = e.useState(`disablePointerDismissal`),
+    a = e.useState(`modal`),
+    s = e.useState(`popupElement`),
+    c = e.useState(`floatingRootContext`),
+    [l, u] = H.useState(0),
+    [d, f] = H.useState(0),
+    p = l === 0,
+    m = y(c, {
+      outsidePressEvent() {
+        return e.context.internalBackdropRef.current ||
+          e.context.backdropRef.current
+          ? `intentional`
+          : {
+              mouse: a === `trap-focus` ? `sloppy` : `intentional`,
+              touch: `sloppy`,
+            };
+      },
+      outsidePress(t) {
+        if (
+          !e.context.outsidePressEnabledRef.current ||
+          (`button` in t && t.button !== 0) ||
+          (`touches` in t && t.touches.length !== 1)
+        )
+          return !1;
+        let n = g(t);
+        return p && !i
+          ? a &&
+            (e.context.internalBackdropRef.current ||
+              e.context.backdropRef.current)
+            ? e.context.internalBackdropRef.current === n ||
+              e.context.backdropRef.current === n ||
+              (h(n, s) && !n?.hasAttribute(`data-base-ui-portal`))
+            : !0
+          : !1;
+      },
+      escapeKey: p,
+    });
+  return (
+    M(r && a === !0, s),
+    e.useContextCallback(`onNestedDialogOpen`, (e, t) => {
+      (u(e), f(t));
+    }),
+    e.useContextCallback(`onNestedDialogClose`, () => {
+      (u(0), f(0));
+    }),
+    H.useEffect(
+      () => (
+        t?.onNestedDialogOpen && r && t.onNestedDialogOpen(l + 1, d + +!!n),
+        t?.onNestedDialogClose && !r && t.onNestedDialogClose(),
+        () => {
+          t?.onNestedDialogClose && r && t.onNestedDialogClose();
+        }
+      ),
+      [n, r, l, d, t],
+    ),
+    R(e, {
+      activeTriggerProps: m.reference ?? o,
+      inactiveTriggerProps: m.trigger ?? o,
+      popupProps: m.floating ?? o,
+      nestedOpenDialogCount: l,
+      nestedOpenDrawerCount: d,
+    }),
+    null
+  );
+}
+var G = H.createContext(!1),
+  K = H.createContext(void 0);
+function q(t) {
+  let n = H.useContext(K);
+  if (t === !1 && n === void 0) throw Error(e(27));
+  return n;
+}
+var J = {
+    ...D,
+    modal: x((e) => e.modal),
+    nested: x((e) => e.nested),
+    nestedOpenDialogCount: x((e) => e.nestedOpenDialogCount),
+    nestedOpenDrawerCount: x((e) => e.nestedOpenDrawerCount),
+    disablePointerDismissal: x((e) => e.disablePointerDismissal),
+    openMethod: x((e) => e.openMethod),
+    descriptionElementId: x((e) => e.descriptionElementId),
+    titleElementId: x((e) => e.titleElementId),
+    viewportElement: x((e) => e.viewportElement),
+    role: x((e) => e.role),
+  },
+  Y = class e extends _ {
+    constructor(e, t, n = !1) {
+      let r = new S(),
+        i = X(e);
+      ((i.floatingRootContext = E(r, t, n)),
+        super(
+          i,
+          {
+            popupRef: H.createRef(),
+            backdropRef: H.createRef(),
+            internalBackdropRef: H.createRef(),
+            outsidePressEnabledRef: { current: !0 },
+            triggerElements: r,
+            onOpenChange: void 0,
+            onOpenChangeComplete: void 0,
+          },
+          J,
+        ));
+    }
+    setOpen = (e, t) => {
+      if (
+        ((t.preventUnmountOnClose = () => {
+          this.set(`preventUnmountingOnClose`, !0);
+        }),
+        !e &&
+          t.trigger == null &&
+          this.state.activeTriggerId != null &&
+          (t.trigger = this.state.activeTriggerElement ?? void 0),
+        this.context.onOpenChange?.(e, t),
+        t.isCanceled)
+      )
+        return;
+      this.state.floatingRootContext.dispatchOpenChange(e, t);
+      let n = { open: e };
+      (ee(n, e, t.trigger), this.update(n));
+    };
+    static useStore(t, n) {
+      return L(t, (t, r) => new e(n, t, r), !0).store;
+    }
+  };
+function X(e = {}) {
+  return {
+    ...O(),
+    modal: !0,
+    disablePointerDismissal: !1,
+    popupElement: null,
+    viewportElement: null,
+    descriptionElementId: void 0,
+    titleElementId: void 0,
+    openMethod: null,
+    nested: !1,
+    nestedOpenDialogCount: 0,
+    nestedOpenDrawerCount: 0,
+    role: `dialog`,
+    ...e,
+  };
+}
+var Z = i();
+function ne(e, t = `dialog`) {
+  let {
+      children: n,
+      open: r,
+      defaultOpen: i = !1,
+      onOpenChange: a,
+      onOpenChangeComplete: o,
+      disablePointerDismissal: s = !1,
+      modal: c = !0,
+      actionsRef: l,
+      handle: u,
+      triggerId: d,
+      defaultTriggerId: f = null,
+    } = e,
+    p = t === `drawer`,
+    m = t === `alert-dialog`,
+    h = m ? !0 : c,
+    g = m || s,
+    _ = m ? `alertdialog` : `dialog`,
+    v = q(!0),
+    y = { modal: h, disablePointerDismissal: g, nested: !!v, role: _ },
+    b = Y.useStore(u?.store, {
+      open: i,
+      openProp: r,
+      activeTriggerId: f,
+      triggerIdProp: d,
+      ...y,
+    });
+  (B(() => {
+    let e =
+      r === void 0 && b.state.open === !1 && i === !0
+        ? { open: !0, activeTriggerId: f }
+        : null;
+    m ? b.update(e ? { ...y, ...e } : y) : e && b.update(e);
+  }),
+    b.useControlledProp(`openProp`, r),
+    b.useControlledProp(`triggerIdProp`, d),
+    b.useSyncedValues(y),
+    b.useContextCallback(`onOpenChange`, a),
+    b.useContextCallback(`onOpenChangeComplete`, o));
+  let x = b.useState(`open`),
+    S = b.useState(`mounted`),
+    C = b.useState(`payload`);
+  U({ store: b, actionsRef: l });
+  let w = x || S,
+    T = H.useMemo(() => ({ store: b }), [b]);
+  return (0, Z.jsx)(G.Provider, {
+    value: !1,
+    children: (0, Z.jsxs)(K.Provider, {
+      value: T,
+      children: [
+        w &&
+          (0, Z.jsx)(W, {
+            store: b,
+            parentContext: v?.store.context,
+            isDrawer: p,
+          }),
+        typeof n == `function` ? n({ payload: C }) : n,
+      ],
+    }),
+  });
+}
+var re = { ...C, ...t },
+  ie = H.forwardRef(function (e, t) {
+    let { render: n, className: r, style: i, forceRender: o = !1, ...s } = e,
+      { store: c } = q(),
+      l = c.useState(`open`),
+      u = c.useState(`nested`),
+      d = c.useState(`mounted`);
+    return a(`div`, e, {
+      state: { open: l, transitionStatus: c.useState(`transitionStatus`) },
+      ref: [c.context.backdropRef, t],
+      stateAttributesMapping: re,
+      props: [
+        {
+          role: `presentation`,
+          hidden: !d,
+          style: { userSelect: `none`, WebkitUserSelect: `none` },
+        },
+        s,
+      ],
+      enabled: o || !u,
+    });
+  }),
+  ae = H.forwardRef(function (e, t) {
+    let {
+        render: r,
+        className: i,
+        style: o,
+        disabled: s = !1,
+        nativeButton: c = !0,
+        ...l
+      } = e,
+      { store: d } = q(),
+      f = d.useState(`open`),
+      { getButtonProps: p, buttonRef: h } = n({ disabled: s, native: c }),
+      g = { disabled: s };
+    function _(e) {
+      f && d.setOpen(!1, m(u, e.nativeEvent));
+    }
+    return a(`button`, e, {
+      state: g,
+      ref: [t, h],
+      props: [{ onClick: _ }, l, p],
+    });
+  }),
+  oe = H.forwardRef(function (e, t) {
+    let { render: n, className: r, style: i, id: o, ...c } = e,
+      { store: l } = q(),
+      u = s(o);
+    return (
+      l.useSyncedValueWithCleanup(`descriptionElementId`, u),
+      a(`p`, e, { ref: t, props: [{ id: u }, c] })
+    );
+  }),
+  se = (function (e) {
+    return ((e.nestedDialogs = `--nested-dialogs`), e);
+  })({}),
+  Q = (function (e) {
+    return (
+      (e[(e.open = w.open)] = `open`),
+      (e[(e.closed = w.closed)] = `closed`),
+      (e[(e.startingStyle = w.startingStyle)] = `startingStyle`),
+      (e[(e.endingStyle = w.endingStyle)] = `endingStyle`),
+      (e.nested = `data-nested`),
+      (e.nestedDialogOpen = `data-nested-dialog-open`),
+      e
+    );
+  })({}),
+  $ = H.createContext(void 0);
+function ce() {
+  let t = H.useContext($);
+  if (t === void 0) throw Error(e(26));
+  return t;
+}
+var le = {
+    ...C,
+    ...t,
+    nestedDialogOpen(e) {
+      return e ? { [Q.nestedDialogOpen]: `` } : null;
+    },
+  },
+  ue = H.forwardRef(function (e, t) {
+    let {
+        render: n,
+        className: r,
+        style: i,
+        finalFocus: o,
+        initialFocus: s,
+        ...l
+      } = e,
+      { store: u } = q(),
+      d = u.useState(`descriptionElementId`),
+      f = u.useState(`disablePointerDismissal`),
+      m = u.useState(`floatingRootContext`),
+      h = u.useState(`popupProps`),
+      g = u.useState(`modal`),
+      _ = u.useState(`mounted`),
+      v = u.useState(`nested`),
+      y = u.useState(`nestedOpenDialogCount`),
+      b = u.useState(`open`),
+      x = u.useState(`openMethod`),
+      S = u.useState(`titleElementId`),
+      C = u.useState(`transitionStatus`),
+      w = u.useState(`role`),
+      T = m.useState(`floatingId`),
+      E = l.id ?? T;
+    (ce(),
+      p({
+        open: b,
+        ref: u.context.popupRef,
+        onComplete() {
+          b && u.context.onOpenChangeComplete?.(!0);
+        },
+      }));
+    let D = s === void 0 ? P(u.context.popupRef) : s,
+      O = y > 0,
+      k = u.useStateSetter(`popupElement`),
+      A = a(`div`, e, {
+        state: { open: b, nested: v, transitionStatus: C, nestedDialogOpen: O },
+        props: [
+          h,
+          {
+            id: E,
+            "aria-labelledby": S ?? void 0,
+            "aria-describedby": d ?? void 0,
+            role: w,
+            ...j,
+            hidden: !_,
+            onKeyDown(e) {
+              c.has(e.key) && e.stopPropagation();
+            },
+            style: { [se.nestedDialogs]: y },
+          },
+          l,
+        ],
+        ref: [t, u.context.popupRef, k],
+        stateAttributesMapping: le,
+      });
+    return (0, Z.jsx)(N, {
+      context: m,
+      openInteractionType: x,
+      disabled: !_,
+      closeOnFocusOut: !f,
+      initialFocus: D,
+      returnFocus: o,
+      modal: g !== !1,
+      restoreFocus: `popup`,
+      children: A,
+    });
+  }),
+  de = H.forwardRef(function (e, t) {
+    let { keepMounted: n = !1, ...i } = e,
+      { store: a } = q(),
+      o = a.useState(`mounted`),
+      s = a.useState(`modal`),
+      c = a.useState(`open`);
+    return o || n
+      ? (0, Z.jsx)($.Provider, {
+          value: n,
+          children: (0, Z.jsxs)(b, {
+            ref: t,
+            ...i,
+            children: [
+              o &&
+                s === !0 &&
+                (0, Z.jsx)(k, {
+                  ref: a.context.internalBackdropRef,
+                  inert: r(!c),
+                }),
+              e.children,
+            ],
+          }),
+        })
+      : null;
+  }),
+  fe = H.forwardRef(function (e, t) {
+    let { render: n, className: r, style: i, id: o, ...c } = e,
+      { store: l } = q(),
+      u = s(o);
+    return (
+      l.useSyncedValueWithCleanup(`titleElementId`, u),
+      a(`h2`, e, { ref: t, props: [{ id: u }, c] })
+    );
+  }),
+  pe = H.forwardRef(function (t, r) {
+    let {
+        render: i,
+        className: o,
+        style: c,
+        disabled: l = !1,
+        nativeButton: u = !0,
+        id: d,
+        payload: f,
+        handle: p,
+        ...m
+      } = t,
+      h = q(!0),
+      g = p?.store ?? h?.store;
+    if (!g) throw Error(e(79));
+    let _ = s(d),
+      y = g.useState(`floatingRootContext`),
+      b = g.useState(`isOpenedByTrigger`, _),
+      x = g.useState(`triggerPopupId`, _),
+      S = H.useRef(null),
+      { registerTrigger: C, isMountedByThisTrigger: w } = I(_, S, g, {
+        payload: f,
+      }),
+      { getButtonProps: E, buttonRef: D } = n({ disabled: l, native: u }),
+      O = V(y, { enabled: y != null }),
+      k = A(
+        () => g.select(`open`),
+        (e) => {
+          g.set(`openMethod`, e);
+        },
+      ),
+      j = { disabled: l, open: b },
+      M = g.useState(`triggerProps`, w);
+    return a(`button`, t, {
+      state: j,
+      ref: [D, r, C, S],
+      props: [
+        O.reference,
+        M,
+        k,
+        {
+          [T]: ``,
+          id: _,
+          "aria-haspopup": `dialog`,
+          "aria-expanded": b,
+          "aria-controls": x,
+        },
+        m,
+        E,
+      ],
+      stateAttributesMapping: v,
+    });
+  });
+export {
+  oe as a,
+  ne as c,
+  ue as i,
+  G as l,
+  fe as n,
+  ae as o,
+  de as r,
+  ie as s,
+  pe as t,
+};

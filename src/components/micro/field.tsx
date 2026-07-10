@@ -7,13 +7,13 @@
  */
 "use client";
 
-import * as React from "react";
-import { AlertCircleIcon } from "lucide-react";
 import { cva, type VariantProps } from "class-variance-authority";
+import { AlertCircleIcon } from "lucide-react";
+import * as React from "react";
 
-import { cn } from "@/lib/utils";
 import { Label } from "@/components/micro/label";
 import { Separator } from "@/components/micro/separator";
+import { cn } from "@/lib/utils";
 
 const FieldSet = React.forwardRef<
   HTMLFieldSetElement,
@@ -58,7 +58,7 @@ const FieldGroup = React.forwardRef<
       ref={ref}
       data-slot="field-group"
       className={cn(
-        "group/field-group @container/field-group flex flex-col gap-5 data-[slot=checkbox-group]:gap-3 [&>[data-slot=field-group]]:gap-4",
+        "group/field-group flex flex-col gap-5 data-[slot=checkbox-group]:gap-3 [&>[data-slot=field-group]]:gap-4",
         className,
       )}
       {...props}
@@ -67,70 +67,71 @@ const FieldGroup = React.forwardRef<
 });
 FieldGroup.displayName = "FieldGroup";
 
-const fieldVariants = cva(
-  "group/field @container/field flex",
-  {
-    variants: {
-      orientation: {
-        vertical: "flex-col [&>.sr-only]:w-auto",
-        horizontal:
-          "flex-row items-center [&>[data-slot=field-label]]:flex-auto",
-        // Responsive: vertical on mobile, horizontal on @md breakpoint.
-        responsive:
-          "flex-col @md/field-group:flex-row @md/field-group:items-center @md/field-group:[&>[data-slot=field-label]]:flex-auto [&>.sr-only]:w-auto",
-      },
-      size: {
-        sm: "",
-        md: "",
-        lg: "",
-      },
+const fieldVariants = cva("group/field flex", {
+  variants: {
+    orientation: {
+      vertical: "flex-col [&>.sr-only]:w-auto",
+      horizontal: "flex-row items-center [&>[data-slot=field-label]]:flex-auto",
+      // Responsive: vertical on mobile, horizontal on @md breakpoint.
+      responsive:
+        "flex-col @md/field-group:flex-row @md/field-group:items-center @md/field-group:[&>[data-slot=field-label]]:flex-auto [&>.sr-only]:w-auto",
     },
-    compoundVariants: [
-      { orientation: "vertical", size: "sm", className: "gap-0.5" },
-      { orientation: "vertical", size: "md", className: "gap-0.5" },
-      { orientation: "vertical", size: "lg", className: "gap-0.5" },
-
-      { orientation: "horizontal", size: "sm", className: "gap-1.5" },
-      { orientation: "horizontal", size: "md", className: "gap-2" },
-      { orientation: "horizontal", size: "lg", className: "gap-3" },
-
-      {
-        orientation: "responsive",
-        size: "sm",
-        className: "gap-1 @md/field-group:gap-1.5",
-      },
-      {
-        orientation: "responsive",
-        size: "md",
-        className: "gap-1.5 @md/field-group:gap-2",
-      },
-      {
-        orientation: "responsive",
-        size: "lg",
-        className: "gap-2 @md/field-group:gap-3",
-      },
-    ],
+    size: {
+      sm: "",
+      md: "",
+      lg: "",
+    },
   },
-);
+  compoundVariants: [
+    { orientation: "vertical", size: "sm", className: "gap-0.5" },
+    { orientation: "vertical", size: "md", className: "gap-0.5" },
+    { orientation: "vertical", size: "lg", className: "gap-0.5" },
+
+    { orientation: "horizontal", size: "sm", className: "gap-1.5" },
+    { orientation: "horizontal", size: "md", className: "gap-2" },
+    { orientation: "horizontal", size: "lg", className: "gap-3" },
+
+    {
+      orientation: "responsive",
+      size: "sm",
+      className: "gap-1 @md/field-group:gap-1.5",
+    },
+    {
+      orientation: "responsive",
+      size: "md",
+      className: "gap-1.5 @md/field-group:gap-2",
+    },
+    {
+      orientation: "responsive",
+      size: "lg",
+      className: "gap-2 @md/field-group:gap-3",
+    },
+  ],
+});
 
 const Field = React.forwardRef<
   HTMLDivElement,
   React.ComponentProps<"div"> &
     VariantProps<typeof fieldVariants> & { error?: boolean | string }
->(({ className, orientation = "vertical", size = "md", error, ...props }, ref) => {
-  return (
-    <div
-      ref={ref}
-      role="group"
-      data-slot="field"
-      data-orientation={orientation}
-      data-size={size}
-      data-invalid={!!error}
-      className={cn(fieldVariants({ orientation, size }), className)}
-      {...props}
-    />
-  );
-});
+>(
+  (
+    { className, orientation = "vertical", size = "md", error, ...props },
+    ref,
+  ) => {
+    return (
+      <div
+        ref={ref}
+        role="group"
+        data-slot="field"
+        data-orientation={orientation}
+        data-size={size}
+        data-invalid={!!error}
+        className={cn(fieldVariants({ orientation, size }), className)}
+        {...props}
+      />
+    );
+  },
+);
 Field.displayName = "Field";
 
 const FieldContent = React.forwardRef<
@@ -243,7 +244,9 @@ FieldSeparator.displayName = "FieldSeparator";
 
 const FieldError = React.forwardRef<
   HTMLDivElement,
-  React.ComponentProps<"div"> & { errors?: Array<{ message?: string } | undefined> }
+  React.ComponentProps<"div"> & {
+    errors?: Array<{ message?: string } | undefined>;
+  }
 >(({ className, children, errors, ...props }, ref) => {
   const content = React.useMemo(() => {
     if (children) {
@@ -296,13 +299,13 @@ FieldError.displayName = "FieldError";
 
 export {
   Field,
-  FieldLabel,
+  FieldContent,
   FieldDescription,
   FieldError,
   FieldGroup,
+  FieldLabel,
   FieldLegend,
   FieldSeparator,
   FieldSet,
-  FieldContent,
   FieldTitle,
 };

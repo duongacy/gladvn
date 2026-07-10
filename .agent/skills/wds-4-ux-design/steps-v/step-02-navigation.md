@@ -1,11 +1,11 @@
 ---
-name: 'step-02-navigation'
-description: 'Verify that page specification has proper navigation structure with headers, links, and embedded sketch'
+name: "step-02-navigation"
+description: "Verify that page specification has proper navigation structure with headers, links, and embedded sketch"
 
 # File References
-nextStepFile: './step-03-page-overview.md'
-workflowFile: '../workflow.md'
-activityWorkflowFile: '../workflow-validate.md'
+nextStepFile: "./step-03-page-overview.md"
+workflowFile: "../workflow.md"
+activityWorkflowFile: "../workflow-validate.md"
 ---
 
 # Step 2: Validate Navigation Structure
@@ -58,6 +58,7 @@ Verify that page specification has proper navigation structure with H3 header, d
 ### 1. Check Navigation Elements
 
 Check navigation section at top of document. Verify:
+
 - H3 header with page number and name
 - "Next Step" link before sketch (pointing to next page)
 - Embedded sketch image with proper path

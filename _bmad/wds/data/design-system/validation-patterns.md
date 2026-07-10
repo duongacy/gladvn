@@ -15,7 +15,7 @@
 ```yaml
 validation:
   required: true
-  message: 'This field is required'
+  message: "This field is required"
 ```
 
 **Format Validation:**
@@ -24,7 +24,7 @@ validation:
 validation:
   type: email
   pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-  message: 'Please enter a valid email address'
+  message: "Please enter a valid email address"
 ```
 
 **Length Validation:**
@@ -33,7 +33,7 @@ validation:
 validation:
   minLength: 8
   maxLength: 100
-  message: 'Password must be 8-100 characters'
+  message: "Password must be 8-100 characters"
 ```
 
 ---

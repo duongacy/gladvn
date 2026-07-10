@@ -1,11 +1,11 @@
 ---
-name: 'step-05-interactions'
-description: 'Define what happens when users interact with each component'
+name: "step-05-interactions"
+description: "Define what happens when users interact with each component"
 
 # File References
-nextStepFile: './step-06-states.md'
-workflowFile: '../workflow.md'
-activityWorkflowFile: '../workflow-specify.md'
+nextStepFile: "./step-06-states.md"
+workflowFile: "../workflow.md"
+activityWorkflowFile: "../workflow-specify.md"
 ---
 
 # Step 5: Interactions

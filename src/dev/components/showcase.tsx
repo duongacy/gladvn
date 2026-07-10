@@ -1,11 +1,17 @@
+import { Button } from "@/components/micro/button";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/components/micro/tabs";
+import { CodeHighlighter } from "@/dev/components/code-highlighter";
+import { COLORS, COLOR_INFO } from "@/dev/data";
+import { type Size } from "@/lib/types";
+import { cn } from "@/lib/utils";
+import { BookOpenIcon, CheckIcon, CopyIcon } from "lucide-react";
 import React, { useState } from "react";
 import reactElementToJSXString from "react-element-to-jsx-string";
-import { CopyIcon, CheckIcon, BookOpenIcon } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { COLORS, COLOR_INFO } from "@/dev/data";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/micro/tabs";
-import { Button } from "@/components/micro/button";
-import { CodeHighlighter } from "@/dev/components/code-highlighter";
 
 /* ─────────────────────────────────────────────────────────────────
    SectionHeader  –  page‐level title bar
@@ -43,7 +49,9 @@ export function ShowcaseDocs({ children }: { children: React.ReactNode }) {
     <div className="mb-12 overflow-hidden rounded-2xl border border-amber-500/20 bg-amber-500/5 shadow-sm">
       <div className="flex items-center gap-2 border-b border-amber-500/20 bg-amber-500/10 px-6 py-3.5">
         <BookOpenIcon className="size-4 text-amber-700 dark:text-amber-500" />
-        <h3 className="text-sm font-semibold text-amber-900 dark:text-amber-200">Usage Guidelines</h3>
+        <h3 className="text-sm font-semibold text-amber-900 dark:text-amber-200">
+          Usage Guidelines
+        </h3>
       </div>
       <div className="px-6 py-5 text-[15px] leading-relaxed text-muted-foreground">
         {children}
@@ -53,7 +61,11 @@ export function ShowcaseDocs({ children }: { children: React.ReactNode }) {
 }
 
 export function DocsH3({ children }: { children: React.ReactNode }) {
-  return <h3 className="mt-8 first:mt-1 mb-3 text-base font-semibold text-foreground">{children}</h3>;
+  return (
+    <h3 className="mt-8 first:mt-1 mb-3 text-base font-semibold text-foreground">
+      {children}
+    </h3>
+  );
 }
 
 export function DocsP({ children }: { children: React.ReactNode }) {
@@ -75,7 +87,6 @@ export function DocsCode({ children }: { children: React.ReactNode }) {
     </code>
   );
 }
-
 
 /* ─────────────────────────────────────────────────────────────────
    ExampleSection  –  a single demo block (replaces ComponentPreview)
@@ -108,14 +119,19 @@ export function ExampleSection({
   codeString?: string;
 }) {
   const [copied, setCopied] = useState(false);
-  const [codeString, setCodeString] = useState<string | null>(customCodeString || null);
+  const [codeString, setCodeString] = useState<string | null>(
+    customCodeString || null,
+  );
   const [activeTab, setActiveTab] = useState("preview");
 
   // Update codeString when user clicks "Code" tab or when children change (e.g. global state changes)
   React.useEffect(() => {
     if (activeTab === "code" && !customCodeString) {
       try {
-        const stringifier = typeof reactElementToJSXString === 'function' ? reactElementToJSXString : (reactElementToJSXString as any).default;
+        const stringifier =
+          typeof reactElementToJSXString === "function"
+            ? reactElementToJSXString
+            : (reactElementToJSXString as any).default;
         const raw = stringifier(children, {
           showFunctions: true,
           showDefaultProps: false,
@@ -142,19 +158,29 @@ export function ExampleSection({
   };
 
   return (
-    <Tabs value={activeTab} onValueChange={handleTabChange} className="flex w-full flex-col gap-3">
+    <Tabs
+      value={activeTab}
+      onValueChange={handleTabChange}
+      className="flex w-full flex-col gap-3"
+    >
       <div className="flex items-start justify-between gap-4">
         <div className="flex flex-col gap-0.5">
           {label && (
             <h3 className="text-sm font-semibold text-foreground">{label}</h3>
           )}
           {description && (
-            <p className="text-[13px] text-muted-foreground leading-relaxed pr-4">{description}</p>
+            <p className="text-[13px] text-muted-foreground leading-relaxed pr-4">
+              {description}
+            </p>
           )}
         </div>
         <TabsList className="h-8 shrink-0">
-          <TabsTrigger value="preview" className="text-xs px-3 py-1">Preview</TabsTrigger>
-          <TabsTrigger value="code" className="text-xs px-3 py-1">Code</TabsTrigger>
+          <TabsTrigger value="preview" className="text-xs px-3 py-1">
+            Preview
+          </TabsTrigger>
+          <TabsTrigger value="code" className="text-xs px-3 py-1">
+            Code
+          </TabsTrigger>
         </TabsList>
       </div>
 
@@ -168,10 +194,12 @@ export function ExampleSection({
             )}
           >
             <div className="absolute inset-0 -z-10 opacity-[0.03] dark:opacity-[0.05] [background-size:24px_24px] [background-image:radial-gradient(circle_at_center,var(--color-foreground)_1.5px,transparent_1.5px)]" />
-            <div className={cn(
-              "relative z-10 flex w-full flex-wrap items-center justify-center gap-4",
-              fullWidth && "flex-col items-stretch"
-            )}>
+            <div
+              className={cn(
+                "relative z-10 flex w-full flex-wrap items-center justify-center gap-4",
+                fullWidth && "flex-col items-stretch",
+              )}
+            >
               {children}
             </div>
           </div>
@@ -185,7 +213,11 @@ export function ExampleSection({
               className="absolute top-3 right-3 h-7 w-7 text-muted-foreground hover:text-foreground hover:bg-muted"
               onClick={copyToClipboard}
             >
-              {copied ? <CheckIcon className="size-3.5" /> : <CopyIcon className="size-3.5" />}
+              {copied ? (
+                <CheckIcon className="size-3.5" />
+              ) : (
+                <CopyIcon className="size-3.5" />
+              )}
             </Button>
             <CodeHighlighter code={codeString || "// Loading..."} />
           </div>
@@ -280,7 +312,7 @@ export function ColorSwatch({ color }: { color: (typeof COLORS)[number] }) {
       <div
         className={cn(
           "h-12 w-12 sm:h-16 sm:w-16 rounded-2xl border shadow-inner transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 group-hover:rounded-[2rem]",
-          bgColorMap[color]
+          bgColorMap[color],
         )}
       />
       <div className="flex flex-col items-center">
@@ -309,7 +341,13 @@ export interface ShowcaseProps {
   tabs: ShowcaseTab[];
 }
 
-export function Showcase({ title, description, generalConcept, actions, tabs }: ShowcaseProps) {
+export function Showcase({
+  title,
+  description,
+  generalConcept,
+  actions,
+  tabs,
+}: ShowcaseProps) {
   const hasTabs = tabs.length >= 2;
 
   const content = (
@@ -345,23 +383,21 @@ export function Showcase({ title, description, generalConcept, actions, tabs }: 
       </div>
 
       {/* 3: General Concept */}
-      {generalConcept && (
-        <div className="mt-2">
-          {generalConcept}
-        </div>
-      )}
+      {generalConcept && <div className="mt-2">{generalConcept}</div>}
 
       {/* 4 & 5: Active Content */}
       <div className="mt-2">
-        {hasTabs ? (
-          tabs.map((tab) => (
-            <TabsContent key={tab.label} value={tab.label} className="mt-0 focus-visible:outline-none">
-              {tab.content}
-            </TabsContent>
-          ))
-        ) : (
-          tabs[0]?.content
-        )}
+        {hasTabs
+          ? tabs.map((tab) => (
+              <TabsContent
+                key={tab.label}
+                value={tab.label}
+                className="mt-0 focus-visible:outline-none"
+              >
+                {tab.content}
+              </TabsContent>
+            ))
+          : tabs[0]?.content}
       </div>
     </>
   );
@@ -375,6 +411,34 @@ export function Showcase({ title, description, generalConcept, actions, tabs }: 
       ) : (
         content
       )}
+    </div>
+  );
+}
+
+export function SizeToggle({
+  value,
+  onValueChange,
+}: {
+  value: Size;
+  onValueChange: (size: Size) => void;
+}) {
+  const sizes: Size[] = ["sm", "md", "lg"];
+  return (
+    <div className="flex h-8 items-center rounded-md border border-border bg-muted/50 p-1">
+      {sizes.map((size) => (
+        <button
+          key={size}
+          onClick={() => onValueChange(size)}
+          className={cn(
+            "flex items-center justify-center rounded-sm px-2.5 text-xs font-mono font-medium transition-all",
+            value === size
+              ? "bg-background text-foreground shadow-sm"
+              : "text-muted-foreground hover:bg-muted hover:text-foreground",
+          )}
+        >
+          {size}
+        </button>
+      ))}
     </div>
   );
 }

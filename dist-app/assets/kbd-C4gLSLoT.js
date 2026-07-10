@@ -1,1 +1,60 @@
-import{Nn as e,i as t,qn as n,r}from"./showcase-vJrKG7HA.js";var i=e();function a({className:e,...t}){return(0,i.jsx)(`kbd`,{"data-slot":`kbd`,className:n(`pointer-events-none inline-flex h-5 w-fit min-w-5 items-center justify-center gap-1 rounded-sm bg-muted px-1 font-sans text-xs font-medium text-muted-foreground select-none in-data-[slot=tooltip-content]:bg-background/20 in-data-[slot=tooltip-content]:text-background dark:in-data-[slot=tooltip-content]:bg-background/10 [&>svg:not([class*='size-'])]:size-3`,e),...t})}function o({className:e,...t}){return(0,i.jsx)(`kbd`,{"data-slot":`kbd-group`,className:n(`inline-flex items-center gap-1`,e),...t})}function s(){return(0,i.jsxs)(`div`,{className:`space-y-10`,children:[(0,i.jsx)(t,{title:`Keyboard Shortcut`,description:`Hiển thị phím tắt nội tuyến.`}),(0,i.jsxs)(r,{label:`Default`,description:`Chỉ báo phím tắt.`,children:[(0,i.jsxs)(`p`,{className:`text-sm text-muted-foreground`,children:[`Press `,(0,i.jsx)(a,{children:`⌘`}),` `,(0,i.jsx)(a,{children:`K`}),` to open the command menu.`]}),(0,i.jsxs)(`p`,{className:`text-sm text-muted-foreground mt-4 flex items-center gap-2`,children:[`Or using group:`,(0,i.jsxs)(o,{children:[(0,i.jsx)(a,{children:`⌘`}),(0,i.jsx)(a,{children:`Shift`}),(0,i.jsx)(a,{children:`P`})]})]})]})]})}export{s as default};
+import { Nn as e, i as t, qn as n, r } from "./showcase-vJrKG7HA.js";
+var i = e();
+function a({ className: e, ...t }) {
+  return (0, i.jsx)(`kbd`, {
+    "data-slot": `kbd`,
+    className: n(
+      `pointer-events-none inline-flex h-5 w-fit min-w-5 items-center justify-center gap-1 rounded-sm bg-muted px-1 font-sans text-xs font-medium text-muted-foreground select-none in-data-[slot=tooltip-content]:bg-background/20 in-data-[slot=tooltip-content]:text-background dark:in-data-[slot=tooltip-content]:bg-background/10 [&>svg:not([class*='size-'])]:size-3`,
+      e,
+    ),
+    ...t,
+  });
+}
+function o({ className: e, ...t }) {
+  return (0, i.jsx)(`kbd`, {
+    "data-slot": `kbd-group`,
+    className: n(`inline-flex items-center gap-1`, e),
+    ...t,
+  });
+}
+function s() {
+  return (0, i.jsxs)(`div`, {
+    className: `space-y-10`,
+    children: [
+      (0, i.jsx)(t, {
+        title: `Keyboard Shortcut`,
+        description: `Hiển thị phím tắt nội tuyến.`,
+      }),
+      (0, i.jsxs)(r, {
+        label: `Default`,
+        description: `Chỉ báo phím tắt.`,
+        children: [
+          (0, i.jsxs)(`p`, {
+            className: `text-sm text-muted-foreground`,
+            children: [
+              `Press `,
+              (0, i.jsx)(a, { children: `⌘` }),
+              ` `,
+              (0, i.jsx)(a, { children: `K` }),
+              ` to open the command menu.`,
+            ],
+          }),
+          (0, i.jsxs)(`p`, {
+            className: `text-sm text-muted-foreground mt-4 flex items-center gap-2`,
+            children: [
+              `Or using group:`,
+              (0, i.jsxs)(o, {
+                children: [
+                  (0, i.jsx)(a, { children: `⌘` }),
+                  (0, i.jsx)(a, { children: `Shift` }),
+                  (0, i.jsx)(a, { children: `P` }),
+                ],
+              }),
+            ],
+          }),
+        ],
+      }),
+    ],
+  });
+}
+export { s as default };

@@ -1,12 +1,12 @@
 ---
-name: 'step-01-identify'
-description: 'Identify the strategic challenge or improvement opportunity for this Kaizen cycle'
+name: "step-01-identify"
+description: "Identify the strategic challenge or improvement opportunity for this Kaizen cycle"
 
 # File References
-nextStepFile: './step-02-gather-context.md'
+nextStepFile: "./step-02-gather-context.md"
 
 # Data References
-contextTemplates: '../data/context-templates.md'
+contextTemplates: "../data/context-templates.md"
 ---
 
 # Step 1: Identify Opportunity
@@ -93,11 +93,11 @@ If the user is improving a live product:
 
 Priority = Impact × Effort × Learning
 
-| Factor | High | Medium | Low |
-|--------|------|--------|-----|
-| **Impact** | Solves major pain | Improves experience | Nice to have |
-| **Effort** | 1-2 days | 3-5 days | 1-2 weeks |
-| **Learning** | Tests hypothesis | Validates assumption | Incremental |
+| Factor       | High              | Medium               | Low          |
+| ------------ | ----------------- | -------------------- | ------------ |
+| **Impact**   | Solves major pain | Improves experience  | Nice to have |
+| **Effort**   | 1-2 days          | 3-5 days             | 1-2 weeks    |
+| **Learning** | Tests hypothesis  | Validates assumption | Incremental  |
 
 **Document the opportunity:**
 

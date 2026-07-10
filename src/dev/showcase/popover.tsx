@@ -1,47 +1,35 @@
-import { useState } from "react";
 import {
-  SectionHeader,
-  ExampleSection,
+  DocsP,
   ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+  SizeToggle,
 } from "@/dev/components/showcase";
+import { useState } from "react";
 
-import { type Size } from "@/lib/types";
-import {
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
-  PopoverHeader,
-  PopoverTitle,
-  PopoverDescription,
-} from "@/components/micro/popover";
 import { Button } from "@/components/micro/button";
 import { Input } from "@/components/micro/input";
 import { Label } from "@/components/micro/label";
-import { SelectPreset } from "@/components/macro/select-preset";
-import { Settings, User, Bell } from "lucide-react";
+import {
+  Popover,
+  PopoverContent,
+  PopoverDescription,
+  PopoverHeader,
+  PopoverTitle,
+  PopoverTrigger,
+} from "@/components/micro/popover";
+import { type Size } from "@/lib/types";
+import { Bell, Settings } from "lucide-react";
 
-export default function PopoverShowcase() {
-  const [globalSize, setGlobalSize] = useState<Size>("md");
+// ──────────────────────────────────────────────────────────
+// SECTION 2: Micro Content (không export)
+// ──────────────────────────────────────────────────────────
+function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="space-y-10">
-      <SectionHeader
-        title="Popover"
-        description="Hiển thị nội dung phong phú trong cổng thông tin, được kích hoạt bằng một nút."
-      >
-        <SelectPreset
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as Size)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-          className="w-[120px] h-8 text-xs bg-background"
-        />
-      </SectionHeader>
-
+    <div className="space-y-10 mt-6">
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Default"
@@ -49,7 +37,7 @@ export default function PopoverShowcase() {
           codeString={`<Popover>
   <PopoverTrigger
     render={
-      <Button variant="outline">
+      <Button variant="outline" size="${globalSize}">
         Open Popover
       </Button>
     }
@@ -339,5 +327,36 @@ return (
         </div>
       </ExampleSection>
     </div>
+  );
+}
+
+// ──────────────────────────────────────────────────────────
+// SECTION 3: Entry point (export default)
+// ──────────────────────────────────────────────────────────
+export default function PopoverShowcase() {
+  const [globalSize, setGlobalSize] = useState<Size>("md");
+
+  return (
+    <Showcase
+      title="Popover"
+      description="Hiển thị nội dung phong phú trong cổng thông tin, được kích hoạt bằng một nút."
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsP>
+            Popover là một floating panel hiển thị khi người dùng click vào một
+            phần tử (trigger). Khác với Tooltip (hiển thị khi hover), Popover
+            dùng cho những nội dung phong phú hơn, chứa các tương tác phức tạp
+            như biểu mẫu, danh sách cài đặt, v.v.
+          </DocsP>
+        </ShowcaseDocs>
+      }
+      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
+      tabs={[
+        {
+          label: "Micro (Primitive)",
+          content: <PopoverMicroShowcase globalSize={globalSize} />,
+        },
+      ]}
+    />
   );
 }

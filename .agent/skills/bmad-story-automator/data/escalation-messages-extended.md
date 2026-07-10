@@ -3,6 +3,7 @@
 ## 5. Unexpected Error
 
 **Escalation message:**
+
 ```
 🔔 DECISION NEEDED: Unexpected Error
 
@@ -26,6 +27,7 @@ Select option:
 ## 6. Dependency Conflict
 
 **Escalation message:**
+
 ```
 🔔 DECISION NEEDED: Potential Dependency Conflict
 
@@ -47,11 +49,13 @@ Select option:
 ## 7. Dev-Story Implementation Failure
 
 **Pre-escalation behavior:**
+
 1. Check blocking status (conservative if uncertain)
 2. If BLOCKING: retry up to 3 times
 3. If NOT BLOCKING: retry once
 
 **Escalation message:**
+
 ```
 🔔 DECISION NEEDED: Dev-Story Implementation Failure
 

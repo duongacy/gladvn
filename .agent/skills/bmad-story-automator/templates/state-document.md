@@ -11,13 +11,13 @@ lastUpdated: ""
 createdAt: ""
 
 # Configuration
-aiCommand: ""  # Deprecated: use agentConfig
+aiCommand: "" # Deprecated: use agentConfig
 overrides:
   skipAutomate: false
   maxParallel: 1
-customInstructions: ""  # User-provided instructions for orchestration
-agentsFile: ""  # Deterministic per-story agent selections
-complexityFile: ""  # Persisted story complexity data
+customInstructions: "" # User-provided instructions for orchestration
+agentsFile: "" # Deterministic per-story agent selections
+complexityFile: "" # Persisted story complexity data
 policyVersion: 0
 policySnapshotFile: ""
 policySnapshotHash: ""
@@ -25,8 +25,8 @@ legacyPolicy: false
 
 # Agent Configuration (v3.0.0)
 agentConfig:
-  defaultPrimary: "auto"      # auto resolves to the active runtime provider: claude | codex
-  defaultFallback: false      # Default fallback: claude | codex | false (disabled)
+  defaultPrimary: "auto" # auto resolves to the active runtime provider: claude | codex
+  defaultFallback: false # Default fallback: claude | codex | false (disabled)
   # Per-task overrides (optional)
   # perTask:
   #   create:
@@ -74,6 +74,7 @@ completedSessions: []
 **Created:** {{createdAt}}
 
 **Overrides:**
+
 - Skip Automate: {{overrides.skipAutomate}}
 - Max Parallel: {{overrides.maxParallel}}
 
@@ -85,7 +86,8 @@ completedSessions: []
 ## Story Progress
 
 | Story | create-story | dev-story | automate | code-review | git-commit | Status |
-|-------|--------------|-----------|----------|-------------|------------|--------|
+| ----- | ------------ | --------- | -------- | ----------- | ---------- | ------ |
+
 <!-- Progress rows will be appended here -->
 
 ---
@@ -99,7 +101,8 @@ completedSessions: []
 ## Session References
 
 | Session ID | Story | Step | Status | Started | Completed |
-|------------|-------|------|--------|---------|-----------|
+| ---------- | ----- | ---- | ------ | ------- | --------- |
+
 <!-- Session entries will be appended here -->
 
 ---

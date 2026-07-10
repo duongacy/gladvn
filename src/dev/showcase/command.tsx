@@ -1,4 +1,22 @@
-import { useState } from "react";
+import { Button } from "@/components/micro/button";
+import {
+  Command,
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandSeparator,
+  CommandShortcut,
+} from "@/components/micro/command";
+import {
+  DocsP,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+} from "@/dev/components/showcase";
 import {
   CalculatorIcon,
   CalendarIcon,
@@ -7,34 +25,13 @@ import {
   SmileIcon,
   UserIcon,
 } from "lucide-react";
-import {
-  SectionHeader,
-  ExampleSection,
-  ExampleGrid,
-} from "@/dev/components/showcase";
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-  CommandSeparator,
-  CommandShortcut,
-  CommandDialog,
-} from "@/components/micro/command";
-import { Button } from "@/components/micro/button";
+import { useState } from "react";
 
-export default function CommandShowcase() {
+function CommandMicroShowcase() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="space-y-10">
-      <SectionHeader
-        title="Command"
-        description="Menu lệnh nhanh, có thể kết hợp, không theo kiểu cho React."
-      />
-
+    <div className="space-y-10 mt-6">
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Default"
@@ -216,5 +213,33 @@ export default function CommandShowcase() {
         </CommandDialog>
       </ExampleSection>
     </div>
+  );
+}
+
+// ──────────────────────────────────────────────────────────
+// SECTION 3: Entry point
+// ──────────────────────────────────────────────────────────
+export default function CommandShowcase() {
+  return (
+    <Showcase
+      title="Command"
+      description="Menu lệnh nhanh, có thể kết hợp, không theo kiểu cho React."
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsP>
+            Dùng để tạo các bảng lệnh (command palette) hoặc menu chọn có khả
+            năng tìm kiếm nhanh, thường kích hoạt bằng phím tắt (như Cmd+K).
+            Thích hợp cho các ứng dụng có nhiều chức năng phức tạp cần điều
+            hướng nhanh.
+          </DocsP>
+        </ShowcaseDocs>
+      }
+      tabs={[
+        {
+          label: "Micro (Primitive)",
+          content: <CommandMicroShowcase />,
+        },
+      ]}
+    />
   );
 }

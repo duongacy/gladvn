@@ -3,6 +3,11 @@ node_modules/
 
 # Build output
 dist/
+dist-app/
+
+# Testing
+playwright-report/
+test-results/
 
 # Temp files
 tmp-shadcn/

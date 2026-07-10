@@ -1,7 +1,7 @@
 ---
-name: 'step-02-inventory'
-description: 'Catalog all motion content needed with type, duration, complexity, and format requirements'
-nextStepFile: './step-03-select-style.md'
+name: "step-02-inventory"
+description: "Catalog all motion content needed with type, duration, complexity, and format requirements"
+nextStepFile: "./step-03-select-style.md"
 ---
 
 # Step 2: Asset Inventory

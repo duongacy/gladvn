@@ -1,30 +1,29 @@
-import { useState } from "react";
 import {
-  ExampleSection,
-  ExampleGrid,
-  ShowcaseDocs,
-  Showcase,
+  DocsCode,
   DocsH3,
   DocsP,
-  DocsCode,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+  SizeToggle,
 } from "@/dev/components/showcase";
-import { MonoSelect } from "@/dev/components/mono-select";
 import { type Size } from "@/lib/types";
+import { useState } from "react";
 
+import { InputOTPPreset } from "@/components/macro/input-otp-preset";
+import {
+  Field,
+  FieldContent,
+  FieldError,
+  FieldLabel,
+} from "@/components/micro/field";
 import {
   InputOTP,
   InputOTPGroup,
   InputOTPSeparator,
   InputOTPSlot,
 } from "@/components/micro/input-otp";
-import {
-  Field,
-  FieldLabel,
-  FieldDescription,
-  FieldContent,
-  FieldError,
-} from "@/components/micro/field";
-import { InputOTPPreset } from "@/components/macro/input-otp-preset";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Macro Content
@@ -32,17 +31,6 @@ import { InputOTPPreset } from "@/components/macro/input-otp-preset";
 function InputOTPMacroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Khi nào nên dùng Macro</DocsH3>
-        <DocsP>
-          <DocsCode>InputOTPPreset</DocsCode> tự động sinh ra các nhóm số
-          (`InputOTPGroup`) và dấu phân cách (`InputOTPSeparator`) dựa vào prop{" "}
-          <DocsCode>groups</DocsCode> (ví dụ: `groups={[3, 3]}`). Dùng Preset
-          này cho 99% các trường hợp form nhập mã xác thực (OTP) vì nó đã tích
-          hợp sẵn Label và Error Message.
-        </DocsP>
-      </ShowcaseDocs>
-
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Tiêu chuẩn (2 nhóm)"
@@ -143,26 +131,15 @@ function InputOTPMacroShowcase({ globalSize }: { globalSize: Size }) {
 function InputOTPMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Khi nào nên dùng Micro</DocsH3>
-        <DocsP>
-          Dùng <DocsCode>InputOTP</DocsCode> và{" "}
-          <DocsCode>InputOTPGroup</DocsCode> thủ công khi bạn cần một giao diện
-          nhập mã đặc thù không theo chuẩn (ví dụ: các ô số nằm rải rác trong
-          một thiết kế đồ hoạ) hoặc khi chèn trực tiếp vào một luồng không có
-          Label đi kèm.
-        </DocsP>
-      </ShowcaseDocs>
-
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Cơ bản (Primitive)"
           description="Mã 6 chữ số liền mạch không có dấy phân cách."
           codeString={`<div className="w-full">
-  <Field>
+  <Field size="\${globalSize}">
     <FieldLabel htmlFor="tf-otp-0">Mã PIN</FieldLabel>
     <FieldContent>
-      <InputOTP id="tf-otp-0" maxLength={6}>
+      <InputOTP id="tf-otp-0" size="\${globalSize}" maxLength={6}>
         <InputOTPGroup>
           {Array.from({ length: 6 }).map((_, index) => (
             <InputOTPSlot key={\`tf-otp-0-slot-\${index}\`} index={index} />
@@ -197,10 +174,10 @@ function InputOTPMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Phân tách thủ công"
           description="Tự chèn InputOTPSeparator vào giữa các nhóm."
           codeString={`<div className="w-full">
-  <Field>
+  <Field size="\${globalSize}">
     <FieldLabel htmlFor="tf-otp-1">Mã bảo mật</FieldLabel>
     <FieldContent>
-      <InputOTP id="tf-otp-1" maxLength={6}>
+      <InputOTP id="tf-otp-1" size="\${globalSize}" maxLength={6}>
         <InputOTPGroup>
           {Array.from({ length: 3 }).map((_, index) => (
             <InputOTPSlot key={\`tf-otp-1-slot-a-\${index}\`} index={index} />
@@ -252,10 +229,10 @@ function InputOTPMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Trạng thái Lỗi thủ công"
           description="Gắn aria-invalid vào Field để thay đổi màu sắc."
           codeString={`<div className="w-full">
-  <Field data-invalid={true}>
+  <Field size="\${globalSize}" data-invalid={true}>
     <FieldLabel htmlFor="tf-otp-err">Mã xác minh</FieldLabel>
     <FieldContent>
-      <InputOTP id="tf-otp-err" maxLength={4}>
+      <InputOTP id="tf-otp-err" size="\${globalSize}" maxLength={4}>
         <InputOTPGroup>
           {Array.from({ length: 4 }).map((_, index) => (
             <InputOTPSlot key={\`tf-otp-err-slot-\${index}\`} index={index} />
@@ -292,10 +269,10 @@ function InputOTPMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Disabled thủ công"
           description="Truyền thuộc tính disabled."
           codeString={`<div className="w-full">
-  <Field>
+  <Field size="\${globalSize}">
     <FieldLabel htmlFor="tf-otp-d">Mã OTP</FieldLabel>
     <FieldContent>
-      <InputOTP id="tf-otp-d" maxLength={4} disabled>
+      <InputOTP id="tf-otp-d" size="\${globalSize}" maxLength={4} disabled>
         <InputOTPGroup>
           {Array.from({ length: 4 }).map((_, index) => (
             <InputOTPSlot key={\`tf-otp-d-slot-\${index}\`} index={index} />
@@ -457,17 +434,31 @@ export default function InputOTPShowcase() {
     <Showcase
       title="Input OTP"
       description="Trường nhập mật khẩu một lần (One-Time Password) có khả năng tự động tách chữ số và paste."
-      actions={
-        <MonoSelect
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as Size)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-        />
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsP>
+            Dùng để nhập các đoạn mã có chiều dài cố định như OTP, PIN code,
+            2FA.
+          </DocsP>
+          <DocsH3>Khi nào nên dùng Macro</DocsH3>
+          <DocsP>
+            <DocsCode>InputOTPPreset</DocsCode> tự động sinh ra các nhóm số
+            (`InputOTPGroup`) và dấu phân cách (`InputOTPSeparator`) dựa vào
+            prop <DocsCode>groups</DocsCode> (ví dụ: `groups={[3, 3]}`). Dùng
+            Preset này cho 99% các trường hợp form nhập mã xác thực (OTP) vì nó
+            đã tích hợp sẵn Label và Error Message.
+          </DocsP>
+          <DocsH3>Khi nào nên dùng Micro</DocsH3>
+          <DocsP>
+            Dùng <DocsCode>InputOTP</DocsCode> và{" "}
+            <DocsCode>InputOTPGroup</DocsCode> thủ công khi bạn cần một giao
+            diện nhập mã đặc thù không theo chuẩn (ví dụ: các ô số nằm rải rác
+            trong một thiết kế đồ hoạ) hoặc khi chèn trực tiếp vào một luồng
+            không có Label đi kèm.
+          </DocsP>
+        </ShowcaseDocs>
       }
+      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
       tabs={[
         {
           label: "Micro (Primitive)",

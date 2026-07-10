@@ -27,6 +27,7 @@ Feel free to answer as much or as little as you'd like. You can also say 'none' 
 ```
 
 **After user responds:**
+
 - Think about their response before continuing
 - If response raises new questions, ask 1-2 follow-up questions
 - Continue until context is sufficient
@@ -60,6 +61,7 @@ Enter agent config or press Enter for defaults:
 ```
 
 Store response as `agentConfig` (v3.0.0):
+
 ```yaml
 agentConfig:
   defaultPrimary: "auto"

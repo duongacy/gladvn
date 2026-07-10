@@ -1,11 +1,11 @@
 ---
-name: 'step-06-object-registry'
-description: 'Verify that page specification includes complete Object Registry with 100% coverage of all Object IDs'
+name: "step-06-object-registry"
+description: "Verify that page specification includes complete Object Registry with 100% coverage of all Object IDs"
 
 # File References
-nextStepFile: './step-0wds-7-design-system-separation.md'
-workflowFile: '../workflow.md'
-activityWorkflowFile: '../workflow-validate.md'
+nextStepFile: "./step-0wds-7-design-system-separation.md"
+workflowFile: "../workflow.md"
+activityWorkflowFile: "../workflow-validate.md"
 ---
 
 # Step 6: Validate Object Registry
@@ -60,6 +60,7 @@ Verify that page specification includes complete Object Registry with 100% cover
 Check for "## Object Registry" header. Verify introduction paragraph exists. Extract all Object IDs from Page Sections and compare against Object Registry table(s).
 
 Validate:
+
 - "## Object Registry" header present
 - Introduction paragraph explaining registry purpose
 - Master Object List table(s) with all Object IDs
@@ -69,6 +70,7 @@ Validate:
 ### 2. Calculate Coverage
 
 Calculate coverage percentage:
+
 - Identify missing Object IDs (in sections but not in registry)
 - Identify orphaned Object IDs (in registry but not in sections)
 

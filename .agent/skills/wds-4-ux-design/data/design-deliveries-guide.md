@@ -94,25 +94,25 @@ Flow: Login & Onboarding
 
 ```yaml
 delivery:
-  id: 'DD-001'
-  name: 'Login & Onboarding Flow'
-  status: 'ready'
-  priority: 'high'
+  id: "DD-001"
+  name: "Login & Onboarding Flow"
+  status: "ready"
+  priority: "high"
 
 design_artifacts:
   scenarios:
-    - id: '01-welcome'
-      path: 'C-UX-Scenarios/01-welcome-screen/'
-    - id: '02-login'
-      path: 'C-UX-Scenarios/02-login/'
+    - id: "01-welcome"
+      path: "C-UX-Scenarios/01-welcome-screen/"
+    - id: "02-login"
+      path: "C-UX-Scenarios/02-login/"
     # ... etc
 
 user_value:
-  problem: 'Users need to access the app securely'
-  solution: 'Streamlined onboarding with family setup'
+  problem: "Users need to access the app securely"
+  solution: "Streamlined onboarding with family setup"
   success_criteria:
-    - 'User completes signup in under 2 minutes'
-    - '90% completion rate'
+    - "User completes signup in under 2 minutes"
+    - "90% completion rate"
 ```
 
 ---
@@ -136,17 +136,17 @@ user_value:
 
 ```yaml
 test_scenario:
-  id: 'TS-001'
-  name: 'Login & Onboarding Testing'
-  delivery_id: 'DD-001'
+  id: "TS-001"
+  name: "Login & Onboarding Testing"
+  delivery_id: "DD-001"
 
 happy_path:
-  - id: 'HP-001'
-    name: 'New User Complete Onboarding'
+  - id: "HP-001"
+    name: "New User Complete Onboarding"
     steps:
-      - action: 'Open app'
-        expected: 'Welcome screen appears'
-        design_ref: 'C-UX-Scenarios/01-welcome/Frontend/specifications.md'
+      - action: "Open app"
+        expected: "Welcome screen appears"
+        design_ref: "C-UX-Scenarios/01-welcome/Frontend/specifications.md"
       # ... etc
 ```
 
@@ -199,9 +199,9 @@ Update delivery status:
 
 ```yaml
 delivery:
-  status: 'in_development'
-  handed_off_at: '2024-12-09T11:00:00Z'
-  assigned_to: 'bmad-architect'
+  status: "in_development"
+  handed_off_at: "2024-12-09T11:00:00Z"
+  assigned_to: "bmad-architect"
 ```
 
 **BMad receives:**

@@ -7,8 +7,8 @@
  */
 "use client";
 
-import * as React from "react";
 import { Switch as SwitchPrimitive } from "@base-ui/react/switch";
+import * as React from "react";
 
 import { cva, type VariantProps } from "class-variance-authority";
 
@@ -35,7 +35,7 @@ const switchVariants = cva(
 const Switch = React.forwardRef<
   React.ComponentRef<typeof SwitchPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof SwitchPrimitive.Root> &
-  VariantProps<typeof switchVariants>
+    VariantProps<typeof switchVariants>
 >(function Switch({ className, size = "md", ...props }, ref) {
   return (
     <SwitchPrimitive.Root

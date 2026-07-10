@@ -1,19 +1,19 @@
 ---
-name: 'step-03-story'
-description: 'Define major story beats and narrative pacing'
+name: "step-03-story"
+description: "Define major story beats and narrative pacing"
 
 # Path Definitions
-workflow_path: '{installed_path}'
+workflow_path: "{installed_path}"
 
 # File References
-thisStepFile: './step-03-story.md'
-nextStepFile: './step-04-characters.md'
-workflowFile: '{workflow_path}/workflow.md'
-outputFile: '{output_folder}/narrative-design.md'
+thisStepFile: "./step-03-story.md"
+nextStepFile: "./step-04-characters.md"
+workflowFile: "{workflow_path}/workflow.md"
+outputFile: "{output_folder}/narrative-design.md"
 
 # Task References
-advancedElicitationTask: 'skill:bmad-advanced-elicitation'
-partyModeWorkflow: 'skill:bmad-party-mode'
+advancedElicitationTask: "skill:bmad-advanced-elicitation"
+partyModeWorkflow: "skill:bmad-party-mode"
 ---
 
 # Step 3: Story Beats

@@ -5,8 +5,8 @@
  * - Form Control Parity
  * - CSS Delegated Logic
  */
-import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
+import * as React from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -62,7 +62,8 @@ const emptyMediaVariants = cva(
 
 const EmptyMedia = React.forwardRef<
   HTMLDivElement,
-  React.ComponentPropsWithoutRef<"div"> & VariantProps<typeof emptyMediaVariants>
+  React.ComponentPropsWithoutRef<"div"> &
+    VariantProps<typeof emptyMediaVariants>
 >(({ className, variant, ...props }, ref) => (
   <div
     ref={ref}
@@ -81,10 +82,7 @@ const EmptyTitle = React.forwardRef<
   <h3
     ref={ref}
     data-slot="empty-title"
-    className={cn(
-      "font-heading text-sm font-medium tracking-tight",
-      className,
-    )}
+    className={cn("font-heading text-sm font-medium tracking-tight", className)}
     {...props}
   />
 ));
@@ -137,10 +135,10 @@ EmptyAction.displayName = "EmptyAction";
 
 export {
   Empty,
-  EmptyHeader,
-  EmptyTitle,
-  EmptyDescription,
-  EmptyContent,
   EmptyAction,
+  EmptyContent,
+  EmptyDescription,
+  EmptyHeader,
   EmptyMedia,
+  EmptyTitle,
 };

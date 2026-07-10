@@ -1,7 +1,7 @@
 ---
-name: 'step-01-load-context'
-description: 'Load all inputs needed for wireframe generation from page specifications and design system'
-nextStepFile: './step-02-inventory.md'
+name: "step-01-load-context"
+description: "Load all inputs needed for wireframe generation from page specifications and design system"
+nextStepFile: "./step-02-inventory.md"
 ---
 
 # Step 1: Load Context

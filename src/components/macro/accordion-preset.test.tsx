@@ -1,12 +1,16 @@
-import React from "react";
-import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
+import { describe, expect, it } from "vitest";
 import { AccordionPreset } from "./accordion-preset";
 
 const items = [
   { value: "item-1", title: "Section 1", content: "Content for section 1" },
   { value: "item-2", title: "Section 2", content: "Content for section 2" },
-  { value: "item-3", title: "Section 3", content: "Content for section 3", disabled: true },
+  {
+    value: "item-3",
+    title: "Section 3",
+    content: "Content for section 3",
+    disabled: true,
+  },
 ];
 
 describe("AccordionPreset", () => {
@@ -19,7 +23,9 @@ describe("AccordionPreset", () => {
 
   it("renders correct number of items", () => {
     const { container } = render(<AccordionPreset items={items} />);
-    const accordionItems = container.querySelectorAll("[data-slot='accordion-item']");
+    const accordionItems = container.querySelectorAll(
+      "[data-slot='accordion-item']",
+    );
     expect(accordionItems.length).toBe(3);
   });
 

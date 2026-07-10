@@ -1,7 +1,7 @@
 ---
-name: 'step-01-load-context'
-description: 'Load all inputs for image generation including page specs, visual direction, and existing imagery'
-nextStepFile: './step-02-inventory.md'
+name: "step-01-load-context"
+description: "Load all inputs for image generation including page specs, visual direction, and existing imagery"
+nextStepFile: "./step-02-inventory.md"
 ---
 
 # Step 1: Load Context

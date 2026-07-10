@@ -3,6 +3,7 @@
 **Ngữ cảnh:** Bạn là một Frontend/UI Engineer đang xây dựng trang Showcase (tài liệu/demo) cho các Component của thư viện UI `sadcn`. Hãy sử dụng cấu trúc và format chuẩn dưới đây khi viết Showcase cho bất kỳ component nào.
 
 **Quy tắc tổ chức Layout & Import:**
+
 1. Mọi showcase đều phải sử dụng các Layout Component chuẩn từ `@/dev/components/showcase`, bao gồm: `SectionHeader`, `ExampleSection`, `ExampleGrid`, `ShowcaseDocs`.
 2. File được bọc ngoài cùng bởi thẻ `<div className="space-y-10">`.
 
@@ -12,6 +13,7 @@
 Sử dụng `<SectionHeader title="Tên Component" description="Mô tả ngắn gọn về chức năng của component." />` nằm ở trên cùng.
 
 **2. Tài liệu hướng dẫn (ShowcaseDocs):**
+
 - Nằm ngay dưới `SectionHeader`, bọc trong `<ShowcaseDocs>`.
 - Bao gồm các thẻ `<h3>` để phân chia nội dung.
 - Bắt buộc có phần **"Khi nào nên dùng"**: Hướng dẫn use-case thực tế (nên dùng khi nào, không nên dùng khi nào).
@@ -20,6 +22,7 @@ Sử dụng `<SectionHeader title="Tên Component" description="Mô tả ngắn 
 - (Tuỳ chọn) Nếu component có các quy tắc đặc biệt, có thể thêm section H3 khác.
 
 **3. Các phần Demo (ExampleSection & ExampleGrid):**
+
 - Chia các chức năng thành các phần demo trực quan bằng `<ExampleSection label="..." description="...">`.
 - **Nguyên tắc gom nhóm:** Đối với các ví dụ nhỏ, cùng một nhóm tính năng (như Variants, State, hay Single/Multiple), BẮT BUỘC dùng `<ExampleGrid columns={2}>` để đưa 2 `<ExampleSection>` nằm song song cạnh nhau giúp tiết kiệm không gian.
 - Đối với các ví dụ lớn, dài hoặc cấu trúc lồng nhau (Nested), dùng độc lập `<ExampleSection fullWidth={true/false}>` (nếu cần chiếm toàn bộ chiều rộng).

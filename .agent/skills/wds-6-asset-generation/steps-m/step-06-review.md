@@ -1,7 +1,7 @@
 ---
-name: 'step-06-review'
-description: 'Review all generated images as a cohesive set for brand consistency and quality'
-workflowFile: '../workflow.md'
+name: "step-06-review"
+description: "Review all generated images as a cohesive set for brand consistency and quality"
+workflowFile: "../workflow.md"
 ---
 
 # Step 6: Review and Iterate

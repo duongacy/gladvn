@@ -1,12 +1,11 @@
-import { LayersIcon, MenuIcon, XIcon } from "lucide-react";
-import { useEffect, useState } from "react";
-import { COMPONENTS, NAV } from "@/dev/data";
-import React, { Suspense, lazy } from "react";
-import OverviewSection from "@/dev/showcase/overview";
 import { Badge } from "@/components/micro/badge";
 import { Separator } from "@/components/micro/separator";
 import { Switch, SwitchThumb } from "@/components/micro/switch";
 import { useTheme } from "@/components/micro/theme-provider";
+import { COMPONENTS } from "@/dev/data";
+import OverviewSection from "@/dev/showcase/overview";
+import { LayersIcon, MenuIcon, XIcon } from "lucide-react";
+import React, { Suspense, lazy, useEffect, useState } from "react";
 
 const components: Record<string, React.LazyExoticComponent<any>> = {};
 COMPONENTS.forEach((comp) => {
@@ -19,7 +18,13 @@ function ComponentViewer({ id }: { id: string }) {
   const Comp = components[id];
   return (
     <div className="mt-2">
-      <Suspense fallback={<div className="p-12 text-center text-muted-foreground animate-pulse">Loading...</div>}>
+      <Suspense
+        fallback={
+          <div className="p-12 text-center text-muted-foreground animate-pulse">
+            Loading...
+          </div>
+        }
+      >
         {Comp && <Comp />}
       </Suspense>
     </div>
@@ -100,7 +105,11 @@ export default function App() {
               className="md:hidden -ml-2 p-1.5 rounded-md hover:bg-muted text-muted-foreground transition-colors"
               aria-label="Toggle Menu"
             >
-              {isMobileMenuOpen ? <XIcon className="size-5" /> : <MenuIcon className="size-5" />}
+              {isMobileMenuOpen ? (
+                <XIcon className="size-5" />
+              ) : (
+                <MenuIcon className="size-5" />
+              )}
             </button>
             <div className="size-7 rounded-[9px] bg-primary flex items-center justify-center shadow-sm border border-primary/20">
               <LayersIcon className="size-4 text-primary-foreground" />
@@ -130,17 +139,19 @@ export default function App() {
       <div className="mx-auto flex max-w-[1440px] gap-0">
         {/* Mobile Backdrop */}
         {isMobileMenuOpen && (
-          <div 
-            className="fixed inset-0 z-40 bg-background/80 backdrop-blur-sm md:hidden" 
-            onClick={() => setIsMobileMenuOpen(false)} 
+          <div
+            className="fixed inset-0 z-40 bg-background/80 backdrop-blur-sm md:hidden"
+            onClick={() => setIsMobileMenuOpen(false)}
             aria-hidden="true"
           />
         )}
 
         {/* Sidebar */}
-        <aside className={`fixed inset-y-0 left-0 z-50 w-64 transform border-r bg-background pt-4 px-3 transition-transform duration-200 ease-in-out md:sticky md:top-14 md:block md:h-[calc(100vh-3.5rem)] md:w-56 md:translate-x-0 md:pt-6 md:z-0 overflow-y-auto ${
-          isMobileMenuOpen ? "translate-x-0 shadow-2xl" : "-translate-x-full"
-        }`}>
+        <aside
+          className={`fixed inset-y-0 left-0 z-50 w-64 transform border-r bg-background pt-4 px-3 transition-transform duration-200 ease-in-out md:sticky md:top-14 md:block md:h-[calc(100vh-3.5rem)] md:w-56 md:translate-x-0 md:pt-6 md:z-0 overflow-y-auto ${
+            isMobileMenuOpen ? "translate-x-0 shadow-2xl" : "-translate-x-full"
+          }`}
+        >
           <nav className="space-y-0.5">
             <button
               onClick={() => setActive("overview")}
@@ -154,7 +165,7 @@ export default function App() {
               Overview
             </button>
           </nav>
-          
+
           <p className="mb-2 px-2 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground mt-4">
             Components (A-Z)
           </p>
@@ -172,7 +183,12 @@ export default function App() {
                 <span>{label}</span>
                 <div className="flex gap-1 shrink-0">
                   {status === "stable" && (
-                    <span className="text-[9px] bg-green-500/10 text-green-500 dark:bg-green-500/20 dark:text-green-400 px-1.5 py-0.5 rounded-sm font-medium tracking-tight" title="Stable & Audited">Stable</span>
+                    <span
+                      className="text-[9px] bg-green-500/10 text-green-500 dark:bg-green-500/20 dark:text-green-400 px-1.5 py-0.5 rounded-sm font-medium tracking-tight"
+                      title="Stable & Audited"
+                    >
+                      Stable
+                    </span>
                   )}
                 </div>
               </button>

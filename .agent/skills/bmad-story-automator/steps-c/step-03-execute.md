@@ -1,15 +1,15 @@
 ---
-name: 'step-03-execute'
-description: 'Autonomous execution loop - create and dev stories'
-nextStep: './step-03a-execute-review.md'
-dataFileIndex: '../data/data-file-index.md'
-scriptsDir: '../scripts/story-automator'
-outputFolder: '{output_folder}/story-automator'
-stateFilePattern: '{outputFolder}/orchestration-*.md'
-outputFile: '{outputFolder}/orchestration-{epic_id}-{timestamp}.md'
-retryStrategy: '../data/retry-fallback-strategy.md'
-executionPatterns: '../data/execution-patterns.md'
-subagentPrompts: '../data/subagent-prompts.md'
+name: "step-03-execute"
+description: "Autonomous execution loop - create and dev stories"
+nextStep: "./step-03a-execute-review.md"
+dataFileIndex: "../data/data-file-index.md"
+scriptsDir: "../scripts/story-automator"
+outputFolder: "{output_folder}/story-automator"
+stateFilePattern: "{outputFolder}/orchestration-*.md"
+outputFile: "{outputFolder}/orchestration-{epic_id}-{timestamp}.md"
+retryStrategy: "../data/retry-fallback-strategy.md"
+executionPatterns: "../data/execution-patterns.md"
+subagentPrompts: "../data/subagent-prompts.md"
 ---
 
 ## 🚨 CRITICAL: Load Data File Index FIRST
@@ -18,6 +18,7 @@ subagentPrompts: '../data/subagent-prompts.md'
 **DO NOT proceed until you have read the index and loaded the required files.**
 
 ---
+
 Set: `scripts="{scriptsDir}"`
 
 ## 🚨 CRITICAL: CLI Contract Check (Interface Drift Guard)
@@ -51,11 +52,13 @@ If any check fails: **STOP and escalate immediately** with "helper CLI contract 
 ## Setup
 
 Load from state document (located via `{stateFilePattern}`; output folder `{outputFolder}`; resolved path stored as `{outputFile}` for this run):
+
 - `storyRange`, `currentStory`, `currentStep`
 - `overrides` (skipAutomate, maxParallel)
 - `customInstructions`
 
 Resolve agent configuration using deterministic agents file (see `{retryStrategy}` for full function):
+
 ```bash
 state_file="{outputFile}"
 # resolve_agent_for_task "{task}" "$state_file" "{story_id}" -> sets primary_agent,fallback_agent
@@ -67,6 +70,7 @@ state_file="{outputFile}"
 ## 🚨 CRITICAL: Execution Patterns
 
 **BEFORE executing any steps, read `{executionPatterns}` for:**
+
 - FORBIDDEN patterns (never chain multiple workflow steps)
 - REQUIRED patterns (verify state after each step)
 - Monitoring failure fallback sequence
@@ -77,11 +81,13 @@ state_file="{outputFile}"
 
 > **⚠️ SPAWN PATTERN - READ THIS:**
 > Every `story-automator tmux-wrapper spawn` call **MUST** include `--command` with the built command:
+>
 > ```bash
 > session=$("$scripts" tmux-wrapper spawn {step} {epic} {story_id} \
 >   --agent "$agent" \
 >   --command "$("$scripts" tmux-wrapper build-cmd {step} {story_id} --agent "$agent")")
 > ```
+>
 > **Missing `--command` = session sits idle → `never_active` failure!**
 
 **FOR EACH story in range:**
@@ -102,12 +108,15 @@ awk -v row="| {story_id} | - | - | - | - | - | in-progress |" '
 
 Display: "**Story {N}/{total}: {title}**"
 Use compact operator output format for routine progress:
+
 ```text
 [story {N}/{total}] {step} -> {state} (agent={agent}, retries={attempts})
 ```
+
 After any session completes (create/dev/auto/review): `"$scripts" tmux-wrapper kill "$session"`
 
 **MANDATORY log pre-filter (all sessions):** Before any deep parsing, pre-filter logs with a single grep/regex pass and pass only focused output forward.
+
 ```bash
 log_file=$(echo "$result" | jq -r '.output_file')
 log_focus=$(grep -nE "SUCCESS|FAIL|ERROR|CRITICAL|WARN|RETRY|ESCALATE" "$log_file" | head -n 120)
@@ -115,14 +124,17 @@ if [ -z "$log_focus" ]; then
   log_focus=$(tail -n 120 "$log_file")
 fi
 ```
+
 If multiple logs exist, run one grep/regex pass across all log files and forward only matched lines + file names.
 
 **Compact result contract (required):**
+
 - Return only: `next_action`, `confidence`, `error_class`, `retryable`, `reasons`, `session_id`
 - Do not pass full raw logs to parent flow unless escalation explicitly requires evidence payload
 
 ### A. Create Story
-*Skip if story file exists*
+
+_Skip if story file exists_
 
 **Apply retry/fallback pattern from `{retryStrategy}`:** Up to 5 attempts, alternating agents, network-aware delays.
 
@@ -175,6 +187,7 @@ result=$("$scripts" monitor-session "$session" --json --agent "$current_agent")
 ```
 
 **Session Parsing Contract (required):**
+
 - Preferred: use Session Output Parser prompt from `{subagentPrompts}` on `result.output_file`
 - Fallback: use local parser below
 - Return normalized schema only: `next_action`, `confidence`, `error_class`, `reasons`
@@ -211,4 +224,5 @@ echo "- **[$(date -u +%Y-%m-%dT%H:%M:%SZ)]** Dev complete, proceeding to review 
 ```
 
 ## Then
+
 → Immediately load and execute `{nextStep}`

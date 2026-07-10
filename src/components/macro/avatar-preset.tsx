@@ -1,5 +1,10 @@
+import {
+  Avatar,
+  AvatarBadge,
+  AvatarFallback,
+  AvatarImage,
+} from "@/components/micro/avatar";
 import * as React from "react";
-import { Avatar, AvatarImage, AvatarFallback, AvatarBadge } from "@/components/micro/avatar";
 
 export type AvatarPresetProps = React.ComponentProps<typeof Avatar> & {
   src?: string;
@@ -18,8 +23,11 @@ const statusColors = {
 function getInitials(name: string) {
   const parts = name.split(" ").filter(Boolean);
   if (parts.length === 0) return "??";
-  if (parts.length === 1) return parts[0]?.substring(0, 2).toUpperCase() ?? "??";
-  return ((parts[0]?.charAt(0) ?? "") + (parts[parts.length - 1]?.charAt(0) ?? "")).toUpperCase();
+  if (parts.length === 1)
+    return parts[0]?.substring(0, 2).toUpperCase() ?? "??";
+  return (
+    (parts[0]?.charAt(0) ?? "") + (parts[parts.length - 1]?.charAt(0) ?? "")
+  ).toUpperCase();
 }
 
 const AvatarPreset = React.forwardRef<
@@ -32,7 +40,11 @@ const AvatarPreset = React.forwardRef<
     <Avatar ref={ref} {...avatarProps}>
       <AvatarImage src={src} alt={alt} />
       <AvatarFallback>{generatedFallback}</AvatarFallback>
-      {status && <AvatarBadge className={`absolute z-10 right-0 bottom-0 ${statusColors[status]}`} />}
+      {status && (
+        <AvatarBadge
+          className={`absolute z-10 right-0 bottom-0 ${statusColors[status]}`}
+        />
+      )}
       {avatarProps.children}
     </Avatar>
   );

@@ -1,15 +1,21 @@
-import { useState } from "react";
-import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
 import {
   Table,
   TableBody,
   TableCaption,
   TableCell,
+  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
-  TableFooter,
 } from "@/components/micro/table";
+import {
+  DocsH3,
+  DocsP,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+} from "@/dev/components/showcase";
+import { useState } from "react";
 
 type SortDirection = "asc" | "desc" | "none";
 
@@ -24,7 +30,7 @@ const DUMMY_DATA = [
   },
 ];
 
-export default function TableShowcase() {
+function TableMicroShowcase() {
   const [invoiceSort, setInvoiceSort] = useState<SortDirection>("asc");
 
   const sortedData = [...DUMMY_DATA].sort((a, b) => {
@@ -34,9 +40,7 @@ export default function TableShowcase() {
   });
 
   return (
-    <div className="space-y-10">
-      <SectionHeader title="Table" description="Một thành phần bảng đáp ứng." />
-
+    <div className="space-y-10 mt-6">
       <ExampleSection
         label="Default"
         description="Bảng tiêu chuẩn có chú thích."
@@ -172,5 +176,21 @@ return (
         </Table>
       </ExampleSection>
     </div>
+  );
+}
+
+export default function TableShowcase() {
+  return (
+    <Showcase
+      title="Table"
+      description="Một thành phần bảng đáp ứng."
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsH3>Table</DocsH3>
+          <DocsP>Sử dụng để hiển thị dữ liệu dạng bảng.</DocsP>
+        </ShowcaseDocs>
+      }
+      tabs={[{ label: "Micro (Primitive)", content: <TableMicroShowcase /> }]}
+    />
   );
 }

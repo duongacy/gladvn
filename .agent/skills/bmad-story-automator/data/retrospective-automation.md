@@ -16,6 +16,7 @@ This file provides instructions for running retrospectives in YOLO mode (fully a
 ## Agent Constraints
 
 Retrospectives have complex multi-agent "party mode" interactions that require:
+
 - Natural language dialogue synthesis
 - Multi-step reasoning across story analysis
 - Document generation with rich context
@@ -25,6 +26,7 @@ Retrospectives use the configured `agentConfig` retro selection. If no explicit 
 ### Timeout Configuration
 
 Retrospectives analyze all stories in an epic and generate comprehensive reports:
+
 - **Base timeout**: 60 minutes (3600000ms)
 - **Extended timeout for large epics (>10 stories)**: 90 minutes (5400000ms)
 
@@ -82,6 +84,7 @@ When multiple epics are provided to story-automator:
 ### Tracking Multiple Epics
 
 State document should track:
+
 ```yaml
 epics:
   - epicNumber: 1
@@ -103,6 +106,7 @@ epics:
 ### Safe Skip on Failure
 
 If a retrospective fails:
+
 1. Log: `⚠️ Retrospective for Epic {N} skipped: {reason}`
 2. Update state: `retrospectives.epic-{N}.status = "skipped"`
 3. Update state: `retrospectives.epic-{N}.reason = "{reason}"`
@@ -119,6 +123,7 @@ See `retrospective-doc-verification.md` for doc verification patterns and output
 ### Network Errors
 
 If retrospective session fails due to network:
+
 1. Wait 60 seconds
 2. Retry once
 3. If retry fails, mark as skipped
@@ -126,6 +131,7 @@ If retrospective session fails due to network:
 ### Session Crashes
 
 If retrospective session crashes:
+
 1. Check output file for partial progress
 2. If retro doc was partially created, mark as partial
 3. Log crash reason
@@ -134,6 +140,7 @@ If retrospective session crashes:
 ### Timeout
 
 If retrospective exceeds timeout:
+
 1. Check if core analysis completed
 2. If retro doc exists, mark as partial success
 3. Skip doc verification phase

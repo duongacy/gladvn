@@ -1,9 +1,9 @@
 ---
-name: 'step-02-compare-attributes'
-description: 'Systematically compare current component to existing candidates across visual, functional, behavioral, and contextual dimensions'
+name: "step-02-compare-attributes"
+description: "Systematically compare current component to existing candidates across visual, functional, behavioral, and contextual dimensions"
 
 # File References
-nextStepFile: './step-03-calculate-similarity.md'
+nextStepFile: "./step-03-calculate-similarity.md"
 ---
 
 # Step 2: Compare Attributes

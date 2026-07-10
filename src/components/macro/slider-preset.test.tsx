@@ -1,6 +1,5 @@
-import React from "react";
-import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
+import { describe, expect, it } from "vitest";
 import { SliderPreset } from "./slider-preset";
 
 describe("SliderPreset", () => {
@@ -27,12 +26,18 @@ describe("SliderPreset", () => {
 
   it("renders track and indicator", () => {
     const { container } = render(<SliderPreset />);
-    expect(container.querySelector("[data-slot='slider-track']")).toBeInTheDocument();
-    expect(container.querySelector("[data-slot='slider-indicator']")).toBeInTheDocument();
+    expect(
+      container.querySelector("[data-slot='slider-track']"),
+    ).toBeInTheDocument();
+    expect(
+      container.querySelector("[data-slot='slider-indicator']"),
+    ).toBeInTheDocument();
   });
 
   it("renders thumb", () => {
     const { container } = render(<SliderPreset />);
-    expect(container.querySelector("[data-slot='slider-thumb']")).toBeInTheDocument();
+    expect(
+      container.querySelector("[data-slot='slider-thumb']"),
+    ).toBeInTheDocument();
   });
 });

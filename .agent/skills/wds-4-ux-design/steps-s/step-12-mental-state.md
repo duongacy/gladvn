@@ -1,11 +1,11 @@
 ---
-name: 'step-12-mental-state'
-description: 'Understand the user mental state when arriving at this specific page'
+name: "step-12-mental-state"
+description: "Understand the user mental state when arriving at this specific page"
 
 # File References
-nextStepFile: './step-13-desired-outcome.md'
-workflowFile: '../workflow.md'
-activityWorkflowFile: '../workflow-suggest.md'
+nextStepFile: "./step-13-desired-outcome.md"
+workflowFile: "../workflow.md"
+activityWorkflowFile: "../workflow-suggest.md"
 ---
 
 # Step 12: Page Mental State
@@ -60,6 +60,7 @@ Understand the user's mental state when arriving at this specific page — what 
 <ask>**What's the user's mental state when arriving?**
 
 Consider:
+
 - What just happened? (trigger)
 - What are they hoping for?
 - What are they worried about?

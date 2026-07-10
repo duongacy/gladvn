@@ -1,9 +1,9 @@
 ---
-name: 'step-08b-create-new-component'
-description: 'Add a new component to the design system with full specification'
+name: "step-08b-create-new-component"
+description: "Add a new component to the design system with full specification"
 
 # File References
-nextStepFile: './step-08c-update-component.md'
+nextStepFile: "./step-08c-update-component.md"
 ---
 
 # Step 8b: Create New Component

@@ -1,13 +1,13 @@
 ---
-name: 'step-04-wrapup'
-description: 'Finalize: summary, learnings, recommendations (terminal step)'
-learningsFile: '{output_folder}/story-automator/learnings.md'
-templates: '../data/wrapup-templates.md'
-stateFilePattern: '{output_folder}/story-automator/orchestration-*.md'
-outputFile: '{output_folder}/story-automator/orchestration-{epic_id}-{timestamp}.md'
-stateHelper: '../scripts/story-automator'
-stateMetrics: '../scripts/story-automator'
-reportRetentionPolicy: '../data/report-retention-policy.md'
+name: "step-04-wrapup"
+description: "Finalize: summary, learnings, recommendations (terminal step)"
+learningsFile: "{output_folder}/story-automator/learnings.md"
+templates: "../data/wrapup-templates.md"
+stateFilePattern: "{output_folder}/story-automator/orchestration-*.md"
+outputFile: "{output_folder}/story-automator/orchestration-{epic_id}-{timestamp}.md"
+stateHelper: "../scripts/story-automator"
+stateMetrics: "../scripts/story-automator"
+reportRetentionPolicy: "../data/report-retention-policy.md"
 ---
 
 # Step 4: Wrap-up
@@ -20,12 +20,15 @@ reportRetentionPolicy: '../data/report-retention-policy.md'
 ## Do
 
 ### 1. Load Final State
+
 From state document (located via `{stateFilePattern}`; resolved path stored as `{outputFile}` for this run), extract:
+
 - Story progress table
 - Action log
 - Session references
 
 Calculate:
+
 - Stories completed vs total
 - Code review cycles
 - Escalations encountered
@@ -33,12 +36,14 @@ Calculate:
 Use the existing state document path from execution, and derive `story_range_csv` from frontmatter `storyRange`.
 
 Deterministic metrics:
+
 ```bash
 metrics=$("{stateMetrics}" state-metrics --state "{state_document_path}")
 ```
 
 Parallel optimization (metrics + retention policy extraction):
-```bash
+
+````bash
 tmp_metrics=$(mktemp)
 tmp_retention=$(mktemp)
 
@@ -54,9 +59,10 @@ wait "$retention_pid"
 metrics=$(cat "$tmp_metrics")
 retention_cmds=$(cat "$tmp_retention")
 rm -f "$tmp_metrics" "$tmp_retention"
-```
+````
 
 **Optimization (data ops):** If action log exceeds 200 lines, use compact summary by default.
+
 ```bash
 log_block=$(awk '/^## Action Log/{flag=1;next}/^## /{if(flag){exit}}flag{print}' "{state_document_path}")
 log_lines=$(printf "%s\n" "$log_block" | wc -l | tr -d ' ')
@@ -68,12 +74,15 @@ fi
 ```
 
 ### 2. Generate Summary
+
 From `{templates}`, use **Summary Report Template**.
 
 Fill in all stats and display to user.
 
 ### 3. Capture Learnings
+
 Analyze run for patterns:
+
 - Common code review issues
 - Steps needing escalation
 - Timing patterns
@@ -85,17 +94,21 @@ Analyze run for patterns:
 Append entry using **Learnings Entry Template** from `{templates}`.
 
 ### 4. Recommendations
+
 From `{templates}`, use **Recommendations Template**.
 
 Present actionable suggestions based on patterns observed.
 
 ### 4b. Validation Report Housekeeping
+
 Load `{reportRetentionPolicy}` and apply its retention guidance when needed.
 
 If validation report history is large, run the suggested maintenance command from that policy file.
 
 ### 5. Finalize State
+
 Update state document:
+
 - `status = 'COMPLETE'`
 - `completedAt = {timestamp}`
 - Append final summary to action log
@@ -103,7 +116,9 @@ Update state document:
 Display: "**State document finalized.**"
 
 ### 6. Remove Marker File
+
 Remove the active runtime marker:
+
 ```bash
 "{stateHelper}" orchestrator-helper marker remove
 ```
@@ -113,6 +128,7 @@ This allows the Stop hook to stop normally after workflow completion by clearing
 ### 7. Workflow Complete
 
 Display:
+
 ```
 **🎉 Story Automator workflow complete!**
 

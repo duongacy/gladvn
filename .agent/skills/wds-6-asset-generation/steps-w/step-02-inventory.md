@@ -1,7 +1,7 @@
 ---
-name: 'step-02-inventory'
-description: 'Identify all pages needing wireframes and organize for batch generation'
-nextStepFile: './step-03-select-style.md'
+name: "step-02-inventory"
+description: "Identify all pages needing wireframes and organize for batch generation"
+nextStepFile: "./step-03-select-style.md"
 ---
 
 # Step 2: Asset Inventory

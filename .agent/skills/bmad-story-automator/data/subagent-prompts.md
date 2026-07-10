@@ -11,6 +11,7 @@
 **Use:** Parse T-Mux session output to determine success/failure status.
 
 **Prompt (v1.2.0 - strengthened):**
+
 ```
 You are a session output parser. Your job is CRITICAL - incorrect parsing leads to workflow failures.
 
@@ -60,6 +61,7 @@ Output file: {output_file_path}
 ```
 
 **Context for parser:**
+
 - For create-story: Look for "Story file created" or file path in output. Verify file exists.
 - For dev-story: Look for "Implementation complete", "Status: review/done", test pass indicators
 - For code-review: Look for issue counts by severity (CRITICAL, HIGH, MEDIUM, LOW)
@@ -74,6 +76,7 @@ Output file: {output_file_path}
 **Use:** Read a story file and produce a structured summary for pre-flight context.
 
 **Prompt:**
+
 ```
 You are a story reader. Analyze the following story file and extract key information for orchestration.
 
@@ -106,6 +109,7 @@ Extract and return:
 **Use:** Generate state document update entries.
 
 **Prompt:**
+
 ```
 You are a state document updater. Generate the appropriate update for the orchestration state.
 

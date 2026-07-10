@@ -1,11 +1,11 @@
 ---
-name: 'step-04-mutual-success'
-description: 'Define what mutual success looks like for both the business and the user'
+name: "step-04-mutual-success"
+description: "Define what mutual success looks like for both the business and the user"
 
 # File References
-nextStepFile: './step-05-shortest-path.md'
-workflowFile: '../workflow.md'
-activityWorkflowFile: '../workflow-suggest.md'
+nextStepFile: "./step-05-shortest-path.md"
+workflowFile: "../workflow.md"
+activityWorkflowFile: "../workflow-suggest.md"
 ---
 
 # Step 4: Mutual Success

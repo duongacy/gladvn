@@ -1,24 +1,24 @@
-import { useState } from "react";
 import {
-  Showcase,
-  ShowcaseDocs,
+  DocsCode,
   DocsH3,
   DocsP,
-  DocsCode,
-  ExampleSection,
   ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+  SizeToggle,
 } from "@/dev/components/showcase";
-import { MonoSelect } from "@/dev/components/mono-select";
+import { useState } from "react";
 
-import { type Size } from "@/lib/types";
+import { ProgressPreset } from "@/components/macro/progress-preset";
 import {
   Progress,
-  ProgressTrack,
   ProgressIndicator,
   ProgressLabel,
+  ProgressTrack,
   ProgressValue,
 } from "@/components/micro/progress";
-import { ProgressPreset } from "@/components/macro/progress-preset";
+import { type Size } from "@/lib/types";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Macro Content
@@ -26,15 +26,6 @@ import { ProgressPreset } from "@/components/macro/progress-preset";
 function ProgressMacroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Khi nào nên dùng Macro</DocsH3>
-        <DocsP>
-          <DocsCode>ProgressPreset</DocsCode> là một component đóng gói sẵn. Nó
-          tự động hiển thị nhãn (label) và phần trăm (value) lên trên thanh tiến
-          trình chỉ với các prop đơn giản, tiết kiệm thời gian code.
-        </DocsP>
-      </ShowcaseDocs>
-
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Tiêu chuẩn (Standard)"
@@ -94,16 +85,6 @@ function ProgressMacroShowcase({ globalSize }: { globalSize: Size }) {
 function ProgressMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Khi nào nên dùng Micro</DocsH3>
-        <DocsP>
-          Dùng <DocsCode>Progress</DocsCode> nguyên thủy khi bạn muốn tự tùy
-          chỉnh hoàn toàn bố cục (ví dụ: đặt label ở bên dưới thanh thay vì bên
-          trên, đổi màu thanh indicator dựa trên giá trị, hoặc bỏ nhãn hoàn
-          toàn).
-        </DocsP>
-      </ShowcaseDocs>
-
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Chỉ Thanh tiến trình (Core)"
@@ -166,6 +147,113 @@ function ProgressMicroShowcase({ globalSize }: { globalSize: Size }) {
           </ProgressTrack>
         </Progress>
       </ExampleSection>
+
+      <ExampleSection
+        label="🧭 Use Case Comparison"
+        description="So sánh nhanh khi nào dùng Micro và Macro."
+        fullWidth
+        codeString={`<div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+  {/* Story 1: Macro wins */}
+  <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
+    <div className="flex items-start gap-3">
+      <span className="mt-0.5 shrink-0 rounded-full bg-green-500/10 p-1.5 text-green-600">
+        <svg xmlns="http://www.w3.org/2000/svg" className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </span>
+      <div>
+        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Story 1 · Dùng Macro</p>
+        <h3 className="mt-0.5 text-sm font-semibold text-foreground">Sử dụng đơn giản</h3>
+      </div>
+    </div>
+    <p className="text-xs text-muted-foreground leading-relaxed">
+      Dùng Preset khi bạn muốn hiển thị nhanh thanh tiến trình có kèm label và giá trị phần trăm theo layout mặc định.
+    </p>
+  </div>
+
+  {/* Story 2: Micro wins */}
+  <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
+    <div className="flex items-start gap-3">
+      <span className="mt-0.5 shrink-0 rounded-full bg-blue-500/10 p-1.5 text-blue-600">
+        <svg xmlns="http://www.w3.org/2000/svg" className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+      </span>
+      <div>
+        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Story 2 · Dùng Micro</p>
+        <h3 className="mt-0.5 text-sm font-semibold text-foreground">Layout tuỳ chỉnh</h3>
+      </div>
+    </div>
+    <p className="text-xs text-muted-foreground leading-relaxed">
+      Dùng Micro khi bạn muốn thay đổi cấu trúc hiển thị (ví dụ: đặt label dưới thanh tiến trình) hoặc đổi màu của indicator.
+    </p>
+  </div>
+</div>`}
+      >
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          {/* Story 1: Macro wins */}
+          <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
+            <div className="flex items-start gap-3">
+              <span className="mt-0.5 shrink-0 rounded-full bg-green-500/10 p-1.5 text-green-600">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="size-4"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+              </span>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                  Story 1 · Dùng Macro
+                </p>
+                <h3 className="mt-0.5 text-sm font-semibold text-foreground">
+                  Sử dụng đơn giản
+                </h3>
+              </div>
+            </div>
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              Dùng Preset khi bạn muốn hiển thị nhanh thanh tiến trình có kèm
+              label và giá trị phần trăm theo layout mặc định.
+            </p>
+          </div>
+
+          {/* Story 2: Micro wins */}
+          <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
+            <div className="flex items-start gap-3">
+              <span className="mt-0.5 shrink-0 rounded-full bg-blue-500/10 p-1.5 text-blue-600">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="size-4"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                </svg>
+              </span>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                  Story 2 · Dùng Micro
+                </p>
+                <h3 className="mt-0.5 text-sm font-semibold text-foreground">
+                  Layout tuỳ chỉnh
+                </h3>
+              </div>
+            </div>
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              Dùng Micro khi bạn muốn thay đổi cấu trúc hiển thị (ví dụ: đặt
+              label dưới thanh tiến trình) hoặc đổi màu của indicator.
+            </p>
+          </div>
+        </div>
+      </ExampleSection>
     </div>
   );
 }
@@ -180,17 +268,24 @@ export default function ProgressShowcase() {
     <Showcase
       title="Progress"
       description="Thanh chỉ báo cho biết tiến độ hoàn thành của một công việc hoặc nhiệm vụ kéo dài."
-      actions={
-        <MonoSelect
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as Size)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-        />
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsH3>Khi nào nên dùng Macro</DocsH3>
+          <DocsP>
+            <DocsCode>ProgressPreset</DocsCode> là một component đóng gói sẵn.
+            Nó tự động hiển thị nhãn (label) và phần trăm (value) lên trên thanh
+            tiến trình chỉ với các prop đơn giản, tiết kiệm thời gian code.
+          </DocsP>
+          <DocsH3>Khi nào nên dùng Micro</DocsH3>
+          <DocsP>
+            Dùng <DocsCode>Progress</DocsCode> nguyên thủy khi bạn muốn tự tùy
+            chỉnh hoàn toàn bố cục (ví dụ: đặt label ở bên dưới thanh thay vì
+            bên trên, đổi màu thanh indicator dựa trên giá trị, hoặc bỏ nhãn
+            hoàn toàn).
+          </DocsP>
+        </ShowcaseDocs>
       }
+      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
       tabs={[
         {
           label: "Micro (Primitive)",

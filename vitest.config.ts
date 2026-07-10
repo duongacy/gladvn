@@ -14,5 +14,5 @@ export default mergeConfig(
         reporter: ["text", "json", "html"],
       },
     },
-  })
+  }),
 );

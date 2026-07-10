@@ -1,7 +1,7 @@
 ---
-name: 'step-05-review'
-description: 'Review all UI elements for design system compliance, consistency, and accessibility'
-workflowFile: '../workflow.md'
+name: "step-05-review"
+description: "Review all UI elements for design system compliance, consistency, and accessibility"
+workflowFile: "../workflow.md"
 ---
 
 # Step 5: Review and Iterate

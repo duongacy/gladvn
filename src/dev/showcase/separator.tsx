@@ -1,12 +1,12 @@
+import { Separator } from "@/components/micro/separator";
 import {
+  DocsCode,
+  DocsH3,
+  DocsP,
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-  DocsH3,
-  DocsP,
-  DocsCode,
 } from "@/dev/components/showcase";
-import { Separator } from "@/components/micro/separator";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Micro Content (Only Micro exists)
@@ -14,15 +14,6 @@ import { Separator } from "@/components/micro/separator";
 function SeparatorMicroShowcase() {
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Separator (Phân cách)</DocsH3>
-        <DocsP>
-          <DocsCode>Separator</DocsCode> không có phiên bản Macro vì bản chất nó
-          chỉ là một đường kẻ phân tách giao diện. Mặc định là đường kẻ ngang (
-          <DocsCode>orientation="horizontal"</DocsCode>).
-        </DocsP>
-      </ShowcaseDocs>
-
       <ExampleSection
         label="Ngang (Horizontal)"
         description="Sử dụng để phân tách các khối nội dung từ trên xuống dưới."
@@ -93,6 +84,16 @@ export default function SeparatorShowcase() {
     <Showcase
       title="Separator"
       description="Thành phần phân cách trực quan hoặc ngữ nghĩa giữa các khối nội dung (Đường kẻ)."
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsH3>Separator (Phân cách)</DocsH3>
+          <DocsP>
+            <DocsCode>Separator</DocsCode> không có phiên bản Macro vì bản chất
+            nó chỉ là một đường kẻ phân tách giao diện. Mặc định là đường kẻ
+            ngang (<DocsCode>orientation="horizontal"</DocsCode>).
+          </DocsP>
+        </ShowcaseDocs>
+      }
       tabs={[
         { label: "Micro (Primitive)", content: <SeparatorMicroShowcase /> },
       ]}

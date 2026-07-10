@@ -1,1 +1,134 @@
-import{Nn as e,cr as t,dr as n,i as r,n as i,r as a}from"./showcase-vJrKG7HA.js";import{t as o}from"./select-preset-B6grUIWS.js";import{a as s,i as c,n as l,o as u,r as d,t as f}from"./avatar-D0dgnK-Y.js";var p=n(t(),1),m=e(),h={online:`bg-success`,away:`bg-warning`,busy:`bg-destructive`,offline:`bg-muted-foreground/50`};function g(e){let t=e.split(` `).filter(Boolean);return t.length===0?`??`:t.length===1?t[0]?.substring(0,2).toUpperCase()??`??`:((t[0]?.charAt(0)??``)+(t[t.length-1]?.charAt(0)??``)).toUpperCase()}var _=p.forwardRef(({src:e,alt:t=``,fallback:n,status:r,...i},a)=>{let o=n??g(t);return(0,m.jsxs)(f,{ref:a,...i,children:[(0,m.jsx)(u,{src:e,alt:t}),(0,m.jsx)(d,{children:o}),r&&(0,m.jsx)(l,{className:`absolute z-10 right-0 bottom-0 ${h[r]}`}),i.children]})});_.displayName=`AvatarPreset`;function v(){let[e,t]=(0,p.useState)(`md`);return(0,m.jsxs)(`div`,{className:`space-y-10`,children:[(0,m.jsx)(r,{title:`Avatar (Macro)`,description:`Một thành phần cài sẵn giúp hiển thị Hình đại diện với tên viết tắt dự phòng được tạo tự động.`,children:(0,m.jsx)(o,{value:e,onValueChange:e=>t(e),options:[{value:`sm`,label:`Size: sm`},{value:`md`,label:`Size: md`},{value:`lg`,label:`Size: lg`}],className:`w-[120px] h-8 text-xs bg-background`})}),(0,m.jsxs)(i,{columns:2,children:[(0,m.jsx)(a,{label:`Standard`,description:`Avatar với hình ảnh và dự phòng.`,children:(0,m.jsxs)(`div`,{className:`flex items-center gap-4`,children:[(0,m.jsx)(_,{size:e,src:`https://github.com/shadcn.png`,alt:`@shadcn`}),(0,m.jsx)(_,{size:e,alt:`John Doe`}),(0,m.jsx)(_,{size:e})]})}),(0,m.jsx)(a,{label:`With Status`,description:`Hình đại diện cài sẵn được cấu hình với các cờ trạng thái tiêu chuẩn.`,children:(0,m.jsxs)(`div`,{className:`flex items-center gap-4`,children:[(0,m.jsx)(_,{size:e,src:`https://github.com/shadcn.png`,alt:`@shadcn`,status:`online`}),(0,m.jsx)(_,{size:e,alt:`Alice`,status:`away`}),(0,m.jsx)(_,{size:e,status:`offline`})]})}),(0,m.jsx)(a,{label:`Avatar Group`,description:`Xếp chồng các avatar cài sẵn bằng AvatarGroup.`,children:(0,m.jsx)(`div`,{className:`flex flex-col gap-4`,children:(0,m.jsxs)(c,{children:[(0,m.jsx)(_,{size:e,src:`https://github.com/shadcn.png`,alt:`@shadcn`}),(0,m.jsx)(_,{size:e,alt:`Alice Smith`}),(0,m.jsx)(_,{size:e,alt:`Bob Jones`}),(0,m.jsx)(s,{size:e,children:`+3`})]})})})]})]})}export{v as default};
+import {
+  Nn as e,
+  cr as t,
+  dr as n,
+  i as r,
+  n as i,
+  r as a,
+} from "./showcase-vJrKG7HA.js";
+import { t as o } from "./select-preset-B6grUIWS.js";
+import {
+  a as s,
+  i as c,
+  n as l,
+  o as u,
+  r as d,
+  t as f,
+} from "./avatar-D0dgnK-Y.js";
+var p = n(t(), 1),
+  m = e(),
+  h = {
+    online: `bg-success`,
+    away: `bg-warning`,
+    busy: `bg-destructive`,
+    offline: `bg-muted-foreground/50`,
+  };
+function g(e) {
+  let t = e.split(` `).filter(Boolean);
+  return t.length === 0
+    ? `??`
+    : t.length === 1
+      ? (t[0]?.substring(0, 2).toUpperCase() ?? `??`)
+      : (
+          (t[0]?.charAt(0) ?? ``) + (t[t.length - 1]?.charAt(0) ?? ``)
+        ).toUpperCase();
+}
+var _ = p.forwardRef(
+  ({ src: e, alt: t = ``, fallback: n, status: r, ...i }, a) => {
+    let o = n ?? g(t);
+    return (0, m.jsxs)(f, {
+      ref: a,
+      ...i,
+      children: [
+        (0, m.jsx)(u, { src: e, alt: t }),
+        (0, m.jsx)(d, { children: o }),
+        r &&
+          (0, m.jsx)(l, {
+            className: `absolute z-10 right-0 bottom-0 ${h[r]}`,
+          }),
+        i.children,
+      ],
+    });
+  },
+);
+_.displayName = `AvatarPreset`;
+function v() {
+  let [e, t] = (0, p.useState)(`md`);
+  return (0, m.jsxs)(`div`, {
+    className: `space-y-10`,
+    children: [
+      (0, m.jsx)(r, {
+        title: `Avatar (Macro)`,
+        description: `Một thành phần cài sẵn giúp hiển thị Hình đại diện với tên viết tắt dự phòng được tạo tự động.`,
+        children: (0, m.jsx)(o, {
+          value: e,
+          onValueChange: (e) => t(e),
+          options: [
+            { value: `sm`, label: `Size: sm` },
+            { value: `md`, label: `Size: md` },
+            { value: `lg`, label: `Size: lg` },
+          ],
+          className: `w-[120px] h-8 text-xs bg-background`,
+        }),
+      }),
+      (0, m.jsxs)(i, {
+        columns: 2,
+        children: [
+          (0, m.jsx)(a, {
+            label: `Standard`,
+            description: `Avatar với hình ảnh và dự phòng.`,
+            children: (0, m.jsxs)(`div`, {
+              className: `flex items-center gap-4`,
+              children: [
+                (0, m.jsx)(_, {
+                  size: e,
+                  src: `https://github.com/shadcn.png`,
+                  alt: `@shadcn`,
+                }),
+                (0, m.jsx)(_, { size: e, alt: `John Doe` }),
+                (0, m.jsx)(_, { size: e }),
+              ],
+            }),
+          }),
+          (0, m.jsx)(a, {
+            label: `With Status`,
+            description: `Hình đại diện cài sẵn được cấu hình với các cờ trạng thái tiêu chuẩn.`,
+            children: (0, m.jsxs)(`div`, {
+              className: `flex items-center gap-4`,
+              children: [
+                (0, m.jsx)(_, {
+                  size: e,
+                  src: `https://github.com/shadcn.png`,
+                  alt: `@shadcn`,
+                  status: `online`,
+                }),
+                (0, m.jsx)(_, { size: e, alt: `Alice`, status: `away` }),
+                (0, m.jsx)(_, { size: e, status: `offline` }),
+              ],
+            }),
+          }),
+          (0, m.jsx)(a, {
+            label: `Avatar Group`,
+            description: `Xếp chồng các avatar cài sẵn bằng AvatarGroup.`,
+            children: (0, m.jsx)(`div`, {
+              className: `flex flex-col gap-4`,
+              children: (0, m.jsxs)(c, {
+                children: [
+                  (0, m.jsx)(_, {
+                    size: e,
+                    src: `https://github.com/shadcn.png`,
+                    alt: `@shadcn`,
+                  }),
+                  (0, m.jsx)(_, { size: e, alt: `Alice Smith` }),
+                  (0, m.jsx)(_, { size: e, alt: `Bob Jones` }),
+                  (0, m.jsx)(s, { size: e, children: `+3` }),
+                ],
+              }),
+            }),
+          }),
+        ],
+      }),
+    ],
+  });
+}
+export { v as default };

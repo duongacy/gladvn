@@ -1,34 +1,38 @@
-import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
-import { useState } from "react";
 import {
   ContextMenu,
-  ContextMenuTrigger,
-  ContextMenuContent,
-  ContextMenuItem,
   ContextMenuCheckboxItem,
+  ContextMenuContent,
+  ContextMenuGroup,
+  ContextMenuItem,
+  ContextMenuLabel,
   ContextMenuRadioGroup,
   ContextMenuRadioItem,
-  ContextMenuLabel,
   ContextMenuSeparator,
   ContextMenuShortcut,
-  ContextMenuGroup,
   ContextMenuSub,
   ContextMenuSubContent,
   ContextMenuSubTrigger,
+  ContextMenuTrigger,
 } from "@/components/micro/context-menu";
+import {
+  DocsP,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+} from "@/dev/components/showcase";
 
-export default function ContextMenuShowcase() {
+import { useState } from "react";
+
+// ──────────────────────────────────────────────────────────
+// SECTION 2: Micro Content (không export)
+// ──────────────────────────────────────────────────────────
+function ContextMenuMicroShowcase() {
   const [showBookmarks, setShowBookmarks] = useState(true);
   const [showFullUrls, setShowFullUrls] = useState(false);
   const [person, setPerson] = useState("pedro");
 
   return (
-    <div className="space-y-10">
-      <SectionHeader
-        title="Context Menu"
-        description="Hiển thị một menu cho người dùng—chẳng hạn như một tập hợp các hành động hoặc chức năng—được kích hoạt bằng cách nhấp chuột phải."
-      />
-
+    <div className="space-y-10 mt-6">
       <ExampleSection
         label="Full Context Menu"
         description="Nhấp chuột phải vào khu vực bên dưới để mở."
@@ -195,5 +199,31 @@ export default function ContextMenuShowcase() {
         </ContextMenu>
       </ExampleSection>
     </div>
+  );
+}
+
+// ──────────────────────────────────────────────────────────
+// SECTION 3: Entry point (export default)
+// ──────────────────────────────────────────────────────────
+export default function ContextMenuShowcase() {
+  return (
+    <Showcase
+      title="Context Menu"
+      description="Hiển thị một menu cho người dùng—chẳng hạn như một tập hợp các hành động hoặc chức năng—được kích hoạt bằng cách nhấp chuột phải."
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsP>
+            Dùng để hiển thị danh sách các tuỳ chọn hoặc hành động liên quan tới
+            phần tử mà người dùng vừa nhấp chuột phải vào.
+          </DocsP>
+        </ShowcaseDocs>
+      }
+      tabs={[
+        {
+          label: "Micro (Primitive)",
+          content: <ContextMenuMicroShowcase />,
+        },
+      ]}
+    />
   );
 }

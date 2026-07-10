@@ -1,1 +1,73 @@
-import{Nn as e,cr as t,dr as n,i as r,r as i}from"./showcase-vJrKG7HA.js";import{t as a}from"./select-preset-B6grUIWS.js";import{a as o,i as s,n as c,o as l,r as u,s as d,t as f}from"./pagination-Bti8DTWx.js";var p=n(t(),1),m=e();function h(){let[e,t]=(0,p.useState)(`md`);return(0,m.jsxs)(`div`,{className:`space-y-10`,children:[(0,m.jsx)(r,{title:`Pagination`,description:`Phân trang với điều hướng trang, liên kết tiếp theo và trước đó.`,children:(0,m.jsx)(a,{value:e,onValueChange:e=>t(e),options:[{value:`sm`,label:`Size: sm`},{value:`md`,label:`Size: md`},{value:`lg`,label:`Size: lg`}],className:`w-[120px] h-8 text-xs bg-background`})}),(0,m.jsx)(i,{label:`Default`,description:`Bố cục phân trang tiêu chuẩn.`,children:(0,m.jsx)(f,{children:(0,m.jsxs)(c,{children:[(0,m.jsx)(s,{children:(0,m.jsx)(d,{href:`#`,size:e})}),(0,m.jsx)(s,{children:(0,m.jsx)(o,{href:`#`,size:e,children:`1`})}),(0,m.jsx)(s,{children:(0,m.jsx)(o,{href:`#`,isActive:!0,size:e,children:`2`})}),(0,m.jsx)(s,{children:(0,m.jsx)(o,{href:`#`,size:e,children:`3`})}),(0,m.jsx)(s,{children:(0,m.jsx)(u,{})}),(0,m.jsx)(s,{children:(0,m.jsx)(l,{href:`#`,size:e})})]})})})]})}export{h as default};
+import {
+  Nn as e,
+  cr as t,
+  dr as n,
+  i as r,
+  r as i,
+} from "./showcase-vJrKG7HA.js";
+import { t as a } from "./select-preset-B6grUIWS.js";
+import {
+  a as o,
+  i as s,
+  n as c,
+  o as l,
+  r as u,
+  s as d,
+  t as f,
+} from "./pagination-Bti8DTWx.js";
+var p = n(t(), 1),
+  m = e();
+function h() {
+  let [e, t] = (0, p.useState)(`md`);
+  return (0, m.jsxs)(`div`, {
+    className: `space-y-10`,
+    children: [
+      (0, m.jsx)(r, {
+        title: `Pagination`,
+        description: `Phân trang với điều hướng trang, liên kết tiếp theo và trước đó.`,
+        children: (0, m.jsx)(a, {
+          value: e,
+          onValueChange: (e) => t(e),
+          options: [
+            { value: `sm`, label: `Size: sm` },
+            { value: `md`, label: `Size: md` },
+            { value: `lg`, label: `Size: lg` },
+          ],
+          className: `w-[120px] h-8 text-xs bg-background`,
+        }),
+      }),
+      (0, m.jsx)(i, {
+        label: `Default`,
+        description: `Bố cục phân trang tiêu chuẩn.`,
+        children: (0, m.jsx)(f, {
+          children: (0, m.jsxs)(c, {
+            children: [
+              (0, m.jsx)(s, {
+                children: (0, m.jsx)(d, { href: `#`, size: e }),
+              }),
+              (0, m.jsx)(s, {
+                children: (0, m.jsx)(o, { href: `#`, size: e, children: `1` }),
+              }),
+              (0, m.jsx)(s, {
+                children: (0, m.jsx)(o, {
+                  href: `#`,
+                  isActive: !0,
+                  size: e,
+                  children: `2`,
+                }),
+              }),
+              (0, m.jsx)(s, {
+                children: (0, m.jsx)(o, { href: `#`, size: e, children: `3` }),
+              }),
+              (0, m.jsx)(s, { children: (0, m.jsx)(u, {}) }),
+              (0, m.jsx)(s, {
+                children: (0, m.jsx)(l, { href: `#`, size: e }),
+              }),
+            ],
+          }),
+        }),
+      }),
+    ],
+  });
+}
+export { h as default };

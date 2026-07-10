@@ -1,10 +1,10 @@
 ---
-name: 'step-06-continue'
-description: 'While BMad builds the current flow, start designing the next complete testable flow'
+name: "step-06-continue"
+description: "While BMad builds the current flow, start designing the next complete testable flow"
 
 # File References
-workflowFile: '../workflow.md'
-activityWorkflowFile: '../workflow-handover.md'
+workflowFile: "../workflow.md"
+activityWorkflowFile: "../workflow-handover.md"
 ---
 
 # Step 6: Continue with Next Flow
@@ -83,10 +83,12 @@ While BMad builds the current flow, start designing the next complete testable f
 ### 3. Balancing Design and Validation
 
 As flows complete, you'll be doing both:
+
 - **Early week:** Test completed flows (Phase 5 [T] Acceptance Testing)
 - **Late week:** Design new scenarios
 
 **When to pause designing:**
+
 - BMad is blocked and needs design clarification
 - Too many flows in progress (overwhelming the team)
 - Validation backlog building up

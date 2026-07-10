@@ -1,17 +1,17 @@
 ---
-name: 'step-11-complete'
-description: 'Complete the narrative workflow with final summary, visualizations, and handoff'
+name: "step-11-complete"
+description: "Complete the narrative workflow with final summary, visualizations, and handoff"
 
 # Path Definitions
-workflow_path: '{installed_path}'
+workflow_path: "{installed_path}"
 
 # File References
-thisStepFile: './step-11-complete.md'
-workflowFile: '{workflow_path}/workflow.md'
-outputFile: '{output_folder}/narrative-design.md'
+thisStepFile: "./step-11-complete.md"
+workflowFile: "{workflow_path}/workflow.md"
+outputFile: "{output_folder}/narrative-design.md"
 
 # Handoff References
-architectureWorkflow: 'skill:gds-game-architecture'
+architectureWorkflow: "skill:gds-game-architecture"
 ---
 
 # Step 11: Complete
@@ -146,14 +146,14 @@ Add relationship map and timeline to document.
 
 ```yaml
 ---
-title: 'Narrative Design Document'
-project: '{{game_name}}'
-date: '{{date}}'
-author: '{{user_name}}'
-version: '1.0'
+title: "Narrative Design Document"
+project: "{{game_name}}"
+date: "{{date}}"
+author: "{{user_name}}"
+version: "1.0"
 stepsCompleted: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-status: 'complete'
-narrativeComplexity: '{{complexity}}'
+status: "complete"
+narrativeComplexity: "{{complexity}}"
 ---
 ```
 

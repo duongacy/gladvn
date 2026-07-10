@@ -4,7 +4,7 @@
  * - WCAG AAA/AA
  * - Form Control Parity
  * - CSS Delegated Logic
- * 
+ *
  * 🚨 CRITICAL RULE FOR AI:
  * When using <Combobox>, YOU MUST pass the `items` prop (an array of data).
  * Headless UI libraries rely on this prop to build a stable internal item registry.
@@ -14,27 +14,21 @@
  */
 "use client";
 
-import * as React from "react";
 import { Combobox as ComboboxPrimitive } from "@base-ui/react";
+import * as React from "react";
 
-import { cn } from "@/lib/utils";
-import { type Size } from "@/lib/types";
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupButton,
-  InputGroupInput,
-} from "@/components/micro/input-group";
+import { InputGroupButton } from "@/components/micro/input-group";
 import { ThemeWrapper } from "@/components/micro/theme-provider";
-import { ChevronDownIcon, XIcon, CheckIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { CheckIcon, ChevronDownIcon, XIcon } from "lucide-react";
 
 const ComboboxContext = React.createContext<{
   anchor: Element | null;
   setAnchor: (el: Element | null) => void;
-}>({ anchor: null, setAnchor: () => { } });
+}>({ anchor: null, setAnchor: () => {} });
 
 function Combobox<Value = any, Multiple extends boolean | undefined = false>(
-  props: ComboboxPrimitive.Root.Props<Value, Multiple>
+  props: ComboboxPrimitive.Root.Props<Value, Multiple>,
 ) {
   const [anchor, setAnchor] = React.useState<Element | null>(null);
   return (
@@ -78,10 +72,7 @@ function ComboboxClear({ className, ...props }: ComboboxPrimitive.Clear.Props) {
   );
 }
 
-function ComboboxInput({
-  className,
-  ...props
-}: ComboboxPrimitive.Input.Props) {
+function ComboboxInput({ className, ...props }: ComboboxPrimitive.Input.Props) {
   return (
     <ComboboxPrimitive.Input
       data-slot="combobox-input"
@@ -342,21 +333,21 @@ ComboboxAnchor.displayName = "ComboboxAnchor";
 
 export {
   Combobox,
-  ComboboxInput,
-  ComboboxContent,
-  ComboboxList,
-  ComboboxItem,
-  ComboboxGroup,
-  ComboboxLabel,
-  ComboboxCollection,
-  ComboboxEmpty,
-  ComboboxSeparator,
-  ComboboxChips,
+  ComboboxAnchor,
   ComboboxChip,
+  ComboboxChips,
   ComboboxChipsInput,
+  ComboboxClear,
+  ComboboxCollection,
+  ComboboxContent,
+  ComboboxEmpty,
+  ComboboxGroup,
+  ComboboxInput,
+  ComboboxItem,
+  ComboboxLabel,
+  ComboboxList,
+  ComboboxSeparator,
   ComboboxTrigger,
   ComboboxValue,
-  ComboboxClear,
-  ComboboxAnchor,
   useComboboxContext,
 };

@@ -1,11 +1,11 @@
 ---
-name: 'step-01-detect-completion'
-description: 'Check if you have a complete testable flow ready for handoff'
+name: "step-01-detect-completion"
+description: "Check if you have a complete testable flow ready for handoff"
 
 # File References
-nextStepFile: './step-02-create-delivery.md'
-workflowFile: '../workflow.md'
-activityWorkflowFile: '../workflow-handover.md'
+nextStepFile: "./step-02-create-delivery.md"
+workflowFile: "../workflow.md"
+activityWorkflowFile: "../workflow-handover.md"
 ---
 
 # Step 1: Detect Epic Completion

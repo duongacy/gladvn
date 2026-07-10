@@ -1,19 +1,47 @@
-import {
-  SectionHeader,
-  ExampleSection,
-  ExampleGrid,
-} from "@/dev/components/showcase";
-import { CheckIcon, XIcon, AlertTriangleIcon, InfoIcon } from "lucide-react";
 import { Badge } from "@/components/micro/badge";
+import {
+  DocsCode,
+  DocsP,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+  SizeToggle,
+} from "@/dev/components/showcase";
+import { type Size } from "@/lib/types";
+import { AlertTriangleIcon, CheckIcon, InfoIcon, XIcon } from "lucide-react";
+import { useState } from "react";
 
 export default function BadgeShowcase() {
-  return (
-    <div className="space-y-10">
-      <SectionHeader
-        title="Badge"
-        description="Hiển thị huy hiệu hoặc thành phần trông giống huy hiệu."
-      />
+  const [globalSize, setGlobalSize] = useState<Size>("md");
 
+  return (
+    <Showcase
+      title="Badge"
+      description="Hiển thị huy hiệu hoặc nhãn phân loại nội dung."
+      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsP>
+            Dùng để làm nổi bật trạng thái, nhãn phân loại hoặc số lượng. Thường
+            là phần tử không tương tác, nhưng cũng có thể biến thành liên kết
+            bằng cách dùng prop <DocsCode>render</DocsCode>.
+          </DocsP>
+        </ShowcaseDocs>
+      }
+      tabs={[
+        {
+          label: "Micro (Primitive)",
+          content: <BadgeMicroShowcase globalSize={globalSize} />,
+        },
+      ]}
+    />
+  );
+}
+
+function BadgeMicroShowcase({ globalSize }: { globalSize: Size }) {
+  return (
+    <div className="space-y-10 mt-6">
       {/* ── Variants ── */}
       <ExampleSection
         label="Variants"

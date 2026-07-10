@@ -1,5 +1,11 @@
 {
-  "requiredKeys": ["status", "issues_found", "all_fixed", "summary", "next_action"],
+  "requiredKeys": [
+    "status",
+    "issues_found",
+    "all_fixed",
+    "summary",
+    "next_action"
+  ],
   "schema": {
     "status": "SUCCESS|FAILURE|AMBIGUOUS",
     "issues_found": {

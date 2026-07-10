@@ -1,11 +1,11 @@
 ---
-name: 'step-04-page-sections'
-description: 'Verify that page specification has properly structured Page Sections with Object IDs, component references, and behavior specifications'
+name: "step-04-page-sections"
+description: "Verify that page specification has properly structured Page Sections with Object IDs, component references, and behavior specifications"
 
 # File References
-nextStepFile: './step-05-section-order.md'
-workflowFile: '../workflow.md'
-activityWorkflowFile: '../workflow-validate.md'
+nextStepFile: "./step-05-section-order.md"
+workflowFile: "../workflow.md"
+activityWorkflowFile: "../workflow-validate.md"
 ---
 
 # Step 4: Validate Page Sections
@@ -58,6 +58,7 @@ Verify that page specification has properly structured Page Sections with Object
 ### 1. Check Page Sections Structure
 
 Check for "## Page Sections" header. Verify:
+
 - Section Objects (H3) with clear purpose statements
 - Component specs (H4) with Object IDs in format `OBJECT ID: object-name`
 - Design system component references

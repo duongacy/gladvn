@@ -1,3 +1,1588 @@
-import{Nn as e,cr as t,dr as n,i as r,n as i,qn as a,r as o,s}from"./showcase-vJrKG7HA.js";import{a as c,c as l,i as u,n as d,o as f,r as p,s as m,t as h}from"./dist-CllS2Eq0.js";var g=n(t(),1);function _(e){if(!e||typeof document>`u`)return;let t=document.head||document.getElementsByTagName(`head`)[0],n=document.createElement(`style`);n.type=`text/css`,t.appendChild(n),n.styleSheet?n.styleSheet.cssText=e:n.appendChild(document.createTextNode(e))}var v=g.createContext({drawerRef:{current:null},overlayRef:{current:null},onPress:()=>{},onRelease:()=>{},onDrag:()=>{},onNestedDrag:()=>{},onNestedOpenChange:()=>{},onNestedRelease:()=>{},openProp:void 0,dismissible:!1,isOpen:!1,isDragging:!1,keyboardIsOpen:{current:!1},snapPointsOffset:null,snapPoints:null,handleOnly:!1,modal:!1,shouldFade:!1,activeSnapPoint:null,onOpenChange:()=>{},setActiveSnapPoint:()=>{},closeDrawer:()=>{},direction:`bottom`,shouldAnimate:{current:!0},shouldScaleBackground:!1,setBackgroundColorOnScale:!0,noBodyStyles:!1,container:null,autoFocus:!1}),y=()=>{let e=g.useContext(v);if(!e)throw Error(`useDrawerContext must be used within a Drawer.Root`);return e};_(`[data-vaul-drawer]{touch-action:none;will-change:transform;transition:transform .5s cubic-bezier(.32, .72, 0, 1);animation-duration:.5s;animation-timing-function:cubic-bezier(0.32,0.72,0,1)}[data-vaul-drawer][data-vaul-snap-points=false][data-vaul-drawer-direction=bottom][data-state=open]{animation-name:slideFromBottom}[data-vaul-drawer][data-vaul-snap-points=false][data-vaul-drawer-direction=bottom][data-state=closed]{animation-name:slideToBottom}[data-vaul-drawer][data-vaul-snap-points=false][data-vaul-drawer-direction=top][data-state=open]{animation-name:slideFromTop}[data-vaul-drawer][data-vaul-snap-points=false][data-vaul-drawer-direction=top][data-state=closed]{animation-name:slideToTop}[data-vaul-drawer][data-vaul-snap-points=false][data-vaul-drawer-direction=left][data-state=open]{animation-name:slideFromLeft}[data-vaul-drawer][data-vaul-snap-points=false][data-vaul-drawer-direction=left][data-state=closed]{animation-name:slideToLeft}[data-vaul-drawer][data-vaul-snap-points=false][data-vaul-drawer-direction=right][data-state=open]{animation-name:slideFromRight}[data-vaul-drawer][data-vaul-snap-points=false][data-vaul-drawer-direction=right][data-state=closed]{animation-name:slideToRight}[data-vaul-drawer][data-vaul-snap-points=true][data-vaul-drawer-direction=bottom]{transform:translate3d(0,var(--initial-transform,100%),0)}[data-vaul-drawer][data-vaul-snap-points=true][data-vaul-drawer-direction=top]{transform:translate3d(0,calc(var(--initial-transform,100%) * -1),0)}[data-vaul-drawer][data-vaul-snap-points=true][data-vaul-drawer-direction=left]{transform:translate3d(calc(var(--initial-transform,100%) * -1),0,0)}[data-vaul-drawer][data-vaul-snap-points=true][data-vaul-drawer-direction=right]{transform:translate3d(var(--initial-transform,100%),0,0)}[data-vaul-drawer][data-vaul-delayed-snap-points=true][data-vaul-drawer-direction=top]{transform:translate3d(0,var(--snap-point-height,0),0)}[data-vaul-drawer][data-vaul-delayed-snap-points=true][data-vaul-drawer-direction=bottom]{transform:translate3d(0,var(--snap-point-height,0),0)}[data-vaul-drawer][data-vaul-delayed-snap-points=true][data-vaul-drawer-direction=left]{transform:translate3d(var(--snap-point-height,0),0,0)}[data-vaul-drawer][data-vaul-delayed-snap-points=true][data-vaul-drawer-direction=right]{transform:translate3d(var(--snap-point-height,0),0,0)}[data-vaul-overlay][data-vaul-snap-points=false]{animation-duration:.5s;animation-timing-function:cubic-bezier(0.32,0.72,0,1)}[data-vaul-overlay][data-vaul-snap-points=false][data-state=open]{animation-name:fadeIn}[data-vaul-overlay][data-state=closed]{animation-name:fadeOut}[data-vaul-animate=false]{animation:none!important}[data-vaul-overlay][data-vaul-snap-points=true]{opacity:0;transition:opacity .5s cubic-bezier(.32, .72, 0, 1)}[data-vaul-overlay][data-vaul-snap-points=true]{opacity:1}[data-vaul-drawer]:not([data-vaul-custom-container=true])::after{content:'';position:absolute;background:inherit;background-color:inherit}[data-vaul-drawer][data-vaul-drawer-direction=top]::after{top:initial;bottom:100%;left:0;right:0;height:200%}[data-vaul-drawer][data-vaul-drawer-direction=bottom]::after{top:100%;bottom:initial;left:0;right:0;height:200%}[data-vaul-drawer][data-vaul-drawer-direction=left]::after{left:initial;right:100%;top:0;bottom:0;width:200%}[data-vaul-drawer][data-vaul-drawer-direction=right]::after{left:100%;right:initial;top:0;bottom:0;width:200%}[data-vaul-overlay][data-vaul-snap-points=true]:not([data-vaul-snap-points-overlay=true]):not(
+import {
+  Nn as e,
+  cr as t,
+  dr as n,
+  i as r,
+  n as i,
+  qn as a,
+  r as o,
+  s,
+} from "./showcase-vJrKG7HA.js";
+import {
+  a as c,
+  c as l,
+  i as u,
+  n as d,
+  o as f,
+  r as p,
+  s as m,
+  t as h,
+} from "./dist-CllS2Eq0.js";
+var g = n(t(), 1);
+function _(e) {
+  if (!e || typeof document > `u`) return;
+  let t = document.head || document.getElementsByTagName(`head`)[0],
+    n = document.createElement(`style`);
+  ((n.type = `text/css`),
+    t.appendChild(n),
+    n.styleSheet
+      ? (n.styleSheet.cssText = e)
+      : n.appendChild(document.createTextNode(e)));
+}
+var v = g.createContext({
+    drawerRef: { current: null },
+    overlayRef: { current: null },
+    onPress: () => {},
+    onRelease: () => {},
+    onDrag: () => {},
+    onNestedDrag: () => {},
+    onNestedOpenChange: () => {},
+    onNestedRelease: () => {},
+    openProp: void 0,
+    dismissible: !1,
+    isOpen: !1,
+    isDragging: !1,
+    keyboardIsOpen: { current: !1 },
+    snapPointsOffset: null,
+    snapPoints: null,
+    handleOnly: !1,
+    modal: !1,
+    shouldFade: !1,
+    activeSnapPoint: null,
+    onOpenChange: () => {},
+    setActiveSnapPoint: () => {},
+    closeDrawer: () => {},
+    direction: `bottom`,
+    shouldAnimate: { current: !0 },
+    shouldScaleBackground: !1,
+    setBackgroundColorOnScale: !0,
+    noBodyStyles: !1,
+    container: null,
+    autoFocus: !1,
+  }),
+  y = () => {
+    let e = g.useContext(v);
+    if (!e) throw Error(`useDrawerContext must be used within a Drawer.Root`);
+    return e;
+  };
+_(`[data-vaul-drawer]{touch-action:none;will-change:transform;transition:transform .5s cubic-bezier(.32, .72, 0, 1);animation-duration:.5s;animation-timing-function:cubic-bezier(0.32,0.72,0,1)}[data-vaul-drawer][data-vaul-snap-points=false][data-vaul-drawer-direction=bottom][data-state=open]{animation-name:slideFromBottom}[data-vaul-drawer][data-vaul-snap-points=false][data-vaul-drawer-direction=bottom][data-state=closed]{animation-name:slideToBottom}[data-vaul-drawer][data-vaul-snap-points=false][data-vaul-drawer-direction=top][data-state=open]{animation-name:slideFromTop}[data-vaul-drawer][data-vaul-snap-points=false][data-vaul-drawer-direction=top][data-state=closed]{animation-name:slideToTop}[data-vaul-drawer][data-vaul-snap-points=false][data-vaul-drawer-direction=left][data-state=open]{animation-name:slideFromLeft}[data-vaul-drawer][data-vaul-snap-points=false][data-vaul-drawer-direction=left][data-state=closed]{animation-name:slideToLeft}[data-vaul-drawer][data-vaul-snap-points=false][data-vaul-drawer-direction=right][data-state=open]{animation-name:slideFromRight}[data-vaul-drawer][data-vaul-snap-points=false][data-vaul-drawer-direction=right][data-state=closed]{animation-name:slideToRight}[data-vaul-drawer][data-vaul-snap-points=true][data-vaul-drawer-direction=bottom]{transform:translate3d(0,var(--initial-transform,100%),0)}[data-vaul-drawer][data-vaul-snap-points=true][data-vaul-drawer-direction=top]{transform:translate3d(0,calc(var(--initial-transform,100%) * -1),0)}[data-vaul-drawer][data-vaul-snap-points=true][data-vaul-drawer-direction=left]{transform:translate3d(calc(var(--initial-transform,100%) * -1),0,0)}[data-vaul-drawer][data-vaul-snap-points=true][data-vaul-drawer-direction=right]{transform:translate3d(var(--initial-transform,100%),0,0)}[data-vaul-drawer][data-vaul-delayed-snap-points=true][data-vaul-drawer-direction=top]{transform:translate3d(0,var(--snap-point-height,0),0)}[data-vaul-drawer][data-vaul-delayed-snap-points=true][data-vaul-drawer-direction=bottom]{transform:translate3d(0,var(--snap-point-height,0),0)}[data-vaul-drawer][data-vaul-delayed-snap-points=true][data-vaul-drawer-direction=left]{transform:translate3d(var(--snap-point-height,0),0,0)}[data-vaul-drawer][data-vaul-delayed-snap-points=true][data-vaul-drawer-direction=right]{transform:translate3d(var(--snap-point-height,0),0,0)}[data-vaul-overlay][data-vaul-snap-points=false]{animation-duration:.5s;animation-timing-function:cubic-bezier(0.32,0.72,0,1)}[data-vaul-overlay][data-vaul-snap-points=false][data-state=open]{animation-name:fadeIn}[data-vaul-overlay][data-state=closed]{animation-name:fadeOut}[data-vaul-animate=false]{animation:none!important}[data-vaul-overlay][data-vaul-snap-points=true]{opacity:0;transition:opacity .5s cubic-bezier(.32, .72, 0, 1)}[data-vaul-overlay][data-vaul-snap-points=true]{opacity:1}[data-vaul-drawer]:not([data-vaul-custom-container=true])::after{content:'';position:absolute;background:inherit;background-color:inherit}[data-vaul-drawer][data-vaul-drawer-direction=top]::after{top:initial;bottom:100%;left:0;right:0;height:200%}[data-vaul-drawer][data-vaul-drawer-direction=bottom]::after{top:100%;bottom:initial;left:0;right:0;height:200%}[data-vaul-drawer][data-vaul-drawer-direction=left]::after{left:initial;right:100%;top:0;bottom:0;width:200%}[data-vaul-drawer][data-vaul-drawer-direction=right]::after{left:100%;right:initial;top:0;bottom:0;width:200%}[data-vaul-overlay][data-vaul-snap-points=true]:not([data-vaul-snap-points-overlay=true]):not(
 [data-state=closed]
-){opacity:0}[data-vaul-overlay][data-vaul-snap-points-overlay=true]{opacity:1}[data-vaul-handle]{display:block;position:relative;opacity:.7;background:#e2e2e4;margin-left:auto;margin-right:auto;height:5px;width:32px;border-radius:1rem;touch-action:pan-y}[data-vaul-handle]:active,[data-vaul-handle]:hover{opacity:1}[data-vaul-handle-hitarea]{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:max(100%,2.75rem);height:max(100%,2.75rem);touch-action:inherit}@media (hover:hover) and (pointer:fine){[data-vaul-drawer]{user-select:none}}@media (pointer:fine){[data-vaul-handle-hitarea]:{width:100%;height:100%}}@keyframes fadeIn{from{opacity:0}to{opacity:1}}@keyframes fadeOut{to{opacity:0}}@keyframes slideFromBottom{from{transform:translate3d(0,var(--initial-transform,100%),0)}to{transform:translate3d(0,0,0)}}@keyframes slideToBottom{to{transform:translate3d(0,var(--initial-transform,100%),0)}}@keyframes slideFromTop{from{transform:translate3d(0,calc(var(--initial-transform,100%) * -1),0)}to{transform:translate3d(0,0,0)}}@keyframes slideToTop{to{transform:translate3d(0,calc(var(--initial-transform,100%) * -1),0)}}@keyframes slideFromLeft{from{transform:translate3d(calc(var(--initial-transform,100%) * -1),0,0)}to{transform:translate3d(0,0,0)}}@keyframes slideToLeft{to{transform:translate3d(calc(var(--initial-transform,100%) * -1),0,0)}}@keyframes slideFromRight{from{transform:translate3d(var(--initial-transform,100%),0,0)}to{transform:translate3d(0,0,0)}}@keyframes slideToRight{to{transform:translate3d(var(--initial-transform,100%),0,0)}}`);function b(){let e=navigator.userAgent;return typeof window<`u`&&(/Firefox/.test(e)&&/Mobile/.test(e)||/FxiOS/.test(e))}function x(){return T(/^Mac/)}function S(){return T(/^iPhone/)}function C(){return/^((?!chrome|android).)*safari/i.test(navigator.userAgent)}function w(){return T(/^iPad/)||x()&&navigator.maxTouchPoints>1}function ee(){return S()||w()}function T(e){return typeof window<`u`&&window.navigator!=null?e.test(window.navigator.platform):void 0}var E=24,D=typeof window<`u`?g.useLayoutEffect:g.useEffect;function O(...e){return(...t)=>{for(let n of e)typeof n==`function`&&n(...t)}}var k=typeof document<`u`&&window.visualViewport;function A(e){let t=window.getComputedStyle(e);return/(auto|scroll)/.test(t.overflow+t.overflowX+t.overflowY)}function j(e){for(A(e)&&(e=e.parentElement);e&&!A(e);)e=e.parentElement;return e||document.scrollingElement||document.documentElement}var te=new Set([`checkbox`,`radio`,`range`,`color`,`file`,`image`,`button`,`submit`,`reset`]),M=0,ne;function re(e={}){let{isDisabled:t}=e;D(()=>{if(!t)return M++,M===1&&ee()&&(ne=ie()),()=>{M--,M===0&&ne?.()}},[t])}function ie(){let e,t=0,n=n=>{e=j(n.target),!(e===document.documentElement&&e===document.body)&&(t=n.changedTouches[0].pageY)},r=n=>{if(!e||e===document.documentElement||e===document.body){n.preventDefault();return}let r=n.changedTouches[0].pageY,i=e.scrollTop,a=e.scrollHeight-e.clientHeight;a!==0&&((i<=0&&r>t||i>=a&&r<t)&&n.preventDefault(),t=r)},i=e=>{let t=e.target;oe(t)&&t!==document.activeElement&&(e.preventDefault(),t.style.transform=`translateY(-2000px)`,t.focus(),requestAnimationFrame(()=>{t.style.transform=``}))},a=e=>{let t=e.target;oe(t)&&(t.style.transform=`translateY(-2000px)`,requestAnimationFrame(()=>{t.style.transform=``,k&&(k.height<window.innerHeight?requestAnimationFrame(()=>{P(t)}):k.addEventListener(`resize`,()=>P(t),{once:!0}))}))},o=()=>{window.scrollTo(0,0)},s=window.pageXOffset,c=window.pageYOffset,l=O(ae(document.documentElement,`paddingRight`,`${window.innerWidth-document.documentElement.clientWidth}px`));window.scrollTo(0,0);let u=O(N(document,`touchstart`,n,{passive:!1,capture:!0}),N(document,`touchmove`,r,{passive:!1,capture:!0}),N(document,`touchend`,i,{passive:!1,capture:!0}),N(document,`focus`,a,!0),N(window,`scroll`,o));return()=>{l(),u(),window.scrollTo(s,c)}}function ae(e,t,n){let r=e.style[t];return e.style[t]=n,()=>{e.style[t]=r}}function N(e,t,n,r){return e.addEventListener(t,n,r),()=>{e.removeEventListener(t,n,r)}}function P(e){let t=document.scrollingElement||document.documentElement;for(;e&&e!==t;){let t=j(e);if(t!==document.documentElement&&t!==document.body&&t!==e){let n=t.getBoundingClientRect().top,r=e.getBoundingClientRect().top;e.getBoundingClientRect().bottom>t.getBoundingClientRect().bottom+E&&(t.scrollTop+=r-n)}e=t.parentElement}}function oe(e){return e instanceof HTMLInputElement&&!te.has(e.type)||e instanceof HTMLTextAreaElement||e instanceof HTMLElement&&e.isContentEditable}function se(e,t){typeof e==`function`?e(t):e!=null&&(e.current=t)}function ce(...e){return t=>e.forEach(e=>se(e,t))}function F(...e){return g.useCallback(ce(...e),e)}var I=new WeakMap;function L(e,t,n=!1){if(!e||!(e instanceof HTMLElement))return;let r={};Object.entries(t).forEach(([t,n])=>{if(t.startsWith(`--`)){e.style.setProperty(t,n);return}r[t]=e.style[t],e.style[t]=n}),!n&&I.set(e,r)}function le(e,t){if(!e||!(e instanceof HTMLElement))return;let n=I.get(e);n&&(e.style[t]=n[t])}var R=e=>{switch(e){case`top`:case`bottom`:return!0;case`left`:case`right`:return!1;default:return e}};function ue(e,t){if(!e)return null;let n=window.getComputedStyle(e),r=n.transform||n.webkitTransform||n.mozTransform,i=r.match(/^matrix3d\((.+)\)$/);return i?parseFloat(i[1].split(`, `)[R(t)?13:12]):(i=r.match(/^matrix\((.+)\)$/),i?parseFloat(i[1].split(`, `)[R(t)?5:4]):null)}function de(e){return 8*(Math.log(e+1)-2)}function z(e,t){if(!e)return()=>{};let n=e.style.cssText;return Object.assign(e.style,t),()=>{e.style.cssText=n}}var B={DURATION:.5,EASE:[.32,.72,0,1]},fe=.4,pe=.25,me=100,he=8,V=16,ge=26,_e=`vaul-dragging`;function H(e){let t=g.useRef(e);return g.useEffect(()=>{t.current=e}),g.useMemo(()=>(...e)=>t.current==null?void 0:t.current.call(t,...e),[])}function U({defaultProp:e,onChange:t}){let n=g.useState(e),[r]=n,i=g.useRef(r),a=H(t);return g.useEffect(()=>{i.current!==r&&(a(r),i.current=r)},[r,i,a]),n}function ve({prop:e,defaultProp:t,onChange:n=()=>{}}){let[r,i]=U({defaultProp:t,onChange:n}),a=e!==void 0,o=a?e:r,s=H(n);return[o,g.useCallback(t=>{if(a){let n=typeof t==`function`?t(e):t;n!==e&&s(n)}else i(t)},[a,e,i,s])]}function ye({activeSnapPointProp:e,setActiveSnapPointProp:t,snapPoints:n,drawerRef:r,overlayRef:i,fadeFromIndex:a,onSnapPointChange:o,direction:s=`bottom`,container:c,snapToSequentialPoint:l}){let[u,d]=ve({prop:e,defaultProp:n?.[0],onChange:t}),[f,p]=g.useState(typeof window<`u`?{innerWidth:window.innerWidth,innerHeight:window.innerHeight}:void 0);g.useEffect(()=>{function e(){p({innerWidth:window.innerWidth,innerHeight:window.innerHeight})}return window.addEventListener(`resize`,e),()=>window.removeEventListener(`resize`,e)},[]);let m=g.useMemo(()=>u===n?.[n.length-1]||null,[n,u]),h=g.useMemo(()=>n?.findIndex(e=>e===u)??null,[n,u]),_=n&&n.length>0&&(a||a===0)&&!Number.isNaN(a)&&n[a]===u||!n,v=g.useMemo(()=>{let e=c?{width:c.getBoundingClientRect().width,height:c.getBoundingClientRect().height}:typeof window<`u`?{width:window.innerWidth,height:window.innerHeight}:{width:0,height:0};return n?.map(t=>{let n=typeof t==`string`,r=0;if(n&&(r=parseInt(t,10)),R(s)){let i=n?r:f?t*e.height:0;return f?s===`bottom`?e.height-i:-e.height+i:i}let i=n?r:f?t*e.width:0;return f?s===`right`?e.width-i:-e.width+i:i})??[]},[n,f,c]),y=g.useMemo(()=>h===null?null:v?.[h],[v,h]),b=g.useCallback(e=>{let t=v?.findIndex(t=>t===e)??null;o(t),L(r.current,{transition:`transform ${B.DURATION}s cubic-bezier(${B.EASE.join(`,`)})`,transform:R(s)?`translate3d(0, ${e}px, 0)`:`translate3d(${e}px, 0, 0)`}),v&&t!==v.length-1&&a!==void 0&&t!==a&&t<a?L(i.current,{transition:`opacity ${B.DURATION}s cubic-bezier(${B.EASE.join(`,`)})`,opacity:`0`}):L(i.current,{transition:`opacity ${B.DURATION}s cubic-bezier(${B.EASE.join(`,`)})`,opacity:`1`}),d(n?.[Math.max(t,0)])},[r.current,n,v,a,i,d]);g.useEffect(()=>{if(u||e){let t=n?.findIndex(t=>t===e||t===u)??-1;v&&t!==-1&&typeof v[t]==`number`&&b(v[t])}},[u,e,n,v,b]);function x({draggedDistance:e,closeDrawer:t,velocity:r,dismissible:o}){if(a===void 0)return;let c=s===`bottom`||s===`right`?(y??0)-e:(y??0)+e,u=h===a-1,d=h===0,f=e>0;if(u&&L(i.current,{transition:`opacity ${B.DURATION}s cubic-bezier(${B.EASE.join(`,`)})`}),!l&&r>2&&!f){o?t():b(v[0]);return}if(!l&&r>2&&f&&v&&n){b(v[n.length-1]);return}let p=v?.reduce((e,t)=>typeof e!=`number`||typeof t!=`number`?e:Math.abs(t-c)<Math.abs(e-c)?t:e),g=R(s)?window.innerHeight:window.innerWidth;if(r>fe&&Math.abs(e)<g*.4){let e=f?1:-1;if(e>0&&m&&n){b(v[n.length-1]);return}if(d&&e<0&&o&&t(),h===null)return;b(v[h+e]);return}b(p)}function S({draggedDistance:e}){if(y===null)return;let t=s===`bottom`||s===`right`?y-e:y+e;(s===`bottom`||s===`right`)&&t<v[v.length-1]||(s===`top`||s===`left`)&&t>v[v.length-1]||L(r.current,{transform:R(s)?`translate3d(0, ${t}px, 0)`:`translate3d(${t}px, 0, 0)`})}function C(e,t){if(!n||typeof h!=`number`||!v||a===void 0)return null;let r=h===a-1;if(h>=a&&t)return 0;if(r&&!t)return 1;if(!_&&!r)return null;let i=r?h+1:h-1,o=r?v[i]-v[i-1]:v[i+1]-v[i],s=e/Math.abs(o);return r?1-s:s}return{isLastSnapPoint:m,activeSnapPoint:u,shouldFade:_,getPercentageDragged:C,setActiveSnapPoint:d,activeSnapPointIndex:h,onRelease:x,onDrag:S,snapPointsOffset:v}}function W(){let{direction:e,isOpen:t,shouldScaleBackground:n,setBackgroundColorOnScale:r,noBodyStyles:i}=y(),a=g.useRef(null),o=(0,g.useMemo)(()=>document.body.style.backgroundColor,[]);function s(){return(window.innerWidth-ge)/window.innerWidth}g.useEffect(()=>{if(t&&n){a.current&&clearTimeout(a.current);let t=document.querySelector(`[data-vaul-drawer-wrapper]`)||document.querySelector(`[vaul-drawer-wrapper]`);if(!t)return;r&&!i&&z(document.body,{background:`black`}),z(t,{transformOrigin:R(e)?`top`:`left`,transitionProperty:`transform, border-radius`,transitionDuration:`${B.DURATION}s`,transitionTimingFunction:`cubic-bezier(${B.EASE.join(`,`)})`});let n=z(t,{borderRadius:`${he}px`,overflow:`hidden`,...R(e)?{transform:`scale(${s()}) translate3d(0, calc(env(safe-area-inset-top) + 14px), 0)`}:{transform:`scale(${s()}) translate3d(calc(env(safe-area-inset-top) + 14px), 0, 0)`}});return()=>{n(),a.current=window.setTimeout(()=>{o?document.body.style.background=o:document.body.style.removeProperty(`background`)},B.DURATION*1e3)}}},[t,n,o])}var G=null;function be({isOpen:e,modal:t,nested:n,hasBeenOpened:r,preventScrollRestoration:i,noBodyStyles:a}){let[o,s]=g.useState(()=>typeof window<`u`?window.location.href:``),c=g.useRef(0),l=g.useCallback(()=>{if(C()&&G===null&&e&&!a){G={position:document.body.style.position,top:document.body.style.top,left:document.body.style.left,height:document.body.style.height,right:`unset`};let{scrollX:e,innerHeight:t}=window;document.body.style.setProperty(`position`,`fixed`,`important`),Object.assign(document.body.style,{top:`${-c.current}px`,left:`${-e}px`,right:`0px`,height:`auto`}),window.setTimeout(()=>window.requestAnimationFrame(()=>{let e=t-window.innerHeight;e&&c.current>=t&&(document.body.style.top=`${-(c.current+e)}px`)}),300)}},[e]),u=g.useCallback(()=>{if(C()&&G!==null&&!a){let e=-parseInt(document.body.style.top,10),t=-parseInt(document.body.style.left,10);Object.assign(document.body.style,G),window.requestAnimationFrame(()=>{if(i&&o!==window.location.href){s(window.location.href);return}window.scrollTo(t,e)}),G=null}},[o]);return g.useEffect(()=>{function e(){c.current=window.scrollY}return e(),window.addEventListener(`scroll`,e),()=>{window.removeEventListener(`scroll`,e)}},[]),g.useEffect(()=>{if(t)return()=>{typeof document>`u`||document.querySelector(`[data-vaul-drawer]`)||u()}},[t,u]),g.useEffect(()=>{n||!r||(e?(!window.matchMedia(`(display-mode: standalone)`).matches&&l(),t||window.setTimeout(()=>{u()},500)):u())},[e,r,o,t,n,l,u]),{restorePositionSetting:u}}function K({open:e,onOpenChange:t,children:n,onDrag:r,onRelease:i,snapPoints:a,shouldScaleBackground:o=!1,setBackgroundColorOnScale:s=!0,closeThreshold:c=pe,scrollLockTimeout:l=me,dismissible:u=!0,handleOnly:d=!1,fadeFromIndex:f=a&&a.length-1,activeSnapPoint:p,setActiveSnapPoint:m,fixed:_,modal:y=!0,onClose:x,nested:S,noBodyStyles:C=!1,direction:w=`bottom`,defaultOpen:T=!1,disablePreventScroll:E=!0,snapToSequentialPoint:D=!1,preventScrollRestoration:O=!1,repositionInputs:k=!0,onAnimationEnd:A,container:j,autoFocus:te=!1}){let[M=!1,ne]=ve({defaultProp:T,prop:e,onChange:e=>{t?.(e),!e&&!S&&je(),setTimeout(()=>{A?.(e)},B.DURATION*1e3),e&&!y&&typeof window<`u`&&window.requestAnimationFrame(()=>{document.body.style.pointerEvents=`auto`}),e||(document.body.style.pointerEvents=`auto`)}}),[ie,ae]=g.useState(!1),[N,P]=g.useState(!1),[se,ce]=g.useState(!1),F=g.useRef(null),I=g.useRef(null),z=g.useRef(null),H=g.useRef(null),U=g.useRef(null),W=g.useRef(!1),G=g.useRef(null),K=g.useRef(0),q=g.useRef(!1),xe=g.useRef(!T),Se=g.useRef(0),J=g.useRef(null),Ce=g.useRef(J.current?.getBoundingClientRect().height||0),we=g.useRef(J.current?.getBoundingClientRect().width||0),Te=g.useRef(0),{activeSnapPoint:Y,activeSnapPointIndex:X,setActiveSnapPoint:Ee,onRelease:De,snapPointsOffset:Z,onDrag:Oe,shouldFade:ke,getPercentageDragged:Ae}=ye({snapPoints:a,activeSnapPointProp:p,setActiveSnapPointProp:m,drawerRef:J,fadeFromIndex:f,overlayRef:F,onSnapPointChange:g.useCallback(e=>{a&&e===Z.length-1&&(I.current=new Date)},[]),direction:w,container:j,snapToSequentialPoint:D});re({isDisabled:!M||N||!y||se||!ie||!k||!E});let{restorePositionSetting:je}=be({isOpen:M,modal:y,nested:S??!1,hasBeenOpened:ie,preventScrollRestoration:O,noBodyStyles:C});function Q(){return(window.innerWidth-ge)/window.innerWidth}function Me(e){!u&&!a||J.current&&!J.current.contains(e.target)||(Ce.current=J.current?.getBoundingClientRect().height||0,we.current=J.current?.getBoundingClientRect().width||0,P(!0),z.current=new Date,ee()&&window.addEventListener(`touchend`,()=>W.current=!1,{once:!0}),e.target.setPointerCapture(e.pointerId),K.current=R(w)?e.pageY:e.pageX)}function Ne(e,t){let n=e,r=window.getSelection()?.toString(),i=J.current?ue(J.current,w):null,a=new Date;if(n.tagName===`SELECT`||n.hasAttribute(`data-vaul-no-drag`)||n.closest(`[data-vaul-no-drag]`))return!1;if(w===`right`||w===`left`)return!0;if(I.current&&a.getTime()-I.current.getTime()<500)return!1;if(i!==null&&(w===`bottom`?i>0:i<0))return!0;if(r&&r.length>0)return!1;if(U.current&&a.getTime()-U.current.getTime()<l&&i===0||t)return U.current=a,!1;for(;n;){if(n.scrollHeight>n.clientHeight){if(n.scrollTop!==0)return U.current=new Date,!1;if(n.getAttribute(`role`)===`dialog`)return!0}n=n.parentNode}return!0}function Pe(e){if(J.current&&N){let t=w===`bottom`||w===`right`?1:-1,n=(K.current-(R(w)?e.pageY:e.pageX))*t,i=n>0,s=a&&!u&&!i;if(s&&X===0)return;let c=Math.abs(n),l=document.querySelector(`[data-vaul-drawer-wrapper]`),d=c/(w===`bottom`||w===`top`?Ce.current:we.current),p=Ae(c,i);if(p!==null&&(d=p),s&&d>=1||!W.current&&!Ne(e.target,i))return;if(J.current.classList.add(_e),W.current=!0,L(J.current,{transition:`none`}),L(F.current,{transition:`none`}),a&&Oe({draggedDistance:n}),i&&!a){let e=de(n),r=Math.min(e*-1,0)*t;L(J.current,{transform:R(w)?`translate3d(0, ${r}px, 0)`:`translate3d(${r}px, 0, 0)`});return}let m=1-d;if((ke||f&&X===f-1)&&(r?.(e,d),L(F.current,{opacity:`${m}`,transition:`none`},!0)),l&&F.current&&o){let e=Math.min(Q()+d*(1-Q()),1),t=8-d*8,n=Math.max(0,14-d*14);L(l,{borderRadius:`${t}px`,transform:R(w)?`scale(${e}) translate3d(0, ${n}px, 0)`:`scale(${e}) translate3d(${n}px, 0, 0)`,transition:`none`},!0)}if(!a){let e=c*t;L(J.current,{transform:R(w)?`translate3d(0, ${e}px, 0)`:`translate3d(${e}px, 0, 0)`})}}}g.useEffect(()=>{window.requestAnimationFrame(()=>{xe.current=!0})},[]),g.useEffect(()=>{var e;function t(){if(!J.current||!k)return;let e=document.activeElement;if(oe(e)||q.current){let e=window.visualViewport?.height||0,t=window.innerHeight,n=t-e,r=J.current.getBoundingClientRect().height||0,i=r>t*.8;Te.current||=r;let o=J.current.getBoundingClientRect().top;if(Math.abs(Se.current-n)>60&&(q.current=!q.current),a&&a.length>0&&Z&&X){let e=Z[X]||0;n+=e}if(Se.current=n,r>e||q.current){let t=J.current.getBoundingClientRect().height,r=t;t>e&&(r=e-(i?o:ge)),_?J.current.style.height=`${t-Math.max(n,0)}px`:J.current.style.height=`${Math.max(r,e-o)}px`}else b()||(J.current.style.height=`${Te.current}px`);a&&a.length>0&&!q.current?J.current.style.bottom=`0px`:J.current.style.bottom=`${Math.max(n,0)}px`}}return(e=window.visualViewport)==null||e.addEventListener(`resize`,t),()=>window.visualViewport?.removeEventListener(`resize`,t)},[X,a,Z]);function $(e){Ie(),x?.(),e||ne(!1),setTimeout(()=>{a&&Ee(a[0])},B.DURATION*1e3)}function Fe(){if(!J.current)return;let e=document.querySelector(`[data-vaul-drawer-wrapper]`),t=ue(J.current,w);L(J.current,{transform:`translate3d(0, 0, 0)`,transition:`transform ${B.DURATION}s cubic-bezier(${B.EASE.join(`,`)})`}),L(F.current,{transition:`opacity ${B.DURATION}s cubic-bezier(${B.EASE.join(`,`)})`,opacity:`1`}),o&&t&&t>0&&M&&L(e,{borderRadius:`${he}px`,overflow:`hidden`,...R(w)?{transform:`scale(${Q()}) translate3d(0, calc(env(safe-area-inset-top) + 14px), 0)`,transformOrigin:`top`}:{transform:`scale(${Q()}) translate3d(calc(env(safe-area-inset-top) + 14px), 0, 0)`,transformOrigin:`left`},transitionProperty:`transform, border-radius`,transitionDuration:`${B.DURATION}s`,transitionTimingFunction:`cubic-bezier(${B.EASE.join(`,`)})`},!0)}function Ie(){!N||!J.current||(J.current.classList.remove(_e),W.current=!1,P(!1),H.current=new Date)}function Le(e){if(!N||!J.current)return;J.current.classList.remove(_e),W.current=!1,P(!1),H.current=new Date;let t=ue(J.current,w);if(!e||!Ne(e.target,!1)||!t||Number.isNaN(t)||z.current===null)return;let n=H.current.getTime()-z.current.getTime(),r=K.current-(R(w)?e.pageY:e.pageX),o=Math.abs(r)/n;if(o>.05&&(ce(!0),setTimeout(()=>{ce(!1)},200)),a){De({draggedDistance:r*(w===`bottom`||w===`right`?1:-1),closeDrawer:$,velocity:o,dismissible:u}),i?.(e,!0);return}if(w===`bottom`||w===`right`?r>0:r<0){Fe(),i?.(e,!0);return}if(o>fe){$(),i?.(e,!1);return}let s=Math.min(J.current.getBoundingClientRect().height??0,window.innerHeight),l=Math.min(J.current.getBoundingClientRect().width??0,window.innerWidth);if(Math.abs(t)>=(w===`left`||w===`right`?l:s)*c){$(),i?.(e,!1);return}i?.(e,!0),Fe()}g.useEffect(()=>(M&&(L(document.documentElement,{scrollBehavior:`auto`}),I.current=new Date),()=>{le(document.documentElement,`scrollBehavior`)}),[M]);function Re(e){let t=e?(window.innerWidth-V)/window.innerWidth:1,n=e?-16:0;G.current&&window.clearTimeout(G.current),L(J.current,{transition:`transform ${B.DURATION}s cubic-bezier(${B.EASE.join(`,`)})`,transform:R(w)?`scale(${t}) translate3d(0, ${n}px, 0)`:`scale(${t}) translate3d(${n}px, 0, 0)`}),!e&&J.current&&(G.current=setTimeout(()=>{let e=ue(J.current,w);L(J.current,{transition:`none`,transform:R(w)?`translate3d(0, ${e}px, 0)`:`translate3d(${e}px, 0, 0)`})},500))}function ze(e,t){if(t<0)return;let n=(window.innerWidth-V)/window.innerWidth,r=n+t*(1-n),i=-16+t*V;L(J.current,{transform:R(w)?`scale(${r}) translate3d(0, ${i}px, 0)`:`scale(${r}) translate3d(${i}px, 0, 0)`,transition:`none`})}function Be(e,t){let n=R(w)?window.innerHeight:window.innerWidth,r=t?(n-V)/n:1,i=t?-16:0;t&&L(J.current,{transition:`transform ${B.DURATION}s cubic-bezier(${B.EASE.join(`,`)})`,transform:R(w)?`scale(${r}) translate3d(0, ${i}px, 0)`:`scale(${r}) translate3d(${i}px, 0, 0)`})}return g.useEffect(()=>{y||window.requestAnimationFrame(()=>{document.body.style.pointerEvents=`auto`})},[y]),g.createElement(h,{defaultOpen:T,onOpenChange:e=>{!u&&!e||(e?ae(!0):$(!0),ne(e))},open:M},g.createElement(v.Provider,{value:{activeSnapPoint:Y,snapPoints:a,setActiveSnapPoint:Ee,drawerRef:J,overlayRef:F,onOpenChange:t,onPress:Me,onRelease:Le,onDrag:Pe,dismissible:u,shouldAnimate:xe,handleOnly:d,isOpen:M,isDragging:N,shouldFade:ke,closeDrawer:$,onNestedDrag:ze,onNestedOpenChange:Re,onNestedRelease:Be,keyboardIsOpen:q,modal:y,snapPointsOffset:Z,activeSnapPointIndex:X,direction:w,shouldScaleBackground:o,setBackgroundColorOnScale:s,noBodyStyles:C,container:j,autoFocus:te}},n))}var q=g.forwardRef(function({...e},t){let{overlayRef:n,snapPoints:r,onRelease:i,shouldFade:a,isOpen:o,modal:s,shouldAnimate:l}=y(),u=F(t,n),d=r&&r.length>0;if(!s)return null;let f=g.useCallback(e=>i(e),[i]);return g.createElement(c,{onMouseUp:f,ref:u,"data-vaul-overlay":``,"data-vaul-snap-points":o&&d?`true`:`false`,"data-vaul-snap-points-overlay":o&&a?`true`:`false`,"data-vaul-animate":l?.current?`true`:`false`,...e})});q.displayName=`Drawer.Overlay`;var xe=g.forwardRef(function({onPointerDownOutside:e,style:t,onOpenAutoFocus:n,...r},i){let{drawerRef:a,onPress:o,onRelease:s,onDrag:c,keyboardIsOpen:l,snapPointsOffset:u,activeSnapPointIndex:d,modal:f,isOpen:m,direction:h,snapPoints:_,container:v,handleOnly:b,shouldAnimate:x,autoFocus:S}=y(),[C,w]=g.useState(!1),ee=F(i,a),T=g.useRef(null),E=g.useRef(null),D=g.useRef(!1),O=_&&_.length>0;W();let k=(e,t,n=0)=>{if(D.current)return!0;let r=Math.abs(e.y),i=Math.abs(e.x),a=i>r,o=[`bottom`,`right`].includes(t)?1:-1;if(t===`left`||t===`right`){if(!(e.x*o<0)&&i>=0&&i<=n)return a}else if(!(e.y*o<0)&&r>=0&&r<=n)return!a;return D.current=!0,!0};g.useEffect(()=>{O&&window.requestAnimationFrame(()=>{w(!0)})},[]);function A(e){T.current=null,D.current=!1,s(e)}return g.createElement(p,{"data-vaul-drawer-direction":h,"data-vaul-drawer":``,"data-vaul-delayed-snap-points":C?`true`:`false`,"data-vaul-snap-points":m&&O?`true`:`false`,"data-vaul-custom-container":v?`true`:`false`,"data-vaul-animate":x?.current?`true`:`false`,...r,ref:ee,style:u&&u.length>0?{"--snap-point-height":`${u[d??0]}px`,...t}:t,onPointerDown:e=>{b||(r.onPointerDown==null||r.onPointerDown.call(r,e),T.current={x:e.pageX,y:e.pageY},o(e))},onOpenAutoFocus:e=>{n?.(e),S||e.preventDefault()},onPointerDownOutside:t=>{if(e?.(t),!f||t.defaultPrevented){t.preventDefault();return}l.current&&=!1},onFocusOutside:e=>{if(!f){e.preventDefault();return}},onPointerMove:e=>{if(E.current=e,b||(r.onPointerMove==null||r.onPointerMove.call(r,e),!T.current))return;let t=e.pageY-T.current.y,n=e.pageX-T.current.x,i=e.pointerType===`touch`?10:2;k({x:n,y:t},h,i)?c(e):(Math.abs(n)>i||Math.abs(t)>i)&&(T.current=null)},onPointerUp:e=>{r.onPointerUp==null||r.onPointerUp.call(r,e),T.current=null,D.current=!1,s(e)},onPointerOut:e=>{r.onPointerOut==null||r.onPointerOut.call(r,e),A(E.current)},onContextMenu:e=>{r.onContextMenu==null||r.onContextMenu.call(r,e),E.current&&A(E.current)}})});xe.displayName=`Drawer.Content`;var Se=250,J=120,Ce=g.forwardRef(function({preventCycle:e=!1,children:t,...n},r){let{closeDrawer:i,isDragging:a,snapPoints:o,activeSnapPoint:s,setActiveSnapPoint:c,dismissible:l,handleOnly:u,isOpen:d,onPress:f,onDrag:p}=y(),m=g.useRef(null),h=g.useRef(!1);function _(){if(h.current){x();return}window.setTimeout(()=>{v()},J)}function v(){if(a||e||h.current){x();return}if(x(),!o||o.length===0){l||i();return}if(s===o[o.length-1]&&l){i();return}let t=o.findIndex(e=>e===s);if(t===-1)return;let n=o[t+1];c(n)}function b(){m.current=window.setTimeout(()=>{h.current=!0},Se)}function x(){m.current&&window.clearTimeout(m.current),h.current=!1}return g.createElement(`div`,{onClick:_,onPointerCancel:x,onPointerDown:e=>{u&&f(e),b()},onPointerMove:e=>{u&&p(e)},ref:r,"data-vaul-drawer-visible":d?`true`:`false`,"data-vaul-handle":``,"aria-hidden":`true`,...n},g.createElement(`span`,{"data-vaul-handle-hitarea":``,"aria-hidden":`true`},t))});Ce.displayName=`Drawer.Handle`;function we({onDrag:e,onOpenChange:t,open:n,...r}){let{onNestedDrag:i,onNestedOpenChange:a,onNestedRelease:o}=y();if(!i)throw Error(`Drawer.NestedRoot must be placed in another drawer`);return g.createElement(K,{nested:!0,open:n,onClose:()=>{a(!1)},onDrag:(t,n)=>{i(t,n),e?.(t,n)},onOpenChange:e=>{e&&a(e),t?.(e)},onRelease:o,...r})}function Te(e){let t=y(),{container:n=t.container,...r}=e;return g.createElement(f,{container:n,...r})}var Y={Root:K,NestedRoot:we,Content:xe,Overlay:q,Trigger:l,Portal:Te,Handle:Ce,Close:d,Title:m,Description:u},X=e();function Ee({...e}){return(0,X.jsx)(Y.Root,{"data-slot":`drawer`,...e})}function De({...e}){return(0,X.jsx)(Y.Trigger,{"data-slot":`drawer-trigger`,...e})}function Z({...e}){return(0,X.jsx)(Y.Portal,{"data-slot":`drawer-portal`,...e})}function Oe({...e}){return(0,X.jsx)(Y.Close,{"data-slot":`drawer-close`,...e})}function ke({className:e,...t}){return(0,X.jsx)(Y.Overlay,{"data-slot":`drawer-overlay`,className:a(`fixed inset-0 z-50 bg-black/10 supports-backdrop-filter:backdrop-blur-xs data-open:animate-in data-open:fade-in-0 data-closed:animate-out data-closed:fade-out-0`,e),...t})}function Ae({className:e,children:t,...n}){return(0,X.jsxs)(Z,{"data-slot":`drawer-portal`,children:[(0,X.jsx)(ke,{}),(0,X.jsxs)(Y.Content,{"data-slot":`drawer-content`,className:a(`group/drawer-content fixed z-50 flex h-auto flex-col bg-popover text-sm text-popover-foreground data-[vaul-drawer-direction=bottom]:inset-x-0 data-[vaul-drawer-direction=bottom]:bottom-0 data-[vaul-drawer-direction=bottom]:mt-24 data-[vaul-drawer-direction=bottom]:max-h-[80vh] data-[vaul-drawer-direction=bottom]:rounded-t-xl data-[vaul-drawer-direction=bottom]:border-t data-[vaul-drawer-direction=left]:inset-y-0 data-[vaul-drawer-direction=left]:left-0 data-[vaul-drawer-direction=left]:w-3/4 data-[vaul-drawer-direction=left]:rounded-r-xl data-[vaul-drawer-direction=left]:border-r data-[vaul-drawer-direction=right]:inset-y-0 data-[vaul-drawer-direction=right]:right-0 data-[vaul-drawer-direction=right]:w-3/4 data-[vaul-drawer-direction=right]:rounded-l-xl data-[vaul-drawer-direction=right]:border-l data-[vaul-drawer-direction=top]:inset-x-0 data-[vaul-drawer-direction=top]:top-0 data-[vaul-drawer-direction=top]:mb-24 data-[vaul-drawer-direction=top]:max-h-[80vh] data-[vaul-drawer-direction=top]:rounded-b-xl data-[vaul-drawer-direction=top]:border-b data-[vaul-drawer-direction=left]:sm:max-w-sm data-[vaul-drawer-direction=right]:sm:max-w-sm`,e),...n,children:[(0,X.jsx)(`div`,{className:`mx-auto mt-4 hidden h-1 w-[100px] shrink-0 rounded-full bg-muted group-data-[vaul-drawer-direction=bottom]/drawer-content:block`}),t]})]})}function je({className:e,...t}){return(0,X.jsx)(`div`,{"data-slot":`drawer-header`,className:a(`flex flex-col gap-0.5 p-4 group-data-[vaul-drawer-direction=bottom]/drawer-content:text-center group-data-[vaul-drawer-direction=top]/drawer-content:text-center md:gap-0.5 md:text-left`,e),...t})}function Q({className:e,...t}){return(0,X.jsx)(`div`,{"data-slot":`drawer-footer`,className:a(`mt-auto flex flex-col gap-2 p-4`,e),...t})}function Me({className:e,...t}){return(0,X.jsx)(Y.Title,{"data-slot":`drawer-title`,className:a(`font-heading text-base font-medium text-foreground`,e),...t})}function Ne({className:e,...t}){return(0,X.jsx)(Y.Description,{"data-slot":`drawer-description`,className:a(`text-sm text-muted-foreground`,e),...t})}function Pe(){return(0,X.jsxs)(`div`,{className:`space-y-10`,children:[(0,X.jsx)(r,{title:`Drawer`,description:`Một thành phần ngăn kéo cho React.`}),(0,X.jsxs)(i,{columns:2,children:[(0,X.jsx)(o,{label:`Bottom Drawer`,description:`Kiểu trang tính dưới cùng mặc định.`,children:(0,X.jsxs)(Ee,{children:[(0,X.jsx)(De,{asChild:!0,children:(0,X.jsx)(s,{variant:`outline`,children:`Open Bottom`})}),(0,X.jsx)(Ae,{children:(0,X.jsxs)(`div`,{className:`mx-auto w-full max-w-sm`,children:[(0,X.jsxs)(je,{children:[(0,X.jsx)(Me,{children:`Move Goal`}),(0,X.jsx)(Ne,{children:`Set your daily activity goal.`})]}),(0,X.jsx)(`div`,{className:`p-4 pb-0`,children:(0,X.jsxs)(`div`,{className:`flex items-center justify-center space-x-2`,children:[(0,X.jsx)(s,{variant:`outline`,size:`sm`,className:`h-8 w-8 rounded-full`,onClick:()=>{},children:`-`}),(0,X.jsxs)(`div`,{className:`flex-1 text-center`,children:[(0,X.jsx)(`div`,{className:`text-7xl font-bold tracking-tighter`,children:`350`}),(0,X.jsx)(`div`,{className:`text-[0.70rem] uppercase text-muted-foreground`,children:`Calories/day`})]}),(0,X.jsx)(s,{variant:`outline`,size:`sm`,className:`h-8 w-8 rounded-full`,onClick:()=>{},children:`+`})]})}),(0,X.jsxs)(Q,{children:[(0,X.jsx)(s,{children:`Submit`}),(0,X.jsx)(Oe,{asChild:!0,children:(0,X.jsx)(s,{variant:`outline`,children:`Cancel`})})]})]})})]})}),(0,X.jsx)(o,{label:`Simple Message`,description:`Ngăn kéo có nội dung văn bản đơn giản.`,children:(0,X.jsxs)(Ee,{children:[(0,X.jsx)(De,{asChild:!0,children:(0,X.jsx)(s,{variant:`outline`,children:`Show Info`})}),(0,X.jsx)(Ae,{children:(0,X.jsxs)(`div`,{className:`mx-auto w-full max-w-sm`,children:[(0,X.jsxs)(je,{children:[(0,X.jsx)(Me,{children:`About this feature`}),(0,X.jsx)(Ne,{children:`This feature is currently in beta. Some functionality may be limited or change without notice. We appreciate your feedback as we work to improve the experience.`})]}),(0,X.jsx)(Q,{children:(0,X.jsx)(Oe,{asChild:!0,children:(0,X.jsx)(s,{variant:`outline`,children:`Got it`})})})]})})]})})]})]})}export{Pe as default};
+){opacity:0}[data-vaul-overlay][data-vaul-snap-points-overlay=true]{opacity:1}[data-vaul-handle]{display:block;position:relative;opacity:.7;background:#e2e2e4;margin-left:auto;margin-right:auto;height:5px;width:32px;border-radius:1rem;touch-action:pan-y}[data-vaul-handle]:active,[data-vaul-handle]:hover{opacity:1}[data-vaul-handle-hitarea]{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:max(100%,2.75rem);height:max(100%,2.75rem);touch-action:inherit}@media (hover:hover) and (pointer:fine){[data-vaul-drawer]{user-select:none}}@media (pointer:fine){[data-vaul-handle-hitarea]:{width:100%;height:100%}}@keyframes fadeIn{from{opacity:0}to{opacity:1}}@keyframes fadeOut{to{opacity:0}}@keyframes slideFromBottom{from{transform:translate3d(0,var(--initial-transform,100%),0)}to{transform:translate3d(0,0,0)}}@keyframes slideToBottom{to{transform:translate3d(0,var(--initial-transform,100%),0)}}@keyframes slideFromTop{from{transform:translate3d(0,calc(var(--initial-transform,100%) * -1),0)}to{transform:translate3d(0,0,0)}}@keyframes slideToTop{to{transform:translate3d(0,calc(var(--initial-transform,100%) * -1),0)}}@keyframes slideFromLeft{from{transform:translate3d(calc(var(--initial-transform,100%) * -1),0,0)}to{transform:translate3d(0,0,0)}}@keyframes slideToLeft{to{transform:translate3d(calc(var(--initial-transform,100%) * -1),0,0)}}@keyframes slideFromRight{from{transform:translate3d(var(--initial-transform,100%),0,0)}to{transform:translate3d(0,0,0)}}@keyframes slideToRight{to{transform:translate3d(var(--initial-transform,100%),0,0)}}`);
+function b() {
+  let e = navigator.userAgent;
+  return (
+    typeof window < `u` &&
+    ((/Firefox/.test(e) && /Mobile/.test(e)) || /FxiOS/.test(e))
+  );
+}
+function x() {
+  return T(/^Mac/);
+}
+function S() {
+  return T(/^iPhone/);
+}
+function C() {
+  return /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+}
+function w() {
+  return T(/^iPad/) || (x() && navigator.maxTouchPoints > 1);
+}
+function ee() {
+  return S() || w();
+}
+function T(e) {
+  return typeof window < `u` && window.navigator != null
+    ? e.test(window.navigator.platform)
+    : void 0;
+}
+var E = 24,
+  D = typeof window < `u` ? g.useLayoutEffect : g.useEffect;
+function O(...e) {
+  return (...t) => {
+    for (let n of e) typeof n == `function` && n(...t);
+  };
+}
+var k = typeof document < `u` && window.visualViewport;
+function A(e) {
+  let t = window.getComputedStyle(e);
+  return /(auto|scroll)/.test(t.overflow + t.overflowX + t.overflowY);
+}
+function j(e) {
+  for (A(e) && (e = e.parentElement); e && !A(e);) e = e.parentElement;
+  return e || document.scrollingElement || document.documentElement;
+}
+var te = new Set([
+    `checkbox`,
+    `radio`,
+    `range`,
+    `color`,
+    `file`,
+    `image`,
+    `button`,
+    `submit`,
+    `reset`,
+  ]),
+  M = 0,
+  ne;
+function re(e = {}) {
+  let { isDisabled: t } = e;
+  D(() => {
+    if (!t)
+      return (
+        M++,
+        M === 1 && ee() && (ne = ie()),
+        () => {
+          (M--, M === 0 && ne?.());
+        }
+      );
+  }, [t]);
+}
+function ie() {
+  let e,
+    t = 0,
+    n = (n) => {
+      ((e = j(n.target)),
+        !(e === document.documentElement && e === document.body) &&
+          (t = n.changedTouches[0].pageY));
+    },
+    r = (n) => {
+      if (!e || e === document.documentElement || e === document.body) {
+        n.preventDefault();
+        return;
+      }
+      let r = n.changedTouches[0].pageY,
+        i = e.scrollTop,
+        a = e.scrollHeight - e.clientHeight;
+      a !== 0 &&
+        (((i <= 0 && r > t) || (i >= a && r < t)) && n.preventDefault(),
+        (t = r));
+    },
+    i = (e) => {
+      let t = e.target;
+      oe(t) &&
+        t !== document.activeElement &&
+        (e.preventDefault(),
+        (t.style.transform = `translateY(-2000px)`),
+        t.focus(),
+        requestAnimationFrame(() => {
+          t.style.transform = ``;
+        }));
+    },
+    a = (e) => {
+      let t = e.target;
+      oe(t) &&
+        ((t.style.transform = `translateY(-2000px)`),
+        requestAnimationFrame(() => {
+          ((t.style.transform = ``),
+            k &&
+              (k.height < window.innerHeight
+                ? requestAnimationFrame(() => {
+                    P(t);
+                  })
+                : k.addEventListener(`resize`, () => P(t), { once: !0 })));
+        }));
+    },
+    o = () => {
+      window.scrollTo(0, 0);
+    },
+    s = window.pageXOffset,
+    c = window.pageYOffset,
+    l = O(
+      ae(
+        document.documentElement,
+        `paddingRight`,
+        `${window.innerWidth - document.documentElement.clientWidth}px`,
+      ),
+    );
+  window.scrollTo(0, 0);
+  let u = O(
+    N(document, `touchstart`, n, { passive: !1, capture: !0 }),
+    N(document, `touchmove`, r, { passive: !1, capture: !0 }),
+    N(document, `touchend`, i, { passive: !1, capture: !0 }),
+    N(document, `focus`, a, !0),
+    N(window, `scroll`, o),
+  );
+  return () => {
+    (l(), u(), window.scrollTo(s, c));
+  };
+}
+function ae(e, t, n) {
+  let r = e.style[t];
+  return (
+    (e.style[t] = n),
+    () => {
+      e.style[t] = r;
+    }
+  );
+}
+function N(e, t, n, r) {
+  return (
+    e.addEventListener(t, n, r),
+    () => {
+      e.removeEventListener(t, n, r);
+    }
+  );
+}
+function P(e) {
+  let t = document.scrollingElement || document.documentElement;
+  for (; e && e !== t;) {
+    let t = j(e);
+    if (t !== document.documentElement && t !== document.body && t !== e) {
+      let n = t.getBoundingClientRect().top,
+        r = e.getBoundingClientRect().top;
+      e.getBoundingClientRect().bottom > t.getBoundingClientRect().bottom + E &&
+        (t.scrollTop += r - n);
+    }
+    e = t.parentElement;
+  }
+}
+function oe(e) {
+  return (
+    (e instanceof HTMLInputElement && !te.has(e.type)) ||
+    e instanceof HTMLTextAreaElement ||
+    (e instanceof HTMLElement && e.isContentEditable)
+  );
+}
+function se(e, t) {
+  typeof e == `function` ? e(t) : e != null && (e.current = t);
+}
+function ce(...e) {
+  return (t) => e.forEach((e) => se(e, t));
+}
+function F(...e) {
+  return g.useCallback(ce(...e), e);
+}
+var I = new WeakMap();
+function L(e, t, n = !1) {
+  if (!e || !(e instanceof HTMLElement)) return;
+  let r = {};
+  (Object.entries(t).forEach(([t, n]) => {
+    if (t.startsWith(`--`)) {
+      e.style.setProperty(t, n);
+      return;
+    }
+    ((r[t] = e.style[t]), (e.style[t] = n));
+  }),
+    !n && I.set(e, r));
+}
+function le(e, t) {
+  if (!e || !(e instanceof HTMLElement)) return;
+  let n = I.get(e);
+  n && (e.style[t] = n[t]);
+}
+var R = (e) => {
+  switch (e) {
+    case `top`:
+    case `bottom`:
+      return !0;
+    case `left`:
+    case `right`:
+      return !1;
+    default:
+      return e;
+  }
+};
+function ue(e, t) {
+  if (!e) return null;
+  let n = window.getComputedStyle(e),
+    r = n.transform || n.webkitTransform || n.mozTransform,
+    i = r.match(/^matrix3d\((.+)\)$/);
+  return i
+    ? parseFloat(i[1].split(`, `)[R(t) ? 13 : 12])
+    : ((i = r.match(/^matrix\((.+)\)$/)),
+      i ? parseFloat(i[1].split(`, `)[R(t) ? 5 : 4]) : null);
+}
+function de(e) {
+  return 8 * (Math.log(e + 1) - 2);
+}
+function z(e, t) {
+  if (!e) return () => {};
+  let n = e.style.cssText;
+  return (
+    Object.assign(e.style, t),
+    () => {
+      e.style.cssText = n;
+    }
+  );
+}
+var B = { DURATION: 0.5, EASE: [0.32, 0.72, 0, 1] },
+  fe = 0.4,
+  pe = 0.25,
+  me = 100,
+  he = 8,
+  V = 16,
+  ge = 26,
+  _e = `vaul-dragging`;
+function H(e) {
+  let t = g.useRef(e);
+  return (
+    g.useEffect(() => {
+      t.current = e;
+    }),
+    g.useMemo(
+      () =>
+        (...e) =>
+          t.current == null ? void 0 : t.current.call(t, ...e),
+      [],
+    )
+  );
+}
+function U({ defaultProp: e, onChange: t }) {
+  let n = g.useState(e),
+    [r] = n,
+    i = g.useRef(r),
+    a = H(t);
+  return (
+    g.useEffect(() => {
+      i.current !== r && (a(r), (i.current = r));
+    }, [r, i, a]),
+    n
+  );
+}
+function ve({ prop: e, defaultProp: t, onChange: n = () => {} }) {
+  let [r, i] = U({ defaultProp: t, onChange: n }),
+    a = e !== void 0,
+    o = a ? e : r,
+    s = H(n);
+  return [
+    o,
+    g.useCallback(
+      (t) => {
+        if (a) {
+          let n = typeof t == `function` ? t(e) : t;
+          n !== e && s(n);
+        } else i(t);
+      },
+      [a, e, i, s],
+    ),
+  ];
+}
+function ye({
+  activeSnapPointProp: e,
+  setActiveSnapPointProp: t,
+  snapPoints: n,
+  drawerRef: r,
+  overlayRef: i,
+  fadeFromIndex: a,
+  onSnapPointChange: o,
+  direction: s = `bottom`,
+  container: c,
+  snapToSequentialPoint: l,
+}) {
+  let [u, d] = ve({ prop: e, defaultProp: n?.[0], onChange: t }),
+    [f, p] = g.useState(
+      typeof window < `u`
+        ? { innerWidth: window.innerWidth, innerHeight: window.innerHeight }
+        : void 0,
+    );
+  g.useEffect(() => {
+    function e() {
+      p({ innerWidth: window.innerWidth, innerHeight: window.innerHeight });
+    }
+    return (
+      window.addEventListener(`resize`, e),
+      () => window.removeEventListener(`resize`, e)
+    );
+  }, []);
+  let m = g.useMemo(() => u === n?.[n.length - 1] || null, [n, u]),
+    h = g.useMemo(() => n?.findIndex((e) => e === u) ?? null, [n, u]),
+    _ =
+      (n && n.length > 0 && (a || a === 0) && !Number.isNaN(a) && n[a] === u) ||
+      !n,
+    v = g.useMemo(() => {
+      let e = c
+        ? {
+            width: c.getBoundingClientRect().width,
+            height: c.getBoundingClientRect().height,
+          }
+        : typeof window < `u`
+          ? { width: window.innerWidth, height: window.innerHeight }
+          : { width: 0, height: 0 };
+      return (
+        n?.map((t) => {
+          let n = typeof t == `string`,
+            r = 0;
+          if ((n && (r = parseInt(t, 10)), R(s))) {
+            let i = n ? r : f ? t * e.height : 0;
+            return f ? (s === `bottom` ? e.height - i : -e.height + i) : i;
+          }
+          let i = n ? r : f ? t * e.width : 0;
+          return f ? (s === `right` ? e.width - i : -e.width + i) : i;
+        }) ?? []
+      );
+    }, [n, f, c]),
+    y = g.useMemo(() => (h === null ? null : v?.[h]), [v, h]),
+    b = g.useCallback(
+      (e) => {
+        let t = v?.findIndex((t) => t === e) ?? null;
+        (o(t),
+          L(r.current, {
+            transition: `transform ${B.DURATION}s cubic-bezier(${B.EASE.join(`,`)})`,
+            transform: R(s)
+              ? `translate3d(0, ${e}px, 0)`
+              : `translate3d(${e}px, 0, 0)`,
+          }),
+          v && t !== v.length - 1 && a !== void 0 && t !== a && t < a
+            ? L(i.current, {
+                transition: `opacity ${B.DURATION}s cubic-bezier(${B.EASE.join(`,`)})`,
+                opacity: `0`,
+              })
+            : L(i.current, {
+                transition: `opacity ${B.DURATION}s cubic-bezier(${B.EASE.join(`,`)})`,
+                opacity: `1`,
+              }),
+          d(n?.[Math.max(t, 0)]));
+      },
+      [r.current, n, v, a, i, d],
+    );
+  g.useEffect(() => {
+    if (u || e) {
+      let t = n?.findIndex((t) => t === e || t === u) ?? -1;
+      v && t !== -1 && typeof v[t] == `number` && b(v[t]);
+    }
+  }, [u, e, n, v, b]);
+  function x({
+    draggedDistance: e,
+    closeDrawer: t,
+    velocity: r,
+    dismissible: o,
+  }) {
+    if (a === void 0) return;
+    let c = s === `bottom` || s === `right` ? (y ?? 0) - e : (y ?? 0) + e,
+      u = h === a - 1,
+      d = h === 0,
+      f = e > 0;
+    if (
+      (u &&
+        L(i.current, {
+          transition: `opacity ${B.DURATION}s cubic-bezier(${B.EASE.join(`,`)})`,
+        }),
+      !l && r > 2 && !f)
+    ) {
+      o ? t() : b(v[0]);
+      return;
+    }
+    if (!l && r > 2 && f && v && n) {
+      b(v[n.length - 1]);
+      return;
+    }
+    let p = v?.reduce((e, t) =>
+        typeof e != `number` || typeof t != `number`
+          ? e
+          : Math.abs(t - c) < Math.abs(e - c)
+            ? t
+            : e,
+      ),
+      g = R(s) ? window.innerHeight : window.innerWidth;
+    if (r > fe && Math.abs(e) < g * 0.4) {
+      let e = f ? 1 : -1;
+      if (e > 0 && m && n) {
+        b(v[n.length - 1]);
+        return;
+      }
+      if ((d && e < 0 && o && t(), h === null)) return;
+      b(v[h + e]);
+      return;
+    }
+    b(p);
+  }
+  function S({ draggedDistance: e }) {
+    if (y === null) return;
+    let t = s === `bottom` || s === `right` ? y - e : y + e;
+    ((s === `bottom` || s === `right`) && t < v[v.length - 1]) ||
+      ((s === `top` || s === `left`) && t > v[v.length - 1]) ||
+      L(r.current, {
+        transform: R(s)
+          ? `translate3d(0, ${t}px, 0)`
+          : `translate3d(${t}px, 0, 0)`,
+      });
+  }
+  function C(e, t) {
+    if (!n || typeof h != `number` || !v || a === void 0) return null;
+    let r = h === a - 1;
+    if (h >= a && t) return 0;
+    if (r && !t) return 1;
+    if (!_ && !r) return null;
+    let i = r ? h + 1 : h - 1,
+      o = r ? v[i] - v[i - 1] : v[i + 1] - v[i],
+      s = e / Math.abs(o);
+    return r ? 1 - s : s;
+  }
+  return {
+    isLastSnapPoint: m,
+    activeSnapPoint: u,
+    shouldFade: _,
+    getPercentageDragged: C,
+    setActiveSnapPoint: d,
+    activeSnapPointIndex: h,
+    onRelease: x,
+    onDrag: S,
+    snapPointsOffset: v,
+  };
+}
+function W() {
+  let {
+      direction: e,
+      isOpen: t,
+      shouldScaleBackground: n,
+      setBackgroundColorOnScale: r,
+      noBodyStyles: i,
+    } = y(),
+    a = g.useRef(null),
+    o = (0, g.useMemo)(() => document.body.style.backgroundColor, []);
+  function s() {
+    return (window.innerWidth - ge) / window.innerWidth;
+  }
+  g.useEffect(() => {
+    if (t && n) {
+      a.current && clearTimeout(a.current);
+      let t =
+        document.querySelector(`[data-vaul-drawer-wrapper]`) ||
+        document.querySelector(`[vaul-drawer-wrapper]`);
+      if (!t) return;
+      (r && !i && z(document.body, { background: `black` }),
+        z(t, {
+          transformOrigin: R(e) ? `top` : `left`,
+          transitionProperty: `transform, border-radius`,
+          transitionDuration: `${B.DURATION}s`,
+          transitionTimingFunction: `cubic-bezier(${B.EASE.join(`,`)})`,
+        }));
+      let n = z(t, {
+        borderRadius: `${he}px`,
+        overflow: `hidden`,
+        ...(R(e)
+          ? {
+              transform: `scale(${s()}) translate3d(0, calc(env(safe-area-inset-top) + 14px), 0)`,
+            }
+          : {
+              transform: `scale(${s()}) translate3d(calc(env(safe-area-inset-top) + 14px), 0, 0)`,
+            }),
+      });
+      return () => {
+        (n(),
+          (a.current = window.setTimeout(() => {
+            o
+              ? (document.body.style.background = o)
+              : document.body.style.removeProperty(`background`);
+          }, B.DURATION * 1e3)));
+      };
+    }
+  }, [t, n, o]);
+}
+var G = null;
+function be({
+  isOpen: e,
+  modal: t,
+  nested: n,
+  hasBeenOpened: r,
+  preventScrollRestoration: i,
+  noBodyStyles: a,
+}) {
+  let [o, s] = g.useState(() =>
+      typeof window < `u` ? window.location.href : ``,
+    ),
+    c = g.useRef(0),
+    l = g.useCallback(() => {
+      if (C() && G === null && e && !a) {
+        G = {
+          position: document.body.style.position,
+          top: document.body.style.top,
+          left: document.body.style.left,
+          height: document.body.style.height,
+          right: `unset`,
+        };
+        let { scrollX: e, innerHeight: t } = window;
+        (document.body.style.setProperty(`position`, `fixed`, `important`),
+          Object.assign(document.body.style, {
+            top: `${-c.current}px`,
+            left: `${-e}px`,
+            right: `0px`,
+            height: `auto`,
+          }),
+          window.setTimeout(
+            () =>
+              window.requestAnimationFrame(() => {
+                let e = t - window.innerHeight;
+                e &&
+                  c.current >= t &&
+                  (document.body.style.top = `${-(c.current + e)}px`);
+              }),
+            300,
+          ));
+      }
+    }, [e]),
+    u = g.useCallback(() => {
+      if (C() && G !== null && !a) {
+        let e = -parseInt(document.body.style.top, 10),
+          t = -parseInt(document.body.style.left, 10);
+        (Object.assign(document.body.style, G),
+          window.requestAnimationFrame(() => {
+            if (i && o !== window.location.href) {
+              s(window.location.href);
+              return;
+            }
+            window.scrollTo(t, e);
+          }),
+          (G = null));
+      }
+    }, [o]);
+  return (
+    g.useEffect(() => {
+      function e() {
+        c.current = window.scrollY;
+      }
+      return (
+        e(),
+        window.addEventListener(`scroll`, e),
+        () => {
+          window.removeEventListener(`scroll`, e);
+        }
+      );
+    }, []),
+    g.useEffect(() => {
+      if (t)
+        return () => {
+          typeof document > `u` ||
+            document.querySelector(`[data-vaul-drawer]`) ||
+            u();
+        };
+    }, [t, u]),
+    g.useEffect(() => {
+      n ||
+        !r ||
+        (e
+          ? (!window.matchMedia(`(display-mode: standalone)`).matches && l(),
+            t ||
+              window.setTimeout(() => {
+                u();
+              }, 500))
+          : u());
+    }, [e, r, o, t, n, l, u]),
+    { restorePositionSetting: u }
+  );
+}
+function K({
+  open: e,
+  onOpenChange: t,
+  children: n,
+  onDrag: r,
+  onRelease: i,
+  snapPoints: a,
+  shouldScaleBackground: o = !1,
+  setBackgroundColorOnScale: s = !0,
+  closeThreshold: c = pe,
+  scrollLockTimeout: l = me,
+  dismissible: u = !0,
+  handleOnly: d = !1,
+  fadeFromIndex: f = a && a.length - 1,
+  activeSnapPoint: p,
+  setActiveSnapPoint: m,
+  fixed: _,
+  modal: y = !0,
+  onClose: x,
+  nested: S,
+  noBodyStyles: C = !1,
+  direction: w = `bottom`,
+  defaultOpen: T = !1,
+  disablePreventScroll: E = !0,
+  snapToSequentialPoint: D = !1,
+  preventScrollRestoration: O = !1,
+  repositionInputs: k = !0,
+  onAnimationEnd: A,
+  container: j,
+  autoFocus: te = !1,
+}) {
+  let [M = !1, ne] = ve({
+      defaultProp: T,
+      prop: e,
+      onChange: (e) => {
+        (t?.(e),
+          !e && !S && je(),
+          setTimeout(() => {
+            A?.(e);
+          }, B.DURATION * 1e3),
+          e &&
+            !y &&
+            typeof window < `u` &&
+            window.requestAnimationFrame(() => {
+              document.body.style.pointerEvents = `auto`;
+            }),
+          e || (document.body.style.pointerEvents = `auto`));
+      },
+    }),
+    [ie, ae] = g.useState(!1),
+    [N, P] = g.useState(!1),
+    [se, ce] = g.useState(!1),
+    F = g.useRef(null),
+    I = g.useRef(null),
+    z = g.useRef(null),
+    H = g.useRef(null),
+    U = g.useRef(null),
+    W = g.useRef(!1),
+    G = g.useRef(null),
+    K = g.useRef(0),
+    q = g.useRef(!1),
+    xe = g.useRef(!T),
+    Se = g.useRef(0),
+    J = g.useRef(null),
+    Ce = g.useRef(J.current?.getBoundingClientRect().height || 0),
+    we = g.useRef(J.current?.getBoundingClientRect().width || 0),
+    Te = g.useRef(0),
+    {
+      activeSnapPoint: Y,
+      activeSnapPointIndex: X,
+      setActiveSnapPoint: Ee,
+      onRelease: De,
+      snapPointsOffset: Z,
+      onDrag: Oe,
+      shouldFade: ke,
+      getPercentageDragged: Ae,
+    } = ye({
+      snapPoints: a,
+      activeSnapPointProp: p,
+      setActiveSnapPointProp: m,
+      drawerRef: J,
+      fadeFromIndex: f,
+      overlayRef: F,
+      onSnapPointChange: g.useCallback((e) => {
+        a && e === Z.length - 1 && (I.current = new Date());
+      }, []),
+      direction: w,
+      container: j,
+      snapToSequentialPoint: D,
+    });
+  re({ isDisabled: !M || N || !y || se || !ie || !k || !E });
+  let { restorePositionSetting: je } = be({
+    isOpen: M,
+    modal: y,
+    nested: S ?? !1,
+    hasBeenOpened: ie,
+    preventScrollRestoration: O,
+    noBodyStyles: C,
+  });
+  function Q() {
+    return (window.innerWidth - ge) / window.innerWidth;
+  }
+  function Me(e) {
+    (!u && !a) ||
+      (J.current && !J.current.contains(e.target)) ||
+      ((Ce.current = J.current?.getBoundingClientRect().height || 0),
+      (we.current = J.current?.getBoundingClientRect().width || 0),
+      P(!0),
+      (z.current = new Date()),
+      ee() &&
+        window.addEventListener(`touchend`, () => (W.current = !1), {
+          once: !0,
+        }),
+      e.target.setPointerCapture(e.pointerId),
+      (K.current = R(w) ? e.pageY : e.pageX));
+  }
+  function Ne(e, t) {
+    let n = e,
+      r = window.getSelection()?.toString(),
+      i = J.current ? ue(J.current, w) : null,
+      a = new Date();
+    if (
+      n.tagName === `SELECT` ||
+      n.hasAttribute(`data-vaul-no-drag`) ||
+      n.closest(`[data-vaul-no-drag]`)
+    )
+      return !1;
+    if (w === `right` || w === `left`) return !0;
+    if (I.current && a.getTime() - I.current.getTime() < 500) return !1;
+    if (i !== null && (w === `bottom` ? i > 0 : i < 0)) return !0;
+    if (r && r.length > 0) return !1;
+    if ((U.current && a.getTime() - U.current.getTime() < l && i === 0) || t)
+      return ((U.current = a), !1);
+    for (; n;) {
+      if (n.scrollHeight > n.clientHeight) {
+        if (n.scrollTop !== 0) return ((U.current = new Date()), !1);
+        if (n.getAttribute(`role`) === `dialog`) return !0;
+      }
+      n = n.parentNode;
+    }
+    return !0;
+  }
+  function Pe(e) {
+    if (J.current && N) {
+      let t = w === `bottom` || w === `right` ? 1 : -1,
+        n = (K.current - (R(w) ? e.pageY : e.pageX)) * t,
+        i = n > 0,
+        s = a && !u && !i;
+      if (s && X === 0) return;
+      let c = Math.abs(n),
+        l = document.querySelector(`[data-vaul-drawer-wrapper]`),
+        d = c / (w === `bottom` || w === `top` ? Ce.current : we.current),
+        p = Ae(c, i);
+      if (
+        (p !== null && (d = p),
+        (s && d >= 1) || (!W.current && !Ne(e.target, i)))
+      )
+        return;
+      if (
+        (J.current.classList.add(_e),
+        (W.current = !0),
+        L(J.current, { transition: `none` }),
+        L(F.current, { transition: `none` }),
+        a && Oe({ draggedDistance: n }),
+        i && !a)
+      ) {
+        let e = de(n),
+          r = Math.min(e * -1, 0) * t;
+        L(J.current, {
+          transform: R(w)
+            ? `translate3d(0, ${r}px, 0)`
+            : `translate3d(${r}px, 0, 0)`,
+        });
+        return;
+      }
+      let m = 1 - d;
+      if (
+        ((ke || (f && X === f - 1)) &&
+          (r?.(e, d),
+          L(F.current, { opacity: `${m}`, transition: `none` }, !0)),
+        l && F.current && o)
+      ) {
+        let e = Math.min(Q() + d * (1 - Q()), 1),
+          t = 8 - d * 8,
+          n = Math.max(0, 14 - d * 14);
+        L(
+          l,
+          {
+            borderRadius: `${t}px`,
+            transform: R(w)
+              ? `scale(${e}) translate3d(0, ${n}px, 0)`
+              : `scale(${e}) translate3d(${n}px, 0, 0)`,
+            transition: `none`,
+          },
+          !0,
+        );
+      }
+      if (!a) {
+        let e = c * t;
+        L(J.current, {
+          transform: R(w)
+            ? `translate3d(0, ${e}px, 0)`
+            : `translate3d(${e}px, 0, 0)`,
+        });
+      }
+    }
+  }
+  (g.useEffect(() => {
+    window.requestAnimationFrame(() => {
+      xe.current = !0;
+    });
+  }, []),
+    g.useEffect(() => {
+      var e;
+      function t() {
+        if (!J.current || !k) return;
+        let e = document.activeElement;
+        if (oe(e) || q.current) {
+          let e = window.visualViewport?.height || 0,
+            t = window.innerHeight,
+            n = t - e,
+            r = J.current.getBoundingClientRect().height || 0,
+            i = r > t * 0.8;
+          Te.current ||= r;
+          let o = J.current.getBoundingClientRect().top;
+          if (
+            (Math.abs(Se.current - n) > 60 && (q.current = !q.current),
+            a && a.length > 0 && Z && X)
+          ) {
+            let e = Z[X] || 0;
+            n += e;
+          }
+          if (((Se.current = n), r > e || q.current)) {
+            let t = J.current.getBoundingClientRect().height,
+              r = t;
+            (t > e && (r = e - (i ? o : ge)),
+              _
+                ? (J.current.style.height = `${t - Math.max(n, 0)}px`)
+                : (J.current.style.height = `${Math.max(r, e - o)}px`));
+          } else b() || (J.current.style.height = `${Te.current}px`);
+          a && a.length > 0 && !q.current
+            ? (J.current.style.bottom = `0px`)
+            : (J.current.style.bottom = `${Math.max(n, 0)}px`);
+        }
+      }
+      return (
+        (e = window.visualViewport) == null || e.addEventListener(`resize`, t),
+        () => window.visualViewport?.removeEventListener(`resize`, t)
+      );
+    }, [X, a, Z]));
+  function $(e) {
+    (Ie(),
+      x?.(),
+      e || ne(!1),
+      setTimeout(() => {
+        a && Ee(a[0]);
+      }, B.DURATION * 1e3));
+  }
+  function Fe() {
+    if (!J.current) return;
+    let e = document.querySelector(`[data-vaul-drawer-wrapper]`),
+      t = ue(J.current, w);
+    (L(J.current, {
+      transform: `translate3d(0, 0, 0)`,
+      transition: `transform ${B.DURATION}s cubic-bezier(${B.EASE.join(`,`)})`,
+    }),
+      L(F.current, {
+        transition: `opacity ${B.DURATION}s cubic-bezier(${B.EASE.join(`,`)})`,
+        opacity: `1`,
+      }),
+      o &&
+        t &&
+        t > 0 &&
+        M &&
+        L(
+          e,
+          {
+            borderRadius: `${he}px`,
+            overflow: `hidden`,
+            ...(R(w)
+              ? {
+                  transform: `scale(${Q()}) translate3d(0, calc(env(safe-area-inset-top) + 14px), 0)`,
+                  transformOrigin: `top`,
+                }
+              : {
+                  transform: `scale(${Q()}) translate3d(calc(env(safe-area-inset-top) + 14px), 0, 0)`,
+                  transformOrigin: `left`,
+                }),
+            transitionProperty: `transform, border-radius`,
+            transitionDuration: `${B.DURATION}s`,
+            transitionTimingFunction: `cubic-bezier(${B.EASE.join(`,`)})`,
+          },
+          !0,
+        ));
+  }
+  function Ie() {
+    !N ||
+      !J.current ||
+      (J.current.classList.remove(_e),
+      (W.current = !1),
+      P(!1),
+      (H.current = new Date()));
+  }
+  function Le(e) {
+    if (!N || !J.current) return;
+    (J.current.classList.remove(_e),
+      (W.current = !1),
+      P(!1),
+      (H.current = new Date()));
+    let t = ue(J.current, w);
+    if (!e || !Ne(e.target, !1) || !t || Number.isNaN(t) || z.current === null)
+      return;
+    let n = H.current.getTime() - z.current.getTime(),
+      r = K.current - (R(w) ? e.pageY : e.pageX),
+      o = Math.abs(r) / n;
+    if (
+      (o > 0.05 &&
+        (ce(!0),
+        setTimeout(() => {
+          ce(!1);
+        }, 200)),
+      a)
+    ) {
+      (De({
+        draggedDistance: r * (w === `bottom` || w === `right` ? 1 : -1),
+        closeDrawer: $,
+        velocity: o,
+        dismissible: u,
+      }),
+        i?.(e, !0));
+      return;
+    }
+    if (w === `bottom` || w === `right` ? r > 0 : r < 0) {
+      (Fe(), i?.(e, !0));
+      return;
+    }
+    if (o > fe) {
+      ($(), i?.(e, !1));
+      return;
+    }
+    let s = Math.min(
+        J.current.getBoundingClientRect().height ?? 0,
+        window.innerHeight,
+      ),
+      l = Math.min(
+        J.current.getBoundingClientRect().width ?? 0,
+        window.innerWidth,
+      );
+    if (Math.abs(t) >= (w === `left` || w === `right` ? l : s) * c) {
+      ($(), i?.(e, !1));
+      return;
+    }
+    (i?.(e, !0), Fe());
+  }
+  g.useEffect(
+    () => (
+      M &&
+        (L(document.documentElement, { scrollBehavior: `auto` }),
+        (I.current = new Date())),
+      () => {
+        le(document.documentElement, `scrollBehavior`);
+      }
+    ),
+    [M],
+  );
+  function Re(e) {
+    let t = e ? (window.innerWidth - V) / window.innerWidth : 1,
+      n = e ? -16 : 0;
+    (G.current && window.clearTimeout(G.current),
+      L(J.current, {
+        transition: `transform ${B.DURATION}s cubic-bezier(${B.EASE.join(`,`)})`,
+        transform: R(w)
+          ? `scale(${t}) translate3d(0, ${n}px, 0)`
+          : `scale(${t}) translate3d(${n}px, 0, 0)`,
+      }),
+      !e &&
+        J.current &&
+        (G.current = setTimeout(() => {
+          let e = ue(J.current, w);
+          L(J.current, {
+            transition: `none`,
+            transform: R(w)
+              ? `translate3d(0, ${e}px, 0)`
+              : `translate3d(${e}px, 0, 0)`,
+          });
+        }, 500)));
+  }
+  function ze(e, t) {
+    if (t < 0) return;
+    let n = (window.innerWidth - V) / window.innerWidth,
+      r = n + t * (1 - n),
+      i = -16 + t * V;
+    L(J.current, {
+      transform: R(w)
+        ? `scale(${r}) translate3d(0, ${i}px, 0)`
+        : `scale(${r}) translate3d(${i}px, 0, 0)`,
+      transition: `none`,
+    });
+  }
+  function Be(e, t) {
+    let n = R(w) ? window.innerHeight : window.innerWidth,
+      r = t ? (n - V) / n : 1,
+      i = t ? -16 : 0;
+    t &&
+      L(J.current, {
+        transition: `transform ${B.DURATION}s cubic-bezier(${B.EASE.join(`,`)})`,
+        transform: R(w)
+          ? `scale(${r}) translate3d(0, ${i}px, 0)`
+          : `scale(${r}) translate3d(${i}px, 0, 0)`,
+      });
+  }
+  return (
+    g.useEffect(() => {
+      y ||
+        window.requestAnimationFrame(() => {
+          document.body.style.pointerEvents = `auto`;
+        });
+    }, [y]),
+    g.createElement(
+      h,
+      {
+        defaultOpen: T,
+        onOpenChange: (e) => {
+          (!u && !e) || (e ? ae(!0) : $(!0), ne(e));
+        },
+        open: M,
+      },
+      g.createElement(
+        v.Provider,
+        {
+          value: {
+            activeSnapPoint: Y,
+            snapPoints: a,
+            setActiveSnapPoint: Ee,
+            drawerRef: J,
+            overlayRef: F,
+            onOpenChange: t,
+            onPress: Me,
+            onRelease: Le,
+            onDrag: Pe,
+            dismissible: u,
+            shouldAnimate: xe,
+            handleOnly: d,
+            isOpen: M,
+            isDragging: N,
+            shouldFade: ke,
+            closeDrawer: $,
+            onNestedDrag: ze,
+            onNestedOpenChange: Re,
+            onNestedRelease: Be,
+            keyboardIsOpen: q,
+            modal: y,
+            snapPointsOffset: Z,
+            activeSnapPointIndex: X,
+            direction: w,
+            shouldScaleBackground: o,
+            setBackgroundColorOnScale: s,
+            noBodyStyles: C,
+            container: j,
+            autoFocus: te,
+          },
+        },
+        n,
+      ),
+    )
+  );
+}
+var q = g.forwardRef(function ({ ...e }, t) {
+  let {
+      overlayRef: n,
+      snapPoints: r,
+      onRelease: i,
+      shouldFade: a,
+      isOpen: o,
+      modal: s,
+      shouldAnimate: l,
+    } = y(),
+    u = F(t, n),
+    d = r && r.length > 0;
+  if (!s) return null;
+  let f = g.useCallback((e) => i(e), [i]);
+  return g.createElement(c, {
+    onMouseUp: f,
+    ref: u,
+    "data-vaul-overlay": ``,
+    "data-vaul-snap-points": o && d ? `true` : `false`,
+    "data-vaul-snap-points-overlay": o && a ? `true` : `false`,
+    "data-vaul-animate": l?.current ? `true` : `false`,
+    ...e,
+  });
+});
+q.displayName = `Drawer.Overlay`;
+var xe = g.forwardRef(function (
+  { onPointerDownOutside: e, style: t, onOpenAutoFocus: n, ...r },
+  i,
+) {
+  let {
+      drawerRef: a,
+      onPress: o,
+      onRelease: s,
+      onDrag: c,
+      keyboardIsOpen: l,
+      snapPointsOffset: u,
+      activeSnapPointIndex: d,
+      modal: f,
+      isOpen: m,
+      direction: h,
+      snapPoints: _,
+      container: v,
+      handleOnly: b,
+      shouldAnimate: x,
+      autoFocus: S,
+    } = y(),
+    [C, w] = g.useState(!1),
+    ee = F(i, a),
+    T = g.useRef(null),
+    E = g.useRef(null),
+    D = g.useRef(!1),
+    O = _ && _.length > 0;
+  W();
+  let k = (e, t, n = 0) => {
+    if (D.current) return !0;
+    let r = Math.abs(e.y),
+      i = Math.abs(e.x),
+      a = i > r,
+      o = [`bottom`, `right`].includes(t) ? 1 : -1;
+    if (t === `left` || t === `right`) {
+      if (!(e.x * o < 0) && i >= 0 && i <= n) return a;
+    } else if (!(e.y * o < 0) && r >= 0 && r <= n) return !a;
+    return ((D.current = !0), !0);
+  };
+  g.useEffect(() => {
+    O &&
+      window.requestAnimationFrame(() => {
+        w(!0);
+      });
+  }, []);
+  function A(e) {
+    ((T.current = null), (D.current = !1), s(e));
+  }
+  return g.createElement(p, {
+    "data-vaul-drawer-direction": h,
+    "data-vaul-drawer": ``,
+    "data-vaul-delayed-snap-points": C ? `true` : `false`,
+    "data-vaul-snap-points": m && O ? `true` : `false`,
+    "data-vaul-custom-container": v ? `true` : `false`,
+    "data-vaul-animate": x?.current ? `true` : `false`,
+    ...r,
+    ref: ee,
+    style:
+      u && u.length > 0 ? { "--snap-point-height": `${u[d ?? 0]}px`, ...t } : t,
+    onPointerDown: (e) => {
+      b ||
+        (r.onPointerDown == null || r.onPointerDown.call(r, e),
+        (T.current = { x: e.pageX, y: e.pageY }),
+        o(e));
+    },
+    onOpenAutoFocus: (e) => {
+      (n?.(e), S || e.preventDefault());
+    },
+    onPointerDownOutside: (t) => {
+      if ((e?.(t), !f || t.defaultPrevented)) {
+        t.preventDefault();
+        return;
+      }
+      l.current &&= !1;
+    },
+    onFocusOutside: (e) => {
+      if (!f) {
+        e.preventDefault();
+        return;
+      }
+    },
+    onPointerMove: (e) => {
+      if (
+        ((E.current = e),
+        b ||
+          (r.onPointerMove == null || r.onPointerMove.call(r, e), !T.current))
+      )
+        return;
+      let t = e.pageY - T.current.y,
+        n = e.pageX - T.current.x,
+        i = e.pointerType === `touch` ? 10 : 2;
+      k({ x: n, y: t }, h, i)
+        ? c(e)
+        : (Math.abs(n) > i || Math.abs(t) > i) && (T.current = null);
+    },
+    onPointerUp: (e) => {
+      (r.onPointerUp == null || r.onPointerUp.call(r, e),
+        (T.current = null),
+        (D.current = !1),
+        s(e));
+    },
+    onPointerOut: (e) => {
+      (r.onPointerOut == null || r.onPointerOut.call(r, e), A(E.current));
+    },
+    onContextMenu: (e) => {
+      (r.onContextMenu == null || r.onContextMenu.call(r, e),
+        E.current && A(E.current));
+    },
+  });
+});
+xe.displayName = `Drawer.Content`;
+var Se = 250,
+  J = 120,
+  Ce = g.forwardRef(function ({ preventCycle: e = !1, children: t, ...n }, r) {
+    let {
+        closeDrawer: i,
+        isDragging: a,
+        snapPoints: o,
+        activeSnapPoint: s,
+        setActiveSnapPoint: c,
+        dismissible: l,
+        handleOnly: u,
+        isOpen: d,
+        onPress: f,
+        onDrag: p,
+      } = y(),
+      m = g.useRef(null),
+      h = g.useRef(!1);
+    function _() {
+      if (h.current) {
+        x();
+        return;
+      }
+      window.setTimeout(() => {
+        v();
+      }, J);
+    }
+    function v() {
+      if (a || e || h.current) {
+        x();
+        return;
+      }
+      if ((x(), !o || o.length === 0)) {
+        l || i();
+        return;
+      }
+      if (s === o[o.length - 1] && l) {
+        i();
+        return;
+      }
+      let t = o.findIndex((e) => e === s);
+      if (t === -1) return;
+      let n = o[t + 1];
+      c(n);
+    }
+    function b() {
+      m.current = window.setTimeout(() => {
+        h.current = !0;
+      }, Se);
+    }
+    function x() {
+      (m.current && window.clearTimeout(m.current), (h.current = !1));
+    }
+    return g.createElement(
+      `div`,
+      {
+        onClick: _,
+        onPointerCancel: x,
+        onPointerDown: (e) => {
+          (u && f(e), b());
+        },
+        onPointerMove: (e) => {
+          u && p(e);
+        },
+        ref: r,
+        "data-vaul-drawer-visible": d ? `true` : `false`,
+        "data-vaul-handle": ``,
+        "aria-hidden": `true`,
+        ...n,
+      },
+      g.createElement(
+        `span`,
+        { "data-vaul-handle-hitarea": ``, "aria-hidden": `true` },
+        t,
+      ),
+    );
+  });
+Ce.displayName = `Drawer.Handle`;
+function we({ onDrag: e, onOpenChange: t, open: n, ...r }) {
+  let { onNestedDrag: i, onNestedOpenChange: a, onNestedRelease: o } = y();
+  if (!i) throw Error(`Drawer.NestedRoot must be placed in another drawer`);
+  return g.createElement(K, {
+    nested: !0,
+    open: n,
+    onClose: () => {
+      a(!1);
+    },
+    onDrag: (t, n) => {
+      (i(t, n), e?.(t, n));
+    },
+    onOpenChange: (e) => {
+      (e && a(e), t?.(e));
+    },
+    onRelease: o,
+    ...r,
+  });
+}
+function Te(e) {
+  let t = y(),
+    { container: n = t.container, ...r } = e;
+  return g.createElement(f, { container: n, ...r });
+}
+var Y = {
+    Root: K,
+    NestedRoot: we,
+    Content: xe,
+    Overlay: q,
+    Trigger: l,
+    Portal: Te,
+    Handle: Ce,
+    Close: d,
+    Title: m,
+    Description: u,
+  },
+  X = e();
+function Ee({ ...e }) {
+  return (0, X.jsx)(Y.Root, { "data-slot": `drawer`, ...e });
+}
+function De({ ...e }) {
+  return (0, X.jsx)(Y.Trigger, { "data-slot": `drawer-trigger`, ...e });
+}
+function Z({ ...e }) {
+  return (0, X.jsx)(Y.Portal, { "data-slot": `drawer-portal`, ...e });
+}
+function Oe({ ...e }) {
+  return (0, X.jsx)(Y.Close, { "data-slot": `drawer-close`, ...e });
+}
+function ke({ className: e, ...t }) {
+  return (0, X.jsx)(Y.Overlay, {
+    "data-slot": `drawer-overlay`,
+    className: a(
+      `fixed inset-0 z-50 bg-black/10 supports-backdrop-filter:backdrop-blur-xs data-open:animate-in data-open:fade-in-0 data-closed:animate-out data-closed:fade-out-0`,
+      e,
+    ),
+    ...t,
+  });
+}
+function Ae({ className: e, children: t, ...n }) {
+  return (0, X.jsxs)(Z, {
+    "data-slot": `drawer-portal`,
+    children: [
+      (0, X.jsx)(ke, {}),
+      (0, X.jsxs)(Y.Content, {
+        "data-slot": `drawer-content`,
+        className: a(
+          `group/drawer-content fixed z-50 flex h-auto flex-col bg-popover text-sm text-popover-foreground data-[vaul-drawer-direction=bottom]:inset-x-0 data-[vaul-drawer-direction=bottom]:bottom-0 data-[vaul-drawer-direction=bottom]:mt-24 data-[vaul-drawer-direction=bottom]:max-h-[80vh] data-[vaul-drawer-direction=bottom]:rounded-t-xl data-[vaul-drawer-direction=bottom]:border-t data-[vaul-drawer-direction=left]:inset-y-0 data-[vaul-drawer-direction=left]:left-0 data-[vaul-drawer-direction=left]:w-3/4 data-[vaul-drawer-direction=left]:rounded-r-xl data-[vaul-drawer-direction=left]:border-r data-[vaul-drawer-direction=right]:inset-y-0 data-[vaul-drawer-direction=right]:right-0 data-[vaul-drawer-direction=right]:w-3/4 data-[vaul-drawer-direction=right]:rounded-l-xl data-[vaul-drawer-direction=right]:border-l data-[vaul-drawer-direction=top]:inset-x-0 data-[vaul-drawer-direction=top]:top-0 data-[vaul-drawer-direction=top]:mb-24 data-[vaul-drawer-direction=top]:max-h-[80vh] data-[vaul-drawer-direction=top]:rounded-b-xl data-[vaul-drawer-direction=top]:border-b data-[vaul-drawer-direction=left]:sm:max-w-sm data-[vaul-drawer-direction=right]:sm:max-w-sm`,
+          e,
+        ),
+        ...n,
+        children: [
+          (0, X.jsx)(`div`, {
+            className: `mx-auto mt-4 hidden h-1 w-[100px] shrink-0 rounded-full bg-muted group-data-[vaul-drawer-direction=bottom]/drawer-content:block`,
+          }),
+          t,
+        ],
+      }),
+    ],
+  });
+}
+function je({ className: e, ...t }) {
+  return (0, X.jsx)(`div`, {
+    "data-slot": `drawer-header`,
+    className: a(
+      `flex flex-col gap-0.5 p-4 group-data-[vaul-drawer-direction=bottom]/drawer-content:text-center group-data-[vaul-drawer-direction=top]/drawer-content:text-center md:gap-0.5 md:text-left`,
+      e,
+    ),
+    ...t,
+  });
+}
+function Q({ className: e, ...t }) {
+  return (0, X.jsx)(`div`, {
+    "data-slot": `drawer-footer`,
+    className: a(`mt-auto flex flex-col gap-2 p-4`, e),
+    ...t,
+  });
+}
+function Me({ className: e, ...t }) {
+  return (0, X.jsx)(Y.Title, {
+    "data-slot": `drawer-title`,
+    className: a(`font-heading text-base font-medium text-foreground`, e),
+    ...t,
+  });
+}
+function Ne({ className: e, ...t }) {
+  return (0, X.jsx)(Y.Description, {
+    "data-slot": `drawer-description`,
+    className: a(`text-sm text-muted-foreground`, e),
+    ...t,
+  });
+}
+function Pe() {
+  return (0, X.jsxs)(`div`, {
+    className: `space-y-10`,
+    children: [
+      (0, X.jsx)(r, {
+        title: `Drawer`,
+        description: `Một thành phần ngăn kéo cho React.`,
+      }),
+      (0, X.jsxs)(i, {
+        columns: 2,
+        children: [
+          (0, X.jsx)(o, {
+            label: `Bottom Drawer`,
+            description: `Kiểu trang tính dưới cùng mặc định.`,
+            children: (0, X.jsxs)(Ee, {
+              children: [
+                (0, X.jsx)(De, {
+                  asChild: !0,
+                  children: (0, X.jsx)(s, {
+                    variant: `outline`,
+                    children: `Open Bottom`,
+                  }),
+                }),
+                (0, X.jsx)(Ae, {
+                  children: (0, X.jsxs)(`div`, {
+                    className: `mx-auto w-full max-w-sm`,
+                    children: [
+                      (0, X.jsxs)(je, {
+                        children: [
+                          (0, X.jsx)(Me, { children: `Move Goal` }),
+                          (0, X.jsx)(Ne, {
+                            children: `Set your daily activity goal.`,
+                          }),
+                        ],
+                      }),
+                      (0, X.jsx)(`div`, {
+                        className: `p-4 pb-0`,
+                        children: (0, X.jsxs)(`div`, {
+                          className: `flex items-center justify-center space-x-2`,
+                          children: [
+                            (0, X.jsx)(s, {
+                              variant: `outline`,
+                              size: `sm`,
+                              className: `h-8 w-8 rounded-full`,
+                              onClick: () => {},
+                              children: `-`,
+                            }),
+                            (0, X.jsxs)(`div`, {
+                              className: `flex-1 text-center`,
+                              children: [
+                                (0, X.jsx)(`div`, {
+                                  className: `text-7xl font-bold tracking-tighter`,
+                                  children: `350`,
+                                }),
+                                (0, X.jsx)(`div`, {
+                                  className: `text-[0.70rem] uppercase text-muted-foreground`,
+                                  children: `Calories/day`,
+                                }),
+                              ],
+                            }),
+                            (0, X.jsx)(s, {
+                              variant: `outline`,
+                              size: `sm`,
+                              className: `h-8 w-8 rounded-full`,
+                              onClick: () => {},
+                              children: `+`,
+                            }),
+                          ],
+                        }),
+                      }),
+                      (0, X.jsxs)(Q, {
+                        children: [
+                          (0, X.jsx)(s, { children: `Submit` }),
+                          (0, X.jsx)(Oe, {
+                            asChild: !0,
+                            children: (0, X.jsx)(s, {
+                              variant: `outline`,
+                              children: `Cancel`,
+                            }),
+                          }),
+                        ],
+                      }),
+                    ],
+                  }),
+                }),
+              ],
+            }),
+          }),
+          (0, X.jsx)(o, {
+            label: `Simple Message`,
+            description: `Ngăn kéo có nội dung văn bản đơn giản.`,
+            children: (0, X.jsxs)(Ee, {
+              children: [
+                (0, X.jsx)(De, {
+                  asChild: !0,
+                  children: (0, X.jsx)(s, {
+                    variant: `outline`,
+                    children: `Show Info`,
+                  }),
+                }),
+                (0, X.jsx)(Ae, {
+                  children: (0, X.jsxs)(`div`, {
+                    className: `mx-auto w-full max-w-sm`,
+                    children: [
+                      (0, X.jsxs)(je, {
+                        children: [
+                          (0, X.jsx)(Me, { children: `About this feature` }),
+                          (0, X.jsx)(Ne, {
+                            children: `This feature is currently in beta. Some functionality may be limited or change without notice. We appreciate your feedback as we work to improve the experience.`,
+                          }),
+                        ],
+                      }),
+                      (0, X.jsx)(Q, {
+                        children: (0, X.jsx)(Oe, {
+                          asChild: !0,
+                          children: (0, X.jsx)(s, {
+                            variant: `outline`,
+                            children: `Got it`,
+                          }),
+                        }),
+                      }),
+                    ],
+                  }),
+                }),
+              ],
+            }),
+          }),
+        ],
+      }),
+    ],
+  });
+}
+export { Pe as default };

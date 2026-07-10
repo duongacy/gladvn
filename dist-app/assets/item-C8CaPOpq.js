@@ -1,1 +1,360 @@
-import{Fn as e,Nn as t,cr as n,dr as r,h as i,i as a,ir as o,n as s,or as c,qn as l,r as u,s as d,u as f}from"./showcase-vJrKG7HA.js";import{t as p}from"./user-B_lk4UZ_.js";import{t as m}from"./index-Dk0REsC9.js";import{t as h}from"./select-preset-B6grUIWS.js";var g=c(`ellipsis-vertical`,[[`circle`,{cx:`12`,cy:`12`,r:`1`,key:`41hilf`}],[`circle`,{cx:`12`,cy:`5`,r:`1`,key:`gxeob9`}],[`circle`,{cx:`12`,cy:`19`,r:`1`,key:`lyex9k`}]]),_=c(`heart`,[[`path`,{d:`M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5`,key:`mvr1a0`}]]),v=r(n(),1),y=t();function b({className:e,...t}){return(0,y.jsx)(`div`,{role:`list`,"data-slot":`item-group`,className:l(`group/item-group flex w-full flex-col gap-4 has-data-[size=sm]:gap-2.5 has-data-[size=xs]:gap-2`,e),...t})}function x({className:e,...t}){return(0,y.jsx)(m,{"data-slot":`item-separator`,orientation:`horizontal`,className:l(`my-2`,e),...t})}var S=i(`group/item @container/item flex w-full flex-wrap items-center rounded-lg border text-sm transition-colors duration-100 outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:ring-offset-1 focus-visible:ring-offset-background [&_a]:transition-colors [&_a]:hover:bg-muted border-transparent`,{variants:{variant:{outline:`border-border`,muted:`border-transparent bg-muted/50`},size:{sm:`gap-2 px-2.5 py-2 in-data-[slot=dropdown-menu-content]:p-0`,md:`gap-2.5 px-3 py-2.5`,lg:`gap-2.5 px-3 py-2.5`}}});function C({className:t,variant:n,size:r=`md`,render:i,...a}){return f({defaultTagName:`div`,props:e({className:l(S({variant:n,size:r,className:t}))},a),render:i,state:{slot:`item`,variant:n,size:r}})}var w=i(`flex shrink-0 items-center justify-center gap-2 group-has-data-[slot=item-description]/item:translate-y-0.5 group-has-data-[slot=item-description]/item:self-start [&>svg]:pointer-events-none bg-transparent`,{variants:{variant:{icon:`[&_svg:not([class*='size-'])]:size-4`,image:`size-10 overflow-hidden rounded-sm group-data-[size=sm]/item:size-8 group-data-[size=xs]/item:size-6 [&>img]:size-full [&>img]:object-cover`}}});function T({className:e,variant:t,...n}){return(0,y.jsx)(`div`,{"data-slot":`item-media`,"data-variant":t,className:l(w({variant:t,className:e})),...n})}function E({className:e,...t}){return(0,y.jsx)(`div`,{"data-slot":`item-content`,className:l(`flex flex-1 flex-col gap-1 group-data-[size=xs]/item:gap-0 [&+[data-slot=item-content]]:flex-none`,e),...t})}function D({className:e,...t}){return(0,y.jsx)(`div`,{"data-slot":`item-title`,className:l(`line-clamp-1 flex w-fit items-center gap-2 text-sm leading-snug font-medium underline-offset-4`,e),...t})}function O({className:e,...t}){return(0,y.jsx)(`p`,{"data-slot":`item-description`,className:l(`line-clamp-2 text-left text-sm leading-normal font-normal text-muted-foreground group-data-[size=xs]/item:text-xs [&>a]:underline [&>a]:underline-offset-4 [&>a:hover]:text-primary`,e),...t})}function k({className:e,...t}){return(0,y.jsx)(`div`,{"data-slot":`item-actions`,className:l(`flex items-center gap-2`,e),...t})}function A({className:e,...t}){return(0,y.jsx)(`div`,{"data-slot":`item-header`,className:l(`flex basis-full items-center justify-between gap-2`,e),...t})}function j({className:e,...t}){return(0,y.jsx)(`div`,{"data-slot":`item-footer`,className:l(`flex basis-full items-center justify-between gap-2`,e),...t})}function M(){let[e,t]=(0,v.useState)(`md`);return(0,y.jsxs)(`div`,{className:`space-y-10`,children:[(0,y.jsx)(a,{title:`Item`,description:`Một vùng chứa linh hoạt cho các mục danh sách hoặc khối nội dung có cấu trúc.`,children:(0,y.jsx)(h,{value:e,onValueChange:e=>t(e),options:[{value:`sm`,label:`Size: sm`},{value:`md`,label:`Size: md`},{value:`lg`,label:`Size: lg`}],className:`w-[120px] h-8 text-xs bg-background`})}),(0,y.jsxs)(s,{columns:2,children:[(0,y.jsx)(u,{label:`Basic Content`,description:`Một mục có cấu trúc với tiêu đề và mô tả.`,children:(0,y.jsx)(C,{size:e,className:`w-full`,children:(0,y.jsxs)(E,{children:[(0,y.jsx)(D,{children:`Basic Item Content`}),(0,y.jsx)(O,{children:`This item shows structured text.`})]})})}),(0,y.jsx)(u,{label:`With Media`,description:`Vật phẩm có biểu tượng hoặc hình đại diện.`,children:(0,y.jsxs)(C,{size:e,className:`w-full`,children:[(0,y.jsx)(T,{className:`bg-primary/10 text-primary rounded-md p-2`,children:(0,y.jsx)(p,{className:`size-4`})}),(0,y.jsxs)(E,{children:[(0,y.jsx)(D,{children:`User Profile`}),(0,y.jsx)(O,{children:`Manage your account`})]})]})})]}),(0,y.jsxs)(s,{columns:2,children:[(0,y.jsx)(u,{label:`Variants`,description:`Các phong cách hình ảnh khác nhau (phác thảo, tắt tiếng).`,children:(0,y.jsxs)(`div`,{className:`flex flex-col gap-3 w-full`,children:[(0,y.jsx)(C,{variant:`outline`,size:e,children:(0,y.jsx)(E,{children:(0,y.jsx)(D,{children:`Outline Variant`})})}),(0,y.jsx)(C,{variant:`muted`,size:e,children:(0,y.jsx)(E,{children:(0,y.jsx)(D,{children:`Muted Variant`})})})]})}),(0,y.jsx)(u,{label:`Media Variants`,description:`Mục có thể được tạo kiểu cho phương tiện cụ thể như biểu tượng hoặc hình ảnh.`,children:(0,y.jsxs)(`div`,{className:`flex flex-col gap-3 w-full`,children:[(0,y.jsxs)(C,{size:e,children:[(0,y.jsx)(T,{variant:`icon`,className:`bg-primary/10 text-primary`,children:(0,y.jsx)(o,{className:`size-4`})}),(0,y.jsx)(E,{children:(0,y.jsx)(D,{children:`Icon Variant`})})]}),(0,y.jsxs)(C,{size:e,children:[(0,y.jsx)(T,{variant:`image`,className:`bg-muted`,children:(0,y.jsx)(p,{className:`size-4 text-muted-foreground`})}),(0,y.jsx)(E,{children:(0,y.jsx)(D,{children:`Image Variant`})})]})]})}),(0,y.jsx)(u,{label:`With Actions`,description:`Mục có các nút hành động ở cuối.`,children:(0,y.jsxs)(C,{size:e,className:`w-full`,children:[(0,y.jsx)(E,{children:(0,y.jsx)(D,{children:`Actionable Item`})}),(0,y.jsxs)(k,{children:[(0,y.jsx)(d,{variant:`ghost`,size:`sm`,className:`size-8 p-0`,children:(0,y.jsx)(_,{className:`size-4`})}),(0,y.jsx)(d,{variant:`ghost`,size:`sm`,className:`size-8 p-0`,children:(0,y.jsx)(g,{className:`size-4`})})]})]})})]}),(0,y.jsx)(u,{label:`Item Group`,description:`Các mục được nhóm bằng dấu phân cách.`,children:(0,y.jsxs)(b,{className:`w-full max-w-sm mx-auto`,children:[(0,y.jsx)(C,{size:e,children:(0,y.jsx)(E,{children:(0,y.jsx)(D,{children:`Account Settings`})})}),(0,y.jsx)(x,{}),(0,y.jsx)(C,{size:e,children:(0,y.jsx)(E,{children:(0,y.jsx)(D,{children:`Notification Preferences`})})}),(0,y.jsx)(x,{}),(0,y.jsx)(C,{size:e,children:(0,y.jsx)(E,{children:(0,y.jsx)(D,{className:`text-destructive`,children:`Delete Account`})})})]})}),(0,y.jsx)(u,{label:`With Header and Footer`,description:`Mục phức tạp với các vùng vị trí cụ thể.`,children:(0,y.jsxs)(C,{size:e,className:`w-full max-w-sm mx-auto flex-col items-start gap-2`,children:[(0,y.jsx)(A,{className:`text-xs text-muted-foreground`,children:`Order #12345`}),(0,y.jsx)(E,{children:(0,y.jsx)(D,{children:`Mechanical Keyboard v2`})}),(0,y.jsxs)(j,{className:`text-xs text-success flex items-center gap-1`,children:[(0,y.jsx)(o,{className:`size-3`}),` Delivered`]})]})})]})}export{M as default};
+import {
+  Fn as e,
+  Nn as t,
+  cr as n,
+  dr as r,
+  h as i,
+  i as a,
+  ir as o,
+  n as s,
+  or as c,
+  qn as l,
+  r as u,
+  s as d,
+  u as f,
+} from "./showcase-vJrKG7HA.js";
+import { t as p } from "./user-B_lk4UZ_.js";
+import { t as m } from "./index-Dk0REsC9.js";
+import { t as h } from "./select-preset-B6grUIWS.js";
+var g = c(`ellipsis-vertical`, [
+    [`circle`, { cx: `12`, cy: `12`, r: `1`, key: `41hilf` }],
+    [`circle`, { cx: `12`, cy: `5`, r: `1`, key: `gxeob9` }],
+    [`circle`, { cx: `12`, cy: `19`, r: `1`, key: `lyex9k` }],
+  ]),
+  _ = c(`heart`, [
+    [
+      `path`,
+      {
+        d: `M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5`,
+        key: `mvr1a0`,
+      },
+    ],
+  ]),
+  v = r(n(), 1),
+  y = t();
+function b({ className: e, ...t }) {
+  return (0, y.jsx)(`div`, {
+    role: `list`,
+    "data-slot": `item-group`,
+    className: l(
+      `group/item-group flex w-full flex-col gap-4 has-data-[size=sm]:gap-2.5 has-data-[size=xs]:gap-2`,
+      e,
+    ),
+    ...t,
+  });
+}
+function x({ className: e, ...t }) {
+  return (0, y.jsx)(m, {
+    "data-slot": `item-separator`,
+    orientation: `horizontal`,
+    className: l(`my-2`, e),
+    ...t,
+  });
+}
+var S = i(
+  `group/item @container/item flex w-full flex-wrap items-center rounded-lg border text-sm transition-colors duration-100 outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:ring-offset-1 focus-visible:ring-offset-background [&_a]:transition-colors [&_a]:hover:bg-muted border-transparent`,
+  {
+    variants: {
+      variant: {
+        outline: `border-border`,
+        muted: `border-transparent bg-muted/50`,
+      },
+      size: {
+        sm: `gap-2 px-2.5 py-2 in-data-[slot=dropdown-menu-content]:p-0`,
+        md: `gap-2.5 px-3 py-2.5`,
+        lg: `gap-2.5 px-3 py-2.5`,
+      },
+    },
+  },
+);
+function C({ className: t, variant: n, size: r = `md`, render: i, ...a }) {
+  return f({
+    defaultTagName: `div`,
+    props: e({ className: l(S({ variant: n, size: r, className: t })) }, a),
+    render: i,
+    state: { slot: `item`, variant: n, size: r },
+  });
+}
+var w = i(
+  `flex shrink-0 items-center justify-center gap-2 group-has-data-[slot=item-description]/item:translate-y-0.5 group-has-data-[slot=item-description]/item:self-start [&>svg]:pointer-events-none bg-transparent`,
+  {
+    variants: {
+      variant: {
+        icon: `[&_svg:not([class*='size-'])]:size-4`,
+        image: `size-10 overflow-hidden rounded-sm group-data-[size=sm]/item:size-8 group-data-[size=xs]/item:size-6 [&>img]:size-full [&>img]:object-cover`,
+      },
+    },
+  },
+);
+function T({ className: e, variant: t, ...n }) {
+  return (0, y.jsx)(`div`, {
+    "data-slot": `item-media`,
+    "data-variant": t,
+    className: l(w({ variant: t, className: e })),
+    ...n,
+  });
+}
+function E({ className: e, ...t }) {
+  return (0, y.jsx)(`div`, {
+    "data-slot": `item-content`,
+    className: l(
+      `flex flex-1 flex-col gap-1 group-data-[size=xs]/item:gap-0 [&+[data-slot=item-content]]:flex-none`,
+      e,
+    ),
+    ...t,
+  });
+}
+function D({ className: e, ...t }) {
+  return (0, y.jsx)(`div`, {
+    "data-slot": `item-title`,
+    className: l(
+      `line-clamp-1 flex w-fit items-center gap-2 text-sm leading-snug font-medium underline-offset-4`,
+      e,
+    ),
+    ...t,
+  });
+}
+function O({ className: e, ...t }) {
+  return (0, y.jsx)(`p`, {
+    "data-slot": `item-description`,
+    className: l(
+      `line-clamp-2 text-left text-sm leading-normal font-normal text-muted-foreground group-data-[size=xs]/item:text-xs [&>a]:underline [&>a]:underline-offset-4 [&>a:hover]:text-primary`,
+      e,
+    ),
+    ...t,
+  });
+}
+function k({ className: e, ...t }) {
+  return (0, y.jsx)(`div`, {
+    "data-slot": `item-actions`,
+    className: l(`flex items-center gap-2`, e),
+    ...t,
+  });
+}
+function A({ className: e, ...t }) {
+  return (0, y.jsx)(`div`, {
+    "data-slot": `item-header`,
+    className: l(`flex basis-full items-center justify-between gap-2`, e),
+    ...t,
+  });
+}
+function j({ className: e, ...t }) {
+  return (0, y.jsx)(`div`, {
+    "data-slot": `item-footer`,
+    className: l(`flex basis-full items-center justify-between gap-2`, e),
+    ...t,
+  });
+}
+function M() {
+  let [e, t] = (0, v.useState)(`md`);
+  return (0, y.jsxs)(`div`, {
+    className: `space-y-10`,
+    children: [
+      (0, y.jsx)(a, {
+        title: `Item`,
+        description: `Một vùng chứa linh hoạt cho các mục danh sách hoặc khối nội dung có cấu trúc.`,
+        children: (0, y.jsx)(h, {
+          value: e,
+          onValueChange: (e) => t(e),
+          options: [
+            { value: `sm`, label: `Size: sm` },
+            { value: `md`, label: `Size: md` },
+            { value: `lg`, label: `Size: lg` },
+          ],
+          className: `w-[120px] h-8 text-xs bg-background`,
+        }),
+      }),
+      (0, y.jsxs)(s, {
+        columns: 2,
+        children: [
+          (0, y.jsx)(u, {
+            label: `Basic Content`,
+            description: `Một mục có cấu trúc với tiêu đề và mô tả.`,
+            children: (0, y.jsx)(C, {
+              size: e,
+              className: `w-full`,
+              children: (0, y.jsxs)(E, {
+                children: [
+                  (0, y.jsx)(D, { children: `Basic Item Content` }),
+                  (0, y.jsx)(O, {
+                    children: `This item shows structured text.`,
+                  }),
+                ],
+              }),
+            }),
+          }),
+          (0, y.jsx)(u, {
+            label: `With Media`,
+            description: `Vật phẩm có biểu tượng hoặc hình đại diện.`,
+            children: (0, y.jsxs)(C, {
+              size: e,
+              className: `w-full`,
+              children: [
+                (0, y.jsx)(T, {
+                  className: `bg-primary/10 text-primary rounded-md p-2`,
+                  children: (0, y.jsx)(p, { className: `size-4` }),
+                }),
+                (0, y.jsxs)(E, {
+                  children: [
+                    (0, y.jsx)(D, { children: `User Profile` }),
+                    (0, y.jsx)(O, { children: `Manage your account` }),
+                  ],
+                }),
+              ],
+            }),
+          }),
+        ],
+      }),
+      (0, y.jsxs)(s, {
+        columns: 2,
+        children: [
+          (0, y.jsx)(u, {
+            label: `Variants`,
+            description: `Các phong cách hình ảnh khác nhau (phác thảo, tắt tiếng).`,
+            children: (0, y.jsxs)(`div`, {
+              className: `flex flex-col gap-3 w-full`,
+              children: [
+                (0, y.jsx)(C, {
+                  variant: `outline`,
+                  size: e,
+                  children: (0, y.jsx)(E, {
+                    children: (0, y.jsx)(D, { children: `Outline Variant` }),
+                  }),
+                }),
+                (0, y.jsx)(C, {
+                  variant: `muted`,
+                  size: e,
+                  children: (0, y.jsx)(E, {
+                    children: (0, y.jsx)(D, { children: `Muted Variant` }),
+                  }),
+                }),
+              ],
+            }),
+          }),
+          (0, y.jsx)(u, {
+            label: `Media Variants`,
+            description: `Mục có thể được tạo kiểu cho phương tiện cụ thể như biểu tượng hoặc hình ảnh.`,
+            children: (0, y.jsxs)(`div`, {
+              className: `flex flex-col gap-3 w-full`,
+              children: [
+                (0, y.jsxs)(C, {
+                  size: e,
+                  children: [
+                    (0, y.jsx)(T, {
+                      variant: `icon`,
+                      className: `bg-primary/10 text-primary`,
+                      children: (0, y.jsx)(o, { className: `size-4` }),
+                    }),
+                    (0, y.jsx)(E, {
+                      children: (0, y.jsx)(D, { children: `Icon Variant` }),
+                    }),
+                  ],
+                }),
+                (0, y.jsxs)(C, {
+                  size: e,
+                  children: [
+                    (0, y.jsx)(T, {
+                      variant: `image`,
+                      className: `bg-muted`,
+                      children: (0, y.jsx)(p, {
+                        className: `size-4 text-muted-foreground`,
+                      }),
+                    }),
+                    (0, y.jsx)(E, {
+                      children: (0, y.jsx)(D, { children: `Image Variant` }),
+                    }),
+                  ],
+                }),
+              ],
+            }),
+          }),
+          (0, y.jsx)(u, {
+            label: `With Actions`,
+            description: `Mục có các nút hành động ở cuối.`,
+            children: (0, y.jsxs)(C, {
+              size: e,
+              className: `w-full`,
+              children: [
+                (0, y.jsx)(E, {
+                  children: (0, y.jsx)(D, { children: `Actionable Item` }),
+                }),
+                (0, y.jsxs)(k, {
+                  children: [
+                    (0, y.jsx)(d, {
+                      variant: `ghost`,
+                      size: `sm`,
+                      className: `size-8 p-0`,
+                      children: (0, y.jsx)(_, { className: `size-4` }),
+                    }),
+                    (0, y.jsx)(d, {
+                      variant: `ghost`,
+                      size: `sm`,
+                      className: `size-8 p-0`,
+                      children: (0, y.jsx)(g, { className: `size-4` }),
+                    }),
+                  ],
+                }),
+              ],
+            }),
+          }),
+        ],
+      }),
+      (0, y.jsx)(u, {
+        label: `Item Group`,
+        description: `Các mục được nhóm bằng dấu phân cách.`,
+        children: (0, y.jsxs)(b, {
+          className: `w-full max-w-sm mx-auto`,
+          children: [
+            (0, y.jsx)(C, {
+              size: e,
+              children: (0, y.jsx)(E, {
+                children: (0, y.jsx)(D, { children: `Account Settings` }),
+              }),
+            }),
+            (0, y.jsx)(x, {}),
+            (0, y.jsx)(C, {
+              size: e,
+              children: (0, y.jsx)(E, {
+                children: (0, y.jsx)(D, {
+                  children: `Notification Preferences`,
+                }),
+              }),
+            }),
+            (0, y.jsx)(x, {}),
+            (0, y.jsx)(C, {
+              size: e,
+              children: (0, y.jsx)(E, {
+                children: (0, y.jsx)(D, {
+                  className: `text-destructive`,
+                  children: `Delete Account`,
+                }),
+              }),
+            }),
+          ],
+        }),
+      }),
+      (0, y.jsx)(u, {
+        label: `With Header and Footer`,
+        description: `Mục phức tạp với các vùng vị trí cụ thể.`,
+        children: (0, y.jsxs)(C, {
+          size: e,
+          className: `w-full max-w-sm mx-auto flex-col items-start gap-2`,
+          children: [
+            (0, y.jsx)(A, {
+              className: `text-xs text-muted-foreground`,
+              children: `Order #12345`,
+            }),
+            (0, y.jsx)(E, {
+              children: (0, y.jsx)(D, { children: `Mechanical Keyboard v2` }),
+            }),
+            (0, y.jsxs)(j, {
+              className: `text-xs text-success flex items-center gap-1`,
+              children: [(0, y.jsx)(o, { className: `size-3` }), ` Delivered`],
+            }),
+          ],
+        }),
+      }),
+    ],
+  });
+}
+export { M as default };

@@ -18,6 +18,7 @@ State lives in `progress/` at the project root. This folder is project-scoped â€
 **Called by:** wrap (step 3), handoff (step 3)
 
 **Input:**
+
 - `agent_id` â€” the agent whose state is being saved (saga, freya, mimir)
 - `data` â€” the compiled state block (Wrapped, Context, Plan, Next, Learned, Spec Sync fields)
 
@@ -34,6 +35,7 @@ State lives in `progress/` at the project root. This folder is project-scoped â€
 **Called by:** start (step 2)
 
 **Input:**
+
 - `agent_id` â€” the agent whose state is being loaded
 
 **Steps:**

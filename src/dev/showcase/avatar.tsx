@@ -1,25 +1,29 @@
-import { useState } from "react";
 import {
+  DocsP,
+  ExampleGrid,
+  ExampleSection,
   Showcase,
   ShowcaseDocs,
-  DocsH3,
-  DocsP,
-  DocsCode,
-  ExampleSection,
-  ExampleGrid,
+  SizeToggle,
 } from "@/dev/components/showcase";
-import { MonoSelect } from "@/dev/components/mono-select";
+import {
+  CheckCircle2Icon,
+  CheckIcon,
+  LayersIcon,
+  UserIcon,
+} from "lucide-react";
+import { useState } from "react";
 
-import { type Size } from "@/lib/types";
+import { AvatarPreset } from "@/components/macro/avatar-preset";
 import {
   Avatar,
-  AvatarImage,
-  AvatarFallback,
   AvatarBadge,
+  AvatarFallback,
   AvatarGroup,
   AvatarGroupCount,
+  AvatarImage,
 } from "@/components/micro/avatar";
-import { AvatarPreset } from "@/components/macro/avatar-preset";
+import { type Size } from "@/lib/types";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Macro Content
@@ -27,16 +31,6 @@ import { AvatarPreset } from "@/components/macro/avatar-preset";
 function AvatarMacroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Khi nào nên dùng Macro</DocsH3>
-        <DocsP>
-          <DocsCode>AvatarPreset</DocsCode> tự động tính toán chữ cái viết tắt
-          (fallback) dựa trên thuộc tính <DocsCode>alt</DocsCode>. Nó cũng hỗ
-          trợ truyền trực tiếp <DocsCode>status</DocsCode> thay vì phải tự đặt
-          thẻ <DocsCode>AvatarBadge</DocsCode> với class màu sắc như Micro.
-        </DocsP>
-      </ShowcaseDocs>
-
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Tiêu chuẩn (Standard)"
@@ -116,16 +110,6 @@ function AvatarMacroShowcase({ globalSize }: { globalSize: Size }) {
 function AvatarMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Khi nào nên dùng Micro</DocsH3>
-        <DocsP>
-          Dùng <DocsCode>Avatar</DocsCode> khi bạn muốn có một{" "}
-          <DocsCode>AvatarFallback</DocsCode> phức tạp (ví dụ: hiển thị một Icon
-          User) thay vì chỉ là chữ cái viết tắt mặc định, hoặc muốn tùy chỉnh vị
-          trí/màu sắc của <DocsCode>AvatarBadge</DocsCode> hoàn toàn tự do.
-        </DocsP>
-      </ShowcaseDocs>
-
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Với Hình ảnh (With Image)"
@@ -322,6 +306,133 @@ function AvatarMicroShowcase({ globalSize }: { globalSize: Size }) {
             <AvatarGroupCount size={globalSize}>+12</AvatarGroupCount>
           </AvatarGroup>
         </ExampleSection>
+
+        {/* ── Use Case Comparison ─────────────────────── */}
+        <ExampleSection
+          label="🧭 Use Case Comparison"
+          description="Các kịch bản thực tế giúp bạn quyết định nên dùng Micro hay Macro."
+          fullWidth
+          codeString={`<div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+  {/* ── Story 1: Macro wins ── */}
+  <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
+    <div className="flex items-start gap-3">
+      <span className="mt-0.5 shrink-0 rounded-full bg-green-500/10 p-1.5 text-green-600">
+        <CheckCircle2Icon className="size-4" aria-hidden="true" />
+      </span>
+      <div>
+        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+          Story 1 · Dùng Macro
+        </p>
+        <h3 className="mt-0.5 text-sm font-semibold text-foreground">
+          Hiển thị Avatar chuẩn với URL và Fallback
+        </h3>
+      </div>
+    </div>
+    <p className="text-xs text-muted-foreground leading-relaxed">
+      Hầu hết các trường hợp bạn chỉ có một URL hình ảnh và một cái tên. Macro tự động hiển thị ảnh, nếu ảnh lỗi thì tự sinh chữ viết tắt dựa trên tên cực kỳ tiện lợi mà không cần viết nhiều code.
+    </p>
+    <div className="rounded-lg bg-muted/50 p-3 flex justify-center">
+      <AvatarPreset src="https://github.com/shadcn.png" alt="Shadcn" size="lg" />
+    </div>
+  </div>
+
+  {/* ── Story 2: Micro wins ── */}
+  <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
+    <div className="flex items-start gap-3">
+      <span className="mt-0.5 shrink-0 rounded-full bg-blue-500/10 p-1.5 text-blue-600">
+        <LayersIcon className="size-4" aria-hidden="true" />
+      </span>
+      <div>
+        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+          Story 2 · Dùng Micro
+        </p>
+        <h3 className="mt-0.5 text-sm font-semibold text-foreground">
+          Layout Fallback phức tạp hoặc tích hợp Badge đặc thù
+        </h3>
+      </div>
+    </div>
+    <p className="text-xs text-muted-foreground leading-relaxed">
+      Khi bạn muốn Fallback là một Icon thay vì Text, hoặc muốn đính kèm một Badge tùy chỉnh hoàn toàn tự do (như icon viền, thông báo tin nhắn), bạn phải dùng Primitive để lắp ghép.
+    </p>
+    <div className="rounded-lg bg-muted/50 p-3 flex justify-center">
+      <Avatar size="lg">
+        <AvatarImage src="/broken.png" alt="Avatar" />
+        <AvatarFallback>
+          <UserIcon className="size-1/2 text-muted-foreground" />
+        </AvatarFallback>
+        <AvatarBadge className="bg-blue-500">
+          <CheckIcon className="size-2 text-white" />
+        </AvatarBadge>
+      </Avatar>
+    </div>
+  </div>
+</div>`}
+        >
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            {/* ── Story 1: Macro wins ── */}
+            <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
+              <div className="flex items-start gap-3">
+                <span className="mt-0.5 shrink-0 rounded-full bg-green-500/10 p-1.5 text-green-600">
+                  <CheckCircle2Icon className="size-4" aria-hidden="true" />
+                </span>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                    Story 1 · Dùng Macro
+                  </p>
+                  <h3 className="mt-0.5 text-sm font-semibold text-foreground">
+                    Hiển thị Avatar chuẩn với URL và Fallback
+                  </h3>
+                </div>
+              </div>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                Hầu hết các trường hợp bạn chỉ có một URL hình ảnh và một cái
+                tên. Macro tự động hiển thị ảnh, nếu ảnh lỗi thì tự sinh chữ
+                viết tắt dựa trên tên cực kỳ tiện lợi mà không cần viết nhiều
+                code.
+              </p>
+              <div className="rounded-lg bg-muted/50 p-3 flex justify-center">
+                <AvatarPreset
+                  size={globalSize === "sm" ? "md" : "lg"}
+                  src="https://github.com/shadcn.png"
+                  alt="Shadcn"
+                />
+              </div>
+            </div>
+
+            {/* ── Story 2: Micro wins ── */}
+            <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
+              <div className="flex items-start gap-3">
+                <span className="mt-0.5 shrink-0 rounded-full bg-blue-500/10 p-1.5 text-blue-600">
+                  <LayersIcon className="size-4" aria-hidden="true" />
+                </span>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                    Story 2 · Dùng Micro
+                  </p>
+                  <h3 className="mt-0.5 text-sm font-semibold text-foreground">
+                    Layout Fallback phức tạp hoặc tích hợp Badge đặc thù
+                  </h3>
+                </div>
+              </div>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                Khi bạn muốn Fallback là một Icon thay vì Text, hoặc muốn đính
+                kèm một Badge tùy chỉnh hoàn toàn tự do (như icon viền, thông
+                báo tin nhắn), bạn phải dùng Primitive để lắp ghép.
+              </p>
+              <div className="rounded-lg bg-muted/50 p-3 flex justify-center">
+                <Avatar size={globalSize === "sm" ? "md" : "lg"}>
+                  <AvatarImage src="/broken.png" alt="Avatar" />
+                  <AvatarFallback>
+                    <UserIcon className="size-1/2 text-muted-foreground" />
+                  </AvatarFallback>
+                  <AvatarBadge className="bg-blue-500">
+                    <CheckIcon className="size-2 text-white" />
+                  </AvatarBadge>
+                </Avatar>
+              </div>
+            </div>
+          </div>
+        </ExampleSection>
       </ExampleGrid>
     </div>
   );
@@ -336,18 +447,17 @@ export default function AvatarShowcase() {
   return (
     <Showcase
       title="Avatar"
-      description="Thành phần hình ảnh hiển thị đại diện cho người dùng, hỗ trợ dự phòng chữ hoặc icon khi ảnh lỗi."
-      actions={
-        <MonoSelect
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as Size)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-        />
+      description="Hiển thị hình ảnh đại diện của người dùng hoặc các thực thể khác."
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsP>
+            Dùng để hiển thị hình ảnh đại diện cho người dùng, nhóm hoặc tổ
+            chức. Hỗ trợ tự động hiển thị chữ cái viết tắt hoặc biểu tượng mặc
+            định khi hình ảnh bị lỗi hoặc chưa được tải.
+          </DocsP>
+        </ShowcaseDocs>
       }
+      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
       tabs={[
         {
           label: "Micro (Primitive)",

@@ -1,19 +1,19 @@
 ---
-name: 'step-07-environmental'
-description: 'Plan environmental storytelling including visual, audio, and found documents'
+name: "step-07-environmental"
+description: "Plan environmental storytelling including visual, audio, and found documents"
 
 # Path Definitions
-workflow_path: '{installed_path}'
+workflow_path: "{installed_path}"
 
 # File References
-thisStepFile: './step-07-environmental.md'
-nextStepFile: './step-08-delivery.md'
-workflowFile: '{workflow_path}/workflow.md'
-outputFile: '{output_folder}/narrative-design.md'
+thisStepFile: "./step-07-environmental.md"
+nextStepFile: "./step-08-delivery.md"
+workflowFile: "{workflow_path}/workflow.md"
+outputFile: "{output_folder}/narrative-design.md"
 
 # Task References
-advancedElicitationTask: 'skill:bmad-advanced-elicitation'
-partyModeWorkflow: 'skill:bmad-party-mode'
+advancedElicitationTask: "skill:bmad-advanced-elicitation"
+partyModeWorkflow: "skill:bmad-party-mode"
 ---
 
 # Step 7: Environmental Storytelling

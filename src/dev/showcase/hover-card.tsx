@@ -1,5 +1,3 @@
-import { CalendarIcon } from "lucide-react";
-import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/micro/avatar";
 import { Button } from "@/components/micro/button";
 import {
@@ -7,15 +5,20 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/micro/hover-card";
+import {
+  DocsP,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+} from "@/dev/components/showcase";
+import { CalendarIcon } from "lucide-react";
 
-export default function HoverCardShowcase() {
+// ──────────────────────────────────────────────────────────
+// SECTION 2: Micro Content (không export)
+// ──────────────────────────────────────────────────────────
+function HoverCardMicroShowcase() {
   return (
-    <div className="space-y-10">
-      <SectionHeader
-        title="Hover Card"
-        description="Để người dùng sáng mắt xem trước nội dung có sẵn đằng sau một liên kết."
-      />
-
+    <div className="space-y-10 mt-6">
       <ExampleSection
         label="Default"
         description="Di chuột qua liên kết để xem bản xem trước."
@@ -73,5 +76,30 @@ export default function HoverCardShowcase() {
         </HoverCard>
       </ExampleSection>
     </div>
+  );
+}
+
+// ──────────────────────────────────────────────────────────
+// SECTION 3: Entry point (export default)
+// ──────────────────────────────────────────────────────────
+export default function HoverCardShowcase() {
+  return (
+    <Showcase
+      title="Hover Card"
+      description="Để người dùng sáng mắt xem trước nội dung có sẵn đằng sau một liên kết."
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsP>
+            Hover Card hiển thị một khung xem trước thông tin bổ sung khi người
+            dùng di chuột qua (hover) một phần tử, thường là một liên kết (link)
+            hoặc một cụm từ. Nó giúp người dùng nắm bắt thông tin nhanh chóng mà
+            không cần phải chuyển hướng trang hay click.
+          </DocsP>
+        </ShowcaseDocs>
+      }
+      tabs={[
+        { label: "Micro (Primitive)", content: <HoverCardMicroShowcase /> },
+      ]}
+    />
   );
 }

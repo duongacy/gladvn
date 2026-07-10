@@ -5,12 +5,12 @@
  * - Form Control Parity
  * - CSS Delegated Logic
  */
-import * as React from "react";
 import { Slider as SliderPrimitive } from "@base-ui/react/slider";
-import { cva, type VariantProps } from "class-variance-authority";
+import { cva } from "class-variance-authority";
+import * as React from "react";
 
-import { cn } from "@/lib/utils";
 import { type Size } from "@/lib/types";
+import { cn } from "@/lib/utils";
 
 const sliderVariants = cva(
   "peer group/slider data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full",
@@ -132,4 +132,4 @@ const SliderThumb = React.forwardRef<
 });
 SliderThumb.displayName = "SliderThumb";
 
-export { Slider, SliderControl, SliderTrack, SliderIndicator, SliderThumb };
+export { Slider, SliderControl, SliderIndicator, SliderThumb, SliderTrack };

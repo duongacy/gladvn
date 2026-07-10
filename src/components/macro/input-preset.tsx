@@ -1,15 +1,15 @@
 "use client";
 
-import React, { useState } from "react";
-import { EyeIcon, EyeOffIcon } from "lucide-react";
 import { Input, InputProps } from "@/components/micro/input";
 import {
   InputGroup,
-  InputGroupInput,
   InputGroupAddon,
+  InputGroupButton,
+  InputGroupInput,
   InputGroupText,
-  InputGroupButton
 } from "@/components/micro/input-group";
+import { EyeIcon, EyeOffIcon } from "lucide-react";
+import React, { useState } from "react";
 import { FieldPreset } from "./field-preset";
 
 export type InputPresetProps = Omit<InputProps, "className"> & {
@@ -42,11 +42,15 @@ export const InputPreset = React.forwardRef<HTMLInputElement, InputPresetProps>(
     const generatedId = React.useId();
     const inputId = id || generatedId;
     const isInvalid = !!errorMessage;
-    
+
     // Auto password toggle logic
     const isPasswordType = type === "password";
     const [showPassword, setShowPassword] = useState(false);
-    const actualType = isPasswordType ? (showPassword ? "text" : "password") : type;
+    const actualType = isPasswordType
+      ? showPassword
+        ? "text"
+        : "password"
+      : type;
 
     const passwordToggleAdornment = isPasswordType ? (
       <InputGroupButton
@@ -59,18 +63,26 @@ export const InputPreset = React.forwardRef<HTMLInputElement, InputPresetProps>(
         aria-pressed={showPassword}
         className="size-6 text-muted-foreground hover:text-foreground"
       >
-        {showPassword ? <EyeOffIcon className="size-4" /> : <EyeIcon className="size-4" />}
+        {showPassword ? (
+          <EyeOffIcon className="size-4" />
+        ) : (
+          <EyeIcon className="size-4" />
+        )}
       </InputGroupButton>
     ) : null;
 
-    const combinedEndAdornment = endAdornment || passwordToggleAdornment ? (
-      <>
-        {endAdornment && (
-          typeof endAdornment === "string" ? <InputGroupText>{endAdornment}</InputGroupText> : endAdornment
-        )}
-        {passwordToggleAdornment}
-      </>
-    ) : null;
+    const combinedEndAdornment =
+      endAdornment || passwordToggleAdornment ? (
+        <>
+          {endAdornment &&
+            (typeof endAdornment === "string" ? (
+              <InputGroupText>{endAdornment}</InputGroupText>
+            ) : (
+              endAdornment
+            ))}
+          {passwordToggleAdornment}
+        </>
+      ) : null;
 
     const hasAdornments = !!startAdornment || !!combinedEndAdornment;
 
@@ -85,30 +97,32 @@ export const InputPreset = React.forwardRef<HTMLInputElement, InputPresetProps>(
         htmlFor={inputId}
       >
         {hasAdornments ? (
-          <InputGroup size={size}>
-            {startAdornment && (
-              <InputGroupAddon align="inline-start">
-                {typeof startAdornment === "string" ? (
-                  <InputGroupText>{startAdornment}</InputGroupText>
-                ) : (
-                  startAdornment
-                )}
-              </InputGroupAddon>
-            )}
-            <InputGroupInput
-              ref={ref}
-              id={inputId}
-              size={size}
-              aria-invalid={isInvalid}
-              type={actualType}
-              {...props}
-            />
-            {combinedEndAdornment && (
-              <InputGroupAddon align="inline-end">
-                {combinedEndAdornment}
-              </InputGroupAddon>
-            )}
-          </InputGroup>
+          <div className="@container/input-group w-full">
+            <InputGroup size={size} className="w-full">
+              {startAdornment && (
+                <InputGroupAddon align="inline-start">
+                  {typeof startAdornment === "string" ? (
+                    <InputGroupText>{startAdornment}</InputGroupText>
+                  ) : (
+                    startAdornment
+                  )}
+                </InputGroupAddon>
+              )}
+              <InputGroupInput
+                ref={ref}
+                id={inputId}
+                size={size}
+                aria-invalid={isInvalid}
+                type={actualType}
+                {...props}
+              />
+              {combinedEndAdornment && (
+                <InputGroupAddon align="inline-end">
+                  {combinedEndAdornment}
+                </InputGroupAddon>
+              )}
+            </InputGroup>
+          </div>
         ) : (
           <Input
             ref={ref}

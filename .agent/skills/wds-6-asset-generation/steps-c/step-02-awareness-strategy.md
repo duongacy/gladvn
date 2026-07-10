@@ -1,7 +1,7 @@
 ---
-name: 'step-02-awareness-strategy'
-description: 'Apply Customer Awareness Cycle to determine language, information, and proof strategy'
-nextStepFile: './step-03-action-filter.md'
+name: "step-02-awareness-strategy"
+description: "Apply Customer Awareness Cycle to determine language, information, and proof strategy"
+nextStepFile: "./step-03-action-filter.md"
 ---
 
 # Step 2: Apply Customer Awareness Strategy

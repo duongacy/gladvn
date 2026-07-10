@@ -1,22 +1,22 @@
 ---
-name: 'step-06-structure'
-description: 'Define project structure, directory organization, and architectural boundaries'
+name: "step-06-structure"
+description: "Define project structure, directory organization, and architectural boundaries"
 
 # Path Definitions
-workflow_path: '{installed_path}'
+workflow_path: "{installed_path}"
 
 # File References
-thisStepFile: './step-06-structure.md'
-nextStepFile: './step-07-patterns.md'
-workflowFile: '{workflow_path}/workflow.md'
-outputFile: '{output_folder}/game-architecture.md'
+thisStepFile: "./step-06-structure.md"
+nextStepFile: "./step-07-patterns.md"
+workflowFile: "{workflow_path}/workflow.md"
+outputFile: "{output_folder}/game-architecture.md"
 
 # Knowledge Bases
-engineKnowledge: '{workflow_path}/knowledge/{selected_engine}-engine.md'
+engineKnowledge: "{workflow_path}/knowledge/{selected_engine}-engine.md"
 
 # Task References
-advancedElicitationTask: 'skill:bmad-advanced-elicitation'
-partyModeWorkflow: 'skill:bmad-party-mode'
+advancedElicitationTask: "skill:bmad-advanced-elicitation"
+partyModeWorkflow: "skill:bmad-party-mode"
 ---
 
 # Step 6: Project Structure

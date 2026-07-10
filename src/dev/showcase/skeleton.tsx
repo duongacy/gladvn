@@ -1,13 +1,13 @@
+import { Skeleton } from "@/components/micro/skeleton";
 import {
+  DocsCode,
+  DocsH3,
+  DocsP,
   ExampleGrid,
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-  DocsH3,
-  DocsP,
-  DocsCode,
 } from "@/dev/components/showcase";
-import { Skeleton } from "@/components/micro/skeleton";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Micro Content (Only Micro exists)
@@ -15,16 +15,6 @@ import { Skeleton } from "@/components/micro/skeleton";
 function SkeletonMicroShowcase() {
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Skeleton (Khung xương)</DocsH3>
-        <DocsP>
-          <DocsCode>Skeleton</DocsCode> không có phiên bản Macro. Nó là một thẻ{" "}
-          <DocsCode>div</DocsCode> có sẵn hiệu ứng nhấp nháy mờ (pulse
-          animation). Bạn kết hợp với Tailwind CSS classes (chiều cao, chiều
-          rộng, bo góc) để mô phỏng hình dáng của nội dung chưa được tải xong.
-        </DocsP>
-      </ShowcaseDocs>
-
       <ExampleSection
         label="Hình dáng cơ bản (Basic Shapes)"
         description="Thay đổi hình dạng thông qua các class Tailwind: w-..., h-..., rounded-full, v.v."
@@ -204,6 +194,17 @@ export default function SkeletonShowcase() {
     <Showcase
       title="Skeleton"
       description="Thành phần tạo ra hiệu ứng nhấp nháy, mô phỏng bố cục hiển thị để giữ chỗ (placeholder) trong khi chờ dữ liệu đang tải."
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsH3>Skeleton (Khung xương)</DocsH3>
+          <DocsP>
+            <DocsCode>Skeleton</DocsCode> không có phiên bản Macro. Nó là một
+            thẻ <DocsCode>div</DocsCode> có sẵn hiệu ứng nhấp nháy mờ (pulse
+            animation). Bạn kết hợp với Tailwind CSS classes (chiều cao, chiều
+            rộng, bo góc) để mô phỏng hình dáng của nội dung chưa được tải xong.
+          </DocsP>
+        </ShowcaseDocs>
+      }
       tabs={[
         { label: "Micro (Primitive)", content: <SkeletonMicroShowcase /> },
       ]}

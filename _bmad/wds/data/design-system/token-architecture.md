@@ -166,7 +166,7 @@ Hero Section:
   heading:
     element: h2
     token: heading-section
-    content: 'Welcome to Our Product'
+    content: "Welcome to Our Product"
 ```
 
 **Design System:**
@@ -208,7 +208,7 @@ Login Form:
     element: button
     type: submit
     component: Button.primary
-    label: 'Log in'
+    label: "Log in"
 ```
 
 **Design System:**
@@ -252,8 +252,8 @@ Login Form:
     element: input
     type: email
     component: InputField.email
-    label: 'Email address'
-    placeholder: 'you@example.com'
+    label: "Email address"
+    placeholder: "you@example.com"
     required: true
     validation: email_format
 ```
@@ -432,7 +432,7 @@ Hero:
   heading:
     element: h2
     token: heading-hero  ← Reference to design system
-    content: 'Welcome'
+    content: "Welcome"
 ```
 
 **Design system defines token:**

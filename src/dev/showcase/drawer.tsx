@@ -1,8 +1,3 @@
-import {
-  SectionHeader,
-  ExampleSection,
-  ExampleGrid,
-} from "@/dev/components/showcase";
 import { Button } from "@/components/micro/button";
 import {
   Drawer,
@@ -14,15 +9,20 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/micro/drawer";
+import {
+  DocsP,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+} from "@/dev/components/showcase";
 
-export default function DrawerShowcase() {
+// ──────────────────────────────────────────────────────────
+// SECTION 2: Micro Content (không export)
+// ──────────────────────────────────────────────────────────
+function DrawerMicroShowcase() {
   return (
-    <div className="space-y-10">
-      <SectionHeader
-        title="Drawer"
-        description="Một thành phần ngăn kéo cho React."
-      />
-
+    <div className="space-y-10 mt-6">
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Bottom Drawer"
@@ -344,5 +344,33 @@ export default function DrawerShowcase() {
         </ExampleSection>
       </ExampleGrid>
     </div>
+  );
+}
+
+// ──────────────────────────────────────────────────────────
+// SECTION 3: Entry point (export default)
+// ──────────────────────────────────────────────────────────
+export default function DrawerShowcase() {
+  return (
+    <Showcase
+      title="Drawer"
+      description="Một thành phần ngăn kéo mở rộng từ các cạnh của màn hình."
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsP>
+            Sử dụng Drawer (Ngăn kéo) để hiển thị thông tin hoặc tuỳ chọn bổ
+            sung mà không làm mất bối cảnh hiện tại của người dùng. Tương tự như
+            Dialog nhưng chủ yếu xuất hiện từ các cạnh màn hình (thường là từ
+            dưới lên trên thiết bị di động).
+          </DocsP>
+        </ShowcaseDocs>
+      }
+      tabs={[
+        {
+          label: "Micro (Primitive)",
+          content: <DrawerMicroShowcase />,
+        },
+      ]}
+    />
   );
 }

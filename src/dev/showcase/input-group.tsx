@@ -1,12 +1,15 @@
-import { useState } from "react";
 import {
-  SectionHeader,
-  ExampleSection,
+  DocsP,
   ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+  SizeToggle,
 } from "@/dev/components/showcase";
-import { SearchIcon, EyeIcon, EyeOffIcon, XIcon } from "lucide-react";
+import { EyeIcon, EyeOffIcon, SearchIcon, XIcon } from "lucide-react";
+import { useState } from "react";
 
-import { type Size } from "@/lib/types";
+import { Button } from "@/components/micro/button";
 import {
   Field,
   FieldContent,
@@ -16,36 +19,22 @@ import {
 import {
   InputGroup,
   InputGroupAddon,
+  InputGroupButton,
   InputGroupInput,
   InputGroupText,
-  InputGroupButton,
   InputGroupTextarea,
 } from "@/components/micro/input-group";
-import { Button } from "@/components/micro/button";
-import { MonoSelect } from "@/dev/components/mono-select";
+import { type Size } from "@/lib/types";
 
-export default function InputGroupShowcase() {
-  const [globalSize, setGlobalSize] = useState<Size>("md");
+// ──────────────────────────────────────────────────────────
+// SECTION 2: Micro Content (không export)
+// ──────────────────────────────────────────────────────────
+function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
   const [showPassword, setShowPassword] = useState(false);
   const [clearValue, setClearValue] = useState("Hello world");
 
   return (
-    <div className="space-y-10">
-      <SectionHeader
-        title="Input Group"
-        description="Kết hợp kiểu nhập văn bản với các tiện ích bổ sung cho những thứ như URL hoặc giá cả."
-      >
-        <MonoSelect
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as Size)}
-          options={[
-            { value: "sm", label: "Small" },
-            { value: "md", label: "Medium" },
-            { value: "lg", label: "Large" },
-          ]}
-        />
-      </SectionHeader>
-
+    <div className="space-y-10 mt-6">
       <ExampleGrid columns={2}>
         {/* ── URL Input ────────────────────────────────── */}
         <ExampleSection
@@ -57,7 +46,7 @@ export default function InputGroupShowcase() {
     Combine text inputs with addons for things like URLs or prices.
   </FieldDescription>
   <FieldContent>
-    <InputGroup>
+    <InputGroup size="${globalSize}">
       <InputGroupAddon>
         <InputGroupText>https://</InputGroupText>
       </InputGroupAddon>
@@ -95,14 +84,14 @@ export default function InputGroupShowcase() {
           description="Đầu vào kết hợp với primary action button. Button đặt ngoài InputGroup — focus ring được delegate lên outer wrapper."
           codeString={`<div className="flex w-full rounded-lg focus-within:ring-3 focus-within:ring-ring/50 focus-within:ring-offset-1 focus-within:ring-offset-background">
   <InputGroup
-    size="md"
+    size="${globalSize}"
     className="flex-1 rounded-r-none border-r-0
       has-[[data-slot=input-group-control]:focus-visible]:ring-0
       has-[[data-slot=input-group-control]:focus-visible]:ring-offset-0"
   >
     <InputGroupInput placeholder="Search..." />
   </InputGroup>
-  <Button variant="solid" size="md" className="rounded-l-none self-stretch h-auto">
+  <Button variant="solid" size="${globalSize}" className="rounded-l-none self-stretch h-auto">
     <SearchIcon className="size-4" /> Find
   </Button>
 </div>`}
@@ -137,7 +126,7 @@ export default function InputGroupShowcase() {
           description="InputGroupButton dùng cho utility button nhỏ bên trong input — ví dụ toggle ẩn/hiện mật khẩu."
           codeString={`const [show, setShow] = useState(false);
 
-<InputGroup size="md">
+<InputGroup size="${globalSize}">
   <InputGroupInput type={show ? "text" : "password"} placeholder="••••••••" />
   <InputGroupAddon align="inline-end">
     <InputGroupButton
@@ -184,7 +173,7 @@ export default function InputGroupShowcase() {
           description="InputGroupButton với XIcon dùng để xoá nhanh nội dung input."
           codeString={`const [value, setValue] = useState("");
 
-<InputGroup size="md">
+<InputGroup size="${globalSize}">
   <InputGroupInput
     value={value}
     onChange={(e) => setValue(e.target.value)}
@@ -234,7 +223,7 @@ export default function InputGroupShowcase() {
       <ExampleSection
         label="Validation Error"
         description="Trạng thái lỗi được delegate từ aria-invalid trên input lên toàn bộ InputGroup wrapper."
-        codeString={`<InputGroup size="md">
+        codeString={`<InputGroup size="${globalSize}">
   <InputGroupAddon>
     <InputGroupText>$</InputGroupText>
   </InputGroupAddon>
@@ -271,7 +260,7 @@ export default function InputGroupShowcase() {
         codeString={`<Field className="w-full max-w-md">
   <FieldLabel htmlFor="tf-comment">Comment</FieldLabel>
   <FieldContent>
-    <InputGroup className="h-auto">
+    <InputGroup size="${globalSize}" className="h-auto">
       <InputGroupAddon className="self-start">
         <InputGroupText>@</InputGroupText>
       </InputGroupAddon>
@@ -307,28 +296,28 @@ export default function InputGroupShowcase() {
         label="Addon Alignments"
         description="Addon của nhóm đầu vào hỗ trợ nhiều cách sắp xếp khác nhau: bắt đầu nội tuyến, kết thúc nội tuyến, bắt đầu khối, kết thúc khối."
         codeString={`<ExampleGrid columns={2}>
-  <InputGroup>
+  <InputGroup size="${globalSize}">
     <InputGroupAddon align="inline-start">
       <InputGroupText>start</InputGroupText>
     </InputGroupAddon>
     <InputGroupInput placeholder="inline-start" />
   </InputGroup>
 
-  <InputGroup>
+  <InputGroup size="${globalSize}">
     <InputGroupInput placeholder="inline-end" />
     <InputGroupAddon align="inline-end">
       <InputGroupText>end</InputGroupText>
     </InputGroupAddon>
   </InputGroup>
 
-  <InputGroup>
+  <InputGroup size="${globalSize}">
     <InputGroupAddon align="block-start">
       <InputGroupText>block-start</InputGroupText>
     </InputGroupAddon>
     <InputGroupInput placeholder="block-start" />
   </InputGroup>
 
-  <InputGroup>
+  <InputGroup size="${globalSize}">
     <InputGroupInput placeholder="block-end" />
     <InputGroupAddon align="block-end">
       <InputGroupText>block-end</InputGroupText>
@@ -368,5 +357,36 @@ export default function InputGroupShowcase() {
         </ExampleGrid>
       </ExampleSection>
     </div>
+  );
+}
+
+// ──────────────────────────────────────────────────────────
+// SECTION 3: Entry point (export default)
+// ──────────────────────────────────────────────────────────
+export default function InputGroupShowcase() {
+  const [globalSize, setGlobalSize] = useState<Size>("md");
+
+  return (
+    <Showcase
+      title="Input Group"
+      description="Kết hợp kiểu nhập văn bản với các tiện ích bổ sung cho những thứ như URL hoặc giá cả."
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsP>
+            Sử dụng Input Group khi bạn cần mở rộng chức năng của một trường
+            nhập liệu (Input), ví dụ như thêm icon, thêm nút, hoặc gắn thêm các
+            hậu tố (như .com, $) vào input để hướng dẫn người dùng nhập liệu
+            đúng định dạng.
+          </DocsP>
+        </ShowcaseDocs>
+      }
+      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
+      tabs={[
+        {
+          label: "Micro (Primitive)",
+          content: <InputGroupMicroShowcase globalSize={globalSize} />,
+        },
+      ]}
+    />
   );
 }

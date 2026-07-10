@@ -1,11 +1,11 @@
 ---
-name: 'step-03-page-overview'
-description: 'Verify that page specification includes strategic context through page description, User Situation, and Page Purpose'
+name: "step-03-page-overview"
+description: "Verify that page specification includes strategic context through page description, User Situation, and Page Purpose"
 
 # File References
-nextStepFile: './step-04-page-sections.md'
-workflowFile: '../workflow.md'
-activityWorkflowFile: '../workflow-validate.md'
+nextStepFile: "./step-04-page-sections.md"
+workflowFile: "../workflow.md"
+activityWorkflowFile: "../workflow-validate.md"
 ---
 
 # Step 3: Validate Page Overview
@@ -60,6 +60,7 @@ Verify that page specification includes strategic context through page descripti
 Check for page description paragraph immediately after navigation section. Verify "User Situation" and "Page Purpose" sections exist with meaningful content.
 
 Validate:
+
 - Page description paragraph (1-2 paragraphs explaining what page does)
 - User Situation section (user's context, needs, emotional state)
 - Page Purpose section (what job page must accomplish)

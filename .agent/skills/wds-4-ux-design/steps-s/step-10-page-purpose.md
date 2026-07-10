@@ -1,11 +1,11 @@
 ---
-name: 'step-10-page-purpose'
-description: 'Define what this page should accomplish'
+name: "step-10-page-purpose"
+description: "Define what this page should accomplish"
 
 # File References
-nextStepFile: './step-11-entry-point.md'
-workflowFile: '../workflow.md'
-activityWorkflowFile: '../workflow-suggest.md'
+nextStepFile: "./step-11-entry-point.md"
+workflowFile: "../workflow.md"
+activityWorkflowFile: "../workflow-suggest.md"
 ---
 
 # Step 10: Page Purpose
@@ -62,6 +62,7 @@ Define what this page should accomplish — its core purpose in the user journey
 What should this page accomplish?
 
 Examples:
+
 - Capture user's attention and explain core value
 - Collect contact information for lead generation
 - Guide user through account setup

@@ -1,11 +1,11 @@
 ---
-name: 'step-07-validation'
-description: 'Define all validation rules and error messages for form fields and inputs'
+name: "step-07-validation"
+description: "Define all validation rules and error messages for form fields and inputs"
 
 # File References
-nextStepFile: './step-08-spacing-typography.md'
-workflowFile: '../workflow.md'
-activityWorkflowFile: '../workflow-specify.md'
+nextStepFile: "./step-08-spacing-typography.md"
+workflowFile: "../workflow.md"
+activityWorkflowFile: "../workflow-specify.md"
 ---
 
 # Step 7: Validation & Errors

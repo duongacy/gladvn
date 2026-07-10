@@ -1,13 +1,13 @@
+import { ScrollArea, ScrollBar } from "@/components/micro/scroll-area";
 import {
-  ExampleSection,
-  ExampleGrid,
-  Showcase,
-  ShowcaseDocs,
+  DocsCode,
   DocsH3,
   DocsP,
-  DocsCode,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
 } from "@/dev/components/showcase";
-import { ScrollArea, ScrollBar } from "@/components/micro/scroll-area";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Micro Content (Only Micro exists)
@@ -15,16 +15,6 @@ import { ScrollArea, ScrollBar } from "@/components/micro/scroll-area";
 function ScrollAreaMicroShowcase() {
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Scroll Area (Khu vực cuộn)</DocsH3>
-        <DocsP>
-          <DocsCode>ScrollArea</DocsCode> không có phiên bản Macro. Nó thay thế
-          thanh cuộn mặc định của trình duyệt bằng một thanh cuộn tuỳ biến đẹp
-          mắt, đồng nhất trên mọi nền tảng (Windows/Mac) mà không làm mất đi
-          trải nghiệm native (chỉ hiện khi hover).
-        </DocsP>
-      </ShowcaseDocs>
-
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Cuộn dọc (Vertical)"
@@ -115,6 +105,17 @@ export default function ScrollAreaShowcase() {
     <Showcase
       title="Scroll Area"
       description="Khu vực nội dung có thanh cuộn tuỳ biến giao diện, đồng bộ trên mọi trình duyệt thay cho thanh cuộn mặc định."
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsH3>Scroll Area (Khu vực cuộn)</DocsH3>
+          <DocsP>
+            <DocsCode>ScrollArea</DocsCode> không có phiên bản Macro. Nó thay
+            thế thanh cuộn mặc định của trình duyệt bằng một thanh cuộn tuỳ biến
+            đẹp mắt, đồng nhất trên mọi nền tảng (Windows/Mac) mà không làm mất
+            đi trải nghiệm native (chỉ hiện khi hover).
+          </DocsP>
+        </ShowcaseDocs>
+      }
       tabs={[
         { label: "Micro (Primitive)", content: <ScrollAreaMicroShowcase /> },
       ]}

@@ -1,7 +1,7 @@
 ---
-name: 'step-05-review'
-description: 'Review generated wireframes as a set for consistency and iterate on flagged items'
-workflowFile: '../workflow.md'
+name: "step-05-review"
+description: "Review generated wireframes as a set for consistency and iterate on flagged items"
+workflowFile: "../workflow.md"
 ---
 
 # Step 5: Review and Iterate

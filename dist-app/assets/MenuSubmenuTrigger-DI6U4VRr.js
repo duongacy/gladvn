@@ -1,1 +1,1384 @@
-import{$t as e,A as t,At as n,En as r,Fn as i,Gn as a,Hn as o,I as s,It as c,Jt as l,Kn as u,L as d,Ln as f,Mn as p,Nn as m,O as h,Pn as g,Pt as _,Qt as v,Rn as y,Rt as b,S as x,Un as S,Vn as C,Wn as w,_ as T,bn as E,cr as D,dr as O,gn as k,k as A,on as j,zt as M}from"./showcase-vJrKG7HA.js";import{n as ee}from"./useTimeout-DMagV02N.js";import{E as N,a as P,b as F,c as I,d as te,f as ne,h as L,j as R,k as z,l as re,m as B,o as ie,r as V,u as ae,x as oe}from"./popupStateMapping-wxS0crot.js";import{n as se,r as ce,t as le}from"./safePolygon-B0gZX8K1.js";import{r as H,t as U}from"./store-Dv6LPur6.js";import{C as ue,S as W,T as de,_ as fe,_t as G,at as K,bt as q,dt as pe,ft as me,j as he,lt as ge,nt as _e,pt as ve,rt as ye,st as be,ut as xe,vt as Se,w as Ce,x as we,y as Te,yt as Ee}from"./index-Dk0REsC9.js";var J=O(D(),1),De=J.createContext(void 0);function Y(e){let t=J.useContext(De);if(t===void 0&&!e)throw Error(o(33));return t}var Oe=J.createContext(void 0);function X(e){let t=J.useContext(Oe);if(t===void 0&&!e)throw Error(o(36));return t}var ke=J.createContext(void 0);function Ae(e=!0){let t=J.useContext(ke);if(t===void 0&&!e)throw Error(o(25));return t}var je=J.createContext(void 0);function Z(){let e=J.useContext(je);if(e===void 0)throw Error(o(30));return e}function Me(e){let{closeOnClick:t,highlighted:r,id:i,nodeId:a,store:o,typingRef:s,itemRef:c,itemMetadata:l}=e,{events:u}=o.useState(`floatingTreeRoot`),d=o.useState(`open`),f=Ae(!0),p=f!==void 0;return J.useMemo(()=>({id:i,role:`menuitem`,tabIndex:d&&r?0:-1,onKeyDown(e){e.key===` `&&s?.current&&e.preventDefault()},onMouseMove(e){a&&u.emit(`itemhover`,{nodeId:a,target:e.currentTarget})},onClick(e){t&&u.emit(`close`,{domEvent:e,reason:E})},onMouseUp(e){if(f){let t=f.initialCursorPointRef.current;if(f.initialCursorPointRef.current=null,p&&t&&Math.abs(e.clientX-t.x)<=1&&Math.abs(e.clientY-t.y)<=1||p&&!n&&e.button===2)return}c.current&&o.context.allowMouseUpTriggerRef.current&&(!p||e.button===2)&&(!l||l.type===`regular-item`)&&c.current.click()}}),[t,r,i,u,a,d,o,s,c,f,p,l])}var Q={type:`regular-item`};function Ne(e){let{closeOnClick:t,disabled:n=!1,highlighted:r,id:a,store:o,typingRef:s=o.context.typingRef,nativeButton:l,itemMetadata:u,nodeId:d}=e,f=o.useState(`disabled`),p=n||f,m=J.useRef(null),{getButtonProps:h,buttonRef:g}=c({disabled:p,focusableWhenDisabled:!0,native:l,composite:!0}),_=Me({closeOnClick:t,highlighted:r,id:a,nodeId:d,store:o,typingRef:s,itemRef:m,itemMetadata:u}),v=J.useCallback(e=>i(_,{onMouseEnter(){u.type===`submenu-trigger`&&u.setActive()}},e,h),[_,h,u]),y=C(m,g);return J.useMemo(()=>({getItemProps:v,itemRef:y}),[v,y])}var Pe=function(e){return e.checked=`data-checked`,e.unchecked=`data-unchecked`,e.disabled=`data-disabled`,e.highlighted=`data-highlighted`,e}({}),Fe={checked(e){return e?{[Pe.checked]:``}:{[Pe.unchecked]:``}},...s},$=m(),Ie=J.forwardRef(function(e,t){let{render:n,className:r,id:i,label:a,nativeButton:o=!1,disabled:s=!1,closeOnClick:c=!1,checked:l,defaultChecked:d,onCheckedChange:f,style:p,...m}=e,h=_({label:a}),v=Y(!0),y=b(i),{store:x}=X(),S=x.useState(`isActive`,h.index),C=x.useState(`itemProps`),[w,T]=u({controlled:l,default:d??!1,name:`MenuCheckboxItem`,state:`checked`}),{getItemProps:D,itemRef:O}=Ne({closeOnClick:c,disabled:s,highlighted:S,id:y,store:x,nativeButton:o,nodeId:v?.context.nodeId,itemMetadata:Q}),k=J.useMemo(()=>({disabled:s,highlighted:S,checked:w}),[s,S,w]);function A(e){let t=j(E,e.nativeEvent,void 0,{preventUnmountOnClose(){}});f?.(!w,t),!t.isCanceled&&T(e=>!e)}let M=g(`div`,e,{state:k,stateAttributesMapping:Fe,props:[C,{role:`menuitemcheckbox`,"aria-checked":w,onClick:A},m,D],ref:[O,t,h.ref]});return(0,$.jsx)(je.Provider,{value:k,children:M})}),Le=J.forwardRef(function(e,t){let{render:n,className:r,style:i,keepMounted:a=!1,...o}=e,s=Z(),c=J.useRef(null),{transitionStatus:l,setMounted:u}=h(s.checked);return A({open:s.checked,ref:c,onComplete(){s.checked||u(!1)}}),g(`span`,e,{state:{checked:s.checked,disabled:s.disabled,highlighted:s.highlighted,transitionStatus:l},ref:[t,c],stateAttributesMapping:Fe,props:{"aria-hidden":!0,...o},enabled:a||s.checked})}),Re=J.createContext(void 0);function ze(){let e=J.useContext(Re);if(e===void 0)throw Error(o(31));return e}var Be=J.forwardRef(function(e,t){let{render:n,className:r,style:i,...a}=e,[o,s]=J.useState(void 0),c=g(`div`,e,{ref:t,props:{role:`group`,"aria-labelledby":o,...a}});return(0,$.jsx)(Re.Provider,{value:s,children:c})}),Ve=J.forwardRef(function(e,t){let{render:n,className:r,style:i,id:o,...s}=e,c=b(o),l=ze();return a(()=>(l(c),()=>{l(void 0)}),[l,c]),g(`div`,e,{ref:t,props:{id:c,role:`presentation`,...s}})}),He=J.forwardRef(function(e,t){let{render:n,className:r,id:i,label:a,nativeButton:o=!1,disabled:s=!1,closeOnClick:c=!0,style:l,...u}=e,d=_({label:a}),f=Y(!0),p=b(i),{store:m}=X(),h=m.useState(`isActive`,d.index),v=m.useState(`itemProps`),{getItemProps:y,itemRef:x}=Ne({closeOnClick:c,disabled:s,highlighted:h,id:p,store:m,nativeButton:o,nodeId:f?.context.nodeId,itemMetadata:Q});return g(`div`,e,{state:{disabled:s,highlighted:h},props:[v,u,y],ref:[x,t,d.ref]})}),Ue={...V,...s},We=J.forwardRef(function(e,t){let{render:n,className:r,style:i,finalFocus:a,...o}=e,{store:s}=X(),{side:c,align:l}=Y(),u=fe(!0)!=null,d=s.useState(`open`),f=s.useState(`transitionStatus`),p=s.useState(`popupProps`),m=s.useState(`mounted`),h=s.useState(`instantType`),_=s.useState(`activeTriggerElement`),v=s.useState(`parent`),y=s.useState(`lastOpenChangeReason`),b=s.useState(`rootId`),S=s.useState(`floatingRootContext`),C=s.useState(`floatingTreeRoot`),w=s.useState(`closeDelay`),T=s.useState(`activeTriggerElement`),E=s.useState(`hoverEnabled`),D=s.useState(`disabled`),O=s.useState(`openMethod`),k=v.type===`context-menu`;A({open:d,ref:s.context.popupRef,onComplete(){d&&s.context.onOpenChangeComplete?.(!0)}}),J.useEffect(()=>{function e(e){s.setOpen(!1,j(e.reason,e.domEvent))}return C.events.on(`close`,e),()=>{C.events.off(`close`,e)}},[C.events,s]),ce(S,{enabled:E&&!D&&!k&&v.type!==`menubar`,closeDelay:w});let M=J.useCallback(e=>{s.set(`popupElement`,e)},[s]),ee=g(`div`,e,{state:{transitionStatus:f,side:c,align:l,open:d,nested:v.type===`menu`,instant:h},ref:[t,s.context.popupRef,M],stateAttributesMapping:Ue,props:[p,{onKeyDown(e){u&&x.has(e.key)&&e.stopPropagation()}},W(f),o,{"data-rootownerid":b}]}),N=v.type===void 0||k;return(_||v.type===`menubar`&&y!==`outside-press`)&&(N=!0),(0,$.jsx)(q,{context:S,openInteractionType:O,modal:k,disabled:!m,returnFocus:a===void 0?N:a,initialFocus:v.type!==`menu`,restoreFocus:!0,externalTree:v.type===`menubar`?void 0:C,previousFocusableElement:T,nextFocusableElement:v.type===void 0?s.context.triggerFocusTargetRef:void 0,beforeContentFocusGuardRef:v.type===void 0?s.context.beforeContentFocusGuardRef:void 0,children:ee})}),Ge=J.createContext(void 0);function Ke(){let e=J.useContext(Ge);if(e===void 0)throw Error(o(32));return e}var qe=J.forwardRef(function(e,t){let{keepMounted:n=!1,...r}=e,{store:i}=X();return i.useState(`mounted`)||n?(0,$.jsx)(Ge.Provider,{value:n,children:(0,$.jsx)(L,{ref:t,...r})}):null}),Je=J.forwardRef(function(e,n){let{anchor:i,positionMethod:o=`absolute`,className:s,render:c,side:l,align:u,sideOffset:f=0,alignOffset:m=0,collisionBoundary:h=`clipping-ancestors`,collisionPadding:g=5,arrowPadding:_=5,sticky:v=!1,disableAnchorTracking:y=!1,collisionAvoidance:b=F,style:x,...S}=e,{store:C}=X(),w=Ke(),T=Ae(!0),E=C.useState(`parent`),D=C.useState(`floatingRootContext`),O=C.useState(`floatingTreeRoot`),k=C.useState(`mounted`),A=C.useState(`open`),M=C.useState(`modal`),N=C.useState(`openMethod`),P=C.useState(`activeTriggerElement`),I=C.useState(`transitionStatus`),te=C.useState(`positionerElement`),ne=C.useState(`instantType`),L=C.useState(`hasViewport`),R=C.useState(`lastOpenChangeReason`),z=C.useState(`floatingNodeId`),B=C.useState(`floatingParentNodeId`),ie=D.useState(`domReferenceElement`),V=J.useRef(null),ae=t(te,!1,!1),se=i,ce=f,le=m,H=u,U=b;E.type===`context-menu`&&(se=i??E.context?.anchor,H??=`start`,!l&&H!==`center`&&(le=e.alignOffset??2,ce=e.sideOffset??-5));let W=l,fe=H;E.type===`menu`?(W??=`inline-end`,fe??=`start`,U=e.collisionAvoidance??oe):E.type===`menubar`&&(W??=E.context.orientation===`vertical`?`inline-end`:`bottom`,fe??=`start`);let G=E.type===`context-menu`,K=Ce({anchor:se,floatingRootContext:D,positionMethod:T?`fixed`:o,mounted:k,side:W,sideOffset:ce,align:fe,alignOffset:le,arrowPadding:G?0:_,collisionBoundary:h,collisionPadding:g,sticky:v,nodeId:z,keepMounted:w,disableAnchorTracking:y,collisionAvoidance:U,shiftCrossAxis:G&&!(`side`in U&&U.side===`flip`),externalTree:O,adaptiveOrigin:L?de:void 0});J.useEffect(()=>{function e(e){e.open&&(e.parentNodeId===z&&C.set(`hoverEnabled`,!1),e.nodeId!==z&&e.parentNodeId===C.select(`floatingParentNodeId`)&&C.setOpen(!1,j(r)))}return O.events.on(`menuopenchange`,e),()=>{O.events.off(`menuopenchange`,e)}},[C,O.events,z]),J.useEffect(()=>{if(C.select(`floatingParentNodeId`)==null)return;function e(e){if(e.open||e.nodeId!==C.select(`floatingParentNodeId`))return;let t=e.reason??`sibling-open`;C.setOpen(!1,j(t))}return O.events.on(`menuopenchange`,e),()=>{O.events.off(`menuopenchange`,e)}},[O.events,C]);let q=ee();J.useEffect(()=>{A||q.clear()},[A,q]),J.useEffect(()=>{function e(e){if(!(!A||e.nodeId!==C.select(`floatingParentNodeId`)))if(e.target&&P&&P!==e.target){let e=C.select(`closeDelay`);e>0?q.isStarted()||q.start(e,()=>{C.setOpen(!1,j(r))}):C.setOpen(!1,j(r))}else q.clear()}return O.events.on(`itemhover`,e),()=>{O.events.off(`itemhover`,e)}},[O.events,A,P,C,q]),J.useEffect(()=>{let e={open:A,nodeId:z,parentNodeId:B,reason:C.select(`lastOpenChangeReason`)};O.events.emit(`menuopenchange`,e)},[O.events,A,C,z,B]),a(()=>{let e=ie,t=V.current;if(e&&(V.current=e),t&&e&&e!==t){C.set(`instantType`,void 0);let e=new AbortController;return ae(()=>{C.set(`instantType`,`trigger-change`)},e.signal),()=>{e.abort()}}},[ie,ae,C]);let pe={open:A,side:K.side,align:K.align,anchorHidden:K.anchorHidden,nested:E.type===`menu`,instant:ne},me=E.type===`menubar`&&E.context.modal;Te(A&&(me||M&&R!==`trigger-hover`),N===`touch`,te,P);let he=we(e,pe,{styles:K.positionerStyles,transitionStatus:I,props:S,refs:[n,C.useStateSetter(`positionerElement`)],hidden:!k,inert:!A}),ge=k&&E.type!==`menu`&&(E.type!==`menubar`&&M&&R!==`trigger-hover`||E.type===`menubar`&&E.context.modal),_e=null;return E.type===`menubar`?_e=E.context.contentElement:E.type===void 0&&(_e=P),(0,$.jsxs)(De.Provider,{value:K,children:[ge&&(0,$.jsx)(ue,{ref:E.type===`context-menu`||E.type===`nested-context-menu`?E.context.internalBackdropRef:null,inert:d(!A),cutout:_e}),(0,$.jsx)(re,{id:z,children:(0,$.jsx)(p,{elementsRef:C.context.itemDomElements,labelsRef:C.context.itemLabels,children:he})})]})}),Ye=J.createContext(void 0);function Xe(){let e=J.useContext(Ye);if(e===void 0)throw Error(o(34));return e}var Ze=J.memo(J.forwardRef(function(e,t){let{render:n,className:r,value:i,defaultValue:a,onValueChange:o,disabled:s=!1,style:c,"aria-labelledby":l,...d}=e,[f,p]=J.useState(void 0),[m,h]=u({controlled:i,default:a,name:`MenuRadioGroup`}),_=S((e,t)=>{o?.(e,t),!t.isCanceled&&h(e)}),v=g(`div`,e,{state:{disabled:s},ref:t,props:{role:`group`,"aria-labelledby":l??f,"aria-disabled":s||void 0,...d}}),y=J.useMemo(()=>({value:m,setValue:_,disabled:s}),[m,_,s]);return(0,$.jsx)(Re.Provider,{value:p,children:(0,$.jsx)(Ye.Provider,{value:y,children:v})})})),Qe=J.createContext(void 0);function $e(){let e=J.useContext(Qe);if(e===void 0)throw Error(o(35));return e}var et=J.forwardRef(function(e,t){let{render:n,className:r,id:i,label:a,nativeButton:o=!1,disabled:s=!1,closeOnClick:c=!1,value:l,style:u,...d}=e,f=_({label:a}),p=Y(!0),m=b(i),{store:h}=X(),v=h.useState(`isActive`,f.index),y=h.useState(`itemProps`),{value:x,setValue:S,disabled:C}=Xe(),w=C||s,T=x===l,{getItemProps:D,itemRef:O}=Ne({closeOnClick:c,disabled:w,highlighted:v,id:m,store:h,nativeButton:o,nodeId:p?.context.nodeId,itemMetadata:Q}),k=J.useMemo(()=>({disabled:w,highlighted:v,checked:T}),[w,v,T]);function A(e){let t=j(E,e.nativeEvent,void 0,{preventUnmountOnClose(){}});S(l,t)}let M=g(`div`,e,{state:k,stateAttributesMapping:Fe,props:[y,{role:`menuitemradio`,"aria-checked":T,onClick:A},d,D],ref:[O,t,f.ref]});return(0,$.jsx)(Qe.Provider,{value:k,children:M})}),tt=J.forwardRef(function(e,t){let{render:n,className:r,style:i,keepMounted:a=!1,...o}=e,s=$e(),c=J.useRef(null),{transitionStatus:l,setMounted:u}=h(s.checked);return A({open:s.checked,ref:c,onComplete(){s.checked||u(!1)}}),g(`span`,e,{state:{checked:s.checked,disabled:s.disabled,highlighted:s.highlighted,transitionStatus:l},stateAttributesMapping:Fe,ref:[t,c],props:{"aria-hidden":!0,...o},enabled:a||s.checked})}),nt=J.createContext(null);function rt(e){let t=J.useContext(nt);if(t===null&&!e)throw Error(o(5));return t}var it={...H,disabled:R(e=>e.parent.type===`menubar`&&e.parent.context.disabled||e.disabled),modal:R(e=>(e.parent.type===void 0||e.parent.type===`context-menu`)&&(e.modal??!0)),openMethod:R(e=>e.openMethod),allowMouseEnter:R(e=>e.allowMouseEnter),highlightItemOnHover:R(e=>e.highlightItemOnHover),stickIfOpen:R(e=>e.stickIfOpen),parent:R(e=>e.parent),rootId:R(e=>e.parent.type===`menu`?e.parent.store.select(`rootId`):e.parent.type===void 0?e.rootId:e.parent.context.rootId),activeIndex:R(e=>e.activeIndex),isActive:R((e,t)=>e.activeIndex===t),hoverEnabled:R(e=>e.hoverEnabled),instantType:R(e=>e.instantType),lastOpenChangeReason:R(e=>e.openChangeReason),floatingTreeRoot:R(e=>e.parent.type===`menu`?e.parent.store.select(`floatingTreeRoot`):e.floatingTreeRoot),floatingNodeId:R(e=>e.floatingNodeId),floatingParentNodeId:R(e=>e.floatingParentNodeId),itemProps:R(e=>e.itemProps),closeDelay:R(e=>e.closeDelay),hasViewport:R(e=>e.hasViewport),keyboardEventRelay:R(e=>{if(e.keyboardEventRelay)return e.keyboardEventRelay;if(e.parent.type===`menu`)return e.parent.store.select(`keyboardEventRelay`)})},at=class e extends N{constructor(e){super({...ot(),...e},{positionerRef:J.createRef(),popupRef:J.createRef(),typingRef:{current:!1},itemDomElements:{current:[]},itemLabels:{current:[]},allowMouseUpTriggerRef:{current:!1},triggerFocusTargetRef:J.createRef(),beforeContentFocusGuardRef:J.createRef(),onOpenChangeComplete:void 0,triggerElements:new ie},it),this.unsubscribeParentListener=this.observe(`parent`,e=>{if(this.unsubscribeParentListener?.(),e.type===`menu`){let t=e.store.select(`rootId`),n=e.store.select(`floatingTreeRoot`),r=e.store.select(`keyboardEventRelay`);this.unsubscribeParentListener=e.store.subscribe(()=>{let i=e.store.select(`rootId`),a=e.store.select(`floatingTreeRoot`),o=e.store.select(`keyboardEventRelay`);t===i&&n===a&&r===o||(t=i,n=a,r=o,this.notifyAll())}),this.context.allowMouseUpTriggerRef=e.store.context.allowMouseUpTriggerRef;return}e.type!==void 0&&(this.context.allowMouseUpTriggerRef=e.context.allowMouseUpTriggerRef),this.unsubscribeParentListener=null})}setOpen(e,t){this.state.floatingRootContext.context.events.emit(`setOpen`,{open:e,eventDetails:t})}static useStore(t,n){let r=w(()=>new e(n)).current;return t??r}unsubscribeParentListener=null};function ot(){return{...U(),disabled:!1,modal:!0,openMethod:null,allowMouseEnter:!1,highlightItemOnHover:!0,stickIfOpen:!0,parent:{type:void 0},rootId:void 0,activeIndex:null,hoverEnabled:!0,instantType:void 0,openChangeReason:null,floatingTreeRoot:new B,floatingNodeId:void 0,floatingParentNodeId:null,itemProps:y,keyboardEventRelay:void 0,closeDelay:0,hasViewport:!1}}var st=J.createContext(void 0);function ct(){return J.useContext(st)}var lt=z(function(e){let{children:t,open:n,onOpenChange:r,onOpenChangeComplete:o,defaultOpen:s=!1,disabled:c=!1,modal:l,loopFocus:u=!0,orientation:d=`vertical`,actionsRef:p,closeParentOnEsc:m=!1,handle:h,triggerId:g,defaultTriggerId:_=null,highlightItemOnHover:v=!0}=e,b=Ae(!0),x=X(!0),C=rt(!0),w=ct(),E=J.useMemo(()=>w&&x?{type:`menu`,store:x.store}:C?{type:`menubar`,context:C}:b&&!x?{type:`context-menu`,context:b}:{type:void 0},[b,x,C,w]),D=at.useStore(h?.store,{open:s,openProp:n,activeTriggerId:_,triggerIdProp:g,parent:E});pe(D,n,s,_),D.useControlledProp(`openProp`,n),D.useControlledProp(`triggerIdProp`,g),D.useContextCallback(`onOpenChangeComplete`,o);let O=M(),A=M(),N=D.useState(`floatingTreeRoot`),P=te(N),F=ne(),L=D.useState(`open`),R=D.useState(`activeTriggerElement`),z=D.useState(`positionerElement`),re=D.useState(`hoverEnabled`),B=D.useState(`disabled`),ie=D.useState(`lastOpenChangeReason`),V=D.useState(`parent`),oe=D.useState(`activeIndex`),se=D.useState(`payload`),ce=D.useState(`floatingParentNodeId`),le=J.useRef(null),H=J.useRef(V.type!==`context-menu`),U=ee(),ue=J.useRef(!0),W=ee(),de=ce!=null,{openMethod:fe,triggerProps:G}=he(L);D.useSyncedValues({disabled:c,highlightItemOnHover:v,modal:V.type===void 0?l:void 0,openMethod:fe,rootId:O}),xe(D);let{forceUnmount:q}=me(L,D,()=>{D.update({allowMouseEnter:!1,stickIfOpen:!0})});a(()=>{b&&!x?D.update({parent:{type:`context-menu`,context:b},floatingNodeId:P,floatingParentNodeId:F}):x&&D.update({floatingNodeId:P,floatingParentNodeId:F})},[b,x,P,F,D]),J.useEffect(()=>{if(L||(le.current=null),V.type===`context-menu`){if(!L){U.clear(),H.current=!1;return}U.start(500,()=>{H.current=!0})}},[U,L,V.type]),a(()=>{!L&&!re&&D.set(`hoverEnabled`,!0)},[L,re,D]);let Ce=S((e,t)=>{let n=t.reason;if(L===e&&t.trigger===R&&ie===n)return;let i=be(t);if(!e&&t.trigger==null&&(t.trigger=R??void 0),r?.(e,t),t.isCanceled)return;D.state.floatingRootContext.dispatchOpenChange(e,t);let a=t.event;if(e===!1&&a?.type===`click`&&a.pointerType===`touch`&&!ue.current)return;e&&n===`trigger-focus`?(ue.current=!1,W.start(300,()=>{ue.current=!0})):(ue.current=!0,W.clear());let o=(n===`trigger-press`||n===`item-press`)&&a.detail===0&&a?.isTrusted,s=!e&&(n===`escape-key`||n==null),c={open:e,openChangeReason:n};le.current=t.event??null,ge(c,e,t.trigger,i()),D.update(c),V.type===`menubar`&&(n===`trigger-focus`||n===`focus-out`||n===`trigger-hover`||n===`list-navigation`||n===`sibling-open`)?D.set(`instantType`,`group`):o||s?D.set(`instantType`,o?`click`:`dismiss`):D.set(`instantType`,void 0)}),we=Se({popupStore:D,floatingId:A,nested:F!=null,onOpenChange:Ce}),Te=we.context.events;J.useEffect(()=>{let e=({open:e,eventDetails:t})=>Ce(e,t);return Te.on(`setOpen`,e),()=>{Te?.off(`setOpen`,e)}},[Te,Ce]);let Ee=J.useCallback(()=>{D.setOpen(!1,j(k))},[D]);J.useImperativeHandle(p,()=>({unmount:q,close:Ee}),[q,Ee]);let De;V.type===`context-menu`&&(De=V.context),J.useImperativeHandle(De?.positionerRef,()=>z,[z]),J.useImperativeHandle(De?.actionsRef,()=>({setOpen:Ce}),[Ce]);let Y=I(we,{enabled:!B,bubbles:{escapeKey:m&&V.type===`menu`},outsidePress(){return V.type!==`context-menu`||le.current?.type===`contextmenu`?!0:H.current},externalTree:de?N:void 0}),ke=T(),je=J.useCallback(e=>{D.select(`activeIndex`)!==e&&D.set(`activeIndex`,e)},[D]),Z=ye(we,{enabled:!B,listRef:D.context.itemDomElements,activeIndex:oe,nested:V.type!==void 0,loopFocus:u,orientation:d,parentOrientation:V.type===`menubar`?V.context.orientation:void 0,rtl:ke===`rtl`,disabledIndices:f,onNavigate:je,openOnArrowKeyDown:V.type!==`context-menu`,externalTree:de?N:void 0,focusItemOnHover:v}),Me=J.useCallback(e=>{D.context.typingRef.current=e},[D]),Q=_e(we,{enabled:!B,listRef:D.context.itemLabels,elementsRef:D.context.itemDomElements,activeIndex:oe,resetMs:500,onMatch:e=>{L&&e!==oe&&D.set(`activeIndex`,e)},onTyping:Me});ve(D,{floatingRootContext:we,activeTriggerProps:J.useMemo(()=>{let e=i(Q.reference,Z.reference,Y.reference,{onMouseMove(){D.set(`allowMouseEnter`,!0)}},G);return e[`aria-haspopup`]=`menu`,e[`aria-expanded`]=L,e},[D,Q.reference,Z.reference,Y.reference,G,L]),inactiveTriggerProps:J.useMemo(()=>{let e=i(Z.trigger,Y.trigger,G);return e[`aria-haspopup`]=`menu`,e[`aria-expanded`]=!1,e},[Z.trigger,Y.trigger,G]),popupProps:J.useMemo(()=>i(K,{id:A,role:`menu`,"aria-labelledby":R?.id,onMouseMove(){D.set(`allowMouseEnter`,!0),V.type===`menu`&&D.set(`hoverEnabled`,!1)},onClick(){D.select(`hoverEnabled`)&&D.set(`hoverEnabled`,!1)},onKeyDown(e){let t=D.select(`keyboardEventRelay`);t&&!e.isPropagationStopped()&&t(e)}},Q.floating,Z.floating,Y.floating),[R,A,V.type,D,Q.floating,Z.floating,Y.floating]),itemProps:Z.item??y});let Ne=J.useMemo(()=>({store:D,parent:E}),[D,E]),Pe=(0,$.jsx)(Oe.Provider,{value:Ne,children:typeof t==`function`?t({payload:se}):t});return V.type===void 0||V.type===`context-menu`?(0,$.jsx)(ae,{externalTree:N,children:Pe}):Pe});function ut(e){let t=X().store,n=J.useMemo(()=>({parentMenu:t}),[t]);return(0,$.jsx)(st.Provider,{value:n,children:(0,$.jsx)(lt,{...e})})}function dt(t){if(v(t)&&t.hasAttribute(`data-rootownerid`))return t.getAttribute(`data-rootownerid`)??void 0;if(!e(t))return dt(l(t))}var ft=J.forwardRef(function(e,t){let{render:n,className:r,style:i,label:a,id:s,nativeButton:c=!1,openOnHover:l=!0,delay:u=100,closeDelay:d=0,disabled:f=!1,...p}=e,m=_({label:a}),h=Y(),{store:v}=X(),x=b(s),S=v.useState(`open`),C=v.useState(`floatingRootContext`),w=v.useState(`floatingTreeRoot`),T=v.useState(`triggerPopupId`,x),E=G(x,v),D=J.useCallback(e=>{let t=E(e);return e!==null&&v.select(`open`)&&v.select(`activeTriggerId`)==null&&v.update({activeTriggerId:x,activeTriggerElement:e,closeDelay:d}),t},[E,d,v,x]),O=J.useRef(null),k=J.useCallback(e=>{O.current=e,v.set(`activeTriggerElement`,e)},[v]),A=ct();if(!A?.parentMenu)throw Error(o(37));v.useSyncedValue(`closeDelay`,d);let j=A.parentMenu,M=v.useState(`disabled`),ee=j.useState(`disabled`),N=f||M||ee,F=j.useState(`itemProps`),I=j.useState(`isActive`,m.index),te=J.useMemo(()=>({type:`submenu-trigger`,setActive(){j.select(`highlightItemOnHover`)&&j.set(`activeIndex`,m.index)}}),[j,m.index]),{getItemProps:ne,itemRef:L}=Ne({closeOnClick:!1,disabled:N,highlighted:I,id:x,store:v,typingRef:j.context.typingRef,nativeButton:c,itemMetadata:te,nodeId:h?.context.nodeId}),R=se(C,{enabled:v.useState(`hoverEnabled`)&&l&&!N,handleClose:le({blockPointerEvents:!0}),mouseOnly:!0,move:!0,restMs:u,delay:{open:u,close:d},shouldOpen:u>0?()=>j.select(`allowMouseEnter`):void 0,triggerElementRef:O,externalTree:w,isClosing:()=>v.select(`transitionStatus`)===`ending`}),z=Ee(C,{enabled:!N,event:`mousedown`,toggle:!l,ignoreMouse:l,stickIfOpen:!1}).reference??y,re=v.useState(`triggerProps`,!0);return delete re.id,g(`div`,e,{state:{disabled:N,highlighted:I,open:S},stateAttributesMapping:P,props:[z,R,re,F,{"aria-controls":T,tabIndex:S||I?0:-1,onBlur(){I&&j.set(`activeIndex`,null)}},p,ne],ref:[t,m.ref,L,D,k]})});export{Ie as _,nt as a,Oe as b,et as c,qe as d,We as f,Le as g,Be as h,lt as i,Ze as l,Ve as m,dt as n,rt as o,He as p,ut as r,tt as s,ft as t,Je as u,ke as v,X as x,Ae as y};
+import {
+  $t as e,
+  A as t,
+  At as n,
+  En as r,
+  Fn as i,
+  Gn as a,
+  Hn as o,
+  I as s,
+  It as c,
+  Jt as l,
+  Kn as u,
+  L as d,
+  Ln as f,
+  Mn as p,
+  Nn as m,
+  O as h,
+  Pn as g,
+  Pt as _,
+  Qt as v,
+  Rn as y,
+  Rt as b,
+  S as x,
+  Un as S,
+  Vn as C,
+  Wn as w,
+  _ as T,
+  bn as E,
+  cr as D,
+  dr as O,
+  gn as k,
+  k as A,
+  on as j,
+  zt as M,
+} from "./showcase-vJrKG7HA.js";
+import { n as ee } from "./useTimeout-DMagV02N.js";
+import {
+  E as N,
+  a as P,
+  b as F,
+  c as I,
+  d as te,
+  f as ne,
+  h as L,
+  j as R,
+  k as z,
+  l as re,
+  m as B,
+  o as ie,
+  r as V,
+  u as ae,
+  x as oe,
+} from "./popupStateMapping-wxS0crot.js";
+import { n as se, r as ce, t as le } from "./safePolygon-B0gZX8K1.js";
+import { r as H, t as U } from "./store-Dv6LPur6.js";
+import {
+  C as ue,
+  S as W,
+  T as de,
+  _ as fe,
+  _t as G,
+  at as K,
+  bt as q,
+  dt as pe,
+  ft as me,
+  j as he,
+  lt as ge,
+  nt as _e,
+  pt as ve,
+  rt as ye,
+  st as be,
+  ut as xe,
+  vt as Se,
+  w as Ce,
+  x as we,
+  y as Te,
+  yt as Ee,
+} from "./index-Dk0REsC9.js";
+var J = O(D(), 1),
+  De = J.createContext(void 0);
+function Y(e) {
+  let t = J.useContext(De);
+  if (t === void 0 && !e) throw Error(o(33));
+  return t;
+}
+var Oe = J.createContext(void 0);
+function X(e) {
+  let t = J.useContext(Oe);
+  if (t === void 0 && !e) throw Error(o(36));
+  return t;
+}
+var ke = J.createContext(void 0);
+function Ae(e = !0) {
+  let t = J.useContext(ke);
+  if (t === void 0 && !e) throw Error(o(25));
+  return t;
+}
+var je = J.createContext(void 0);
+function Z() {
+  let e = J.useContext(je);
+  if (e === void 0) throw Error(o(30));
+  return e;
+}
+function Me(e) {
+  let {
+      closeOnClick: t,
+      highlighted: r,
+      id: i,
+      nodeId: a,
+      store: o,
+      typingRef: s,
+      itemRef: c,
+      itemMetadata: l,
+    } = e,
+    { events: u } = o.useState(`floatingTreeRoot`),
+    d = o.useState(`open`),
+    f = Ae(!0),
+    p = f !== void 0;
+  return J.useMemo(
+    () => ({
+      id: i,
+      role: `menuitem`,
+      tabIndex: d && r ? 0 : -1,
+      onKeyDown(e) {
+        e.key === ` ` && s?.current && e.preventDefault();
+      },
+      onMouseMove(e) {
+        a && u.emit(`itemhover`, { nodeId: a, target: e.currentTarget });
+      },
+      onClick(e) {
+        t && u.emit(`close`, { domEvent: e, reason: E });
+      },
+      onMouseUp(e) {
+        if (f) {
+          let t = f.initialCursorPointRef.current;
+          if (
+            ((f.initialCursorPointRef.current = null),
+            (p &&
+              t &&
+              Math.abs(e.clientX - t.x) <= 1 &&
+              Math.abs(e.clientY - t.y) <= 1) ||
+              (p && !n && e.button === 2))
+          )
+            return;
+        }
+        c.current &&
+          o.context.allowMouseUpTriggerRef.current &&
+          (!p || e.button === 2) &&
+          (!l || l.type === `regular-item`) &&
+          c.current.click();
+      },
+    }),
+    [t, r, i, u, a, d, o, s, c, f, p, l],
+  );
+}
+var Q = { type: `regular-item` };
+function Ne(e) {
+  let {
+      closeOnClick: t,
+      disabled: n = !1,
+      highlighted: r,
+      id: a,
+      store: o,
+      typingRef: s = o.context.typingRef,
+      nativeButton: l,
+      itemMetadata: u,
+      nodeId: d,
+    } = e,
+    f = o.useState(`disabled`),
+    p = n || f,
+    m = J.useRef(null),
+    { getButtonProps: h, buttonRef: g } = c({
+      disabled: p,
+      focusableWhenDisabled: !0,
+      native: l,
+      composite: !0,
+    }),
+    _ = Me({
+      closeOnClick: t,
+      highlighted: r,
+      id: a,
+      nodeId: d,
+      store: o,
+      typingRef: s,
+      itemRef: m,
+      itemMetadata: u,
+    }),
+    v = J.useCallback(
+      (e) =>
+        i(
+          _,
+          {
+            onMouseEnter() {
+              u.type === `submenu-trigger` && u.setActive();
+            },
+          },
+          e,
+          h,
+        ),
+      [_, h, u],
+    ),
+    y = C(m, g);
+  return J.useMemo(() => ({ getItemProps: v, itemRef: y }), [v, y]);
+}
+var Pe = (function (e) {
+    return (
+      (e.checked = `data-checked`),
+      (e.unchecked = `data-unchecked`),
+      (e.disabled = `data-disabled`),
+      (e.highlighted = `data-highlighted`),
+      e
+    );
+  })({}),
+  Fe = {
+    checked(e) {
+      return e ? { [Pe.checked]: `` } : { [Pe.unchecked]: `` };
+    },
+    ...s,
+  },
+  $ = m(),
+  Ie = J.forwardRef(function (e, t) {
+    let {
+        render: n,
+        className: r,
+        id: i,
+        label: a,
+        nativeButton: o = !1,
+        disabled: s = !1,
+        closeOnClick: c = !1,
+        checked: l,
+        defaultChecked: d,
+        onCheckedChange: f,
+        style: p,
+        ...m
+      } = e,
+      h = _({ label: a }),
+      v = Y(!0),
+      y = b(i),
+      { store: x } = X(),
+      S = x.useState(`isActive`, h.index),
+      C = x.useState(`itemProps`),
+      [w, T] = u({
+        controlled: l,
+        default: d ?? !1,
+        name: `MenuCheckboxItem`,
+        state: `checked`,
+      }),
+      { getItemProps: D, itemRef: O } = Ne({
+        closeOnClick: c,
+        disabled: s,
+        highlighted: S,
+        id: y,
+        store: x,
+        nativeButton: o,
+        nodeId: v?.context.nodeId,
+        itemMetadata: Q,
+      }),
+      k = J.useMemo(
+        () => ({ disabled: s, highlighted: S, checked: w }),
+        [s, S, w],
+      );
+    function A(e) {
+      let t = j(E, e.nativeEvent, void 0, { preventUnmountOnClose() {} });
+      (f?.(!w, t), !t.isCanceled && T((e) => !e));
+    }
+    let M = g(`div`, e, {
+      state: k,
+      stateAttributesMapping: Fe,
+      props: [
+        C,
+        { role: `menuitemcheckbox`, "aria-checked": w, onClick: A },
+        m,
+        D,
+      ],
+      ref: [O, t, h.ref],
+    });
+    return (0, $.jsx)(je.Provider, { value: k, children: M });
+  }),
+  Le = J.forwardRef(function (e, t) {
+    let { render: n, className: r, style: i, keepMounted: a = !1, ...o } = e,
+      s = Z(),
+      c = J.useRef(null),
+      { transitionStatus: l, setMounted: u } = h(s.checked);
+    return (
+      A({
+        open: s.checked,
+        ref: c,
+        onComplete() {
+          s.checked || u(!1);
+        },
+      }),
+      g(`span`, e, {
+        state: {
+          checked: s.checked,
+          disabled: s.disabled,
+          highlighted: s.highlighted,
+          transitionStatus: l,
+        },
+        ref: [t, c],
+        stateAttributesMapping: Fe,
+        props: { "aria-hidden": !0, ...o },
+        enabled: a || s.checked,
+      })
+    );
+  }),
+  Re = J.createContext(void 0);
+function ze() {
+  let e = J.useContext(Re);
+  if (e === void 0) throw Error(o(31));
+  return e;
+}
+var Be = J.forwardRef(function (e, t) {
+    let { render: n, className: r, style: i, ...a } = e,
+      [o, s] = J.useState(void 0),
+      c = g(`div`, e, {
+        ref: t,
+        props: { role: `group`, "aria-labelledby": o, ...a },
+      });
+    return (0, $.jsx)(Re.Provider, { value: s, children: c });
+  }),
+  Ve = J.forwardRef(function (e, t) {
+    let { render: n, className: r, style: i, id: o, ...s } = e,
+      c = b(o),
+      l = ze();
+    return (
+      a(
+        () => (
+          l(c),
+          () => {
+            l(void 0);
+          }
+        ),
+        [l, c],
+      ),
+      g(`div`, e, { ref: t, props: { id: c, role: `presentation`, ...s } })
+    );
+  }),
+  He = J.forwardRef(function (e, t) {
+    let {
+        render: n,
+        className: r,
+        id: i,
+        label: a,
+        nativeButton: o = !1,
+        disabled: s = !1,
+        closeOnClick: c = !0,
+        style: l,
+        ...u
+      } = e,
+      d = _({ label: a }),
+      f = Y(!0),
+      p = b(i),
+      { store: m } = X(),
+      h = m.useState(`isActive`, d.index),
+      v = m.useState(`itemProps`),
+      { getItemProps: y, itemRef: x } = Ne({
+        closeOnClick: c,
+        disabled: s,
+        highlighted: h,
+        id: p,
+        store: m,
+        nativeButton: o,
+        nodeId: f?.context.nodeId,
+        itemMetadata: Q,
+      });
+    return g(`div`, e, {
+      state: { disabled: s, highlighted: h },
+      props: [v, u, y],
+      ref: [x, t, d.ref],
+    });
+  }),
+  Ue = { ...V, ...s },
+  We = J.forwardRef(function (e, t) {
+    let { render: n, className: r, style: i, finalFocus: a, ...o } = e,
+      { store: s } = X(),
+      { side: c, align: l } = Y(),
+      u = fe(!0) != null,
+      d = s.useState(`open`),
+      f = s.useState(`transitionStatus`),
+      p = s.useState(`popupProps`),
+      m = s.useState(`mounted`),
+      h = s.useState(`instantType`),
+      _ = s.useState(`activeTriggerElement`),
+      v = s.useState(`parent`),
+      y = s.useState(`lastOpenChangeReason`),
+      b = s.useState(`rootId`),
+      S = s.useState(`floatingRootContext`),
+      C = s.useState(`floatingTreeRoot`),
+      w = s.useState(`closeDelay`),
+      T = s.useState(`activeTriggerElement`),
+      E = s.useState(`hoverEnabled`),
+      D = s.useState(`disabled`),
+      O = s.useState(`openMethod`),
+      k = v.type === `context-menu`;
+    (A({
+      open: d,
+      ref: s.context.popupRef,
+      onComplete() {
+        d && s.context.onOpenChangeComplete?.(!0);
+      },
+    }),
+      J.useEffect(() => {
+        function e(e) {
+          s.setOpen(!1, j(e.reason, e.domEvent));
+        }
+        return (
+          C.events.on(`close`, e),
+          () => {
+            C.events.off(`close`, e);
+          }
+        );
+      }, [C.events, s]),
+      ce(S, { enabled: E && !D && !k && v.type !== `menubar`, closeDelay: w }));
+    let M = J.useCallback(
+        (e) => {
+          s.set(`popupElement`, e);
+        },
+        [s],
+      ),
+      ee = g(`div`, e, {
+        state: {
+          transitionStatus: f,
+          side: c,
+          align: l,
+          open: d,
+          nested: v.type === `menu`,
+          instant: h,
+        },
+        ref: [t, s.context.popupRef, M],
+        stateAttributesMapping: Ue,
+        props: [
+          p,
+          {
+            onKeyDown(e) {
+              u && x.has(e.key) && e.stopPropagation();
+            },
+          },
+          W(f),
+          o,
+          { "data-rootownerid": b },
+        ],
+      }),
+      N = v.type === void 0 || k;
+    return (
+      (_ || (v.type === `menubar` && y !== `outside-press`)) && (N = !0),
+      (0, $.jsx)(q, {
+        context: S,
+        openInteractionType: O,
+        modal: k,
+        disabled: !m,
+        returnFocus: a === void 0 ? N : a,
+        initialFocus: v.type !== `menu`,
+        restoreFocus: !0,
+        externalTree: v.type === `menubar` ? void 0 : C,
+        previousFocusableElement: T,
+        nextFocusableElement:
+          v.type === void 0 ? s.context.triggerFocusTargetRef : void 0,
+        beforeContentFocusGuardRef:
+          v.type === void 0 ? s.context.beforeContentFocusGuardRef : void 0,
+        children: ee,
+      })
+    );
+  }),
+  Ge = J.createContext(void 0);
+function Ke() {
+  let e = J.useContext(Ge);
+  if (e === void 0) throw Error(o(32));
+  return e;
+}
+var qe = J.forwardRef(function (e, t) {
+    let { keepMounted: n = !1, ...r } = e,
+      { store: i } = X();
+    return i.useState(`mounted`) || n
+      ? (0, $.jsx)(Ge.Provider, {
+          value: n,
+          children: (0, $.jsx)(L, { ref: t, ...r }),
+        })
+      : null;
+  }),
+  Je = J.forwardRef(function (e, n) {
+    let {
+        anchor: i,
+        positionMethod: o = `absolute`,
+        className: s,
+        render: c,
+        side: l,
+        align: u,
+        sideOffset: f = 0,
+        alignOffset: m = 0,
+        collisionBoundary: h = `clipping-ancestors`,
+        collisionPadding: g = 5,
+        arrowPadding: _ = 5,
+        sticky: v = !1,
+        disableAnchorTracking: y = !1,
+        collisionAvoidance: b = F,
+        style: x,
+        ...S
+      } = e,
+      { store: C } = X(),
+      w = Ke(),
+      T = Ae(!0),
+      E = C.useState(`parent`),
+      D = C.useState(`floatingRootContext`),
+      O = C.useState(`floatingTreeRoot`),
+      k = C.useState(`mounted`),
+      A = C.useState(`open`),
+      M = C.useState(`modal`),
+      N = C.useState(`openMethod`),
+      P = C.useState(`activeTriggerElement`),
+      I = C.useState(`transitionStatus`),
+      te = C.useState(`positionerElement`),
+      ne = C.useState(`instantType`),
+      L = C.useState(`hasViewport`),
+      R = C.useState(`lastOpenChangeReason`),
+      z = C.useState(`floatingNodeId`),
+      B = C.useState(`floatingParentNodeId`),
+      ie = D.useState(`domReferenceElement`),
+      V = J.useRef(null),
+      ae = t(te, !1, !1),
+      se = i,
+      ce = f,
+      le = m,
+      H = u,
+      U = b;
+    E.type === `context-menu` &&
+      ((se = i ?? E.context?.anchor),
+      (H ??= `start`),
+      !l &&
+        H !== `center` &&
+        ((le = e.alignOffset ?? 2), (ce = e.sideOffset ?? -5)));
+    let W = l,
+      fe = H;
+    E.type === `menu`
+      ? ((W ??= `inline-end`),
+        (fe ??= `start`),
+        (U = e.collisionAvoidance ?? oe))
+      : E.type === `menubar` &&
+        ((W ??= E.context.orientation === `vertical` ? `inline-end` : `bottom`),
+        (fe ??= `start`));
+    let G = E.type === `context-menu`,
+      K = Ce({
+        anchor: se,
+        floatingRootContext: D,
+        positionMethod: T ? `fixed` : o,
+        mounted: k,
+        side: W,
+        sideOffset: ce,
+        align: fe,
+        alignOffset: le,
+        arrowPadding: G ? 0 : _,
+        collisionBoundary: h,
+        collisionPadding: g,
+        sticky: v,
+        nodeId: z,
+        keepMounted: w,
+        disableAnchorTracking: y,
+        collisionAvoidance: U,
+        shiftCrossAxis: G && !(`side` in U && U.side === `flip`),
+        externalTree: O,
+        adaptiveOrigin: L ? de : void 0,
+      });
+    (J.useEffect(() => {
+      function e(e) {
+        e.open &&
+          (e.parentNodeId === z && C.set(`hoverEnabled`, !1),
+          e.nodeId !== z &&
+            e.parentNodeId === C.select(`floatingParentNodeId`) &&
+            C.setOpen(!1, j(r)));
+      }
+      return (
+        O.events.on(`menuopenchange`, e),
+        () => {
+          O.events.off(`menuopenchange`, e);
+        }
+      );
+    }, [C, O.events, z]),
+      J.useEffect(() => {
+        if (C.select(`floatingParentNodeId`) == null) return;
+        function e(e) {
+          if (e.open || e.nodeId !== C.select(`floatingParentNodeId`)) return;
+          let t = e.reason ?? `sibling-open`;
+          C.setOpen(!1, j(t));
+        }
+        return (
+          O.events.on(`menuopenchange`, e),
+          () => {
+            O.events.off(`menuopenchange`, e);
+          }
+        );
+      }, [O.events, C]));
+    let q = ee();
+    (J.useEffect(() => {
+      A || q.clear();
+    }, [A, q]),
+      J.useEffect(() => {
+        function e(e) {
+          if (!(!A || e.nodeId !== C.select(`floatingParentNodeId`)))
+            if (e.target && P && P !== e.target) {
+              let e = C.select(`closeDelay`);
+              e > 0
+                ? q.isStarted() ||
+                  q.start(e, () => {
+                    C.setOpen(!1, j(r));
+                  })
+                : C.setOpen(!1, j(r));
+            } else q.clear();
+        }
+        return (
+          O.events.on(`itemhover`, e),
+          () => {
+            O.events.off(`itemhover`, e);
+          }
+        );
+      }, [O.events, A, P, C, q]),
+      J.useEffect(() => {
+        let e = {
+          open: A,
+          nodeId: z,
+          parentNodeId: B,
+          reason: C.select(`lastOpenChangeReason`),
+        };
+        O.events.emit(`menuopenchange`, e);
+      }, [O.events, A, C, z, B]),
+      a(() => {
+        let e = ie,
+          t = V.current;
+        if ((e && (V.current = e), t && e && e !== t)) {
+          C.set(`instantType`, void 0);
+          let e = new AbortController();
+          return (
+            ae(() => {
+              C.set(`instantType`, `trigger-change`);
+            }, e.signal),
+            () => {
+              e.abort();
+            }
+          );
+        }
+      }, [ie, ae, C]));
+    let pe = {
+        open: A,
+        side: K.side,
+        align: K.align,
+        anchorHidden: K.anchorHidden,
+        nested: E.type === `menu`,
+        instant: ne,
+      },
+      me = E.type === `menubar` && E.context.modal;
+    Te(A && (me || (M && R !== `trigger-hover`)), N === `touch`, te, P);
+    let he = we(e, pe, {
+        styles: K.positionerStyles,
+        transitionStatus: I,
+        props: S,
+        refs: [n, C.useStateSetter(`positionerElement`)],
+        hidden: !k,
+        inert: !A,
+      }),
+      ge =
+        k &&
+        E.type !== `menu` &&
+        ((E.type !== `menubar` && M && R !== `trigger-hover`) ||
+          (E.type === `menubar` && E.context.modal)),
+      _e = null;
+    return (
+      E.type === `menubar`
+        ? (_e = E.context.contentElement)
+        : E.type === void 0 && (_e = P),
+      (0, $.jsxs)(De.Provider, {
+        value: K,
+        children: [
+          ge &&
+            (0, $.jsx)(ue, {
+              ref:
+                E.type === `context-menu` || E.type === `nested-context-menu`
+                  ? E.context.internalBackdropRef
+                  : null,
+              inert: d(!A),
+              cutout: _e,
+            }),
+          (0, $.jsx)(re, {
+            id: z,
+            children: (0, $.jsx)(p, {
+              elementsRef: C.context.itemDomElements,
+              labelsRef: C.context.itemLabels,
+              children: he,
+            }),
+          }),
+        ],
+      })
+    );
+  }),
+  Ye = J.createContext(void 0);
+function Xe() {
+  let e = J.useContext(Ye);
+  if (e === void 0) throw Error(o(34));
+  return e;
+}
+var Ze = J.memo(
+    J.forwardRef(function (e, t) {
+      let {
+          render: n,
+          className: r,
+          value: i,
+          defaultValue: a,
+          onValueChange: o,
+          disabled: s = !1,
+          style: c,
+          "aria-labelledby": l,
+          ...d
+        } = e,
+        [f, p] = J.useState(void 0),
+        [m, h] = u({ controlled: i, default: a, name: `MenuRadioGroup` }),
+        _ = S((e, t) => {
+          (o?.(e, t), !t.isCanceled && h(e));
+        }),
+        v = g(`div`, e, {
+          state: { disabled: s },
+          ref: t,
+          props: {
+            role: `group`,
+            "aria-labelledby": l ?? f,
+            "aria-disabled": s || void 0,
+            ...d,
+          },
+        }),
+        y = J.useMemo(
+          () => ({ value: m, setValue: _, disabled: s }),
+          [m, _, s],
+        );
+      return (0, $.jsx)(Re.Provider, {
+        value: p,
+        children: (0, $.jsx)(Ye.Provider, { value: y, children: v }),
+      });
+    }),
+  ),
+  Qe = J.createContext(void 0);
+function $e() {
+  let e = J.useContext(Qe);
+  if (e === void 0) throw Error(o(35));
+  return e;
+}
+var et = J.forwardRef(function (e, t) {
+    let {
+        render: n,
+        className: r,
+        id: i,
+        label: a,
+        nativeButton: o = !1,
+        disabled: s = !1,
+        closeOnClick: c = !1,
+        value: l,
+        style: u,
+        ...d
+      } = e,
+      f = _({ label: a }),
+      p = Y(!0),
+      m = b(i),
+      { store: h } = X(),
+      v = h.useState(`isActive`, f.index),
+      y = h.useState(`itemProps`),
+      { value: x, setValue: S, disabled: C } = Xe(),
+      w = C || s,
+      T = x === l,
+      { getItemProps: D, itemRef: O } = Ne({
+        closeOnClick: c,
+        disabled: w,
+        highlighted: v,
+        id: m,
+        store: h,
+        nativeButton: o,
+        nodeId: p?.context.nodeId,
+        itemMetadata: Q,
+      }),
+      k = J.useMemo(
+        () => ({ disabled: w, highlighted: v, checked: T }),
+        [w, v, T],
+      );
+    function A(e) {
+      let t = j(E, e.nativeEvent, void 0, { preventUnmountOnClose() {} });
+      S(l, t);
+    }
+    let M = g(`div`, e, {
+      state: k,
+      stateAttributesMapping: Fe,
+      props: [
+        y,
+        { role: `menuitemradio`, "aria-checked": T, onClick: A },
+        d,
+        D,
+      ],
+      ref: [O, t, f.ref],
+    });
+    return (0, $.jsx)(Qe.Provider, { value: k, children: M });
+  }),
+  tt = J.forwardRef(function (e, t) {
+    let { render: n, className: r, style: i, keepMounted: a = !1, ...o } = e,
+      s = $e(),
+      c = J.useRef(null),
+      { transitionStatus: l, setMounted: u } = h(s.checked);
+    return (
+      A({
+        open: s.checked,
+        ref: c,
+        onComplete() {
+          s.checked || u(!1);
+        },
+      }),
+      g(`span`, e, {
+        state: {
+          checked: s.checked,
+          disabled: s.disabled,
+          highlighted: s.highlighted,
+          transitionStatus: l,
+        },
+        stateAttributesMapping: Fe,
+        ref: [t, c],
+        props: { "aria-hidden": !0, ...o },
+        enabled: a || s.checked,
+      })
+    );
+  }),
+  nt = J.createContext(null);
+function rt(e) {
+  let t = J.useContext(nt);
+  if (t === null && !e) throw Error(o(5));
+  return t;
+}
+var it = {
+    ...H,
+    disabled: R(
+      (e) =>
+        (e.parent.type === `menubar` && e.parent.context.disabled) ||
+        e.disabled,
+    ),
+    modal: R(
+      (e) =>
+        (e.parent.type === void 0 || e.parent.type === `context-menu`) &&
+        (e.modal ?? !0),
+    ),
+    openMethod: R((e) => e.openMethod),
+    allowMouseEnter: R((e) => e.allowMouseEnter),
+    highlightItemOnHover: R((e) => e.highlightItemOnHover),
+    stickIfOpen: R((e) => e.stickIfOpen),
+    parent: R((e) => e.parent),
+    rootId: R((e) =>
+      e.parent.type === `menu`
+        ? e.parent.store.select(`rootId`)
+        : e.parent.type === void 0
+          ? e.rootId
+          : e.parent.context.rootId,
+    ),
+    activeIndex: R((e) => e.activeIndex),
+    isActive: R((e, t) => e.activeIndex === t),
+    hoverEnabled: R((e) => e.hoverEnabled),
+    instantType: R((e) => e.instantType),
+    lastOpenChangeReason: R((e) => e.openChangeReason),
+    floatingTreeRoot: R((e) =>
+      e.parent.type === `menu`
+        ? e.parent.store.select(`floatingTreeRoot`)
+        : e.floatingTreeRoot,
+    ),
+    floatingNodeId: R((e) => e.floatingNodeId),
+    floatingParentNodeId: R((e) => e.floatingParentNodeId),
+    itemProps: R((e) => e.itemProps),
+    closeDelay: R((e) => e.closeDelay),
+    hasViewport: R((e) => e.hasViewport),
+    keyboardEventRelay: R((e) => {
+      if (e.keyboardEventRelay) return e.keyboardEventRelay;
+      if (e.parent.type === `menu`)
+        return e.parent.store.select(`keyboardEventRelay`);
+    }),
+  },
+  at = class e extends N {
+    constructor(e) {
+      (super(
+        { ...ot(), ...e },
+        {
+          positionerRef: J.createRef(),
+          popupRef: J.createRef(),
+          typingRef: { current: !1 },
+          itemDomElements: { current: [] },
+          itemLabels: { current: [] },
+          allowMouseUpTriggerRef: { current: !1 },
+          triggerFocusTargetRef: J.createRef(),
+          beforeContentFocusGuardRef: J.createRef(),
+          onOpenChangeComplete: void 0,
+          triggerElements: new ie(),
+        },
+        it,
+      ),
+        (this.unsubscribeParentListener = this.observe(`parent`, (e) => {
+          if ((this.unsubscribeParentListener?.(), e.type === `menu`)) {
+            let t = e.store.select(`rootId`),
+              n = e.store.select(`floatingTreeRoot`),
+              r = e.store.select(`keyboardEventRelay`);
+            ((this.unsubscribeParentListener = e.store.subscribe(() => {
+              let i = e.store.select(`rootId`),
+                a = e.store.select(`floatingTreeRoot`),
+                o = e.store.select(`keyboardEventRelay`);
+              (t === i && n === a && r === o) ||
+                ((t = i), (n = a), (r = o), this.notifyAll());
+            })),
+              (this.context.allowMouseUpTriggerRef =
+                e.store.context.allowMouseUpTriggerRef));
+            return;
+          }
+          (e.type !== void 0 &&
+            (this.context.allowMouseUpTriggerRef =
+              e.context.allowMouseUpTriggerRef),
+            (this.unsubscribeParentListener = null));
+        })));
+    }
+    setOpen(e, t) {
+      this.state.floatingRootContext.context.events.emit(`setOpen`, {
+        open: e,
+        eventDetails: t,
+      });
+    }
+    static useStore(t, n) {
+      let r = w(() => new e(n)).current;
+      return t ?? r;
+    }
+    unsubscribeParentListener = null;
+  };
+function ot() {
+  return {
+    ...U(),
+    disabled: !1,
+    modal: !0,
+    openMethod: null,
+    allowMouseEnter: !1,
+    highlightItemOnHover: !0,
+    stickIfOpen: !0,
+    parent: { type: void 0 },
+    rootId: void 0,
+    activeIndex: null,
+    hoverEnabled: !0,
+    instantType: void 0,
+    openChangeReason: null,
+    floatingTreeRoot: new B(),
+    floatingNodeId: void 0,
+    floatingParentNodeId: null,
+    itemProps: y,
+    keyboardEventRelay: void 0,
+    closeDelay: 0,
+    hasViewport: !1,
+  };
+}
+var st = J.createContext(void 0);
+function ct() {
+  return J.useContext(st);
+}
+var lt = z(function (e) {
+  let {
+      children: t,
+      open: n,
+      onOpenChange: r,
+      onOpenChangeComplete: o,
+      defaultOpen: s = !1,
+      disabled: c = !1,
+      modal: l,
+      loopFocus: u = !0,
+      orientation: d = `vertical`,
+      actionsRef: p,
+      closeParentOnEsc: m = !1,
+      handle: h,
+      triggerId: g,
+      defaultTriggerId: _ = null,
+      highlightItemOnHover: v = !0,
+    } = e,
+    b = Ae(!0),
+    x = X(!0),
+    C = rt(!0),
+    w = ct(),
+    E = J.useMemo(
+      () =>
+        w && x
+          ? { type: `menu`, store: x.store }
+          : C
+            ? { type: `menubar`, context: C }
+            : b && !x
+              ? { type: `context-menu`, context: b }
+              : { type: void 0 },
+      [b, x, C, w],
+    ),
+    D = at.useStore(h?.store, {
+      open: s,
+      openProp: n,
+      activeTriggerId: _,
+      triggerIdProp: g,
+      parent: E,
+    });
+  (pe(D, n, s, _),
+    D.useControlledProp(`openProp`, n),
+    D.useControlledProp(`triggerIdProp`, g),
+    D.useContextCallback(`onOpenChangeComplete`, o));
+  let O = M(),
+    A = M(),
+    N = D.useState(`floatingTreeRoot`),
+    P = te(N),
+    F = ne(),
+    L = D.useState(`open`),
+    R = D.useState(`activeTriggerElement`),
+    z = D.useState(`positionerElement`),
+    re = D.useState(`hoverEnabled`),
+    B = D.useState(`disabled`),
+    ie = D.useState(`lastOpenChangeReason`),
+    V = D.useState(`parent`),
+    oe = D.useState(`activeIndex`),
+    se = D.useState(`payload`),
+    ce = D.useState(`floatingParentNodeId`),
+    le = J.useRef(null),
+    H = J.useRef(V.type !== `context-menu`),
+    U = ee(),
+    ue = J.useRef(!0),
+    W = ee(),
+    de = ce != null,
+    { openMethod: fe, triggerProps: G } = he(L);
+  (D.useSyncedValues({
+    disabled: c,
+    highlightItemOnHover: v,
+    modal: V.type === void 0 ? l : void 0,
+    openMethod: fe,
+    rootId: O,
+  }),
+    xe(D));
+  let { forceUnmount: q } = me(L, D, () => {
+    D.update({ allowMouseEnter: !1, stickIfOpen: !0 });
+  });
+  (a(() => {
+    b && !x
+      ? D.update({
+          parent: { type: `context-menu`, context: b },
+          floatingNodeId: P,
+          floatingParentNodeId: F,
+        })
+      : x && D.update({ floatingNodeId: P, floatingParentNodeId: F });
+  }, [b, x, P, F, D]),
+    J.useEffect(() => {
+      if ((L || (le.current = null), V.type === `context-menu`)) {
+        if (!L) {
+          (U.clear(), (H.current = !1));
+          return;
+        }
+        U.start(500, () => {
+          H.current = !0;
+        });
+      }
+    }, [U, L, V.type]),
+    a(() => {
+      !L && !re && D.set(`hoverEnabled`, !0);
+    }, [L, re, D]));
+  let Ce = S((e, t) => {
+      let n = t.reason;
+      if (L === e && t.trigger === R && ie === n) return;
+      let i = be(t);
+      if (
+        (!e && t.trigger == null && (t.trigger = R ?? void 0),
+        r?.(e, t),
+        t.isCanceled)
+      )
+        return;
+      D.state.floatingRootContext.dispatchOpenChange(e, t);
+      let a = t.event;
+      if (
+        e === !1 &&
+        a?.type === `click` &&
+        a.pointerType === `touch` &&
+        !ue.current
+      )
+        return;
+      e && n === `trigger-focus`
+        ? ((ue.current = !1),
+          W.start(300, () => {
+            ue.current = !0;
+          }))
+        : ((ue.current = !0), W.clear());
+      let o =
+          (n === `trigger-press` || n === `item-press`) &&
+          a.detail === 0 &&
+          a?.isTrusted,
+        s = !e && (n === `escape-key` || n == null),
+        c = { open: e, openChangeReason: n };
+      ((le.current = t.event ?? null),
+        ge(c, e, t.trigger, i()),
+        D.update(c),
+        V.type === `menubar` &&
+        (n === `trigger-focus` ||
+          n === `focus-out` ||
+          n === `trigger-hover` ||
+          n === `list-navigation` ||
+          n === `sibling-open`)
+          ? D.set(`instantType`, `group`)
+          : o || s
+            ? D.set(`instantType`, o ? `click` : `dismiss`)
+            : D.set(`instantType`, void 0));
+    }),
+    we = Se({
+      popupStore: D,
+      floatingId: A,
+      nested: F != null,
+      onOpenChange: Ce,
+    }),
+    Te = we.context.events;
+  J.useEffect(() => {
+    let e = ({ open: e, eventDetails: t }) => Ce(e, t);
+    return (
+      Te.on(`setOpen`, e),
+      () => {
+        Te?.off(`setOpen`, e);
+      }
+    );
+  }, [Te, Ce]);
+  let Ee = J.useCallback(() => {
+    D.setOpen(!1, j(k));
+  }, [D]);
+  J.useImperativeHandle(p, () => ({ unmount: q, close: Ee }), [q, Ee]);
+  let De;
+  (V.type === `context-menu` && (De = V.context),
+    J.useImperativeHandle(De?.positionerRef, () => z, [z]),
+    J.useImperativeHandle(De?.actionsRef, () => ({ setOpen: Ce }), [Ce]));
+  let Y = I(we, {
+      enabled: !B,
+      bubbles: { escapeKey: m && V.type === `menu` },
+      outsidePress() {
+        return V.type !== `context-menu` || le.current?.type === `contextmenu`
+          ? !0
+          : H.current;
+      },
+      externalTree: de ? N : void 0,
+    }),
+    ke = T(),
+    je = J.useCallback(
+      (e) => {
+        D.select(`activeIndex`) !== e && D.set(`activeIndex`, e);
+      },
+      [D],
+    ),
+    Z = ye(we, {
+      enabled: !B,
+      listRef: D.context.itemDomElements,
+      activeIndex: oe,
+      nested: V.type !== void 0,
+      loopFocus: u,
+      orientation: d,
+      parentOrientation: V.type === `menubar` ? V.context.orientation : void 0,
+      rtl: ke === `rtl`,
+      disabledIndices: f,
+      onNavigate: je,
+      openOnArrowKeyDown: V.type !== `context-menu`,
+      externalTree: de ? N : void 0,
+      focusItemOnHover: v,
+    }),
+    Me = J.useCallback(
+      (e) => {
+        D.context.typingRef.current = e;
+      },
+      [D],
+    ),
+    Q = _e(we, {
+      enabled: !B,
+      listRef: D.context.itemLabels,
+      elementsRef: D.context.itemDomElements,
+      activeIndex: oe,
+      resetMs: 500,
+      onMatch: (e) => {
+        L && e !== oe && D.set(`activeIndex`, e);
+      },
+      onTyping: Me,
+    });
+  ve(D, {
+    floatingRootContext: we,
+    activeTriggerProps: J.useMemo(() => {
+      let e = i(
+        Q.reference,
+        Z.reference,
+        Y.reference,
+        {
+          onMouseMove() {
+            D.set(`allowMouseEnter`, !0);
+          },
+        },
+        G,
+      );
+      return ((e[`aria-haspopup`] = `menu`), (e[`aria-expanded`] = L), e);
+    }, [D, Q.reference, Z.reference, Y.reference, G, L]),
+    inactiveTriggerProps: J.useMemo(() => {
+      let e = i(Z.trigger, Y.trigger, G);
+      return ((e[`aria-haspopup`] = `menu`), (e[`aria-expanded`] = !1), e);
+    }, [Z.trigger, Y.trigger, G]),
+    popupProps: J.useMemo(
+      () =>
+        i(
+          K,
+          {
+            id: A,
+            role: `menu`,
+            "aria-labelledby": R?.id,
+            onMouseMove() {
+              (D.set(`allowMouseEnter`, !0),
+                V.type === `menu` && D.set(`hoverEnabled`, !1));
+            },
+            onClick() {
+              D.select(`hoverEnabled`) && D.set(`hoverEnabled`, !1);
+            },
+            onKeyDown(e) {
+              let t = D.select(`keyboardEventRelay`);
+              t && !e.isPropagationStopped() && t(e);
+            },
+          },
+          Q.floating,
+          Z.floating,
+          Y.floating,
+        ),
+      [R, A, V.type, D, Q.floating, Z.floating, Y.floating],
+    ),
+    itemProps: Z.item ?? y,
+  });
+  let Ne = J.useMemo(() => ({ store: D, parent: E }), [D, E]),
+    Pe = (0, $.jsx)(Oe.Provider, {
+      value: Ne,
+      children: typeof t == `function` ? t({ payload: se }) : t,
+    });
+  return V.type === void 0 || V.type === `context-menu`
+    ? (0, $.jsx)(ae, { externalTree: N, children: Pe })
+    : Pe;
+});
+function ut(e) {
+  let t = X().store,
+    n = J.useMemo(() => ({ parentMenu: t }), [t]);
+  return (0, $.jsx)(st.Provider, {
+    value: n,
+    children: (0, $.jsx)(lt, { ...e }),
+  });
+}
+function dt(t) {
+  if (v(t) && t.hasAttribute(`data-rootownerid`))
+    return t.getAttribute(`data-rootownerid`) ?? void 0;
+  if (!e(t)) return dt(l(t));
+}
+var ft = J.forwardRef(function (e, t) {
+  let {
+      render: n,
+      className: r,
+      style: i,
+      label: a,
+      id: s,
+      nativeButton: c = !1,
+      openOnHover: l = !0,
+      delay: u = 100,
+      closeDelay: d = 0,
+      disabled: f = !1,
+      ...p
+    } = e,
+    m = _({ label: a }),
+    h = Y(),
+    { store: v } = X(),
+    x = b(s),
+    S = v.useState(`open`),
+    C = v.useState(`floatingRootContext`),
+    w = v.useState(`floatingTreeRoot`),
+    T = v.useState(`triggerPopupId`, x),
+    E = G(x, v),
+    D = J.useCallback(
+      (e) => {
+        let t = E(e);
+        return (
+          e !== null &&
+            v.select(`open`) &&
+            v.select(`activeTriggerId`) == null &&
+            v.update({
+              activeTriggerId: x,
+              activeTriggerElement: e,
+              closeDelay: d,
+            }),
+          t
+        );
+      },
+      [E, d, v, x],
+    ),
+    O = J.useRef(null),
+    k = J.useCallback(
+      (e) => {
+        ((O.current = e), v.set(`activeTriggerElement`, e));
+      },
+      [v],
+    ),
+    A = ct();
+  if (!A?.parentMenu) throw Error(o(37));
+  v.useSyncedValue(`closeDelay`, d);
+  let j = A.parentMenu,
+    M = v.useState(`disabled`),
+    ee = j.useState(`disabled`),
+    N = f || M || ee,
+    F = j.useState(`itemProps`),
+    I = j.useState(`isActive`, m.index),
+    te = J.useMemo(
+      () => ({
+        type: `submenu-trigger`,
+        setActive() {
+          j.select(`highlightItemOnHover`) && j.set(`activeIndex`, m.index);
+        },
+      }),
+      [j, m.index],
+    ),
+    { getItemProps: ne, itemRef: L } = Ne({
+      closeOnClick: !1,
+      disabled: N,
+      highlighted: I,
+      id: x,
+      store: v,
+      typingRef: j.context.typingRef,
+      nativeButton: c,
+      itemMetadata: te,
+      nodeId: h?.context.nodeId,
+    }),
+    R = se(C, {
+      enabled: v.useState(`hoverEnabled`) && l && !N,
+      handleClose: le({ blockPointerEvents: !0 }),
+      mouseOnly: !0,
+      move: !0,
+      restMs: u,
+      delay: { open: u, close: d },
+      shouldOpen: u > 0 ? () => j.select(`allowMouseEnter`) : void 0,
+      triggerElementRef: O,
+      externalTree: w,
+      isClosing: () => v.select(`transitionStatus`) === `ending`,
+    }),
+    z =
+      Ee(C, {
+        enabled: !N,
+        event: `mousedown`,
+        toggle: !l,
+        ignoreMouse: l,
+        stickIfOpen: !1,
+      }).reference ?? y,
+    re = v.useState(`triggerProps`, !0);
+  return (
+    delete re.id,
+    g(`div`, e, {
+      state: { disabled: N, highlighted: I, open: S },
+      stateAttributesMapping: P,
+      props: [
+        z,
+        R,
+        re,
+        F,
+        {
+          "aria-controls": T,
+          tabIndex: S || I ? 0 : -1,
+          onBlur() {
+            I && j.set(`activeIndex`, null);
+          },
+        },
+        p,
+        ne,
+      ],
+      ref: [t, m.ref, L, D, k],
+    })
+  );
+});
+export {
+  Ie as _,
+  nt as a,
+  Oe as b,
+  et as c,
+  qe as d,
+  We as f,
+  Le as g,
+  Be as h,
+  lt as i,
+  Ze as l,
+  Ve as m,
+  dt as n,
+  rt as o,
+  He as p,
+  ut as r,
+  tt as s,
+  ft as t,
+  Je as u,
+  ke as v,
+  X as x,
+  Ae as y,
+};

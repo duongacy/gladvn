@@ -1,28 +1,28 @@
 ---
 colors:
-  primary: '#ffb02e'
-  primaryHover: '#ff8c00'
-  surface: '#12131a'
-  surfaceAlt: '#1c1e29'
-  text: '#f4f1e8'
-  muted: '#8a8d9c'
-  border: '#2c2f3d'
-  health: '#e5484d'
-  stamina: '#30a46c'
-  mana: '#4493f8'
-  legendary: '#c084fc'
+  primary: "#ffb02e"
+  primaryHover: "#ff8c00"
+  surface: "#12131a"
+  surfaceAlt: "#1c1e29"
+  text: "#f4f1e8"
+  muted: "#8a8d9c"
+  border: "#2c2f3d"
+  health: "#e5484d"
+  stamina: "#30a46c"
+  mana: "#4493f8"
+  legendary: "#c084fc"
 typography:
   font: 'Rajdhani, "Segoe UI", sans-serif'
-  numeric: 'JetBrains Mono, monospace'
-  scale: '1.333 perfect fourth'
-  weights: '500 medium, 600 semibold, 700 bold'
-rounded: '0.25rem'
-spacing: '8px base grid'
+  numeric: "JetBrains Mono, monospace"
+  scale: "1.333 perfect fourth"
+  weights: "500 medium, 600 semibold, 700 bold"
+rounded: "0.25rem"
+spacing: "8px base grid"
 components:
-  button: 'beveled panel, primary fill on focus, 1px inner glow, controller-focusable'
-  panel: 'surfaceAlt fill, 1px border, sharp corners, subtle scanline texture'
-  healthBar: 'segmented, health fill, darkens per missing segment, never fully empty UI'
-  prompt: 'glyph + label, platform-adaptive button icon, fades when idle'
+  button: "beveled panel, primary fill on focus, 1px inner glow, controller-focusable"
+  panel: "surfaceAlt fill, 1px border, sharp corners, subtle scanline texture"
+  healthBar: "segmented, health fill, darkens per missing segment, never fully empty UI"
+  prompt: "glyph + label, platform-adaptive button icon, fades when idle"
 ---
 
 # DESIGN.md — Emberfall (Top-down Action Roguelike, PC + Controller)
@@ -33,19 +33,19 @@ Dark-fantasy arcade grit with a warm ember glow. The UI reads instantly at a gla
 
 ## Colors
 
-| Role        | Token          | Hex       | Use                                       |
-| ----------- | -------------- | --------- | ----------------------------------------- |
-| Primary     | `primary`      | `#ffb02e` | Selection, focus, ember accents           |
-| Primary Hov | `primaryHover` | `#ff8c00` | Pressed / held controller focus           |
-| Surface     | `surface`      | `#12131a` | Title and pause backdrops                  |
-| Surface Alt | `surfaceAlt`   | `#1c1e29` | Menu panels, inventory cells               |
-| Text        | `text`         | `#f4f1e8` | Primary HUD and menu text                  |
-| Muted       | `muted`        | `#8a8d9c` | Tooltips, secondary stats                  |
-| Border      | `border`       | `#2c2f3d` | Panel edges, cell dividers                 |
-| Health      | `health`       | `#e5484d` | Health bar fill, damage vignette           |
-| Stamina     | `stamina`      | `#30a46c` | Stamina / dodge meter                      |
-| Mana        | `mana`         | `#4493f8` | Ability / mana meter                       |
-| Legendary   | `legendary`    | `#c084fc` | Legendary-tier loot, rare drops            |
+| Role        | Token          | Hex       | Use                              |
+| ----------- | -------------- | --------- | -------------------------------- |
+| Primary     | `primary`      | `#ffb02e` | Selection, focus, ember accents  |
+| Primary Hov | `primaryHover` | `#ff8c00` | Pressed / held controller focus  |
+| Surface     | `surface`      | `#12131a` | Title and pause backdrops        |
+| Surface Alt | `surfaceAlt`   | `#1c1e29` | Menu panels, inventory cells     |
+| Text        | `text`         | `#f4f1e8` | Primary HUD and menu text        |
+| Muted       | `muted`        | `#8a8d9c` | Tooltips, secondary stats        |
+| Border      | `border`       | `#2c2f3d` | Panel edges, cell dividers       |
+| Health      | `health`       | `#e5484d` | Health bar fill, damage vignette |
+| Stamina     | `stamina`      | `#30a46c` | Stamina / dodge meter            |
+| Mana        | `mana`         | `#4493f8` | Ability / mana meter             |
+| Legendary   | `legendary`    | `#c084fc` | Legendary-tier loot, rare drops  |
 
 Contrast: text on surface 14.8:1; muted on surface 4.6:1; health/stamina/mana each tested against a 60% black HUD scrim for combat legibility (all ≥ 4.5:1). Resource colors are reinforced with icon + meter shape so they never rely on hue alone.
 

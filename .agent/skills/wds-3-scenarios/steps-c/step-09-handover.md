@@ -3,7 +3,7 @@ name: step-09-handover
 description: Complete Phase 3 and prepare for Phase 4 UX Design
 
 # File References
-workflowFile: '../workflow.md'
+workflowFile: "../workflow.md"
 ---
 
 # Step 9: Handover
@@ -109,6 +109,7 @@ Your scenarios are ready for design. How would you like to approach each?
 ```
 
 For each scenario, save the chosen approach as `design_intent` in the scenario output file:
+
 - Add `design_intent: [K|C|S|D|L]` to the scenario frontmatter
 - Add `design_status: not-started` to track progress
 
@@ -133,6 +134,7 @@ Would you like to continue to Phase 4, or take a break?
 ### 4. Update Design Log (If Exists)
 
 If tracking via design log:
+
 - Mark Phase 3 as complete
 - Log scenario count and quality scores
 - Note any user adjustments made during the process

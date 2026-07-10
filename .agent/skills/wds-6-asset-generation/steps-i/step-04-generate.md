@@ -1,7 +1,7 @@
 ---
-name: 'step-04-generate'
-description: 'Batch-generate icons with consistent style across the entire set'
-nextStepFile: './step-05-review.md'
+name: "step-04-generate"
+description: "Batch-generate icons with consistent style across the entire set"
+nextStepFile: "./step-05-review.md"
 ---
 
 # Step 4: Generate Icons
@@ -58,6 +58,7 @@ Construct base prompt using style configuration: style type, stroke/fill details
 ### 2. Generate by Group
 
 Process related icons together for consistency:
+
 1. Navigation set (menu, close, search, arrows, chevrons)
 2. Action set (edit, delete, save, share, copy, download, upload)
 3. Status set (success/check, warning, error/x, info)

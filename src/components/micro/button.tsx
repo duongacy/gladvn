@@ -6,8 +6,8 @@
  * - CSS Delegated Logic
  */
 import { Button as ButtonPrimitive } from "@base-ui/react/button";
-import { useRender } from "@base-ui/react/use-render";
 import { mergeProps } from "@base-ui/react/merge-props";
+import { useRender } from "@base-ui/react/use-render";
 import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
@@ -168,7 +168,8 @@ const buttonVariants = cva(
       {
         variant: "outline",
         color: "accent",
-        className: "border-accent      text-accent-foreground hover:bg-accent/10",
+        className:
+          "border-accent      text-accent-foreground hover:bg-accent/10",
       },
 
       // soft — tinted background, semantic text
@@ -215,7 +216,8 @@ const buttonVariants = cva(
       {
         variant: "soft",
         color: "accent",
-        className: "bg-accent/50      text-accent-foreground hover:bg-accent/80",
+        className:
+          "bg-accent/50      text-accent-foreground hover:bg-accent/80",
       },
 
       // ghost — transparent, semantic text, tinted hover
@@ -286,7 +288,6 @@ const buttonVariants = cva(
       { color: "muted", className: "focus-visible:ring-muted/50" },
       { color: "accent", className: "focus-visible:ring-accent/50" },
     ],
-
   },
 );
 
@@ -298,34 +299,38 @@ import * as React from "react";
  * <Button variant="solid" color="primary">Click me</Button>
  */
 export interface ButtonProps
-  extends ButtonPrimitive.Props,
-  VariantProps<typeof buttonVariants> {
+  extends ButtonPrimitive.Props, VariantProps<typeof buttonVariants> {
   iconOnly?: boolean;
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({
-  className,
-  variant = "solid",
-  color = "primary",
-  size = "md",
-  iconOnly,
-  children,
-  ...props
-}, ref) => {
-  return (
-    <ButtonPrimitive
-      ref={ref}
-      data-slot="button"
-      data-color={color}
-      data-variant={variant}
-      {...(iconOnly && { "data-icon": "true" })}
-      className={cn(buttonVariants({ variant, color, size, className }))}
-      {...props}
-    >
-      {children}
-    </ButtonPrimitive>
-  );
-});
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    {
+      className,
+      variant = "solid",
+      color = "primary",
+      size = "md",
+      iconOnly,
+      children,
+      ...props
+    },
+    ref,
+  ) => {
+    return (
+      <ButtonPrimitive
+        ref={ref}
+        data-slot="button"
+        data-color={color}
+        data-variant={variant}
+        {...(iconOnly && { "data-icon": "true" })}
+        className={cn(buttonVariants({ variant, color, size, className }))}
+        {...props}
+      >
+        {children}
+      </ButtonPrimitive>
+    );
+  },
+);
 Button.displayName = "Button";
 
 export type ButtonIconProps = useRender.ComponentProps<"span">;
@@ -349,7 +354,7 @@ const ButtonIcon = React.forwardRef<HTMLSpanElement, ButtonIconProps>(
         props,
       ),
     });
-  }
+  },
 );
 ButtonIcon.displayName = "ButtonIcon";
 

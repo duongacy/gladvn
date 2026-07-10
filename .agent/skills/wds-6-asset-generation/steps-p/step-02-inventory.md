@@ -1,7 +1,7 @@
 ---
-name: 'step-02-inventory'
-description: 'Identify all pages needing full design compositions and assess readiness'
-nextStepFile: './step-03-select-style.md'
+name: "step-02-inventory"
+description: "Identify all pages needing full design compositions and assess readiness"
+nextStepFile: "./step-03-select-style.md"
 ---
 
 # Step 2: Asset Inventory

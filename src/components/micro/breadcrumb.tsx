@@ -5,9 +5,9 @@
  * - Form Control Parity
  * - CSS Delegated Logic
  */
-import * as React from "react";
 import { mergeProps } from "@base-ui/react/merge-props";
 import { useRender } from "@base-ui/react/use-render";
+import * as React from "react";
 
 import { cn } from "@/lib/utils";
 import { ChevronRightIcon, MoreHorizontalIcon } from "lucide-react";
@@ -24,20 +24,19 @@ import { ChevronRightIcon, MoreHorizontalIcon } from "lucide-react";
  *   </BreadcrumbList>
  * </Breadcrumb>
  */
-const Breadcrumb = React.forwardRef<
-  HTMLElement,
-  React.ComponentProps<"nav">
->(({ className, ...props }, ref) => {
-  return (
-    <nav
-      ref={ref}
-      aria-label="breadcrumb"
-      data-slot="breadcrumb"
-      className={cn(className)}
-      {...props}
-    />
-  );
-});
+const Breadcrumb = React.forwardRef<HTMLElement, React.ComponentProps<"nav">>(
+  ({ className, ...props }, ref) => {
+    return (
+      <nav
+        ref={ref}
+        aria-label="breadcrumb"
+        data-slot="breadcrumb"
+        className={cn(className)}
+        {...props}
+      />
+    );
+  },
+);
 Breadcrumb.displayName = "Breadcrumb";
 
 const BreadcrumbList = React.forwardRef<
@@ -75,26 +74,24 @@ BreadcrumbItem.displayName = "BreadcrumbItem";
 
 export type BreadcrumbLinkProps = useRender.ComponentProps<"a">;
 
-const BreadcrumbLink = React.forwardRef<HTMLAnchorElement, BreadcrumbLinkProps>(({
-  className,
-  render,
-  ...props
-}, ref) => {
-  return useRender({
-    defaultTagName: "a",
-    props: mergeProps<"a">(
-      {
-        ref,
-        className: cn("transition-colors hover:text-foreground", className),
+const BreadcrumbLink = React.forwardRef<HTMLAnchorElement, BreadcrumbLinkProps>(
+  ({ className, render, ...props }, ref) => {
+    return useRender({
+      defaultTagName: "a",
+      props: mergeProps<"a">(
+        {
+          ref,
+          className: cn("transition-colors hover:text-foreground", className),
+        },
+        props,
+      ),
+      render,
+      state: {
+        slot: "breadcrumb-link",
       },
-      props,
-    ),
-    render,
-    state: {
-      slot: "breadcrumb-link",
-    },
-  });
-});
+    });
+  },
+);
 BreadcrumbLink.displayName = "BreadcrumbLink";
 
 const BreadcrumbPage = React.forwardRef<
@@ -144,10 +141,7 @@ const BreadcrumbEllipsis = React.forwardRef<
       data-slot="breadcrumb-ellipsis"
       role="presentation"
       aria-hidden="true"
-      className={cn(
-        "flex size-5 items-center justify-center",
-        className,
-      )}
+      className={cn("flex size-5 items-center justify-center", className)}
       {...props}
     >
       <MoreHorizontalIcon className="size-4" />
@@ -159,10 +153,10 @@ BreadcrumbEllipsis.displayName = "BreadcrumbEllipsis";
 
 export {
   Breadcrumb,
-  BreadcrumbList,
+  BreadcrumbEllipsis,
   BreadcrumbItem,
   BreadcrumbLink,
+  BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-  BreadcrumbEllipsis,
 };

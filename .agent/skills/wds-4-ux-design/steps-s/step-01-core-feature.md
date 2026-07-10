@@ -1,11 +1,11 @@
 ---
-name: 'step-01-core-feature'
-description: 'Identify the core feature or experience this scenario should cover'
+name: "step-01-core-feature"
+description: "Identify the core feature or experience this scenario should cover"
 
 # File References
-nextStepFile: './step-02-entry-point.md'
-workflowFile: '../workflow.md'
-activityWorkflowFile: '../workflow-suggest.md'
+nextStepFile: "./step-02-entry-point.md"
+workflowFile: "../workflow.md"
+activityWorkflowFile: "../workflow-suggest.md"
 ---
 
 # Step 1: Core Feature
@@ -66,6 +66,7 @@ Looking at your Trigger Map and project goals, we need to identify what to desig
 <ask>**What feature or experience should this scenario cover?**
 
 Think about:
+
 - Which feature delivers the most value to your primary target group?
 - What's the core experience that serves your business goals?
 - What's the "happy path" users need?

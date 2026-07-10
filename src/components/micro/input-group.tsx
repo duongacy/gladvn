@@ -7,18 +7,18 @@
  */
 "use client";
 
-import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
+import * as React from "react";
 
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/micro/button";
 import { Input } from "@/components/micro/input";
 import { Textarea } from "@/components/micro/textarea";
+import { cn } from "@/lib/utils";
 
 const inputGroupVariants = cva(
   [
     // Base layout
-    "group/input-group @container/input-group relative flex min-w-0 items-center overflow-hidden rounded-lg border border-input transition-colors outline-none",
+    "group/input-group relative flex min-w-0 items-center overflow-hidden rounded-lg border border-input transition-colors outline-none",
     // Combobox focus delegation
     "in-data-[slot=combobox-content]:focus-within:border-inherit in-data-[slot=combobox-content]:focus-within:ring-0",
     // Disabled state
@@ -53,7 +53,8 @@ const inputGroupVariants = cva(
  */
 const InputGroup = React.forwardRef<
   HTMLDivElement,
-  React.ComponentPropsWithoutRef<"div"> & VariantProps<typeof inputGroupVariants>
+  React.ComponentPropsWithoutRef<"div"> &
+    VariantProps<typeof inputGroupVariants>
 >(function InputGroup({ className, size = "md", ...props }, ref) {
   return (
     <div
@@ -94,8 +95,12 @@ const inputGroupAddonVariants = cva(
 
 const InputGroupAddon = React.forwardRef<
   HTMLDivElement,
-  React.ComponentPropsWithoutRef<"div"> & VariantProps<typeof inputGroupAddonVariants>
->(function InputGroupAddon({ className, align = "inline-start", ...props }, ref) {
+  React.ComponentPropsWithoutRef<"div"> &
+    VariantProps<typeof inputGroupAddonVariants>
+>(function InputGroupAddon(
+  { className, align = "inline-start", ...props },
+  ref,
+) {
   return (
     <div
       ref={ref}
@@ -216,7 +221,7 @@ export {
   InputGroup,
   InputGroupAddon,
   InputGroupButton,
-  InputGroupText,
   InputGroupInput,
+  InputGroupText,
   InputGroupTextarea,
 };

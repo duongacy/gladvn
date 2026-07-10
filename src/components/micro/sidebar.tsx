@@ -1,5 +1,5 @@
-import * as React from "react";
 import { cn } from "@/lib/utils";
+import * as React from "react";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // 1. Sidebar (Wrapper)
@@ -22,11 +22,14 @@ const Sidebar = React.forwardRef<
       collapsedWidth = 72,
       ...props
     },
-    ref
+    ref,
   ) => {
     // will-change only during animation, not always-on
-    const handleTransitionStart = (e: React.TransitionEvent<HTMLDivElement>) => {
-      if (e.propertyName === "width") e.currentTarget.style.willChange = "width";
+    const handleTransitionStart = (
+      e: React.TransitionEvent<HTMLDivElement>,
+    ) => {
+      if (e.propertyName === "width")
+        e.currentTarget.style.willChange = "width";
     };
     const handleTransitionEnd = (e: React.TransitionEvent<HTMLDivElement>) => {
       if (e.propertyName === "width") e.currentTarget.style.willChange = "auto";
@@ -38,17 +41,19 @@ const Sidebar = React.forwardRef<
         ref={ref}
         role="navigation"
         aria-expanded={defaultState === "expanded"}
-        style={{
-          "--sb-expanded": `${expandedWidth}px`,
-          "--sb-collapsed": `${collapsedWidth}px`,
-        } as React.CSSProperties}
+        style={
+          {
+            "--sb-expanded": `${expandedWidth}px`,
+            "--sb-collapsed": `${collapsedWidth}px`,
+          } as React.CSSProperties
+        }
         className={cn(
           "group shrink-0 h-full overflow-hidden border-r bg-sidebar text-sidebar-foreground",
           "transition-[width,border-width] duration-[400ms]",
           "data-[state=expanded]:w-[var(--sb-expanded)]",
           "data-[state=collapsed]:w-[var(--sb-collapsed)]",
           collapsedWidth === 0 && "data-[state=collapsed]:border-r-0",
-          className
+          className,
         )}
         data-state={defaultState}
         onTransitionStart={handleTransitionStart}
@@ -62,7 +67,7 @@ const Sidebar = React.forwardRef<
         />
       </div>
     );
-  }
+  },
 );
 Sidebar.displayName = "Sidebar";
 
@@ -79,7 +84,10 @@ const SidebarLogo = React.forwardRef<
   return (
     <div
       ref={ref}
-      className={cn("flex h-12 items-center overflow-hidden text-sidebar-foreground", className)}
+      className={cn(
+        "flex h-12 items-center overflow-hidden text-sidebar-foreground",
+        className,
+      )}
       {...props}
     >
       {/* Icon container width matches collapsed sidebar width — reads CSS var from parent */}
@@ -89,7 +97,9 @@ const SidebarLogo = React.forwardRef<
       >
         {icon}
       </div>
-      <span className="whitespace-nowrap font-semibold transition-opacity group-data-[state=collapsed]:opacity-0 group-data-[state=collapsed]:duration-[80ms] group-data-[state=expanded]:duration-[200ms] group-data-[state=expanded]:delay-[300ms]">{text}</span>
+      <span className="whitespace-nowrap font-semibold transition-opacity group-data-[state=collapsed]:opacity-0 group-data-[state=collapsed]:duration-[80ms] group-data-[state=expanded]:duration-[200ms] group-data-[state=expanded]:delay-[300ms]">
+        {text}
+      </span>
     </div>
   );
 });
@@ -111,7 +121,7 @@ const SidebarLabel = React.forwardRef<
       className={cn(
         "flex h-10 items-center overflow-hidden text-sm text-sidebar-foreground",
         "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground cursor-pointer rounded-md",
-        className
+        className,
       )}
       {...props}
     >
@@ -122,7 +132,9 @@ const SidebarLabel = React.forwardRef<
       >
         {icon}
       </div>
-      <span className="whitespace-nowrap transition-opacity group-data-[state=collapsed]:opacity-0 group-data-[state=collapsed]:duration-[80ms] group-data-[state=expanded]:duration-[200ms] group-data-[state=expanded]:delay-[300ms]">{text}</span>
+      <span className="whitespace-nowrap transition-opacity group-data-[state=collapsed]:opacity-0 group-data-[state=collapsed]:duration-[80ms] group-data-[state=expanded]:duration-[200ms] group-data-[state=expanded]:delay-[300ms]">
+        {text}
+      </span>
     </div>
   );
 });
@@ -160,13 +172,15 @@ const SidebarMenuItem = React.forwardRef<
       className={cn(
         "flex h-8 items-center pr-4 text-sm text-sidebar-foreground/70",
         "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground cursor-pointer rounded-md",
-        className
+        className,
       )}
       // Indent aligns with label text, which starts after the icon column (--sb-collapsed wide)
       style={{ paddingLeft: "calc(var(--sb-collapsed) - 16px)" }}
       {...props}
     >
-      <span className="whitespace-nowrap transition-opacity group-data-[state=collapsed]:opacity-0 group-data-[state=collapsed]:duration-[80ms] group-data-[state=expanded]:duration-[200ms] group-data-[state=expanded]:delay-[300ms]">{text}</span>
+      <span className="whitespace-nowrap transition-opacity group-data-[state=collapsed]:opacity-0 group-data-[state=collapsed]:duration-[80ms] group-data-[state=expanded]:duration-[200ms] group-data-[state=expanded]:delay-[300ms]">
+        {text}
+      </span>
     </div>
   );
 });
@@ -177,7 +191,7 @@ SidebarMenuItem.displayName = "SidebarMenuItem";
 // ─────────────────────────────────────────────────────────────────────────────
 export function useSidebarToggle(
   initialState: "expanded" | "collapsed" = "expanded",
-  onStateChange?: (state: "expanded" | "collapsed") => void
+  onStateChange?: (state: "expanded" | "collapsed") => void,
 ) {
   const sidebarRef = React.useRef<HTMLDivElement>(null);
   // Stable ref so setSidebarState callback never goes stale even if caller's onStateChange changes
@@ -186,13 +200,19 @@ export function useSidebarToggle(
     onStateChangeRef.current = onStateChange;
   }, [onStateChange]);
 
-  const setSidebarState = React.useCallback((state: "expanded" | "collapsed") => {
-    if (sidebarRef.current) {
-      sidebarRef.current.setAttribute("data-state", state);
-      sidebarRef.current.setAttribute("aria-expanded", String(state === "expanded"));
-      onStateChangeRef.current?.(state);
-    }
-  }, []);
+  const setSidebarState = React.useCallback(
+    (state: "expanded" | "collapsed") => {
+      if (sidebarRef.current) {
+        sidebarRef.current.setAttribute("data-state", state);
+        sidebarRef.current.setAttribute(
+          "aria-expanded",
+          String(state === "expanded"),
+        );
+        onStateChangeRef.current?.(state);
+      }
+    },
+    [],
+  );
 
   const toggleSidebar = React.useCallback(() => {
     if (sidebarRef.current) {
@@ -201,7 +221,18 @@ export function useSidebarToggle(
     }
   }, [setSidebarState]);
 
-  return { sidebarRef, toggleSidebar, setSidebarState, defaultState: initialState };
+  return {
+    sidebarRef,
+    toggleSidebar,
+    setSidebarState,
+    defaultState: initialState,
+  };
 }
 
-export { Sidebar, SidebarLogo, SidebarLabel, SidebarMenuItemList, SidebarMenuItem };
+export {
+  Sidebar,
+  SidebarLabel,
+  SidebarLogo,
+  SidebarMenuItem,
+  SidebarMenuItemList,
+};

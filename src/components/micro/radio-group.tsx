@@ -7,14 +7,14 @@
  */
 "use client";
 
-import * as React from "react";
 import { Radio as RadioPrimitive } from "@base-ui/react/radio";
 import { RadioGroup as RadioGroupPrimitive } from "@base-ui/react/radio-group";
+import * as React from "react";
 
 import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "@/lib/utils";
 import { type Size } from "@/lib/types";
+import { cn } from "@/lib/utils";
 
 const RadioGroup = React.forwardRef<
   React.ComponentRef<typeof RadioGroupPrimitive>,
@@ -47,9 +47,9 @@ const radioGroupItemVariants = cva(
 const RadioGroupItem = React.forwardRef<
   React.ComponentRef<typeof RadioPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof RadioPrimitive.Root> &
-  Omit<VariantProps<typeof radioGroupItemVariants>, "size"> & {
-    size?: Size;
-  }
+    Omit<VariantProps<typeof radioGroupItemVariants>, "size"> & {
+      size?: Size;
+    }
 >(function RadioGroupItem({ className, size = "md", ...props }, ref) {
   return (
     <RadioPrimitive.Root

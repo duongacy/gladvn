@@ -1,34 +1,33 @@
-import { useState } from "react";
 import {
-  ExampleSection,
-  ExampleGrid,
-  ShowcaseDocs,
-  Showcase,
-  DocsH3,
+  DocsCode,
+  DocsLi,
   DocsP,
   DocsUl,
-  DocsLi,
-  DocsCode,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+  SizeToggle,
 } from "@/dev/components/showcase";
 import {
+  CheckCircle2Icon,
   InfoIcon,
   TriangleAlertIcon,
-  CheckCircle2Icon,
   XCircleIcon,
   XIcon,
 } from "lucide-react";
+import { useState } from "react";
 
-import { type Size } from "@/lib/types";
+import { AlertPreset } from "@/components/macro/alert-preset";
 import {
   Alert,
-  AlertDescription,
-  AlertTitle,
   AlertAction,
+  AlertDescription,
   AlertIcon,
+  AlertTitle,
 } from "@/components/micro/alert";
-import { AlertPreset } from "@/components/macro/alert-preset";
 import { Button } from "@/components/micro/button";
-import { MonoSelect } from "@/dev/components/mono-select";
+import { type Size } from "@/lib/types";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Macro Content (không export)
@@ -38,31 +37,23 @@ function AlertMacroShowcase({ globalSize }: { globalSize: Size }) {
 
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Khi nào nên dùng Macro</DocsH3>
-        <DocsP>
-          Bản Macro (<DocsCode>AlertPreset</DocsCode>) là lựa chọn tuyệt vời khi
-          bạn muốn hiển thị một cảnh báo ngắn gọn và cho phép người dùng tự tắt
-          (dismiss) nó mà không phải tự viết logic <DocsCode>useState</DocsCode>
-          . Nó đóng gói sẵn tất cả các thành phần (Icon, Title, Description,
-          Close Button) vào một prop API duy nhất.
-        </DocsP>
-
-        <DocsH3>Controlled vs Uncontrolled</DocsH3>
-        <DocsUl>
-          <DocsLi>
-            <b>Uncontrolled (Mặc định):</b> Nếu truyền{" "}
-            <DocsCode>dismissible=true</DocsCode>, component tự quản lý state để
-            tắt (ẩn) Alert khi click vào nút X.
-          </DocsLi>
-          <DocsLi>
-            <b>Controlled:</b> Có thể kiểm soát state đóng/mở thông qua React
-            state và truyền hàm vào <DocsCode>onDismiss</DocsCode>. Tuy nhiên
-            thông thường Alert chỉ bị huỷ (unmount), nên nếu bạn kiểm soát thì
-            hãy render nó có điều kiện bên ngoài.
-          </DocsLi>
-        </DocsUl>
-      </ShowcaseDocs>
+      <ExampleSection label="Controlled vs Uncontrolled" fullWidth>
+        <div className="space-y-4 px-2 py-4">
+          <DocsUl>
+            <DocsLi>
+              <b>Uncontrolled (Mặc định):</b> Nếu truyền{" "}
+              <DocsCode>dismissible=true</DocsCode>, component tự quản lý state
+              để tắt (ẩn) Alert khi click vào nút X.
+            </DocsLi>
+            <DocsLi>
+              <b>Controlled:</b> Có thể kiểm soát state đóng/mở thông qua React
+              state và truyền hàm vào <DocsCode>onDismiss</DocsCode>. Tuy nhiên
+              thông thường Alert chỉ bị huỷ (unmount), nên nếu bạn kiểm soát thì
+              hãy render nó có điều kiện bên ngoài.
+            </DocsLi>
+          </DocsUl>
+        </div>
+      </ExampleSection>
 
       <ExampleGrid columns={2}>
         <ExampleSection
@@ -229,17 +220,6 @@ return (
 function AlertMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Khi nào nên dùng Micro</DocsH3>
-        <DocsP>
-          Phiên bản <b>Micro</b> (<DocsCode>Alert</DocsCode>) là một Box thuần
-          tuý không ép buộc layout. Bạn phải dùng class Flexbox (
-          <DocsCode>flex items-start</DocsCode>) và thẻ <DocsCode>div</DocsCode>{" "}
-          bọc ngoài để tự cấu trúc (Pure Composition) giống như các ví dụ bên
-          dưới.
-        </DocsP>
-      </ShowcaseDocs>
-
       {/* ── Semantic Colors ──────────────────────── */}
       <ExampleSection
         label="Màu Sắc Ngữ Nghĩa (Semantic Colors)"
@@ -733,20 +713,9 @@ export default function AlertShowcase() {
     <Showcase
       title="Alert"
       description="Hiển thị một thông báo nổi bật để thu hút sự chú ý của người dùng."
-      actions={
-        <MonoSelect
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as Size)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-        />
-      }
+      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
       generalConcept={
         <ShowcaseDocs>
-          <DocsH3>Khi nào nên dùng chung</DocsH3>
           <DocsP>
             Dùng để hiển thị một thông báo quan trọng thu hút sự chú ý của người
             dùng (ví dụ: lỗi, cảnh báo, hoặc thông báo thành công). Không nên

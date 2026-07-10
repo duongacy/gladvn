@@ -1,7 +1,7 @@
 ---
-name: 'step-02-identify-export-type'
-description: 'Determine the code-to-Figma export scenario type for proper ID naming and structure'
-nextStepFile: './step-03-prepare-specifications.md'
+name: "step-02-identify-export-type"
+description: "Determine the code-to-Figma export scenario type for proper ID naming and structure"
+nextStepFile: "./step-03-prepare-specifications.md"
 ---
 
 # Step 2: Identify Code to Figma Type

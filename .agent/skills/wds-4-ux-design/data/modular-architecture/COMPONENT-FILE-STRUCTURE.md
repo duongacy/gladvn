@@ -457,7 +457,7 @@ interface Event {
   id: string;
   date: string; // ISO date format
   title: string;
-  category: 'walk' | 'feeding' | 'vet' | 'grooming';
+  category: "walk" | "feeding" | "vet" | "grooming";
   assignedTo: string; // User ID
   completed: boolean;
   notes?: string;

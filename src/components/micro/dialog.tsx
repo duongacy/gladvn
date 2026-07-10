@@ -7,8 +7,8 @@
  */
 "use client";
 
-import * as React from "react";
 import { Dialog as DialogPrimitive } from "@base-ui/react/dialog";
+import * as React from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -112,10 +112,7 @@ const DialogTitle = React.forwardRef<
   <DialogPrimitive.Title
     ref={ref}
     data-slot="dialog-title"
-    className={cn(
-      "font-heading text-base leading-none font-medium",
-      className,
-    )}
+    className={cn("font-heading text-base leading-none font-medium", className)}
     {...props}
   />
 ));

@@ -1,7 +1,7 @@
 ---
-name: 'step-04-empowerment-frame'
-description: 'Apply Badass Users principles to frame content around user capability and transformation'
-nextStepFile: './step-05-structural-order.md'
+name: "step-04-empowerment-frame"
+description: "Apply Badass Users principles to frame content around user capability and transformation"
+nextStepFile: "./step-05-structural-order.md"
 ---
 
 # Step 4: Frame User Empowerment
@@ -68,6 +68,7 @@ The aha moment is a perspective shift, not just understanding. It unlocks confid
 Ask: **"How do we frame this content to highlight THEIR capability, not our features?"**
 
 Transform feature-focused language to capability-focused language:
+
 - Before: "Our AI analyzes 10,000 sources"
 - After: "You'll spot trends before your competitors"
 

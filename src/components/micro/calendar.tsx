@@ -7,6 +7,8 @@
  */
 "use client";
 
+import { type Size } from "@/lib/types";
+import { cva, type VariantProps } from "class-variance-authority";
 import * as React from "react";
 import {
   DayPicker,
@@ -14,21 +16,19 @@ import {
   type DayButton,
   type Locale,
 } from "react-day-picker";
-import { type Size } from "@/lib/types";
-import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/micro/button";
 import {
   Select,
-  SelectTrigger,
   SelectContent,
   SelectItem,
+  SelectTrigger,
 } from "@/components/micro/select";
+import { cn } from "@/lib/utils";
 import {
+  ChevronDownIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
-  ChevronDownIcon,
 } from "lucide-react";
 
 function getDropdownLabel(
@@ -36,7 +36,9 @@ function getDropdownLabel(
   value: number | string | readonly string[] | undefined,
   locale?: Partial<Locale>,
 ): string {
-  const valueStr = Array.isArray(value) ? (value as string[])[0] : value?.toString();
+  const valueStr = Array.isArray(value)
+    ? (value as string[])[0]
+    : value?.toString();
   const selected = options?.find((o) => o.value.toString() === valueStr);
   if (!selected) return "";
   const isMonth = options?.length === 12;
@@ -88,10 +90,7 @@ function Calendar({
   return (
     <DayPicker
       showOutsideDays={showOutsideDays}
-      className={cn(
-        calendarVariants({ size }),
-        className,
-      )}
+      className={cn(calendarVariants({ size }), className)}
       captionLayout={captionLayout}
       locale={locale}
       formatters={{
@@ -138,8 +137,10 @@ function Calendar({
         caption_label: cn(
           "px-2 font-bold select-none",
           {
-            "text-sm group-[.calendar-sm]/calendar:text-xs group-[.calendar-lg]/calendar:text-base": captionLayout === "label",
-            "flex items-center gap-1 rounded-md text-sm group-[.calendar-sm]/calendar:text-xs group-[.calendar-lg]/calendar:text-base [&>svg]:size-3.5 [&>svg]:text-muted-foreground": captionLayout !== "label",
+            "text-sm group-[.calendar-sm]/calendar:text-xs group-[.calendar-lg]/calendar:text-base":
+              captionLayout === "label",
+            "flex items-center gap-1 rounded-md text-sm group-[.calendar-sm]/calendar:text-xs group-[.calendar-lg]/calendar:text-base [&>svg]:size-3.5 [&>svg]:text-muted-foreground":
+              captionLayout !== "label",
           },
           defaultClassNames.caption_label,
         ),
@@ -222,7 +223,10 @@ function Calendar({
                 aria-label={ariaLabel}
                 className="w-fit min-w-0 px-1 border-none bg-transparent font-medium shadow-none focus-visible:ring-0 focus-visible:ring-offset-0 [&_[data-slot=select-value]]:w-auto"
               >
-                <span data-slot="select-value" className="flex flex-1 text-left">
+                <span
+                  data-slot="select-value"
+                  className="flex flex-1 text-left"
+                >
                   {getDropdownLabel(options, value, locale)}
                 </span>
               </SelectTrigger>

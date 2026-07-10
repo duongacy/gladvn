@@ -5,14 +5,14 @@
  * - Form Control Parity
  * - CSS Delegated Logic
  */
-import * as React from "react";
 import { mergeProps } from "@base-ui/react/merge-props";
 import { useRender } from "@base-ui/react/use-render";
-import { cva, type VariantProps } from "class-variance-authority";
+import { cva } from "class-variance-authority";
+import * as React from "react";
 
-import { cn } from "@/lib/utils";
 import { Separator } from "@/components/micro/separator";
 import { Size } from "@/lib/types";
+import { cn } from "@/lib/utils";
 
 /**
  * @description Base flex container for listing items consistently.
@@ -46,7 +46,7 @@ function ItemSeparator({
 }
 
 const itemVariants = cva(
-  "group/item @container/item flex w-full flex-wrap items-center rounded-lg border text-sm transition-colors duration-100 outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:ring-offset-1 focus-visible:ring-offset-background [&_a]:transition-colors [&_a]:hover:bg-muted border-transparent",
+  "group/item flex w-full flex-wrap items-center rounded-lg border text-sm transition-colors duration-100 outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:ring-offset-1 focus-visible:ring-offset-background [&_a]:transition-colors [&_a]:hover:bg-muted border-transparent",
   {
     variants: {
       variant: {
@@ -194,13 +194,13 @@ function ItemFooter({ className, ...props }: React.ComponentProps<"div">) {
 
 export {
   Item,
-  ItemMedia,
-  ItemContent,
   ItemActions,
+  ItemContent,
+  ItemDescription,
+  ItemFooter,
   ItemGroup,
+  ItemHeader,
+  ItemMedia,
   ItemSeparator,
   ItemTitle,
-  ItemDescription,
-  ItemHeader,
-  ItemFooter,
 };

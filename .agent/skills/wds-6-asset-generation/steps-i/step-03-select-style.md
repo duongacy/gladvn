@@ -1,7 +1,7 @@
 ---
-name: 'step-03-select-style'
-description: 'Define the icon style including outline weight, fill treatment, grid, and color mode'
-nextStepFile: './step-04-generate.md'
+name: "step-03-select-style"
+description: "Define the icon style including outline weight, fill treatment, grid, and color mode"
+nextStepFile: "./step-04-generate.md"
 ---
 
 # Step 3: Select Style
@@ -58,6 +58,7 @@ Present options: [O] Outline, [F] Filled, [D] Duotone, [G] Glyph. Wait for selec
 ### 2. Configure Style Parameters
 
 Based on selection, configure detailed parameters:
+
 - Outline: stroke width, line cap, line join, corner radius
 - Filled: fill style, corner radius
 - Duotone: primary color, secondary opacity

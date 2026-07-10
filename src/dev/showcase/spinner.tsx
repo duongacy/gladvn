@@ -1,28 +1,19 @@
+import {
+  DocsH3,
+  DocsP,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+  SizeToggle,
+} from "@/dev/components/showcase";
 import { useState } from "react";
-import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
 
-import { type Size } from "@/lib/types";
 import { Spinner } from "@/components/micro/spinner";
-import { SelectPreset } from "@/components/macro/select-preset";
+import { type Size } from "@/lib/types";
 
-export default function SpinnerShowcase() {
-  const [globalSize, setGlobalSize] = useState<Size>("md");
-
+function SpinnerMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
-    <div className="space-y-10">
-      <SectionHeader title="Spinner" description="Một chỉ báo quay vòng tải.">
-        <SelectPreset
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as Size)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-          className="w-[120px] h-8 text-xs bg-background"
-        />
-      </SectionHeader>
-
+    <div className="space-y-10 mt-6">
       <ExampleSection
         label="Default"
         description="Máy quay tiêu chuẩn."
@@ -32,5 +23,29 @@ export default function SpinnerShowcase() {
         <Spinner size={globalSize} />
       </ExampleSection>
     </div>
+  );
+}
+
+export default function SpinnerShowcase() {
+  const [globalSize, setGlobalSize] = useState<Size>("md");
+
+  return (
+    <Showcase
+      title="Spinner"
+      description="Một chỉ báo quay vòng tải."
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsH3>Spinner</DocsH3>
+          <DocsP>Sử dụng để hiển thị trạng thái đang tải (loading).</DocsP>
+        </ShowcaseDocs>
+      }
+      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
+      tabs={[
+        {
+          label: "Micro (Primitive)",
+          content: <SpinnerMicroShowcase globalSize={globalSize} />,
+        },
+      ]}
+    />
   );
 }

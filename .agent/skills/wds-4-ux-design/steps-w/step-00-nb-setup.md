@@ -1,11 +1,11 @@
 ---
-name: 'step-00-nb-setup'
-description: 'Confirm Nano Banana MCP server is connected and ready for image generation'
+name: "step-00-nb-setup"
+description: "Confirm Nano Banana MCP server is connected and ready for image generation"
 
 # File References
-nextStepFile: './step-01-visual-approach.md'
-workflowFile: '../workflow.md'
-activityWorkflowFile: '../workflow-visual.md'
+nextStepFile: "./step-01-visual-approach.md"
+workflowFile: "../workflow.md"
+activityWorkflowFile: "../workflow-visual.md"
 ---
 
 # Step 0: Nano Banana Setup & Verify

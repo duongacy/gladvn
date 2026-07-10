@@ -419,14 +419,14 @@ Translator can:
 
 ```typescript
 // Object ID makes purpose clear
-const headline = document.getElementById('start-hero-headline');
-const supportingText = document.getElementById('start-hero-supporting');
+const headline = document.getElementById("start-hero-headline");
+const supportingText = document.getElementById("start-hero-supporting");
 
 // Content referenced by language
 const content = {
-  'start-hero-headline': {
-    en: 'Every walk. on time. Every time.',
-    se: 'Varje promenad. i tid. Varje gång.',
+  "start-hero-headline": {
+    en: "Every walk. on time. Every time.",
+    se: "Varje promenad. i tid. Varje gång.",
   },
 };
 ```

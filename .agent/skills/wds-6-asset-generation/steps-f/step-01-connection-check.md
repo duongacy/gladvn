@@ -1,7 +1,7 @@
 ---
-name: 'step-01-connection-check'
-description: 'Verify html.to.design MCP server connection and guide setup if needed'
-nextStepFile: './step-02-identify-export-type.md'
+name: "step-01-connection-check"
+description: "Verify html.to.design MCP server connection and guide setup if needed"
+nextStepFile: "./step-02-identify-export-type.md"
 ---
 
 # Step 1: Connection Check and Installation
@@ -61,6 +61,7 @@ Check if `mcp2_import-html` tool is accessible in current session. Tool should b
 ### 2. Guide Setup (If Needed)
 
 Inform user that setup requires:
+
 1. Figma account with project access
 2. html.to.design plugin installed in Figma
 3. MCP server configured in IDE
@@ -79,10 +80,11 @@ Once setup is complete, return to verification.
 Execute a test export to verify connection:
 
 ```javascript
-mcp2_import-html({
-  name: "Connection Test",
-  html: "<div style='padding: 20px; background: #f0f0f0; border-radius: 8px; font-family: sans-serif;'>Connection Test Successful</div>"
-})
+mcp2_import -
+  html({
+    name: "Connection Test",
+    html: "<div style='padding: 20px; background: #f0f0f0; border-radius: 8px; font-family: sans-serif;'>Connection Test Successful</div>",
+  });
 ```
 
 Ask: **"Can you see the 'Connection Test' layer in your Figma file?"**

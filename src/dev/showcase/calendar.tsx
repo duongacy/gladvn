@@ -1,17 +1,18 @@
-import { useState } from "react";
 import {
-  SectionHeader,
-  ExampleSection,
+  DocsP,
   ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+  SizeToggle,
 } from "@/dev/components/showcase";
+import { useState } from "react";
 import { type DateRange } from "react-day-picker";
 
-import { type Size } from "@/lib/types";
 import { Calendar } from "@/components/micro/calendar";
-import { SelectPreset } from "@/components/macro/select-preset";
+import { type Size } from "@/lib/types";
 
-export default function CalendarShowcase() {
-  const [globalSize, setGlobalSize] = useState<Size>("md");
+function CalendarMicroShowcase({ globalSize }: { globalSize: Size }) {
   const [singleDate, setSingleDate] = useState<Date | undefined>(new Date());
   const [multipleDates, setMultipleDates] = useState<Date[] | undefined>([
     new Date(2026, 5, 10),
@@ -24,23 +25,7 @@ export default function CalendarShowcase() {
   });
 
   return (
-    <div className="space-y-10">
-      <SectionHeader
-        title="Calendar"
-        description="Thành phần trường ngày cho phép người dùng nhập và chỉnh sửa ngày."
-      >
-        <SelectPreset
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as Size)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-          className="w-[120px] h-8 text-xs bg-background"
-        />
-      </SectionHeader>
-
+    <div className="space-y-10 mt-6">
       <ExampleGrid columns={2}>
         {/* ── Single Date ── */}
         <ExampleSection
@@ -185,5 +170,35 @@ export default function CalendarShowcase() {
         </div>
       </ExampleSection>
     </div>
+  );
+}
+
+// ──────────────────────────────────────────────────────────
+// SECTION 3: Entry point
+// ──────────────────────────────────────────────────────────
+export default function CalendarShowcase() {
+  const [globalSize, setGlobalSize] = useState<Size>("md");
+
+  return (
+    <Showcase
+      title="Calendar"
+      description="Thành phần trường ngày cho phép người dùng nhập và chỉnh sửa ngày."
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsP>
+            Dùng để hiển thị lịch và cho phép người dùng chọn một ngày, nhiều
+            ngày hoặc một khoảng thời gian. Thường được sử dụng kết hợp với
+            Popover để tạo thành DatePicker.
+          </DocsP>
+        </ShowcaseDocs>
+      }
+      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
+      tabs={[
+        {
+          label: "Micro (Primitive)",
+          content: <CalendarMicroShowcase globalSize={globalSize} />,
+        },
+      ]}
+    />
   );
 }

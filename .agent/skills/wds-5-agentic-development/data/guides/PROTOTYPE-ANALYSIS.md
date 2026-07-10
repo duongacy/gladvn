@@ -23,8 +23,8 @@ The Dog Week project demonstrates **production-ready interactive prototypes** th
 
 ### Analyzed Prototypes
 
-| Page                     | Location                                                              | Features Demonstrated                                                      |
-| ------------------------ | --------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| Page                     | Location                                                                 | Features Demonstrated                                                      |
+| ------------------------ | ------------------------------------------------------------------------ | -------------------------------------------------------------------------- |
 | **1.2 Sign In**          | `C-UX-Scenarios/01-Customer-Onboarding/1.2-Sign-In/Frontend/`            | Google SSO, Magic Link, Multi-language, State transitions                  |
 | **1.3 Profile Setup**    | `C-UX-Scenarios/01-Customer-Onboarding/1.3-Profile-Setup/Frontend/`      | Image upload/crop, Form validation, Multi-language, Terms acceptance       |
 | **1.6 Add Dog**          | `C-UX-Scenarios/01-Customer-Onboarding/1.6-Add-Dog/Frontend/`            | Image cropping, Breed search/filter, Split buttons, Character counters     |
@@ -139,9 +139,9 @@ _storage: {
 #### 4. Console Logging
 
 ```javascript
-console.log('🐕 Adding dog to family:', dog.name);
-console.log('👤 Creating user profile:', user);
-console.log('🔐 Signing in with email:', email);
+console.log("🐕 Adding dog to family:", dog.name);
+console.log("👤 Creating user profile:", user);
+console.log("🔐 Signing in with email:", email);
 ```
 
 **Benefit**: Developers can track data flow, test without backend
@@ -157,19 +157,20 @@ console.log('🔐 Signing in with email:', email);
 ```javascript
 const translations = {
   se: {
-    welcomeTitle: 'Välkommen tillbaka',
-    welcomeSubtitle: 'Logga in på ditt konto',
+    welcomeTitle: "Välkommen tillbaka",
+    welcomeSubtitle: "Logga in på ditt konto",
     // ... all UI text
   },
   en: {
-    welcomeTitle: 'Welcome back',
-    welcomeSubtitle: 'Sign in to your account',
+    welcomeTitle: "Welcome back",
+    welcomeSubtitle: "Sign in to your account",
     // ...
   },
 };
 
 function applyLanguage(lang) {
-  document.getElementById('welcomeTitle').textContent = translations[lang].welcomeTitle;
+  document.getElementById("welcomeTitle").textContent =
+    translations[lang].welcomeTitle;
   // ... update all elements
 }
 ```
@@ -199,10 +200,10 @@ function applyLanguage(lang) {
 
 ```javascript
 function handlePictureUpload() {
-  document.getElementById('pictureInput').click();
+  document.getElementById("pictureInput").click();
 }
 
-pictureInput.addEventListener('change', (e) => {
+pictureInput.addEventListener("change", (e) => {
   const file = e.target.files[0];
   if (file) {
     const reader = new FileReader();
@@ -244,7 +245,9 @@ pictureInput.addEventListener('change', (e) => {
 
 ```javascript
 function handleBreedSearch(query) {
-  const filtered = dogBreeds.filter((breed) => breed.toLowerCase().includes(query.toLowerCase()));
+  const filtered = dogBreeds.filter((breed) =>
+    breed.toLowerCase().includes(query.toLowerCase()),
+  );
 
   if (filtered.length === 0) {
     showNoResults();
@@ -272,14 +275,14 @@ function handleBreedSearch(query) {
 ```javascript
 function selectGender(gender) {
   // Remove active from both
-  document.getElementById('genderMale').classList.remove('selected');
-  document.getElementById('genderFemale').classList.remove('selected');
+  document.getElementById("genderMale").classList.remove("selected");
+  document.getElementById("genderFemale").classList.remove("selected");
 
   // Add to selected
-  if (gender === 'male') {
-    document.getElementById('genderMale').classList.add('selected');
+  if (gender === "male") {
+    document.getElementById("genderMale").classList.add("selected");
   } else {
-    document.getElementById('genderFemale').classList.add('selected');
+    document.getElementById("genderFemale").classList.add("selected");
   }
 
   selectedGender = gender;
@@ -350,8 +353,8 @@ function getWeekNumber(date) {
 **Implementation**:
 
 ```javascript
-document.addEventListener('keydown', (e) => {
-  if (e.ctrlKey && e.key === 'e') {
+document.addEventListener("keydown", (e) => {
+  if (e.ctrlKey && e.key === "e") {
     e.preventDefault();
     toggleEditMode();
   }
@@ -378,11 +381,11 @@ function validateField(fieldId, value, validator) {
   const errorElement = document.getElementById(`${fieldId}Error`);
 
   if (!validator(value)) {
-    errorElement.textContent = 'Invalid value';
-    errorElement.classList.remove('hidden');
+    errorElement.textContent = "Invalid value";
+    errorElement.classList.remove("hidden");
     return false;
   } else {
-    errorElement.classList.add('hidden');
+    errorElement.classList.add("hidden");
     return true;
   }
 }
@@ -405,10 +408,10 @@ async function handleSubmit(event) {
   event.preventDefault();
 
   // Show loading state
-  const submitBtn = document.getElementById('submitButton');
+  const submitBtn = document.getElementById("submitButton");
   submitBtn.disabled = true;
-  submitBtn.querySelector('#submitButtonText').classList.add('hidden');
-  submitBtn.querySelector('#submitButtonSpinner').classList.remove('hidden');
+  submitBtn.querySelector("#submitButtonText").classList.add("hidden");
+  submitBtn.querySelector("#submitButtonSpinner").classList.remove("hidden");
 
   try {
     await DogWeekAPI.addDog(formData);
@@ -419,8 +422,8 @@ async function handleSubmit(event) {
   } finally {
     // Reset loading state
     submitBtn.disabled = false;
-    submitBtn.querySelector('#submitButtonText').classList.remove('hidden');
-    submitBtn.querySelector('#submitButtonSpinner').classList.add('hidden');
+    submitBtn.querySelector("#submitButtonText").classList.remove("hidden");
+    submitBtn.querySelector("#submitButtonSpinner").classList.add("hidden");
   }
 }
 ```
@@ -440,12 +443,12 @@ async function handleSubmit(event) {
 
 ```javascript
 function showSuccessToast(message) {
-  const toast = document.getElementById('successToast');
-  toast.querySelector('#successToastMessage').textContent = message;
-  toast.classList.remove('hidden');
+  const toast = document.getElementById("successToast");
+  toast.querySelector("#successToastMessage").textContent = message;
+  toast.classList.remove("hidden");
 
   setTimeout(() => {
-    toast.classList.add('hidden');
+    toast.classList.add("hidden");
   }, 3000);
 }
 ```
@@ -461,7 +464,13 @@ function showSuccessToast(message) {
 **Every interactive element** has a `data-object-id` attribute:
 
 ```html
-<button id="add-dog-button-submit" data-object-id="add-dog-button-submit" class="submit-button">Lägg till hund</button>
+<button
+  id="add-dog-button-submit"
+  data-object-id="add-dog-button-submit"
+  class="submit-button"
+>
+  Lägg till hund
+</button>
 ```
 
 **Purpose**:
@@ -606,9 +615,9 @@ function showSuccessToast(message) {
 
 ```javascript
 const user = await DogWeekAPI.createUserProfile({
-  firstName: 'Patrick',
-  lastName: 'Parent',
-  email: 'patrick@example.com',
+  firstName: "Patrick",
+  lastName: "Parent",
+  email: "patrick@example.com",
 });
 ```
 
@@ -681,7 +690,10 @@ Page-Name/
     <title>[Page Number] [Page Name] - [Project Name]</title>
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Page-specific styles -->
     <link rel="stylesheet" href="[Page-Name]-Preview.css" />
@@ -715,7 +727,11 @@ Page-Name/
 **Every interactive element** must have:
 
 ```html
-<button id="page-section-action" data-object-id="page-section-action" onclick="handleAction()"></button>
+<button
+  id="page-section-action"
+  data-object-id="page-section-action"
+  onclick="handleAction()"
+></button>
 ```
 
 **Naming Convention**: `[page]-[section]-[action]`

@@ -1,1 +1,261 @@
-import{Nn as e,cr as t,d as n,dr as r,f as i,i as a,m as o,n as s,p as c,r as l}from"./showcase-vJrKG7HA.js";var u=r(t(),1),d=e(),f=u.forwardRef(({items:e,variant:t,listClassName:r,...a},s)=>(0,d.jsxs)(n,{ref:s,...a,children:[(0,d.jsx)(c,{variant:t,className:r,children:e.map(e=>(0,d.jsx)(o,{value:e.value,disabled:e.disabled,children:e.title},e.value))}),e.map(e=>(0,d.jsx)(i,{value:e.value,children:e.content},e.value))]}));f.displayName=`TabsPreset`;function p(){return(0,d.jsxs)(`div`,{className:`space-y-10`,children:[(0,d.jsx)(a,{title:`Tabs (Macro)`,description:`Thành phần preset hiển thị chế độ xem tab hoàn chỉnh từ một mảng items.`}),(0,d.jsxs)(s,{columns:2,children:[(0,d.jsx)(l,{label:`Standard`,description:`Tabs cơ bản từ mảng items.`,children:(0,d.jsx)(f,{defaultValue:`account`,className:`w-full`,items:[{value:`account`,title:`Account`,content:(0,d.jsxs)(`div`,{className:`rounded-xl border bg-card p-4 mt-2`,children:[(0,d.jsx)(`h4`,{className:`font-medium`,children:`Account`}),(0,d.jsx)(`p`,{className:`text-sm text-muted-foreground`,children:`Account settings here.`})]})},{value:`password`,title:`Password`,content:(0,d.jsxs)(`div`,{className:`rounded-xl border bg-card p-4 mt-2`,children:[(0,d.jsx)(`h4`,{className:`font-medium`,children:`Password`}),(0,d.jsx)(`p`,{className:`text-sm text-muted-foreground`,children:`Change your password here.`})]})}]})}),(0,d.jsx)(l,{label:`With Disabled Tab`,description:`Một tab không thể tương tác.`,children:(0,d.jsx)(f,{defaultValue:`general`,className:`w-full`,items:[{value:`general`,title:`General`,content:(0,d.jsxs)(`div`,{className:`rounded-xl border bg-card p-4 mt-2`,children:[(0,d.jsx)(`h4`,{className:`font-medium`,children:`General`}),(0,d.jsx)(`p`,{className:`text-sm text-muted-foreground`,children:`General settings.`})]})},{value:`advanced`,title:`Advanced (Pro)`,content:(0,d.jsx)(d.Fragment,{}),disabled:!0}]})})]}),(0,d.jsx)(l,{label:`Line Variant`,description:`Sử dụng prop variant='line' để hiển thị tabs kiểu gạch chân.`,fullWidth:!0,children:(0,d.jsx)(`div`,{className:`max-w-lg`,children:(0,d.jsx)(f,{defaultValue:`overview`,variant:`line`,listClassName:`w-full justify-start border-b rounded-none px-0`,className:`w-full`,items:[{value:`overview`,title:`Overview`,content:(0,d.jsxs)(`div`,{className:`pt-4`,children:[(0,d.jsx)(`h4`,{className:`font-medium`,children:`Overview`}),(0,d.jsx)(`p`,{className:`text-sm text-muted-foreground`,children:`High-level project statistics and activity feed.`})]})},{value:`analytics`,title:`Analytics`,content:(0,d.jsxs)(`div`,{className:`pt-4`,children:[(0,d.jsx)(`h4`,{className:`font-medium`,children:`Analytics`}),(0,d.jsx)(`p`,{className:`text-sm text-muted-foreground`,children:`Charts and data visualizations.`})]})},{value:`reports`,title:`Reports`,content:(0,d.jsxs)(`div`,{className:`pt-4`,children:[(0,d.jsx)(`h4`,{className:`font-medium`,children:`Reports`}),(0,d.jsx)(`p`,{className:`text-sm text-muted-foreground`,children:`Generated reports and exports.`})]})}]})})}),(0,d.jsx)(l,{label:`Complex Content`,description:`Hiển thị các thành phần phức tạp như biểu mẫu bên trong nội dung tab.`,fullWidth:!0,children:(0,d.jsx)(`div`,{className:`max-w-lg`,children:(0,d.jsx)(f,{defaultValue:`login`,className:`w-full`,items:[{value:`login`,title:`Login`,content:(0,d.jsxs)(`div`,{className:`rounded-xl border bg-card p-6 mt-2 flex flex-col gap-4`,children:[(0,d.jsx)(`div`,{className:`text-lg font-semibold`,children:`Welcome Back`}),(0,d.jsx)(`div`,{className:`h-10 w-full bg-muted rounded-md`}),(0,d.jsx)(`div`,{className:`h-10 w-full bg-muted rounded-md`}),(0,d.jsx)(`button`,{className:`bg-primary text-primary-foreground h-10 rounded-md text-sm font-medium`,children:`Sign In`})]})},{value:`register`,title:`Register`,content:(0,d.jsxs)(`div`,{className:`rounded-xl border bg-card p-6 mt-2 flex flex-col gap-4`,children:[(0,d.jsx)(`div`,{className:`text-lg font-semibold`,children:`Create Account`}),(0,d.jsx)(`div`,{className:`h-10 w-full bg-muted rounded-md`}),(0,d.jsx)(`div`,{className:`h-10 w-full bg-muted rounded-md`}),(0,d.jsx)(`div`,{className:`h-10 w-full bg-muted rounded-md`}),(0,d.jsx)(`button`,{className:`bg-primary text-primary-foreground h-10 rounded-md text-sm font-medium`,children:`Sign Up`})]})}]})})})]})}export{p as default};
+import {
+  Nn as e,
+  cr as t,
+  d as n,
+  dr as r,
+  f as i,
+  i as a,
+  m as o,
+  n as s,
+  p as c,
+  r as l,
+} from "./showcase-vJrKG7HA.js";
+var u = r(t(), 1),
+  d = e(),
+  f = u.forwardRef(({ items: e, variant: t, listClassName: r, ...a }, s) =>
+    (0, d.jsxs)(n, {
+      ref: s,
+      ...a,
+      children: [
+        (0, d.jsx)(c, {
+          variant: t,
+          className: r,
+          children: e.map((e) =>
+            (0, d.jsx)(
+              o,
+              { value: e.value, disabled: e.disabled, children: e.title },
+              e.value,
+            ),
+          ),
+        }),
+        e.map((e) =>
+          (0, d.jsx)(i, { value: e.value, children: e.content }, e.value),
+        ),
+      ],
+    }),
+  );
+f.displayName = `TabsPreset`;
+function p() {
+  return (0, d.jsxs)(`div`, {
+    className: `space-y-10`,
+    children: [
+      (0, d.jsx)(a, {
+        title: `Tabs (Macro)`,
+        description: `Thành phần preset hiển thị chế độ xem tab hoàn chỉnh từ một mảng items.`,
+      }),
+      (0, d.jsxs)(s, {
+        columns: 2,
+        children: [
+          (0, d.jsx)(l, {
+            label: `Standard`,
+            description: `Tabs cơ bản từ mảng items.`,
+            children: (0, d.jsx)(f, {
+              defaultValue: `account`,
+              className: `w-full`,
+              items: [
+                {
+                  value: `account`,
+                  title: `Account`,
+                  content: (0, d.jsxs)(`div`, {
+                    className: `rounded-xl border bg-card p-4 mt-2`,
+                    children: [
+                      (0, d.jsx)(`h4`, {
+                        className: `font-medium`,
+                        children: `Account`,
+                      }),
+                      (0, d.jsx)(`p`, {
+                        className: `text-sm text-muted-foreground`,
+                        children: `Account settings here.`,
+                      }),
+                    ],
+                  }),
+                },
+                {
+                  value: `password`,
+                  title: `Password`,
+                  content: (0, d.jsxs)(`div`, {
+                    className: `rounded-xl border bg-card p-4 mt-2`,
+                    children: [
+                      (0, d.jsx)(`h4`, {
+                        className: `font-medium`,
+                        children: `Password`,
+                      }),
+                      (0, d.jsx)(`p`, {
+                        className: `text-sm text-muted-foreground`,
+                        children: `Change your password here.`,
+                      }),
+                    ],
+                  }),
+                },
+              ],
+            }),
+          }),
+          (0, d.jsx)(l, {
+            label: `With Disabled Tab`,
+            description: `Một tab không thể tương tác.`,
+            children: (0, d.jsx)(f, {
+              defaultValue: `general`,
+              className: `w-full`,
+              items: [
+                {
+                  value: `general`,
+                  title: `General`,
+                  content: (0, d.jsxs)(`div`, {
+                    className: `rounded-xl border bg-card p-4 mt-2`,
+                    children: [
+                      (0, d.jsx)(`h4`, {
+                        className: `font-medium`,
+                        children: `General`,
+                      }),
+                      (0, d.jsx)(`p`, {
+                        className: `text-sm text-muted-foreground`,
+                        children: `General settings.`,
+                      }),
+                    ],
+                  }),
+                },
+                {
+                  value: `advanced`,
+                  title: `Advanced (Pro)`,
+                  content: (0, d.jsx)(d.Fragment, {}),
+                  disabled: !0,
+                },
+              ],
+            }),
+          }),
+        ],
+      }),
+      (0, d.jsx)(l, {
+        label: `Line Variant`,
+        description: `Sử dụng prop variant='line' để hiển thị tabs kiểu gạch chân.`,
+        fullWidth: !0,
+        children: (0, d.jsx)(`div`, {
+          className: `max-w-lg`,
+          children: (0, d.jsx)(f, {
+            defaultValue: `overview`,
+            variant: `line`,
+            listClassName: `w-full justify-start border-b rounded-none px-0`,
+            className: `w-full`,
+            items: [
+              {
+                value: `overview`,
+                title: `Overview`,
+                content: (0, d.jsxs)(`div`, {
+                  className: `pt-4`,
+                  children: [
+                    (0, d.jsx)(`h4`, {
+                      className: `font-medium`,
+                      children: `Overview`,
+                    }),
+                    (0, d.jsx)(`p`, {
+                      className: `text-sm text-muted-foreground`,
+                      children: `High-level project statistics and activity feed.`,
+                    }),
+                  ],
+                }),
+              },
+              {
+                value: `analytics`,
+                title: `Analytics`,
+                content: (0, d.jsxs)(`div`, {
+                  className: `pt-4`,
+                  children: [
+                    (0, d.jsx)(`h4`, {
+                      className: `font-medium`,
+                      children: `Analytics`,
+                    }),
+                    (0, d.jsx)(`p`, {
+                      className: `text-sm text-muted-foreground`,
+                      children: `Charts and data visualizations.`,
+                    }),
+                  ],
+                }),
+              },
+              {
+                value: `reports`,
+                title: `Reports`,
+                content: (0, d.jsxs)(`div`, {
+                  className: `pt-4`,
+                  children: [
+                    (0, d.jsx)(`h4`, {
+                      className: `font-medium`,
+                      children: `Reports`,
+                    }),
+                    (0, d.jsx)(`p`, {
+                      className: `text-sm text-muted-foreground`,
+                      children: `Generated reports and exports.`,
+                    }),
+                  ],
+                }),
+              },
+            ],
+          }),
+        }),
+      }),
+      (0, d.jsx)(l, {
+        label: `Complex Content`,
+        description: `Hiển thị các thành phần phức tạp như biểu mẫu bên trong nội dung tab.`,
+        fullWidth: !0,
+        children: (0, d.jsx)(`div`, {
+          className: `max-w-lg`,
+          children: (0, d.jsx)(f, {
+            defaultValue: `login`,
+            className: `w-full`,
+            items: [
+              {
+                value: `login`,
+                title: `Login`,
+                content: (0, d.jsxs)(`div`, {
+                  className: `rounded-xl border bg-card p-6 mt-2 flex flex-col gap-4`,
+                  children: [
+                    (0, d.jsx)(`div`, {
+                      className: `text-lg font-semibold`,
+                      children: `Welcome Back`,
+                    }),
+                    (0, d.jsx)(`div`, {
+                      className: `h-10 w-full bg-muted rounded-md`,
+                    }),
+                    (0, d.jsx)(`div`, {
+                      className: `h-10 w-full bg-muted rounded-md`,
+                    }),
+                    (0, d.jsx)(`button`, {
+                      className: `bg-primary text-primary-foreground h-10 rounded-md text-sm font-medium`,
+                      children: `Sign In`,
+                    }),
+                  ],
+                }),
+              },
+              {
+                value: `register`,
+                title: `Register`,
+                content: (0, d.jsxs)(`div`, {
+                  className: `rounded-xl border bg-card p-6 mt-2 flex flex-col gap-4`,
+                  children: [
+                    (0, d.jsx)(`div`, {
+                      className: `text-lg font-semibold`,
+                      children: `Create Account`,
+                    }),
+                    (0, d.jsx)(`div`, {
+                      className: `h-10 w-full bg-muted rounded-md`,
+                    }),
+                    (0, d.jsx)(`div`, {
+                      className: `h-10 w-full bg-muted rounded-md`,
+                    }),
+                    (0, d.jsx)(`div`, {
+                      className: `h-10 w-full bg-muted rounded-md`,
+                    }),
+                    (0, d.jsx)(`button`, {
+                      className: `bg-primary text-primary-foreground h-10 rounded-md text-sm font-medium`,
+                      children: `Sign Up`,
+                    }),
+                  ],
+                }),
+              },
+            ],
+          }),
+        }),
+      }),
+    ],
+  });
+}
+export { p as default };

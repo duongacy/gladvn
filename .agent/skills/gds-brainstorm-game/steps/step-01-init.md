@@ -1,19 +1,19 @@
 ---
-name: 'step-01-init'
-description: 'Initialize the game brainstorming workflow and validate readiness'
+name: "step-01-init"
+description: "Initialize the game brainstorming workflow and validate readiness"
 
 # Path Definitions
-workflow_path: '{installed_path}'
+workflow_path: "{installed_path}"
 
 # File References
-thisStepFile: './step-01-init.md'
-nextStepFile: './step-02-context.md'
-workflowFile: '{workflow_path}/workflow.md'
-outputFile: '{output_folder}/brainstorming-session-{date}.md'
+thisStepFile: "./step-01-init.md"
+nextStepFile: "./step-02-context.md"
+workflowFile: "{workflow_path}/workflow.md"
+outputFile: "{output_folder}/brainstorming-session-{date}.md"
 
 # Context Files
-gameContext: '{workflow_path}/game-context.md'
-gameBrainMethods: '{workflow_path}/game-brain-methods.csv'
+gameContext: "{workflow_path}/game-context.md"
+gameBrainMethods: "{workflow_path}/game-brain-methods.csv"
 ---
 
 # Step 1: Initialize Brainstorming
@@ -116,12 +116,12 @@ Create `{outputFile}` with frontmatter:
 
 ```markdown
 ---
-title: 'Game Brainstorming Session'
-date: '{{date}}'
-author: '{{user_name}}'
-version: '1.0'
+title: "Game Brainstorming Session"
+date: "{{date}}"
+author: "{{user_name}}"
+version: "1.0"
 stepsCompleted: [1]
-status: 'in-progress'
+status: "in-progress"
 ---
 
 # Game Brainstorming Session

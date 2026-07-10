@@ -1,9 +1,9 @@
 ---
-name: 'step-05-finalize'
-description: 'Clean up, run the full test suite, document deviations, and prepare the work for review'
+name: "step-05-finalize"
+description: "Clean up, run the full test suite, document deviations, and prepare the work for review"
 
 # File References
-activityWorkflowFile: '../workflow-development.md'
+activityWorkflowFile: "../workflow-development.md"
 ---
 
 # Step 5: Finalize
@@ -92,6 +92,7 @@ If you deviated from the spec during implementation (discovered in Step 03 or St
 ## Spec Deviations
 
 ### [Component/Feature Name]
+
 - **Spec said:** [what the spec required]
 - **Implementation does:** [what you built instead]
 - **Reason:** [why the deviation was necessary]
@@ -147,10 +148,12 @@ Based on what was built, recommend next steps:
 Display: "**Select an Option:** [M] Return to Activity Menu"
 
 #### Menu Handling Logic:
+
 - IF M: Update design log, then load, read entire file, then execute {activityWorkflowFile}
 - IF Any other comments or queries: help user respond then [Redisplay Menu Options]
 
 #### EXECUTION RULES:
+
 - ALWAYS halt and wait for user input after presenting menu
 - ONLY proceed when user selects 'M'
 - User can chat or ask questions - always respond and then redisplay menu options
@@ -164,6 +167,7 @@ ONLY WHEN all cleanup is done, tests pass, deviations are documented, and PR is 
 ## 🚨 SYSTEM SUCCESS/FAILURE METRICS
 
 ### ✅ SUCCESS:
+
 - Debug statements removed
 - Unused code and imports removed
 - Full test suite passes (or pre-existing failures match baseline)
@@ -173,6 +177,7 @@ ONLY WHEN all cleanup is done, tests pass, deviations are documented, and PR is 
 - Next steps recommended
 
 ### ❌ SYSTEM FAILURE:
+
 - Leaving debug statements in code
 - Not running the full test suite
 - Not documenting spec deviations

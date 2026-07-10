@@ -1,1 +1,434 @@
-import{E as e,Ft as t,Gn as n,Hn as r,I as i,It as a,Kn as o,Nn as s,O as c,Pn as l,Rn as u,Rt as d,Un as f,Vn as p,Yt as m,cr as h,dr as g,g as _,h as v,k as y,on as b,qn as x,vt as ee,wn as te,zn as S}from"./showcase-vJrKG7HA.js";import{n as ne,t as C}from"./visuallyHidden-CrYY0HH5.js";import{$ as re,F as ie,H as w,J as T,N as E,X as ae,Y as oe,i as se,tt as D}from"./index-Dk0REsC9.js";import{t as ce}from"./CompositeItem-lQIM2wtg.js";import{t as le}from"./FieldItemContext-Btsx2iWR.js";var O=s(),k=g(h(),1),A=k.createContext(void 0);function ue(e=!1){let t=k.useContext(A);if(!t&&!e)throw Error(r(86));return t}var j=function(e){return e.checked=`data-checked`,e.unchecked=`data-unchecked`,e.disabled=`data-disabled`,e.readonly=`data-readonly`,e.required=`data-required`,e.valid=`data-valid`,e.invalid=`data-invalid`,e.touched=`data-touched`,e.dirty=`data-dirty`,e.filled=`data-filled`,e.focused=`data-focused`,e}({}),M={checked(e){return e?{[j.checked]:``}:{[j.unchecked]:``}},...i,...D},N=k.createContext(void 0);function P(){return k.useContext(N)}var F=k.createContext(void 0);function I(){let e=k.useContext(F);if(e===void 0)throw Error(r(52));return e}var L=k.forwardRef(function(e,r){let{render:i,className:o,disabled:s=!1,readOnly:c=!1,required:h=!1,"aria-labelledby":g,value:_,inputRef:v,nativeButton:y=!1,id:x,style:ee,...ie}=e,E=P(),{disabled:ae,readOnly:D,required:A,form:ue,checkedValue:j,touched:N=!1,validation:I,name:L}=E??{},R=E?.setCheckedValue??S,de=E?.setTouched??S,z=E?.registerControlRef??S,B=E?.registerInputRef??S,{setTouched:V,setFilled:H,state:U,disabled:W}=re(),G=le(),{labelId:K,getDescriptionProps:fe}=oe(),q=W||G.disabled||ae||s,J=D||c,Y=A||h,pe=ue,X=E?j===_:_===``,Z=k.useRef(null),Q=k.useRef(null),me=f(e=>{e&&z(e,q)}),he=p(v,Q,B);n(()=>{Q.current?.checked&&H(!0)},[H]),n(()=>{if(Q.current){if(q&&X){B(null);return}Z.current&&z(Z.current,q),B(Q.current)}},[X,q,z,B]);let ge=d(),_e=T({id:x,implicit:!1,controlRef:Z}),ve=y?void 0:_e,ye=se(g,K,Q,!y,ve),be={role:`radio`,"aria-checked":X,"aria-required":Y||void 0,"aria-readonly":J||void 0,"aria-labelledby":ye,[t]:X?``:void 0,id:y?_e:ge,onKeyDown(e){e.key===`Enter`&&e.preventDefault()},onClick(e){if(e.defaultPrevented||q||J)return;e.preventDefault();let t=Q.current;t&&t.dispatchEvent(new(m(t)).PointerEvent(`click`,{bubbles:!0,shiftKey:e.shiftKey,ctrlKey:e.ctrlKey,altKey:e.altKey,metaKey:e.metaKey}))},onFocus(e){e.defaultPrevented||q||J||!N||(Q.current?.click(),de(!1))}},{getButtonProps:xe,buttonRef:Se}=a({disabled:q,native:y,composite:!1}),Ce={type:`radio`,ref:he,form:pe,id:ve,name:L,tabIndex:-1,style:L?ne:C,"aria-hidden":!0,..._===void 0?u:{value:w(_)},disabled:q,checked:X,required:Y,readOnly:J,onChange(e){if(e.nativeEvent.defaultPrevented||q||J||_===void 0)return;let t=b(te,e.nativeEvent);R(_,t),!t.isCanceled&&V(!0)},onFocus(){Z.current?.focus()}},$=k.useMemo(()=>({...U,required:Y,disabled:q,readOnly:J,checked:X}),[U,q,J,X,Y]),we=$,Te=E!==void 0,Ee=[r,Z,Se,me],De=[be,ie,xe,fe,I?e=>I.getValidationProps(q,e):u],Oe=l(`span`,e,{enabled:!Te,state:$,ref:Ee,props:De,stateAttributesMapping:M});return(0,O.jsxs)(F.Provider,{value:we,children:[Te?(0,O.jsx)(ce,{tag:`span`,render:i,className:o,style:ee,state:$,refs:Ee,props:De,stateAttributesMapping:M}):Oe,(0,O.jsx)(`input`,{...Ce,suppressHydrationWarning:!0})]})}),R=k.forwardRef(function(e,t){let{render:n,className:r,style:i,keepMounted:a=!1,...o}=e,s=I(),u=s.checked,{mounted:d,transitionStatus:f,setMounted:p}=c(u),m={...s,transitionStatus:f},h=k.useRef(null),g=a||d,_=l(`span`,e,{ref:[t,h],state:m,props:o,stateAttributesMapping:M});return y({open:u,ref:h,onComplete(){u||p(!1)}}),g?_:null}),de=[e],z=k.forwardRef(function(e,t){let{render:n,className:r,disabled:i,readOnly:a,required:s,onValueChange:c,value:l,defaultValue:u,form:p,name:m,inputRef:h,id:g,style:v,...y}=e,{setTouched:b,setFocused:x,validationMode:te,name:S,disabled:ne,state:C,validation:w,setDirty:T,setFilled:se,validityData:ce}=re(),{labelId:le}=oe(),{clearErrors:A}=ie(),j=ue(!0),M=ne||i,P=S??m,F=d(g),[I,L]=o({controlled:l,default:u,name:`RadioGroup`,state:`value`}),[R,z]=k.useState(!1),B=f((e,t)=>{c?.(e,t),!t.isCanceled&&L(e)}),V=k.useRef(null),H=k.useRef(null),U=k.useRef(null);function W(e){let t;return h&&(typeof h==`function`?t=h(e):h.current=e),H.current=e,w.inputRef.current=e,t}let G=f((e,t=!1)=>{if(e){if(t){V.current===e&&(V.current=null);return}V.current??=e}}),K=f(e=>{if(!e||e.disabled)return;U.current||=e;let t=H.current;if(e.checked||t==null||t.disabled)return W(e)}),fe=f(()=>{let e=H.current;return!e||e.disabled||!e.checked?null:I??null});ae(V,F,I??null,fe,!M,m),E(I,()=>{A(P),T(I!==ce.initialValue),se(I!=null),w.change(I);let e=U.current;I==null&&e&&!e.disabled&&W(e)});let q=y[`aria-labelledby`]??le??j?.legendId,J={...C,disabled:M??!1,required:s??!1,readOnly:a??!1},Y=k.useMemo(()=>({...C,checkedValue:I,disabled:M,form:p,validation:w,name:P,readOnly:a,registerControlRef:G,registerInputRef:K,required:s,setCheckedValue:B,setTouched:z,touched:R}),[I,M,p,w,C,P,a,G,K,s,B,z,R]),pe={id:g,role:`radiogroup`,"aria-required":s||void 0,"aria-disabled":M||void 0,"aria-readonly":a||void 0,"aria-labelledby":q,onFocus(){x(!0)},onBlur(e){ee(e.currentTarget,e.relatedTarget)||(b(!0),x(!1),te===`onBlur`&&w.commit(I))},onKeyDownCapture(e){e.key.startsWith(`Arrow`)&&(z(!0),x(!0))}};return(0,O.jsx)(N.Provider,{value:Y,children:(0,O.jsx)(_,{render:n,className:r,style:v,state:J,props:[pe,y,e=>w.getValidationProps(M??!1,e)],refs:[t],stateAttributesMapping:D,enableHomeAndEndKeys:!1,modifierKeys:de})})}),B=k.forwardRef(function({className:e,...t},n){return(0,O.jsx)(z,{ref:n,"data-slot":`radio-group`,className:x(`grid gap-2`,e),...t})});B.displayName=`RadioGroup`;var V=v(`group/radio peer relative flex aspect-square shrink-0 rounded-full border border-input after:absolute after:content-[''] outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-offset-1 focus-visible:ring-offset-background disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:border-destructive aria-invalid:focus-visible:ring-3 aria-invalid:focus-visible:ring-destructive/50 aria-invalid:aria-checked:border-primary dark:bg-input/30 dark:aria-invalid:border-destructive/50 dark:aria-invalid:focus-visible:ring-destructive/50 data-checked:border-primary data-checked:bg-primary data-checked:text-primary-foreground dark:data-checked:bg-primary`,{variants:{size:{sm:`size-3.5 after:-inset-x-2.5 after:-inset-y-2.5`,md:`size-4 after:-inset-x-3 after:-inset-y-2`,lg:`size-5 after:-inset-x-4 after:-inset-y-3`}}}),H=k.forwardRef(function({className:e,size:t=`md`,...n},r){return(0,O.jsx)(L,{ref:r,"data-slot":`radio-group-item`,"data-size":t,className:x(V({size:t,className:e})),...n,children:(0,O.jsx)(R,{"data-slot":`radio-group-indicator`,className:`flex items-center justify-center size-4 group-data-[size=sm]/radio:size-3.5 group-data-[size=lg]/radio:size-5`,children:(0,O.jsx)(`span`,{className:`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-foreground size-2 group-data-[size=sm]/radio:size-1.5 group-data-[size=lg]/radio:size-2.5`})})})});H.displayName=`RadioGroupItem`;export{H as n,B as t};
+import {
+  E as e,
+  Ft as t,
+  Gn as n,
+  Hn as r,
+  I as i,
+  It as a,
+  Kn as o,
+  Nn as s,
+  O as c,
+  Pn as l,
+  Rn as u,
+  Rt as d,
+  Un as f,
+  Vn as p,
+  Yt as m,
+  cr as h,
+  dr as g,
+  g as _,
+  h as v,
+  k as y,
+  on as b,
+  qn as x,
+  vt as ee,
+  wn as te,
+  zn as S,
+} from "./showcase-vJrKG7HA.js";
+import { n as ne, t as C } from "./visuallyHidden-CrYY0HH5.js";
+import {
+  $ as re,
+  F as ie,
+  H as w,
+  J as T,
+  N as E,
+  X as ae,
+  Y as oe,
+  i as se,
+  tt as D,
+} from "./index-Dk0REsC9.js";
+import { t as ce } from "./CompositeItem-lQIM2wtg.js";
+import { t as le } from "./FieldItemContext-Btsx2iWR.js";
+var O = s(),
+  k = g(h(), 1),
+  A = k.createContext(void 0);
+function ue(e = !1) {
+  let t = k.useContext(A);
+  if (!t && !e) throw Error(r(86));
+  return t;
+}
+var j = (function (e) {
+    return (
+      (e.checked = `data-checked`),
+      (e.unchecked = `data-unchecked`),
+      (e.disabled = `data-disabled`),
+      (e.readonly = `data-readonly`),
+      (e.required = `data-required`),
+      (e.valid = `data-valid`),
+      (e.invalid = `data-invalid`),
+      (e.touched = `data-touched`),
+      (e.dirty = `data-dirty`),
+      (e.filled = `data-filled`),
+      (e.focused = `data-focused`),
+      e
+    );
+  })({}),
+  M = {
+    checked(e) {
+      return e ? { [j.checked]: `` } : { [j.unchecked]: `` };
+    },
+    ...i,
+    ...D,
+  },
+  N = k.createContext(void 0);
+function P() {
+  return k.useContext(N);
+}
+var F = k.createContext(void 0);
+function I() {
+  let e = k.useContext(F);
+  if (e === void 0) throw Error(r(52));
+  return e;
+}
+var L = k.forwardRef(function (e, r) {
+    let {
+        render: i,
+        className: o,
+        disabled: s = !1,
+        readOnly: c = !1,
+        required: h = !1,
+        "aria-labelledby": g,
+        value: _,
+        inputRef: v,
+        nativeButton: y = !1,
+        id: x,
+        style: ee,
+        ...ie
+      } = e,
+      E = P(),
+      {
+        disabled: ae,
+        readOnly: D,
+        required: A,
+        form: ue,
+        checkedValue: j,
+        touched: N = !1,
+        validation: I,
+        name: L,
+      } = E ?? {},
+      R = E?.setCheckedValue ?? S,
+      de = E?.setTouched ?? S,
+      z = E?.registerControlRef ?? S,
+      B = E?.registerInputRef ?? S,
+      { setTouched: V, setFilled: H, state: U, disabled: W } = re(),
+      G = le(),
+      { labelId: K, getDescriptionProps: fe } = oe(),
+      q = W || G.disabled || ae || s,
+      J = D || c,
+      Y = A || h,
+      pe = ue,
+      X = E ? j === _ : _ === ``,
+      Z = k.useRef(null),
+      Q = k.useRef(null),
+      me = f((e) => {
+        e && z(e, q);
+      }),
+      he = p(v, Q, B);
+    (n(() => {
+      Q.current?.checked && H(!0);
+    }, [H]),
+      n(() => {
+        if (Q.current) {
+          if (q && X) {
+            B(null);
+            return;
+          }
+          (Z.current && z(Z.current, q), B(Q.current));
+        }
+      }, [X, q, z, B]));
+    let ge = d(),
+      _e = T({ id: x, implicit: !1, controlRef: Z }),
+      ve = y ? void 0 : _e,
+      ye = se(g, K, Q, !y, ve),
+      be = {
+        role: `radio`,
+        "aria-checked": X,
+        "aria-required": Y || void 0,
+        "aria-readonly": J || void 0,
+        "aria-labelledby": ye,
+        [t]: X ? `` : void 0,
+        id: y ? _e : ge,
+        onKeyDown(e) {
+          e.key === `Enter` && e.preventDefault();
+        },
+        onClick(e) {
+          if (e.defaultPrevented || q || J) return;
+          e.preventDefault();
+          let t = Q.current;
+          t &&
+            t.dispatchEvent(
+              new (m(t).PointerEvent)(`click`, {
+                bubbles: !0,
+                shiftKey: e.shiftKey,
+                ctrlKey: e.ctrlKey,
+                altKey: e.altKey,
+                metaKey: e.metaKey,
+              }),
+            );
+        },
+        onFocus(e) {
+          e.defaultPrevented || q || J || !N || (Q.current?.click(), de(!1));
+        },
+      },
+      { getButtonProps: xe, buttonRef: Se } = a({
+        disabled: q,
+        native: y,
+        composite: !1,
+      }),
+      Ce = {
+        type: `radio`,
+        ref: he,
+        form: pe,
+        id: ve,
+        name: L,
+        tabIndex: -1,
+        style: L ? ne : C,
+        "aria-hidden": !0,
+        ...(_ === void 0 ? u : { value: w(_) }),
+        disabled: q,
+        checked: X,
+        required: Y,
+        readOnly: J,
+        onChange(e) {
+          if (e.nativeEvent.defaultPrevented || q || J || _ === void 0) return;
+          let t = b(te, e.nativeEvent);
+          (R(_, t), !t.isCanceled && V(!0));
+        },
+        onFocus() {
+          Z.current?.focus();
+        },
+      },
+      $ = k.useMemo(
+        () => ({ ...U, required: Y, disabled: q, readOnly: J, checked: X }),
+        [U, q, J, X, Y],
+      ),
+      we = $,
+      Te = E !== void 0,
+      Ee = [r, Z, Se, me],
+      De = [be, ie, xe, fe, I ? (e) => I.getValidationProps(q, e) : u],
+      Oe = l(`span`, e, {
+        enabled: !Te,
+        state: $,
+        ref: Ee,
+        props: De,
+        stateAttributesMapping: M,
+      });
+    return (0, O.jsxs)(F.Provider, {
+      value: we,
+      children: [
+        Te
+          ? (0, O.jsx)(ce, {
+              tag: `span`,
+              render: i,
+              className: o,
+              style: ee,
+              state: $,
+              refs: Ee,
+              props: De,
+              stateAttributesMapping: M,
+            })
+          : Oe,
+        (0, O.jsx)(`input`, { ...Ce, suppressHydrationWarning: !0 }),
+      ],
+    });
+  }),
+  R = k.forwardRef(function (e, t) {
+    let { render: n, className: r, style: i, keepMounted: a = !1, ...o } = e,
+      s = I(),
+      u = s.checked,
+      { mounted: d, transitionStatus: f, setMounted: p } = c(u),
+      m = { ...s, transitionStatus: f },
+      h = k.useRef(null),
+      g = a || d,
+      _ = l(`span`, e, {
+        ref: [t, h],
+        state: m,
+        props: o,
+        stateAttributesMapping: M,
+      });
+    return (
+      y({
+        open: u,
+        ref: h,
+        onComplete() {
+          u || p(!1);
+        },
+      }),
+      g ? _ : null
+    );
+  }),
+  de = [e],
+  z = k.forwardRef(function (e, t) {
+    let {
+        render: n,
+        className: r,
+        disabled: i,
+        readOnly: a,
+        required: s,
+        onValueChange: c,
+        value: l,
+        defaultValue: u,
+        form: p,
+        name: m,
+        inputRef: h,
+        id: g,
+        style: v,
+        ...y
+      } = e,
+      {
+        setTouched: b,
+        setFocused: x,
+        validationMode: te,
+        name: S,
+        disabled: ne,
+        state: C,
+        validation: w,
+        setDirty: T,
+        setFilled: se,
+        validityData: ce,
+      } = re(),
+      { labelId: le } = oe(),
+      { clearErrors: A } = ie(),
+      j = ue(!0),
+      M = ne || i,
+      P = S ?? m,
+      F = d(g),
+      [I, L] = o({
+        controlled: l,
+        default: u,
+        name: `RadioGroup`,
+        state: `value`,
+      }),
+      [R, z] = k.useState(!1),
+      B = f((e, t) => {
+        (c?.(e, t), !t.isCanceled && L(e));
+      }),
+      V = k.useRef(null),
+      H = k.useRef(null),
+      U = k.useRef(null);
+    function W(e) {
+      let t;
+      return (
+        h && (typeof h == `function` ? (t = h(e)) : (h.current = e)),
+        (H.current = e),
+        (w.inputRef.current = e),
+        t
+      );
+    }
+    let G = f((e, t = !1) => {
+        if (e) {
+          if (t) {
+            V.current === e && (V.current = null);
+            return;
+          }
+          V.current ??= e;
+        }
+      }),
+      K = f((e) => {
+        if (!e || e.disabled) return;
+        U.current ||= e;
+        let t = H.current;
+        if (e.checked || t == null || t.disabled) return W(e);
+      }),
+      fe = f(() => {
+        let e = H.current;
+        return !e || e.disabled || !e.checked ? null : (I ?? null);
+      });
+    (ae(V, F, I ?? null, fe, !M, m),
+      E(I, () => {
+        (A(P), T(I !== ce.initialValue), se(I != null), w.change(I));
+        let e = U.current;
+        I == null && e && !e.disabled && W(e);
+      }));
+    let q = y[`aria-labelledby`] ?? le ?? j?.legendId,
+      J = { ...C, disabled: M ?? !1, required: s ?? !1, readOnly: a ?? !1 },
+      Y = k.useMemo(
+        () => ({
+          ...C,
+          checkedValue: I,
+          disabled: M,
+          form: p,
+          validation: w,
+          name: P,
+          readOnly: a,
+          registerControlRef: G,
+          registerInputRef: K,
+          required: s,
+          setCheckedValue: B,
+          setTouched: z,
+          touched: R,
+        }),
+        [I, M, p, w, C, P, a, G, K, s, B, z, R],
+      ),
+      pe = {
+        id: g,
+        role: `radiogroup`,
+        "aria-required": s || void 0,
+        "aria-disabled": M || void 0,
+        "aria-readonly": a || void 0,
+        "aria-labelledby": q,
+        onFocus() {
+          x(!0);
+        },
+        onBlur(e) {
+          ee(e.currentTarget, e.relatedTarget) ||
+            (b(!0), x(!1), te === `onBlur` && w.commit(I));
+        },
+        onKeyDownCapture(e) {
+          e.key.startsWith(`Arrow`) && (z(!0), x(!0));
+        },
+      };
+    return (0, O.jsx)(N.Provider, {
+      value: Y,
+      children: (0, O.jsx)(_, {
+        render: n,
+        className: r,
+        style: v,
+        state: J,
+        props: [pe, y, (e) => w.getValidationProps(M ?? !1, e)],
+        refs: [t],
+        stateAttributesMapping: D,
+        enableHomeAndEndKeys: !1,
+        modifierKeys: de,
+      }),
+    });
+  }),
+  B = k.forwardRef(function ({ className: e, ...t }, n) {
+    return (0, O.jsx)(z, {
+      ref: n,
+      "data-slot": `radio-group`,
+      className: x(`grid gap-2`, e),
+      ...t,
+    });
+  });
+B.displayName = `RadioGroup`;
+var V = v(
+    `group/radio peer relative flex aspect-square shrink-0 rounded-full border border-input after:absolute after:content-[''] outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-offset-1 focus-visible:ring-offset-background disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:border-destructive aria-invalid:focus-visible:ring-3 aria-invalid:focus-visible:ring-destructive/50 aria-invalid:aria-checked:border-primary dark:bg-input/30 dark:aria-invalid:border-destructive/50 dark:aria-invalid:focus-visible:ring-destructive/50 data-checked:border-primary data-checked:bg-primary data-checked:text-primary-foreground dark:data-checked:bg-primary`,
+    {
+      variants: {
+        size: {
+          sm: `size-3.5 after:-inset-x-2.5 after:-inset-y-2.5`,
+          md: `size-4 after:-inset-x-3 after:-inset-y-2`,
+          lg: `size-5 after:-inset-x-4 after:-inset-y-3`,
+        },
+      },
+    },
+  ),
+  H = k.forwardRef(function ({ className: e, size: t = `md`, ...n }, r) {
+    return (0, O.jsx)(L, {
+      ref: r,
+      "data-slot": `radio-group-item`,
+      "data-size": t,
+      className: x(V({ size: t, className: e })),
+      ...n,
+      children: (0, O.jsx)(R, {
+        "data-slot": `radio-group-indicator`,
+        className: `flex items-center justify-center size-4 group-data-[size=sm]/radio:size-3.5 group-data-[size=lg]/radio:size-5`,
+        children: (0, O.jsx)(`span`, {
+          className: `absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-foreground size-2 group-data-[size=sm]/radio:size-1.5 group-data-[size=lg]/radio:size-2.5`,
+        }),
+      }),
+    });
+  });
+H.displayName = `RadioGroupItem`;
+export { H as n, B as t };

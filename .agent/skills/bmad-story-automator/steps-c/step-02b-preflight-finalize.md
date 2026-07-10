@@ -1,13 +1,13 @@
 ---
-name: 'step-02b-preflight-finalize'
-description: 'Finalize preflight and start execution'
-nextStep: './step-03-execute.md'
-outputFolder: '{output_folder}/story-automator'
-outputFile: '{outputFolder}/orchestration-{epic_id}-{timestamp}.md'
-stateHelper: '../scripts/story-automator'
-ensureMarkerGitignore: '../scripts/story-automator'
-deriveProjectSlug: '../scripts/story-automator'
-markerFormat: '../data/marker-file-format.md'
+name: "step-02b-preflight-finalize"
+description: "Finalize preflight and start execution"
+nextStep: "./step-03-execute.md"
+outputFolder: "{output_folder}/story-automator"
+outputFile: "{outputFolder}/orchestration-{epic_id}-{timestamp}.md"
+stateHelper: "../scripts/story-automator"
+ensureMarkerGitignore: "../scripts/story-automator"
+deriveProjectSlug: "../scripts/story-automator"
+markerFormat: "../data/marker-file-format.md"
 ---
 
 # Step 2b: Pre-flight Finalize
@@ -22,6 +22,7 @@ markerFormat: '../data/marker-file-format.md'
 ### 1. Create Complexity + Agents Files
 
 Derive deterministic filenames:
+
 ```bash
 state_base=$(basename "{outputFile}" .md)
 complexity_path="{outputFolder}/complexity-${state_base}.json"
@@ -30,12 +31,14 @@ agents_path="$agents_dir/agents-${state_base}.md"
 ```
 
 Write complexity file:
+
 ```bash
 mkdir -p "$(dirname "$complexity_path")"
 echo "$stories_json" | jq -c '{stories:.}' > "$complexity_path"
 ```
 
 Build deterministic agents file:
+
 ```bash
 mkdir -p "$agents_dir"
 "{stateHelper}" orchestrator-helper agents-build \
@@ -46,6 +49,7 @@ mkdir -p "$agents_dir"
 ```
 
 Update state frontmatter with file paths:
+
 ```bash
 agents_path_json=$(printf '%s' "$agents_path" | jq -R '.')
 complexity_path_json=$(printf '%s' "$complexity_path" | jq -R '.')
@@ -57,6 +61,7 @@ complexity_path_json=$(printf '%s' "$complexity_path" | jq -R '.')
 ### 2. Create Marker and Begin Execution
 
 **Create marker file** (see `{markerFormat}` for JSON structure):
+
 ```bash
 # Resolve the active marker path for the selected runtime layout and gitignore it.
 marker_info=$("{stateHelper}" orchestrator-helper marker path)
@@ -76,4 +81,5 @@ Update frontmatter (append `step-02b-preflight-finalize`, set `lastUpdated`).
 ---
 
 ## Then
+
 → Load, read entire file, and execute `{nextStep}`

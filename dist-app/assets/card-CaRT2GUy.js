@@ -1,1 +1,216 @@
-import{Nn as e,cr as t,dr as n,i as r,n as i,r as a,s as o}from"./showcase-vJrKG7HA.js";import{At as s,Ft as c,It as l,Lt as u,Mt as d,Nt as f,Pt as p,jt as m}from"./index-Dk0REsC9.js";import{t as h}from"./select-preset-B6grUIWS.js";import{t as g}from"./input-CyfiqGPM.js";var _=n(t(),1),v=e();function y(){let[e,t]=(0,_.useState)(`md`);return(0,v.jsxs)(`div`,{className:`space-y-10`,children:[(0,v.jsx)(r,{title:`Card`,description:`Hiển thị thẻ có đầu trang, nội dung và chân trang.`,children:(0,v.jsx)(h,{value:e,onValueChange:e=>t(e),options:[{value:`sm`,label:`Size: sm`},{value:`md`,label:`Size: md`},{value:`lg`,label:`Size: lg`}],className:`w-[120px] h-8 text-xs bg-background`})}),(0,v.jsx)(a,{label:`Standard Card`,description:`Thẻ hoàn chỉnh với tiêu đề, nội dung và chân trang.`,children:(0,v.jsxs)(m,{size:e,className:`w-full max-w-sm`,children:[(0,v.jsxs)(c,{children:[(0,v.jsx)(l,{children:`Create project`}),(0,v.jsx)(f,{children:`Deploy your new project in one-click.`})]}),(0,v.jsx)(d,{children:(0,v.jsx)(`form`,{children:(0,v.jsx)(`div`,{className:`grid w-full items-center gap-4`,children:(0,v.jsxs)(`div`,{className:`flex flex-col space-y-1.5`,children:[(0,v.jsx)(s,{htmlFor:`name`,children:`Name`}),(0,v.jsx)(g,{id:`name`,placeholder:`Name of your project`})]})})})}),(0,v.jsxs)(p,{className:`flex justify-between`,children:[(0,v.jsx)(o,{variant:`outline`,children:`Cancel`}),(0,v.jsx)(o,{children:`Deploy`})]})]})}),(0,v.jsxs)(i,{columns:2,children:[(0,v.jsx)(a,{label:`Content Only`,description:`Thẻ tối thiểu không có đầu trang hoặc chân trang.`,children:(0,v.jsx)(m,{size:e,className:`w-full`,children:(0,v.jsx)(d,{children:(0,v.jsx)(`p`,{className:`text-sm text-muted-foreground`,children:`This is a simple content-only card without a header or footer. Useful for wrapping any content in a card container.`})})})}),(0,v.jsx)(a,{label:`Header Only`,description:`Thẻ chỉ có tiêu đề và mô tả.`,children:(0,v.jsx)(m,{size:e,className:`w-full`,children:(0,v.jsx)(c,{children:(0,v.jsxs)(`div`,{className:`flex items-center justify-between`,children:[(0,v.jsxs)(`div`,{className:`flex flex-col gap-1.5`,children:[(0,v.jsxs)(`div`,{className:`flex items-center gap-2`,children:[(0,v.jsx)(l,{children:`Notifications`}),(0,v.jsx)(u,{color:`secondary`,children:`3 new`})]}),(0,v.jsx)(f,{children:`You have 3 unread messages.`})]}),(0,v.jsxs)(o,{variant:`ghost`,size:`sm`,className:`h-8 w-8 p-0`,children:[(0,v.jsx)(`span`,{className:`sr-only`,children:`Open menu`}),(0,v.jsx)(`svg`,{width:`15`,height:`15`,viewBox:`0 0 15 15`,fill:`none`,xmlns:`http://www.w3.org/2000/svg`,className:`h-4 w-4`,children:(0,v.jsx)(`path`,{d:`M3.625 7.5C3.625 8.12132 3.12132 8.625 2.5 8.625C1.87868 8.625 1.375 8.12132 1.375 7.5C1.375 6.87868 1.87868 6.375 2.5 6.375C3.12132 6.375 3.625 6.87868 3.625 7.5ZM8.625 7.5C8.625 8.12132 8.12132 8.625 7.5 8.625C6.87868 8.625 6.375 8.12132 6.375 7.5C6.375 6.87868 6.87868 6.375 7.5 6.375C8.12132 6.375 8.625 6.87868 8.625 7.5ZM13.625 7.5C13.625 8.12132 13.1213 8.625 12.5 8.625C11.8787 8.625 11.375 8.12132 11.375 7.5C11.375 6.87868 11.8787 6.375 12.5 6.375C13.1213 6.375 13.625 6.87868 13.625 7.5Z`,fill:`currentColor`,fillRule:`evenodd`,clipRule:`evenodd`})})]})]})})})})]}),(0,v.jsx)(a,{label:`Stats Cards`,description:`Bố cục thẻ chỉ số/KPI trong thế giới thực.`,fullWidth:!0,children:(0,v.jsx)(i,{columns:3,className:`w-full`,children:[{title:`Total Revenue`,value:`$45,231.89`,desc:`+20.1% from last month`},{title:`Subscriptions`,value:`+2,350`,desc:`+180.1% from last month`},{title:`Active Now`,value:`+573`,desc:`+201 since last hour`}].map(t=>(0,v.jsxs)(m,{size:e,children:[(0,v.jsxs)(c,{children:[(0,v.jsx)(f,{children:t.title}),(0,v.jsx)(l,{className:`text-2xl`,children:t.value})]}),(0,v.jsx)(d,{children:(0,v.jsx)(`p`,{className:`text-xs text-muted-foreground`,children:t.desc})})]},t.title))})})]})}export{y as default};
+import {
+  Nn as e,
+  cr as t,
+  dr as n,
+  i as r,
+  n as i,
+  r as a,
+  s as o,
+} from "./showcase-vJrKG7HA.js";
+import {
+  At as s,
+  Ft as c,
+  It as l,
+  Lt as u,
+  Mt as d,
+  Nt as f,
+  Pt as p,
+  jt as m,
+} from "./index-Dk0REsC9.js";
+import { t as h } from "./select-preset-B6grUIWS.js";
+import { t as g } from "./input-CyfiqGPM.js";
+var _ = n(t(), 1),
+  v = e();
+function y() {
+  let [e, t] = (0, _.useState)(`md`);
+  return (0, v.jsxs)(`div`, {
+    className: `space-y-10`,
+    children: [
+      (0, v.jsx)(r, {
+        title: `Card`,
+        description: `Hiển thị thẻ có đầu trang, nội dung và chân trang.`,
+        children: (0, v.jsx)(h, {
+          value: e,
+          onValueChange: (e) => t(e),
+          options: [
+            { value: `sm`, label: `Size: sm` },
+            { value: `md`, label: `Size: md` },
+            { value: `lg`, label: `Size: lg` },
+          ],
+          className: `w-[120px] h-8 text-xs bg-background`,
+        }),
+      }),
+      (0, v.jsx)(a, {
+        label: `Standard Card`,
+        description: `Thẻ hoàn chỉnh với tiêu đề, nội dung và chân trang.`,
+        children: (0, v.jsxs)(m, {
+          size: e,
+          className: `w-full max-w-sm`,
+          children: [
+            (0, v.jsxs)(c, {
+              children: [
+                (0, v.jsx)(l, { children: `Create project` }),
+                (0, v.jsx)(f, {
+                  children: `Deploy your new project in one-click.`,
+                }),
+              ],
+            }),
+            (0, v.jsx)(d, {
+              children: (0, v.jsx)(`form`, {
+                children: (0, v.jsx)(`div`, {
+                  className: `grid w-full items-center gap-4`,
+                  children: (0, v.jsxs)(`div`, {
+                    className: `flex flex-col space-y-1.5`,
+                    children: [
+                      (0, v.jsx)(s, { htmlFor: `name`, children: `Name` }),
+                      (0, v.jsx)(g, {
+                        id: `name`,
+                        placeholder: `Name of your project`,
+                      }),
+                    ],
+                  }),
+                }),
+              }),
+            }),
+            (0, v.jsxs)(p, {
+              className: `flex justify-between`,
+              children: [
+                (0, v.jsx)(o, { variant: `outline`, children: `Cancel` }),
+                (0, v.jsx)(o, { children: `Deploy` }),
+              ],
+            }),
+          ],
+        }),
+      }),
+      (0, v.jsxs)(i, {
+        columns: 2,
+        children: [
+          (0, v.jsx)(a, {
+            label: `Content Only`,
+            description: `Thẻ tối thiểu không có đầu trang hoặc chân trang.`,
+            children: (0, v.jsx)(m, {
+              size: e,
+              className: `w-full`,
+              children: (0, v.jsx)(d, {
+                children: (0, v.jsx)(`p`, {
+                  className: `text-sm text-muted-foreground`,
+                  children: `This is a simple content-only card without a header or footer. Useful for wrapping any content in a card container.`,
+                }),
+              }),
+            }),
+          }),
+          (0, v.jsx)(a, {
+            label: `Header Only`,
+            description: `Thẻ chỉ có tiêu đề và mô tả.`,
+            children: (0, v.jsx)(m, {
+              size: e,
+              className: `w-full`,
+              children: (0, v.jsx)(c, {
+                children: (0, v.jsxs)(`div`, {
+                  className: `flex items-center justify-between`,
+                  children: [
+                    (0, v.jsxs)(`div`, {
+                      className: `flex flex-col gap-1.5`,
+                      children: [
+                        (0, v.jsxs)(`div`, {
+                          className: `flex items-center gap-2`,
+                          children: [
+                            (0, v.jsx)(l, { children: `Notifications` }),
+                            (0, v.jsx)(u, {
+                              color: `secondary`,
+                              children: `3 new`,
+                            }),
+                          ],
+                        }),
+                        (0, v.jsx)(f, {
+                          children: `You have 3 unread messages.`,
+                        }),
+                      ],
+                    }),
+                    (0, v.jsxs)(o, {
+                      variant: `ghost`,
+                      size: `sm`,
+                      className: `h-8 w-8 p-0`,
+                      children: [
+                        (0, v.jsx)(`span`, {
+                          className: `sr-only`,
+                          children: `Open menu`,
+                        }),
+                        (0, v.jsx)(`svg`, {
+                          width: `15`,
+                          height: `15`,
+                          viewBox: `0 0 15 15`,
+                          fill: `none`,
+                          xmlns: `http://www.w3.org/2000/svg`,
+                          className: `h-4 w-4`,
+                          children: (0, v.jsx)(`path`, {
+                            d: `M3.625 7.5C3.625 8.12132 3.12132 8.625 2.5 8.625C1.87868 8.625 1.375 8.12132 1.375 7.5C1.375 6.87868 1.87868 6.375 2.5 6.375C3.12132 6.375 3.625 6.87868 3.625 7.5ZM8.625 7.5C8.625 8.12132 8.12132 8.625 7.5 8.625C6.87868 8.625 6.375 8.12132 6.375 7.5C6.375 6.87868 6.87868 6.375 7.5 6.375C8.12132 6.375 8.625 6.87868 8.625 7.5ZM13.625 7.5C13.625 8.12132 13.1213 8.625 12.5 8.625C11.8787 8.625 11.375 8.12132 11.375 7.5C11.375 6.87868 11.8787 6.375 12.5 6.375C13.1213 6.375 13.625 6.87868 13.625 7.5Z`,
+                            fill: `currentColor`,
+                            fillRule: `evenodd`,
+                            clipRule: `evenodd`,
+                          }),
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+              }),
+            }),
+          }),
+        ],
+      }),
+      (0, v.jsx)(a, {
+        label: `Stats Cards`,
+        description: `Bố cục thẻ chỉ số/KPI trong thế giới thực.`,
+        fullWidth: !0,
+        children: (0, v.jsx)(i, {
+          columns: 3,
+          className: `w-full`,
+          children: [
+            {
+              title: `Total Revenue`,
+              value: `$45,231.89`,
+              desc: `+20.1% from last month`,
+            },
+            {
+              title: `Subscriptions`,
+              value: `+2,350`,
+              desc: `+180.1% from last month`,
+            },
+            {
+              title: `Active Now`,
+              value: `+573`,
+              desc: `+201 since last hour`,
+            },
+          ].map((t) =>
+            (0, v.jsxs)(
+              m,
+              {
+                size: e,
+                children: [
+                  (0, v.jsxs)(c, {
+                    children: [
+                      (0, v.jsx)(f, { children: t.title }),
+                      (0, v.jsx)(l, {
+                        className: `text-2xl`,
+                        children: t.value,
+                      }),
+                    ],
+                  }),
+                  (0, v.jsx)(d, {
+                    children: (0, v.jsx)(`p`, {
+                      className: `text-xs text-muted-foreground`,
+                      children: t.desc,
+                    }),
+                  }),
+                ],
+              },
+              t.title,
+            ),
+          ),
+        }),
+      }),
+    ],
+  });
+}
+export { y as default };

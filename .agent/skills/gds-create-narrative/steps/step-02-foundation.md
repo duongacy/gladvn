@@ -1,19 +1,19 @@
 ---
-name: 'step-02-foundation'
-description: 'Define narrative premise, themes, tone, and story structure'
+name: "step-02-foundation"
+description: "Define narrative premise, themes, tone, and story structure"
 
 # Path Definitions
-workflow_path: '{installed_path}'
+workflow_path: "{installed_path}"
 
 # File References
-thisStepFile: './step-02-foundation.md'
-nextStepFile: './step-03-story.md'
-workflowFile: '{workflow_path}/workflow.md'
-outputFile: '{output_folder}/narrative-design.md'
+thisStepFile: "./step-02-foundation.md"
+nextStepFile: "./step-03-story.md"
+workflowFile: "{workflow_path}/workflow.md"
+outputFile: "{output_folder}/narrative-design.md"
 
 # Task References
-advancedElicitationTask: 'skill:bmad-advanced-elicitation'
-partyModeWorkflow: 'skill:bmad-party-mode'
+advancedElicitationTask: "skill:bmad-advanced-elicitation"
+partyModeWorkflow: "skill:bmad-party-mode"
 ---
 
 # Step 2: Story Foundation

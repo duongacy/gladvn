@@ -1,24 +1,24 @@
-import { useState } from "react";
-import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
+import { Controller, useForm } from "react-hook-form";
 import * as z from "zod";
 
 import {
-  ExampleSection,
-  ExampleGrid,
-  ShowcaseDocs,
-  Showcase,
+  DocsCode,
   DocsH3,
   DocsP,
-  DocsCode,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+  SizeToggle,
 } from "@/dev/components/showcase";
-import { MonoSelect } from "@/dev/components/mono-select";
 import { type Size } from "@/lib/types";
 
-import { Switch, SwitchThumb } from "@/components/micro/switch";
-import { Field, FieldLabel, FieldError } from "@/components/micro/field";
 import { SwitchPreset } from "@/components/macro/switch-preset";
 import { Button } from "@/components/micro/button";
+import { Field, FieldError, FieldLabel } from "@/components/micro/field";
+import { Switch, SwitchThumb } from "@/components/micro/switch";
 
 // ──────────────────────────────────────────────────────────
 // RHF Form Demo (Macro)
@@ -96,16 +96,6 @@ function SwitchMacroShowcase({ globalSize }: { globalSize: Size }) {
 
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Khi nào nên dùng Macro</DocsH3>
-        <DocsP>
-          <DocsCode>SwitchPreset</DocsCode> đóng gói Switch + Label +
-          Description + Error Message. Nó tự động căn chỉnh khoảng cách và liên
-          kết ID. Dùng trong 95% trường hợp làm màn hình cài đặt (Settings) hoặc
-          form yêu cầu bật/tắt tính năng.
-        </DocsP>
-      </ShowcaseDocs>
-
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Tiêu chuẩn"
@@ -268,16 +258,6 @@ return (
 function SwitchMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Khi nào nên dùng Micro</DocsH3>
-        <DocsP>
-          Dùng <DocsCode>Switch</DocsCode> và <DocsCode>SwitchThumb</DocsCode>{" "}
-          nguyên thuỷ khi bạn cần một layout không theo chuẩn{" "}
-          <DocsCode>SwitchPreset</DocsCode> (ví dụ: Switch nằm bên phải Label
-          thay vì nằm bên trái).
-        </DocsP>
-      </ShowcaseDocs>
-
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Cơ bản (Primitive)"
@@ -595,17 +575,29 @@ export default function SwitchShowcase() {
     <Showcase
       title="Switch"
       description="Thành phần điều khiển cho phép người dùng chuyển đổi qua lại giữa 2 trạng thái Bật / Tắt."
-      actions={
-        <MonoSelect
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as Size)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-        />
+      generalConcept={
+        <div className="space-y-4">
+          <ShowcaseDocs>
+            <DocsH3>Khi nào nên dùng Macro</DocsH3>
+            <DocsP>
+              <DocsCode>SwitchPreset</DocsCode> đóng gói Switch + Label +
+              Description + Error Message. Nó tự động căn chỉnh khoảng cách và
+              liên kết ID. Dùng trong 95% trường hợp làm màn hình cài đặt
+              (Settings) hoặc form yêu cầu bật/tắt tính năng.
+            </DocsP>
+          </ShowcaseDocs>
+          <ShowcaseDocs>
+            <DocsH3>Khi nào nên dùng Micro</DocsH3>
+            <DocsP>
+              Dùng <DocsCode>Switch</DocsCode> và{" "}
+              <DocsCode>SwitchThumb</DocsCode> nguyên thuỷ khi bạn cần một
+              layout không theo chuẩn <DocsCode>SwitchPreset</DocsCode> (ví dụ:
+              Switch nằm bên phải Label thay vì nằm bên trái).
+            </DocsP>
+          </ShowcaseDocs>
+        </div>
       }
+      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
       tabs={[
         {
           label: "Micro (Primitive)",

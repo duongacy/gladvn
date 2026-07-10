@@ -1,7 +1,7 @@
 ---
-name: 'step-05-structural-order'
-description: 'Apply the Golden Circle to create persuasive WHY-HOW-WHAT content flow'
-nextStepFile: './step-06-generate-content.md'
+name: "step-05-structural-order"
+description: "Apply the Golden Circle to create persuasive WHY-HOW-WHAT content flow"
+nextStepFile: "./step-06-generate-content.md"
 ---
 
 # Step 5: Determine Structural Order

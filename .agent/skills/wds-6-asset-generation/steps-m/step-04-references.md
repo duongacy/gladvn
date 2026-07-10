@@ -1,7 +1,7 @@
 ---
-name: 'step-04-references'
-description: 'Attach reference images that guide visual consistency across batch generation'
-nextStepFile: './step-05-generate.md'
+name: "step-04-references"
+description: "Attach reference images that guide visual consistency across batch generation"
+nextStepFile: "./step-05-generate.md"
 ---
 
 # Step 4: Reference Images

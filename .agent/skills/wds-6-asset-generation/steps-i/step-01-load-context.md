@@ -1,7 +1,7 @@
 ---
-name: 'step-01-load-context'
-description: 'Load icon requirements from page specifications, design system, and existing icon references'
-nextStepFile: './step-02-inventory.md'
+name: "step-01-load-context"
+description: "Load icon requirements from page specifications, design system, and existing icon references"
+nextStepFile: "./step-02-inventory.md"
 ---
 
 # Step 1: Load Context

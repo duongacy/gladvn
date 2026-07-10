@@ -38,7 +38,7 @@ Ship → Monitor → Learn → Improve → Ship...
 
 ```yaml
 metrics:
-  measurement_period: '2 weeks after release'
+  measurement_period: "2 weeks after release"
 ```
 
 ### 2. Track Key Metrics
@@ -65,6 +65,7 @@ metrics:
 **See:** [data/monitoring-templates.md](../data/monitoring-templates.md) for Impact Report template
 
 Key sections:
+
 - Executive summary (SUCCESS | PARTIAL | FAILURE)
 - Metrics results (baseline → target → actual)
 - What worked / what didn't
@@ -88,14 +89,14 @@ Key sections:
 
 ```yaml
 delivery:
-  status: 'measured'
-  measurement_complete: '2024-12-28T10:00:00Z'
-  impact_report: 'analytics/DD-XXX-impact-report.md'
-  result: 'success'
+  status: "measured"
+  measurement_complete: "2024-12-28T10:00:00Z"
+  impact_report: "analytics/DD-XXX-impact-report.md"
+  result: "success"
   metrics_achieved:
-    - 'Feature X usage: 58% (target: 60%)'
+    - "Feature X usage: 58% (target: 60%)"
   learnings:
-    - 'Onboarding matters for complex features'
+    - "Onboarding matters for complex features"
 ```
 
 ---

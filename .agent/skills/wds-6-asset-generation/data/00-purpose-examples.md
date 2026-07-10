@@ -31,6 +31,7 @@ content_purpose:
 ```
 
 **Analysis:**
+
 - **Specific audience state:** Problem Aware (not just "hairdressers")
 - **Measurable outcome:** "Recognizes themselves" and "doesn't bounce"
 - **Model priority:** Customer Awareness and Golden Circle emphasized for landing page hook
@@ -66,6 +67,7 @@ content_purpose:
 ```
 
 **Analysis:**
+
 - **Emotional state:** Frustrated (critical for error messages)
 - **Dual focus:** Fix problem AND maintain confidence
 - **Model priority:** Badass Users and Action Mapping for functional content
@@ -100,6 +102,7 @@ content_purpose:
 ```
 
 **Analysis:**
+
 - **Comparison context:** User actively evaluating competitors
 - **Value connection:** Not just "3x longer" but "saves money/hassle"
 - **Model priority:** Trigger Map emphasized for understanding driving forces
@@ -110,19 +113,23 @@ content_purpose:
 ## Quick Reference: Purpose Templates
 
 **Persuasion:**
+
 - "Convince [audience] that [claim] by [strategy]"
 - "Activate [driving force] through [benefit/proof]"
 - "Move [start awareness] to [end awareness] by [approach]"
 
 **Education:**
+
 - "Enable [user] to [action] with [confidence level]"
 - "Help [user] understand [concept] in [timeframe]"
 
 **Functional:**
+
 - "Guide [user] to [action] with zero [friction]"
 - "Maintain [emotion] while [outcome]"
 
 **Brand:**
+
 - "Connect [audience] to our [value]"
 - "Inspire [emotion] through [story]"
 

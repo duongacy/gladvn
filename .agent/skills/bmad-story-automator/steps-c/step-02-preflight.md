@@ -1,19 +1,20 @@
 ---
-name: 'step-02-preflight'
-description: 'Gather epic, story selection, and complexity analysis'
-nextStep: './step-02a-preflight-config.md'
-outputFolder: '{output_folder}/story-automator'
-outputFile: '{outputFolder}/preflight-{epic_id}-{timestamp}.md'
-parseEpic: '../scripts/story-automator'
-parseStoryRange: '../scripts/story-automator'
-parseStory: '../scripts/story-automator'
-stateHelper: '../scripts/story-automator'
-defaultEpicPath: '{output_folder}/planning-artifacts/epics.md'
-defaultSprintStatusFile: '{output_folder}/implementation-artifacts/sprint-status.yaml'
-complexityRules: '../data/complexity-rules.json'
-complexityScoring: '../data/complexity-scoring.md'
-preflightRequirements: '../data/preflight-requirements.md'
+name: "step-02-preflight"
+description: "Gather epic, story selection, and complexity analysis"
+nextStep: "./step-02a-preflight-config.md"
+outputFolder: "{output_folder}/story-automator"
+outputFile: "{outputFolder}/preflight-{epic_id}-{timestamp}.md"
+parseEpic: "../scripts/story-automator"
+parseStoryRange: "../scripts/story-automator"
+parseStory: "../scripts/story-automator"
+stateHelper: "../scripts/story-automator"
+defaultEpicPath: "{output_folder}/planning-artifacts/epics.md"
+defaultSprintStatusFile: "{output_folder}/implementation-artifacts/sprint-status.yaml"
+complexityRules: "../data/complexity-rules.json"
+complexityScoring: "../data/complexity-scoring.md"
+preflightRequirements: "../data/preflight-requirements.md"
 ---
+
 # Step 2: Pre-flight (Epic + Complexity)
 
 **Goal:** Gather epic, story range, complexity analysis, and custom instructions.
@@ -30,6 +31,7 @@ preflightRequirements: '../data/preflight-requirements.md'
 ## Do
 
 ### 1. Confirm Epic File
+
 ```
 **Epic source**
 
@@ -44,7 +46,9 @@ If confirmed default does not exist, tell user and request explicit path.
 **Wait.**
 
 ### 2. Review Epic
+
 Parse epic file deterministically:
+
 ```bash
 epic_json=$("{parseEpic}" parse-epic --file "{epic_path}")
 epic_name=$(echo "$epic_json" | jq -r '.epicTitle')
@@ -63,6 +67,7 @@ fi
 ```
 
 Display:
+
 ```
 **Epic:** {epic_name}
 
@@ -78,6 +83,7 @@ Current sprint-status ({defaultSprintStatusFile}):
 
 Which stories? (e.g., `1-3`, `all`, `1,3,5`)
 ```
+
 If user hesitates, suggest `all` as default and confirm.
 
 **Wait.**
@@ -89,6 +95,7 @@ If user hesitates, suggest `all` as default and confirm.
 For each story in range, extract complexity **programmatically**:
 
 **3a. Parse story range:**
+
 ```bash
 range_json=$("{parseStoryRange}" parse-story-range --input "{user_selection}" --total "$story_count" --ids "$story_ids_csv")
 selected_ids=$(echo "$range_json" | jq -r '.storyIds[]')
@@ -98,6 +105,7 @@ epic_id=$(echo "$first_story_id" | cut -d. -f1)
 ```
 
 **3b. Get complexity for EACH story using Python helper:**
+
 ```bash
 # Initialize accumulator - REQUIRED
 stories_json='[]'
@@ -154,6 +162,7 @@ Follow the verification gate from `{preflightRequirements}` before proceeding.
 ---
 
 ### 4. Custom Instructions
+
 ```
 **Any custom instructions?**
 
@@ -165,6 +174,7 @@ Examples:
 
 Enter instructions or 'none':
 ```
+
 If user is unsure, recommend `none` and continue.
 
 **Wait.**
@@ -174,6 +184,7 @@ Store response as `custom_instructions` (use "" for none).
 ### 5. Proceed to Configuration
 
 Persist preflight snapshot before continuing:
+
 ```bash
 mkdir -p "{outputFolder}"
 cat > "{outputFile}" <<EOF
@@ -197,4 +208,5 @@ Carry forward: `epic_path`, `epic_name`, `story_count`, `story_ids_csv`, `range_
 ---
 
 ## Then
+
 → Load and execute `{nextStep}`

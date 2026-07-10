@@ -1,11 +1,11 @@
 ---
-name: 'step-14-variants'
-description: 'Determine if this page will have variants for A/B testing or localization'
+name: "step-14-variants"
+description: "Determine if this page will have variants for A/B testing or localization"
 
 # File References
-nextStepFile: './step-15-create-page-structure.md'
-workflowFile: '../workflow.md'
-activityWorkflowFile: '../workflow-suggest.md'
+nextStepFile: "./step-15-create-page-structure.md"
+workflowFile: "../workflow.md"
+activityWorkflowFile: "../workflow-suggest.md"
 ---
 
 # Step 14: Page Variants

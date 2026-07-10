@@ -43,10 +43,13 @@ Mimir owns three things: the **tech audit**, the **PRD**, and the **build**. He 
 ## Skills
 
 ### `/TA` — Tech Audit
+
 Read and map the existing codebase. Produces `E-Development/000-tech-audit.md` — the living architecture document that every PRD is written on top of.
 
 ### `/PR` — PRD
+
 Take a Freya Work Order and write a formal Product Requirements Document: platform requirements, interface requirements, acceptance criteria. Written collaboratively with the user.
 
 ### `/BU` — Build
+
 Implement requirements from a PRD one at a time. Each task: implement → commit → verify → next.

@@ -1,13 +1,16 @@
-import * as React from "react";
 import {
   Progress,
-  ProgressTrack,
   ProgressIndicator,
   ProgressLabel,
+  ProgressTrack,
   ProgressValue,
 } from "@/components/micro/progress";
+import * as React from "react";
 
-export type ProgressPresetProps = Omit<React.ComponentProps<typeof Progress>, "value"> & {
+export type ProgressPresetProps = Omit<
+  React.ComponentProps<typeof Progress>,
+  "value"
+> & {
   value?: number;
   label?: React.ReactNode;
   showValue?: boolean;
@@ -16,17 +19,15 @@ export type ProgressPresetProps = Omit<React.ComponentProps<typeof Progress>, "v
 const ProgressPreset = React.forwardRef<
   React.ComponentRef<typeof Progress>,
   ProgressPresetProps
->(({
-  children,
-  label,
-  showValue = true,
-  value,
-  ...progressProps
-}, ref) => {
+>(({ children, label, showValue = true, value, ...progressProps }, ref) => {
   const resolvedValue = value ?? null;
 
   if (children) {
-    return <Progress ref={ref} value={resolvedValue} {...progressProps}>{children}</Progress>;
+    return (
+      <Progress ref={ref} value={resolvedValue} {...progressProps}>
+        {children}
+      </Progress>
+    );
   }
 
   return (

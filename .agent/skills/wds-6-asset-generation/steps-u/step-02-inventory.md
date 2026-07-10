@@ -1,7 +1,7 @@
 ---
-name: 'step-02-inventory'
-description: 'Create a complete inventory of UI elements organized by component type, variant, and state'
-nextStepFile: './step-03-select-style.md'
+name: "step-02-inventory"
+description: "Create a complete inventory of UI elements organized by component type, variant, and state"
+nextStepFile: "./step-03-select-style.md"
 ---
 
 # Step 2: Asset Inventory

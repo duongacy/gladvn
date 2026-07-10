@@ -1,11 +1,11 @@
 ---
-name: 'step-03-mental-state'
-description: 'Understand the user mental state when arriving at the scenario entry point'
+name: "step-03-mental-state"
+description: "Understand the user mental state when arriving at the scenario entry point"
 
 # File References
-nextStepFile: './step-04-mutual-success.md'
-workflowFile: '../workflow.md'
-activityWorkflowFile: '../workflow-suggest.md'
+nextStepFile: "./step-04-mutual-success.md"
+workflowFile: "../workflow.md"
+activityWorkflowFile: "../workflow-suggest.md"
 ---
 
 # Step 3: Mental State
@@ -64,6 +64,7 @@ Understand the user's mental state when they arrive at the scenario entry point 
 When they arrive, how are they feeling?
 
 Consider:
+
 - **What just happened?** (trigger moment that brings them here)
 - **What are they hoping for?** (desired outcome)
 - **What are they worried about?** (fears, concerns, obstacles)

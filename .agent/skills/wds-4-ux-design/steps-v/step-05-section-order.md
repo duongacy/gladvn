@@ -1,11 +1,11 @@
 ---
-name: 'step-05-section-order'
-description: 'Verify that page specification sections appear in standard WDS order with all required sections present'
+name: "step-05-section-order"
+description: "Verify that page specification sections appear in standard WDS order with all required sections present"
 
 # File References
-nextStepFile: './step-06-object-registry.md'
-workflowFile: '../workflow.md'
-activityWorkflowFile: '../workflow-validate.md'
+nextStepFile: "./step-06-object-registry.md"
+workflowFile: "../workflow.md"
+activityWorkflowFile: "../workflow-validate.md"
 ---
 
 # Step 5: Validate Section Order & Structure
@@ -73,6 +73,7 @@ Scan document structure and compare against standard section order:
 ### 2. Check for Duplicates and Redundancies
 
 Identify:
+
 - Sections that are out of order
 - Missing required sections
 - Duplicate sections

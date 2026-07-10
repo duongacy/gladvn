@@ -1,1 +1,81 @@
-import{Nn as e,cr as t,dr as n,i as r,n as i,r as a}from"./showcase-vJrKG7HA.js";import{a as o,o as s,s as c,t as l}from"./toggle-CiK5LoAk.js";import{t as u}from"./select-preset-B6grUIWS.js";var d=n(t(),1),f=e();function p(){let[e,t]=(0,d.useState)(`md`);return(0,f.jsxs)(`div`,{className:`space-y-10`,children:[(0,f.jsx)(r,{title:`Toggle`,description:`Nút hai trạng thái có thể bật hoặc tắt.`,children:(0,f.jsx)(u,{value:e,onValueChange:e=>t(e),options:[{value:`sm`,label:`Size: sm`},{value:`md`,label:`Size: md`},{value:`lg`,label:`Size: lg`}],className:`w-[120px] h-8 text-xs bg-background`})}),(0,f.jsxs)(i,{columns:2,children:[(0,f.jsx)(a,{label:`Standard`,description:`Nút chuyển đổi duy nhất.`,children:(0,f.jsxs)(`div`,{className:`flex gap-2`,children:[(0,f.jsxs)(l,{"aria-label":`Toggle italic`,size:e,children:[(0,f.jsx)(s,{className:`size-4 mr-2`}),`Italic`]}),(0,f.jsxs)(l,{"aria-label":`Toggle bold`,size:e,children:[(0,f.jsx)(c,{className:`size-4 mr-2`}),`Bold`]})]})}),(0,f.jsx)(a,{label:`Outline Variant`,description:`Chuyển đổi với phong cách phác thảo.`,children:(0,f.jsx)(`div`,{className:`flex gap-2`,children:(0,f.jsxs)(l,{variant:`outline`,"aria-label":`Toggle underline`,size:e,children:[(0,f.jsx)(o,{className:`size-4 mr-2`}),`Underline`]})})})]})]})}export{p as default};
+import {
+  Nn as e,
+  cr as t,
+  dr as n,
+  i as r,
+  n as i,
+  r as a,
+} from "./showcase-vJrKG7HA.js";
+import { a as o, o as s, s as c, t as l } from "./toggle-CiK5LoAk.js";
+import { t as u } from "./select-preset-B6grUIWS.js";
+var d = n(t(), 1),
+  f = e();
+function p() {
+  let [e, t] = (0, d.useState)(`md`);
+  return (0, f.jsxs)(`div`, {
+    className: `space-y-10`,
+    children: [
+      (0, f.jsx)(r, {
+        title: `Toggle`,
+        description: `Nút hai trạng thái có thể bật hoặc tắt.`,
+        children: (0, f.jsx)(u, {
+          value: e,
+          onValueChange: (e) => t(e),
+          options: [
+            { value: `sm`, label: `Size: sm` },
+            { value: `md`, label: `Size: md` },
+            { value: `lg`, label: `Size: lg` },
+          ],
+          className: `w-[120px] h-8 text-xs bg-background`,
+        }),
+      }),
+      (0, f.jsxs)(i, {
+        columns: 2,
+        children: [
+          (0, f.jsx)(a, {
+            label: `Standard`,
+            description: `Nút chuyển đổi duy nhất.`,
+            children: (0, f.jsxs)(`div`, {
+              className: `flex gap-2`,
+              children: [
+                (0, f.jsxs)(l, {
+                  "aria-label": `Toggle italic`,
+                  size: e,
+                  children: [
+                    (0, f.jsx)(s, { className: `size-4 mr-2` }),
+                    `Italic`,
+                  ],
+                }),
+                (0, f.jsxs)(l, {
+                  "aria-label": `Toggle bold`,
+                  size: e,
+                  children: [
+                    (0, f.jsx)(c, { className: `size-4 mr-2` }),
+                    `Bold`,
+                  ],
+                }),
+              ],
+            }),
+          }),
+          (0, f.jsx)(a, {
+            label: `Outline Variant`,
+            description: `Chuyển đổi với phong cách phác thảo.`,
+            children: (0, f.jsx)(`div`, {
+              className: `flex gap-2`,
+              children: (0, f.jsxs)(l, {
+                variant: `outline`,
+                "aria-label": `Toggle underline`,
+                size: e,
+                children: [
+                  (0, f.jsx)(o, { className: `size-4 mr-2` }),
+                  `Underline`,
+                ],
+              }),
+            }),
+          }),
+        ],
+      }),
+    ],
+  });
+}
+export { p as default };

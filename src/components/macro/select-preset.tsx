@@ -1,5 +1,3 @@
-import * as React from "react";
-import { type Size } from "@/lib/types";
 import {
   Select,
   SelectContent,
@@ -9,6 +7,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/micro/select";
+import { type Size } from "@/lib/types";
+import * as React from "react";
 import { FieldPreset } from "./field-preset";
 
 interface SelectPresetOption {
@@ -52,92 +52,111 @@ interface SelectPresetProps {
 const SelectPreset = React.forwardRef<
   React.ComponentRef<typeof SelectTrigger>,
   SelectPresetProps
->(({
-  options,
-  placeholder,
-  value,
-  defaultValue,
-  onValueChange,
-  size,
-  disabled,
-  className,
-  label,
-  description,
-  errorMessage,
-  showError = true,
-  id,
-}, ref) => {
-  const generatedId = React.useId();
-  const inputId = id || generatedId;
+>(
+  (
+    {
+      options,
+      placeholder,
+      value,
+      defaultValue,
+      onValueChange,
+      size,
+      disabled,
+      className,
+      label,
+      description,
+      errorMessage,
+      showError = true,
+      id,
+    },
+    ref,
+  ) => {
+    const generatedId = React.useId();
+    const inputId = id || generatedId;
 
-  return (
-    <FieldPreset label={label} description={description} errorMessage={errorMessage} showError={showError} className={className} orientation="vertical" htmlFor={inputId} size={size}>
-      <Select
-        value={value}
-        defaultValue={defaultValue}
-        onValueChange={
-          onValueChange &&
-          ((v: string | null) => {
-            if (v !== null) onValueChange(v);
-          })
-        }
-        disabled={disabled}
-        items={Object.fromEntries(options.map((opt) => [opt.value, opt.label]))}
+    return (
+      <FieldPreset
+        label={label}
+        description={description}
+        errorMessage={errorMessage}
+        showError={showError}
+        className={className}
+        orientation="vertical"
+        htmlFor={inputId}
+        size={size}
       >
-        <SelectTrigger
-          ref={ref}
-          id={inputId}
-          size={size}
-          aria-invalid={!!errorMessage || undefined}
+        <Select
+          value={value}
+          defaultValue={defaultValue}
+          onValueChange={
+            onValueChange &&
+            ((v: string | null) => {
+              if (v !== null) onValueChange(v);
+            })
+          }
+          disabled={disabled}
+          items={Object.fromEntries(
+            options.map((opt) => [opt.value, opt.label]),
+          )}
         >
-          <SelectValue placeholder={placeholder} />
-        </SelectTrigger>
-        <SelectContent>
-          {(() => {
-            const groups = new Map<string | undefined, SelectPresetOption[]>();
-            options.forEach((opt) => {
-              const key = opt.group;
-              if (!groups.has(key)) {
-                groups.set(key, []);
-              }
-              groups.get(key)!.push(opt);
-            });
+          <SelectTrigger
+            ref={ref}
+            id={inputId}
+            size={size}
+            aria-invalid={!!errorMessage || undefined}
+          >
+            <SelectValue placeholder={placeholder} />
+          </SelectTrigger>
+          <SelectContent>
+            {(() => {
+              const groups = new Map<
+                string | undefined,
+                SelectPresetOption[]
+              >();
+              options.forEach((opt) => {
+                const key = opt.group;
+                if (!groups.has(key)) {
+                  groups.set(key, []);
+                }
+                groups.get(key)!.push(opt);
+              });
 
-            return Array.from(groups.entries()).map(([groupLabel, opts]) => {
-              if (groupLabel) {
-                return (
-                  <SelectGroup key={groupLabel}>
-                    <SelectLabel>{groupLabel}</SelectLabel>
-                    {opts.map((opt) => (
-                      <SelectItem
-                        key={opt.value}
-                        value={opt.value}
-                        disabled={opt.disabled}
-                      >
-                        {opt.dropdownLabel || opt.label}
-                      </SelectItem>
-                    ))}
-                  </SelectGroup>
-                );
-              }
-              // Items without a group
-              return opts.map((opt) => (
-                <SelectItem
-                  key={opt.value}
-                  value={opt.value}
-                  disabled={opt.disabled}
-                >
-                  {opt.dropdownLabel || opt.label}
-                </SelectItem>
-              ));
-            });
-          })()}
-        </SelectContent>
-      </Select>
-    </FieldPreset>
-  );
-});
+              return Array.from(groups.entries()).map(([groupLabel, opts]) => {
+                if (groupLabel) {
+                  return (
+                    <SelectGroup key={groupLabel}>
+                      <SelectLabel>{groupLabel}</SelectLabel>
+                      {opts.map((opt) => (
+                        <SelectItem
+                          key={opt.value}
+                          value={opt.value}
+                          disabled={opt.disabled}
+                        >
+                          {opt.dropdownLabel || opt.label}
+                        </SelectItem>
+                      ))}
+                    </SelectGroup>
+                  );
+                }
+                // Items without a group
+                return opts.map((opt) => (
+                  <SelectItem
+                    key={opt.value}
+                    value={opt.value}
+                    disabled={opt.disabled}
+                  >
+                    {opt.dropdownLabel || opt.label}
+                  </SelectItem>
+                ));
+              });
+            })()}
+          </SelectContent>
+        </Select>
+      </FieldPreset>
+    );
+  },
+);
 SelectPreset.displayName = "SelectPreset";
 
 export { SelectPreset };
-export type { SelectPresetProps, SelectPresetOption };
+export type { SelectPresetOption, SelectPresetProps };

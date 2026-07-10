@@ -1,6 +1,5 @@
-import React from "react";
-import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
+import { describe, expect, it } from "vitest";
 import { SwitchPreset } from "./switch-preset";
 
 describe("SwitchPreset", () => {
@@ -16,7 +15,12 @@ describe("SwitchPreset", () => {
   });
 
   it("renders description when provided", () => {
-    render(<SwitchPreset label="Notifications" description="Enable push notifications" />);
+    render(
+      <SwitchPreset
+        label="Notifications"
+        description="Enable push notifications"
+      />,
+    );
     expect(screen.getByText("Enable push notifications")).toBeInTheDocument();
   });
 

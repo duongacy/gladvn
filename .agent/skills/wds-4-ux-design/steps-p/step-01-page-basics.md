@@ -1,11 +1,11 @@
 ---
-name: 'step-01-page-basics'
-description: 'Capture fundamental page information including title, route, goals, and SEO data'
+name: "step-01-page-basics"
+description: "Capture fundamental page information including title, route, goals, and SEO data"
 
 # File References
-nextStepFile: './step-02-layout-sections.md'
-workflowFile: '../workflow.md'
-activityWorkflowFile: '../workflow-specify.md'
+nextStepFile: "./step-02-layout-sections.md"
+workflowFile: "../workflow.md"
+activityWorkflowFile: "../workflow-specify.md"
 ---
 
 # Step 1: Page Basics
@@ -69,6 +69,7 @@ Capture fundamental page information including title, URL/route, user goal, entr
 
 **SEO (for public pages):**
 Check the project brief's SEO Strategy for this page's target keywords.
+
 - Primary keyword:
 - Secondary keywords:
 - URL slug (from keyword map):</ask>

@@ -1,7 +1,7 @@
 ---
-name: 'step-06-generate-content'
-description: 'Generate strategically grounded content variations, review, and finalize'
-workflowFile: '../workflow.md'
+name: "step-06-generate-content"
+description: "Generate strategically grounded content variations, review, and finalize"
+workflowFile: "../workflow.md"
 ---
 
 # Step 6: Generate and Review Content
@@ -58,6 +58,7 @@ Review and synthesize all strategic outputs from Steps 0-5 before generating.
 ### 2. Generate 2-3 Variations
 
 Create variations that differ in which driving forces they emphasize:
+
 - **Variation A (Wish-focused):** Emphasizes positive driving force / aspiration
 - **Variation B (Fear-focused):** Emphasizes negative driving force / pain avoidance
 - **Variation C (Balanced):** Blends both, may shift awareness emphasis
@@ -89,6 +90,7 @@ Ask: **"Does this move the user from START to END awareness?"** Verify the journ
 ### 8. Document Final Content
 
 Save using content-output template with full strategic traceability:
+
 - Trigger Map reference, awareness journey, action enabled, empowerment achieved
 - Implementation notes (technical, design, language tags, asset needs)
 

@@ -1,11 +1,11 @@
 ---
-workflowStatus: ''
+workflowStatus: ""
 totalSteps: 5
 stepsCompleted: []
-lastStep: ''
-nextStep: ''
-lastSaved: ''
-workflowType: 'testarch-test-design'
+lastStep: ""
+nextStep: ""
+lastSaved: ""
+workflowType: "testarch-test-design"
 inputDocuments: []
 ---
 
@@ -37,7 +37,7 @@ inputDocuments: []
 - P1 tests: ~{N} (important features, integration)
 - P2 tests: ~{N} (edge cases, regression)
 - P3 tests: ~{N} (exploratory, benchmarks)
-- **Total**: ~{N} tests (~{X}-{Y} weeks with 1 QA)
+- **Total**: ~~{N} tests (~~{X}-{Y} weeks with 1 QA)
 
 ---
 
@@ -83,19 +83,19 @@ inputDocuments: []
 **Example factory pattern:**
 
 ```typescript
-import { test } from '@seontechnologies/playwright-utils/api-request/fixtures';
-import { expect } from '@playwright/test';
-import { faker } from '@faker-js/faker';
+import { test } from "@seontechnologies/playwright-utils/api-request/fixtures";
+import { expect } from "@playwright/test";
+import { faker } from "@faker-js/faker";
 
-test('example test @p0', async ({ apiRequest }) => {
+test("example test @p0", async ({ apiRequest }) => {
   const testData = {
     id: `test-${faker.string.uuid()}`,
     email: faker.internet.email(),
   };
 
   const { status } = await apiRequest({
-    method: 'POST',
-    path: '/api/resource',
+    method: "POST",
+    path: "/api/resource",
     body: testData,
   });
 
@@ -344,41 +344,41 @@ test('example test @p0', async ({ apiRequest }) => {
 **Playwright Tags for Selective Execution:**
 
 ```typescript
-import { test } from '@seontechnologies/playwright-utils/api-request/fixtures';
-import { expect } from '@playwright/test';
+import { test } from "@seontechnologies/playwright-utils/api-request/fixtures";
+import { expect } from "@playwright/test";
 
 // P0 critical test
-test('@P0 @API @Security unauthenticated request returns 401', async ({ apiRequest }) => {
+test("@P0 @API @Security unauthenticated request returns 401", async ({
+  apiRequest,
+}) => {
   const { status, body } = await apiRequest({
-    method: 'POST',
-    path: '/api/endpoint',
-    body: { data: 'test' },
+    method: "POST",
+    path: "/api/endpoint",
+    body: { data: "test" },
     skipAuth: true,
   });
 
   expect(status).toBe(401);
-  expect(body.error).toContain('unauthorized');
+  expect(body.error).toContain("unauthorized");
 });
 
 // P1 integration test
-test('@P1 @Integration data syncs correctly', async ({ apiRequest }) => {
+test("@P1 @Integration data syncs correctly", async ({ apiRequest }) => {
   // Seed data
   await apiRequest({
-    method: 'POST',
-    path: '/api/seed',
-    body: {
-      /* test data */
-    },
+    method: "POST",
+    path: "/api/seed",
+    body: {/* test data */},
   });
 
   // Validate
   const { status, body } = await apiRequest({
-    method: 'GET',
-    path: '/api/resource',
+    method: "GET",
+    path: "/api/resource",
   });
 
   expect(status).toBe(200);
-  expect(body).toHaveProperty('data');
+  expect(body).toHaveProperty("data");
 });
 ```
 

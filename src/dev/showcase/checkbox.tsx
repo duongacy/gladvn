@@ -1,31 +1,29 @@
-import { useState } from "react";
-import { CheckIcon, MinusIcon } from "lucide-react";
-import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { CheckIcon, MinusIcon } from "lucide-react";
+import { useState } from "react";
+import { Controller, useForm } from "react-hook-form";
 import * as z from "zod";
 
 import {
-  ExampleSection,
-  ExampleGrid,
-  ShowcaseDocs,
-  Showcase,
-  DocsH3,
   DocsP,
-  DocsCode,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+  SizeToggle,
 } from "@/dev/components/showcase";
-import { MonoSelect } from "@/dev/components/mono-select";
 import { type Size } from "@/lib/types";
 
-import { Checkbox, CheckboxIndicator } from "@/components/micro/checkbox";
-import { Label } from "@/components/micro/label";
-import {
-  Field,
-  FieldLabel,
-  FieldDescription,
-  FieldError,
-} from "@/components/micro/field";
 import { CheckboxPreset } from "@/components/macro/checkbox-preset";
 import { Button } from "@/components/micro/button";
+import { Checkbox, CheckboxIndicator } from "@/components/micro/checkbox";
+import {
+  Field,
+  FieldDescription,
+  FieldError,
+  FieldLabel,
+} from "@/components/micro/field";
+import { Label } from "@/components/micro/label";
 
 // ──────────────────────────────────────────────────────────
 // RHF Form Demo (Macro)
@@ -108,17 +106,6 @@ function CheckboxMacroShowcase({ globalSize }: { globalSize: Size }) {
 
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Khi nào nên dùng Macro</DocsH3>
-        <DocsP>
-          <DocsCode>CheckboxPreset</DocsCode> là một component đóng gói sẵn toàn
-          bộ các thành phần thường thấy: Checkbox + Nhãn (Label) + Mô tả
-          (Description) + Lỗi (Error Message). Nó tự động xử lý ID linking, mang
-          lại trải nghiệm truy cập (Accessibility) hoàn hảo chỉ với 1 dòng code.
-          Dùng Macro cho 95% trường hợp làm form thông thường.
-        </DocsP>
-      </ShowcaseDocs>
-
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Tiêu chuẩn"
@@ -280,21 +267,6 @@ function CheckboxMicroShowcase({ globalSize }: { globalSize: Size }) {
 
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Khi nào nên dùng Micro</DocsH3>
-        <DocsP>
-          <DocsCode>Checkbox</DocsCode> là lõi của component. Nó chỉ hiển thị ra
-          cái ô vuông (không có chữ). BẮT BUỘC phải dùng kèm{" "}
-          <DocsCode>CheckboxIndicator</DocsCode> ở bên trong để render dấu
-          check.
-        </DocsP>
-        <DocsP>
-          Dùng Micro khi bạn muốn chèn Checkbox vào một thành phần UI dị biệt
-          (ví dụ: nằm bên trong bảng (Table), danh sách item tuỳ biến) mà không
-          cần Label/Description bọc bên ngoài.
-        </DocsP>
-      </ShowcaseDocs>
-
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Cơ bản (Primitive)"
@@ -616,17 +588,16 @@ export default function CheckboxShowcase() {
     <Showcase
       title="Checkbox"
       description="Thành phần cho phép người dùng chọn hoặc bỏ chọn một tuỳ chọn độc lập."
-      actions={
-        <MonoSelect
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as Size)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-        />
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsP>
+            Dùng để thu thập đầu vào dạng đúng/sai hoặc nhiều lựa chọn độc lập
+            từ người dùng. Thường đi kèm với nhãn (label) và mô tả để giải thích
+            ý nghĩa của tùy chọn.
+          </DocsP>
+        </ShowcaseDocs>
       }
+      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
       tabs={[
         {
           label: "Micro (Primitive)",

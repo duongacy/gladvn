@@ -1,23 +1,9 @@
-import { useState } from "react";
-import {
-  ExampleSection,
-  ExampleGrid,
-  ShowcaseDocs,
-  Showcase,
-  DocsH3,
-  DocsP,
-  DocsUl,
-  DocsLi,
-  DocsCode,
-} from "@/dev/components/showcase";
-import { MonoSelect } from "@/dev/components/mono-select";
-import { Textarea } from "@/components/micro/textarea";
+import { TextareaPreset } from "@/components/macro/textarea-preset";
 import {
   Field,
-  FieldLabel,
-  FieldDescription,
   FieldContent,
   FieldError,
+  FieldLabel,
 } from "@/components/micro/field";
 import {
   InputGroup,
@@ -25,8 +11,19 @@ import {
   InputGroupText,
   InputGroupTextarea,
 } from "@/components/micro/input-group";
-import { TextareaPreset } from "@/components/macro/textarea-preset";
+import { Textarea } from "@/components/micro/textarea";
+import {
+  DocsCode,
+  DocsH3,
+  DocsP,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+  SizeToggle,
+} from "@/dev/components/showcase";
 import { type Size } from "@/lib/types";
+import { useState } from "react";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Macro Content
@@ -37,16 +34,6 @@ function TextareaMacroShowcase({ globalSize }: { globalSize: Size }) {
 
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Khi nào nên dùng Macro</DocsH3>
-        <DocsP>
-          <DocsCode>TextareaPreset</DocsCode> là một component hoàn chỉnh, tích
-          hợp sẵn Label, Description và Error Message. Sử dụng nó cho đa số các
-          trường hợp để giữ code ngắn gọn và đảm bảo tính nhất quán
-          (Accessibility).
-        </DocsP>
-      </ShowcaseDocs>
-
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Tiêu chuẩn"
@@ -215,15 +202,6 @@ return (
 function TextareaMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ShowcaseDocs>
-        <DocsH3>Khi nào nên dùng Micro</DocsH3>
-        <DocsP>
-          <DocsCode>Textarea</DocsCode> chỉ là một ô nhập liệu độc lập. Dùng nó
-          khi bạn tự quản lý <DocsCode>Field</DocsCode> thủ công hoặc khi chèn
-          Textarea vào bên trong một <DocsCode>InputGroup</DocsCode>.
-        </DocsP>
-      </ShowcaseDocs>
-
       <ExampleGrid columns={2}>
         <ExampleSection
           label="Cơ bản (Primitive)"
@@ -486,17 +464,28 @@ export default function TextareaShowcase() {
     <Showcase
       title="Textarea"
       description="Trường văn bản nhiều dòng dành cho nội dung dài, phản hồi hoặc mô tả."
-      actions={
-        <MonoSelect
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as Size)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-        />
+      generalConcept={
+        <div className="space-y-4">
+          <ShowcaseDocs>
+            <DocsH3>Khi nào nên dùng Macro</DocsH3>
+            <DocsP>
+              <DocsCode>TextareaPreset</DocsCode> là một component hoàn chỉnh,
+              tích hợp sẵn Label, Description và Error Message. Sử dụng nó cho
+              đa số các trường hợp để giữ code ngắn gọn và đảm bảo tính nhất
+              quán (Accessibility).
+            </DocsP>
+          </ShowcaseDocs>
+          <ShowcaseDocs>
+            <DocsH3>Khi nào nên dùng Micro</DocsH3>
+            <DocsP>
+              <DocsCode>Textarea</DocsCode> chỉ là một ô nhập liệu độc lập. Dùng
+              nó khi bạn tự quản lý <DocsCode>Field</DocsCode> thủ công hoặc khi
+              chèn Textarea vào bên trong một <DocsCode>InputGroup</DocsCode>.
+            </DocsP>
+          </ShowcaseDocs>
+        </div>
       }
+      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
       tabs={[
         {
           label: "Micro (Primitive)",

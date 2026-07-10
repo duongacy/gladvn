@@ -1,32 +1,20 @@
+import {
+  DocsH3,
+  DocsP,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+  SizeToggle,
+} from "@/dev/components/showcase";
 import { useState } from "react";
 import { toast } from "sonner";
-import { SectionHeader, ExampleSection } from "@/dev/components/showcase";
 
-import { type Size } from "@/lib/types";
 import { Button } from "@/components/micro/button";
-import { SelectPreset } from "@/components/macro/select-preset";
+import { type Size } from "@/lib/types";
 
-export default function ToastShowcase() {
-  const [globalSize, setGlobalSize] = useState<Size>("md");
-
+function ToastMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
-    <div className="space-y-10">
-      <SectionHeader
-        title="Toast"
-        description="Một thông báo ngắn gọn được hiển thị tạm thời."
-      >
-        <SelectPreset
-          value={globalSize}
-          onValueChange={(v) => setGlobalSize(v as Size)}
-          options={[
-            { value: "sm", label: "Size: sm" },
-            { value: "md", label: "Size: md" },
-            { value: "lg", label: "Size: lg" },
-          ]}
-          className="w-[120px] h-8 text-xs bg-background"
-        />
-      </SectionHeader>
-
+    <div className="space-y-10 mt-6">
       <ExampleSection
         label="Toast Notifications"
         description="Nhấp để kích hoạt các lời chúc mừng khác nhau."
@@ -105,5 +93,29 @@ export default function ToastShowcase() {
         </div>
       </ExampleSection>
     </div>
+  );
+}
+
+export default function ToastShowcase() {
+  const [globalSize, setGlobalSize] = useState<Size>("md");
+
+  return (
+    <Showcase
+      title="Toast"
+      description="Một thông báo ngắn gọn được hiển thị tạm thời."
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsH3>Toast (Sonner)</DocsH3>
+          <DocsP>Sử dụng để hiển thị các thông báo nhanh cho người dùng.</DocsP>
+        </ShowcaseDocs>
+      }
+      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
+      tabs={[
+        {
+          label: "Micro (Primitive)",
+          content: <ToastMicroShowcase globalSize={globalSize} />,
+        },
+      ]}
+    />
   );
 }

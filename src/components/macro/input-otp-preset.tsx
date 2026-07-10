@@ -4,15 +4,15 @@
  * - Custom Layout & Groups
  * - Form Control Integration
  */
-import * as React from "react";
 import {
   InputOTP,
   InputOTPGroup,
-  InputOTPSlot,
   InputOTPSeparator,
+  InputOTPSlot,
 } from "@/components/micro/input-otp";
-import { FieldPreset } from "./field-preset";
 import { MinusIcon } from "lucide-react";
+import * as React from "react";
+import { FieldPreset } from "./field-preset";
 
 export type InputOTPPresetProps = Omit<
   React.ComponentProps<typeof InputOTP>,
@@ -29,31 +29,67 @@ export type InputOTPPresetProps = Omit<
 const InputOTPPreset = React.forwardRef<
   React.ComponentRef<typeof InputOTP>,
   InputOTPPresetProps
->(({ groups, separator = <MinusIcon aria-hidden="true" />, label, description, errorMessage, showError = true, className, id, ...inputOtpProps }, ref) => {
-  const generatedId = React.useId();
-  const inputId = id || generatedId;
-  const totalLength = groups.reduce((a, b) => a + b, 0);
+>(
+  (
+    {
+      groups,
+      separator = <MinusIcon aria-hidden="true" />,
+      label,
+      description,
+      errorMessage,
+      showError = true,
+      className,
+      id,
+      ...inputOtpProps
+    },
+    ref,
+  ) => {
+    const generatedId = React.useId();
+    const inputId = id || generatedId;
+    const totalLength = groups.reduce((a, b) => a + b, 0);
 
-  return (
-    <FieldPreset label={label} description={description} errorMessage={errorMessage} showError={showError} className={className} orientation="vertical" htmlFor={inputId}>
-      <InputOTP ref={ref} id={inputId} maxLength={totalLength} aria-invalid={!!errorMessage || undefined} {...inputOtpProps}>
-        {groups.map((groupLength, groupIndex) => (
-          <React.Fragment key={`${inputId}-g-${groupIndex}`}>
-            {groupIndex > 0 && (
-              <InputOTPSeparator>{separator}</InputOTPSeparator>
-            )}
-            <InputOTPGroup>
-              {Array.from({ length: groupLength }).map((_, index) => {
-                const slotIndex = groups.slice(0, groupIndex).reduce((a, b) => a + b, 0) + index;
-                return <InputOTPSlot key={`${inputId}-slot-${slotIndex}`} index={slotIndex} />;
-              })}
-            </InputOTPGroup>
-          </React.Fragment>
-        ))}
-      </InputOTP>
-    </FieldPreset>
-  );
-});
+    return (
+      <FieldPreset
+        label={label}
+        description={description}
+        errorMessage={errorMessage}
+        showError={showError}
+        className={className}
+        orientation="vertical"
+        htmlFor={inputId}
+      >
+        <InputOTP
+          ref={ref}
+          id={inputId}
+          maxLength={totalLength}
+          aria-invalid={!!errorMessage || undefined}
+          {...inputOtpProps}
+        >
+          {groups.map((groupLength, groupIndex) => (
+            <React.Fragment key={`${inputId}-g-${groupIndex}`}>
+              {groupIndex > 0 && (
+                <InputOTPSeparator>{separator}</InputOTPSeparator>
+              )}
+              <InputOTPGroup>
+                {Array.from({ length: groupLength }).map((_, index) => {
+                  const slotIndex =
+                    groups.slice(0, groupIndex).reduce((a, b) => a + b, 0) +
+                    index;
+                  return (
+                    <InputOTPSlot
+                      key={`${inputId}-slot-${slotIndex}`}
+                      index={slotIndex}
+                    />
+                  );
+                })}
+              </InputOTPGroup>
+            </React.Fragment>
+          ))}
+        </InputOTP>
+      </FieldPreset>
+    );
+  },
+);
 InputOTPPreset.displayName = "InputOTPPreset";
 
 export { InputOTPPreset };

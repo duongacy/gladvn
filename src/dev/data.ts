@@ -262,7 +262,7 @@ export const COMPONENTS = [
     status: "stable",
   },
   { id: "resizable", label: "Resizable", hasMicro: true, hasMacro: false, status: "stable" },
-  { id: "scroll-area", label: "Scroll Area", hasMicro: true, hasMacro: false },
+  { id: "scroll-area", label: "Scroll Area", hasMicro: true, hasMacro: false, status: "stable" },
   {
     id: "select",
     label: "Select",

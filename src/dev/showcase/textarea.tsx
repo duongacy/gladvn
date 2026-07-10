@@ -248,7 +248,7 @@ function TextareaMicroShowcase({ globalSize }: { globalSize: Size }) {
   <FieldLabel htmlFor="tf-group-textarea">Bình luận</FieldLabel>
   <FieldContent>
     <InputGroup className="items-start">
-      <InputGroupAddon align="inline-start" className="mt-2">
+      <InputGroupAddon align="start" className="mt-2">
         <InputGroupText>💬</InputGroupText>
       </InputGroupAddon>
       <InputGroupTextarea
@@ -265,7 +265,7 @@ function TextareaMicroShowcase({ globalSize }: { globalSize: Size }) {
             <FieldLabel htmlFor="tf-group-textarea">Bình luận</FieldLabel>
             <FieldContent>
               <InputGroup size={globalSize} className="items-start">
-                <InputGroupAddon align="inline-start" className="mt-2">
+                <InputGroupAddon align="start" className="mt-2">
                   <InputGroupText>💬</InputGroupText>
                 </InputGroupAddon>
                 <InputGroupTextarea

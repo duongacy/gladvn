@@ -60,6 +60,7 @@ Danh sách các nhóm component cần ưu tiên hoàn thiện sớm nhất để
 - [x] `collapsible.tsx`
 - [x] `combobox.tsx`
 - [x] `dialog.tsx`
+- [x] `input-group.tsx`
 - [x] `input.tsx`
 - [x] `label.tsx`
 - [x] `progress.tsx`
@@ -90,9 +91,8 @@ Danh sách các nhóm component cần ưu tiên hoàn thiện sớm nhất để
 - [x] `drawer.tsx`
 - [x] `dropdown-menu.tsx`
 - [x] `empty.tsx`
-- [x] `field.tsx`
+- [x] `field.tsx` (Bỏ qua showcase)
 - [ ] `hover-card.tsx`
-- [ ] `input-group.tsx`
 - [ ] `input-otp.tsx`
 - [ ] `item.tsx`
 - [ ] `kbd.tsx`

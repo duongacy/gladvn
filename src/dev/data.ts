@@ -187,7 +187,7 @@ export const COMPONENTS = [
     hasMacro: true,
     status: "stable",
   },
-  { id: "field", label: "Field", hasMicro: true, hasMacro: true },
+
   { id: "hover-card", label: "Hover Card", hasMicro: true, hasMacro: false },
   {
     id: "input",

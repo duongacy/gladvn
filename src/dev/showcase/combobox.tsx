@@ -311,7 +311,7 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
             placeholder="Tìm framework..."
             render={<InputGroupInput />}
           />
-          <InputGroupAddon align="inline-end">
+          <InputGroupAddon align="end">
             <ComboboxTrigger className="flex h-full cursor-default items-center justify-center px-2.5 outline-none group-has-data-[slot=combobox-clear]/input-group:hidden disabled:cursor-not-allowed disabled:opacity-50" />
             <ComboboxClear />
           </InputGroupAddon>
@@ -349,7 +349,7 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
                       placeholder="Tìm framework..."
                       render={<InputGroupInput />}
                     />
-                    <InputGroupAddon align="inline-end">
+                    <InputGroupAddon align="end">
                       <ComboboxTrigger className="flex h-full cursor-default items-center justify-center px-2.5 outline-none group-has-data-[slot=combobox-clear]/input-group:hidden disabled:cursor-not-allowed disabled:opacity-50" />
                       <ComboboxClear />
                     </InputGroupAddon>
@@ -456,7 +456,7 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
             disabled
             render={<InputGroupInput disabled />}
           />
-          <InputGroupAddon align="inline-end">
+          <InputGroupAddon align="end">
             <ComboboxTrigger className="flex h-full cursor-default items-center justify-center px-2.5 outline-none group-has-data-[slot=combobox-clear]/input-group:hidden disabled:cursor-not-allowed disabled:opacity-50" disabled />
           </InputGroupAddon>
         </InputGroup>
@@ -482,7 +482,7 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
                       disabled
                       render={<InputGroupInput disabled />}
                     />
-                    <InputGroupAddon align="inline-end">
+                    <InputGroupAddon align="end">
                       <ComboboxTrigger
                         className="flex h-full cursor-default items-center justify-center px-2.5 outline-none group-has-data-[slot=combobox-clear]/input-group:hidden disabled:cursor-not-allowed disabled:opacity-50"
                         disabled
@@ -514,7 +514,7 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
             aria-invalid={true}
             render={<InputGroupInput />}
           />
-          <InputGroupAddon align="inline-end">
+          <InputGroupAddon align="end">
             <ComboboxTrigger className="flex h-full cursor-default items-center justify-center px-2.5 outline-none group-has-data-[slot=combobox-clear]/input-group:hidden disabled:cursor-not-allowed disabled:opacity-50" />
             <ComboboxClear />
           </InputGroupAddon>
@@ -544,7 +544,7 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
                       aria-invalid={true}
                       render={<InputGroupInput />}
                     />
-                    <InputGroupAddon align="inline-end">
+                    <InputGroupAddon align="end">
                       <ComboboxTrigger className="flex h-full cursor-default items-center justify-center px-2.5 outline-none group-has-data-[slot=combobox-clear]/input-group:hidden disabled:cursor-not-allowed disabled:opacity-50" />
                       <ComboboxClear />
                     </InputGroupAddon>

@@ -56,12 +56,11 @@ export const InputPreset = React.forwardRef<HTMLInputElement, InputPresetProps>(
       <InputGroupButton
         type="button"
         variant="ghost"
-        color="muted"
-        size="icon"
+        icon
         onClick={() => setShowPassword((prev) => !prev)}
         aria-label={showPassword ? "Hide password" : "Show password"}
         aria-pressed={showPassword}
-        className="size-6 text-muted-foreground hover:text-foreground"
+        className="text-muted-foreground hover:text-foreground"
       >
         {showPassword ? (
           <EyeOffIcon className="size-4" />
@@ -100,7 +99,7 @@ export const InputPreset = React.forwardRef<HTMLInputElement, InputPresetProps>(
           <div className="@container/input-group w-full">
             <InputGroup size={size} className="w-full">
               {startAdornment && (
-                <InputGroupAddon align="inline-start">
+                <InputGroupAddon align="start">
                   {typeof startAdornment === "string" ? (
                     <InputGroupText>{startAdornment}</InputGroupText>
                   ) : (
@@ -111,13 +110,12 @@ export const InputPreset = React.forwardRef<HTMLInputElement, InputPresetProps>(
               <InputGroupInput
                 ref={ref}
                 id={inputId}
-                size={size}
                 aria-invalid={isInvalid}
                 type={actualType}
-                {...props}
+                {...(props as React.ComponentPropsWithoutRef<"input">)}
               />
               {combinedEndAdornment && (
-                <InputGroupAddon align="inline-end">
+                <InputGroupAddon align="end">
                   {combinedEndAdornment}
                 </InputGroupAddon>
               )}

@@ -40,6 +40,7 @@ const InputOTPPreset = React.forwardRef<
       showError = true,
       className,
       id,
+      size = "md",
       ...inputOtpProps
     },
     ref,
@@ -55,12 +56,14 @@ const InputOTPPreset = React.forwardRef<
         errorMessage={errorMessage}
         showError={showError}
         className={className}
+        size={size}
         orientation="vertical"
         htmlFor={inputId}
       >
         <InputOTP
           ref={ref}
           id={inputId}
+          size={size}
           maxLength={totalLength}
           aria-invalid={!!errorMessage || undefined}
           {...inputOtpProps}

@@ -14,15 +14,16 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 const inputOTPVariants = cva(
-  "cn-input-otp group/otp flex items-center has-disabled:opacity-50 has-disabled:cursor-not-allowed has-disabled:pointer-events-none",
+  "cn-input-otp group/otp inline-flex items-center has-disabled:opacity-50 has-disabled:cursor-not-allowed has-disabled:pointer-events-none",
   {
     variants: {
       size: {
-        sm: "otp-sm min-h-7 text-xs",
-        md: "otp-md min-h-8 text-sm",
-        lg: "otp-lg min-h-9 text-sm",
+        sm: "min-h-7 text-xs",
+        md: "min-h-8 text-sm",
+        lg: "min-h-9 text-sm",
       },
     },
+    defaultVariants: { size: "md" },
   },
 );
 
@@ -38,17 +39,22 @@ const InputOTP = React.forwardRef<
     }
 >(({ className, containerClassName, size = "md", ...props }, ref) => {
   return (
-    <OTPInput
-      {...(ref ? { ref } : {})}
+    <div
       data-slot="input-otp"
-      containerClassName={cn(inputOTPVariants({ size }), containerClassName)}
-      spellCheck={false}
-      className={cn(
-        "disabled:cursor-not-allowed disabled:opacity-100",
-        className,
-      )}
-      {...(props as React.ComponentProps<typeof OTPInput>)}
-    />
+      data-size={size}
+      className={cn(inputOTPVariants({ size }))}
+    >
+      <OTPInput
+        {...(ref ? { ref } : {})}
+        containerClassName={cn("flex items-center", containerClassName)}
+        spellCheck={false}
+        className={cn(
+          "disabled:cursor-not-allowed disabled:opacity-100",
+          className,
+        )}
+        {...(props as React.ComponentProps<typeof OTPInput>)}
+      />
+    </div>
   );
 });
 InputOTP.displayName = "InputOTP";
@@ -81,7 +87,7 @@ const InputOTPSlot = React.forwardRef<
       data-slot="input-otp-slot"
       data-active={isActive ? "" : undefined}
       className={cn(
-        "relative flex size-8 group-[.otp-sm]/otp:size-7 group-[.otp-lg]/otp:size-9 items-center justify-center border border-input rounded-lg bg-transparent transition-colors outline-none",
+        "relative flex size-8 group-data-[size=sm]/otp:size-7 group-data-[size=lg]/otp:size-9 items-center justify-center border border-input rounded-lg bg-transparent transition-colors outline-none",
         "aria-invalid:border-destructive dark:aria-invalid:border-destructive/50",
         "data-active:z-10 data-active:border-ring data-active:ring-3 data-active:ring-ring/50 data-active:ring-offset-1 data-active:ring-offset-background",
         "data-active:aria-invalid:border-destructive data-active:aria-invalid:ring-3 data-active:aria-invalid:ring-destructive/50",
@@ -110,7 +116,7 @@ const InputOTPSeparator = React.forwardRef<
       ref={ref}
       data-slot="input-otp-separator"
       className={cn(
-        "flex items-center text-muted-foreground [&>svg:not([class*='size-'])]:size-4 group-[.otp-sm]/otp:[&>svg:not([class*='size-'])]:size-3.5",
+        "flex items-center text-muted-foreground [&>svg:not([class*='size-'])]:size-4 group-data-[size=sm]/otp:[&>svg:not([class*='size-'])]:size-3.5",
         className,
       )}
       role="separator"

@@ -56,7 +56,7 @@ const InputOTPPreset = React.forwardRef<
         errorMessage={errorMessage}
         showError={showError}
         className={className}
-        size={size}
+        size={size!}
         orientation="vertical"
         htmlFor={inputId}
       >

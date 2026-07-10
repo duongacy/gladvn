@@ -196,8 +196,20 @@ export const COMPONENTS = [
     hasMacro: true,
     status: "stable",
   },
-  { id: "input-group", label: "Input Group", hasMicro: true, hasMacro: false },
-  { id: "input-otp", label: "Input Otp", hasMicro: true, hasMacro: true },
+  {
+    id: "input-group",
+    label: "Input Group",
+    hasMicro: true,
+    hasMacro: false,
+    status: "stable",
+  },
+  {
+    id: "input-otp",
+    label: "Input Otp",
+    hasMicro: true,
+    hasMacro: true,
+    status: "stable",
+  },
   { id: "item", label: "Item", hasMicro: true, hasMacro: false },
   { id: "kbd", label: "Kbd", hasMicro: true, hasMacro: false },
   {

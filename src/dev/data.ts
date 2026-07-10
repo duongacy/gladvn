@@ -217,7 +217,13 @@ export const COMPONENTS = [
     status: "stable",
   },
   { id: "item", label: "Item", hasMicro: true, hasMacro: false },
-  { id: "kbd", label: "Kbd", hasMicro: true, hasMacro: false },
+  {
+    id: "kbd",
+    label: "Kbd",
+    hasMicro: true,
+    hasMacro: false,
+    status: "stable",
+  },
   {
     id: "label",
     label: "Label",

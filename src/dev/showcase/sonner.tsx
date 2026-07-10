@@ -257,38 +257,87 @@ toast.dismiss(toastId);`}
         {/* Visual 3×2 position grid */}
         <div className="w-full max-w-sm">
           <p className="mb-3 text-xs text-muted-foreground">
-            Vị trí hiện tại:{" "}
-            <code className="rounded bg-muted px-1 py-0.5 font-mono">
-              bottom-right
-            </code>{" "}
-            (cấu hình trong root layout)
+            Nhấn từng ô để xem toast xuất hiện đúng vị trí tương ứng.
           </p>
           <div className="grid grid-cols-3 gap-1.5">
-            {(
-              [
-                "top-left",
-                "top-center",
-                "top-right",
-                "bottom-left",
-                "bottom-center",
-                "bottom-right",
-              ] as const
-            ).map((pos) => (
-              <Button
-                key={pos}
-                variant="outline"
-                size="sm"
-                className="text-xs"
-                onClick={() =>
-                  toast(`Toast: ${pos}`, {
-                    description: `position="${pos}"`,
-                    position: pos,
-                  })
-                }
-              >
-                {pos}
-              </Button>
-            ))}
+            <Button
+              variant="outline"
+              size="sm"
+              className="text-xs"
+              onClick={() =>
+                toast("Toast: top-left", {
+                  description: 'position="top-left"',
+                  position: "top-left",
+                })
+              }
+            >
+              top-left
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              className="text-xs"
+              onClick={() =>
+                toast("Toast: top-center", {
+                  description: 'position="top-center"',
+                  position: "top-center",
+                })
+              }
+            >
+              top-center
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              className="text-xs"
+              onClick={() =>
+                toast("Toast: top-right", {
+                  description: 'position="top-right"',
+                  position: "top-right",
+                })
+              }
+            >
+              top-right
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              className="text-xs"
+              onClick={() =>
+                toast("Toast: bottom-left", {
+                  description: 'position="bottom-left"',
+                  position: "bottom-left",
+                })
+              }
+            >
+              bottom-left
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              className="text-xs"
+              onClick={() =>
+                toast("Toast: bottom-center", {
+                  description: 'position="bottom-center"',
+                  position: "bottom-center",
+                })
+              }
+            >
+              bottom-center
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              className="text-xs"
+              onClick={() =>
+                toast("Toast: bottom-right", {
+                  description: 'position="bottom-right"',
+                  position: "bottom-right",
+                })
+              }
+            >
+              bottom-right
+            </Button>
           </div>
         </div>
       </ExampleSection>

@@ -98,7 +98,7 @@ Danh sách các nhóm component cần ưu tiên hoàn thiện sớm nhất để
 - [x] `kbd.tsx`
 - [x] `menubar.tsx`
 - [x] `pagination.tsx`
-- [ ] `resizable.tsx`
+- [x] `resizable.tsx`
 - [ ] `scroll-area.tsx`
 - [ ] `separator.tsx`
 - [x] `sheet.tsx`

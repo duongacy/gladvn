@@ -1,6 +1,7 @@
 import { toast } from "sonner";
 
 import { Button } from "@/components/micro/button";
+import { Toaster } from "@/components/micro/sonner";
 import {
   DocsCode,
   DocsP,
@@ -27,6 +28,8 @@ const mockFail = () =>
 function SonnerMicroShowcase() {
   return (
     <div className="space-y-10 mt-6">
+      {/* Toaster phải mount ở đây để toast() hoạt động trong showcase */}
+      <Toaster position="bottom-right" />
       {/* ── Toast Types ── */}
       <ExampleSection
         label="Loại Toast"

@@ -64,7 +64,6 @@ describe("FieldPreset", () => {
         <input />
       </FieldPreset>,
     );
-    const field = container.querySelector("[data-slot='field']");
-    expect(field).toHaveClass("my-class");
+    expect(container.firstChild).toHaveClass("my-class");
   });
 });

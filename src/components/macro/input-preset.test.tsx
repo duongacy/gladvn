@@ -39,8 +39,7 @@ describe("InputPreset", () => {
 
   it("applies className to wrapper", () => {
     const { container } = render(<InputPreset className="custom-class" />);
-    const field = container.querySelector("[data-slot='field']");
-    expect(field).toHaveClass("custom-class");
+    expect(container.firstChild).toHaveClass("custom-class");
   });
 
   it("generates unique id linking label and input", () => {

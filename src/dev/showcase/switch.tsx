@@ -100,21 +100,17 @@ function SwitchMacroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Tiêu chuẩn"
           description="Công tắc cơ bản có nhãn và mô tả."
-          codeString={`<div className="w-full">
-  <SwitchPreset
+          codeString={`<SwitchPreset className="w-full"
     label="Chế độ máy bay"
     description="Vô hiệu hóa tất cả các kết nối không dây."
   />
-</div>
 `}
         >
-          <div className="w-full">
-            <SwitchPreset
+          <SwitchPreset className="w-full"
               size={globalSize}
               label="Chế độ máy bay"
               description="Vô hiệu hóa tất cả các kết nối không dây."
             />
-          </div>
         </ExampleSection>
 
         <ExampleSection
@@ -177,8 +173,7 @@ function SwitchMacroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Nhãn phức tạp (Custom Content)"
           description="Truyền React Node vào Label để tạo giao diện phong phú."
-          codeString={`<div className="w-full">
-  <SwitchPreset
+          codeString={`<SwitchPreset
     label={
       <span className="flex items-center gap-2">
         Xác thực 2 bước (2FA)
@@ -187,11 +182,9 @@ function SwitchMacroShowcase({ globalSize }: { globalSize: Size }) {
     }
     description="Thêm một lớp bảo mật bổ sung cho tài khoản của bạn. Chúng tôi sẽ yêu cầu mã xác nhận mỗi khi bạn đăng nhập từ thiết bị mới."
   />
-</div>
 `}
         >
-          <div className="w-full">
-            <SwitchPreset
+          <SwitchPreset
               size={globalSize}
               label={
                 <span className="flex items-center gap-2">
@@ -203,7 +196,6 @@ function SwitchMacroShowcase({ globalSize }: { globalSize: Size }) {
               }
               description="Thêm một lớp bảo mật bổ sung cho tài khoản của bạn. Chúng tôi sẽ yêu cầu mã xác nhận mỗi khi bạn đăng nhập từ thiết bị mới."
             />
-          </div>
         </ExampleSection>
       </ExampleGrid>
 
@@ -243,9 +235,7 @@ return (
           description="Dùng Controller của RHF để bọc SwitchPreset."
           codeString={rhfCode}
         >
-          <div className="w-full">
-            <SwitchForm size={globalSize} />
-          </div>
+          <SwitchForm className="w-full" size={globalSize} />
         </ExampleSection>
       </ExampleGrid>
     </div>

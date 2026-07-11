@@ -67,7 +67,7 @@ const FieldGroup = React.forwardRef<
 });
 FieldGroup.displayName = "FieldGroup";
 
-const fieldVariants = cva("group/field flex", {
+const fieldVariants = cva("group/field flex min-w-fit", {
   variants: {
     orientation: {
       vertical: "flex-col [&>.sr-only]:w-auto",
@@ -112,7 +112,7 @@ const fieldVariants = cva("group/field flex", {
 const Field = React.forwardRef<
   HTMLDivElement,
   React.ComponentProps<"div"> &
-    VariantProps<typeof fieldVariants> & { error?: boolean | string }
+  VariantProps<typeof fieldVariants> & { error?: boolean | string }
 >(
   (
     { className, orientation = "vertical", size = "md", error, ...props },

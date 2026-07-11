@@ -108,8 +108,7 @@ function RadioGroupMacroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Tiêu chuẩn"
           description="Nhóm radio cơ bản với mảng options."
-          codeString={`<div className="w-full">
-  <RadioGroupPreset
+          codeString={`<RadioGroupPreset className="w-full"
     label="Sở thích"
     description="Chọn một ngôn ngữ lập trình bạn yêu thích nhất."
     options={[
@@ -119,11 +118,9 @@ function RadioGroupMacroShowcase({ globalSize }: { globalSize: Size }) {
     ]}
     defaultValue="ts"
   />
-</div>
 `}
         >
-          <div className="w-full">
-            <RadioGroupPreset
+          <RadioGroupPreset className="w-full"
               size={globalSize}
               label="Sở thích"
               description="Chọn một ngôn ngữ lập trình bạn yêu thích nhất."
@@ -134,7 +131,6 @@ function RadioGroupMacroShowcase({ globalSize }: { globalSize: Size }) {
               ]}
               defaultValue="ts"
             />
-          </div>
         </ExampleSection>
 
         <ExampleSection
@@ -170,8 +166,7 @@ function RadioGroupMacroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Mô tả cho từng Option"
           description="Truyền description vào mảng options để chú thích chi tiết."
-          codeString={`<div className="w-full">
-  <RadioGroupPreset
+          codeString={`<RadioGroupPreset className="w-full"
     label="Giao diện (Theme)"
     description="Chế độ Mặc định hệ thống sẽ tự động đồng bộ theo OS."
     options={[
@@ -181,11 +176,9 @@ function RadioGroupMacroShowcase({ globalSize }: { globalSize: Size }) {
     ]}
     defaultValue="system"
   />
-</div>
 `}
         >
-          <div className="w-full">
-            <RadioGroupPreset
+          <RadioGroupPreset className="w-full"
               size={globalSize}
               label="Giao diện (Theme)"
               description="Chế độ Mặc định hệ thống sẽ tự động đồng bộ theo OS."
@@ -200,14 +193,12 @@ function RadioGroupMacroShowcase({ globalSize }: { globalSize: Size }) {
               ]}
               defaultValue="system"
             />
-          </div>
         </ExampleSection>
 
         <ExampleSection
           label="Khóa / Bất hoạt (Disabled)"
           description="Người dùng không thể tương tác với form."
-          codeString={`<div className="w-full">
-  <RadioGroupPreset
+          codeString={`<RadioGroupPreset className="w-full"
     label="Phiên bản (Disabled)"
     description="Bạn không thể hạ cấp phiên bản tại thời điểm này."
     options={[
@@ -217,11 +208,9 @@ function RadioGroupMacroShowcase({ globalSize }: { globalSize: Size }) {
     defaultValue="v2"
     disabled
   />
-</div>
 `}
         >
-          <div className="w-full">
-            <RadioGroupPreset
+          <RadioGroupPreset className="w-full"
               size={globalSize}
               label="Phiên bản (Disabled)"
               description="Bạn không thể hạ cấp phiên bản tại thời điểm này."
@@ -232,7 +221,6 @@ function RadioGroupMacroShowcase({ globalSize }: { globalSize: Size }) {
               defaultValue="v2"
               disabled
             />
-          </div>
         </ExampleSection>
       </ExampleGrid>
 
@@ -242,9 +230,7 @@ function RadioGroupMacroShowcase({ globalSize }: { globalSize: Size }) {
           description="Sử dụng Controller để bắt giá trị."
           codeString={rhfCode}
         >
-          <div className="w-full">
-            <RadioGroupForm size={globalSize} />
-          </div>
+          <RadioGroupForm className="w-full" size={globalSize} />
         </ExampleSection>
       </ExampleGrid>
     </div>

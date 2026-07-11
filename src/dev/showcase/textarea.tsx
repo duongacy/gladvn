@@ -109,8 +109,7 @@ return (
   />
 );`}
         >
-          <div className="w-full">
-            <TextareaPreset
+          <TextareaPreset
               label="Tiểu sử"
               description={
                 <span className="flex justify-between">
@@ -136,7 +135,6 @@ return (
               className="w-full"
               rows={4}
             />
-          </div>
         </ExampleSection>
 
         <ExampleSection

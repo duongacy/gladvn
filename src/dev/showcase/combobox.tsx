@@ -147,8 +147,7 @@ function ComboboxMacroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Tiêu chuẩn"
           description="Tương tự Select nhưng có thể gõ để tìm kiếm."
-          codeString={`<div className="w-full">
-  <ComboboxPreset
+          codeString={`<ComboboxPreset className="w-full"
     label="Framework"
     description="Hỗ trợ hàng ngàn bản ghi mà không lag."
     placeholder="Chọn framework..."
@@ -161,11 +160,9 @@ function ComboboxMacroShowcase({ globalSize }: { globalSize: Size }) {
       { value: "svelte", label: "Svelte" },
     ]}
   />
-</div>
 `}
         >
-          <div className="w-full">
-            <ComboboxPreset
+          <ComboboxPreset className="w-full"
               size={globalSize}
               label="Framework"
               description="Hỗ trợ hàng ngàn bản ghi mà không lag."
@@ -179,7 +176,6 @@ function ComboboxMacroShowcase({ globalSize }: { globalSize: Size }) {
                 { value: "svelte", label: "Svelte" },
               ]}
             />
-          </div>
         </ExampleSection>
 
         <ExampleSection
@@ -211,8 +207,7 @@ function ComboboxMacroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Khóa / Bất hoạt (Disabled)"
           description="Người dùng không thể click hay gõ vào ô."
-          codeString={`<div className="w-full">
-  <ComboboxPreset
+          codeString={`<ComboboxPreset className="w-full"
     label="Đội nhóm (Team)"
     description="Bạn không có quyền thay đổi đội trong dự án này."
     placeholder="Chọn đội..."
@@ -223,11 +218,9 @@ function ComboboxMacroShowcase({ globalSize }: { globalSize: Size }) {
     value="engineering"
     disabled
   />
-</div>
 `}
         >
-          <div className="w-full">
-            <ComboboxPreset
+          <ComboboxPreset className="w-full"
               size={globalSize}
               label="Đội nhóm (Team)"
               description="Bạn không có quyền thay đổi đội trong dự án này."
@@ -239,14 +232,12 @@ function ComboboxMacroShowcase({ globalSize }: { globalSize: Size }) {
               value="engineering"
               disabled
             />
-          </div>
         </ExampleSection>
 
         <ExampleSection
           label="Cuộn danh sách dài (Long List)"
           description="Trải nghiệm mượt mà với danh sách ảo hoá."
-          codeString={`<div className="w-full">
-  <ComboboxPreset
+          codeString={`<ComboboxPreset className="w-full"
    
     label="Múi giờ (Timezone)"
     placeholder="Chọn múi giờ..."
@@ -257,11 +248,9 @@ function ComboboxMacroShowcase({ globalSize }: { globalSize: Size }) {
       label: \`UTC \${i - 12 > 0 ? '+' : ''}\${i - 12}:00\`,
     }))}
   />
-</div>
 `}
         >
-          <div className="w-full">
-            <ComboboxPreset
+          <ComboboxPreset className="w-full"
               size={globalSize}
               label="Múi giờ (Timezone)"
               placeholder="Chọn múi giờ..."
@@ -272,7 +261,6 @@ function ComboboxMacroShowcase({ globalSize }: { globalSize: Size }) {
                 label: `UTC ${i - 12 > 0 ? "+" : ""}${i - 12}:00`,
               }))}
             />
-          </div>
         </ExampleSection>
       </ExampleGrid>
 
@@ -282,9 +270,7 @@ function ComboboxMacroShowcase({ globalSize }: { globalSize: Size }) {
           description="Sử dụng Controller để bắt giá trị."
           codeString={rhfCode}
         >
-          <div className="w-full">
-            <ComboboxForm size={globalSize} />
-          </div>
+          <ComboboxForm className="w-full" size={globalSize} />
         </ExampleSection>
       </ExampleGrid>
     </div>

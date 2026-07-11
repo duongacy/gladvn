@@ -96,7 +96,6 @@
     "oxlint": "^1.69.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
-    "react-element-to-jsx-string": "^17.0.1",
     "react-hook-form": "^7.80.0",
     "tailwindcss": "^4.3.1",
     "ts-morph": "^28.0.0",

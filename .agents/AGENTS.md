@@ -10,20 +10,19 @@ When creating or modifying showcase files in `src/dev/showcase/*.tsx`, you MUST 
 
 ## 2. Global State (Size Toggle)
 
-- If the component supports a `size` prop (e.g., Button, Badge, Input), you MUST include a `globalSize` state using `useState<"sm" | "md" | "lg">("md")`.
-- Pass a `<MonoSelect>` to the `SectionHeader`'s `children` prop to allow the user to toggle the size globally for all examples in the showcase.
+- If the component supports a `size` prop (e.g., Button, Badge, Input), you MUST pass the `globalSize` prop (from `useDevContext()`) to ALL components in the showcase.
+- **PROHIBITED:** DO NOT create dedicated `<ExampleSection>` blocks just to demo sizes (e.g., "Small", "Medium", "Large"). The global size toggle in the UI already handles this. Creating redundant size blocks is strictly forbidden.
 
 ## 3. SectionHeader
 
 - Every showcase MUST start with a `<SectionHeader>` containing:
   - `title`: The component name.
   - `description`: A brief description of what the component does.
-  - `children`: (Optional) The `MonoSelect` for global state control.
 
 ## 4. Examples Layout
 
 - Wrap every distinct example in an `<ExampleSection label="Name" description="Description">`.
-- Use `<ExampleGrid columns={2}>` or `<ExampleGrid columns={3}>` to place multiple `<ExampleSection>` side-by-side when they are related and small.
+- Use `<ExampleGrid>` to place multiple related `<ExampleSection>` blocks together.
 - Use `<ExampleSection fullWidth>` when the component needs to stretch the entire width of the container.
 
 ## 5. Coverage Requirements
@@ -163,7 +162,15 @@ Whenever the user requests to pair program on a specific component, you MUST pro
 - **Event Handlers**: All callback functions must be prefixed with `on` (e.g., use `onValueChange` and `onOpenChange` instead of `handleValue` or `changeOpen`).
 - **Boolean Props**: Boolean props should mimic standard HTML attributes. Use `disabled` (not `isDisabled`) and `loading` (not `isLoading`) for external APIs to maintain a native feel.
 
-## 25. Showcase Code Snippet Purity (`codeString` Override)
+## 25. Showcase Code Snippet Truthfulness (`codeString` Override)
 
 - **The Problem**: The auto-JSX stringifier (`react-element-to-jsx-string`) blindly captures everything, including noisy array maps (`.map()`), complex local state (`useState`, layout toggles), and compiled third-party icons (like `<LucideCheck>`).
-- **The Rule**: Whenever the live demo code inside `<ExampleSection>` contains complex state management, loops, or layout wrappers that distract from the pure component API, you **MUST provide a clean, simplified override using the `codeString={...}` prop**. The "Code" tab must always show the cleanest, most copy-pasteable version of the component.
+- **The Rule**: Whenever the live demo code inside `<ExampleSection>` contains complex state management or loops that distract from the pure component API, you **MUST provide a clean, simplified override using the `codeString={...}` prop**.
+- **CRITICAL EXCEPTION (Layout Wrappers)**: Do NOT hide layout wrappers (like `w-64`, `w-full`, or specific flex containers) in the `codeString` if they fundamentally dictate how the component behaves in the preview.
+  - **Why**: The showcase preview (`<TabsContent value="preview">`) is an invisible `flex items-center justify-center` container. If a component (like a Form Field) relies on a block wrapper (like `div.w-full`) to not collapse to zero width, HIDING that wrapper in the `codeString` is a terrible Developer Experience (DX). Users who copy the raw component into a different layout will experience broken CSS and won't know why.
+  - **Action**: Always explicitly include the layout constraints in the `codeString` exactly as they appear in the preview, e.g.:
+    ```tsx
+    <div className="w-64">
+      <DatePicker ... />
+    </div>
+    ```

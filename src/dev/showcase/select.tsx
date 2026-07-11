@@ -126,8 +126,7 @@ function SelectMacroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Tiêu chuẩn"
           description="Trình thả xuống cơ bản với mảng options."
-          codeString={`<div className="w-full">
-  <SelectPreset
+          codeString={`<SelectPreset className="w-full"
     label="Trái cây yêu thích"
     description="Chọn một loại trái cây bạn thích nhất."
     placeholder="Chọn trái cây..."
@@ -137,11 +136,9 @@ function SelectMacroShowcase({ globalSize }: { globalSize: Size }) {
       { value: "cherry", label: "Anh đào (Cherry)" },
     ]}
   />
-</div>
 `}
         >
-          <div className="w-full">
-            <SelectPreset
+          <SelectPreset className="w-full"
               size={globalSize}
               label="Trái cây yêu thích"
               description="Chọn một loại trái cây bạn thích nhất."
@@ -152,7 +149,6 @@ function SelectMacroShowcase({ globalSize }: { globalSize: Size }) {
                 { value: "cherry", label: "Anh đào (Cherry)" },
               ]}
             />
-          </div>
         </ExampleSection>
 
         <ExampleSection
@@ -187,8 +183,7 @@ function SelectMacroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Khóa / Bất hoạt (Disabled)"
           description="Người dùng không thể mở danh sách."
-          codeString={`<div className="w-full">
-  <SelectPreset
+          codeString={`<SelectPreset className="w-full"
     label="Gói tài khoản"
     description="Bạn không thể thay đổi gói cước khi chưa thanh toán nợ."
     placeholder="Chọn gói..."
@@ -199,11 +194,9 @@ function SelectMacroShowcase({ globalSize }: { globalSize: Size }) {
     ]}
     disabled
   />
-</div>
 `}
         >
-          <div className="w-full">
-            <SelectPreset
+          <SelectPreset className="w-full"
               size={globalSize}
               label="Gói tài khoản"
               description="Bạn không thể thay đổi gói cước khi chưa thanh toán nợ."
@@ -215,14 +208,12 @@ function SelectMacroShowcase({ globalSize }: { globalSize: Size }) {
               ]}
               disabled
             />
-          </div>
         </ExampleSection>
 
         <ExampleSection
           label="Nhãn phức tạp (Custom Content)"
           description="Truyền React Node vào Label để tạo giao diện phong phú."
-          codeString={`<div className="w-full">
-  <SelectPreset
+          codeString={`<SelectPreset
     label={
       <span className="flex items-center gap-2">
         Quốc gia cư trú
@@ -236,11 +227,9 @@ function SelectMacroShowcase({ globalSize }: { globalSize: Size }) {
       { value: "vn", label: "Việt Nam" },
     ]}
   />
-</div>
 `}
         >
-          <div className="w-full">
-            <SelectPreset
+          <SelectPreset
               size={globalSize}
               label={
                 <span className="flex items-center gap-2">
@@ -255,7 +244,6 @@ function SelectMacroShowcase({ globalSize }: { globalSize: Size }) {
                 { value: "vn", label: "Việt Nam" },
               ]}
             />
-          </div>
         </ExampleSection>
       </ExampleGrid>
 
@@ -265,9 +253,7 @@ function SelectMacroShowcase({ globalSize }: { globalSize: Size }) {
           description="Sử dụng Controller để bắt giá trị."
           codeString={rhfCode}
         >
-          <div className="w-full">
-            <SelectForm size={globalSize} />
-          </div>
+          <SelectForm className="w-full" size={globalSize} />
         </ExampleSection>
       </ExampleGrid>
     </div>

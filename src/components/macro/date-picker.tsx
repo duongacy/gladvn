@@ -5,6 +5,7 @@ import { CalendarIcon } from "lucide-react";
 import * as React from "react";
 import { type DateRange, type Locale, type Matcher } from "react-day-picker";
 
+import { Button } from "@/components/micro/button";
 import { Calendar } from "@/components/micro/calendar";
 import {
   Popover,
@@ -84,13 +85,13 @@ type DatePickerProps = DatePickerSingleProps | DatePickerRangeProps;
 // ─────────────────────────────────────────────────────────────────────────────
 
 const triggerVariants = cva(
-  "inline-flex w-full items-center justify-start rounded-lg border border-input bg-transparent font-normal whitespace-nowrap transition-colors outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-offset-1 focus-visible:ring-offset-background disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:ring-3 aria-invalid:focus-visible:ring-destructive/50 dark:bg-input/30",
+  "inline-flex w-full items-center justify-start rounded-lg border border-input bg-transparent font-normal whitespace-nowrap transition-colors outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-offset-1 focus-visible:ring-offset-background disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:ring-3 aria-invalid:focus-visible:ring-destructive/50 dark:bg-input/30 [&>svg:not([class*='size-'])]:size-[1.1em] [&>svg:not([class*='size-'])]:shrink-0",
   {
     variants: {
       size: {
-        sm: "h-7 gap-1 px-2 py-0.5 text-xs [&>svg:not([class*='size-'])]:size-3.5",
-        md: "h-8 gap-1.5 px-2.5 py-1 text-sm [&>svg:not([class*='size-'])]:size-4",
-        lg: "h-9 gap-2 px-3 py-1.5 text-sm [&>svg:not([class*='size-'])]:size-4",
+        sm: "h-7 gap-1 px-2 py-0.5 text-xs",
+        md: "h-8 gap-1.5 px-2.5 py-1 text-sm",
+        lg: "h-9 gap-2 px-3 py-1.5 text-sm",
       },
     },
     defaultVariants: {
@@ -161,6 +162,18 @@ const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
     const isInvalid = !!errorMessage;
 
     const [open, setOpen] = React.useState(false);
+    const [tempValue, setTempValue] = React.useState<Date | undefined>(value);
+    const [tempRangeValue, setTempRangeValue] = React.useState<
+      DateRange | undefined
+    >(rangeValue);
+
+    // Sync temp state when popover opens
+    React.useEffect(() => {
+      if (open) {
+        setTempValue(value);
+        setTempRangeValue(rangeValue);
+      }
+    }, [open, value, rangeValue]);
 
     const defaultPlaceholder =
       placeholder ?? (mode === "range" ? "Pick a date range" : "Pick a date");
@@ -189,67 +202,75 @@ const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
       >
         <Popover open={open} onOpenChange={setOpen}>
           <PopoverTrigger
-            render={
-              <button
-                ref={ref}
-                type="button"
-                id={triggerId}
-                data-slot="date-picker-trigger"
-                disabled={disabled}
-                aria-invalid={isInvalid || undefined}
-                aria-haspopup="dialog"
-                aria-expanded={open}
-                className={cn(
-                  triggerVariants({ size }),
-                  !hasValue && "text-muted-foreground",
-                )}
-              >
-                <CalendarIcon />
-                {triggerLabel}
-              </button>
-            }
-          />
+            ref={ref}
+            id={triggerId}
+            disabled={disabled}
+            aria-invalid={isInvalid || undefined}
+            className={cn(
+              triggerVariants({ size }),
+              !hasValue && "text-muted-foreground",
+            )}
+          >
+            <CalendarIcon />
+            <span className="flex-1 truncate text-left min-w-0">{triggerLabel}</span>
+          </PopoverTrigger>
           <PopoverContent
             side="bottom"
             align="start"
             sideOffset={4}
             className="p-0 w-auto"
           >
-            {mode === "single" ? (
-              <Calendar
-                mode="single"
-                size={size}
-                locale={locale}
-                numberOfMonths={numberOfMonths}
-                captionLayout={captionLayout}
-                disabled={disabledDates}
-                startMonth={startMonth}
-                endMonth={endMonth}
-                defaultMonth={defaultMonth ?? value}
-                selected={value}
-                onSelect={(date) => {
-                  onValueChange?.(date);
-                  setOpen(false);
-                }}
-              />
-            ) : (
-              <Calendar
-                mode="range"
-                size={size}
-                locale={locale}
-                numberOfMonths={numberOfMonths ?? 1}
-                captionLayout={captionLayout}
-                disabled={disabledDates}
-                startMonth={startMonth}
-                endMonth={endMonth}
-                defaultMonth={defaultMonth ?? rangeValue?.from}
-                selected={rangeValue}
-                onSelect={(range) => {
-                  onRangeChange?.(range);
-                  if (range?.from && range?.to) setOpen(false);
-                }}
-              />
-            )}
+              {mode === "single" ? (
+                <Calendar
+                  mode="single"
+                  size={size}
+                  locale={locale}
+                  numberOfMonths={numberOfMonths}
+                  captionLayout={captionLayout}
+                  disabled={disabledDates}
+                  startMonth={startMonth}
+                  endMonth={endMonth}
+                  defaultMonth={defaultMonth ?? value}
+                  selected={tempValue}
+                  onSelect={setTempValue}
+                />
+              ) : (
+                <Calendar
+                  mode="range"
+                  size={size}
+                  locale={locale}
+                  numberOfMonths={numberOfMonths ?? 1}
+                  captionLayout={captionLayout}
+                  disabled={disabledDates}
+                  startMonth={startMonth}
+                  endMonth={endMonth}
+                  defaultMonth={defaultMonth ?? rangeValue?.from}
+                  selected={tempRangeValue}
+                  onSelect={setTempRangeValue}
+                />
+              )}
+              <div className="flex items-center justify-end gap-2 px-3 pb-3 pt-1">
+                <Button
+                  variant="outline"
+                  size={size}
+                  onClick={() => setOpen(false)}
+                >
+                  Huỷ
+                </Button>
+                <Button
+                  size={size}
+                  onClick={() => {
+                    if (mode === "single") {
+                      onValueChange?.(tempValue);
+                    } else {
+                      onRangeChange?.(tempRangeValue);
+                    }
+                    setOpen(false);
+                  }}
+                >
+                  Xác nhận
+                </Button>
+              </div>
           </PopoverContent>
         </Popover>
       </FieldPreset>

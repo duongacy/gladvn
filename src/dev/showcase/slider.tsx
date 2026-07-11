@@ -40,19 +40,16 @@ function SliderMacroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Tiêu chuẩn"
           description="Thanh trượt cơ bản có nhãn và mô tả."
-          codeString={`<div className="w-full">
-  <SliderPreset
+          codeString={`<SliderPreset className="w-full"
     label="Âm lượng"
     description="Điều chỉnh âm lượng hệ thống."
     defaultValue={[50]}
     max={100}
     step={1}
   />
-</div>
 `}
         >
-          <div className="w-full">
-            <SliderPreset
+          <SliderPreset className="w-full"
               size={globalSize}
               label="Âm lượng"
               description="Điều chỉnh âm lượng hệ thống."
@@ -60,7 +57,6 @@ function SliderMacroShowcase({ globalSize }: { globalSize: Size }) {
               max={100}
               step={1}
             />
-          </div>
         </ExampleSection>
 
         <ExampleSection
@@ -107,8 +103,7 @@ return (
   />
 );`}
         >
-          <div className="w-full">
-            <SliderPreset
+          <SliderPreset className="w-full"
               size={globalSize}
               label="Khoảng giá"
               description={`Hiển thị sản phẩm từ $${rangeVal[0]} đến $${rangeVal[1]}`}
@@ -117,25 +112,21 @@ return (
               max={100}
               step={5}
             />
-          </div>
         </ExampleSection>
 
         <ExampleSection
           label="Khóa / Bất hoạt (Disabled)"
           description="Người dùng không thể tương tác với thanh trượt."
-          codeString={`<div className="w-full">
-  <SliderPreset
+          codeString={`<SliderPreset className="w-full"
     label="Độ sáng màn hình"
     description="Độ sáng đang được hệ thống điều khiển tự động (Auto-brightness)."
     defaultValue={[75]}
     max={100}
     disabled
   />
-</div>
 `}
         >
-          <div className="w-full">
-            <SliderPreset
+          <SliderPreset className="w-full"
               size={globalSize}
               label="Độ sáng màn hình"
               description="Độ sáng đang được hệ thống điều khiển tự động (Auto-brightness)."
@@ -143,7 +134,6 @@ return (
               max={100}
               disabled
             />
-          </div>
         </ExampleSection>
       </ExampleGrid>
 

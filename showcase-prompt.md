@@ -24,7 +24,7 @@ Sử dụng `<SectionHeader title="Tên Component" description="Mô tả ngắn 
 **3. Các phần Demo (ExampleSection & ExampleGrid):**
 
 - Chia các chức năng thành các phần demo trực quan bằng `<ExampleSection label="..." description="...">`.
-- **Nguyên tắc gom nhóm:** Đối với các ví dụ nhỏ, cùng một nhóm tính năng (như Variants, State, hay Single/Multiple), BẮT BUỘC dùng `<ExampleGrid columns={2}>` để đưa 2 `<ExampleSection>` nằm song song cạnh nhau giúp tiết kiệm không gian.
+- **Nguyên tắc gom nhóm:** Đối với các ví dụ nhỏ, cùng một nhóm tính năng (như Variants, State, hay Single/Multiple), BẮT BUỘC dùng `<ExampleGrid>` để đưa các `<ExampleSection>` vào chung một khối giúp tiết kiệm không gian.
 - Đối với các ví dụ lớn, dài hoặc cấu trúc lồng nhau (Nested), dùng độc lập `<ExampleSection fullWidth={true/false}>` (nếu cần chiếm toàn bộ chiều rộng).
 - **Dữ liệu giả (Mock Data):** Khai báo các mock data, biến tĩnh (như danh sách items, options) ở ngoài component (trên cùng của file) để tái sử dụng giữa các `<ExampleSection>` nhằm giữ code bên trong gọn gàng.
 - **Demo State (Controlled):** Bắt buộc phải có một `ExampleSection` mô phỏng cách Component hoạt động ở chế độ Controlled (ví dụ: dùng `useState` và hiển thị output raw state bên ngoài component bằng một khối code block `<code className="rounded bg-muted...">`).

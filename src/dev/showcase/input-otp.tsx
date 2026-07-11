@@ -43,14 +43,12 @@ function InputOTPMacroShowcase({ globalSize }: { globalSize: Size }) {
   description="Vui lòng nhập mã 6 số được gửi tới điện thoại của bạn."
 />`}
         >
-          <div className="w-full">
-            <InputOTPPreset
+          <InputOTPPreset className="w-full"
               groups={[3, 3]}
               size={globalSize}
               label="Mã xác thực"
               description="Vui lòng nhập mã 6 số được gửi tới điện thoại của bạn."
             />
-          </div>
         </ExampleSection>
 
         <ExampleSection
@@ -63,14 +61,12 @@ function InputOTPMacroShowcase({ globalSize }: { globalSize: Size }) {
   errorMessage="Mã xác nhận không chính xác. Vui lòng thử lại."
 />`}
         >
-          <div className="w-full">
-            <InputOTPPreset
+          <InputOTPPreset className="w-full"
               groups={[3, 3]}
               size={globalSize}
               label="Mã bảo mật (Lỗi)"
               errorMessage="Mã xác nhận không chính xác. Vui lòng thử lại."
             />
-          </div>
         </ExampleSection>
       </ExampleGrid>
 
@@ -86,15 +82,13 @@ function InputOTPMacroShowcase({ globalSize }: { globalSize: Size }) {
   disabled
 />`}
         >
-          <div className="w-full">
-            <InputOTPPreset
+          <InputOTPPreset className="w-full"
               groups={[4]}
               size={globalSize}
               label="Mã khôi phục"
               description="Tài khoản của bạn đang bị khóa tạm thời."
               disabled
             />
-          </div>
         </ExampleSection>
 
         <ExampleSection
@@ -149,8 +143,7 @@ function InputOTPMicroShowcase({ globalSize }: { globalSize: Size }) {
   </FieldContent>
 </Field>`}
         >
-          <div className="w-full">
-            <Field size={globalSize}>
+          <Field className="w-full" size={globalSize}>
               <FieldLabel htmlFor="tf-otp-0">Mã PIN</FieldLabel>
               <FieldContent>
                 <InputOTP id="tf-otp-0" size={globalSize} maxLength={6}>
@@ -165,7 +158,6 @@ function InputOTPMicroShowcase({ globalSize }: { globalSize: Size }) {
                 </InputOTP>
               </FieldContent>
             </Field>
-          </div>
         </ExampleSection>
 
         <ExampleSection
@@ -190,8 +182,7 @@ function InputOTPMicroShowcase({ globalSize }: { globalSize: Size }) {
   </FieldContent>
 </Field>`}
         >
-          <div className="w-full">
-            <Field size={globalSize}>
+          <Field className="w-full" size={globalSize}>
               <FieldLabel htmlFor="tf-otp-1">Mã bảo mật</FieldLabel>
               <FieldContent>
                 <InputOTP id="tf-otp-1" size={globalSize} maxLength={6}>
@@ -215,7 +206,6 @@ function InputOTPMicroShowcase({ globalSize }: { globalSize: Size }) {
                 </InputOTP>
               </FieldContent>
             </Field>
-          </div>
         </ExampleSection>
       </ExampleGrid>
 
@@ -237,8 +227,7 @@ function InputOTPMicroShowcase({ globalSize }: { globalSize: Size }) {
   <FieldError>Mã không hợp lệ.</FieldError>
 </Field>`}
         >
-          <div className="w-full">
-            <Field size={globalSize} data-invalid={true}>
+          <Field className="w-full" size={globalSize} data-invalid={true}>
               <FieldLabel htmlFor="tf-otp-err">Mã xác minh</FieldLabel>
               <FieldContent>
                 <InputOTP id="tf-otp-err" size={globalSize} maxLength={4}>
@@ -254,7 +243,6 @@ function InputOTPMicroShowcase({ globalSize }: { globalSize: Size }) {
               </FieldContent>
               <FieldError>Mã không hợp lệ.</FieldError>
             </Field>
-          </div>
         </ExampleSection>
 
         <ExampleSection
@@ -273,8 +261,7 @@ function InputOTPMicroShowcase({ globalSize }: { globalSize: Size }) {
   </FieldContent>
 </Field>`}
         >
-          <div className="w-full">
-            <Field size={globalSize}>
+          <Field className="w-full" size={globalSize}>
               <FieldLabel htmlFor="tf-otp-d">Mã OTP</FieldLabel>
               <FieldContent>
                 <InputOTP
@@ -294,7 +281,6 @@ function InputOTPMicroShowcase({ globalSize }: { globalSize: Size }) {
                 </InputOTP>
               </FieldContent>
             </Field>
-          </div>
         </ExampleSection>
       </ExampleGrid>
 

@@ -37,7 +37,21 @@ function AlertMacroShowcase({ globalSize }: { globalSize: Size }) {
 
   return (
     <div className="space-y-10 mt-6">
-      <ExampleSection label="Controlled vs Uncontrolled" fullWidth>
+      <ExampleSection label="Controlled vs Uncontrolled" fullWidth codeString={`<div className="space-y-4 px-2 py-4">
+          <DocsUl>
+            <DocsLi>
+              <b>Uncontrolled (Mặc định):</b> Nếu truyền{" "}
+              <DocsCode>dismissible=true</DocsCode>, component tự quản lý state
+              để tắt (ẩn) Alert khi click vào nút X.
+            </DocsLi>
+            <DocsLi>
+              <b>Controlled:</b> Có thể kiểm soát state đóng/mở thông qua React
+              state và truyền hàm vào <DocsCode>onDismiss</DocsCode>. Tuy nhiên
+              thông thường Alert chỉ bị huỷ (unmount), nên nếu bạn kiểm soát thì
+              hãy render nó có điều kiện bên ngoài.
+            </DocsLi>
+          </DocsUl>
+        </div>`}>
         <div className="space-y-4 px-2 py-4">
           <DocsUl>
             <DocsLi>

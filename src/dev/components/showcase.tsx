@@ -11,7 +11,7 @@ import { type Size } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { BookOpenIcon, CheckIcon, CopyIcon } from "lucide-react";
 import React, { useState } from "react";
-import reactElementToJSXString from "react-element-to-jsx-string";
+
 
 /* ─────────────────────────────────────────────────────────────────
    SectionHeader  –  page‐level title bar
@@ -108,7 +108,6 @@ export function ExampleSection({
   description,
   children,
   className,
-  fullWidth = false,
   codeString: customCodeString,
   hideCode = false,
 }: {
@@ -121,33 +120,10 @@ export function ExampleSection({
   hideCode?: boolean;
 }) {
   const [copied, setCopied] = useState(false);
-  const [codeString, setCodeString] = useState<string | null>(
-    customCodeString || null,
-  );
   const [activeTab, setActiveTab] = useState("preview");
 
   const shouldHideCode = hideCode || label?.includes("Use Case Comparison");
-
-  // Update codeString when user clicks "Code" tab or when children change (e.g. global state changes)
-  React.useEffect(() => {
-    if (activeTab === "code" && !customCodeString) {
-      try {
-        const stringifier =
-          typeof reactElementToJSXString === "function"
-            ? reactElementToJSXString
-            : (reactElementToJSXString as any).default;
-        const raw = stringifier(children, {
-          showFunctions: true,
-          showDefaultProps: false,
-          useBooleanShorthandSyntax: true,
-          maxInlineAttributesLineLength: 80,
-        });
-        setCodeString(raw);
-      } catch (e) {
-        setCodeString("// Code snippet generation failed");
-      }
-    }
-  }, [activeTab, children, customCodeString]);
+  const codeString = customCodeString || "// Please provide a codeString prop";
 
   const handleTabChange = (value: string) => {
     setActiveTab(value);
@@ -194,18 +170,13 @@ export function ExampleSection({
         <TabsContent value="preview" className="mt-0 outline-none">
           <div
             className={cn(
-              "relative flex items-center justify-center rounded-2xl border border-border/80 bg-background/50 backdrop-blur-sm p-8 shadow-sm transition-all duration-300 hover:shadow-md hover:border-ring/30",
+              "relative rounded-2xl border border-border/80 bg-background/50 backdrop-blur-sm p-8 shadow-sm transition-all duration-300 hover:shadow-md hover:border-ring/30",
               "min-h-[120px]",
               className,
             )}
           >
             <div className="absolute inset-0 -z-10 opacity-[0.03] dark:opacity-[0.05] [background-size:24px_24px] [background-image:radial-gradient(circle_at_center,var(--color-foreground)_1.5px,transparent_1.5px)]" />
-            <div
-              className={cn(
-                "relative z-10 flex w-full flex-wrap items-center justify-center gap-4",
-                fullWidth && "flex-col items-stretch",
-              )}
-            >
+            <div className="relative z-10 w-full">
               {children}
             </div>
           </div>
@@ -387,14 +358,14 @@ export function Showcase({
         )}
         {hasTabs
           ? tabs.map((tab) => (
-              <TabsContent
-                key={tab.label}
-                value={tab.label}
-                className="mt-0 focus-visible:outline-none"
-              >
-                {tab.content}
-              </TabsContent>
-            ))
+            <TabsContent
+              key={tab.label}
+              value={tab.label}
+              className="mt-0 focus-visible:outline-none"
+            >
+              {tab.content}
+            </TabsContent>
+          ))
           : tabs[0]?.content}
       </div>
     </>

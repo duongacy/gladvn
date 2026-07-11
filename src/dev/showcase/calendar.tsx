@@ -180,6 +180,12 @@ function CalendarMicroShowcase({ globalSize }: { globalSize: Size }) {
 function CalendarMacroShowcase({ globalSize }: { globalSize: Size }) {
   const [singleDate, setSingleDate] = useState<Date | undefined>(undefined);
   const [rangeDate, setRangeDate] = useState<DateRange | undefined>(undefined);
+  const [descDate, setDescDate] = useState<Date | undefined>(undefined);
+  const [errDate, setErrDate] = useState<Date | undefined>(undefined);
+  const [disDate, setDisDate] = useState<Date | undefined>(undefined);
+  const [smDate, setSmDate] = useState<Date | undefined>(undefined);
+  const [mdDate, setMdDate] = useState<Date | undefined>(undefined);
+  const [lgDate, setLgDate] = useState<Date | undefined>(undefined);
 
   return (
     <div className="space-y-10 mt-6">
@@ -190,20 +196,18 @@ function CalendarMacroShowcase({ globalSize }: { globalSize: Size }) {
           description="DatePicker cơ bản chọn một ngày."
           codeString={`const [date, setDate] = React.useState<Date | undefined>()
 
-<DatePicker
-  label="Date"
-  value={date}
-  onValueChange={setDate}
-/>`}
+<DatePicker className="w-64"
+    label="Date"
+    value={date}
+    onValueChange={setDate}
+  />`}
         >
-          <div className="w-64">
-            <DatePicker
+          <DatePicker className="w-64"
               size={globalSize}
               label="Date"
               value={singleDate}
               onValueChange={setSingleDate}
             />
-          </div>
         </ExampleSection>
 
         {/* ── Date Range ── */}
@@ -212,105 +216,102 @@ function CalendarMacroShowcase({ globalSize }: { globalSize: Size }) {
           description="DatePicker chọn khoảng thời gian (range mode)."
           codeString={`const [range, setRange] = React.useState<DateRange | undefined>()
 
-<DatePicker
-  mode="range"
-  label="Date Range"
-  rangeValue={range}
-  onRangeChange={setRange}
-/>`}
+<DatePicker className="w-64"
+    mode="range"
+    label="Date Range"
+    rangeValue={range}
+    onRangeChange={setRange}
+  />`}
         >
-          <div className="w-64">
-            <DatePicker
+          <DatePicker className="w-64"
               mode="range"
               size={globalSize}
               label="Date Range"
               rangeValue={rangeDate}
               onRangeChange={setRangeDate}
             />
-          </div>
         </ExampleSection>
       </ExampleGrid>
+
+      {/* ── Dropdown Mode ── */}
+      <ExampleSection
+        label="Dropdown Selectors"
+        description="Sổ danh sách để chọn tháng và năm nhanh chóng thay vì click qua lại liên tục."
+        codeString={`<DatePicker className="w-64"
+    label="Birthday"
+    captionLayout="dropdown-buttons"
+    startMonth={new Date(1900, 0)}
+    endMonth={new Date()}
+  />`}
+      >
+        <DatePicker className="w-64"
+            size={globalSize}
+            label="Birthday"
+            captionLayout="dropdown-buttons"
+            startMonth={new Date(1900, 0)}
+            endMonth={new Date()}
+            value={singleDate}
+            onValueChange={setSingleDate}
+          />
+      </ExampleSection>
 
       {/* ── With Description ── */}
       <ExampleSection
         label="With Label & Description"
         description="Hiển thị label và mô tả bên dưới trigger."
-        codeString={`<DatePicker
-  label="Start Date"
-  description="Select the project start date."
-  placeholder="Pick a date"
-/>`}
+        codeString={`<DatePicker className="w-64"
+    label="Start Date"
+    description="Select the project start date."
+    placeholder="Pick a date"
+  />`}
       >
-        <div className="w-64">
-          <DatePicker
+        <DatePicker className="w-64"
             size={globalSize}
             label="Start Date"
             description="Select the project start date."
             placeholder="Pick a date"
+            value={descDate}
+            onValueChange={setDescDate}
           />
-        </div>
       </ExampleSection>
 
       {/* ── Error / Validation ── */}
       <ExampleSection
         label="Error State"
         description="Trigger hiển thị viền đỏ khi có errorMessage."
-        codeString={`<DatePicker
-  label="Due Date"
-  errorMessage="Due date is required."
-/>`}
+        codeString={`<DatePicker className="w-64"
+    label="Due Date"
+    errorMessage="Due date is required."
+  />`}
       >
-        <div className="w-64">
-          <DatePicker
+        <DatePicker className="w-64"
             size={globalSize}
             label="Due Date"
             errorMessage="Due date is required."
+            value={errDate}
+            onValueChange={setErrDate}
           />
-        </div>
       </ExampleSection>
 
       {/* ── Disabled ── */}
       <ExampleSection
         label="Disabled"
         description="Trigger bị vô hiệu hoá, người dùng không thể mở calendar."
-        codeString={`<DatePicker
-  label="Date"
-  disabled
-/>`}
+        codeString={`<DatePicker className="w-64"
+    label="Date"
+    disabled
+  />`}
       >
-        <div className="w-64">
-          <DatePicker
+        <DatePicker className="w-64"
             size={globalSize}
             label="Date"
             disabled
+            value={disDate}
+            onValueChange={setDisDate}
           />
-        </div>
       </ExampleSection>
 
-      {/* ── Sizes ── */}
-      <ExampleGrid>
-        <ExampleSection
-          label="Small"
-          description="size='sm'"
-          codeString={`<DatePicker size="sm" label="Date" />`}
-        >
-          <DatePicker size="sm" label="Date" />
-        </ExampleSection>
-        <ExampleSection
-          label="Medium"
-          description="size='md' (default)"
-          codeString={`<DatePicker size="md" label="Date" />`}
-        >
-          <DatePicker size="md" label="Date" />
-        </ExampleSection>
-        <ExampleSection
-          label="Large"
-          description="size='lg'"
-          codeString={`<DatePicker size="lg" label="Date" />`}
-        >
-          <DatePicker size="lg" label="Date" />
-        </ExampleSection>
-      </ExampleGrid>
+
     </div>
   );
 }

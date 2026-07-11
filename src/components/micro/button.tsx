@@ -31,7 +31,7 @@ import { cn } from "@/lib/utils";
  */
 
 const buttonVariants = cva(
-  "group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-border text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:ring-3 focus-visible:ring-offset-1 focus-visible:ring-offset-background active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:ring-3 aria-invalid:focus-visible:ring-destructive/50 dark:aria-invalid:border-destructive/50 dark:aria-invalid:focus-visible:ring-destructive/50",
+  "group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-border text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:ring-3 focus-visible:ring-offset-1 focus-visible:ring-offset-background active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:ring-3 aria-invalid:focus-visible:ring-destructive/50 dark:aria-invalid:border-destructive/50 dark:aria-invalid:focus-visible:ring-destructive/50 data-[icon=true]:aspect-square data-[icon=true]:px-0",
   {
     variants: {
       // ── Visual style ─────────────────────────────────────────────
@@ -59,9 +59,9 @@ const buttonVariants = cva(
 
       // ── Size ─────────────────────────────────────────────────────
       size: {
-        sm: "h-7 gap-1.5 px-3 text-xs data-[icon=true]:aspect-square data-[icon=true]:px-0",
-        md: "h-8 gap-2 px-4 data-[icon=true]:aspect-square data-[icon=true]:px-0",
-        lg: "h-9 gap-2 px-5 data-[icon=true]:aspect-square data-[icon=true]:px-0",
+        sm: "h-7 gap-1.5 px-3 text-xs",
+        md: "h-8 gap-2 px-4",
+        lg: "h-9 gap-2 px-5",
       },
     },
 

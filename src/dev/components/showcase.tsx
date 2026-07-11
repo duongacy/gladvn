@@ -216,15 +216,15 @@ export function ExampleSection({
             <div className="relative rounded-2xl border border-border/80 bg-muted/50 p-4 text-foreground shadow-sm overflow-clip group/code">
               <CodeHighlighter code={codeString || "// Loading..."} />
               <Button
-                size="sm"
-                variant="ghost"
-                className="absolute top-3 right-3 z-10 h-7 w-7 text-muted-foreground opacity-0 transition-opacity focus-visible:opacity-100 group-hover/code:opacity-100 hover:bg-muted hover:text-foreground"
+                size="icon"
+                variant="outline"
+                className="absolute top-4 right-4 z-10 h-8 w-8 bg-background/80 backdrop-blur-sm text-muted-foreground hover:text-foreground shadow-sm"
                 onClick={copyToClipboard}
               >
                 {copied ? (
-                  <CheckIcon className="size-3.5 text-green-500" />
+                  <CheckIcon className="size-4 text-green-500" />
                 ) : (
-                  <CopyIcon className="size-3.5" />
+                  <CopyIcon className="size-4" />
                 )}
               </Button>
             </div>

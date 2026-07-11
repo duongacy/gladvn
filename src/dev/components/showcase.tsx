@@ -219,7 +219,7 @@ export function ExampleSection({
                 size="sm"
                 iconOnly
                 variant="soft"
-                className="absolute top-4 right-4 z-10 h-8 w-8 bg-background/80 backdrop-blur-sm text-muted-foreground hover:text-foreground shadow-sm"
+                className="absolute top-4 right-4 z-10 bg-background/80 backdrop-blur-sm text-muted-foreground hover:text-foreground shadow-sm"
                 onClick={copyToClipboard}
               >
                 {copied ? (

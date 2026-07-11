@@ -59,9 +59,9 @@ const buttonVariants = cva(
 
       // ── Size ─────────────────────────────────────────────────────
       size: {
-        sm: "h-7 gap-1.5 px-3 text-xs data-[icon=true]:w-7 data-[icon=true]:px-0",
-        md: "h-8 gap-2 px-4 data-[icon=true]:w-8 data-[icon=true]:px-0",
-        lg: "h-9 gap-2 px-5 data-[icon=true]:w-9 data-[icon=true]:px-0",
+        sm: "h-7 gap-1.5 px-3 text-xs data-[icon=true]:aspect-square data-[icon=true]:px-0",
+        md: "h-8 gap-2 px-4 data-[icon=true]:aspect-square data-[icon=true]:px-0",
+        lg: "h-9 gap-2 px-5 data-[icon=true]:aspect-square data-[icon=true]:px-0",
       },
     },
 

@@ -217,7 +217,7 @@ export function ExampleSection({
               <CodeHighlighter code={codeString || "// Loading..."} />
               <Button
                 size="sm"
-                data-icon="true"
+                iconOnly
                 variant="soft"
                 className="absolute top-4 right-4 z-10 h-8 w-8 bg-background/80 backdrop-blur-sm text-muted-foreground hover:text-foreground shadow-sm"
                 onClick={copyToClipboard}

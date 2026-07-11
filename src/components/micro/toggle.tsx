@@ -27,10 +27,6 @@ const toggleVariants = cva(
         lg: "h-9 min-w-9 px-4 text-sm",
       },
     },
-    defaultVariants: {
-      variant: "default",
-      size: "md",
-    },
   },
 );
 

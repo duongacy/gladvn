@@ -59,9 +59,6 @@ const itemVariants = cva(
         lg: "gap-2.5 px-3 py-2.5",
       },
     },
-    defaultVariants: {
-      size: "md",
-    },
   },
 );
 

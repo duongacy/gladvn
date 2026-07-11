@@ -44,7 +44,6 @@ const inputGroupVariants = cva(
         lg: "min-h-9 text-sm",
       },
     },
-    defaultVariants: { size: "md" },
   },
 );
 
@@ -88,7 +87,6 @@ const inputGroupAddonVariants = cva(
         end: "order-last pl-1 pr-2",
       },
     },
-    defaultVariants: { align: "start" },
   },
 );
 
@@ -187,10 +185,6 @@ const inputGroupButtonVariants = cva(
         ],
       },
     },
-    defaultVariants: {
-      variant: "ghost",
-      icon: false,
-    },
   },
 );
 
@@ -201,7 +195,7 @@ const InputGroupButton = React.forwardRef<
   HTMLButtonElement,
   InputGroupButtonProps
 >(function InputGroupButton(
-  { className, type = "button", variant, icon, ...props },
+  { className, type = "button", variant = "ghost", icon = false, ...props },
   ref,
 ) {
   return (

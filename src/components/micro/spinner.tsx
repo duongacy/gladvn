@@ -19,9 +19,6 @@ const spinnerVariants = cva("animate-spin motion-reduce:animate-none", {
       lg: "size-5",
     },
   },
-  defaultVariants: {
-    size: "md",
-  },
 });
 
 export type SpinnerProps = React.ComponentProps<"svg"> &

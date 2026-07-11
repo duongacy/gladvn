@@ -23,7 +23,6 @@ const inputOTPVariants = cva(
         lg: "min-h-9 text-sm",
       },
     },
-    defaultVariants: { size: "md" },
   },
 );
 

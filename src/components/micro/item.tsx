@@ -54,9 +54,9 @@ const itemVariants = cva(
         muted: "border-transparent bg-muted/50",
       },
       size: {
-        sm: "gap-2 px-2.5 py-2 in-data-[slot=dropdown-menu-content]:p-0",
-        md: "gap-2.5 px-3 py-2.5",
-        lg: "gap-2.5 px-3 py-2.5",
+        sm: "gap-1 px-2.5 py-2 in-data-[slot=dropdown-menu-content]:p-0",
+        md: "gap-1.5 px-3 py-2.5",
+        lg: "gap-2 px-3 py-2.5",
       },
     },
   },

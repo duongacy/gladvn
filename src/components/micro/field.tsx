@@ -87,24 +87,24 @@ const fieldVariants = cva("group/field flex", {
     { orientation: "vertical", size: "md", className: "gap-0.5" },
     { orientation: "vertical", size: "lg", className: "gap-0.5" },
 
-    { orientation: "horizontal", size: "sm", className: "gap-1.5" },
-    { orientation: "horizontal", size: "md", className: "gap-2" },
-    { orientation: "horizontal", size: "lg", className: "gap-3" },
+    { orientation: "horizontal", size: "sm", className: "gap-1" },
+    { orientation: "horizontal", size: "md", className: "gap-1.5" },
+    { orientation: "horizontal", size: "lg", className: "gap-2" },
 
     {
       orientation: "responsive",
       size: "sm",
-      className: "gap-1 @md/field-group:gap-1.5",
+      className: "gap-0.5 @md/field-group:gap-1",
     },
     {
       orientation: "responsive",
       size: "md",
-      className: "gap-1.5 @md/field-group:gap-2",
+      className: "gap-0.5 @md/field-group:gap-1.5",
     },
     {
       orientation: "responsive",
       size: "lg",
-      className: "gap-2 @md/field-group:gap-3",
+      className: "gap-0.5 @md/field-group:gap-2",
     },
   ],
 });

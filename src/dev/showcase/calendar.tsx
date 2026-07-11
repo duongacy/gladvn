@@ -10,6 +10,7 @@ import { useState } from "react";
 import { type DateRange } from "react-day-picker";
 
 import { Calendar } from "@/components/micro/calendar";
+import { DatePicker } from "@/components/macro/date-picker";
 import { type Size } from "@/lib/types";
 
 function CalendarMicroShowcase({ globalSize }: { globalSize: Size }) {
@@ -174,7 +175,148 @@ function CalendarMicroShowcase({ globalSize }: { globalSize: Size }) {
 }
 
 // ──────────────────────────────────────────────────────────
-// SECTION 3: Entry point
+// SECTION 3: Macro Showcase
+// ──────────────────────────────────────────────────────────
+function CalendarMacroShowcase({ globalSize }: { globalSize: Size }) {
+  const [singleDate, setSingleDate] = useState<Date | undefined>(undefined);
+  const [rangeDate, setRangeDate] = useState<DateRange | undefined>(undefined);
+
+  return (
+    <div className="space-y-10 mt-6">
+      {/* ── Single Date ── */}
+      <ExampleGrid>
+        <ExampleSection
+          label="Single Date"
+          description="DatePicker cơ bản chọn một ngày."
+          codeString={`const [date, setDate] = React.useState<Date | undefined>()
+
+<DatePicker
+  label="Date"
+  value={date}
+  onValueChange={setDate}
+/>`}
+        >
+          <div className="w-64">
+            <DatePicker
+              size={globalSize}
+              label="Date"
+              value={singleDate}
+              onValueChange={setSingleDate}
+            />
+          </div>
+        </ExampleSection>
+
+        {/* ── Date Range ── */}
+        <ExampleSection
+          label="Date Range"
+          description="DatePicker chọn khoảng thời gian (range mode)."
+          codeString={`const [range, setRange] = React.useState<DateRange | undefined>()
+
+<DatePicker
+  mode="range"
+  label="Date Range"
+  rangeValue={range}
+  onRangeChange={setRange}
+/>`}
+        >
+          <div className="w-64">
+            <DatePicker
+              mode="range"
+              size={globalSize}
+              label="Date Range"
+              rangeValue={rangeDate}
+              onRangeChange={setRangeDate}
+            />
+          </div>
+        </ExampleSection>
+      </ExampleGrid>
+
+      {/* ── With Description ── */}
+      <ExampleSection
+        label="With Label & Description"
+        description="Hiển thị label và mô tả bên dưới trigger."
+        codeString={`<DatePicker
+  label="Start Date"
+  description="Select the project start date."
+  placeholder="Pick a date"
+/>`}
+      >
+        <div className="w-64">
+          <DatePicker
+            size={globalSize}
+            label="Start Date"
+            description="Select the project start date."
+            placeholder="Pick a date"
+          />
+        </div>
+      </ExampleSection>
+
+      {/* ── Error / Validation ── */}
+      <ExampleSection
+        label="Error State"
+        description="Trigger hiển thị viền đỏ khi có errorMessage."
+        codeString={`<DatePicker
+  label="Due Date"
+  errorMessage="Due date is required."
+/>`}
+      >
+        <div className="w-64">
+          <DatePicker
+            size={globalSize}
+            label="Due Date"
+            errorMessage="Due date is required."
+          />
+        </div>
+      </ExampleSection>
+
+      {/* ── Disabled ── */}
+      <ExampleSection
+        label="Disabled"
+        description="Trigger bị vô hiệu hoá, người dùng không thể mở calendar."
+        codeString={`<DatePicker
+  label="Date"
+  disabled
+/>`}
+      >
+        <div className="w-64">
+          <DatePicker
+            size={globalSize}
+            label="Date"
+            disabled
+          />
+        </div>
+      </ExampleSection>
+
+      {/* ── Sizes ── */}
+      <ExampleGrid>
+        <ExampleSection
+          label="Small"
+          description="size='sm'"
+          codeString={`<DatePicker size="sm" label="Date" />`}
+        >
+          <DatePicker size="sm" label="Date" />
+        </ExampleSection>
+        <ExampleSection
+          label="Medium"
+          description="size='md' (default)"
+          codeString={`<DatePicker size="md" label="Date" />`}
+        >
+          <DatePicker size="md" label="Date" />
+        </ExampleSection>
+        <ExampleSection
+          label="Large"
+          description="size='lg'"
+          codeString={`<DatePicker size="lg" label="Date" />`}
+        >
+          <DatePicker size="lg" label="Date" />
+        </ExampleSection>
+      </ExampleGrid>
+    </div>
+  );
+}
+
+// ──────────────────────────────────────────────────────────
+// SECTION 4: Entry point
 // ──────────────────────────────────────────────────────────
 export default function CalendarShowcase() {
   const { size: globalSize } = useDevContext();
@@ -195,6 +337,10 @@ export default function CalendarShowcase() {
         {
           label: "Micro (Primitive)",
           content: <CalendarMicroShowcase globalSize={globalSize} />,
+        },
+        {
+          label: "Macro (DatePicker)",
+          content: <CalendarMacroShowcase globalSize={globalSize} />,
         },
       ]}
     />

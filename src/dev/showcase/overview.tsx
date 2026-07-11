@@ -86,7 +86,7 @@ export default function OverviewSection() {
             <span className="block text-foreground drop-shadow-sm">
               Đơn giản. Chặt chẽ.
             </span>
-            <span className="block mt-2 bg-gradient-to-r from-primary via-info to-primary bg-[length:200%_auto] bg-clip-text text-transparent animate-[spin_8s_linear_infinite] [animation-name:gradient] [animation-duration:8s] [animation-timing-function:linear] [animation-iteration-count:infinite]">
+            <span className="block mt-2 bg-gradient-to-r leading-[1.2] from-primary via-info to-primary bg-[length:200%_auto] bg-clip-text text-transparent animate-[spin_8s_linear_infinite] [animation-name:gradient] [animation-duration:8s] [animation-timing-function:linear] [animation-iteration-count:infinite]">
               Dễ mở rộng.
             </span>
           </h1>
@@ -293,7 +293,7 @@ export default function OverviewSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(320px,auto)]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(320px,auto)] grid-flow-dense">
           {/* Micro/Macro (Spans 2 columns) */}
           <div className="md:col-span-2 rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col justify-between group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
             <div className="absolute -top-10 -right-10 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:-rotate-12 duration-700">
@@ -542,6 +542,20 @@ export default function OverviewSection() {
                 của React.
               </p>
             </div>
+            <div className="relative z-10 mt-auto pt-8 grid sm:grid-cols-2 gap-4">
+              <div className="p-4 rounded-xl border border-success/20 bg-success/5 shadow-sm">
+                <div className="text-success font-semibold mb-2 text-sm flex items-center gap-2">✅ CSS State</div>
+                <div className="text-[11px] font-mono text-success/80">
+                  className="hover:bg-muted focus:ring group-hover:text-primary"
+                </div>
+              </div>
+              <div className="p-4 rounded-xl border border-destructive/20 bg-destructive/5 shadow-sm opacity-60">
+                <div className="text-destructive font-semibold mb-2 text-sm flex items-center gap-2">❌ React State</div>
+                <div className="text-[11px] font-mono text-destructive/80 line-through">
+                  const [hover, setHover] = useState(false)
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Strict Polymorphism */}
@@ -561,6 +575,20 @@ export default function OverviewSection() {
                 để thay đổi thẻ HTML root, không đẻ bừa các prop lồng nhau.
               </p>
             </div>
+            <div className="relative z-10 mt-auto pt-6 space-y-3">
+              <div className="p-3 rounded-xl border border-success/20 bg-success/5 text-[11px] font-mono shadow-sm flex items-center">
+                <span className="text-success font-bold mr-3 text-lg">✅</span>
+                <span className="text-success/90">
+                  &lt;Button render=&#123;&lt;Link/&gt;&#125;&gt;
+                </span>
+              </div>
+              <div className="p-3 rounded-xl border border-destructive/20 bg-destructive/5 text-[11px] font-mono shadow-sm flex items-center opacity-70">
+                <span className="text-destructive font-bold mr-3 text-lg">❌</span>
+                <span className="text-destructive/80 line-through">
+                  &lt;Button as="a" href="/"&gt;
+                </span>
+              </div>
+            </div>
           </div>
 
           {/* Exhaustive Union Types */}
@@ -579,6 +607,20 @@ export default function OverviewSection() {
                 Khai báo tường minh Union Types cho các config prop thay vì dùng
                 kiểu <code>string</code> chung chung để tận dụng autocomplete.
               </p>
+            </div>
+            <div className="relative z-10 mt-auto pt-6 space-y-3">
+              <div className="p-3 rounded-xl border border-success/20 bg-success/5 text-[11px] font-mono shadow-sm flex items-center">
+                <span className="text-success font-bold mr-3 text-lg">✅</span>
+                <span className="text-success/90">
+                  type Size = "sm" | "md"
+                </span>
+              </div>
+              <div className="p-3 rounded-xl border border-destructive/20 bg-destructive/5 text-[11px] font-mono shadow-sm flex items-center opacity-70">
+                <span className="text-destructive font-bold mr-3 text-lg">❌</span>
+                <span className="text-destructive/80 line-through">
+                  type Size = string
+                </span>
+              </div>
             </div>
           </div>
 
@@ -600,6 +642,12 @@ export default function OverviewSection() {
                 code thế này".
               </p>
             </div>
+            <div className="relative z-10 mt-auto pt-8">
+              <div className="p-4 rounded-xl border border-success/20 bg-success/5 text-sm font-mono text-success flex flex-col gap-2 shadow-sm">
+                <span className="text-success/60 text-xs">// ✅ Đặt tên biến rõ ràng thay vì comment</span>
+                <span>const isAccountLocked = loginAttempts &gt; MAX_ATTEMPTS;</span>
+              </div>
+            </div>
           </div>
 
           {/* Single Source of Truth for Variants */}
@@ -620,6 +668,20 @@ export default function OverviewSection() {
                 interface để dễ tracking và override.
               </p>
             </div>
+            <div className="relative z-10 mt-auto pt-8 grid sm:grid-cols-2 gap-4">
+              <div className="p-4 rounded-xl border border-success/20 bg-success/5 shadow-sm">
+                <div className="text-success font-semibold mb-2 text-sm flex items-center gap-2">✅ Component Interface</div>
+                <div className="text-[11px] font-mono text-success/80">
+                  function Button(&#123; size = "md" &#125;)
+                </div>
+              </div>
+              <div className="p-4 rounded-xl border border-destructive/20 bg-destructive/5 shadow-sm opacity-60">
+                <div className="text-destructive font-semibold mb-2 text-sm flex items-center gap-2">❌ CVA Config</div>
+                <div className="text-[11px] font-mono text-destructive/80 line-through">
+                  defaultVariants: &#123; size: "md" &#125;
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Pure Composition */}
@@ -639,6 +701,23 @@ export default function OverviewSection() {
                 Content) thay vì ôm đồm nhận vào một mảng data rồi tự{" "}
                 <code>map()</code> bên trong.
               </p>
+            </div>
+            <div className="relative z-10 mt-auto pt-6 space-y-3">
+              <div className="p-3 rounded-xl border border-success/20 bg-success/5 text-[11px] font-mono shadow-sm flex items-center">
+                <span className="text-success font-bold mr-3 text-lg">✅</span>
+                <span className="text-success/90">
+                  &lt;Select&gt;<br/>
+                  &nbsp;&nbsp;&lt;SelectTrigger/&gt;<br/>
+                  &nbsp;&nbsp;&lt;SelectContent/&gt;<br/>
+                  &lt;/Select&gt;
+                </span>
+              </div>
+              <div className="p-3 rounded-xl border border-destructive/20 bg-destructive/5 text-[11px] font-mono shadow-sm flex items-center opacity-70">
+                <span className="text-destructive font-bold mr-3 text-lg">❌</span>
+                <span className="text-destructive/80 line-through">
+                  &lt;Select items=&#123;[...]&#125; /&gt;
+                </span>
+              </div>
             </div>
           </div>
         </div>

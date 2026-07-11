@@ -73,7 +73,13 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
           {/* top */}
           <Sheet>
             <SheetTrigger
-              render={<Button variant="outline" size={globalSize} className="w-full" />}
+              render={
+                <Button
+                  variant="outline"
+                  size={globalSize}
+                  className="w-full"
+                />
+              }
             >
               top
             </SheetTrigger>
@@ -86,12 +92,22 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
               </SheetHeader>
               <div className="grid gap-4 py-4 px-4">
                 <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="name-top" className="text-right">Tên</Label>
-                  <Input id="name-top" defaultValue="Pedro Duarte" className="col-span-3" />
+                  <Label htmlFor="name-top" className="text-right">
+                    Tên
+                  </Label>
+                  <Input
+                    id="name-top"
+                    defaultValue="Pedro Duarte"
+                    className="col-span-3"
+                  />
                 </div>
               </div>
               <SheetFooter>
-                <SheetClose render={<Button variant="outline" size={globalSize} />}>Huỷ</SheetClose>
+                <SheetClose
+                  render={<Button variant="outline" size={globalSize} />}
+                >
+                  Huỷ
+                </SheetClose>
                 <Button size={globalSize}>Lưu thay đổi</Button>
               </SheetFooter>
             </SheetContent>
@@ -100,7 +116,13 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
           {/* right */}
           <Sheet>
             <SheetTrigger
-              render={<Button variant="outline" size={globalSize} className="w-full" />}
+              render={
+                <Button
+                  variant="outline"
+                  size={globalSize}
+                  className="w-full"
+                />
+              }
             >
               right
             </SheetTrigger>
@@ -113,16 +135,32 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
               </SheetHeader>
               <div className="grid gap-4 py-4 px-4">
                 <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="name-right" className="text-right">Tên</Label>
-                  <Input id="name-right" defaultValue="Pedro Duarte" className="col-span-3" />
+                  <Label htmlFor="name-right" className="text-right">
+                    Tên
+                  </Label>
+                  <Input
+                    id="name-right"
+                    defaultValue="Pedro Duarte"
+                    className="col-span-3"
+                  />
                 </div>
                 <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="username-right" className="text-right">Username</Label>
-                  <Input id="username-right" defaultValue="@peduarte" className="col-span-3" />
+                  <Label htmlFor="username-right" className="text-right">
+                    Username
+                  </Label>
+                  <Input
+                    id="username-right"
+                    defaultValue="@peduarte"
+                    className="col-span-3"
+                  />
                 </div>
               </div>
               <SheetFooter>
-                <SheetClose render={<Button variant="outline" size={globalSize} />}>Huỷ</SheetClose>
+                <SheetClose
+                  render={<Button variant="outline" size={globalSize} />}
+                >
+                  Huỷ
+                </SheetClose>
                 <Button size={globalSize}>Lưu thay đổi</Button>
               </SheetFooter>
             </SheetContent>
@@ -131,7 +169,13 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
           {/* bottom */}
           <Sheet>
             <SheetTrigger
-              render={<Button variant="outline" size={globalSize} className="w-full" />}
+              render={
+                <Button
+                  variant="outline"
+                  size={globalSize}
+                  className="w-full"
+                />
+              }
             >
               bottom
             </SheetTrigger>
@@ -144,12 +188,22 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
               </SheetHeader>
               <div className="grid gap-4 py-4 px-4">
                 <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="name-bottom" className="text-right">Tên</Label>
-                  <Input id="name-bottom" defaultValue="Pedro Duarte" className="col-span-3" />
+                  <Label htmlFor="name-bottom" className="text-right">
+                    Tên
+                  </Label>
+                  <Input
+                    id="name-bottom"
+                    defaultValue="Pedro Duarte"
+                    className="col-span-3"
+                  />
                 </div>
               </div>
               <SheetFooter>
-                <SheetClose render={<Button variant="outline" size={globalSize} />}>Huỷ</SheetClose>
+                <SheetClose
+                  render={<Button variant="outline" size={globalSize} />}
+                >
+                  Huỷ
+                </SheetClose>
                 <Button size={globalSize}>Lưu thay đổi</Button>
               </SheetFooter>
             </SheetContent>
@@ -158,7 +212,13 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
           {/* left */}
           <Sheet>
             <SheetTrigger
-              render={<Button variant="outline" size={globalSize} className="w-full" />}
+              render={
+                <Button
+                  variant="outline"
+                  size={globalSize}
+                  className="w-full"
+                />
+              }
             >
               left
             </SheetTrigger>
@@ -171,16 +231,32 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
               </SheetHeader>
               <div className="grid gap-4 py-4 px-4">
                 <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="name-left" className="text-right">Tên</Label>
-                  <Input id="name-left" defaultValue="Pedro Duarte" className="col-span-3" />
+                  <Label htmlFor="name-left" className="text-right">
+                    Tên
+                  </Label>
+                  <Input
+                    id="name-left"
+                    defaultValue="Pedro Duarte"
+                    className="col-span-3"
+                  />
                 </div>
                 <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="username-left" className="text-right">Username</Label>
-                  <Input id="username-left" defaultValue="@peduarte" className="col-span-3" />
+                  <Label htmlFor="username-left" className="text-right">
+                    Username
+                  </Label>
+                  <Input
+                    id="username-left"
+                    defaultValue="@peduarte"
+                    className="col-span-3"
+                  />
                 </div>
               </div>
               <SheetFooter>
-                <SheetClose render={<Button variant="outline" size={globalSize} />}>Huỷ</SheetClose>
+                <SheetClose
+                  render={<Button variant="outline" size={globalSize} />}
+                >
+                  Huỷ
+                </SheetClose>
                 <Button size={globalSize}>Lưu thay đổi</Button>
               </SheetFooter>
             </SheetContent>
@@ -189,7 +265,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleSection>
 
       {/* ── showCloseButton ── */}
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Có nút đóng (mặc định)"
           description="showCloseButton={true} — nút X tự động hiển thị ở góc trên phải."
@@ -260,7 +336,15 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
                 </SheetDescription>
               </SheetHeader>
               <SheetFooter>
-                <SheetClose render={<Button variant="outline" size={globalSize} className="w-full" />}>
+                <SheetClose
+                  render={
+                    <Button
+                      variant="outline"
+                      size={globalSize}
+                      className="w-full"
+                    />
+                  }
+                >
                   Đóng thủ công
                 </SheetClose>
               </SheetFooter>
@@ -380,9 +464,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
 </Sheet>`}
       >
         <Sheet>
-          <SheetTrigger
-            render={<Button variant="outline" size={globalSize} />}
-          >
+          <SheetTrigger render={<Button variant="outline" size={globalSize} />}>
             <FilterIcon aria-hidden="true" />
             Lọc dữ liệu
           </SheetTrigger>
@@ -434,8 +516,8 @@ export default function SheetShowcase() {
       generalConcept={
         <ShowcaseDocs>
           <DocsP>
-            <DocsCode>Sheet</DocsCode> là một biến thể của Dialog, nhưng thay
-            vì hiện ở giữa màn hình, nó trượt ra từ một cạnh (right, left, top,
+            <DocsCode>Sheet</DocsCode> là một biến thể của Dialog, nhưng thay vì
+            hiện ở giữa màn hình, nó trượt ra từ một cạnh (right, left, top,
             bottom). Phù hợp cho navigation drawer, filter panel, settings
             sidebar, hay form chỉnh sửa.
           </DocsP>

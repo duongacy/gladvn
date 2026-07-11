@@ -151,16 +151,18 @@ export default function App() {
 
         {/* Sidebar */}
         <aside
-          className={`fixed inset-y-0 left-0 z-50 w-64 transform border-r bg-background pt-4 px-3 transition-transform duration-200 ease-in-out md:sticky md:top-14 md:block md:h-[calc(100vh-3.5rem)] md:w-56 md:translate-x-0 md:pt-6 md:z-0 overflow-y-auto ${isMobileMenuOpen ? "translate-x-0 shadow-2xl" : "-translate-x-full"
-            }`}
+          className={`fixed inset-y-0 left-0 z-50 w-64 transform border-r bg-background pt-4 px-3 transition-transform duration-200 ease-in-out md:sticky md:top-14 md:block md:h-[calc(100vh-3.5rem)] md:w-56 md:translate-x-0 md:pt-6 md:z-0 overflow-y-auto ${
+            isMobileMenuOpen ? "translate-x-0 shadow-2xl" : "-translate-x-full"
+          }`}
         >
           <nav className="space-y-0.5">
             <button
               onClick={() => setActive("overview")}
-              className={`w-full flex items-center gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors text-left mb-2 ${active === "overview"
-                ? "bg-accent text-accent-foreground font-medium"
-                : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
-                }`}
+              className={`w-full flex items-center gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors text-left mb-2 ${
+                active === "overview"
+                  ? "bg-accent text-accent-foreground font-medium"
+                  : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
+              }`}
             >
               <LayersIcon className="size-3.5" />
               Overview
@@ -175,10 +177,11 @@ export default function App() {
               <button
                 key={id}
                 onClick={() => setActive(id)}
-                className={`w-full flex items-center justify-between gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors text-left ${active === id
-                  ? "bg-accent text-accent-foreground font-medium"
-                  : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
-                  }`}
+                className={`w-full flex items-center justify-between gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors text-left ${
+                  active === id
+                    ? "bg-accent text-accent-foreground font-medium"
+                    : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
+                }`}
               >
                 <span>{label}</span>
                 <div className="flex gap-1 shrink-0">

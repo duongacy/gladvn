@@ -30,7 +30,7 @@ function PaginationMacroShowcase({ globalSize }: { globalSize: Size }) {
 
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Tiêu chuẩn (Standard)"
           description="Phân trang cơ bản với state điều khiển."
@@ -58,11 +58,15 @@ return (
           codeString={`<PaginationPreset currentPage={50} totalPages={100} />
 `}
         >
-          <PaginationPreset currentPage={50} totalPages={100} size={globalSize} />
+          <PaginationPreset
+            currentPage={50}
+            totalPages={100}
+            size={globalSize}
+          />
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Trang đầu tiên (First Page)"
           description="Nút Previous tự động bị mờ đi."
@@ -298,7 +302,10 @@ export default function PaginationShowcase() {
           label: "Micro (Primitive)",
           content: <PaginationMicroShowcase globalSize={globalSize} />,
         },
-        { label: "Macro (Preset)", content: <PaginationMacroShowcase globalSize={globalSize} /> },
+        {
+          label: "Macro (Preset)",
+          content: <PaginationMacroShowcase globalSize={globalSize} />,
+        },
       ]}
     />
   );

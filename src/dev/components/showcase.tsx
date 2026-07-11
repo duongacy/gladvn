@@ -247,9 +247,7 @@ export function ExampleGrid({
   className?: string;
 }) {
   return (
-    <div className={cn("grid gap-6 grid-cols-1", className)}>
-      {children}
-    </div>
+    <div className={cn("grid gap-6 grid-cols-1", className)}>{children}</div>
   );
 }
 

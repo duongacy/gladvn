@@ -21,7 +21,7 @@ function ToggleMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
       {/* Variants */}
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Default (Ghost)"
           description="Variant mặc định — không viền, chỉ đổi nền khi pressed."
@@ -59,11 +59,19 @@ function ToggleMicroShowcase({ globalSize }: { globalSize: Size }) {
 </Toggle>`}
         >
           <div className="flex gap-2">
-            <Toggle variant="outline" aria-label="Toggle italic" size={globalSize}>
+            <Toggle
+              variant="outline"
+              aria-label="Toggle italic"
+              size={globalSize}
+            >
               <ItalicIcon />
               Italic
             </Toggle>
-            <Toggle variant="outline" aria-label="Toggle underline" size={globalSize}>
+            <Toggle
+              variant="outline"
+              aria-label="Toggle underline"
+              size={globalSize}
+            >
               <UnderlineIcon />
               Underline
             </Toggle>
@@ -72,7 +80,7 @@ function ToggleMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleGrid>
 
       {/* Icon Only & Disabled */}
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Icon Only"
           description="Toggle chỉ có icon — luôn truyền aria-label để đảm bảo a11y."
@@ -87,7 +95,11 @@ function ToggleMicroShowcase({ globalSize }: { globalSize: Size }) {
             <Toggle aria-label="Toggle bold" size={globalSize}>
               <BoldIcon />
             </Toggle>
-            <Toggle variant="outline" aria-label="Toggle underline" size={globalSize}>
+            <Toggle
+              variant="outline"
+              aria-label="Toggle underline"
+              size={globalSize}
+            >
               <UnderlineIcon />
             </Toggle>
           </div>
@@ -110,7 +122,12 @@ function ToggleMicroShowcase({ globalSize }: { globalSize: Size }) {
               <ItalicIcon />
               Italic
             </Toggle>
-            <Toggle variant="outline" disabled aria-label="Toggle bold" size={globalSize}>
+            <Toggle
+              variant="outline"
+              disabled
+              aria-label="Toggle bold"
+              size={globalSize}
+            >
               <BoldIcon />
               Bold
             </Toggle>
@@ -134,12 +151,12 @@ export default function ToggleShowcase() {
         <ShowcaseDocs>
           <DocsH3>Toggle</DocsH3>
           <DocsP>
-            <DocsCode>Toggle</DocsCode> là nút có 2 trạng thái bật/tắt dựa
-            trên <DocsCode>aria-pressed</DocsCode>. Hỗ trợ 2 variant:{" "}
+            <DocsCode>Toggle</DocsCode> là nút có 2 trạng thái bật/tắt dựa trên{" "}
+            <DocsCode>aria-pressed</DocsCode>. Hỗ trợ 2 variant:{" "}
             <DocsCode>default</DocsCode> (ghost, không viền) và{" "}
             <DocsCode>outline</DocsCode> (có viền). Luôn truyền{" "}
-            <DocsCode>aria-label</DocsCode> khi Toggle chỉ chứa icon để đảm
-            bảo a11y.
+            <DocsCode>aria-label</DocsCode> khi Toggle chỉ chứa icon để đảm bảo
+            a11y.
           </DocsP>
         </ShowcaseDocs>
       }

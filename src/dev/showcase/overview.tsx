@@ -544,13 +544,17 @@ export default function OverviewSection() {
             </div>
             <div className="relative z-10 mt-auto pt-8 grid sm:grid-cols-2 gap-4">
               <div className="p-4 rounded-xl border border-success/20 bg-success/5 shadow-sm">
-                <div className="text-success font-semibold mb-2 text-sm flex items-center gap-2">✅ CSS State</div>
+                <div className="text-success font-semibold mb-2 text-sm flex items-center gap-2">
+                  ✅ CSS State
+                </div>
                 <div className="text-[11px] font-mono text-success/80">
                   className="hover:bg-muted focus:ring group-hover:text-primary"
                 </div>
               </div>
               <div className="p-4 rounded-xl border border-destructive/20 bg-destructive/5 shadow-sm opacity-60">
-                <div className="text-destructive font-semibold mb-2 text-sm flex items-center gap-2">❌ React State</div>
+                <div className="text-destructive font-semibold mb-2 text-sm flex items-center gap-2">
+                  ❌ React State
+                </div>
                 <div className="text-[11px] font-mono text-destructive/80 line-through">
                   const [hover, setHover] = useState(false)
                 </div>
@@ -583,7 +587,9 @@ export default function OverviewSection() {
                 </span>
               </div>
               <div className="p-3 rounded-xl border border-destructive/20 bg-destructive/5 text-[11px] font-mono shadow-sm flex items-center opacity-70">
-                <span className="text-destructive font-bold mr-3 text-lg">❌</span>
+                <span className="text-destructive font-bold mr-3 text-lg">
+                  ❌
+                </span>
                 <span className="text-destructive/80 line-through">
                   &lt;Button as="a" href="/"&gt;
                 </span>
@@ -611,12 +617,12 @@ export default function OverviewSection() {
             <div className="relative z-10 mt-auto pt-6 space-y-3">
               <div className="p-3 rounded-xl border border-success/20 bg-success/5 text-[11px] font-mono shadow-sm flex items-center">
                 <span className="text-success font-bold mr-3 text-lg">✅</span>
-                <span className="text-success/90">
-                  type Size = "sm" | "md"
-                </span>
+                <span className="text-success/90">type Size = "sm" | "md"</span>
               </div>
               <div className="p-3 rounded-xl border border-destructive/20 bg-destructive/5 text-[11px] font-mono shadow-sm flex items-center opacity-70">
-                <span className="text-destructive font-bold mr-3 text-lg">❌</span>
+                <span className="text-destructive font-bold mr-3 text-lg">
+                  ❌
+                </span>
                 <span className="text-destructive/80 line-through">
                   type Size = string
                 </span>
@@ -644,8 +650,12 @@ export default function OverviewSection() {
             </div>
             <div className="relative z-10 mt-auto pt-8">
               <div className="p-4 rounded-xl border border-success/20 bg-success/5 text-sm font-mono text-success flex flex-col gap-2 shadow-sm">
-                <span className="text-success/60 text-xs">// ✅ Đặt tên biến rõ ràng thay vì comment</span>
-                <span>const isAccountLocked = loginAttempts &gt; MAX_ATTEMPTS;</span>
+                <span className="text-success/60 text-xs">
+                  // ✅ Đặt tên biến rõ ràng thay vì comment
+                </span>
+                <span>
+                  const isAccountLocked = loginAttempts &gt; MAX_ATTEMPTS;
+                </span>
               </div>
             </div>
           </div>
@@ -670,13 +680,17 @@ export default function OverviewSection() {
             </div>
             <div className="relative z-10 mt-auto pt-8 grid sm:grid-cols-2 gap-4">
               <div className="p-4 rounded-xl border border-success/20 bg-success/5 shadow-sm">
-                <div className="text-success font-semibold mb-2 text-sm flex items-center gap-2">✅ Component Interface</div>
+                <div className="text-success font-semibold mb-2 text-sm flex items-center gap-2">
+                  ✅ Component Interface
+                </div>
                 <div className="text-[11px] font-mono text-success/80">
                   function Button(&#123; size = "md" &#125;)
                 </div>
               </div>
               <div className="p-4 rounded-xl border border-destructive/20 bg-destructive/5 shadow-sm opacity-60">
-                <div className="text-destructive font-semibold mb-2 text-sm flex items-center gap-2">❌ CVA Config</div>
+                <div className="text-destructive font-semibold mb-2 text-sm flex items-center gap-2">
+                  ❌ CVA Config
+                </div>
                 <div className="text-[11px] font-mono text-destructive/80 line-through">
                   defaultVariants: &#123; size: "md" &#125;
                 </div>
@@ -706,14 +720,19 @@ export default function OverviewSection() {
               <div className="p-3 rounded-xl border border-success/20 bg-success/5 text-[11px] font-mono shadow-sm flex items-center">
                 <span className="text-success font-bold mr-3 text-lg">✅</span>
                 <span className="text-success/90">
-                  &lt;Select&gt;<br/>
-                  &nbsp;&nbsp;&lt;SelectTrigger/&gt;<br/>
-                  &nbsp;&nbsp;&lt;SelectContent/&gt;<br/>
+                  &lt;Select&gt;
+                  <br />
+                  &nbsp;&nbsp;&lt;SelectTrigger/&gt;
+                  <br />
+                  &nbsp;&nbsp;&lt;SelectContent/&gt;
+                  <br />
                   &lt;/Select&gt;
                 </span>
               </div>
               <div className="p-3 rounded-xl border border-destructive/20 bg-destructive/5 text-[11px] font-mono shadow-sm flex items-center opacity-70">
-                <span className="text-destructive font-bold mr-3 text-lg">❌</span>
+                <span className="text-destructive font-bold mr-3 text-lg">
+                  ❌
+                </span>
                 <span className="text-destructive/80 line-through">
                   &lt;Select items=&#123;[...]&#125; /&gt;
                 </span>

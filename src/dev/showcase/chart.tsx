@@ -7,10 +7,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/micro/chart";
-import {
-  ExampleSection,
-  SectionHeader,
-} from "@/dev/components/showcase";
+import { ExampleSection, SectionHeader } from "@/dev/components/showcase";
 
 export default function ChartShowcase() {
   return (
@@ -108,4 +105,3 @@ const chartConfig = {
     </div>
   );
 }
-

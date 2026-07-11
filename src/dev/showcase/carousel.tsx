@@ -122,7 +122,7 @@ function ControlledCarouselDemo() {
 function CarouselMacroShowcase() {
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Tiêu chuẩn (Standard)"
           description="Băng chuyền cơ bản nhất với cầu trượt."
@@ -222,7 +222,7 @@ function CarouselMacroShowcase() {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Vòng lặp vô hạn (Loop Enabled)"
           description="Chỉ hiển thị dấu chấm (ẩn mũi tên)."
@@ -328,7 +328,7 @@ function CarouselMacroShowcase() {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Điều khiển từ bên ngoài (Controlled Mode)"
           description="Sử dụng biến state React để điều khiển slide."

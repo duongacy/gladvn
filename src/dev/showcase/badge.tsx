@@ -54,7 +54,7 @@ function BadgeMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleSection>
 
       {/* ── Colors ── */}
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Solid Colors"
           description="Mã thông báo màu ngữ nghĩa được áp dụng cho huy hiệu (Solid)."
@@ -153,7 +153,7 @@ function BadgeMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleSection>
 
       {/* ── Real-world Use Cases ── */}
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Status Indicators"
           description="Dùng để hiển thị trạng thái."

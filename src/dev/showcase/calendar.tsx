@@ -26,7 +26,7 @@ function CalendarMicroShowcase({ globalSize }: { globalSize: Size }) {
 
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid >
+      <ExampleGrid>
         {/* ── Single Date ── */}
         <ExampleSection
           label="Single Date"
@@ -79,7 +79,7 @@ function CalendarMicroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid >
+      <ExampleGrid>
         {/* ── Multiple Dates ── */}
         <ExampleSection
           label="Multiple Dates"

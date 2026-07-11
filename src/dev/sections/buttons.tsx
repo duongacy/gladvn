@@ -130,6 +130,7 @@ export default function ButtonsSection() {
                 variant="ghost"
                 color="secondary"
                 className="px-2"
+                iconOnly
               >
                 <SettingsIcon className="size-4" />
               </Button>
@@ -160,13 +161,18 @@ export default function ButtonsSection() {
             </div>
           </div>
           <div className="flex items-center gap-4 justify-center p-6 border rounded-xl bg-card shadow-sm mt-4">
-            <Button size={globalSize} variant="soft" color="primary">
+            <Button size={globalSize} variant="soft" color="primary" iconOnly>
               <PlusIcon />
             </Button>
-            <Button size={globalSize} variant="soft" color="secondary">
+            <Button size={globalSize} variant="soft" color="secondary" iconOnly>
               <SettingsIcon />
             </Button>
-            <Button size={globalSize} variant="soft" color="destructive">
+            <Button
+              size={globalSize}
+              variant="soft"
+              color="destructive"
+              iconOnly
+            >
               <Trash2Icon />
             </Button>
           </div>

@@ -23,7 +23,7 @@ import { BellIcon, CreditCardIcon, UserIcon } from "lucide-react";
 function TabsMacroShowcase() {
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Tiêu chuẩn (Standard)"
           description="Tabs cơ bản truyền qua mảng items."
@@ -330,7 +330,7 @@ function TabsMacroShowcase() {
 function TabsMicroShowcase() {
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Cơ bản (Default)"
           description="Tabs nguyên thuỷ lắp ráp thủ công."

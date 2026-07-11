@@ -29,7 +29,7 @@ import { type Size } from "@/lib/types";
 function CardMacroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Tiêu chuẩn (Standard)"
           description="Card cài sẵn với đầy đủ tiêu đề, nội dung và chân trang."
@@ -240,7 +240,7 @@ function CardMicroShowcase({ globalSize }: { globalSize: Size }) {
         </Card>
       </ExampleSection>
 
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Chỉ có nội dung (Content Only)"
           description="Dùng Card như một container bọc ngoài đơn giản."

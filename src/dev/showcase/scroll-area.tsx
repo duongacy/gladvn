@@ -14,16 +14,37 @@ import {
 // ──────────────────────────────────────────────────────────
 function VerticalList() {
   const items = [
-    "Tùy chọn 1", "Tùy chọn 2", "Tùy chọn 3", "Tùy chọn 4", "Tùy chọn 5",
-    "Tùy chọn 6", "Tùy chọn 7", "Tùy chọn 8", "Tùy chọn 9", "Tùy chọn 10",
-    "Tùy chọn 11", "Tùy chọn 12", "Tùy chọn 13", "Tùy chọn 14", "Tùy chọn 15",
-    "Tùy chọn 16", "Tùy chọn 17", "Tùy chọn 18", "Tùy chọn 19", "Tùy chọn 20",
+    "Tùy chọn 1",
+    "Tùy chọn 2",
+    "Tùy chọn 3",
+    "Tùy chọn 4",
+    "Tùy chọn 5",
+    "Tùy chọn 6",
+    "Tùy chọn 7",
+    "Tùy chọn 8",
+    "Tùy chọn 9",
+    "Tùy chọn 10",
+    "Tùy chọn 11",
+    "Tùy chọn 12",
+    "Tùy chọn 13",
+    "Tùy chọn 14",
+    "Tùy chọn 15",
+    "Tùy chọn 16",
+    "Tùy chọn 17",
+    "Tùy chọn 18",
+    "Tùy chọn 19",
+    "Tùy chọn 20",
   ];
   return (
     <div className="p-4">
-      <h4 className="mb-4 text-sm font-medium leading-none">Cài đặt hệ thống</h4>
+      <h4 className="mb-4 text-sm font-medium leading-none">
+        Cài đặt hệ thống
+      </h4>
       {items.map((label) => (
-        <div key={label} className="text-sm py-3 border-b last:border-0 hover:bg-muted/50 cursor-pointer">
+        <div
+          key={label}
+          className="text-sm py-3 border-b last:border-0 hover:bg-muted/50 cursor-pointer"
+        >
           {label}
         </div>
       ))}
@@ -60,7 +81,7 @@ function HorizontalList() {
 function ScrollAreaMicroShowcase() {
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Cuộn dọc (Vertical)"
           description="Danh sách các mục có thể cuộn từ trên xuống dưới."

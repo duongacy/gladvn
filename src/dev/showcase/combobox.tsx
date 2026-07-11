@@ -143,7 +143,7 @@ function ComboboxForm({ size }: { size: Size }) {
 function ComboboxMacroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Tiêu chuẩn"
           description="Tương tự Select nhưng có thể gõ để tìm kiếm."
@@ -207,7 +207,7 @@ function ComboboxMacroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Khóa / Bất hoạt (Disabled)"
           description="Người dùng không thể click hay gõ vào ô."
@@ -276,7 +276,7 @@ function ComboboxMacroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Tích hợp React Hook Form"
           description="Sử dụng Controller để bắt giá trị."
@@ -297,7 +297,7 @@ function ComboboxMacroShowcase({ globalSize }: { globalSize: Size }) {
 function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Cơ bản & Phân nhóm"
           description="Sử dụng InputGroup, ComboboxAnchor, ComboboxGroup."
@@ -441,7 +441,7 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Disabled thủ công"
           description="Truyền disabled vào InputGroupInput và ComboboxTrigger."
@@ -564,7 +564,7 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Giao diện Nút (With Trigger)"
           description="Combobox dùng nút bấm (giống Select) thay vì ô nhập chữ (Input)."

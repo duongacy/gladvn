@@ -32,7 +32,7 @@ function SpinnerMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleSection>
 
       {/* Colors */}
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Custom Colors"
           description="Truyền className để override màu sắc — Spinner kế thừa currentColor của SVG."
@@ -108,8 +108,8 @@ export default function SpinnerShowcase() {
             <DocsCode>animate-spin</DocsCode>. Tự động tắt animation khi người
             dùng bật <DocsCode>prefers-reduced-motion</DocsCode> (
             <DocsCode>motion-reduce:animate-none</DocsCode>
-            ). Màu mặc định là <DocsCode>currentColor</DocsCode> — override
-            bằng <DocsCode>className="text-primary"</DocsCode> hoặc tương tự.
+            ). Màu mặc định là <DocsCode>currentColor</DocsCode> — override bằng{" "}
+            <DocsCode>className="text-primary"</DocsCode> hoặc tương tự.
           </DocsP>
         </ShowcaseDocs>
       }

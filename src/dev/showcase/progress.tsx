@@ -26,7 +26,7 @@ import { type Size } from "@/lib/types";
 function ProgressMacroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Tiêu chuẩn (Standard)"
           description="Thanh tiến trình cơ bản nhất."
@@ -85,7 +85,7 @@ function ProgressMacroShowcase({ globalSize }: { globalSize: Size }) {
 function ProgressMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Chỉ Thanh tiến trình (Core)"
           description="Thanh tiến trình tiêu chuẩn sử dụng API tổng hợp thuần túy (không nhãn)."

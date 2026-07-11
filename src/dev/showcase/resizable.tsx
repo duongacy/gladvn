@@ -97,7 +97,7 @@ function ResizableMicroShowcase() {
       </ExampleSection>
 
       {/* Handle variants */}
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="With Handle Grip"
           description="withHandle hiển thị thanh tay cầm trực quan ở giữa divider."
@@ -218,13 +218,14 @@ export default function ResizableShowcase() {
       generalConcept={
         <ShowcaseDocs>
           <DocsP>
-          Resizable sử dụng thư viện{" "}
-            <DocsCode>react-resizable-panels</DocsCode> để tạo các panel có thể kéo
-            thay đổi kích thước. Dùng <DocsCode>ResizablePanelGroup</DocsCode> làm
-            container, <DocsCode>ResizablePanel</DocsCode> cho nội dung, và{" "}
-            <DocsCode>ResizableHandle</DocsCode> cho thanh phân cách tương tác. Prop{" "}
-            <DocsCode>withHandle</DocsCode> hiển thị visual grip giúp người dùng dễ
-            nhận biết vùng kéo hơn.
+            Resizable sử dụng thư viện{" "}
+            <DocsCode>react-resizable-panels</DocsCode> để tạo các panel có thể
+            kéo thay đổi kích thước. Dùng{" "}
+            <DocsCode>ResizablePanelGroup</DocsCode> làm container,{" "}
+            <DocsCode>ResizablePanel</DocsCode> cho nội dung, và{" "}
+            <DocsCode>ResizableHandle</DocsCode> cho thanh phân cách tương tác.
+            Prop <DocsCode>withHandle</DocsCode> hiển thị visual grip giúp người
+            dùng dễ nhận biết vùng kéo hơn.
           </DocsP>
         </ShowcaseDocs>
       }

@@ -66,10 +66,7 @@ function generatePaginationRange(
   return [];
 }
 
-const PaginationPreset = React.forwardRef<
-  HTMLElement,
-  PaginationPresetProps
->(
+const PaginationPreset = React.forwardRef<HTMLElement, PaginationPresetProps>(
   (
     {
       currentPage,
@@ -100,7 +97,9 @@ const PaginationPreset = React.forwardRef<
                 if (currentPage > 1) onPageChange?.(currentPage - 1);
               }}
               aria-disabled={currentPage === 1}
-              className={cn({ "pointer-events-none opacity-50": currentPage === 1 })}
+              className={cn({
+                "pointer-events-none opacity-50": currentPage === 1,
+              })}
             />
           </PaginationItem>
 
@@ -139,7 +138,9 @@ const PaginationPreset = React.forwardRef<
                 if (currentPage < totalPages) onPageChange?.(currentPage + 1);
               }}
               aria-disabled={currentPage === totalPages}
-              className={cn({ "pointer-events-none opacity-50": currentPage === totalPages })}
+              className={cn({
+                "pointer-events-none opacity-50": currentPage === totalPages,
+              })}
             />
           </PaginationItem>
         </PaginationContent>

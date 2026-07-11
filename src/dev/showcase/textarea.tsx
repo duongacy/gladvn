@@ -34,7 +34,7 @@ function TextareaMacroShowcase({ globalSize }: { globalSize: Size }) {
 
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Tiêu chuẩn"
           description="Trường văn bản nhiều dòng với nhãn và mô tả."
@@ -78,7 +78,7 @@ function TextareaMacroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Giới hạn ký tự (Character Count)"
           description="Sử dụng React state và slot description để đếm ngược số ký tự."
@@ -202,7 +202,7 @@ return (
 function TextareaMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Cơ bản (Primitive)"
           description="Khung nhập văn bản nhiều dòng không có nhãn."
@@ -240,7 +240,7 @@ function TextareaMicroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="InputGroup + Textarea"
           description="Textarea bên trong InputGroup với Addon. Sử dụng InputGroupTextarea."
@@ -484,7 +484,7 @@ export default function TextareaShowcase() {
           </ShowcaseDocs>
         </div>
       }
-      
+
       tabs={[
         {
           label: "Micro (Primitive)",

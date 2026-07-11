@@ -43,7 +43,7 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
 
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Standard Dropdown"
           description="Menu cơ bản với các phím tắt và action nguy hiểm."

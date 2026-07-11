@@ -111,7 +111,7 @@ function TooltipMicroShowcase({ globalSize }: { globalSize: Size }) {
         </div>
       </ExampleSection>
 
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Nội dung dài (Long Content)"
           description="Tooltip tự động giới hạn chiều rộng và xuống dòng khi nội dung quá dài."
@@ -187,6 +187,7 @@ function TooltipMicroShowcase({ globalSize }: { globalSize: Size }) {
                       size={globalSize}
                       disabled
                       className="pointer-events-none w-full h-full"
+                      iconOnly
                     >
                       <ShieldAlertIcon />
                     </Button>

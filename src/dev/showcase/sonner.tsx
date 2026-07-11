@@ -140,7 +140,7 @@ toast.info("Update is available.");`}
       </ExampleSection>
 
       {/* ── Promise ── */}
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Promise — Thành công"
           description="toast.promise() tự quản lý trạng thái loading → success/error theo kết quả của Promise."
@@ -357,9 +357,9 @@ export default function SonnerShowcase() {
         <ShowcaseDocs>
           <DocsP>
             <DocsCode>Toaster</DocsCode> là wrapper của thư viện{" "}
-            <DocsCode>sonner</DocsCode>, được tích hợp với design system qua
-            CSS Variables — màu sắc của toast tự động đồng bộ với theme
-            (light/dark) và các token màu (success, destructive, warning, info).
+            <DocsCode>sonner</DocsCode>, được tích hợp với design system qua CSS
+            Variables — màu sắc của toast tự động đồng bộ với theme (light/dark)
+            và các token màu (success, destructive, warning, info).
           </DocsP>
           <DocsP>
             Đặt <DocsCode>&lt;Toaster /&gt;</DocsCode> một lần duy nhất ở root

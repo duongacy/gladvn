@@ -30,7 +30,7 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
 
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Default"
           description="Cửa sổ Popover tiêu chuẩn."

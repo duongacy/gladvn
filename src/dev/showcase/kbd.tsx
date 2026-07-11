@@ -37,7 +37,7 @@ function KbdMicroShowcase() {
   return (
     <div className="space-y-10 mt-6">
       {/* ── Kbd đơn ── */}
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Kbd — Phím đơn"
           description="Hiển thị một phím bàn phím riêng lẻ dùng thẻ <kbd> semantic."
@@ -128,7 +128,8 @@ function KbdMicroShowcase() {
                 }
               />
               <TooltipContent>
-                Lưu tài liệu <Kbd>⌘</Kbd><Kbd>S</Kbd>
+                Lưu tài liệu <Kbd>⌘</Kbd>
+                <Kbd>S</Kbd>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
@@ -143,7 +144,8 @@ function KbdMicroShowcase() {
                 }
               />
               <TooltipContent>
-                Sao chép <Kbd>⌘</Kbd><Kbd>C</Kbd>
+                Sao chép <Kbd>⌘</Kbd>
+                <Kbd>C</Kbd>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
@@ -179,14 +181,16 @@ function KbdMicroShowcase() {
               <FilePlusIcon aria-hidden="true" />
               New File
               <KbdGroup className="ml-auto">
-                <Kbd>⌘</Kbd><Kbd>N</Kbd>
+                <Kbd>⌘</Kbd>
+                <Kbd>N</Kbd>
               </KbdGroup>
             </DropdownMenuItem>
             <DropdownMenuItem>
               <FolderOpenIcon aria-hidden="true" />
               Open...
               <KbdGroup className="ml-auto">
-                <Kbd>⌘</Kbd><Kbd>O</Kbd>
+                <Kbd>⌘</Kbd>
+                <Kbd>O</Kbd>
               </KbdGroup>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
@@ -194,14 +198,17 @@ function KbdMicroShowcase() {
               <SaveIcon aria-hidden="true" />
               Save
               <KbdGroup className="ml-auto">
-                <Kbd>⌘</Kbd><Kbd>S</Kbd>
+                <Kbd>⌘</Kbd>
+                <Kbd>S</Kbd>
               </KbdGroup>
             </DropdownMenuItem>
             <DropdownMenuItem>
               <FileIcon aria-hidden="true" />
               Save As...
               <KbdGroup className="ml-auto">
-                <Kbd>⌘</Kbd><Kbd>⇧</Kbd><Kbd>S</Kbd>
+                <Kbd>⌘</Kbd>
+                <Kbd>⇧</Kbd>
+                <Kbd>S</Kbd>
               </KbdGroup>
             </DropdownMenuItem>
           </DropdownMenuContent>
@@ -251,9 +258,9 @@ export default function KbdShowcase() {
           </DocsP>
           <DocsP>
             <DocsCode>KbdGroup</DocsCode> nhóm nhiều <DocsCode>Kbd</DocsCode>{" "}
-            lại để tạo tổ hợp phím (ví dụ: ⌘ + ⇧ + P). Kbd tự thích nghi màu
-            sắc khi nằm trong <DocsCode>TooltipContent</DocsCode> nhờ
-            data-slot context.
+            lại để tạo tổ hợp phím (ví dụ: ⌘ + ⇧ + P). Kbd tự thích nghi màu sắc
+            khi nằm trong <DocsCode>TooltipContent</DocsCode> nhờ data-slot
+            context.
           </DocsP>
         </ShowcaseDocs>
       }

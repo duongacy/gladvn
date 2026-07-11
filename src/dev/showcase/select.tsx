@@ -122,7 +122,7 @@ function SelectForm({ size }: { size: Size }) {
 function SelectMacroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Tiêu chuẩn"
           description="Trình thả xuống cơ bản với mảng options."
@@ -183,7 +183,7 @@ function SelectMacroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Khóa / Bất hoạt (Disabled)"
           description="Người dùng không thể mở danh sách."
@@ -259,7 +259,7 @@ function SelectMacroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Tích hợp React Hook Form"
           description="Sử dụng Controller để bắt giá trị."
@@ -280,7 +280,7 @@ function SelectMacroShowcase({ globalSize }: { globalSize: Size }) {
 function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Cơ bản (Primitive)"
           description="Ghép nối thủ công bằng cách bọc Field."
@@ -396,7 +396,7 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Trạng thái Lỗi thủ công"
           description="Tự gắn aria-invalid vào Select."

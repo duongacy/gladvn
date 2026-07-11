@@ -181,7 +181,7 @@ function MenubarMicroShowcase() {
       </ExampleSection>
 
       {/* Checkbox & Radio */}
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Checkbox Items"
           description="MenubarCheckboxItem cho phép bật/tắt từng tùy chọn độc lập nhau."
@@ -262,7 +262,7 @@ function MenubarMicroShowcase() {
       </ExampleGrid>
 
       {/* Submenu & Disabled */}
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Submenu"
           description="MenubarSub tạo menu lồng nhau. Hover hoặc click vào SubTrigger để mở."

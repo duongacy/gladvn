@@ -28,7 +28,7 @@ import {
 function ItemMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Basic Content"
           description="Một mục có cấu trúc với tiêu đề và mô tả."
@@ -78,7 +78,7 @@ function ItemMicroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Variants"
           description="Các phong cách hình ảnh khác nhau (phác thảo, tắt tiếng)."
@@ -176,10 +176,10 @@ function ItemMicroShowcase({ globalSize }: { globalSize: Size }) {
               <ItemTitle>Actionable Item</ItemTitle>
             </ItemContent>
             <ItemActions>
-              <Button variant="ghost" size="sm" className="size-8 p-0">
+              <Button variant="ghost" size="sm" className="size-8 p-0" iconOnly>
                 <HeartIcon className="size-4" />
               </Button>
-              <Button variant="ghost" size="sm" className="size-8 p-0">
+              <Button variant="ghost" size="sm" className="size-8 p-0" iconOnly>
                 <MoreVerticalIcon className="size-4" />
               </Button>
             </ItemActions>

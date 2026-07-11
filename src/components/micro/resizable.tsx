@@ -52,7 +52,10 @@ function ResizableHandle({
       {...props}
     >
       {withHandle && (
-        <div data-slot="resizable-handle-bar" className="z-10 flex h-6 w-1 shrink-0 rounded-lg bg-border" />
+        <div
+          data-slot="resizable-handle-bar"
+          className="z-10 flex h-6 w-1 shrink-0 rounded-lg bg-border"
+        />
       )}
     </ResizablePrimitive.Separator>
   );

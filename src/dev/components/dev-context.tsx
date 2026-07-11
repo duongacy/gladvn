@@ -8,7 +8,11 @@ interface DevContextType {
 
 const DevContext = createContext<DevContextType | undefined>(undefined);
 
-export function DevContextProvider({ children }: { children: React.ReactNode }) {
+export function DevContextProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const [size, setSize] = useState<Size>("md");
 
   return (

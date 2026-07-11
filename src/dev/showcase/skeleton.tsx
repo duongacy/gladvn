@@ -39,7 +39,7 @@ function SkeletonMicroShowcase() {
         </div>
       </ExampleSection>
 
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Card Profile"
           description="Khung xương mô phỏng ảnh đại diện, tên người dùng và số liệu."
@@ -101,7 +101,7 @@ function SkeletonMicroShowcase() {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="List Items / Table Rows"
           description="Sử dụng vòng lặp hoặc nhiều thẻ lặp lại để mô phỏng danh sách."

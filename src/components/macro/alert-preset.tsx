@@ -79,6 +79,7 @@ const AlertPreset = React.forwardRef<HTMLDivElement, AlertPresetProps>(
             className="absolute right-1 top-1 p-0 size-6 group-data-[size=sm]/alert:size-5 group-data-[size=lg]/alert:size-7"
             onClick={handleDismiss}
             aria-label="Dismiss alert"
+            iconOnly
           >
             <XIcon className="size-3.5 group-data-[size=sm]/alert:size-3 group-data-[size=lg]/alert:size-4" />
           </Button>

@@ -84,7 +84,9 @@ function HoverCardMicroShowcase({ globalSize }: { globalSize: Size }) {
 </HoverCard>`}
       >
         <HoverCard>
-          <HoverCardTrigger render={<Button variant="link" size={globalSize} />}>
+          <HoverCardTrigger
+            render={<Button variant="link" size={globalSize} />}
+          >
             @nextjs
           </HoverCardTrigger>
           <HoverCardContent className="w-80">
@@ -107,7 +109,11 @@ function HoverCardMicroShowcase({ globalSize }: { globalSize: Size }) {
             <HoverCard key={side}>
               <HoverCardTrigger
                 render={
-                  <Button variant="outline" size={globalSize} className="capitalize">
+                  <Button
+                    variant="outline"
+                    size={globalSize}
+                    className="capitalize"
+                  >
                     {side}
                   </Button>
                 }
@@ -121,7 +127,7 @@ function HoverCardMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleSection>
 
       {/* ── Căn chỉnh (Align) ── */}
-      <ExampleGrid >
+      <ExampleGrid>
         {(["start", "center", "end"] as const).map((align) => (
           <ExampleSection
             key={align}
@@ -132,7 +138,11 @@ function HoverCardMicroShowcase({ globalSize }: { globalSize: Size }) {
             <HoverCard>
               <HoverCardTrigger
                 render={
-                  <Button variant="outline" size={globalSize} className="capitalize">
+                  <Button
+                    variant="outline"
+                    size={globalSize}
+                    className="capitalize"
+                  >
                     {align}
                   </Button>
                 }
@@ -146,7 +156,7 @@ function HoverCardMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleGrid>
 
       {/* ── Trigger types ── */}
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Trigger: Button Link"
           description="Trigger render như Button variant link — phù hợp cho text nội tuyến."
@@ -155,7 +165,9 @@ function HoverCardMicroShowcase({ globalSize }: { globalSize: Size }) {
 </HoverCardTrigger>`}
         >
           <HoverCard>
-            <HoverCardTrigger render={<Button variant="link" size={globalSize} />}>
+            <HoverCardTrigger
+              render={<Button variant="link" size={globalSize} />}
+            >
               @nextjs
             </HoverCardTrigger>
             <HoverCardContent className="w-80">
@@ -278,10 +290,9 @@ export default function HoverCardShowcase() {
             tin nhanh chóng mà không cần chuyển hướng hay click.
           </DocsP>
           <DocsP>
-            Trigger hỗ trợ polymorphism qua prop{" "}
-            <DocsCode>render</DocsCode> — bạn có thể truyền bất kỳ phần tử nào
-            (Button, anchor, span…) và HoverCard sẽ giữ nguyên style &amp; a11y
-            của phần tử đó.
+            Trigger hỗ trợ polymorphism qua prop <DocsCode>render</DocsCode> —
+            bạn có thể truyền bất kỳ phần tử nào (Button, anchor, span…) và
+            HoverCard sẽ giữ nguyên style &amp; a11y của phần tử đó.
           </DocsP>
         </ShowcaseDocs>
       }

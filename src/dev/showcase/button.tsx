@@ -130,7 +130,7 @@ function ButtonMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleSection>
 
       {/* ── With Icon ── */}
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="With Icon"
           description="Nút kèm biểu tượng ở đầu hoặc cuối."
@@ -219,7 +219,7 @@ function ButtonMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleSection>
 
       {/* ── Real-world examples ── */}
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Loading State"
           description="Nút kèm spinner trong quá trình xử lý bất đồng bộ."

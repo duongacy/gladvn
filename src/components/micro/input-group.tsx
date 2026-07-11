@@ -168,7 +168,8 @@ const inputGroupButtonVariants = cva(
           "bg-transparent text-muted-foreground hover:bg-muted hover:text-foreground",
         solid: "bg-primary text-primary-foreground hover:bg-primary/90",
         soft: "bg-muted text-foreground hover:bg-muted/80",
-        outline: "border border-input bg-transparent text-foreground hover:bg-muted/50",
+        outline:
+          "border border-input bg-transparent text-foreground hover:bg-muted/50",
       },
       icon: {
         true: [

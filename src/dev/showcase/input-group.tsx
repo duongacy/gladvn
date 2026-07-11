@@ -41,7 +41,7 @@ function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
       {/* ── Text / Icon Addons ─────────────────────────────── */}
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Text Prefix & Suffix"
           description="InputGroupAddon với văn bản — click addon để focus input."
@@ -96,7 +96,7 @@ function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleGrid>
 
       {/* ── Icon Buttons (utility) ─────────────────────────── */}
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Password Toggle"
           description="InputGroupButton icon đặt trực tiếp trong InputGroup — tự có border-l phân tách."
@@ -187,7 +187,7 @@ function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleGrid>
 
       {/* ── Text Buttons ───────────────────────────────────── */}
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Text Button (non-icon)"
           description="InputGroupButton không có prop icon — dùng horizontal padding và font-size từ group."
@@ -363,7 +363,7 @@ function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleSection>
 
       {/* ── States ─────────────────────────────────────────── */}
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Disabled"
           description="Trạng thái disabled delegate lên wrapper qua has-disabled: — toàn bộ group mờ đi."
@@ -382,11 +382,7 @@ function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
                 <GlobeIcon aria-hidden="true" />
               </InputGroupText>
             </InputGroupAddon>
-            <InputGroupInput
-              id="ig-disabled"
-              placeholder="Disabled"
-              disabled
-            />
+            <InputGroupInput id="ig-disabled" placeholder="Disabled" disabled />
           </InputGroup>
         </ExampleSection>
 
@@ -463,9 +459,9 @@ export default function InputGroupShowcase() {
             <DocsCode>size</DocsCode>. Tất cả children (
             <DocsCode>InputGroupInput</DocsCode>,{" "}
             <DocsCode>InputGroupButton</DocsCode>,{" "}
-            <DocsCode>InputGroupTextarea</DocsCode>) tự đọc size từ wrapper
-            qua CSS group modifiers — không có <DocsCode>size</DocsCode> prop
-            trên sub-component nào.
+            <DocsCode>InputGroupTextarea</DocsCode>) tự đọc size từ wrapper qua
+            CSS group modifiers — không có <DocsCode>size</DocsCode> prop trên
+            sub-component nào.
           </DocsP>
 
           <DocsH3>InputGroupAddon vs InputGroupButton</DocsH3>
@@ -497,8 +493,8 @@ export default function InputGroupShowcase() {
 
           <DocsH3>Accessibility</DocsH3>
           <DocsP>
-            Icon trang trí bên trong <DocsCode>InputGroupText</DocsCode> nên
-            có <DocsCode>aria-hidden="true"</DocsCode>. Icon trong{" "}
+            Icon trang trí bên trong <DocsCode>InputGroupText</DocsCode> nên có{" "}
+            <DocsCode>aria-hidden="true"</DocsCode>. Icon trong{" "}
             <DocsCode>InputGroupButton</DocsCode> icon-only cần{" "}
             <DocsCode>aria-label</DocsCode> trên button thay vì trên icon.
           </DocsP>

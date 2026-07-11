@@ -34,7 +34,7 @@ import {
 function EmptyMacroShowcase() {
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Tiêu chuẩn (Standard)"
           description="Đầy đủ icon, title, description, action button."
@@ -75,7 +75,7 @@ function EmptyMacroShowcase() {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Không có Nút (Without Action)"
           description="Chỉ hiển thị trạng thái, không yêu cầu hành động."
@@ -110,7 +110,7 @@ function EmptyMacroShowcase() {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Kết quả tìm kiếm trống"
           description="Pattern phổ biến khi tìm kiếm không ra kết quả."
@@ -186,7 +186,7 @@ function EmptyMacroShowcase() {
 function EmptyMicroShowcase() {
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Cơ bản (Default)"
           description="Trạng thái trống cơ bản với cấu trúc thủ công."
@@ -271,7 +271,7 @@ function EmptyMicroShowcase() {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Chỉ văn bản (Text Only)"
           description="Không icon, không action."

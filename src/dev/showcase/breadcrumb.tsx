@@ -30,7 +30,7 @@ import {
 function BreadcrumbMacroShowcase() {
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Tiêu chuẩn (Standard)"
           description="Mảng điều hướng cơ bản."
@@ -123,7 +123,7 @@ function BreadcrumbMicroShowcase() {
         </Breadcrumb>
       </ExampleSection>
 
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Đổi dấu phân cách (Custom Separator)"
           description="Truyền icon bất kỳ (VD: SlashIcon) vào bên trong BreadcrumbSeparator."

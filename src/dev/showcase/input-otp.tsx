@@ -32,7 +32,7 @@ import {
 function InputOTPMacroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Tiêu chuẩn (2 nhóm)"
           description="Chia mã 6 số thành 2 nhóm (mỗi nhóm 3 số) cách nhau bởi dấu gạch ngang."
@@ -74,7 +74,7 @@ function InputOTPMacroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Khóa / Bất hoạt (Disabled)"
           description="Người dùng không thể nhập mã khi ở trạng thái này."
@@ -132,7 +132,7 @@ function InputOTPMacroShowcase({ globalSize }: { globalSize: Size }) {
 function InputOTPMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Cơ bản (Primitive)"
           description="Mã 6 chữ số liền mạch không có dấu phân cách."
@@ -219,7 +219,7 @@ function InputOTPMicroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid >
+      <ExampleGrid>
         <ExampleSection
           label="Trạng thái Lỗi thủ công"
           description="Gắn data-invalid vào Field để thay đổi màu sắc."

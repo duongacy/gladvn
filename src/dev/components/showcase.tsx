@@ -110,6 +110,7 @@ export function ExampleSection({
   className,
   fullWidth = false,
   codeString: customCodeString,
+  hideCode = false,
 }: {
   label?: string;
   description?: string;
@@ -117,12 +118,15 @@ export function ExampleSection({
   className?: string;
   fullWidth?: boolean;
   codeString?: string;
+  hideCode?: boolean;
 }) {
   const [copied, setCopied] = useState(false);
   const [codeString, setCodeString] = useState<string | null>(
     customCodeString || null,
   );
   const [activeTab, setActiveTab] = useState("preview");
+
+  const shouldHideCode = hideCode || label?.includes("Use Case Comparison");
 
   // Update codeString when user clicks "Code" tab or when children change (e.g. global state changes)
   React.useEffect(() => {
@@ -174,14 +178,16 @@ export function ExampleSection({
             </p>
           )}
         </div>
-        <TabsList className="h-8 shrink-0">
-          <TabsTrigger value="preview" className="text-xs px-3 py-1">
-            Preview
-          </TabsTrigger>
-          <TabsTrigger value="code" className="text-xs px-3 py-1">
-            Code
-          </TabsTrigger>
-        </TabsList>
+        {!shouldHideCode && (
+          <TabsList className="h-8 shrink-0">
+            <TabsTrigger value="preview" className="text-xs px-3 py-1">
+              Preview
+            </TabsTrigger>
+            <TabsTrigger value="code" className="text-xs px-3 py-1">
+              Code
+            </TabsTrigger>
+          </TabsList>
+        )}
       </div>
 
       <div className="relative w-full">
@@ -205,23 +211,25 @@ export function ExampleSection({
           </div>
         </TabsContent>
 
-        <TabsContent value="code" className="mt-0 outline-none">
-          <div className="relative rounded-2xl border border-border/80 bg-muted/50 p-4 text-foreground shadow-sm overflow-clip group/code">
-            <CodeHighlighter code={codeString || "// Loading..."} />
-            <Button
-              size="sm"
-              variant="ghost"
-              className="absolute top-3 right-3 z-10 h-7 w-7 text-muted-foreground opacity-0 transition-opacity focus-visible:opacity-100 group-hover/code:opacity-100 hover:bg-muted hover:text-foreground"
-              onClick={copyToClipboard}
-            >
-              {copied ? (
-                <CheckIcon className="size-3.5 text-green-500" />
-              ) : (
-                <CopyIcon className="size-3.5" />
-              )}
-            </Button>
-          </div>
-        </TabsContent>
+        {!shouldHideCode && (
+          <TabsContent value="code" className="mt-0 outline-none">
+            <div className="relative rounded-2xl border border-border/80 bg-muted/50 p-4 text-foreground shadow-sm overflow-clip group/code">
+              <CodeHighlighter code={codeString || "// Loading..."} />
+              <Button
+                size="sm"
+                variant="ghost"
+                className="absolute top-3 right-3 z-10 h-7 w-7 text-muted-foreground opacity-0 transition-opacity focus-visible:opacity-100 group-hover/code:opacity-100 hover:bg-muted hover:text-foreground"
+                onClick={copyToClipboard}
+              >
+                {copied ? (
+                  <CheckIcon className="size-3.5 text-green-500" />
+                ) : (
+                  <CopyIcon className="size-3.5" />
+                )}
+              </Button>
+            </div>
+          </TabsContent>
+        )}
       </div>
     </Tabs>
   );

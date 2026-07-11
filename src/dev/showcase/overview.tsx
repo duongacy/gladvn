@@ -87,7 +87,7 @@ export default function OverviewSection() {
   }, []);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText("npm i @duongy96/gladcn");
+    navigator.clipboard.writeText("npx @duongy96/gladcn init");
     setCopied(true);
     toast.success("Đã copy lệnh vào clipboard");
     setTimeout(() => setCopied(false), 2000);
@@ -141,35 +141,6 @@ export default function OverviewSection() {
             cấu trúc rườm rà. Tập trung tối đa vào hiệu năng, trải nghiệm
             developer (DX) và khả năng tuỳ biến linh hoạt.
           </p>
-
-          <div
-            className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto animate-fade-up"
-            style={{ animationDelay: "300ms", animationFillMode: "both" }}
-          >
-            <Button
-              size="lg"
-              className="rounded-full px-8 h-12 shadow-xl shadow-primary/25 hover:shadow-primary/40 transition-all hover:-translate-y-0.5 group"
-            >
-              Khám phá Component
-              <ArrowRightIcon className="size-4 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              color="secondary"
-              className="rounded-full px-8 h-12 bg-background/50 backdrop-blur-md border-border hover:bg-muted/50 transition-all"
-              onClick={handleCopy}
-            >
-              {copied ? (
-                <CheckIcon className="size-4 mr-2 text-success" />
-              ) : (
-                <CopyIcon className="size-4 mr-2" />
-              )}
-              <span className="font-mono text-sm font-semibold">
-                npm i @duongy96/gladcn
-              </span>
-            </Button>
-          </div>
         </div>
 
         {/* 3D Floating Showcase Dashboard */}
@@ -335,6 +306,66 @@ export default function OverviewSection() {
           </p>
         </div>
 
+        {/* FULL OWNERSHIP - FEATURED BANNER */}
+        <div id="ownership-section" className="mb-12 rounded-[2.5rem] border-2 border-primary/50 bg-primary/5 p-8 md:p-12 flex flex-col md:flex-row items-center gap-8 group overflow-hidden relative hover:bg-primary/10 transition-colors duration-500 shadow-2xl shadow-primary/10">
+
+
+          <div className="relative z-10 flex-1 space-y-6">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary text-primary-foreground text-sm font-bold uppercase tracking-wider shadow-lg shadow-primary/20">
+              <SparklesIcon className="size-4" /> Điểm khác biệt lớn nhất
+            </div>
+            <h3 className="text-3xl md:text-5xl font-extrabold tracking-tight">
+              Sở hữu 100% mã nguồn
+            </h3>
+            <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl">
+              Chỉ với một lệnh duy nhất, toàn bộ source code của thư viện (components, hooks, styles, contexts) sẽ được clone trực tiếp vào dự án của bạn. <strong className="text-foreground">Không cài đặt qua node_modules, không bị khóa (vendor lock-in)</strong>, bạn có toàn quyền quyết định mọi dòng code.
+            </p>
+
+            <div className="flex items-center gap-4 pt-4">
+              <button
+                onClick={handleCopy}
+                className="bg-background/80 hover:bg-background backdrop-blur-md px-6 py-4 rounded-2xl border hover:border-primary/50 transition-colors font-mono text-sm shadow-inner flex items-center gap-4 cursor-pointer group/copy"
+              >
+                <span className="text-primary font-bold">~</span>
+                <span>npx @duongy96/gladcn init</span>
+                <div className="ml-4 text-muted-foreground group-hover/copy:text-primary transition-colors">
+                  {copied ? <CheckIcon className="size-4 text-success" /> : <CopyIcon className="size-4" />}
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <div className="relative z-10 w-full md:w-1/3 flex flex-col gap-4">
+            <div className="p-5 rounded-2xl border border-success/30 bg-success/10 shadow-sm flex items-start gap-4 transform group-hover:-translate-x-2 transition-transform">
+              <div className="bg-success text-success-foreground p-2 rounded-full mt-1">
+                <CheckIcon className="size-4" />
+              </div>
+              <div>
+                <h4 className="font-bold text-success text-lg">Copy 100% Component & Hook</h4>
+                <p className="text-xs text-success/80 mt-1">Nằm gọn trong thư mục src/ của bạn</p>
+              </div>
+            </div>
+            <div className="p-5 rounded-2xl border border-success/30 bg-success/10 shadow-sm flex items-start gap-4 transform group-hover:translate-x-2 transition-transform">
+              <div className="bg-success text-success-foreground p-2 rounded-full mt-1">
+                <CheckIcon className="size-4" />
+              </div>
+              <div>
+                <h4 className="font-bold text-success text-lg">Thiết lập sẵn Theme & CSS</h4>
+                <p className="text-xs text-success/80 mt-1">Giao diện đẹp ngay từ giây đầu tiên</p>
+              </div>
+            </div>
+            <div className="p-5 rounded-2xl border border-success/30 bg-success/10 shadow-sm flex items-start gap-4 transform group-hover:-translate-x-2 transition-transform">
+              <div className="bg-success text-success-foreground p-2 rounded-full mt-1">
+                <CheckIcon className="size-4" />
+              </div>
+              <div>
+                <h4 className="font-bold text-success text-lg">Tự động cài Dependency</h4>
+                <p className="text-xs text-success/80 mt-1">Tự nhận diện npm, yarn, pnpm, bun</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="columns-1 md:columns-2 gap-6">
           {/* Micro/Macro (Spans 2 columns) */}
           <div className="break-inside-avoid mb-6 rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col justify-between group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
@@ -400,6 +431,8 @@ export default function OverviewSection() {
               </CodeBlock>
             </div>
           </div>
+
+
 
           {/* No Magic CSS */}
           <div className="break-inside-avoid mb-6 rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">

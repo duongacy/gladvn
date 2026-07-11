@@ -5,13 +5,13 @@
  * - Form Control Parity
  * - CSS Delegated Logic
  */
+import * as React from "react";
 import { mergeProps } from "@base-ui/react/merge-props";
 import { useRender } from "@base-ui/react/use-render";
 import { cva } from "class-variance-authority";
-import * as React from "react";
 
 import { Separator } from "@/components/micro/separator";
-import { Size } from "@/lib/types";
+import { type Size } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 /**
@@ -58,6 +58,9 @@ const itemVariants = cva(
         md: "gap-2.5 px-3 py-2.5",
         lg: "gap-2.5 px-3 py-2.5",
       },
+    },
+    defaultVariants: {
+      size: "md",
     },
   },
 );

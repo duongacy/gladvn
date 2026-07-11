@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { CheckIcon, HeartIcon, MoreVerticalIcon, UserIcon } from "lucide-react";
+
 import { Button } from "@/components/micro/button";
 import {
   Item,
@@ -11,6 +14,7 @@ import {
   ItemSeparator,
   ItemTitle,
 } from "@/components/micro/item";
+import { type Size } from "@/lib/types";
 import {
   DocsH3,
   DocsP,
@@ -20,9 +24,6 @@ import {
   ShowcaseDocs,
   SizeToggle,
 } from "@/dev/components/showcase";
-import { type Size } from "@/lib/types";
-import { CheckIcon, HeartIcon, MoreVerticalIcon, UserIcon } from "lucide-react";
-import { useState } from "react";
 
 function ItemMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (

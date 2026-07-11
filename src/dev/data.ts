@@ -216,7 +216,7 @@ export const COMPONENTS = [
     hasMacro: true,
     status: "stable",
   },
-  { id: "item", label: "Item", hasMicro: true, hasMacro: false },
+  { id: "item", label: "Item", hasMicro: true, hasMacro: false, status: "stable" },
   {
     id: "kbd",
     label: "Kbd",

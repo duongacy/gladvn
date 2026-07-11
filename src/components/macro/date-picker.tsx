@@ -1,10 +1,10 @@
 "use client";
 
+import { cva } from "class-variance-authority";
 import { CalendarIcon } from "lucide-react";
 import * as React from "react";
 import { type DateRange, type Locale, type Matcher } from "react-day-picker";
 
-import { Button } from "@/components/micro/button";
 import { Calendar } from "@/components/micro/calendar";
 import {
   Popover,
@@ -22,7 +22,7 @@ import { FieldPreset } from "./field-preset";
 type DatePickerBaseProps = {
   /** Visual mode. "single" selects one date, "range" selects a start–end span. */
   mode?: "single" | "range";
-  /** Size passed to the trigger Button and Calendar. */
+  /** Size passed to the trigger button and Calendar. */
   size?: Size;
   /** Placeholder shown in the trigger when no date is selected. */
   placeholder?: string;
@@ -80,6 +80,26 @@ type DatePickerRangeProps = DatePickerBaseProps & {
 type DatePickerProps = DatePickerSingleProps | DatePickerRangeProps;
 
 // ─────────────────────────────────────────────────────────────────────────────
+// Trigger styles — native <button>, no micro/button dependency
+// ─────────────────────────────────────────────────────────────────────────────
+
+const triggerVariants = cva(
+  "inline-flex w-full items-center justify-start rounded-lg border border-input bg-transparent font-normal whitespace-nowrap transition-colors outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-offset-1 focus-visible:ring-offset-background disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:ring-3 aria-invalid:focus-visible:ring-destructive/50 dark:bg-input/30",
+  {
+    variants: {
+      size: {
+        sm: "h-7 gap-1 px-2 py-0.5 text-xs [&>svg:not([class*='size-'])]:size-3.5",
+        md: "h-8 gap-1.5 px-2.5 py-1 text-sm [&>svg:not([class*='size-'])]:size-4",
+        lg: "h-9 gap-2 px-3 py-1.5 text-sm [&>svg:not([class*='size-'])]:size-4",
+      },
+    },
+    defaultVariants: {
+      size: "md",
+    },
+  },
+);
+
+// ─────────────────────────────────────────────────────────────────────────────
 // Helpers
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -117,7 +137,7 @@ const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
       onValueChange,
       rangeValue,
       onRangeChange,
-      size,
+      size = "md",
       placeholder,
       disabled,
       label,
@@ -170,24 +190,23 @@ const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
         <Popover open={open} onOpenChange={setOpen}>
           <PopoverTrigger
             render={
-              <Button
+              <button
                 ref={ref}
+                type="button"
                 id={triggerId}
-                variant="outline"
-                color="secondary"
-                size={size}
+                data-slot="date-picker-trigger"
                 disabled={disabled}
                 aria-invalid={isInvalid || undefined}
                 aria-haspopup="dialog"
                 aria-expanded={open}
                 className={cn(
-                  "w-full justify-start font-normal",
+                  triggerVariants({ size }),
                   !hasValue && "text-muted-foreground",
                 )}
               >
                 <CalendarIcon />
                 {triggerLabel}
-              </Button>
+              </button>
             }
           />
           <PopoverContent
@@ -227,7 +246,6 @@ const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
                 selected={rangeValue}
                 onSelect={(range) => {
                   onRangeChange?.(range);
-                  // Keep open until both from and to are selected
                   if (range?.from && range?.to) setOpen(false);
                 }}
               />

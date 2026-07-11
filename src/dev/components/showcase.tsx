@@ -216,8 +216,9 @@ export function ExampleSection({
             <div className="relative rounded-2xl border border-border/80 bg-muted/50 p-4 text-foreground shadow-sm overflow-clip group/code">
               <CodeHighlighter code={codeString || "// Loading..."} />
               <Button
-                size="icon"
-                variant="outline"
+                size="sm"
+                data-icon="true"
+                variant="soft"
                 className="absolute top-4 right-4 z-10 h-8 w-8 bg-background/80 backdrop-blur-sm text-muted-foreground hover:text-foreground shadow-sm"
                 onClick={copyToClipboard}
               >

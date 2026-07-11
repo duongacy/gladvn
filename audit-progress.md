@@ -85,7 +85,7 @@ Danh sách các nhóm component cần ưu tiên hoàn thiện sớm nhất để
 
 ## 🔴 Chưa Audit (Từ C trở đi)
 
-- [ ] `chart.tsx`
+- [x] `chart.tsx`
 - [x] `command.tsx`
 - [x] `context-menu.tsx`
 - [x] `direction.tsx`

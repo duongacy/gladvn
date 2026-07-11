@@ -50,29 +50,36 @@ function useChart() {
  * @description Recharts wrapper for theming and tooltips.
  * @requires ChartTooltip, ChartTooltipContent
  */
-function ChartContainer({
-  id,
-  className,
-  children,
-  config,
-  initialDimension = INITIAL_DIMENSION,
-  ...props
-}: React.ComponentProps<"div"> & {
-  config: ChartConfig;
-  children: React.ComponentProps<
-    typeof RechartsPrimitive.ResponsiveContainer
-  >["children"];
-  initialDimension?: {
-    width: number;
-    height: number;
-  };
-}) {
+const ChartContainer = React.forwardRef<
+  HTMLDivElement,
+  React.ComponentProps<"div"> & {
+    config: ChartConfig;
+    children: React.ComponentProps<
+      typeof RechartsPrimitive.ResponsiveContainer
+    >["children"];
+    initialDimension?: {
+      width: number;
+      height: number;
+    };
+  }
+>(function ChartContainer(
+  {
+    id,
+    className,
+    children,
+    config,
+    initialDimension = INITIAL_DIMENSION,
+    ...props
+  },
+  ref,
+) {
   const uniqueId = React.useId();
   const chartId = `chart-${id ?? uniqueId.replace(/:/g, "")}`;
 
   return (
     <ChartContext.Provider value={{ config }}>
       <div
+        ref={ref}
         data-slot="chart"
         data-chart={chartId}
         className={cn(
@@ -90,7 +97,8 @@ function ChartContainer({
       </div>
     </ChartContext.Provider>
   );
-}
+});
+ChartContainer.displayName = "ChartContainer";
 
 const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
   const colorConfig = Object.entries(config).filter(

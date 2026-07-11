@@ -123,7 +123,7 @@ export const COMPONENTS = [
     hasMacro: true,
     status: "stable",
   },
-  { id: "chart", label: "Chart", hasMicro: true, hasMacro: false },
+  { id: "chart", label: "Chart", hasMicro: true, hasMacro: false, status: "stable" },
   {
     id: "checkbox",
     label: "Checkbox",

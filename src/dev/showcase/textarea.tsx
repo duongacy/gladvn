@@ -1,3 +1,4 @@
+import { useDevContext } from "@/dev/components/dev-context";
 import { TextareaPreset } from "@/components/macro/textarea-preset";
 import {
   Field,
@@ -20,7 +21,6 @@ import {
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-  SizeToggle,
 } from "@/dev/components/showcase";
 import { type Size } from "@/lib/types";
 import { useState } from "react";
@@ -458,8 +458,7 @@ function TextareaMicroShowcase({ globalSize }: { globalSize: Size }) {
 // SECTION 3: Entry point
 // ──────────────────────────────────────────────────────────
 export default function TextareaShowcase() {
-  const [globalSize, setGlobalSize] = useState<Size>("md");
-
+  const { size: globalSize } = useDevContext();
   return (
     <Showcase
       title="Textarea"
@@ -485,7 +484,7 @@ export default function TextareaShowcase() {
           </ShowcaseDocs>
         </div>
       }
-      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
+      
       tabs={[
         {
           label: "Micro (Primitive)",

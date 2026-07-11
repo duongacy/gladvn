@@ -1,10 +1,10 @@
+import { useDevContext } from "@/dev/components/dev-context";
 import {
   DocsP,
   ExampleGrid,
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-  SizeToggle,
 } from "@/dev/components/showcase";
 import { DownloadIcon, MailIcon, PlusIcon } from "lucide-react";
 import { useState } from "react";
@@ -284,8 +284,7 @@ function ButtonMicroShowcase({ globalSize }: { globalSize: Size }) {
 // SECTION 3: Entry point
 // ──────────────────────────────────────────────────────────
 export default function ButtonShowcase() {
-  const [globalSize, setGlobalSize] = useState<Size>("md");
-
+  const { size: globalSize } = useDevContext();
   return (
     <Showcase
       title="Button"
@@ -299,7 +298,6 @@ export default function ButtonShowcase() {
           </DocsP>
         </ShowcaseDocs>
       }
-      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
       tabs={[
         {
           label: "Micro (Primitive)",

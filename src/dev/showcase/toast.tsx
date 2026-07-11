@@ -1,10 +1,10 @@
+import { useDevContext } from "@/dev/components/dev-context";
 import {
   DocsH3,
   DocsP,
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-  SizeToggle,
 } from "@/dev/components/showcase";
 import { useState } from "react";
 import { toast } from "sonner";
@@ -97,8 +97,7 @@ function ToastMicroShowcase({ globalSize }: { globalSize: Size }) {
 }
 
 export default function ToastShowcase() {
-  const [globalSize, setGlobalSize] = useState<Size>("md");
-
+  const { size: globalSize } = useDevContext();
   return (
     <Showcase
       title="Toast"
@@ -109,7 +108,6 @@ export default function ToastShowcase() {
           <DocsP>Sử dụng để hiển thị các thông báo nhanh cho người dùng.</DocsP>
         </ShowcaseDocs>
       }
-      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
       tabs={[
         {
           label: "Micro (Primitive)",

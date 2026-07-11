@@ -59,6 +59,7 @@ export const COMPONENTS = [
     hasMicro: true,
     hasMacro: true,
     status: "stable",
+    hasSize: true,
   },
   {
     id: "alert-dialog",
@@ -66,6 +67,7 @@ export const COMPONENTS = [
     hasMicro: true,
     hasMacro: true,
     status: "stable",
+    hasSize: true,
   },
   {
     id: "aspect-ratio",
@@ -80,6 +82,7 @@ export const COMPONENTS = [
     hasMicro: true,
     hasMacro: true,
     status: "stable",
+    hasSize: true,
   },
   {
     id: "badge",
@@ -87,6 +90,7 @@ export const COMPONENTS = [
     hasMicro: true,
     hasMacro: false,
     status: "stable",
+    hasSize: true,
   },
   {
     id: "breadcrumb",
@@ -101,6 +105,7 @@ export const COMPONENTS = [
     hasMicro: true,
     hasMacro: false,
     status: "stable",
+    hasSize: true,
   },
   {
     id: "calendar",
@@ -108,6 +113,7 @@ export const COMPONENTS = [
     hasMicro: true,
     hasMacro: false,
     status: "stable",
+    hasSize: true,
   },
   {
     id: "card",
@@ -115,6 +121,7 @@ export const COMPONENTS = [
     hasMicro: true,
     hasMacro: true,
     status: "stable",
+    hasSize: true,
   },
   {
     id: "carousel",
@@ -130,6 +137,7 @@ export const COMPONENTS = [
     hasMicro: true,
     hasMacro: true,
     status: "stable",
+    hasSize: true,
   },
   {
     id: "collapsible",
@@ -144,6 +152,7 @@ export const COMPONENTS = [
     hasMicro: true,
     hasMacro: true,
     status: "stable",
+    hasSize: true,
   },
   {
     id: "command",
@@ -165,6 +174,7 @@ export const COMPONENTS = [
     hasMicro: true,
     hasMacro: true,
     status: "stable",
+    hasSize: true,
   },
   {
     id: "drawer",
@@ -179,6 +189,7 @@ export const COMPONENTS = [
     hasMicro: true,
     hasMacro: false,
     status: "stable",
+    hasSize: true,
   },
   {
     id: "empty",
@@ -194,6 +205,7 @@ export const COMPONENTS = [
     hasMicro: true,
     hasMacro: false,
     status: "stable",
+    hasSize: true,
   },
   {
     id: "input",
@@ -201,6 +213,7 @@ export const COMPONENTS = [
     hasMicro: true,
     hasMacro: true,
     status: "stable",
+    hasSize: true,
   },
   {
     id: "input-group",
@@ -208,6 +221,7 @@ export const COMPONENTS = [
     hasMicro: true,
     hasMacro: false,
     status: "stable",
+    hasSize: true,
   },
   {
     id: "input-otp",
@@ -215,8 +229,11 @@ export const COMPONENTS = [
     hasMicro: true,
     hasMacro: true,
     status: "stable",
+    hasSize: true,
   },
-  { id: "item", label: "Item", hasMicro: true, hasMacro: false, status: "stable" },
+  { id: "item", label: "Item", hasMicro: true, hasMacro: false, status: "stable",
+    hasSize: true,
+  },
   {
     id: "kbd",
     label: "Kbd",
@@ -230,6 +247,7 @@ export const COMPONENTS = [
     hasMicro: true,
     hasMacro: false,
     status: "stable",
+    hasSize: true,
   },
   { id: "menubar", label: "Menubar", hasMicro: true, hasMacro: false, status: "stable" },
   {
@@ -239,13 +257,16 @@ export const COMPONENTS = [
     hasMacro: false,
     status: "stable",
   },
-  { id: "pagination", label: "Pagination", hasMicro: true, hasMacro: true, status: "stable" },
+  { id: "pagination", label: "Pagination", hasMicro: true, hasMacro: true, status: "stable",
+    hasSize: true,
+  },
   {
     id: "popover",
     label: "Popover",
     hasMicro: true,
     hasMacro: false,
     status: "stable",
+    hasSize: true,
   },
   {
     id: "progress",
@@ -253,6 +274,7 @@ export const COMPONENTS = [
     hasMicro: true,
     hasMacro: true,
     status: "stable",
+    hasSize: true,
   },
   {
     id: "radio-group",
@@ -260,6 +282,7 @@ export const COMPONENTS = [
     hasMicro: true,
     hasMacro: true,
     status: "stable",
+    hasSize: true,
   },
   { id: "resizable", label: "Resizable", hasMicro: true, hasMacro: false, status: "stable" },
   { id: "scroll-area", label: "Scroll Area", hasMicro: true, hasMacro: false, status: "stable" },
@@ -269,6 +292,7 @@ export const COMPONENTS = [
     hasMicro: true,
     hasMacro: true,
     status: "stable",
+    hasSize: true,
   },
   { id: "separator", label: "Separator", hasMicro: true, hasMacro: false, status: "stable" },
   {
@@ -277,6 +301,7 @@ export const COMPONENTS = [
     hasMicro: true,
     hasMacro: false,
     status: "stable",
+    hasSize: true,
   },
   { id: "sidebar", label: "Sidebar", hasMicro: true, hasMacro: false },
   {
@@ -292,15 +317,19 @@ export const COMPONENTS = [
     hasMicro: true,
     hasMacro: true,
     status: "stable",
+    hasSize: true,
   },
   { id: "sonner", label: "Sonner", hasMicro: true, hasMacro: false, status: "stable" },
-  { id: "spinner", label: "Spinner", hasMicro: true, hasMacro: false, status: "stable" },
+  { id: "spinner", label: "Spinner", hasMicro: true, hasMacro: false, status: "stable",
+    hasSize: true,
+  },
   {
     id: "switch",
     label: "Switch",
     hasMicro: true,
     hasMacro: true,
     status: "stable",
+    hasSize: true,
   },
   {
     id: "table",
@@ -322,14 +351,18 @@ export const COMPONENTS = [
     hasMicro: true,
     hasMacro: true,
     status: "stable",
+    hasSize: true,
   },
-  { id: "toggle", label: "Toggle", hasMicro: true, hasMacro: false, status: "stable" },
+  { id: "toggle", label: "Toggle", hasMicro: true, hasMacro: false, status: "stable",
+    hasSize: true,
+  },
   {
     id: "toggle-group",
     label: "Toggle Group",
     hasMicro: true,
     hasMacro: false,
     status: "stable",
+    hasSize: true,
   },
   {
     id: "theme-provider",
@@ -344,5 +377,6 @@ export const COMPONENTS = [
     hasMicro: true,
     hasMacro: false,
     status: "stable",
+    hasSize: true,
   },
 ];

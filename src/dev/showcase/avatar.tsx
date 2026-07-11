@@ -1,10 +1,10 @@
+import { useDevContext } from "@/dev/components/dev-context";
 import {
   DocsP,
   ExampleGrid,
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-  SizeToggle,
 } from "@/dev/components/showcase";
 import {
   CheckCircle2Icon,
@@ -442,8 +442,7 @@ function AvatarMicroShowcase({ globalSize }: { globalSize: Size }) {
 // SECTION 3: Entry point
 // ──────────────────────────────────────────────────────────
 export default function AvatarShowcase() {
-  const [globalSize, setGlobalSize] = useState<Size>("md");
-
+  const { size: globalSize } = useDevContext();
   return (
     <Showcase
       title="Avatar"
@@ -457,7 +456,6 @@ export default function AvatarShowcase() {
           </DocsP>
         </ShowcaseDocs>
       }
-      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
       tabs={[
         {
           label: "Micro (Primitive)",

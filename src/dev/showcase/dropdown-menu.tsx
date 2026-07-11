@@ -1,10 +1,10 @@
+import { useDevContext } from "@/dev/components/dev-context";
 import {
   DocsP,
   ExampleGrid,
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-  SizeToggle,
 } from "@/dev/components/showcase";
 import {
   CreditCardIcon,
@@ -358,8 +358,7 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
 // SECTION 3: Entry point (export default)
 // ──────────────────────────────────────────────────────────
 export default function DropdownMenuShowcase() {
-  const [globalSize, setGlobalSize] = useState<Size>("md");
-
+  const { size: globalSize } = useDevContext();
   return (
     <Showcase
       title="Dropdown Menu"
@@ -372,7 +371,6 @@ export default function DropdownMenuShowcase() {
           </DocsP>
         </ShowcaseDocs>
       }
-      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
       tabs={[
         {
           label: "Micro (Primitive)",

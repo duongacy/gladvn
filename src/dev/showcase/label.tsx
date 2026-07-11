@@ -1,10 +1,10 @@
+import { useDevContext } from "@/dev/components/dev-context";
 import {
   DocsCode,
   DocsP,
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-  SizeToggle,
 } from "@/dev/components/showcase";
 import { useState } from "react";
 
@@ -95,8 +95,7 @@ function LabelMicroShowcase({ globalSize }: { globalSize: Size }) {
 // SECTION 3: Entry point (export default)
 // ──────────────────────────────────────────────────────────
 export default function LabelShowcase() {
-  const [globalSize, setGlobalSize] = useState<Size>("md");
-
+  const { size: globalSize } = useDevContext();
   return (
     <Showcase
       title="Label"
@@ -111,7 +110,6 @@ export default function LabelShowcase() {
           </DocsP>
         </ShowcaseDocs>
       }
-      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
       tabs={[
         {
           label: "Micro (Primitive)",

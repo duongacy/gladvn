@@ -1,3 +1,4 @@
+import { useDevContext } from "@/dev/components/dev-context";
 import { useState } from "react";
 import {
   AlignCenterIcon,
@@ -18,7 +19,6 @@ import {
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-  SizeToggle,
 } from "@/dev/components/showcase";
 
 // ──────────────────────────────────────────────────────────
@@ -187,8 +187,7 @@ function ToggleGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
 // SECTION 2: Entry point
 // ──────────────────────────────────────────────────────────
 export default function ToggleGroupShowcase() {
-  const [globalSize, setGlobalSize] = useState<Size>("md");
-
+  const { size: globalSize } = useDevContext();
   return (
     <Showcase
       title="Toggle Group"
@@ -206,7 +205,6 @@ export default function ToggleGroupShowcase() {
           </DocsP>
         </ShowcaseDocs>
       }
-      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
       tabs={[
         {
           label: "Micro (Primitive)",

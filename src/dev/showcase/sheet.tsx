@@ -1,3 +1,4 @@
+import { useDevContext } from "@/dev/components/dev-context";
 import {
   DocsCode,
   DocsP,
@@ -5,7 +6,6 @@ import {
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-  SizeToggle,
 } from "@/dev/components/showcase";
 import { FilterIcon, PanelRightIcon, SettingsIcon } from "lucide-react";
 import { useState } from "react";
@@ -426,8 +426,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
 // SECTION 3: Entry point (export default)
 // ──────────────────────────────────────────────────────────
 export default function SheetShowcase() {
-  const [globalSize, setGlobalSize] = useState<Size>("md");
-
+  const { size: globalSize } = useDevContext();
   return (
     <Showcase
       title="Sheet"
@@ -449,7 +448,6 @@ export default function SheetShowcase() {
           </DocsP>
         </ShowcaseDocs>
       }
-      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
       tabs={[
         {
           label: "Micro (Primitive)",

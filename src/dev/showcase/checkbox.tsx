@@ -1,3 +1,4 @@
+import { useDevContext } from "@/dev/components/dev-context";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CheckIcon, MinusIcon } from "lucide-react";
 import { useState } from "react";
@@ -10,7 +11,6 @@ import {
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-  SizeToggle,
 } from "@/dev/components/showcase";
 import { type Size } from "@/lib/types";
 
@@ -582,8 +582,7 @@ function CheckboxMicroShowcase({ globalSize }: { globalSize: Size }) {
 // SECTION 3: Entry point
 // ──────────────────────────────────────────────────────────
 export default function CheckboxShowcase() {
-  const [globalSize, setGlobalSize] = useState<Size>("md");
-
+  const { size: globalSize } = useDevContext();
   return (
     <Showcase
       title="Checkbox"
@@ -597,7 +596,6 @@ export default function CheckboxShowcase() {
           </DocsP>
         </ShowcaseDocs>
       }
-      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
       tabs={[
         {
           label: "Micro (Primitive)",

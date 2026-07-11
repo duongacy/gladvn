@@ -1,3 +1,4 @@
+import { useDevContext } from "@/dev/components/dev-context";
 import {
   DocsCode,
   DocsH3,
@@ -8,7 +9,6 @@ import {
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-  SizeToggle,
 } from "@/dev/components/showcase";
 import { LinkIcon, SearchIcon } from "lucide-react";
 import { useState } from "react";
@@ -466,8 +466,7 @@ function InputMicroShowcase({ globalSize }: { globalSize: Size }) {
 
 // ──────────────────────────────────────────────────────────
 export default function InputShowcase() {
-  const [globalSize, setGlobalSize] = useState<Size>("md");
-
+  const { size: globalSize } = useDevContext();
   return (
     <Showcase
       title="Input"
@@ -515,7 +514,7 @@ export default function InputShowcase() {
           </DocsP>
         </ShowcaseDocs>
       }
-      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
+      
       tabs={[
         {
           label: "Micro (Primitive)",

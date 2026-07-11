@@ -1,10 +1,10 @@
+import { useDevContext } from "@/dev/components/dev-context";
 import {
   DocsP,
   ExampleGrid,
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-  SizeToggle,
 } from "@/dev/components/showcase";
 import {
   InfoIcon,
@@ -991,8 +991,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
 // SECTION 3: Entry point (export default)
 // ──────────────────────────────────────────────────────────
 export default function AlertDialogShowcase() {
-  const [globalSize, setGlobalSize] = useState<Size>("md");
-
+  const { size: globalSize } = useDevContext();
   return (
     <Showcase
       title="Alert Dialog"
@@ -1007,7 +1006,6 @@ export default function AlertDialogShowcase() {
           </DocsP>
         </ShowcaseDocs>
       }
-      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
       tabs={[
         {
           label: "Micro (Primitive)",

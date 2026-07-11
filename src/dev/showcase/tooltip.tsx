@@ -1,3 +1,4 @@
+import { useDevContext } from "@/dev/components/dev-context";
 import {
   DocsCode,
   DocsH3,
@@ -6,7 +7,6 @@ import {
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-  SizeToggle,
 } from "@/dev/components/showcase";
 import { InfoIcon, ShieldAlertIcon } from "lucide-react";
 import { useState } from "react";
@@ -296,8 +296,7 @@ function TooltipMicroShowcase({ globalSize }: { globalSize: Size }) {
 // SECTION 3: Entry point
 // ──────────────────────────────────────────────────────────
 export default function TooltipShowcase() {
-  const [globalSize, setGlobalSize] = useState<Size>("md");
-
+  const { size: globalSize } = useDevContext();
   return (
     <Showcase
       title="Tooltip"
@@ -313,7 +312,6 @@ export default function TooltipShowcase() {
           </DocsP>
         </ShowcaseDocs>
       }
-      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
       tabs={[
         {
           label: "Micro (Primitive)",

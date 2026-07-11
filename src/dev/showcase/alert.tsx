@@ -1,3 +1,4 @@
+import { useDevContext } from "@/dev/components/dev-context";
 import {
   DocsCode,
   DocsLi,
@@ -7,7 +8,6 @@ import {
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-  SizeToggle,
 } from "@/dev/components/showcase";
 import {
   CheckCircle2Icon,
@@ -707,13 +707,11 @@ function AlertMicroShowcase({ globalSize }: { globalSize: Size }) {
 // SECTION 3: Entry point (export default)
 // ──────────────────────────────────────────────────────────
 export default function AlertShowcase() {
-  const [globalSize, setGlobalSize] = useState<Size>("md");
-
+  const { size: globalSize } = useDevContext();
   return (
     <Showcase
       title="Alert"
       description="Hiển thị một thông báo nổi bật để thu hút sự chú ý của người dùng."
-      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
       generalConcept={
         <ShowcaseDocs>
           <DocsP>

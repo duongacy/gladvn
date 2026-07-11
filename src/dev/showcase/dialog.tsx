@@ -1,3 +1,4 @@
+import { useDevContext } from "@/dev/components/dev-context";
 import {
   DocsCode,
   DocsH3,
@@ -6,7 +7,6 @@ import {
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-  SizeToggle,
 } from "@/dev/components/showcase";
 import { CheckCircle2Icon, LayersIcon, XIcon } from "lucide-react";
 import { useState } from "react";
@@ -1077,13 +1077,11 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
 // Main Showcase
 // ──────────────────────────────────────────────────────────
 export default function DialogShowcase() {
-  const [globalSize, setGlobalSize] = useState<Size>("md");
-
+  const { size: globalSize } = useDevContext();
   return (
     <Showcase
       title="Dialog"
       description="Một cửa sổ phương thức làm gián đoạn người dùng với nội dung quan trọng và mong đợi phản hồi."
-      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
       tabs={[
         {
           label: "Micro (Primitive)",

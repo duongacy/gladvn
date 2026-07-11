@@ -1,3 +1,4 @@
+import { useDevContext } from "@/dev/components/dev-context";
 import { useState } from "react";
 
 import { Spinner } from "@/components/micro/spinner";
@@ -10,7 +11,6 @@ import {
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-  SizeToggle,
 } from "@/dev/components/showcase";
 
 // ──────────────────────────────────────────────────────────
@@ -94,8 +94,7 @@ function SpinnerMicroShowcase({ globalSize }: { globalSize: Size }) {
 // SECTION 2: Entry point
 // ──────────────────────────────────────────────────────────
 export default function SpinnerShowcase() {
-  const [globalSize, setGlobalSize] = useState<Size>("md");
-
+  const { size: globalSize } = useDevContext();
   return (
     <Showcase
       title="Spinner"
@@ -114,7 +113,6 @@ export default function SpinnerShowcase() {
           </DocsP>
         </ShowcaseDocs>
       }
-      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
       tabs={[
         {
           label: "Micro (Primitive)",

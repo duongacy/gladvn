@@ -1,3 +1,4 @@
+import { useDevContext } from "@/dev/components/dev-context";
 import { Badge } from "@/components/micro/badge";
 import {
   DocsCode,
@@ -6,20 +7,17 @@ import {
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-  SizeToggle,
 } from "@/dev/components/showcase";
 import { type Size } from "@/lib/types";
 import { AlertTriangleIcon, CheckIcon, InfoIcon, XIcon } from "lucide-react";
 import { useState } from "react";
 
 export default function BadgeShowcase() {
-  const [globalSize, setGlobalSize] = useState<Size>("md");
-
+  const { size: globalSize } = useDevContext();
   return (
     <Showcase
       title="Badge"
       description="Hiển thị huy hiệu hoặc nhãn phân loại nội dung."
-      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
       generalConcept={
         <ShowcaseDocs>
           <DocsP>

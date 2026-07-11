@@ -1,3 +1,4 @@
+import { useDevContext } from "@/dev/components/dev-context";
 import { useState } from "react";
 import { CheckIcon, HeartIcon, MoreVerticalIcon, UserIcon } from "lucide-react";
 
@@ -22,7 +23,6 @@ import {
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-  SizeToggle,
 } from "@/dev/components/showcase";
 
 function ItemMicroShowcase({ globalSize }: { globalSize: Size }) {
@@ -270,8 +270,7 @@ function ItemMicroShowcase({ globalSize }: { globalSize: Size }) {
 }
 
 export default function ItemShowcase() {
-  const [globalSize, setGlobalSize] = useState<Size>("md");
-
+  const { size: globalSize } = useDevContext();
   return (
     <Showcase
       title="Item"
@@ -285,7 +284,6 @@ export default function ItemShowcase() {
           </DocsP>
         </ShowcaseDocs>
       }
-      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
       tabs={[
         {
           label: "Micro (Primitive)",

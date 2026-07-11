@@ -1,3 +1,4 @@
+import { useDevContext } from "@/dev/components/dev-context";
 import { useState } from "react";
 import { BoldIcon, ItalicIcon, UnderlineIcon } from "lucide-react";
 
@@ -11,7 +12,6 @@ import {
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-  SizeToggle,
 } from "@/dev/components/showcase";
 
 // ──────────────────────────────────────────────────────────
@@ -125,8 +125,7 @@ function ToggleMicroShowcase({ globalSize }: { globalSize: Size }) {
 // SECTION 2: Entry point
 // ──────────────────────────────────────────────────────────
 export default function ToggleShowcase() {
-  const [globalSize, setGlobalSize] = useState<Size>("md");
-
+  const { size: globalSize } = useDevContext();
   return (
     <Showcase
       title="Toggle"
@@ -144,7 +143,6 @@ export default function ToggleShowcase() {
           </DocsP>
         </ShowcaseDocs>
       }
-      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
       tabs={[
         {
           label: "Micro (Primitive)",

@@ -2,6 +2,8 @@ import { Badge } from "@/components/micro/badge";
 import { Separator } from "@/components/micro/separator";
 import { Switch, SwitchThumb } from "@/components/micro/switch";
 import { useTheme } from "@/components/micro/theme-provider";
+import { useDevContext } from "@/dev/components/dev-context";
+import { SizeToggle } from "@/dev/components/showcase";
 import { COMPONENTS } from "@/dev/data";
 import OverviewSection from "@/dev/showcase/overview";
 import { LayersIcon, MenuIcon, XIcon } from "lucide-react";
@@ -33,6 +35,7 @@ function ComponentViewer({ id }: { id: string }) {
 
 export default function App() {
   const theme = useTheme();
+  const { size, setSize } = useDevContext();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [active, setActiveState] = useState(() => {
     if (typeof window !== "undefined") {
@@ -214,6 +217,18 @@ export default function App() {
           </div>
         </main>
       </div>
+
+      {/* Floating Size Toggle */}
+      {COMPONENTS.find((c) => c.id === active)?.hasSize && (
+        <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-1.5 items-end animate-in fade-in slide-in-from-bottom-4 duration-300">
+          <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground mr-1">
+            Global Size
+          </span>
+          <div className="rounded-xl border border-border/50 bg-background/80 p-1 shadow-2xl backdrop-blur-xl">
+            <SizeToggle value={size} onValueChange={setSize} />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

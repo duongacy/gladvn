@@ -1,3 +1,4 @@
+import { useDevContext } from "@/dev/components/dev-context";
 import { useState } from "react";
 
 import {
@@ -10,7 +11,6 @@ import {
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-  SizeToggle,
 } from "@/dev/components/showcase";
 import {
   DollarSignIcon,
@@ -450,8 +450,7 @@ function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
 }
 
 export default function InputGroupShowcase() {
-  const [globalSize, setGlobalSize] = useState<Size>("md");
-
+  const { size: globalSize } = useDevContext();
   return (
     <Showcase
       title="Input Group"
@@ -505,7 +504,6 @@ export default function InputGroupShowcase() {
           </DocsP>
         </ShowcaseDocs>
       }
-      actions={<SizeToggle value={globalSize} onValueChange={setGlobalSize} />}
       tabs={[
         {
           label: "Micro (Primitive)",

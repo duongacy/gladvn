@@ -189,7 +189,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleSection>
 
       {/* ── showCloseButton ── */}
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Có nút đóng (mặc định)"
           description="showCloseButton={true} — nút X tự động hiển thị ở góc trên phải."

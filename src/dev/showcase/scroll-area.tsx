@@ -60,7 +60,7 @@ function HorizontalList() {
 function ScrollAreaMicroShowcase() {
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Cuộn dọc (Vertical)"
           description="Danh sách các mục có thể cuộn từ trên xuống dưới."

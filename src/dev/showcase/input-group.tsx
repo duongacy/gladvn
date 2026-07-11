@@ -41,7 +41,7 @@ function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
       {/* ── Text / Icon Addons ─────────────────────────────── */}
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Text Prefix & Suffix"
           description="InputGroupAddon với văn bản — click addon để focus input."
@@ -96,7 +96,7 @@ function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleGrid>
 
       {/* ── Icon Buttons (utility) ─────────────────────────── */}
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Password Toggle"
           description="InputGroupButton icon đặt trực tiếp trong InputGroup — tự có border-l phân tách."
@@ -187,7 +187,7 @@ function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleGrid>
 
       {/* ── Text Buttons ───────────────────────────────────── */}
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Text Button (non-icon)"
           description="InputGroupButton không có prop icon — dùng horizontal padding và font-size từ group."
@@ -363,7 +363,7 @@ function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleSection>
 
       {/* ── States ─────────────────────────────────────────── */}
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Disabled"
           description="Trạng thái disabled delegate lên wrapper qua has-disabled: — toàn bộ group mờ đi."

@@ -37,7 +37,7 @@ import { InputPreset } from "@/components/macro/input-preset";
 function InputMacroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Tiêu chuẩn"
           description="Trường nhập văn bản hoàn chỉnh có nhãn và mô tả."
@@ -83,7 +83,7 @@ function InputMacroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Với Tiền tố / Hậu tố (Adornments)"
           description="Tự động bọc bằng InputGroup, có thể truyền chuỗi hoặc icon."
@@ -204,7 +204,7 @@ function InputMacroShowcase({ globalSize }: { globalSize: Size }) {
 function InputMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Cơ bản (Primitive)"
           description="Thẻ input đơn giản không có nhãn."
@@ -256,7 +256,7 @@ function InputMicroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Trạng thái Lỗi (Error)"
           description="Sử dụng thuộc tính aria-invalid để báo lỗi."

@@ -28,7 +28,7 @@ import {
 function ItemMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Basic Content"
           description="Một mục có cấu trúc với tiêu đề và mô tả."
@@ -78,7 +78,7 @@ function ItemMicroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Variants"
           description="Các phong cách hình ảnh khác nhau (phác thảo, tắt tiếng)."

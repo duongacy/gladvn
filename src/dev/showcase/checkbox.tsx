@@ -106,7 +106,7 @@ function CheckboxMacroShowcase({ globalSize }: { globalSize: Size }) {
 
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Tiêu chuẩn"
           description="Checkbox cơ bản kèm nhãn và mô tả."
@@ -146,7 +146,7 @@ function CheckboxMacroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Trạng thái Khóa (Disabled)"
           description="Checkbox bị vô hiệu hóa, không thể click."
@@ -215,7 +215,7 @@ function CheckboxMacroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="React State (Controlled Mode)"
           description="Sử dụng biến state của React để điều khiển."
@@ -267,7 +267,7 @@ function CheckboxMicroShowcase({ globalSize }: { globalSize: Size }) {
 
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Cơ bản (Primitive)"
           description="Kết nối thủ công Checkbox với thẻ Label html."
@@ -327,7 +327,7 @@ function CheckboxMicroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Ghép nối với Field"
           description="Lắp ráp thủ công các thành phần Field khi cần layout phức tạp."

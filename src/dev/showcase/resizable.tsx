@@ -97,7 +97,7 @@ function ResizableMicroShowcase() {
       </ExampleSection>
 
       {/* Handle variants */}
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="With Handle Grip"
           description="withHandle hiển thị thanh tay cầm trực quan ở giữa divider."

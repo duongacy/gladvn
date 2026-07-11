@@ -64,7 +64,7 @@ function ThemeProviderMicroShowcase() {
   return (
     <div className="space-y-10 mt-6">
       {/* Scoped providers */}
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Scoped Light"
           description="ThemeProvider bắt đầu với light mode — có thể toggle độc lập."

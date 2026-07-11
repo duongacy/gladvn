@@ -31,7 +31,7 @@ import { type Size } from "@/lib/types";
 function AvatarMacroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Tiêu chuẩn (Standard)"
           description="Avatar tự động fallback dựa vào tên truyền vào alt."
@@ -110,7 +110,7 @@ function AvatarMacroShowcase({ globalSize }: { globalSize: Size }) {
 function AvatarMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Với Hình ảnh (With Image)"
           description="Hiển thị ảnh và sẽ fallback về chữ nếu ảnh lỗi."
@@ -242,7 +242,7 @@ function AvatarMicroShowcase({ globalSize }: { globalSize: Size }) {
         </div>
       </ExampleSection>
 
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Nhóm cơ bản (Basic Group)"
           description="Xếp chồng nhiều avatar lên nhau."

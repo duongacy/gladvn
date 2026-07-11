@@ -55,7 +55,7 @@ function AlertMacroShowcase({ globalSize }: { globalSize: Size }) {
         </div>
       </ExampleSection>
 
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Tiêu chuẩn (Standard)"
           description="Truyền props trực tiếp thay vì lồng children."
@@ -101,7 +101,7 @@ function AlertMacroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Controlled"
           description="Quản lý trạng thái đóng mở thông qua state bên ngoài bằng React (Conditional Rendering)."
@@ -332,7 +332,7 @@ function AlertMicroShowcase({ globalSize }: { globalSize: Size }) {
         </Alert>
       </ExampleSection>
 
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         {/* ── Default (no color) ───────────────────── */}
         <ExampleSection
           label="Cơ bản (Basic)"

@@ -65,7 +65,7 @@ function AccordionMacroShowcase() {
 
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Tiêu Chuẩn (Standard)"
           description="Accordion mở đơn cơ bản."
@@ -173,7 +173,7 @@ function AccordionMacroShowcase() {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Controlled"
           description="Trạng thái mở được quản lý bằng state. Click vào các mục để xem state thay đổi."
@@ -296,7 +296,7 @@ return (
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Nội Dung Phức Tạp"
           description="Render các React Node bên trong nội dung."
@@ -437,7 +437,7 @@ return (
 function AccordionMicroShowcase() {
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Mở Đơn (Single Expand)"
           description="Chỉ một mục được phép mở tại một thời điểm (mặc định)."
@@ -525,7 +525,7 @@ function AccordionMicroShowcase() {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Disabled (Vô hiệu hoá)"
           description="Từng mục riêng lẻ có thể bị vô hiệu hóa trong khi các mục khác vẫn tương tác bình thường."

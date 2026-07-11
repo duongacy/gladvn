@@ -37,7 +37,7 @@ function KbdMicroShowcase() {
   return (
     <div className="space-y-10 mt-6">
       {/* ── Kbd đơn ── */}
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Kbd — Phím đơn"
           description="Hiển thị một phím bàn phím riêng lẻ dùng thẻ <kbd> semantic."

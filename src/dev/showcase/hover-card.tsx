@@ -121,7 +121,7 @@ function HoverCardMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleSection>
 
       {/* ── Căn chỉnh (Align) ── */}
-      <ExampleGrid columns={3}>
+      <ExampleGrid >
         {(["start", "center", "end"] as const).map((align) => (
           <ExampleSection
             key={align}
@@ -146,7 +146,7 @@ function HoverCardMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleGrid>
 
       {/* ── Trigger types ── */}
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Trigger: Button Link"
           description="Trigger render như Button variant link — phù hợp cho text nội tuyến."

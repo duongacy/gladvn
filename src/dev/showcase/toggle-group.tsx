@@ -28,7 +28,7 @@ function ToggleGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
       {/* Single vs Multiple */}
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Single Selection"
           description="Chỉ có một mục có thể hoạt động tại một thời điểm."
@@ -87,7 +87,7 @@ function ToggleGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleGrid>
 
       {/* Variants */}
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Outline Variant"
           description='variant="outline" — viền bao quanh từng item.'
@@ -134,7 +134,7 @@ function ToggleGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleGrid>
 
       {/* Vertical & Disabled */}
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Vertical"
           description='orientation="vertical" — sắp xếp các nút theo chiều dọc.'

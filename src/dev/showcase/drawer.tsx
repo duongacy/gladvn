@@ -23,7 +23,7 @@ import {
 function DrawerMicroShowcase() {
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Bottom Drawer"
           description="Kiểu trang tính dưới cùng mặc định."

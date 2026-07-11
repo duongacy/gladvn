@@ -140,7 +140,7 @@ toast.info("Update is available.");`}
       </ExampleSection>
 
       {/* ── Promise ── */}
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Promise — Thành công"
           description="toast.promise() tự quản lý trạng thái loading → success/error theo kết quả của Promise."

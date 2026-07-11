@@ -21,7 +21,7 @@ function AspectRatioMicroShowcase() {
   return (
     <div className="space-y-10 mt-6">
       {/* ── Common Ratios ── */}
-      <ExampleGrid columns={3}>
+      <ExampleGrid >
         <ExampleSection
           label="16:9"
           description="Widescreen — video, hero banners"
@@ -93,7 +93,7 @@ function AspectRatioMicroShowcase() {
       </ExampleGrid>
 
       {/* ── With Image ── */}
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="16:9 Image"
           description="Tỷ lệ khung hình hạn chế hình ảnh 16:9."
@@ -144,7 +144,7 @@ function AspectRatioMicroShowcase() {
       </ExampleGrid>
 
       {/* ── Map / Embed placeholder ── */}
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Video Embed"
           description="Duy trì tỷ lệ 16:9 cho video nhúng."
@@ -245,7 +245,7 @@ function AspectRatioMicroShowcase() {
       </ExampleGrid>
 
       {/* ── Custom Ratio ── */}
-      <ExampleGrid columns={3}>
+      <ExampleGrid >
         <ExampleSection
           label="Ratio 2.35"
           description="Custom ratio 2.35"

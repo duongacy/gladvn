@@ -232,20 +232,13 @@ export function ExampleSection({
    ────────────────────────────────────────────────────────── */
 export function ExampleGrid({
   children,
-  columns = 2,
   className,
 }: {
   children: React.ReactNode;
-  columns?: 1 | 2 | 3;
   className?: string;
 }) {
-  const colClasses = {
-    1: "grid-cols-1",
-    2: "grid-cols-1 md:grid-cols-2",
-    3: "grid-cols-1 md:grid-cols-2 xl:grid-cols-3",
-  };
   return (
-    <div className={cn("grid gap-6", colClasses[columns], className)}>
+    <div className={cn("grid gap-6 grid-cols-1", className)}>
       {children}
     </div>
   );

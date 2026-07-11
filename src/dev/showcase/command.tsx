@@ -32,7 +32,7 @@ function CommandMicroShowcase() {
 
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Default"
           description="Bảng lệnh có thể tìm kiếm với các mục được nhóm."

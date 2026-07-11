@@ -36,7 +36,7 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
 
   return (
     <div className="space-y-10">
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Basic Usage"
           description="DialogPreset với title, description và footer đơn giản."
@@ -150,7 +150,7 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="No Close Button"
           description="Ẩn nút X ở góc trên bằng showCloseButton={false}."
@@ -233,7 +233,7 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Controlled State"
           description="Sử dụng open và onOpenChange để quản lý trạng thái đóng mở bằng React state."
@@ -392,7 +392,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
 
   return (
     <div className="space-y-10">
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Basic Usage"
           description="Sử dụng các thành phần rời rạc để tạo dialog cơ bản."
@@ -606,7 +606,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="No Close Button"
           description="Không render nút XIcon thủ công."
@@ -758,7 +758,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Controlled State"
           description="Sử dụng open và onOpenChange để quản lý trạng thái đóng mở bằng React state."

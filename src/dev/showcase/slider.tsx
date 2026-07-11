@@ -36,7 +36,7 @@ function SliderMacroShowcase({ globalSize }: { globalSize: Size }) {
 
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Tiêu chuẩn"
           description="Thanh trượt cơ bản có nhãn và mô tả."
@@ -90,7 +90,7 @@ function SliderMacroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Thanh trượt Khoảng (Range Slider)"
           description="Truyền mảng 2 giá trị vào defaultValue hoặc value để tạo Range Slider."
@@ -147,7 +147,7 @@ return (
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid columns={1}>
+      <ExampleGrid >
         <ExampleSection
           label="Controlled Mode"
           description="Sử dụng biến state của React để điều khiển."
@@ -183,7 +183,7 @@ return (
 function SliderMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Cơ bản (Primitive)"
           description="Thanh trượt trần truồng không có Field hay Label bọc ngoài."
@@ -257,7 +257,7 @@ function SliderMicroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Ghép nối Field thủ công"
           description="Lắp ráp với Field để có nhãn và mô tả."

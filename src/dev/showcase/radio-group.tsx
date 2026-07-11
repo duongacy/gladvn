@@ -104,7 +104,7 @@ function RadioGroupForm({ size }: { size: Size }) {
 function RadioGroupMacroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Tiêu chuẩn"
           description="Nhóm radio cơ bản với mảng options."
@@ -166,7 +166,7 @@ function RadioGroupMacroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Mô tả cho từng Option"
           description="Truyền description vào mảng options để chú thích chi tiết."
@@ -236,7 +236,7 @@ function RadioGroupMacroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Tích hợp React Hook Form"
           description="Sử dụng Controller để bắt giá trị."
@@ -257,7 +257,7 @@ function RadioGroupMacroShowcase({ globalSize }: { globalSize: Size }) {
 function RadioGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Cơ bản (Primitive)"
           description="Ghép nối thủ công RadioGroupItem và Label."
@@ -344,7 +344,7 @@ function RadioGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Ghép nối Field thủ công"
           description="Tạo layout RadioGroup phức tạp với Field."

@@ -30,7 +30,7 @@ function PaginationMacroShowcase({ globalSize }: { globalSize: Size }) {
 
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Tiêu chuẩn (Standard)"
           description="Phân trang cơ bản với state điều khiển."
@@ -62,7 +62,7 @@ return (
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Trang đầu tiên (First Page)"
           description="Nút Previous tự động bị mờ đi."

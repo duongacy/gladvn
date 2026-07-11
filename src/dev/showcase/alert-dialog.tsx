@@ -42,7 +42,7 @@ function AlertDialogMacroShowcase({ globalSize }: { globalSize: Size }) {
 
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Hành Động Nguy Danger (Destructive)"
           description="Sử dụng actionColor='destructive' để tạo nút hành động nguy hiểm."
@@ -110,7 +110,7 @@ function AlertDialogMacroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Kèm Media (Icon/Image)"
           description="Tự động chia cột Flexbox Side-by-Side khi truyền prop 'icon'."
@@ -208,7 +208,7 @@ return (
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Custom Button Variants"
           description="Tuỳ chỉnh variant cho cả nút Action (soft) và Cancel (ghost) thông qua actionVariant/cancelVariant."
@@ -304,7 +304,7 @@ return (
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid columns={1}>
+      <ExampleGrid >
         <ExampleSection
           label="Giao Diện Nhỏ (Compact)"
           description="Khi dùng size='sm', nội dung sẽ được căn giữa và footer tự động dàn hàng ngang 2 cột."
@@ -356,7 +356,7 @@ return (
 function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Sử dụng Cơ bản"
           description="Lắp ráp thủ công các khối Header, Title, Description, Footer."
@@ -476,7 +476,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="AlertDialogMedia"
           description="Khối chứa Icon/Image, tự scale theo size của AlertDialogContent."
@@ -604,7 +604,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Action Colors"
           description="AlertDialogAction hỗ trợ prop color để thay đổi ngữ nghĩa hành động."

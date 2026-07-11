@@ -21,7 +21,7 @@ function ToggleMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
       {/* Variants */}
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Default (Ghost)"
           description="Variant mặc định — không viền, chỉ đổi nền khi pressed."
@@ -72,7 +72,7 @@ function ToggleMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleGrid>
 
       {/* Icon Only & Disabled */}
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Icon Only"
           description="Toggle chỉ có icon — luôn truyền aria-label để đảm bảo a11y."

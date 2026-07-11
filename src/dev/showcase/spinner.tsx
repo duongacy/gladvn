@@ -32,7 +32,7 @@ function SpinnerMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleSection>
 
       {/* Colors */}
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Custom Colors"
           description="Truyền className để override màu sắc — Spinner kế thừa currentColor của SVG."

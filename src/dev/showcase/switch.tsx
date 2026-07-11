@@ -96,7 +96,7 @@ function SwitchMacroShowcase({ globalSize }: { globalSize: Size }) {
 
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Tiêu chuẩn"
           description="Công tắc cơ bản có nhãn và mô tả."
@@ -138,7 +138,7 @@ function SwitchMacroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Khóa / Bất hoạt (Disabled)"
           description="Người dùng không thể tương tác với công tắc."
@@ -207,7 +207,7 @@ function SwitchMacroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="React State (Controlled Mode)"
           description="Sử dụng biến state của React để điều khiển."
@@ -258,7 +258,7 @@ return (
 function SwitchMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Cơ bản (Primitive)"
           description="Kết nối thủ công Switch và SwitchThumb."
@@ -330,7 +330,7 @@ function SwitchMicroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      <ExampleGrid columns={2}>
+      <ExampleGrid >
         <ExampleSection
           label="Khóa (Disabled)"
           description="Các công tắc đảo ngược nhưng bị vô hiệu hoá."

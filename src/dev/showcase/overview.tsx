@@ -1,4 +1,5 @@
 import {
+  AccessibilityIcon,
   ArrowRightIcon,
   BlocksIcon,
   BoxIcon,
@@ -36,6 +37,47 @@ import {
 import { Switch } from "@/components/micro/switch";
 import { ColorSwatch } from "@/dev/components/showcase";
 import { COLORS, STATS } from "@/dev/data";
+import { cn } from "@/lib/utils";
+
+function CodeBlock({
+  type,
+  title,
+  children,
+}: {
+  type: "success" | "destructive";
+  title: string;
+  children: React.ReactNode;
+}) {
+  const isSuccess = type === "success";
+  return (
+    <div
+      className={cn(
+        "p-4 rounded-xl border shadow-sm text-[11px] sm:text-xs font-mono",
+        isSuccess
+          ? "border-success/20 bg-success/5"
+          : "border-destructive/20 bg-destructive/5 opacity-80"
+      )}
+    >
+      <div
+        className={cn(
+          "font-semibold mb-2 flex items-center gap-2",
+          isSuccess ? "text-success" : "text-destructive"
+        )}
+      >
+        {isSuccess ? "✅" : "❌"} {title}
+      </div>
+      <div
+        className={cn(
+          "text-muted-foreground pl-3 border-l-2 leading-relaxed",
+          isSuccess ? "border-success/50" : "border-destructive/50"
+        )}
+      >
+        {children}
+      </div>
+    </div>
+  );
+}
+
 export default function OverviewSection() {
   const [copied, setCopied] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -286,16 +328,16 @@ export default function OverviewSection() {
           <p className="text-muted-foreground text-lg">
             Toàn bộ thư viện được xây dựng dựa trên{" "}
             <strong className="text-foreground">
-              11 nguyên tắc (Design Principles)
+              12 nguyên tắc (Design Principles)
             </strong>{" "}
             khắt khe để đảm bảo tính nhất quán, dễ bảo trì và mang lại DX tốt
             nhất.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(320px,auto)] grid-flow-dense">
+        <div className="columns-1 md:columns-2 gap-6">
           {/* Micro/Macro (Spans 2 columns) */}
-          <div className="md:col-span-2 rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col justify-between group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
+          <div className="break-inside-avoid mb-6 rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col justify-between group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
             <div className="absolute -top-10 -right-10 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:-rotate-12 duration-700">
               <BlocksIcon className="w-80 h-80" />
             </div>
@@ -316,70 +358,51 @@ export default function OverviewSection() {
                 </strong>
               </p>
             </div>
-            <div className="relative z-10 mt-auto pt-6">
-              <div className="p-4 rounded-xl bg-foreground/5 border border-border/50 text-[11px] sm:text-xs font-mono shadow-inner space-y-4">
-                <div>
-                  <div className="text-success font-semibold mb-2 flex items-center gap-2">
-                    ✅ Uỷ quyền cho Macro (Preset):
-                  </div>
-                  <div className="text-muted-foreground pl-3 border-l-2 border-success/50 leading-relaxed">
-                    <span className="text-warning">
-                      {
-                        "/* Macro thấy toàn bộ cấu trúc nên gắn class thẳng vào đích */"
-                      }
-                    </span>
-                    <br />
-                    <span className="text-foreground">
-                      {"<AlertDialogFooter>"}
-                    </span>
-                    <br />
-                    <span className="pl-4">
-                      {'<Button variant="ghost">Trợ giúp</Button>'}
-                    </span>
-                    <br />
-                    <span className="pl-4 text-success">
-                      {'<Button className="ml-auto">Xác nhận</Button>'}
-                    </span>
-                    <br />
-                    <span className="text-foreground">
-                      {"</AlertDialogFooter>"}
-                    </span>
-                  </div>
-                </div>
-                <div className="border-t border-border/50 pt-3">
-                  <div className="text-destructive font-semibold mb-2 flex items-center gap-2">
-                    ❌ Ép Layout ở Micro (Primitive):
-                  </div>
-                  <div className="text-muted-foreground pl-3 border-l-2 border-destructive/50 opacity-60 leading-relaxed">
-                    <span className="text-warning">
-                      {
-                        "/* Micro mù mờ về thẻ con nên phải dùng Magic CSS đoán mò */"
-                      }
-                    </span>
-                    <br />
-                    <span className="text-foreground">
-                      {"<AlertDialogFooter"}
-                    </span>
-                    <br />
-                    <span className="pl-4 text-destructive line-through">
-                      {'className="[&>*:last-child]:ml-auto"'}
-                    </span>
-                    <br />
-                    <span className="text-foreground">{">"}</span>
-                    <br />
-                    <span className="pl-4">{"{children}"}</span>
-                    <br />
-                    <span className="text-foreground">
-                      {"</AlertDialogFooter>"}
-                    </span>
-                  </div>
-                </div>
-              </div>
+            <div className="relative z-10 mt-auto pt-6 space-y-3">
+              <CodeBlock type="success" title="Uỷ quyền cho Macro (Preset):">
+                <span className="text-success/80">
+                  {
+                    "/* Macro thấy toàn bộ cấu trúc nên gắn class thẳng vào đích */"
+                  }
+                </span>
+                <br />
+                <span className="text-foreground">{"<AlertDialogFooter>"}</span>
+                <br />
+                <span className="pl-4">
+                  {'<Button variant="ghost">Trợ giúp</Button>'}
+                </span>
+                <br />
+                <span className="pl-4 text-success font-bold">
+                  {'<Button className="ml-auto">Xác nhận</Button>'}
+                </span>
+                <br />
+                <span className="text-foreground">{"</AlertDialogFooter>"}</span>
+              </CodeBlock>
+
+              <CodeBlock type="destructive" title="Ép Layout ở Micro (Primitive):">
+                <span className="text-destructive/80">
+                  {
+                    "/* Micro mù mờ về thẻ con nên phải dùng Magic CSS đoán mò */"
+                  }
+                </span>
+                <br />
+                <span className="text-foreground">{"<AlertDialogFooter"}</span>
+                <br />
+                <span className="pl-4 text-destructive font-bold line-through">
+                  {'className="[&>*:last-child]:ml-auto"'}
+                </span>
+                <br />
+                <span className="text-foreground">{">"}</span>
+                <br />
+                <span className="pl-4">{"{children}"}</span>
+                <br />
+                <span className="text-foreground">{"</AlertDialogFooter>"}</span>
+              </CodeBlock>
             </div>
           </div>
 
           {/* No Magic CSS */}
-          <div className="rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
+          <div className="break-inside-avoid mb-6 rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
               <ShieldCheckIcon className="w-56 h-56" />
             </div>
@@ -415,7 +438,7 @@ export default function OverviewSection() {
           </div>
 
           {/* Orthogonal Styling (Spans 2 columns) */}
-          <div className="md:col-span-2 rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
+          <div className="break-inside-avoid mb-6 rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:-rotate-12 duration-700">
               <SlidersHorizontalIcon className="w-80 h-80" />
             </div>
@@ -455,8 +478,8 @@ export default function OverviewSection() {
             </div>
           </div>
 
-          {/* Zero-Prop Defaults (Spans 2 columns) */}
-          <div className="md:col-span-2 rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
+          {/* Zero-Prop Defaults */}
+          <div className="break-inside-avoid mb-6 rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:-rotate-12 duration-700">
               <ComponentIcon className="w-80 h-80" />
             </div>
@@ -491,7 +514,7 @@ export default function OverviewSection() {
           </div>
 
           {/* AHA Principle (Spans 1 column) */}
-          <div className="rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
+          <div className="break-inside-avoid mb-6 rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
               <LayersIcon className="w-56 h-56" />
             </div>
@@ -525,7 +548,7 @@ export default function OverviewSection() {
             </div>
           </div>
           {/* CSS Delegated Logic */}
-          <div className="md:col-span-2 rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
+          <div className="break-inside-avoid mb-6 rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
               <PaintbrushIcon className="w-56 h-56" />
             </div>
@@ -563,7 +586,7 @@ export default function OverviewSection() {
           </div>
 
           {/* Strict Polymorphism */}
-          <div className="rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
+          <div className="break-inside-avoid mb-6 rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
               <CopyIcon className="w-56 h-56" />
             </div>
@@ -598,7 +621,7 @@ export default function OverviewSection() {
           </div>
 
           {/* Exhaustive Union Types */}
-          <div className="rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
+          <div className="break-inside-avoid mb-6 rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
               <BoxIcon className="w-56 h-56" />
             </div>
@@ -630,19 +653,49 @@ export default function OverviewSection() {
             </div>
           </div>
 
+          {/* Accessibility First */}
+          <div className="break-inside-avoid mb-6 rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
+            <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
+              <AccessibilityIcon className="w-56 h-56" />
+            </div>
+            <div className="relative z-10 space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-info/10 text-info text-xs font-bold uppercase tracking-wider">
+                <AccessibilityIcon className="size-3.5" /> Nguyên tắc 9
+              </div>
+              <h3 className="text-2xl font-extrabold tracking-tight">
+                Accessibility First
+              </h3>
+              <p className="text-muted-foreground text-base leading-relaxed">
+                Ưu tiên HTML semantic, liên kết form qua{" "}
+                <code>aria-describedby</code>, ẩn icon trang trí bằng{" "}
+                <code>aria-hidden</code> để đảm bảo WCAG AAA/AA.
+              </p>
+            </div>
+            <div className="relative z-10 mt-auto pt-6 space-y-3">
+              <div className="p-3 rounded-xl border border-success/20 bg-success/5 text-[11px] font-mono shadow-sm flex items-center">
+                <span className="text-success font-bold mr-3 text-lg">✅</span>
+                <span className="text-success/90">&lt;svg aria-hidden="true" /&gt;</span>
+              </div>
+              <div className="p-3 rounded-xl border border-destructive/20 bg-destructive/5 text-[11px] font-mono shadow-sm flex items-center opacity-70">
+                <span className="text-destructive font-bold mr-3 text-lg">❌</span>
+                <span className="text-destructive/80 line-through">&lt;div role="button"&gt;</span>
+              </div>
+            </div>
+          </div>
+
           {/* Readability is Maintainability */}
-          <div className="md:col-span-2 rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
+          <div className="break-inside-avoid mb-6 rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
               <SparklesIcon className="w-56 h-56" />
             </div>
             <div className="relative z-10 space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-success/10 text-success text-xs font-bold uppercase tracking-wider">
-                <SparklesIcon className="size-3.5" /> Nguyên tắc 9
+                <SparklesIcon className="size-3.5" /> Nguyên tắc 10
               </div>
-              <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">
+              <h3 className="text-2xl font-extrabold tracking-tight">
                 Code Self-documenting
               </h3>
-              <p className="text-muted-foreground text-lg leading-relaxed max-w-lg">
+              <p className="text-muted-foreground text-base leading-relaxed">
                 Code phải tự nói lên được ý nghĩa của nó. Comment chỉ dành riêng
                 cho việc giải thích business context hoặc lý do "tại sao lại
                 code thế này".
@@ -661,51 +714,43 @@ export default function OverviewSection() {
           </div>
 
           {/* Single Source of Truth for Variants */}
-          <div className="md:col-span-2 rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
+          <div className="break-inside-avoid mb-6 rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
               <SlidersHorizontalIcon className="w-56 h-56" />
             </div>
             <div className="relative z-10 space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-warning/10 text-warning text-xs font-bold uppercase tracking-wider">
-                <SlidersHorizontalIcon className="size-3.5" /> Nguyên tắc 10
+                <SlidersHorizontalIcon className="size-3.5" /> Nguyên tắc 11
               </div>
-              <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">
+              <h3 className="text-2xl font-extrabold tracking-tight">
                 No Default Variants
               </h3>
-              <p className="text-muted-foreground text-lg leading-relaxed max-w-lg">
+              <p className="text-muted-foreground text-base leading-relaxed">
                 Không dùng <code>defaultVariants</code> ẩn bên trong cấu hình{" "}
                 <code>cva()</code>. Đưa mọi prop mặc định ra ngoài component
                 interface để dễ tracking và override.
               </p>
             </div>
-            <div className="relative z-10 mt-auto pt-8 grid sm:grid-cols-2 gap-4">
-              <div className="p-4 rounded-xl border border-success/20 bg-success/5 shadow-sm">
-                <div className="text-success font-semibold mb-2 text-sm flex items-center gap-2">
-                  ✅ Component Interface
-                </div>
-                <div className="text-[11px] font-mono text-success/80">
-                  function Button(&#123; size = "md" &#125;)
-                </div>
+            <div className="relative z-10 mt-auto pt-6 space-y-3">
+              <div className="p-3 rounded-xl border border-success/20 bg-success/5 text-[11px] font-mono shadow-sm flex items-center">
+                <span className="text-success font-bold mr-3 text-lg">✅</span>
+                <span className="text-success/90">function Button(&#123; size = "md" &#125;)</span>
               </div>
-              <div className="p-4 rounded-xl border border-destructive/20 bg-destructive/5 shadow-sm opacity-60">
-                <div className="text-destructive font-semibold mb-2 text-sm flex items-center gap-2">
-                  ❌ CVA Config
-                </div>
-                <div className="text-[11px] font-mono text-destructive/80 line-through">
-                  defaultVariants: &#123; size: "md" &#125;
-                </div>
+              <div className="p-3 rounded-xl border border-destructive/20 bg-destructive/5 text-[11px] font-mono shadow-sm flex items-center opacity-70">
+                <span className="text-destructive font-bold mr-3 text-lg">❌</span>
+                <span className="text-destructive/80 line-through">defaultVariants: &#123; size: "md" &#125;</span>
               </div>
             </div>
           </div>
 
           {/* Pure Composition */}
-          <div className="rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
+          <div className="break-inside-avoid mb-6 rounded-[2rem] border bg-card/20 p-8 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
               <BlocksIcon className="w-56 h-56" />
             </div>
             <div className="relative z-10 space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-destructive/10 text-destructive text-xs font-bold uppercase tracking-wider">
-                <BlocksIcon className="size-3.5" /> Nguyên tắc 11
+                <BlocksIcon className="size-3.5" /> Nguyên tắc 12
               </div>
               <h3 className="text-2xl font-extrabold tracking-tight">
                 Pure Composition

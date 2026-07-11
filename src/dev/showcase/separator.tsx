@@ -21,7 +21,7 @@ function SeparatorMicroShowcase() {
         codeString={`<div className="w-full max-w-sm rounded-lg border bg-card p-6">
   <div className="space-y-1">
     <h4 className="text-sm font-medium leading-none">
-      Sadcn UI
+      Gladcn UI
     </h4>
     <p className="text-sm text-muted-foreground">
       Bộ UI Component mã nguồn mở.
@@ -36,7 +36,7 @@ function SeparatorMicroShowcase() {
       >
         <div className="w-full max-w-sm rounded-lg border bg-card p-6">
           <div className="space-y-1">
-            <h4 className="text-sm font-medium leading-none">Sadcn UI</h4>
+            <h4 className="text-sm font-medium leading-none">Gladcn UI</h4>
             <p className="text-sm text-muted-foreground">
               Bộ UI Component mã nguồn mở.
             </p>

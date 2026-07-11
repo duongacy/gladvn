@@ -124,7 +124,7 @@ export default function App() {
               color="secondary"
               className="text-[10px] px-1.5 py-0 font-medium hidden sm:inline-flex"
             >
-              v0.2.1
+              v0.2.3
             </Badge>
           </div>
           <div className="flex items-center gap-2">

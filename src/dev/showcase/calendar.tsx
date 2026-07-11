@@ -233,27 +233,53 @@ function CalendarMacroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      {/* ── Dropdown Mode ── */}
-      <ExampleSection
-        label="Dropdown Selectors"
-        description="Sổ danh sách để chọn tháng và năm nhanh chóng thay vì click qua lại liên tục."
-        codeString={`<DatePicker className="w-64"
-    label="Birthday"
-    captionLayout="dropdown-buttons"
-    startMonth={new Date(1900, 0)}
-    endMonth={new Date()}
-  />`}
-      >
-        <DatePicker className="w-64"
-            size={globalSize}
-            label="Birthday"
-            captionLayout="dropdown-buttons"
-            startMonth={new Date(1900, 0)}
-            endMonth={new Date()}
-            value={singleDate}
-            onValueChange={setSingleDate}
-          />
-      </ExampleSection>
+      {/* ── Dropdown Modes ── */}
+      <ExampleGrid>
+        <ExampleSection
+          label="Single Dropdown"
+          description="Sổ danh sách để chọn tháng và năm nhanh chóng thay vì click qua lại liên tục."
+          codeString={`<DatePicker className="w-64"
+      label="Birthday"
+      captionLayout="dropdown"
+      startMonth={new Date(1900, 0)}
+      endMonth={new Date()}
+    />`}
+        >
+          <DatePicker className="w-64"
+              size={globalSize}
+              label="Birthday"
+              captionLayout="dropdown"
+              startMonth={new Date(1900, 0)}
+              endMonth={new Date()}
+              value={singleDate}
+              onValueChange={setSingleDate}
+            />
+        </ExampleSection>
+        <ExampleSection
+          label="Range Dropdown"
+          description="Sổ danh sách cho cả 2 tháng khi chọn khoảng thời gian (cần numberOfMonths={2})."
+          codeString={`<DatePicker className="w-fit"
+      mode="range"
+      label="Date Range with Dropdowns"
+      captionLayout="dropdown"
+      numberOfMonths={2}
+      startMonth={new Date(2020, 0)}
+      endMonth={new Date(2030, 11)}
+    />`}
+        >
+          <DatePicker className="w-fit"
+              mode="range"
+              size={globalSize}
+              label="Date Range with Dropdowns"
+              captionLayout="dropdown"
+              numberOfMonths={2}
+              startMonth={new Date(2020, 0)}
+              endMonth={new Date(2030, 11)}
+              rangeValue={rangeDate}
+              onRangeChange={setRangeDate}
+            />
+        </ExampleSection>
+      </ExampleGrid>
 
       {/* ── With Description ── */}
       <ExampleSection

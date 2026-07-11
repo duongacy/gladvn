@@ -45,7 +45,7 @@ type DatePickerBaseProps = {
   /** Number of calendar months to display. */
   numberOfMonths?: number;
   /** Navigation control style. */
-  captionLayout?: "label" | "dropdown";
+  captionLayout?: "label" | "dropdown" | "dropdown-months" | "dropdown-years";
   /** Locale for react-day-picker date formatting. */
   locale?: Partial<Locale>;
   /** Dates to disable in the calendar. */

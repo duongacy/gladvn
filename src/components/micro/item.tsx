@@ -56,7 +56,7 @@ const itemVariants = cva(
       size: {
         sm: "gap-1 px-2.5 py-2 in-data-[slot=dropdown-menu-content]:p-0",
         md: "gap-1.5 px-3 py-2.5",
-        lg: "gap-2 px-3 py-2.5",
+        lg: "gap-2 px-3.5 py-2.5",
       },
     },
   },

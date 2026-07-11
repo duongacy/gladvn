@@ -181,8 +181,8 @@ const inputGroupButtonVariants = cva(
         false: [
           // Text button: horizontal padding + font size from group
           "group-data-[size=sm]/input-group:px-2 group-data-[size=sm]/input-group:text-xs",
-          "group-data-[size=md]/input-group:px-3 group-data-[size=md]/input-group:text-sm",
-          "group-data-[size=lg]/input-group:px-4 group-data-[size=lg]/input-group:text-sm",
+          "group-data-[size=md]/input-group:px-2.5 group-data-[size=md]/input-group:text-sm",
+          "group-data-[size=lg]/input-group:px-3 group-data-[size=lg]/input-group:text-sm",
         ],
       },
     },

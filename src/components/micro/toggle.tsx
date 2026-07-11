@@ -24,7 +24,7 @@ const toggleVariants = cva(
       size: {
         sm: "h-7 min-w-7 gap-1 px-2.5 text-xs [&>svg:not([class*='size-'])]:size-3.5",
         md: "h-8 min-w-8 gap-1.5 px-3 text-sm",
-        lg: "h-9 min-w-9 gap-2 px-4 text-sm",
+        lg: "h-9 min-w-9 gap-2 px-3.5 text-sm",
       },
     },
   },

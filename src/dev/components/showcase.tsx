@@ -206,20 +206,20 @@ export function ExampleSection({
         </TabsContent>
 
         <TabsContent value="code" className="mt-0 outline-none">
-          <div className="relative rounded-2xl border border-border/80 bg-muted/50 p-4 text-foreground shadow-sm overflow-clip">
+          <div className="relative rounded-2xl border border-border/80 bg-muted/50 p-4 text-foreground shadow-sm overflow-clip group/code">
+            <CodeHighlighter code={codeString || "// Loading..."} />
             <Button
               size="sm"
               variant="ghost"
-              className="absolute top-3 right-3 h-7 w-7 text-muted-foreground hover:text-foreground hover:bg-muted"
+              className="absolute top-3 right-3 z-10 h-7 w-7 text-muted-foreground opacity-0 transition-opacity focus-visible:opacity-100 group-hover/code:opacity-100 hover:bg-muted hover:text-foreground"
               onClick={copyToClipboard}
             >
               {copied ? (
-                <CheckIcon className="size-3.5" />
+                <CheckIcon className="size-3.5 text-green-500" />
               ) : (
                 <CopyIcon className="size-3.5" />
               )}
             </Button>
-            <CodeHighlighter code={codeString || "// Loading..."} />
           </div>
         </TabsContent>
       </div>

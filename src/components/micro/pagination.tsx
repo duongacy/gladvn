@@ -12,9 +12,9 @@ import {
   MoreHorizontalIcon,
 } from "lucide-react";
 
-import { Button } from "@/components/micro/button";
-import { cn } from "@/lib/utils";
-import type { Size } from "@/lib/types";
+import { Button } from "../../components/micro/button";
+import { cn } from "../../lib/utils";
+import type { Size } from "../../lib/types";
 
 const ellipsisSizeMap: Record<Size, { container: string; icon: string }> = {
   sm: { container: "size-7", icon: "[&>svg:not([class*='size-'])]:size-3" },

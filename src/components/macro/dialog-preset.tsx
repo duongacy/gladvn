@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/components/micro/button";
+import { Button } from "../../components/micro/button";
 import {
   Dialog,
   DialogClose,
@@ -10,9 +10,9 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/micro/dialog";
-import { type Size } from "@/lib/types";
-import { cn } from "@/lib/utils";
+} from "../../components/micro/dialog";
+import { type Size } from "../../lib/types";
+import { cn } from "../../lib/utils";
 import { XIcon } from "lucide-react";
 import * as React from "react";
 

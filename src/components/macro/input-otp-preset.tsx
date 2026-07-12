@@ -9,7 +9,7 @@ import {
   InputOTPGroup,
   InputOTPSeparator,
   InputOTPSlot,
-} from "@/components/micro/input-otp";
+} from "../../components/micro/input-otp";
 import { MinusIcon } from "lucide-react";
 import * as React from "react";
 import { FieldPreset } from "./field-preset";

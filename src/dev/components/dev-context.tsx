@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from "react";
-import type { Size } from "@/lib/types";
+import type { Size } from "../../lib/types";
 
 interface DevContextType {
   size: Size;

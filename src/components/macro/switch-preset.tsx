@@ -3,9 +3,9 @@ import {
   FieldDescription,
   FieldError,
   FieldLabel,
-} from "@/components/micro/field";
-import { Switch, SwitchThumb } from "@/components/micro/switch";
-import { cn } from "@/lib/utils";
+} from "../../components/micro/field";
+import { Switch, SwitchThumb } from "../../components/micro/switch";
+import { cn } from "../../lib/utils";
 import * as React from "react";
 
 export type SwitchPresetProps = Omit<

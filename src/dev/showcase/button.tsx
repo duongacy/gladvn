@@ -1,17 +1,17 @@
-import { useDevContext } from "@/dev/components/dev-context";
+import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsP,
   ExampleGrid,
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
+} from "../../dev/components/showcase";
 import { DownloadIcon, MailIcon, PlusIcon } from "lucide-react";
 import { useState } from "react";
 
-import { Button, ButtonIcon } from "@/components/micro/button";
-import { Spinner } from "@/components/micro/spinner";
-import { type Size } from "@/lib/types";
+import { Button, ButtonIcon } from "../../components/micro/button";
+import { Spinner } from "../../components/micro/spinner";
+import { type Size } from "../../lib/types";
 
 function ButtonMicroShowcase({ globalSize }: { globalSize: Size }) {
   const [isDeleting, setIsDeleting] = useState(false);

@@ -1,9 +1,9 @@
-import { useDevContext } from "@/dev/components/dev-context";
+import { useDevContext } from "../../dev/components/dev-context";
 import { useState } from "react";
 import { BoldIcon, ItalicIcon, UnderlineIcon } from "lucide-react";
 
-import { Toggle } from "@/components/micro/toggle";
-import { type Size } from "@/lib/types";
+import { Toggle } from "../../components/micro/toggle";
+import { type Size } from "../../lib/types";
 import {
   DocsCode,
   DocsH3,
@@ -12,7 +12,7 @@ import {
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
+} from "../../dev/components/showcase";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Micro Content

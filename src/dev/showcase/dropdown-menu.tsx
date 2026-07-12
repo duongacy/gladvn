@@ -1,11 +1,11 @@
-import { useDevContext } from "@/dev/components/dev-context";
+import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsP,
   ExampleGrid,
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
+} from "../../dev/components/showcase";
 import {
   CreditCardIcon,
   HelpCircleIcon,
@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 
-import { Button } from "@/components/micro/button";
+import { Button } from "../../components/micro/button";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -31,8 +31,8 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "@/components/micro/dropdown-menu";
-import { type Size } from "@/lib/types";
+} from "../../components/micro/dropdown-menu";
+import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 2: Micro Content (không export)

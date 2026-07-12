@@ -243,6 +243,43 @@ async function main() {
     console.log(`\x1b[33m⚠ No CSS file configured. You will need to manually import ${userDest}/styles/gladcn.css into your project.\x1b[0m`);
   }
 
+  // 2.5 Configure tsconfig.json
+  if (isTTY) {
+    const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+    const answer = await new Promise((resolve) => rl.question(`\n${yellow}? Do you want to configure tsconfig.json to use the @gladcn/* alias? (Y/n)${reset} `, resolve));
+    rl.close();
+
+    if (answer.trim().toLowerCase() !== 'n') {
+      const tsconfigPath = path.resolve(process.cwd(), 'tsconfig.json');
+      if (fs.existsSync(tsconfigPath)) {
+        let tsContent = fs.readFileSync(tsconfigPath, 'utf8');
+        const aliasPath = `./${userDest}/*`;
+
+        if (tsContent.includes('"@gladcn/*"')) {
+          console.log(`\x1b[90m⏭  @gladcn/* alias already exists in tsconfig.json\x1b[0m`);
+        } else {
+          const pathsRegex = /"paths"\s*:\s*\{/;
+          if (pathsRegex.test(tsContent)) {
+            tsContent = tsContent.replace(pathsRegex, `"paths": {\n      "@gladcn/*": ["${aliasPath}"],`);
+            fs.writeFileSync(tsconfigPath, tsContent);
+            console.log(`\x1b[32m✔ Injected @gladcn/* alias into existing paths\x1b[0m`);
+          } else {
+            const compilerOptionsRegex = /"compilerOptions"\s*:\s*\{/;
+            if (compilerOptionsRegex.test(tsContent)) {
+              tsContent = tsContent.replace(compilerOptionsRegex, `"compilerOptions": {\n    "paths": {\n      "@gladcn/*": ["${aliasPath}"]\n    },`);
+              fs.writeFileSync(tsconfigPath, tsContent);
+              console.log(`\x1b[32m✔ Injected paths object and @gladcn/* alias\x1b[0m`);
+            } else {
+              console.log(`\x1b[33m⚠ Could not find compilerOptions in tsconfig.json. Please add manually.\x1b[0m`);
+            }
+          }
+        }
+      } else {
+        console.log(`\x1b[33m⚠ tsconfig.json not found. Please configure alias manually if desired.\x1b[0m`);
+      }
+    }
+  }
+
   // 3. Install dependencies
   try {
     const pkgPath = path.resolve(__dirname, "../package.json");

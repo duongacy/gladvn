@@ -13,8 +13,8 @@ import * as React from "react";
 
 import { cva, type VariantProps } from "class-variance-authority";
 
-import { type Size } from "@/lib/types";
-import { cn } from "@/lib/utils";
+import { type Size } from "../../lib/types";
+import { cn } from "../../lib/utils";
 
 const RadioGroup = React.forwardRef<
   React.ComponentRef<typeof RadioGroupPrimitive>,

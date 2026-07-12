@@ -1,16 +1,16 @@
-import { useDevContext } from "@/dev/components/dev-context";
+import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsP,
   ExampleGrid,
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
+} from "../../dev/components/showcase";
 import { useState } from "react";
 
-import { Button } from "@/components/micro/button";
-import { Input } from "@/components/micro/input";
-import { Label } from "@/components/micro/label";
+import { Button } from "../../components/micro/button";
+import { Input } from "../../components/micro/input";
+import { Label } from "../../components/micro/label";
 import {
   Popover,
   PopoverContent,
@@ -18,8 +18,8 @@ import {
   PopoverHeader,
   PopoverTitle,
   PopoverTrigger,
-} from "@/components/micro/popover";
-import { type Size } from "@/lib/types";
+} from "../../components/micro/popover";
+import { type Size } from "../../lib/types";
 import { Bell, Settings } from "lucide-react";
 
 // ──────────────────────────────────────────────────────────

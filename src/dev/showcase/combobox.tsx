@@ -1,4 +1,4 @@
-import { useDevContext } from "@/dev/components/dev-context";
+import { useDevContext } from "../../dev/components/dev-context";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
@@ -11,11 +11,11 @@ import {
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
-import { type Size } from "@/lib/types";
+} from "../../dev/components/showcase";
+import { type Size } from "../../lib/types";
 
-import { ComboboxPreset } from "@/components/macro/combobox-preset";
-import { Button } from "@/components/micro/button";
+import { ComboboxPreset } from "../../components/macro/combobox-preset";
+import { Button } from "../../components/micro/button";
 import {
   Combobox,
   ComboboxAnchor,
@@ -33,19 +33,19 @@ import {
   ComboboxSeparator,
   ComboboxTrigger,
   ComboboxValue,
-} from "@/components/micro/combobox";
+} from "../../components/micro/combobox";
 import {
   Field,
   FieldContent,
   FieldDescription,
   FieldError,
   FieldLabel,
-} from "@/components/micro/field";
+} from "../../components/micro/field";
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
-} from "@/components/micro/input-group";
+} from "../../components/micro/input-group";
 
 const frontendFrameworks = ["react", "vue", "svelte"];
 const backendFrameworks = ["express", "nest"];

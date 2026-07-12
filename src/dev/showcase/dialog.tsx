@@ -1,4 +1,4 @@
-import { useDevContext } from "@/dev/components/dev-context";
+import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsCode,
   DocsH3,
@@ -7,12 +7,12 @@ import {
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
+} from "../../dev/components/showcase";
 import { CheckCircle2Icon, LayersIcon, XIcon } from "lucide-react";
 import { useState } from "react";
 
-import { DialogPreset } from "@/components/macro/dialog-preset";
-import { Button } from "@/components/micro/button";
+import { DialogPreset } from "../../components/macro/dialog-preset";
+import { Button } from "../../components/micro/button";
 import {
   Dialog,
   DialogClose,
@@ -22,11 +22,11 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/micro/dialog";
-import { Input } from "@/components/micro/input";
-import { Label } from "@/components/micro/label";
-import { type Size } from "@/lib/types";
-import { cn } from "@/lib/utils";
+} from "../../components/micro/dialog";
+import { Input } from "../../components/micro/input";
+import { Label } from "../../components/micro/label";
+import { type Size } from "../../lib/types";
+import { cn } from "../../lib/utils";
 
 // ──────────────────────────────────────────────────────────
 // Macro Showcase

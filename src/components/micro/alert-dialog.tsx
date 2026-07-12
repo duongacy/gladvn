@@ -3,9 +3,9 @@
 import { AlertDialog as AlertDialogPrimitive } from "@base-ui/react/alert-dialog";
 import * as React from "react";
 
-import { Button } from "@/components/micro/button";
-import { type Size } from "@/lib/types";
-import { cn } from "@/lib/utils";
+import { Button } from "../../components/micro/button";
+import { type Size } from "../../lib/types";
+import { cn } from "../../lib/utils";
 
 /**
  * @description A modal dialog that interrupts the user with important content and expects a response.

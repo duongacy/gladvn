@@ -7,14 +7,14 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/micro/table";
+} from "../../components/micro/table";
 import {
   DocsH3,
   DocsP,
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
+} from "../../dev/components/showcase";
 import { useState } from "react";
 
 type SortDirection = "asc" | "desc" | "none";

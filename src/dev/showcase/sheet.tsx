@@ -1,4 +1,4 @@
-import { useDevContext } from "@/dev/components/dev-context";
+import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsCode,
   DocsP,
@@ -6,13 +6,13 @@ import {
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
+} from "../../dev/components/showcase";
 import { FilterIcon, PanelRightIcon, SettingsIcon } from "lucide-react";
 import { useState } from "react";
 
-import { Button } from "@/components/micro/button";
-import { Input } from "@/components/micro/input";
-import { Label } from "@/components/micro/label";
+import { Button } from "../../components/micro/button";
+import { Input } from "../../components/micro/input";
+import { Label } from "../../components/micro/label";
 import {
   Sheet,
   SheetClose,
@@ -22,8 +22,8 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/micro/sheet";
-import { type Size } from "@/lib/types";
+} from "../../components/micro/sheet";
+import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 2: Micro Content (không export)

@@ -1,4 +1,4 @@
-import { Button } from "@/components/micro/button";
+import { Button } from "../../components/micro/button";
 import {
   Command,
   CommandDialog,
@@ -9,14 +9,14 @@ import {
   CommandList,
   CommandSeparator,
   CommandShortcut,
-} from "@/components/micro/command";
+} from "../../components/micro/command";
 import {
   DocsP,
   ExampleGrid,
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
+} from "../../dev/components/showcase";
 import {
   CalculatorIcon,
   CalendarIcon,

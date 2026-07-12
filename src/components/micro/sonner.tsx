@@ -16,8 +16,8 @@ import {
   TriangleAlertIcon,
 } from "lucide-react";
 
-import { Spinner } from "@/components/micro/spinner";
-import { useTheme } from "@/components/micro/theme-provider";
+import { Spinner } from "../../components/micro/spinner";
+import { useTheme } from "../../components/micro/theme-provider";
 
 function Toaster({ ...props }: ToasterProps) {
   const themeContext = useTheme();

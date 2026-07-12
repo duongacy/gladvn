@@ -1,4 +1,4 @@
-import { useDevContext } from "@/dev/components/dev-context";
+import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsCode,
   DocsP,
@@ -6,18 +6,18 @@ import {
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
+} from "../../dev/components/showcase";
 import { CalendarIcon } from "lucide-react";
 import { useState } from "react";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/micro/avatar";
-import { Button } from "@/components/micro/button";
+import { Avatar, AvatarFallback, AvatarImage } from "../../components/micro/avatar";
+import { Button } from "../../components/micro/button";
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
-} from "@/components/micro/hover-card";
-import { type Size } from "@/lib/types";
+} from "../../components/micro/hover-card";
+import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────
 // Shared demo card content

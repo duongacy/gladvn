@@ -11,7 +11,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { OTPInput, OTPInputContext } from "input-otp";
 import * as React from "react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 
 const inputOTPVariants = cva(
   "cn-input-otp group/otp inline-flex items-center has-disabled:opacity-50 has-disabled:cursor-not-allowed has-disabled:pointer-events-none",

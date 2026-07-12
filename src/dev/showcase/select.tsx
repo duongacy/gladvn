@@ -1,4 +1,4 @@
-import { useDevContext } from "@/dev/components/dev-context";
+import { useDevContext } from "../../dev/components/dev-context";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
@@ -12,18 +12,18 @@ import {
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
-import { type Size } from "@/lib/types";
+} from "../../dev/components/showcase";
+import { type Size } from "../../lib/types";
 
-import { SelectPreset } from "@/components/macro/select-preset";
-import { Button } from "@/components/micro/button";
+import { SelectPreset } from "../../components/macro/select-preset";
+import { Button } from "../../components/micro/button";
 import {
   Field,
   FieldContent,
   FieldDescription,
   FieldError,
   FieldLabel,
-} from "@/components/micro/field";
+} from "../../components/micro/field";
 import {
   Select,
   SelectContent,
@@ -35,7 +35,7 @@ import {
   SelectSeparator,
   SelectTrigger,
   SelectValue,
-} from "@/components/micro/select";
+} from "../../components/micro/select";
 
 // ──────────────────────────────────────────────────────────
 // RHF Form Demo (Macro)

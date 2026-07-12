@@ -6,8 +6,8 @@ import {
   CarouselNext,
   CarouselPrevious,
   type CarouselApi,
-} from "@/components/micro/carousel";
-import { cn } from "@/lib/utils";
+} from "../../components/micro/carousel";
+import { cn } from "../../lib/utils";
 import * as React from "react";
 
 export type CarouselPresetProps = Omit<

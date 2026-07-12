@@ -1,4 +1,4 @@
-import { useDevContext } from "@/dev/components/dev-context";
+import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsCode,
   DocsH3,
@@ -7,10 +7,10 @@ import {
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
+} from "../../dev/components/showcase";
 import { useState } from "react";
 
-import { PaginationPreset } from "@/components/macro/pagination-preset";
+import { PaginationPreset } from "../../components/macro/pagination-preset";
 import {
   Pagination,
   PaginationContent,
@@ -19,8 +19,8 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "@/components/micro/pagination";
-import { type Size } from "@/lib/types";
+} from "../../components/micro/pagination";
+import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Macro Content

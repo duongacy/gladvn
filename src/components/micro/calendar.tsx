@@ -7,7 +7,7 @@
  */
 "use client";
 
-import { type Size } from "@/lib/types";
+import { type Size } from "../../lib/types";
 import { cva, type VariantProps } from "class-variance-authority";
 import * as React from "react";
 import {
@@ -17,14 +17,14 @@ import {
   type Locale,
 } from "react-day-picker";
 
-import { buttonVariants } from "@/components/micro/button";
+import { buttonVariants } from "../../components/micro/button";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
-} from "@/components/micro/select";
-import { cn } from "@/lib/utils";
+} from "../../components/micro/select";
+import { cn } from "../../lib/utils";
 import {
   ChevronDownIcon,
   ChevronLeftIcon,

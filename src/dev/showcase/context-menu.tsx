@@ -13,13 +13,13 @@ import {
   ContextMenuSubContent,
   ContextMenuSubTrigger,
   ContextMenuTrigger,
-} from "@/components/micro/context-menu";
+} from "../../components/micro/context-menu";
 import {
   DocsP,
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
+} from "../../dev/components/showcase";
 
 import { useState } from "react";
 

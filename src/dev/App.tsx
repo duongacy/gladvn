@@ -1,11 +1,11 @@
-import { Badge } from "@/components/micro/badge";
-import { Button } from "@/components/micro/button";
-import { Separator } from "@/components/micro/separator";
-import { useTheme } from "@/components/micro/theme-provider";
-import { useDevContext } from "@/dev/components/dev-context";
-import { SizeToggle } from "@/dev/components/showcase";
-import { COMPONENTS } from "@/dev/data";
-import OverviewSection from "@/dev/showcase/overview";
+import { Badge } from "../components/micro/badge";
+import { Button } from "../components/micro/button";
+import { Separator } from "../components/micro/separator";
+import { useTheme } from "../components/micro/theme-provider";
+import { useDevContext } from "../dev/components/dev-context";
+import { SizeToggle } from "../dev/components/showcase";
+import { COMPONENTS } from "../dev/data";
+import OverviewSection from "../dev/showcase/overview";
 import { LayersIcon, MenuIcon, XIcon, SunIcon, MoonIcon } from "lucide-react";
 import React, { Suspense, lazy, useEffect, useState } from "react";
 

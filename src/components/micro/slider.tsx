@@ -9,8 +9,8 @@ import { Slider as SliderPrimitive } from "@base-ui/react/slider";
 import { cva } from "class-variance-authority";
 import * as React from "react";
 
-import { type Size } from "@/lib/types";
-import { cn } from "@/lib/utils";
+import { type Size } from "../../lib/types";
+import { cn } from "../../lib/utils";
 
 const sliderVariants = cva(
   "peer group/slider data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full",

@@ -9,7 +9,7 @@
 
 import { ScrollArea as ScrollAreaPrimitive } from "@base-ui/react/scroll-area";
 
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 
 /**
  * @description Augments native scroll functionality for custom, cross-browser styling.

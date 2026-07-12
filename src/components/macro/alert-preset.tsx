@@ -5,9 +5,9 @@ import {
   AlertIcon,
   AlertTitle,
   type AlertProps,
-} from "@/components/micro/alert";
-import { Button } from "@/components/micro/button";
-import { cn } from "@/lib/utils";
+} from "../../components/micro/alert";
+import { Button } from "../../components/micro/button";
+import { cn } from "../../lib/utils";
 import { XIcon } from "lucide-react";
 import * as React from "react";
 

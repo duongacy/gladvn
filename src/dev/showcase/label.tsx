@@ -1,15 +1,15 @@
-import { useDevContext } from "@/dev/components/dev-context";
+import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsCode,
   DocsP,
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
+} from "../../dev/components/showcase";
 import { useState } from "react";
 
-import { Label } from "@/components/micro/label";
-import { type Size } from "@/lib/types";
+import { Label } from "../../components/micro/label";
+import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 2: Micro Content (không export)

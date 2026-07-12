@@ -10,8 +10,8 @@ import {
 import { useState } from "react";
 import { toast } from "sonner";
 
-import { Alert, AlertDescription, AlertTitle } from "@/components/micro/alert";
-import { Button } from "@/components/micro/button";
+import { Alert, AlertDescription, AlertTitle } from "../../components/micro/alert";
+import { Button } from "../../components/micro/button";
 import {
   Empty,
   EmptyContent,
@@ -19,12 +19,12 @@ import {
   EmptyHeader,
   EmptyMedia,
   EmptyTitle,
-} from "@/components/micro/empty";
-import { Progress } from "@/components/micro/progress";
-import { Skeleton } from "@/components/micro/skeleton";
-import { Toaster } from "@/components/micro/sonner";
-import { Spinner } from "@/components/micro/spinner";
-import { SectionHeader, ShowcaseBlock } from "@/dev/components/showcase";
+} from "../../components/micro/empty";
+import { Progress } from "../../components/micro/progress";
+import { Skeleton } from "../../components/micro/skeleton";
+import { Toaster } from "../../components/micro/sonner";
+import { Spinner } from "../../components/micro/spinner";
+import { SectionHeader, ShowcaseBlock } from "../../dev/components/showcase";
 
 export default function FeedbackSection() {
   const [progress1, setProgress1] = useState(25);

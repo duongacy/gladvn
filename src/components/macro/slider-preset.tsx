@@ -4,7 +4,7 @@ import {
   SliderIndicator,
   SliderThumb,
   SliderTrack,
-} from "@/components/micro/slider";
+} from "../../components/micro/slider";
 import * as React from "react";
 import { FieldPreset } from "./field-preset";
 

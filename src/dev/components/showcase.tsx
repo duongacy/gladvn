@@ -1,14 +1,14 @@
-import { Button } from "@/components/micro/button";
+import { Button } from "../../components/micro/button";
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@/components/micro/tabs";
-import { CodeHighlighter } from "@/dev/components/code-highlighter";
-import { COLORS, COLOR_INFO } from "@/dev/data";
-import { type Size } from "@/lib/types";
-import { cn } from "@/lib/utils";
+} from "../../components/micro/tabs";
+import { CodeHighlighter } from "../../dev/components/code-highlighter";
+import { COLORS, COLOR_INFO } from "../../dev/data";
+import { type Size } from "../../lib/types";
+import { cn } from "../../lib/utils";
 import { BookOpenIcon, CheckIcon, CopyIcon } from "lucide-react";
 import React, { useState } from "react";
 

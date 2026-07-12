@@ -5,7 +5,7 @@ import {
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
+} from "../../dev/components/showcase";
 import {
   CopyIcon,
   FileIcon,
@@ -14,21 +14,21 @@ import {
   SaveIcon,
 } from "lucide-react";
 
-import { Button } from "@/components/micro/button";
+import { Button } from "../../components/micro/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/micro/dropdown-menu";
-import { Kbd, KbdGroup } from "@/components/micro/kbd";
+} from "../../components/micro/dropdown-menu";
+import { Kbd, KbdGroup } from "../../components/micro/kbd";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/micro/tooltip";
+} from "../../components/micro/tooltip";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 2: Micro Content (không export)

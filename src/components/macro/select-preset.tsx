@@ -6,8 +6,8 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "@/components/micro/select";
-import { type Size } from "@/lib/types";
+} from "../../components/micro/select";
+import { type Size } from "../../lib/types";
 import * as React from "react";
 import { FieldPreset } from "./field-preset";
 

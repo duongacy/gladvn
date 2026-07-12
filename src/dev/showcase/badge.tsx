@@ -1,5 +1,5 @@
-import { useDevContext } from "@/dev/components/dev-context";
-import { Badge } from "@/components/micro/badge";
+import { useDevContext } from "../../dev/components/dev-context";
+import { Badge } from "../../components/micro/badge";
 import {
   DocsCode,
   DocsP,
@@ -7,8 +7,8 @@ import {
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
-import { type Size } from "@/lib/types";
+} from "../../dev/components/showcase";
+import { type Size } from "../../lib/types";
 import { AlertTriangleIcon, CheckIcon, InfoIcon, XIcon } from "lucide-react";
 import { useState } from "react";
 

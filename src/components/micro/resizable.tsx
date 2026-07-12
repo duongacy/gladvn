@@ -9,7 +9,7 @@
 
 import * as ResizablePrimitive from "react-resizable-panels";
 
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 
 /**
  * @description Accessible resizable panel groups and layouts.

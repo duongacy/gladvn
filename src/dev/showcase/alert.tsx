@@ -1,4 +1,4 @@
-import { useDevContext } from "@/dev/components/dev-context";
+import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsCode,
   DocsLi,
@@ -8,7 +8,7 @@ import {
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
+} from "../../dev/components/showcase";
 import {
   CheckCircle2Icon,
   InfoIcon,
@@ -18,16 +18,16 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 
-import { AlertPreset } from "@/components/macro/alert-preset";
+import { AlertPreset } from "../../components/macro/alert-preset";
 import {
   Alert,
   AlertAction,
   AlertDescription,
   AlertIcon,
   AlertTitle,
-} from "@/components/micro/alert";
-import { Button } from "@/components/micro/button";
-import { type Size } from "@/lib/types";
+} from "../../components/micro/alert";
+import { Button } from "../../components/micro/button";
+import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Macro Content (không export)

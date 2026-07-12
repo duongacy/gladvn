@@ -1,17 +1,17 @@
-import { useDevContext } from "@/dev/components/dev-context";
+import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsP,
   ExampleGrid,
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
+} from "../../dev/components/showcase";
 import { useState } from "react";
 import { type DateRange } from "react-day-picker";
 
-import { Calendar } from "@/components/micro/calendar";
-import { DatePicker } from "@/components/macro/date-picker";
-import { type Size } from "@/lib/types";
+import { Calendar } from "../../components/micro/calendar";
+import { DatePicker } from "../../components/macro/date-picker";
+import { type Size } from "../../lib/types";
 
 function CalendarMicroShowcase({ globalSize }: { globalSize: Size }) {
   const [singleDate, setSingleDate] = useState<Date | undefined>(new Date());

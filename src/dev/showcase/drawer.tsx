@@ -1,4 +1,4 @@
-import { Button } from "@/components/micro/button";
+import { Button } from "../../components/micro/button";
 import {
   Drawer,
   DrawerClose,
@@ -8,14 +8,14 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@/components/micro/drawer";
+} from "../../components/micro/drawer";
 import {
   DocsP,
   ExampleGrid,
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
+} from "../../dev/components/showcase";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 2: Micro Content (không export)

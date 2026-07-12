@@ -1,17 +1,17 @@
-import { AccordionPreset } from "@/components/macro/accordion-preset";
+import { AccordionPreset } from "../../components/macro/accordion-preset";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/micro/accordion";
+} from "../../components/micro/accordion";
 import {
   DocsP,
   ExampleGrid,
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
+} from "../../dev/components/showcase";
 import { BoxIcon, SettingsIcon, SlidersHorizontalIcon } from "lucide-react";
 import { useState } from "react";
 

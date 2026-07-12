@@ -17,9 +17,9 @@
 import { Combobox as ComboboxPrimitive } from "@base-ui/react";
 import * as React from "react";
 
-import { InputGroupButton } from "@/components/micro/input-group";
-import { ThemeWrapper } from "@/components/micro/theme-provider";
-import { cn } from "@/lib/utils";
+import { InputGroupButton } from "../../components/micro/input-group";
+import { ThemeWrapper } from "../../components/micro/theme-provider";
+import { cn } from "../../lib/utils";
 import { CheckIcon, ChevronDownIcon, XIcon } from "lucide-react";
 
 const ComboboxContext = React.createContext<{

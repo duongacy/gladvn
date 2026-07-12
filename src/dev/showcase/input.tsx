@@ -1,4 +1,4 @@
-import { useDevContext } from "@/dev/components/dev-context";
+import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsCode,
   DocsH3,
@@ -9,7 +9,7 @@ import {
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
+} from "../../dev/components/showcase";
 import { LinkIcon, SearchIcon } from "lucide-react";
 import { useState } from "react";
 
@@ -19,17 +19,17 @@ import {
   FieldDescription,
   FieldError,
   FieldLabel,
-} from "@/components/micro/field";
-import { Input } from "@/components/micro/input";
+} from "../../components/micro/field";
+import { Input } from "../../components/micro/input";
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
   InputGroupText,
-} from "@/components/micro/input-group";
-import { type Size } from "@/lib/types";
+} from "../../components/micro/input-group";
+import { type Size } from "../../lib/types";
 
-import { InputPreset } from "@/components/macro/input-preset";
+import { InputPreset } from "../../components/macro/input-preset";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Macro Content

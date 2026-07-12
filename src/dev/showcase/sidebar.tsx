@@ -1,4 +1,4 @@
-import { ExampleSection, Showcase } from "@/dev/components/showcase";
+import { ExampleSection, Showcase } from "../../dev/components/showcase";
 import { FolderIcon, Package2Icon, SettingsIcon, UserIcon } from "lucide-react";
 
 import {
@@ -8,7 +8,7 @@ import {
   SidebarMenuItem,
   SidebarMenuItemList,
   useSidebarToggle,
-} from "@/components/micro/sidebar";
+} from "../../components/micro/sidebar";
 
 function SidebarMicroShowcase() {
   const { sidebarRef, toggleSidebar, defaultState } =

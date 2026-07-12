@@ -5,7 +5,7 @@ import {
   ThemeProvider,
   useTheme,
   type ThemeMode,
-} from "@/components/micro/theme-provider";
+} from "../../components/micro/theme-provider";
 import {
   DocsCode,
   DocsH3,
@@ -14,7 +14,7 @@ import {
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
+} from "../../dev/components/showcase";
 
 // ──────────────────────────────────────────────────────────
 // Demo helpers

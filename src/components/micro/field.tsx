@@ -11,9 +11,9 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { AlertCircleIcon } from "lucide-react";
 import * as React from "react";
 
-import { Label } from "@/components/micro/label";
-import { Separator } from "@/components/micro/separator";
-import { cn } from "@/lib/utils";
+import { Label } from "../../components/micro/label";
+import { Separator } from "../../components/micro/separator";
+import { cn } from "../../lib/utils";
 
 const FieldSet = React.forwardRef<
   HTMLFieldSetElement,

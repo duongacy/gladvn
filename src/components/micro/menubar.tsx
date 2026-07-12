@@ -25,8 +25,8 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "@/components/micro/dropdown-menu";
-import { cn } from "@/lib/utils";
+} from "../../components/micro/dropdown-menu";
+import { cn } from "../../lib/utils";
 import { CheckIcon } from "lucide-react";
 
 /**

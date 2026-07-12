@@ -1,8 +1,8 @@
-import { useDevContext } from "@/dev/components/dev-context";
+import { useDevContext } from "../../dev/components/dev-context";
 import { useState } from "react";
 import { CheckIcon, HeartIcon, MoreVerticalIcon, UserIcon } from "lucide-react";
 
-import { Button } from "@/components/micro/button";
+import { Button } from "../../components/micro/button";
 import {
   Item,
   ItemActions,
@@ -14,8 +14,8 @@ import {
   ItemMedia,
   ItemSeparator,
   ItemTitle,
-} from "@/components/micro/item";
-import { type Size } from "@/lib/types";
+} from "../../components/micro/item";
+import { type Size } from "../../lib/types";
 import {
   DocsH3,
   DocsP,
@@ -23,7 +23,7 @@ import {
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
+} from "../../dev/components/showcase";
 
 function ItemMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (

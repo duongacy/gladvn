@@ -1,11 +1,11 @@
-import { useDevContext } from "@/dev/components/dev-context";
+import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsP,
   ExampleGrid,
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
+} from "../../dev/components/showcase";
 import {
   CheckCircle2Icon,
   CheckIcon,
@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 
-import { AvatarPreset } from "@/components/macro/avatar-preset";
+import { AvatarPreset } from "../../components/macro/avatar-preset";
 import {
   Avatar,
   AvatarBadge,
@@ -22,8 +22,8 @@ import {
   AvatarGroup,
   AvatarGroupCount,
   AvatarImage,
-} from "@/components/micro/avatar";
-import { type Size } from "@/lib/types";
+} from "../../components/micro/avatar";
+import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Macro Content

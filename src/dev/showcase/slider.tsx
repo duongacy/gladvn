@@ -1,4 +1,4 @@
-import { useDevContext } from "@/dev/components/dev-context";
+import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsCode,
   DocsH3,
@@ -7,25 +7,25 @@ import {
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
-import { type Size } from "@/lib/types";
+} from "../../dev/components/showcase";
+import { type Size } from "../../lib/types";
 import { useState } from "react";
 
-import { SliderPreset } from "@/components/macro/slider-preset";
+import { SliderPreset } from "../../components/macro/slider-preset";
 import {
   Field,
   FieldContent,
   FieldDescription,
   FieldError,
   FieldLabel,
-} from "@/components/micro/field";
+} from "../../components/micro/field";
 import {
   Slider as CompositionalSlider,
   SliderControl,
   SliderIndicator,
   SliderThumb,
   SliderTrack,
-} from "@/components/micro/slider";
+} from "../../components/micro/slider";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Macro Content

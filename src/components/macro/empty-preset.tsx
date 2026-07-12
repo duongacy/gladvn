@@ -6,8 +6,8 @@ import {
   EmptyHeader,
   EmptyMedia,
   EmptyTitle,
-} from "@/components/micro/empty";
-import { cn } from "@/lib/utils";
+} from "../../components/micro/empty";
+import { cn } from "../../lib/utils";
 import * as React from "react";
 
 type EmptyPresetProps = {

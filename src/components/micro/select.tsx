@@ -11,8 +11,8 @@ import { Select as SelectPrimitive } from "@base-ui/react/select";
 import { cva, type VariantProps } from "class-variance-authority";
 import * as React from "react";
 
-import { ThemeWrapper } from "@/components/micro/theme-provider";
-import { cn } from "@/lib/utils";
+import { ThemeWrapper } from "../../components/micro/theme-provider";
+import { cn } from "../../lib/utils";
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from "lucide-react";
 
 const Select = SelectPrimitive.Root;

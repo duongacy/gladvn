@@ -10,8 +10,8 @@
 import { Progress as ProgressPrimitive } from "@base-ui/react/progress";
 import * as React from "react";
 
-import { type Color, type Size } from "@/lib/types";
-import { cn } from "@/lib/utils";
+import { type Color, type Size } from "../../lib/types";
+import { cn } from "../../lib/utils";
 
 const ProgressContext = React.createContext<{ size: Size; color: Color }>({
   size: "md",

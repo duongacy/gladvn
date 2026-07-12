@@ -1,16 +1,16 @@
-import { Button } from "@/components/micro/button";
+import { Button } from "../../components/micro/button";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/micro/collapsible";
+} from "../../components/micro/collapsible";
 import {
   DocsP,
   ExampleGrid,
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
+} from "../../dev/components/showcase";
 import { ChevronsUpDownIcon } from "lucide-react";
 import * as React from "react";
 

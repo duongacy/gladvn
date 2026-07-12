@@ -12,7 +12,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/micro/accordion";
+} from "../../components/micro/accordion";
 import {
   Avatar,
   AvatarBadge,
@@ -20,17 +20,17 @@ import {
   AvatarGroup,
   AvatarGroupCount,
   AvatarImage,
-} from "@/components/micro/avatar";
-import { Badge } from "@/components/micro/badge";
-import { Button } from "@/components/micro/button";
+} from "../../components/micro/avatar";
+import { Badge } from "../../components/micro/badge";
+import { Button } from "../../components/micro/button";
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/micro/card";
-import { SectionHeader, ShowcaseBlock } from "@/dev/components/showcase";
+} from "../../components/micro/card";
+import { SectionHeader, ShowcaseBlock } from "../../dev/components/showcase";
 
 export default function DisplaySection() {
   return (

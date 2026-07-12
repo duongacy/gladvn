@@ -16,9 +16,9 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "@/components/micro/dialog";
-import { InputGroup, InputGroupAddon } from "@/components/micro/input-group";
-import { cn } from "@/lib/utils";
+} from "../../components/micro/dialog";
+import { InputGroup, InputGroupAddon } from "../../components/micro/input-group";
+import { cn } from "../../lib/utils";
 import { SearchIcon } from "lucide-react";
 
 const Command = React.forwardRef<

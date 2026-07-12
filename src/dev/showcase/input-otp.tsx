@@ -1,4 +1,4 @@
-import { useDevContext } from "@/dev/components/dev-context";
+import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsCode,
   DocsH3,
@@ -7,24 +7,24 @@ import {
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
-import { type Size } from "@/lib/types";
+} from "../../dev/components/showcase";
+import { type Size } from "../../lib/types";
 import { ShieldIcon, WrenchIcon } from "lucide-react";
 import { useState } from "react";
 
-import { InputOTPPreset } from "@/components/macro/input-otp-preset";
+import { InputOTPPreset } from "../../components/macro/input-otp-preset";
 import {
   Field,
   FieldContent,
   FieldError,
   FieldLabel,
-} from "@/components/micro/field";
+} from "../../components/micro/field";
 import {
   InputOTP,
   InputOTPGroup,
   InputOTPSeparator,
   InputOTPSlot,
-} from "@/components/micro/input-otp";
+} from "../../components/micro/input-otp";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Macro Content

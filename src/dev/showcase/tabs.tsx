@@ -6,15 +6,15 @@ import {
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
+} from "../../dev/components/showcase";
 
-import { TabsPreset } from "@/components/macro/tabs-preset";
+import { TabsPreset } from "../../components/macro/tabs-preset";
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@/components/micro/tabs";
+} from "../../components/micro/tabs";
 import { BellIcon, CreditCardIcon, UserIcon } from "lucide-react";
 
 // ──────────────────────────────────────────────────────────

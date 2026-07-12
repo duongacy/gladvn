@@ -12,7 +12,7 @@ import { Drawer as DrawerPrimitive } from "vaul";
 // Fix TS2883: The inferred type cannot be named without a reference to @radix-ui/react-dialog
 import type {} from "@radix-ui/react-dialog";
 
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 
 function Drawer({
   ...props

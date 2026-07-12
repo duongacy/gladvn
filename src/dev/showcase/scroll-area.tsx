@@ -1,4 +1,4 @@
-import { ScrollArea, ScrollBar } from "@/components/micro/scroll-area";
+import { ScrollArea, ScrollBar } from "../../components/micro/scroll-area";
 import {
   DocsCode,
   DocsH3,
@@ -7,7 +7,7 @@ import {
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
+} from "../../dev/components/showcase";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Explicit Sub-components for Demo

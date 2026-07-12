@@ -1,11 +1,11 @@
-import { useDevContext } from "@/dev/components/dev-context";
+import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsP,
   ExampleGrid,
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
+} from "../../dev/components/showcase";
 import {
   InfoIcon,
   LogOutIcon,
@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 
-import { AlertDialogPreset } from "@/components/macro/alert-dialog-preset";
+import { AlertDialogPreset } from "../../components/macro/alert-dialog-preset";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -30,9 +30,9 @@ import {
   AlertDialogMedia,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/components/micro/alert-dialog";
-import { Button } from "@/components/micro/button";
-import { type Size } from "@/lib/types";
+} from "../../components/micro/alert-dialog";
+import { Button } from "../../components/micro/button";
+import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Macro Content (không export)

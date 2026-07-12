@@ -1,13 +1,13 @@
 import { useState } from "react";
 
-import { Button } from "@/components/micro/button";
+import { Button } from "../../components/micro/button";
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@/components/micro/tabs";
-import { SectionHeader, ShowcaseBlock } from "@/dev/components/showcase";
+} from "../../components/micro/tabs";
+import { SectionHeader, ShowcaseBlock } from "../../dev/components/showcase";
 
 export default function InteractiveSection() {
   const [tab, setTab] = useState("preview");

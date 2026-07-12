@@ -1,12 +1,12 @@
-import { Checkbox, CheckboxIndicator } from "@/components/micro/checkbox";
+import { Checkbox, CheckboxIndicator } from "../../components/micro/checkbox";
 import {
   Field,
   FieldDescription,
   FieldError,
   FieldLabel,
-} from "@/components/micro/field";
-import { type Size } from "@/lib/types";
-import { cn } from "@/lib/utils";
+} from "../../components/micro/field";
+import { type Size } from "../../lib/types";
+import { cn } from "../../lib/utils";
 import { CheckIcon } from "lucide-react";
 import * as React from "react";
 

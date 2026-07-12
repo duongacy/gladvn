@@ -1,16 +1,16 @@
-import { useDevContext } from "@/dev/components/dev-context";
+import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsP,
   ExampleGrid,
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
+} from "../../dev/components/showcase";
 import { useState } from "react";
 
-import { CardPreset } from "@/components/macro/card-preset";
-import { Badge } from "@/components/micro/badge";
-import { Button } from "@/components/micro/button";
+import { CardPreset } from "../../components/macro/card-preset";
+import { Badge } from "../../components/micro/badge";
+import { Button } from "../../components/micro/button";
 import {
   Card,
   CardContent,
@@ -18,10 +18,10 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/micro/card";
-import { Input } from "@/components/micro/input";
-import { Label } from "@/components/micro/label";
-import { type Size } from "@/lib/types";
+} from "../../components/micro/card";
+import { Input } from "../../components/micro/input";
+import { Label } from "../../components/micro/label";
+import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Macro Content

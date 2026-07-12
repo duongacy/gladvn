@@ -6,14 +6,14 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/components/micro/navigation-menu";
+} from "../../components/micro/navigation-menu";
 import {
   DocsP,
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
-import { cn } from "@/lib/utils";
+} from "../../dev/components/showcase";
+import { cn } from "../../lib/utils";
 import React from "react";
 
 const ListItem = React.forwardRef<

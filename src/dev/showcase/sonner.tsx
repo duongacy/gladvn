@@ -1,7 +1,7 @@
 import { toast } from "sonner";
 
-import { Button } from "@/components/micro/button";
-import { Toaster } from "@/components/micro/sonner";
+import { Button } from "../../components/micro/button";
+import { Toaster } from "../../components/micro/sonner";
 import {
   DocsCode,
   DocsP,
@@ -9,7 +9,7 @@ import {
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
+} from "../../dev/components/showcase";
 
 // Simulated async operation for Promise demo
 const mockSave = () =>

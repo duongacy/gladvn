@@ -1,16 +1,16 @@
-import { useDevContext } from "@/dev/components/dev-context";
+import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsH3,
   DocsP,
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
+} from "../../dev/components/showcase";
 import { useState } from "react";
 import { toast } from "sonner";
 
-import { Button } from "@/components/micro/button";
-import { type Size } from "@/lib/types";
+import { Button } from "../../components/micro/button";
+import { type Size } from "../../lib/types";
 
 function ToastMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (

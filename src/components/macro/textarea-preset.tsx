@@ -1,4 +1,4 @@
-import { Textarea, TextareaProps } from "@/components/micro/textarea";
+import { Textarea, TextareaProps } from "../../components/micro/textarea";
 import React from "react";
 import { FieldPreset } from "./field-preset";
 

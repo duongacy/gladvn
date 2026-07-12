@@ -4,7 +4,7 @@ import {
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
+} from "../../dev/components/showcase";
 
 import {
   CheckCircle2Icon,
@@ -16,8 +16,8 @@ import {
   SearchIcon,
 } from "lucide-react";
 
-import { EmptyPreset } from "@/components/macro/empty-preset";
-import { Button } from "@/components/micro/button";
+import { EmptyPreset } from "../../components/macro/empty-preset";
+import { Button } from "../../components/micro/button";
 import {
   Empty,
   EmptyAction,
@@ -26,7 +26,7 @@ import {
   EmptyHeader,
   EmptyMedia,
   EmptyTitle,
-} from "@/components/micro/empty";
+} from "../../components/micro/empty";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Macro Content

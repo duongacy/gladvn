@@ -6,8 +6,8 @@ import {
   ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent,
-} from "@/components/micro/chart";
-import { ExampleSection, SectionHeader } from "@/dev/components/showcase";
+} from "../../components/micro/chart";
+import { ExampleSection, SectionHeader } from "../../dev/components/showcase";
 
 export default function ChartShowcase() {
   return (

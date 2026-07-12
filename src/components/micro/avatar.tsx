@@ -10,8 +10,8 @@
 import { Avatar as AvatarPrimitive } from "@base-ui/react/avatar";
 import * as React from "react";
 
-import { type Size } from "@/lib/types";
-import { cn } from "@/lib/utils";
+import { type Size } from "../../lib/types";
+import { cn } from "../../lib/utils";
 
 /**
  * @description An image element with a fallback for representing the user.

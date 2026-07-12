@@ -1,18 +1,18 @@
-import { useDevContext } from "@/dev/components/dev-context";
-import { TextareaPreset } from "@/components/macro/textarea-preset";
+import { useDevContext } from "../../dev/components/dev-context";
+import { TextareaPreset } from "../../components/macro/textarea-preset";
 import {
   Field,
   FieldContent,
   FieldError,
   FieldLabel,
-} from "@/components/micro/field";
+} from "../../components/micro/field";
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupText,
   InputGroupTextarea,
-} from "@/components/micro/input-group";
-import { Textarea } from "@/components/micro/textarea";
+} from "../../components/micro/input-group";
+import { Textarea } from "../../components/micro/textarea";
 import {
   DocsCode,
   DocsH3,
@@ -21,8 +21,8 @@ import {
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
-import { type Size } from "@/lib/types";
+} from "../../dev/components/showcase";
+import { type Size } from "../../lib/types";
 import { useState } from "react";
 
 // ──────────────────────────────────────────────────────────

@@ -3,7 +3,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/micro/accordion";
+} from "../../components/micro/accordion";
 import * as React from "react";
 
 export interface AccordionPresetItem {

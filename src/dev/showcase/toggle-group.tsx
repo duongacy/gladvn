@@ -1,4 +1,4 @@
-import { useDevContext } from "@/dev/components/dev-context";
+import { useDevContext } from "../../dev/components/dev-context";
 import { useState } from "react";
 import {
   AlignCenterIcon,
@@ -9,8 +9,8 @@ import {
   UnderlineIcon,
 } from "lucide-react";
 
-import { ToggleGroup, ToggleGroupItem } from "@/components/micro/toggle-group";
-import { type Size } from "@/lib/types";
+import { ToggleGroup, ToggleGroupItem } from "../../components/micro/toggle-group";
+import { type Size } from "../../lib/types";
 import {
   DocsCode,
   DocsH3,
@@ -19,7 +19,7 @@ import {
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
+} from "../../dev/components/showcase";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Micro Content

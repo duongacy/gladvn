@@ -4,10 +4,10 @@ import {
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
+} from "../../dev/components/showcase";
 import { SlashIcon } from "lucide-react";
 
-import { BreadcrumbPreset } from "@/components/macro/breadcrumb-preset";
+import { BreadcrumbPreset } from "../../components/macro/breadcrumb-preset";
 import {
   Breadcrumb,
   BreadcrumbEllipsis,
@@ -16,13 +16,13 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/micro/breadcrumb";
+} from "../../components/micro/breadcrumb";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/micro/dropdown-menu";
+} from "../../components/micro/dropdown-menu";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Macro Content

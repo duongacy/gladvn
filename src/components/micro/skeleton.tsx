@@ -5,7 +5,7 @@
  * - Form Control Parity
  * - CSS Delegated Logic
  */
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 import * as React from "react";
 
 /**

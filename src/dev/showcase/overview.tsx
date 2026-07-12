@@ -17,27 +17,27 @@ import {
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
-import { ProgressPreset as Progress } from "@/components/macro/progress-preset";
-import { Badge } from "@/components/micro/badge";
-import { Button } from "@/components/micro/button";
+import { ProgressPreset as Progress } from "../../components/macro/progress-preset";
+import { Badge } from "../../components/micro/badge";
+import { Button } from "../../components/micro/button";
 import {
   Card,
   CardContent,
   CardHeader,
   CardTitle,
-} from "@/components/micro/card";
-import { Label } from "@/components/micro/label";
+} from "../../components/micro/card";
+import { Label } from "../../components/micro/label";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/micro/select";
-import { Switch } from "@/components/micro/switch";
-import { ColorSwatch } from "@/dev/components/showcase";
-import { COLORS, STATS } from "@/dev/data";
-import { cn } from "@/lib/utils";
+} from "../../components/micro/select";
+import { Switch } from "../../components/micro/switch";
+import { ColorSwatch } from "../../dev/components/showcase";
+import { COLORS, STATS } from "../../dev/data";
+import { cn } from "../../lib/utils";
 
 function CodeBlock({
   type,

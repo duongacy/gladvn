@@ -1,13 +1,13 @@
 "use client";
 
-import { Input, InputProps } from "@/components/micro/input";
+import { Input, InputProps } from "../../components/micro/input";
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupButton,
   InputGroupInput,
   InputGroupText,
-} from "@/components/micro/input-group";
+} from "../../components/micro/input-group";
 import { EyeIcon, EyeOffIcon } from "lucide-react";
 import React, { useState } from "react";
 import { FieldPreset } from "./field-preset";

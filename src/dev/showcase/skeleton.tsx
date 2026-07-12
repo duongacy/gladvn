@@ -1,4 +1,4 @@
-import { Skeleton } from "@/components/micro/skeleton";
+import { Skeleton } from "../../components/micro/skeleton";
 import {
   DocsCode,
   DocsH3,
@@ -7,7 +7,7 @@ import {
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
+} from "../../dev/components/showcase";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Micro Content (Only Micro exists)

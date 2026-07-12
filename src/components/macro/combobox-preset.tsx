@@ -9,13 +9,13 @@ import {
   ComboboxList,
   ComboboxTrigger,
   useComboboxContext,
-} from "@/components/micro/combobox";
+} from "../../components/micro/combobox";
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
-} from "@/components/micro/input-group";
-import { type Size } from "@/lib/types";
+} from "../../components/micro/input-group";
+import { type Size } from "../../lib/types";
 import * as React from "react";
 import { FieldPreset } from "./field-preset";
 

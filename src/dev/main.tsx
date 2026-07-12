@@ -1,7 +1,7 @@
-import { ThemeProvider } from "@/components/micro/theme-provider";
-import App from "@/dev/App";
-import { DevContextProvider } from "@/dev/components/dev-context";
-import "@/dev/index.css";
+import { ThemeProvider } from "../components/micro/theme-provider";
+import App from "../dev/App";
+import { DevContextProvider } from "../dev/components/dev-context";
+import "../dev/index.css";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 

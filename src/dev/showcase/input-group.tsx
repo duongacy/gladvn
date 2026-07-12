@@ -1,4 +1,4 @@
-import { useDevContext } from "@/dev/components/dev-context";
+import { useDevContext } from "../../dev/components/dev-context";
 import { useState } from "react";
 
 import {
@@ -11,7 +11,7 @@ import {
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
+} from "../../dev/components/showcase";
 import {
   DollarSignIcon,
   EyeIcon,
@@ -30,8 +30,8 @@ import {
   InputGroupInput,
   InputGroupText,
   InputGroupTextarea,
-} from "@/components/micro/input-group";
-import { type Size } from "@/lib/types";
+} from "../../components/micro/input-group";
+import { type Size } from "../../lib/types";
 
 function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
   const [showPassword, setShowPassword] = useState(false);

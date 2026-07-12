@@ -5,7 +5,7 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/micro/breadcrumb";
+} from "../../components/micro/breadcrumb";
 import * as React from "react";
 
 export interface BreadcrumbPresetItem {

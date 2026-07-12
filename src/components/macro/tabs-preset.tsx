@@ -4,7 +4,7 @@ import {
   TabsList,
   TabsTrigger,
   type tabsListVariants,
-} from "@/components/micro/tabs";
+} from "../../components/micro/tabs";
 import { type VariantProps } from "class-variance-authority";
 import * as React from "react";
 

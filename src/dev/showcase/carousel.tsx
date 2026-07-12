@@ -1,5 +1,5 @@
-import { CarouselPreset } from "@/components/macro/carousel-preset";
-import { Card, CardContent } from "@/components/micro/card";
+import { CarouselPreset } from "../../components/macro/carousel-preset";
+import { Card, CardContent } from "../../components/micro/card";
 import {
   Carousel,
   CarouselContent,
@@ -7,15 +7,15 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/micro/carousel";
+} from "../../components/micro/carousel";
 import {
   DocsP,
   ExampleGrid,
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
-import { cn } from "@/lib/utils";
+} from "../../dev/components/showcase";
+import { cn } from "../../lib/utils";
 import { useState } from "react";
 
 const SLIDES = [

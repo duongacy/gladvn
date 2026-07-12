@@ -4,7 +4,7 @@ import {
   ProgressLabel,
   ProgressTrack,
   ProgressValue,
-} from "@/components/micro/progress";
+} from "../../components/micro/progress";
 import * as React from "react";
 
 export type ProgressPresetProps = Omit<

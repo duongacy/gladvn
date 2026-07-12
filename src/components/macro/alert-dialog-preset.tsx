@@ -11,9 +11,9 @@ import {
   AlertDialogMedia,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/components/micro/alert-dialog";
-import { type Color, type Size, type Variant } from "@/lib/types";
-import { cn } from "@/lib/utils";
+} from "../../components/micro/alert-dialog";
+import { type Color, type Size, type Variant } from "../../lib/types";
+import { cn } from "../../lib/utils";
 import * as React from "react";
 
 type AlertDialogPresetProps = Omit<

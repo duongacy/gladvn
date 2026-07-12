@@ -1,4 +1,4 @@
-import { useDevContext } from "@/dev/components/dev-context";
+import { useDevContext } from "../../dev/components/dev-context";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
@@ -12,14 +12,14 @@ import {
   ExampleSection,
   Showcase,
   ShowcaseDocs,
-} from "@/dev/components/showcase";
-import { type Size } from "@/lib/types";
+} from "../../dev/components/showcase";
+import { type Size } from "../../lib/types";
 
-import { RadioGroupPreset } from "@/components/macro/radio-group-preset";
-import { Button } from "@/components/micro/button";
-import { Field, FieldError, FieldLabel } from "@/components/micro/field";
-import { Label } from "@/components/micro/label";
-import { RadioGroup, RadioGroupItem } from "@/components/micro/radio-group";
+import { RadioGroupPreset } from "../../components/macro/radio-group-preset";
+import { Button } from "../../components/micro/button";
+import { Field, FieldError, FieldLabel } from "../../components/micro/field";
+import { Label } from "../../components/micro/label";
+import { RadioGroup, RadioGroupItem } from "../../components/micro/radio-group";
 
 // ──────────────────────────────────────────────────────────
 // RHF Form Demo (Macro)

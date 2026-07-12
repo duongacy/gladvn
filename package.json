@@ -1,6 +1,6 @@
 {
   "name": "@duongy96/gladcn",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "type": "module",
   "description": "A highly composable React component library built with Tailwind CSS, optimized for both human developers and AI coding assistants.",
   "keywords": [

@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @import "../styles/tokens.css";
-@import "../styles/globals.css";
+@import "../styles/gladcn.css";
 
 /* ── Shiki dual-theme (github-light / github-dark) ────────────────────
    When defaultColor: false is set in codeToHtml(), Shiki outputs

@@ -4,8 +4,8 @@
  * Copy this file into your project's CSS and customize the values below.
  * These CSS variables control the entire look & feel of all gladcn components.
  *
- * Usage: Copy this content into your project's globals.css BEFORE the
- *        @import "@duongy96/gladcn/globals.css" line.
+ * Usage: Copy this content into your project's main CSS BEFORE the
+ *        @import "@duongy96/gladcn/gladcn.css" line.
  *
  * Color format: oklch(lightness chroma hue)
  * Docs: https://oklch.com

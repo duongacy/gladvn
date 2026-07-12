@@ -85,7 +85,7 @@ function injectImports(cssFilePath, tokensRelPath) {
   let content = fs.readFileSync(cssFilePath, "utf8");
 
   // Check if already configured
-  if (content.includes("@duongy96/gladcn/globals.css")) {
+  if (content.includes("@duongy96/gladcn/gladcn.css")) {
     console.log(
       `${dim}   ⏭  @duongy96/gladcn already configured in this file — skipped${reset}`,
     );
@@ -95,7 +95,7 @@ function injectImports(cssFilePath, tokensRelPath) {
   // Build the import lines
   const sourceDirective = `@source "../node_modules/@duongy96/gladcn/dist";`;
   const tokensImport = `@import "${tokensRelPath}";`;
-  const globalsImport = `@import "@duongy96/gladcn/globals.css";`;
+  const globalsImport = `@import "@duongy96/gladcn/gladcn.css";`;
 
   const imports = `\n/* @duongy96/gladcn */\n${sourceDirective}\n${tokensImport}\n${globalsImport}\n`;
 
@@ -145,7 +145,7 @@ async function interactiveSetup(projectRoot) {
 
   // Step 2: Ask for main CSS file
   const cssFile = await ask(
-    `\n${yellow}   📄 Path to your main CSS file? ${dim}(e.g. src/app/globals.css)${reset}\n   > `,
+    `\n${yellow}   📄 Path to your main CSS file? ${dim}(e.g. app/globals.css)${reset}\n   > `,
   );
   const cssFileTrimmed = cssFile.trim();
 
@@ -183,12 +183,12 @@ ${cyan}╔═══════════════════════�
 ║      ${dim}cp node_modules/@duongy96/gladcn/src/styles/tokens.css \\${cyan}    ║
 ║      ${dim}   src/styles/tokens.css${cyan}                                    ║
 ║                                                                  ║
-║   ${yellow}2. Set up your main CSS file (e.g. globals.css):${cyan}               ║
+║   ${yellow}2. Set up your main CSS file (e.g. app/globals.css):${cyan}               ║
 ║                                                                  ║
 ║      ${green}@import "tailwindcss";${cyan}                                      ║
 ║      ${green}@source "../node_modules/@duongy96/gladcn/dist";${cyan}             ║
 ║      ${green}@import "./tokens.css";${cyan}                                     ║
-║      ${green}@import "@duongy96/gladcn/globals.css";${cyan}                      ║
+║      ${green}@import "@duongy96/gladcn/gladcn.css";${cyan}                       ║
 ║                                                                  ║
 ║   ${yellow}3. Use components:${cyan}                                             ║
 ║                                                                  ║

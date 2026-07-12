@@ -58,7 +58,7 @@ Update your main CSS file to scan the library for Tailwind utility classes and i
 @source "../node_modules/@duongy96/gladcn/dist";
 
 /* 2. Import gladcn global CSS variables */
-@import "@duongy96/gladcn/globals.css";
+@import "@duongy96/gladcn/gladcn.css";
 ```
 
 **Usage:**

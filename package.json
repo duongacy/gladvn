@@ -29,7 +29,7 @@
         "default": "./dist/index.cjs"
       }
     },
-    "./globals.css": "./src/styles/globals.css",
+    "./gladcn.css": "./src/styles/gladcn.css",
     "./tokens.css": "./src/styles/tokens.css"
   },
   "files": [

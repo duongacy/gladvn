@@ -270,7 +270,7 @@ function ComboboxMacroShowcase({ globalSize }: { globalSize: Size }) {
           description="Sử dụng Controller để bắt giá trị."
           codeString={rhfCode}
         >
-          <ComboboxForm className="w-full" size={globalSize} />
+          <ComboboxForm size={globalSize} />
         </ExampleSection>
       </ExampleGrid>
     </div>

@@ -253,7 +253,7 @@ function SelectMacroShowcase({ globalSize }: { globalSize: Size }) {
           description="Sử dụng Controller để bắt giá trị."
           codeString={rhfCode}
         >
-          <SelectForm className="w-full" size={globalSize} />
+          <SelectForm size={globalSize} />
         </ExampleSection>
       </ExampleGrid>
     </div>

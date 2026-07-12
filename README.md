@@ -1,47 +1,69 @@
-# gladcn
+# 🌊 gladcn
 
-A custom component library built on top of [shadcn/ui](https://ui.shadcn.com/). All 55+ components bundled and ready to use.
+> **✨ [Explore the Interactive Showcase & Documentation](https://gladcn.vercel.app/)**
 
-## Installation
+A highly composable, accessible, and beautifully designed React component library. Built on top of [shadcn/ui](https://ui.shadcn.com/) and powered by **Tailwind CSS v4+**, `gladcn` provides a robust foundation for your next web application.
+
+## ✨ Features
+
+- **55+ Components**: From basic buttons to complex comboboxes and date pickers.
+- **Micro & Macro Architecture**: Cleanly separates primitive UI elements (Micro) from complex, stateful, composite components (Macro).
+- **Tailwind CSS v4 Ready**: Fully compatible with the modern `@tailwindcss/postcss` and `@tailwindcss/vite` ecosystem.
+- **Copy-Paste or Install**: Choose between cloning the source code directly into your repo (the shadcn way) or installing it as a standard npm dependency.
+- **Fully Customizable**: Extend and tweak everything to match your brand.
+
+---
+
+## 🚀 Installation
+
+> [!WARNING]
+> **Please use `npx` to clone the components into your project instead of installing via `npm`.** While installing via `npm` works, using `npx` (Option 1) gives you full control over the source code and styling, which is the core philosophy and intended way to use this library.
+
+There are two ways to use `gladcn` in your project. We highly recommend **Option 1** for maximum flexibility.
+
+### Option 1: Clone components to your project (Recommended)
+
+This approach automatically copies all component source code, hooks, and styles directly into your project. You own the code, you can freely modify it, and the CLI will automatically install necessary peer dependencies for you!
+
+```bash
+npx @duongy96/gladcn init
+```
+
+*By default, this will create a `gladcn` folder at your project root. If you prefer to place it elsewhere, specify the path:*
+```bash
+npx @duongy96/gladcn init components/ui
+```
+
+**Usage:**
+```tsx
+// Import directly from your local folder
+import { Button } from "@/gladcn/components/micro/button";
+```
+
+### Option 2: Install as an npm package
+
+If you prefer to use the pre-built components without cluttering your repository with source code, install it via npm:
 
 ```bash
 npm install @duongy96/gladcn
 ```
 
-### Prerequisites
-
-Your project must have **Tailwind CSS v4+** installed:
-
-```bash
-npm install tailwindcss @tailwindcss/postcss
-```
-
-## Setup
-
-### 1. Import the CSS preset
-
-Add the gladcn globals CSS to your main CSS file:
+**Setup Tailwind CSS v4:**
+Update your main CSS file to scan the library for Tailwind utility classes and import its CSS variables:
 
 ```css
-/* app/globals.css or src/index.css */
-@import "@duongy96/gladcn/globals.css";
-```
-
-### 2. Configure Tailwind content
-
-Make sure Tailwind scans the gladcn components:
-
-```css
-/* In your main CSS file */
 @import "tailwindcss";
-@source "../node_modules/gladcn/dist";
+
+/* 1. Tell Tailwind to scan gladcn for utility classes */
+@source "../node_modules/@duongy96/gladcn/dist";
+
+/* 2. Import gladcn global CSS variables */
 @import "@duongy96/gladcn/globals.css";
 ```
 
-## Usage
-
+**Usage:**
 ```tsx
-import { Button, Card, CardHeader, CardTitle, CardContent } from "gladcn";
+import { Button, Card, CardHeader, CardTitle, CardContent } from "@duongy96/gladcn";
 
 export function MyComponent() {
   return (
@@ -50,80 +72,27 @@ export function MyComponent() {
         <CardTitle>Hello from gladcn!</CardTitle>
       </CardHeader>
       <CardContent>
-        <Button variant="destructive">Click me</Button>
+        <Button variant="default">Click me</Button>
       </CardContent>
     </Card>
   );
 }
 ```
 
-## Available Components
+---
 
-All 55 shadcn/ui components are included:
+## 🏗️ Architecture: Micro vs. Macro
 
-| Component       | Component   | Component     |
-| --------------- | ----------- | ------------- |
-| Accordion       | Alert       | Alert Dialog  |
-| Aspect Ratio    | Avatar      | Badge         |
-| Breadcrumb      | Button      | Button Group  |
-| Calendar        | Card        | Carousel      |
-| Chart           | Checkbox    | Collapsible   |
-| Combobox        | Command     | Context Menu  |
-| Dialog          | Direction   | Drawer        |
-| Dropdown Menu   | Empty       | Field         |
-| Hover Card      | Input       | Input Group   |
-| Input OTP       | Item        | Kbd           |
-| Label           | Menubar     | Native Select |
-| Navigation Menu | Pagination  | Popover       |
-| Progress        | Radio Group | Resizable     |
-| Scroll Area     | Select      | Separator     |
-| Sheet           | Sidebar     | Skeleton      |
-| Slider          | Sonner      | Spinner       |
-| Switch          | Table       | Tabs          |
-| Textarea        | Toggle      | Toggle Group  |
-| Tooltip         |             |               |
+`gladcn` introduces a strict architectural separation to keep your codebase maintainable:
 
-## Utilities
+- **Micro Components** (`components/micro/`): "Dumb" presentational primitives (e.g., `Button`, `Badge`, `Input`). They do not contain internal React state (`useState`) or business logic. They strictly rely on props for rendering.
+- **Macro Components** (`components/macro/`): "Smart" presets and compositions (e.g., `DatePicker`, `SelectPreset`, `PaginationPreset`). These components combine multiple Micro components and manage complex state, accessibility (a11y), and interactions.
 
-```tsx
-import { cn } from "gladcn";
+---
 
-// Merge Tailwind classes with conflict resolution
-cn("px-4 py-2", "px-8"); // → "px-8 py-2"
-```
+## 🎨 Theming & Customization
 
-## Hooks
-
-```tsx
-import { useIsMobile } from "gladcn";
-
-function MyComponent() {
-  const isMobile = useIsMobile();
-  // ...
-}
-```
-
-## Dark Mode
-
-Add the `dark` class to your `<html>` element to enable dark mode:
-
-```html
-<html class="dark"></html>
-```
-
-Or use `next-themes` for automatic dark mode:
-
-```tsx
-import { ThemeProvider } from "next-themes";
-
-<ThemeProvider attribute="class">
-  <App />
-</ThemeProvider>;
-```
-
-## Customization
-
-Override CSS variables in your own CSS to customize the theme:
+`gladcn` uses CSS variables for theming. You can easily override these variables in your own CSS file.
 
 ```css
 :root {
@@ -133,6 +102,23 @@ Override CSS variables in your own CSS to customize the theme:
 }
 ```
 
-## License
+If you cloned the components via `npx` (Option 1), you can modify the CSS directly inside the `gladcn/styles/` directory.
 
-MIT
+---
+
+## 📦 Included Components
+
+All 55+ essential UI components are included out of the box:
+
+| Basic | Forms & Inputs | Overlays & Feedback | Navigation & Data |
+| --- | --- | --- | --- |
+| Button, Badge, Avatar | Input, Textarea, Checkbox | Dialog, Alert Dialog | Breadcrumb, Menubar |
+| Card, Separator | Select, Combobox, Slider | Popover, Tooltip | Tabs, Pagination |
+| Skeleton, Spinner | Switch, Radio Group | Sheet, Drawer | Table, Accordion |
+| Aspect Ratio | Input OTP, Command | Sonner (Toasts) | Carousel, Chart |
+
+---
+
+## 📄 License
+
+MIT © Duongy96

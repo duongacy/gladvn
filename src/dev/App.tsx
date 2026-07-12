@@ -1,12 +1,12 @@
 import { Badge } from "@/components/micro/badge";
+import { Button } from "@/components/micro/button";
 import { Separator } from "@/components/micro/separator";
-import { Switch, SwitchThumb } from "@/components/micro/switch";
 import { useTheme } from "@/components/micro/theme-provider";
 import { useDevContext } from "@/dev/components/dev-context";
 import { SizeToggle } from "@/dev/components/showcase";
 import { COMPONENTS } from "@/dev/data";
 import OverviewSection from "@/dev/showcase/overview";
-import { LayersIcon, MenuIcon, XIcon } from "lucide-react";
+import { LayersIcon, MenuIcon, XIcon, SunIcon, MoonIcon } from "lucide-react";
 import React, { Suspense, lazy, useEffect, useState } from "react";
 
 const components: Record<string, React.LazyExoticComponent<any>> = {};
@@ -128,13 +128,16 @@ export default function App() {
             </Badge>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-xs text-muted-foreground mr-1">Dark</span>
-            <Switch
-              checked={theme?.mode === "dark"}
-              onCheckedChange={(v) => theme?.setMode(v ? "dark" : "light")}
+            <Button
+              variant="ghost"
+              iconOnly
+              onClick={() => theme?.setMode(theme.mode === "light" ? "dark" : "light")}
+              className="text-muted-foreground hover:text-foreground relative"
             >
-              <SwitchThumb />
-            </Switch>
+              <SunIcon className="size-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+              <MoonIcon className="absolute size-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+              <span className="sr-only">Toggle theme</span>
+            </Button>
           </div>
         </div>
       </header>
@@ -158,8 +161,8 @@ export default function App() {
             <button
               onClick={() => setActive("overview")}
               className={`w-full flex items-center gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors text-left mb-2 ${active === "overview"
-                  ? "bg-accent text-accent-foreground font-medium"
-                  : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
+                ? "bg-accent text-accent-foreground font-medium"
+                : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
                 }`}
             >
               <LayersIcon className="size-3.5" />
@@ -176,8 +179,8 @@ export default function App() {
                 key={id}
                 onClick={() => setActive(id)}
                 className={`w-full flex items-center justify-between gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors text-left ${active === id
-                    ? "bg-accent text-accent-foreground font-medium"
-                    : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
+                  ? "bg-accent text-accent-foreground font-medium"
+                  : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
                   }`}
               >
                 <span>{label}</span>

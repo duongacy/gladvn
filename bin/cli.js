@@ -10,14 +10,14 @@ Usage:
   npx @duongy96/gladcn init [destination]
 
 Options:
-  [destination]   The folder where components will be copied. Defaults to "src/gladcn".
+  [destination]   The folder where components will be copied. Defaults to "gladcn".
   --help, -h      Show this help message.
 `);
   process.exit(0);
 }
 
 // Find destination
-let userDest = "src/gladcn";
+let userDest = "gladcn";
 const args = process.argv.slice(2);
 
 // Handle "init" command optionally (e.g. `npx pkg init ./dest`)

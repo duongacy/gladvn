@@ -16,7 +16,7 @@
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
-    "gladcn": "./bin/cli.js"
+    "gladcn": "bin/cli.js"
   },
   "exports": {
     ".": {

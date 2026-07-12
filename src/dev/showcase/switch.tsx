@@ -235,7 +235,7 @@ return (
           description="Dùng Controller của RHF để bọc SwitchPreset."
           codeString={rhfCode}
         >
-          <SwitchForm className="w-full" size={globalSize} />
+          <SwitchForm size={globalSize} />
         </ExampleSection>
       </ExampleGrid>
     </div>

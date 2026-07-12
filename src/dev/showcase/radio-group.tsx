@@ -230,7 +230,7 @@ function RadioGroupMacroShowcase({ globalSize }: { globalSize: Size }) {
           description="Sử dụng Controller để bắt giá trị."
           codeString={rhfCode}
         >
-          <RadioGroupForm className="w-full" size={globalSize} />
+          <RadioGroupForm size={globalSize} />
         </ExampleSection>
       </ExampleGrid>
     </div>

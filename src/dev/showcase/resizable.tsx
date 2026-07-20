@@ -24,7 +24,7 @@ function ResizableMicroShowcase() {
         description="Kéo tay cầm để thay đổi kích thước bảng theo chiều ngang."
         codeString={`<ResizablePanelGroup
   orientation="horizontal"
-  className="max-w-md rounded-xl border bg-card"
+  className="max-w-md rounded-xl border border-border bg-card"
 >
   <ResizablePanel defaultSize={50}>
     <div className="flex h-[200px] items-center justify-center p-6">
@@ -41,7 +41,7 @@ function ResizableMicroShowcase() {
       >
         <ResizablePanelGroup
           orientation="horizontal"
-          className="max-w-md rounded-xl border bg-card"
+          className="max-w-md rounded-xl border border-border bg-card"
         >
           <ResizablePanel defaultSize={50}>
             <div className="flex h-[200px] items-center justify-center p-6">
@@ -63,7 +63,7 @@ function ResizableMicroShowcase() {
         description='orientation="vertical" chia bảng theo chiều dọc.'
         codeString={`<ResizablePanelGroup
   orientation="vertical"
-  className="max-w-md rounded-xl border bg-card"
+  className="max-w-md rounded-xl border border-border bg-card"
 >
   <ResizablePanel defaultSize={50}>
     <div className="flex h-[120px] items-center justify-center p-6">
@@ -80,7 +80,7 @@ function ResizableMicroShowcase() {
       >
         <ResizablePanelGroup
           orientation="vertical"
-          className="max-w-md rounded-xl border bg-card"
+          className="max-w-md rounded-xl border border-border bg-card"
         >
           <ResizablePanel defaultSize={50}>
             <div className="flex h-[120px] items-center justify-center p-6">
@@ -105,7 +105,7 @@ function ResizableMicroShowcase() {
         >
           <ResizablePanelGroup
             orientation="horizontal"
-            className="rounded-xl border bg-card"
+            className="rounded-xl border border-border bg-card"
           >
             <ResizablePanel defaultSize={50}>
               <div className="flex h-[120px] items-center justify-center p-4">
@@ -128,7 +128,7 @@ function ResizableMicroShowcase() {
         >
           <ResizablePanelGroup
             orientation="horizontal"
-            className="rounded-xl border bg-card"
+            className="rounded-xl border border-border bg-card"
           >
             <ResizablePanel defaultSize={50}>
               <div className="flex h-[120px] items-center justify-center p-4">
@@ -151,7 +151,7 @@ function ResizableMicroShowcase() {
         description="Bố cục phức tạp với các nhóm có thể thay đổi kích thước lồng nhau."
         codeString={`<ResizablePanelGroup
   orientation="horizontal"
-  className="max-w-md rounded-xl border bg-card"
+  className="max-w-md rounded-xl border border-border bg-card"
 >
   <ResizablePanel defaultSize={25} minSize={15}>
     <div className="flex h-[250px] items-center justify-center p-6">
@@ -178,7 +178,7 @@ function ResizableMicroShowcase() {
       >
         <ResizablePanelGroup
           orientation="horizontal"
-          className="max-w-md rounded-xl border bg-card"
+          className="max-w-md rounded-xl border border-border bg-card"
         >
           <ResizablePanel defaultSize={25} minSize={15}>
             <div className="flex h-[250px] items-center justify-center p-6">

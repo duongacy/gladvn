@@ -36,7 +36,7 @@ function CommandMicroShowcase() {
         <ExampleSection
           label="Default"
           description="Bảng lệnh có thể tìm kiếm với các mục được nhóm."
-          codeString={`<Command className="border rounded-xl shadow-sm overflow-hidden bg-background w-full">
+          codeString={`<Command className="border border-border rounded-xl shadow-sm overflow-hidden bg-background w-full">
     <CommandInput placeholder="Type a command or search..." />
     <CommandList>
       <CommandEmpty>No results found.</CommandEmpty>
@@ -76,7 +76,7 @@ function CommandMicroShowcase() {
   </Command>
 `}
         >
-          <Command className="border rounded-xl shadow-sm overflow-hidden bg-background w-full">
+          <Command className="border border-border rounded-xl shadow-sm overflow-hidden bg-background w-full">
             <CommandInput placeholder="Type a command or search..." />
             <CommandList>
               <CommandEmpty>No results found.</CommandEmpty>
@@ -119,7 +119,7 @@ function CommandMicroShowcase() {
         <ExampleSection
           label="Flat List"
           description="Nhóm duy nhất không có tiêu đề."
-          codeString={`<Command className="border rounded-xl shadow-sm overflow-hidden bg-background w-full">
+          codeString={`<Command className="border border-border rounded-xl shadow-sm overflow-hidden bg-background w-full">
     <CommandInput placeholder="Search actions..." />
     <CommandList>
       <CommandEmpty>No actions found.</CommandEmpty>
@@ -145,7 +145,7 @@ function CommandMicroShowcase() {
   </Command>
 `}
         >
-          <Command className="border rounded-xl shadow-sm overflow-hidden bg-background w-full">
+          <Command className="border border-border rounded-xl shadow-sm overflow-hidden bg-background w-full">
             <CommandInput placeholder="Search actions..." />
             <CommandList>
               <CommandEmpty>No actions found.</CommandEmpty>

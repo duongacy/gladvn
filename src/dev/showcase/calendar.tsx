@@ -38,10 +38,10 @@ function CalendarMicroShowcase({ globalSize }: { globalSize: Size }) {
   mode="single"
   selected={date}
   onSelect={setDate}
-  className="rounded-xl border shadow"
+  className="rounded-xl border border-border shadow"
 />`}
         >
-          <div className="border rounded-xl inline-block bg-card p-3">
+          <div className="border border-border rounded-xl inline-block bg-card p-3">
             <Calendar
               size={globalSize}
               mode="single"
@@ -65,10 +65,10 @@ function CalendarMicroShowcase({ globalSize }: { globalSize: Size }) {
   mode="range"
   selected={date}
   onSelect={setDate}
-  className="rounded-xl border shadow"
+  className="rounded-xl border border-border shadow"
 />`}
         >
-          <div className="border rounded-xl inline-block bg-card p-3">
+          <div className="border border-border rounded-xl inline-block bg-card p-3">
             <Calendar
               size={globalSize}
               mode="range"
@@ -91,10 +91,10 @@ function CalendarMicroShowcase({ globalSize }: { globalSize: Size }) {
   mode="multiple"
   selected={dates}
   onSelect={setDates}
-  className="rounded-xl border shadow"
+  className="rounded-xl border border-border shadow"
 />`}
         >
-          <div className="border rounded-xl inline-block bg-card p-3">
+          <div className="border border-border rounded-xl inline-block bg-card p-3">
             <Calendar
               size={globalSize}
               mode="multiple"
@@ -112,10 +112,10 @@ function CalendarMicroShowcase({ globalSize }: { globalSize: Size }) {
           codeString={`<Calendar
   mode="single"
   disabled={(date) => date < new Date()}
-  className="rounded-xl border shadow"
+  className="rounded-xl border border-border shadow"
 />`}
         >
-          <div className="border rounded-xl inline-block bg-card p-3">
+          <div className="border border-border rounded-xl inline-block bg-card p-3">
             <Calendar
               size={globalSize}
               mode="single"
@@ -136,10 +136,10 @@ function CalendarMicroShowcase({ globalSize }: { globalSize: Size }) {
   selected={date}
   onSelect={setDate}
   numberOfMonths={2}
-  className="rounded-xl border shadow"
+  className="rounded-xl border border-border shadow"
 />`}
       >
-        <div className="border rounded-xl inline-block bg-card p-3 overflow-x-auto max-w-full">
+        <div className="border border-border rounded-xl inline-block bg-card p-3 overflow-x-auto max-w-full">
           <Calendar
             size={globalSize}
             mode="range"
@@ -158,10 +158,10 @@ function CalendarMicroShowcase({ globalSize }: { globalSize: Size }) {
         codeString={`<Calendar
   mode="single"
   captionLayout="dropdown"
-  className="rounded-xl border shadow"
+  className="rounded-xl border border-border shadow"
 />`}
       >
-        <div className="border rounded-xl inline-block bg-card p-3">
+        <div className="border border-border rounded-xl inline-block bg-card p-3">
           <Calendar
             size={globalSize}
             mode="single"

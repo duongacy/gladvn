@@ -555,7 +555,7 @@ function AlertMicroShowcase({ globalSize }: { globalSize: Size }) {
       />
     </div>
 
-    <div className="rounded-md border border-green-500/20 bg-green-500/5 px-3 py-2">
+    <div className="rounded-md border border-border border-green-500/20 bg-green-500/5 px-3 py-2">
       <p className="text-xs font-medium text-green-700 dark:text-green-400">
         ✅ Dùng <code className="font-mono">AlertPreset</code> — Prop{" "}
         <code className="font-mono">dismissible</code> tự động xử lý
@@ -607,7 +607,7 @@ function AlertMicroShowcase({ globalSize }: { globalSize: Size }) {
       </Alert>
     </div>
 
-    <div className="rounded-md border border-blue-500/20 bg-blue-500/5 px-3 py-2">
+    <div className="rounded-md border border-border border-blue-500/20 bg-blue-500/5 px-3 py-2">
       <p className="text-xs font-medium text-blue-700 dark:text-blue-400">
         ✅ Dùng <code className="font-mono">Alert</code> (Micro) — Bạn
         tự viết class <code className="font-mono">flex-col</code>, tự
@@ -652,7 +652,7 @@ function AlertMicroShowcase({ globalSize }: { globalSize: Size }) {
               />
             </div>
 
-            <div className="rounded-md border border-green-500/20 bg-green-500/5 px-3 py-2">
+            <div className="rounded-md border border-border border-green-500/20 bg-green-500/5 px-3 py-2">
               <p className="text-xs font-medium text-green-700 dark:text-green-400">
                 ✅ Dùng <code className="font-mono">AlertPreset</code> — Prop{" "}
                 <code className="font-mono">dismissible</code> tự động xử lý
@@ -704,7 +704,7 @@ function AlertMicroShowcase({ globalSize }: { globalSize: Size }) {
               </Alert>
             </div>
 
-            <div className="rounded-md border border-blue-500/20 bg-blue-500/5 px-3 py-2">
+            <div className="rounded-md border border-border border-blue-500/20 bg-blue-500/5 px-3 py-2">
               <p className="text-xs font-medium text-blue-700 dark:text-blue-400">
                 ✅ Dùng <code className="font-mono">Alert</code> (Micro) — Bạn
                 tự viết class <code className="font-mono">flex-col</code>, tự

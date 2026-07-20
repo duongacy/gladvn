@@ -35,7 +35,7 @@ function TabsMacroShowcase() {
       value: "account",
       title: "Account",
       content: (
-        <div className="rounded-xl border bg-card p-4 mt-2">
+        <div className="rounded-xl border border-border bg-card p-4 mt-2">
           <h4 className="font-medium">Account</h4>
           <p className="text-sm text-muted-foreground">Account settings here.</p>
         </div>
@@ -45,7 +45,7 @@ function TabsMacroShowcase() {
       value: "password",
       title: "Password",
       content: (
-        <div className="rounded-xl border bg-card p-4 mt-2">
+        <div className="rounded-xl border border-border bg-card p-4 mt-2">
           <h4 className="font-medium">Password</h4>
           <p className="text-sm text-muted-foreground">Change your password here.</p>
         </div>
@@ -62,7 +62,7 @@ function TabsMacroShowcase() {
                 value: "account",
                 title: "Account",
                 content: (
-                  <div className="rounded-xl border bg-card p-4 mt-2">
+                  <div className="rounded-xl border border-border bg-card p-4 mt-2">
                     <h4 className="font-medium">Account</h4>
                     <p className="text-sm text-muted-foreground">
                       Account settings here.
@@ -74,7 +74,7 @@ function TabsMacroShowcase() {
                 value: "password",
                 title: "Password",
                 content: (
-                  <div className="rounded-xl border bg-card p-4 mt-2">
+                  <div className="rounded-xl border border-border bg-card p-4 mt-2">
                     <h4 className="font-medium">Password</h4>
                     <p className="text-sm text-muted-foreground">
                       Change your password here.
@@ -97,7 +97,7 @@ function TabsMacroShowcase() {
       value: "general",
       title: "General",
       content: (
-        <div className="rounded-xl border bg-card p-4 mt-2">
+        <div className="rounded-xl border border-border bg-card p-4 mt-2">
           <h4 className="font-medium">General</h4>
           <p className="text-sm text-muted-foreground">General settings.</p>
         </div>
@@ -120,7 +120,7 @@ function TabsMacroShowcase() {
                 value: "general",
                 title: "General",
                 content: (
-                  <div className="rounded-xl border bg-card p-4 mt-2">
+                  <div className="rounded-xl border border-border bg-card p-4 mt-2">
                     <h4 className="font-medium">General</h4>
                     <p className="text-sm text-muted-foreground">
                       General settings.
@@ -147,7 +147,7 @@ function TabsMacroShowcase() {
   <TabsPreset
     defaultValue="overview"
     variant="line"
-    listClassName="w-full justify-start border-b rounded-none px-0"
+    listClassName="w-full justify-start border-b border-b-border rounded-none px-0"
     className="w-full"
     items={[
       {
@@ -195,7 +195,7 @@ function TabsMacroShowcase() {
           <TabsPreset
             defaultValue="overview"
             variant="line"
-            listClassName="w-full justify-start border-b rounded-none px-0"
+            listClassName="w-full justify-start border-b border-b-border rounded-none px-0"
             className="w-full"
             items={[
               {
@@ -252,7 +252,7 @@ function TabsMacroShowcase() {
         value: "login",
         title: "Login",
         content: (
-          <div className="rounded-xl border bg-card p-6 mt-2 flex flex-col gap-4">
+          <div className="rounded-xl border border-border bg-card p-6 mt-2 flex flex-col gap-4">
             <div className="text-lg font-semibold">Welcome Back</div>
             <div className="h-10 w-full bg-muted rounded-md" />
             <div className="h-10 w-full bg-muted rounded-md" />
@@ -266,7 +266,7 @@ function TabsMacroShowcase() {
         value: "register",
         title: "Register",
         content: (
-          <div className="rounded-xl border bg-card p-6 mt-2 flex flex-col gap-4">
+          <div className="rounded-xl border border-border bg-card p-6 mt-2 flex flex-col gap-4">
             <div className="text-lg font-semibold">Create Account</div>
             <div className="h-10 w-full bg-muted rounded-md" />
             <div className="h-10 w-full bg-muted rounded-md" />
@@ -291,7 +291,7 @@ function TabsMacroShowcase() {
                 value: "login",
                 title: "Login",
                 content: (
-                  <div className="rounded-xl border bg-card p-6 mt-2 flex flex-col gap-4">
+                  <div className="rounded-xl border border-border bg-card p-6 mt-2 flex flex-col gap-4">
                     <div className="text-lg font-semibold">Welcome Back</div>
                     <div className="h-10 w-full bg-muted rounded-md" />
                     <div className="h-10 w-full bg-muted rounded-md" />
@@ -305,7 +305,7 @@ function TabsMacroShowcase() {
                 value: "register",
                 title: "Register",
                 content: (
-                  <div className="rounded-xl border bg-card p-6 mt-2 flex flex-col gap-4">
+                  <div className="rounded-xl border border-border bg-card p-6 mt-2 flex flex-col gap-4">
                     <div className="text-lg font-semibold">Create Account</div>
                     <div className="h-10 w-full bg-muted rounded-md" />
                     <div className="h-10 w-full bg-muted rounded-md" />
@@ -340,7 +340,7 @@ function TabsMicroShowcase() {
     <TabsTrigger value="password">Password</TabsTrigger>
   </TabsList>
   <TabsContent value="account">
-    <div className="rounded-xl border bg-card p-4 mt-2">
+    <div className="rounded-xl border border-border bg-card p-4 mt-2">
       <h4 className="font-medium">Account</h4>
       <p className="text-sm text-muted-foreground">
         Make changes to your account here.
@@ -348,7 +348,7 @@ function TabsMicroShowcase() {
     </div>
   </TabsContent>
   <TabsContent value="password">
-    <div className="rounded-xl border bg-card p-4 mt-2">
+    <div className="rounded-xl border border-border bg-card p-4 mt-2">
       <h4 className="font-medium">Password</h4>
       <p className="text-sm text-muted-foreground">
         Change your password here.
@@ -364,7 +364,7 @@ function TabsMicroShowcase() {
               <TabsTrigger value="password">Password</TabsTrigger>
             </TabsList>
             <TabsContent value="account">
-              <div className="rounded-xl border bg-card p-4 mt-2">
+              <div className="rounded-xl border border-border bg-card p-4 mt-2">
                 <h4 className="font-medium">Account</h4>
                 <p className="text-sm text-muted-foreground">
                   Make changes to your account here.
@@ -372,7 +372,7 @@ function TabsMicroShowcase() {
               </div>
             </TabsContent>
             <TabsContent value="password">
-              <div className="rounded-xl border bg-card p-4 mt-2">
+              <div className="rounded-xl border border-border bg-card p-4 mt-2">
                 <h4 className="font-medium">Password</h4>
                 <p className="text-sm text-muted-foreground">
                   Change your password here.
@@ -397,7 +397,7 @@ function TabsMicroShowcase() {
     </TabsTrigger>
   </TabsList>
   <TabsContent value="profile">
-    <div className="rounded-xl border bg-card p-4 mt-2">
+    <div className="rounded-xl border border-border bg-card p-4 mt-2">
       <h4 className="font-medium">Profile</h4>
       <p className="text-sm text-muted-foreground">
         Update your name, avatar and bio.
@@ -405,7 +405,7 @@ function TabsMicroShowcase() {
     </div>
   </TabsContent>
   <TabsContent value="notifications">
-    <div className="rounded-xl border bg-card p-4 mt-2">
+    <div className="rounded-xl border border-border bg-card p-4 mt-2">
       <h4 className="font-medium">Notifications</h4>
       <p className="text-sm text-muted-foreground">
         Choose what notifications you receive.
@@ -427,7 +427,7 @@ function TabsMicroShowcase() {
               </TabsTrigger>
             </TabsList>
             <TabsContent value="profile">
-              <div className="rounded-xl border bg-card p-4 mt-2">
+              <div className="rounded-xl border border-border bg-card p-4 mt-2">
                 <h4 className="font-medium">Profile</h4>
                 <p className="text-sm text-muted-foreground">
                   Update your name, avatar and bio.
@@ -435,7 +435,7 @@ function TabsMicroShowcase() {
               </div>
             </TabsContent>
             <TabsContent value="notifications">
-              <div className="rounded-xl border bg-card p-4 mt-2">
+              <div className="rounded-xl border border-border bg-card p-4 mt-2">
                 <h4 className="font-medium">Notifications</h4>
                 <p className="text-sm text-muted-foreground">
                   Choose what notifications you receive.
@@ -453,7 +453,7 @@ function TabsMicroShowcase() {
         codeString={`<Tabs defaultValue="music" className="w-full max-w-lg">
   <TabsList
     variant="line"
-    className="w-full justify-start border-b rounded-none px-0"
+    className="w-full justify-start border-b border-b-border rounded-none px-0"
   >
     <TabsTrigger value="music">Music</TabsTrigger>
     <TabsTrigger value="podcasts">Podcasts</TabsTrigger>
@@ -489,7 +489,7 @@ function TabsMicroShowcase() {
         <Tabs defaultValue="music" className="w-full max-w-lg">
           <TabsList
             variant="line"
-            className="w-full justify-start border-b rounded-none px-0"
+            className="w-full justify-start border-b border-b-border rounded-none px-0"
           >
             <TabsTrigger value="music">Music</TabsTrigger>
             <TabsTrigger value="podcasts">Podcasts</TabsTrigger>
@@ -546,7 +546,7 @@ function TabsMicroShowcase() {
     </TabsTrigger>
   </TabsList>
   <TabsContent value="profile">
-    <div className="rounded-xl border bg-card p-4">
+    <div className="rounded-xl border border-border bg-card p-4">
       <h4 className="font-medium">Profile</h4>
       <p className="text-sm text-muted-foreground">
         Update your personal information and manage your public
@@ -555,7 +555,7 @@ function TabsMicroShowcase() {
     </div>
   </TabsContent>
   <TabsContent value="notifications">
-    <div className="rounded-xl border bg-card p-4">
+    <div className="rounded-xl border border-border bg-card p-4">
       <h4 className="font-medium">Notifications</h4>
       <p className="text-sm text-muted-foreground">
         Choose what notifications you receive and how.
@@ -563,7 +563,7 @@ function TabsMicroShowcase() {
     </div>
   </TabsContent>
   <TabsContent value="billing">
-    <div className="rounded-xl border bg-card p-4">
+    <div className="rounded-xl border border-border bg-card p-4">
       <h4 className="font-medium">Billing</h4>
       <p className="text-sm text-muted-foreground">
         Manage your subscription and payment methods.
@@ -593,7 +593,7 @@ function TabsMicroShowcase() {
             </TabsTrigger>
           </TabsList>
           <TabsContent value="profile">
-            <div className="rounded-xl border bg-card p-4">
+            <div className="rounded-xl border border-border bg-card p-4">
               <h4 className="font-medium">Profile</h4>
               <p className="text-sm text-muted-foreground">
                 Update your personal information and manage your public profile.
@@ -601,7 +601,7 @@ function TabsMicroShowcase() {
             </div>
           </TabsContent>
           <TabsContent value="notifications">
-            <div className="rounded-xl border bg-card p-4">
+            <div className="rounded-xl border border-border bg-card p-4">
               <h4 className="font-medium">Notifications</h4>
               <p className="text-sm text-muted-foreground">
                 Choose what notifications you receive and how.
@@ -609,7 +609,7 @@ function TabsMicroShowcase() {
             </div>
           </TabsContent>
           <TabsContent value="billing">
-            <div className="rounded-xl border bg-card p-4">
+            <div className="rounded-xl border border-border bg-card p-4">
               <h4 className="font-medium">Billing</h4>
               <p className="text-sm text-muted-foreground">
                 Manage your subscription and payment methods.

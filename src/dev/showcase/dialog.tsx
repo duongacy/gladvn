@@ -207,7 +207,7 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
   trigger={<Button variant="outline">View Report</Button>}
   footer={<Button>Download PDF</Button>}
 >
-  <div className="h-[200px] flex items-center justify-center rounded-md border border-dashed bg-muted/20">
+  <div className="h-[200px] flex items-center justify-center rounded-md border border-border border-dashed bg-muted/20">
     <span className="text-muted-foreground text-sm">Large Content Area</span>
   </div>
 </DialogPreset>
@@ -224,7 +224,7 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
             }
             footer={<Button size={globalSize}>Download PDF</Button>}
           >
-            <div className="h-[200px] flex items-center justify-center rounded-md border border-dashed bg-muted/20">
+            <div className="h-[200px] flex items-center justify-center rounded-md border border-border border-dashed bg-muted/20">
               <span className="text-muted-foreground text-sm">
                 Large Content Area
               </span>
@@ -322,7 +322,7 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
     </div>
   }
 >
-  <div className="flex h-[800px] flex-col items-center justify-between rounded-md border border-dashed bg-muted/20 py-8">
+  <div className="flex h-[800px] flex-col items-center justify-between rounded-md border border-border border-dashed bg-muted/20 py-8">
     <span className="text-sm font-medium text-muted-foreground">
       START OF CONTENT
     </span>
@@ -357,7 +357,7 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
               </div>
             }
           >
-            <div className="flex h-[800px] flex-col items-center justify-between rounded-md border border-dashed bg-muted/20 py-8">
+            <div className="flex h-[800px] flex-col items-center justify-between rounded-md border border-border border-dashed bg-muted/20 py-8">
               <span className="text-sm font-medium text-muted-foreground">
                 START OF CONTENT
               </span>
@@ -412,7 +412,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
         charge your card immediately.
       </DialogDescription>
     </DialogHeader>
-    <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t bg-muted/50 p-4">
+    <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
       <DialogClose
         render={<Button variant="ghost" />}
       >
@@ -455,7 +455,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                   charge your card immediately.
                 </DialogDescription>
               </DialogHeader>
-              <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t bg-muted/50 p-4">
+              <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
                 <DialogClose
                   render={<Button variant="ghost" size={globalSize} />}
                 >
@@ -523,7 +523,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
         />
       </div>
     </div>
-    <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t bg-muted/50 p-4">
+    <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
       <Button type="submit">
         Save changes
       </Button>
@@ -583,7 +583,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                   />
                 </div>
               </div>
-              <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t bg-muted/50 p-4">
+              <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
                 <Button type="submit" size={globalSize}>
                   Save changes
                 </Button>
@@ -630,7 +630,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
       By clicking accept, you agree to our updated Terms of Service
       and Privacy Policy.
     </p>
-    <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t bg-muted/50 p-4">
+    <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
       <DialogClose
         render={<Button variant="outline" />}
       >
@@ -662,7 +662,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                 By clicking accept, you agree to our updated Terms of Service
                 and Privacy Policy.
               </p>
-              <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t bg-muted/50 p-4">
+              <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
                 <DialogClose
                   render={<Button variant="outline" size={globalSize} />}
                 >
@@ -692,12 +692,12 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
         Monthly analytics and performance overview.
       </DialogDescription>
     </DialogHeader>
-    <div className="flex h-[200px] items-center justify-center rounded-md border border-dashed bg-muted/20">
+    <div className="flex h-[200px] items-center justify-center rounded-md border border-border border-dashed bg-muted/20">
       <span className="text-sm text-muted-foreground">
         Large Content Area
       </span>
     </div>
-    <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t bg-muted/50 p-4">
+    <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
       <Button>Download PDF</Button>
     </DialogFooter>
     <DialogClose
@@ -732,12 +732,12 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                   Monthly analytics and performance overview.
                 </DialogDescription>
               </DialogHeader>
-              <div className="flex h-[200px] items-center justify-center rounded-md border border-dashed bg-muted/20">
+              <div className="flex h-[200px] items-center justify-center rounded-md border border-border border-dashed bg-muted/20">
                 <span className="text-sm text-muted-foreground">
                   Large Content Area
                 </span>
               </div>
-              <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t bg-muted/50 p-4">
+              <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
                 <Button size={globalSize}>Download PDF</Button>
               </DialogFooter>
               <DialogClose
@@ -781,7 +781,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
         </DialogDescription>
       </DialogHeader>
       <p className="text-sm text-foreground">Bạn có thể đóng bằng nút bên dưới hoặc dấu X.</p>
-      <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t bg-muted/50 p-4">
+      <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
         <Button color="primary" onClick={() => setControlledOpen(false)}>
           Close Manually
         </Button>
@@ -830,7 +830,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                 <p className="text-sm text-foreground">
                   Bạn có thể đóng bằng nút bên dưới hoặc dấu X.
                 </p>
-                <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t bg-muted/50 p-4">
+                <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
                   <Button
                     color="primary"
                     onClick={() => setControlledOpen(false)}
@@ -876,7 +876,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
       </DialogDescription>
     </DialogHeader>
     <div className="flex-1 min-h-0 overflow-y-auto p-4">
-      <div className="flex h-[800px] flex-col items-center justify-between rounded-md border border-dashed bg-muted/20 py-8">
+      <div className="flex h-[800px] flex-col items-center justify-between rounded-md border border-border border-dashed bg-muted/20 py-8">
         <span className="text-sm font-medium text-muted-foreground">
           START OF CONTENT
         </span>
@@ -889,7 +889,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
         </span>
       </div>
     </div>
-    <DialogFooter className="shrink-0 rounded-b-xl border-t bg-muted/50 p-4">
+    <DialogFooter className="shrink-0 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
       <DialogClose
         render={<Button variant="ghost" />}
       >
@@ -935,7 +935,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                 </DialogDescription>
               </DialogHeader>
               <div className="flex-1 min-h-0 overflow-y-auto p-4">
-                <div className="flex h-[800px] flex-col items-center justify-between rounded-md border border-dashed bg-muted/20 py-8">
+                <div className="flex h-[800px] flex-col items-center justify-between rounded-md border border-border border-dashed bg-muted/20 py-8">
                   <span className="text-sm font-medium text-muted-foreground">
                     START OF CONTENT
                   </span>
@@ -950,7 +950,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                   </span>
                 </div>
               </div>
-              <DialogFooter className="shrink-0 rounded-b-xl border-t bg-muted/50 p-4">
+              <DialogFooter className="shrink-0 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
                 <DialogClose
                   render={<Button variant="ghost" size={globalSize} />}
                 >

@@ -37,15 +37,15 @@ function CollapsibleMicroShowcase() {
       <span className="sr-only">Toggle</span>
     </CollapsibleTrigger>
   </div>
-  <div className="rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm">
+  <div className="rounded-md border border-border bg-muted/50 px-4 py-3 font-mono text-sm">
     @radix-ui/primitives
   </div>
   <CollapsibleContent>
     <div className="flex flex-col gap-2">
-      <div className="rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm">
+      <div className="rounded-md border border-border bg-muted/50 px-4 py-3 font-mono text-sm">
         @radix-ui/colors
       </div>
-      <div className="rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm">
+      <div className="rounded-md border border-border bg-muted/50 px-4 py-3 font-mono text-sm">
         @stitches/react
       </div>
     </div>
@@ -67,15 +67,15 @@ function CollapsibleMicroShowcase() {
                 <span className="sr-only">Toggle</span>
               </CollapsibleTrigger>
             </div>
-            <div className="rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm">
+            <div className="rounded-md border border-border bg-muted/50 px-4 py-3 font-mono text-sm">
               @radix-ui/primitives
             </div>
             <CollapsibleContent>
               <div className="flex flex-col gap-2">
-                <div className="rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm">
+                <div className="rounded-md border border-border bg-muted/50 px-4 py-3 font-mono text-sm">
                   @radix-ui/colors
                 </div>
-                <div className="rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm">
+                <div className="rounded-md border border-border bg-muted/50 px-4 py-3 font-mono text-sm">
                   @stitches/react
                 </div>
               </div>
@@ -98,15 +98,15 @@ function CollapsibleMicroShowcase() {
       <span className="sr-only">Toggle</span>
     </CollapsibleTrigger>
   </div>
-  <div className="rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm">
+  <div className="rounded-md border border-border bg-muted/50 px-4 py-3 font-mono text-sm">
     Pushed to main
   </div>
   <CollapsibleContent>
     <div className="flex flex-col gap-2">
-      <div className="rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm">
+      <div className="rounded-md border border-border bg-muted/50 px-4 py-3 font-mono text-sm">
         Merged PR #42
       </div>
-      <div className="rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm">
+      <div className="rounded-md border border-border bg-muted/50 px-4 py-3 font-mono text-sm">
         Opened issue #43
       </div>
     </div>
@@ -126,15 +126,15 @@ function CollapsibleMicroShowcase() {
                 <span className="sr-only">Toggle</span>
               </CollapsibleTrigger>
             </div>
-            <div className="rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm">
+            <div className="rounded-md border border-border bg-muted/50 px-4 py-3 font-mono text-sm">
               Pushed to main
             </div>
             <CollapsibleContent>
               <div className="flex flex-col gap-2">
-                <div className="rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm">
+                <div className="rounded-md border border-border bg-muted/50 px-4 py-3 font-mono text-sm">
                   Merged PR #42
                 </div>
-                <div className="rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm">
+                <div className="rounded-md border border-border bg-muted/50 px-4 py-3 font-mono text-sm">
                   Opened issue #43
                 </div>
               </div>
@@ -159,7 +159,7 @@ return (
       </CollapsibleTrigger>
     </div>
     <CollapsibleContent>
-      <div className="rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm">
+      <div className="rounded-md border border-border bg-muted/50 px-4 py-3 font-mono text-sm">
         Nội dung này được điều khiển bởi nút bên ngoài hoặc mũi tên ở trên!
       </div>
     </CollapsibleContent>
@@ -168,7 +168,7 @@ return (
         >
           <div className="w-full space-y-4">
             {/* Đây là nút nằm HOÀN TOÀN BÊN NGOÀI thẻ Collapsible */}
-            <div className="flex items-center gap-4 rounded-md border border-dashed p-4">
+            <div className="flex items-center gap-4 rounded-md border border-border border-dashed p-4">
               <Button size="sm" onClick={() => setIsOpen(!isOpen)}>
                 {isOpen
                   ? "Đóng bảng bên dưới (External)"
@@ -186,7 +186,7 @@ return (
             <Collapsible
               open={isOpen}
               onOpenChange={setIsOpen}
-              className="w-full space-y-2 rounded-md border p-4 bg-muted/20"
+              className="w-full space-y-2 rounded-md border border-border p-4 bg-muted/20"
             >
               <div className="flex items-center justify-between">
                 <h4 className="text-sm font-semibold">
@@ -203,7 +203,7 @@ return (
               </div>
               <CollapsibleContent>
                 <div className="flex flex-col gap-2 pt-2">
-                  <div className="rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm text-center">
+                  <div className="rounded-md border border-border bg-muted/50 px-4 py-3 font-mono text-sm text-center">
                     Nội dung này được điều khiển bởi nút bên ngoài hoặc mũi tên
                     ở trên!
                   </div>
@@ -228,12 +228,12 @@ return (
       <span className="sr-only">Toggle</span>
     </CollapsibleTrigger>
   </div>
-  <div className="rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm opacity-50">
+  <div className="rounded-md border border-border bg-muted/50 px-4 py-3 font-mono text-sm opacity-50">
     @radix-ui/react-toolbar
   </div>
   <CollapsibleContent>
     <div className="flex flex-col gap-2">
-      <div className="rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm opacity-50">
+      <div className="rounded-md border border-border bg-muted/50 px-4 py-3 font-mono text-sm opacity-50">
         @radix-ui/react-popover
       </div>
     </div>
@@ -253,12 +253,12 @@ return (
                 <span className="sr-only">Toggle</span>
               </CollapsibleTrigger>
             </div>
-            <div className="rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm opacity-50">
+            <div className="rounded-md border border-border bg-muted/50 px-4 py-3 font-mono text-sm opacity-50">
               @radix-ui/react-toolbar
             </div>
             <CollapsibleContent>
               <div className="flex flex-col gap-2">
-                <div className="rounded-md border bg-muted/50 px-4 py-3 font-mono text-sm opacity-50">
+                <div className="rounded-md border border-border bg-muted/50 px-4 py-3 font-mono text-sm opacity-50">
                   @radix-ui/react-popover
                 </div>
               </div>

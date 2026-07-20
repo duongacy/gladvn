@@ -447,7 +447,7 @@ function SwitchMicroShowcase({ globalSize }: { globalSize: Size }) {
     <p className="text-xs text-muted-foreground leading-relaxed">
       Giống như iPhone, chữ nằm bên trái và Công tắc nằm tít bên phải của dòng. Macro không hỗ trợ layout này nên bạn dùng cấu trúc Field + Micro.
     </p>
-    <div className="rounded-lg bg-muted/50 p-3 border divide-y">
+    <div className="rounded-lg bg-muted/50 p-3 border border-border divide-y">
       <div className="p-2 flex justify-between items-center">
         <span className="text-sm font-medium">Wi-Fi</span>
         <Switch size="sm" defaultChecked><SwitchThumb/></Switch>
@@ -534,7 +534,7 @@ function SwitchMicroShowcase({ globalSize }: { globalSize: Size }) {
               của dòng. Macro không hỗ trợ layout này nên bạn dùng cấu trúc
               Field + Micro.
             </p>
-            <div className="rounded-lg bg-muted/50 p-3 border divide-y">
+            <div className="rounded-lg bg-muted/50 p-3 border border-border divide-y">
               <div className="p-2 flex justify-between items-center">
                 <span className="text-sm font-medium">Wi-Fi</span>
                 <Switch size="sm" defaultChecked>

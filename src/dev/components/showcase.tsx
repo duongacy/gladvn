@@ -46,8 +46,8 @@ export function SectionHeader({
    ────────────────────────────────────────────────────────────── */
 export function ShowcaseDocs({ children }: { children: React.ReactNode }) {
   return (
-    <div className="mb-12 overflow-hidden rounded-2xl border border-amber-500/20 bg-amber-500/5 shadow-sm">
-      <div className="flex items-center gap-2 border-b border-amber-500/20 bg-amber-500/10 px-6 py-3.5">
+    <div className="mb-12 overflow-hidden rounded-2xl border border-border border-amber-500/20 bg-amber-500/5 shadow-sm">
+      <div className="flex items-center gap-2 border-b border-b-border border-amber-500/20 bg-amber-500/10 px-6 py-3.5">
         <BookOpenIcon className="size-4 text-amber-700 dark:text-amber-500" />
         <h3 className="text-sm font-semibold text-amber-900 dark:text-amber-200">
           Usage Guidelines
@@ -82,7 +82,7 @@ export function DocsLi({ children }: { children: React.ReactNode }) {
 
 export function DocsCode({ children }: { children: React.ReactNode }) {
   return (
-    <code className="rounded-md border border-amber-500/20 bg-amber-500/10 px-1.5 py-0.5 font-mono text-[13px] text-amber-900 dark:text-amber-200">
+    <code className="rounded-md border border-border border-amber-500/20 bg-amber-500/10 px-1.5 py-0.5 font-mono text-[13px] text-amber-900 dark:text-amber-200">
       {children}
     </code>
   );
@@ -282,7 +282,7 @@ export function ColorSwatch({ color }: { color: (typeof COLORS)[number] }) {
     <div className="flex flex-col items-center gap-3 p-3.5 sm:p-5 rounded-[2rem] bg-background/40 border border-border/50 shadow-sm backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/30 group">
       <div
         className={cn(
-          "h-12 w-12 sm:h-16 sm:w-16 rounded-2xl border shadow-inner transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 group-hover:rounded-[2rem]",
+          "h-12 w-12 sm:h-16 sm:w-16 rounded-2xl border border-border shadow-inner transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 group-hover:rounded-[2rem]",
           bgColorMap[color],
         )}
       />

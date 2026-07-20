@@ -273,7 +273,7 @@ return (
   actionColor="warning"
   onAction={() => console.log("Report sent!")}
 >
-  <div className="mt-2 rounded-md border bg-muted/50 p-3 font-mono text-xs text-muted-foreground">
+  <div className="mt-2 rounded-md border border-border bg-muted/50 p-3 font-mono text-xs text-muted-foreground">
     <p>Error Code: ERR_NETWORK_TIMEOUT</p>
     <p>Timestamp: 2026-07-05T14:30:00Z</p>
     <p>Module: api/gateway</p>
@@ -295,7 +295,7 @@ return (
             actionColor="warning"
             onAction={() => console.log("Report sent!")}
           >
-            <div className="mt-2 rounded-md border bg-muted/50 p-3 font-mono text-xs text-muted-foreground">
+            <div className="mt-2 rounded-md border border-border bg-muted/50 p-3 font-mono text-xs text-muted-foreground">
               <p>Error Code: ERR_NETWORK_TIMEOUT</p>
               <p>Timestamp: 2026-07-05T14:30:00Z</p>
               <p>Module: api/gateway</p>
@@ -793,7 +793,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
       />
     </div>
 
-    <div className="rounded-md border border-green-500/20 bg-green-500/5 px-3 py-2">
+    <div className="rounded-md border border-border border-green-500/20 bg-green-500/5 px-3 py-2">
       <p className="text-xs font-medium text-green-700 dark:text-green-400">
         ✅ Dùng <code className="font-mono">AlertDialogPreset</code> —
         Viết đúng 1 element. Tự động xử lý Grid/Flex responsive siêu
@@ -856,7 +856,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
       </AlertDialog>
     </div>
 
-    <div className="rounded-md border border-blue-500/20 bg-blue-500/5 px-3 py-2">
+    <div className="rounded-md border border-border border-blue-500/20 bg-blue-500/5 px-3 py-2">
       <p className="text-xs font-medium text-blue-700 dark:text-blue-400">
         ✅ Dùng <code className="font-mono">AlertDialog</code> (Micro) —
         Không bị ràng buộc bởi bất kỳ layout định sẵn nào. Lắp ráp thẻ
@@ -910,7 +910,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
               />
             </div>
 
-            <div className="rounded-md border border-green-500/20 bg-green-500/5 px-3 py-2">
+            <div className="rounded-md border border-border border-green-500/20 bg-green-500/5 px-3 py-2">
               <p className="text-xs font-medium text-green-700 dark:text-green-400">
                 ✅ Dùng <code className="font-mono">AlertDialogPreset</code> —
                 Viết đúng 1 element. Tự động xử lý Grid/Flex responsive siêu
@@ -973,7 +973,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
               </AlertDialog>
             </div>
 
-            <div className="rounded-md border border-blue-500/20 bg-blue-500/5 px-3 py-2">
+            <div className="rounded-md border border-border border-blue-500/20 bg-blue-500/5 px-3 py-2">
               <p className="text-xs font-medium text-blue-700 dark:text-blue-400">
                 ✅ Dùng <code className="font-mono">AlertDialog</code> (Micro) —
                 Không bị ràng buộc bởi bất kỳ layout định sẵn nào. Lắp ráp thẻ

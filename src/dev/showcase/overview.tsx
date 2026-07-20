@@ -52,7 +52,7 @@ function CodeBlock({
   return (
     <div
       className={cn(
-        "p-4 rounded-xl border shadow-sm text-[11px] sm:text-xs font-mono",
+        "p-4 rounded-xl border border-border shadow-sm text-[11px] sm:text-xs font-mono",
         isSuccess
           ? "border-success/20 bg-success/5"
           : "border-destructive/20 bg-destructive/5 opacity-80"
@@ -150,8 +150,8 @@ export default function OverviewSection() {
         >
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-20 pointer-events-none h-full w-full" />
 
-          <div className="relative rounded-2xl border bg-card/40 backdrop-blur-2xl shadow-2xl overflow-hidden [transform:perspective(1200px)_rotateX(5deg)] [transform-origin:top_center] hover:[transform:perspective(1200px)_rotateX(0deg)] transition-transform duration-700 ease-out">
-            <div className="h-12 bg-muted/30 border-b flex items-center px-4 gap-2">
+          <div className="relative rounded-2xl border border-border bg-card/40 backdrop-blur-2xl shadow-2xl overflow-hidden [transform:perspective(1200px)_rotateX(5deg)] [transform-origin:top_center] hover:[transform:perspective(1200px)_rotateX(0deg)] transition-transform duration-700 ease-out">
+            <div className="h-12 bg-muted/30 border-b border-b-border flex items-center px-4 gap-2">
               <div className="flex gap-2">
                 <div className="size-3.5 rounded-full bg-destructive/80 shadow-sm" />
                 <div className="size-3.5 rounded-full bg-warning/80 shadow-sm" />
@@ -271,7 +271,7 @@ export default function OverviewSection() {
       </section>
 
       {/* 📈 STATS STRIP */}
-      <section className="container max-w-6xl mx-auto border-y bg-muted/5 py-12 relative overflow-hidden">
+      <section className="container max-w-6xl mx-auto border-y border-y-border bg-muted/5 py-12 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent animate-[pulse_4s_ease-in-out_infinite]" />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 divide-x-0 md:divide-x relative z-10">
           {STATS.map((s) => (
@@ -324,7 +324,7 @@ export default function OverviewSection() {
             <div className="flex items-center gap-4 pt-4">
               <button
                 onClick={handleCopy}
-                className="bg-background/80 hover:bg-background backdrop-blur-md px-6 py-4 rounded-2xl border hover:border-primary/50 transition-colors font-mono text-sm shadow-inner flex items-center gap-4 cursor-pointer group/copy"
+                className="bg-background/80 hover:bg-background border-border backdrop-blur-md px-6 py-4 rounded-2xl border hover:border-primary/50 transition-colors font-mono text-sm shadow-inner flex items-center gap-4 cursor-pointer group/copy"
               >
                 <span className="text-primary font-bold">~</span>
                 <span>npx @duongy96/gladcn init</span>
@@ -368,7 +368,7 @@ export default function OverviewSection() {
 
         <div className="columns-1 md:columns-2 gap-6">
           {/* Micro/Macro (Spans 2 columns) */}
-          <div className="break-inside-avoid mb-6 rounded-[2rem] border bg-card/20 p-4 md:p-10 flex flex-col justify-between group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
+          <div className="break-inside-avoid mb-6 rounded-[2rem] border border-border bg-card/20 p-4 md:p-10 flex flex-col justify-between group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
             <div className="absolute -top-10 -right-10 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:-rotate-12 duration-700">
               <BlocksIcon className="w-80 h-80" />
             </div>
@@ -435,7 +435,7 @@ export default function OverviewSection() {
 
 
           {/* No Magic CSS */}
-          <div className="break-inside-avoid mb-6 rounded-[2rem] border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
+          <div className="break-inside-avoid mb-6 rounded-[2rem] border border-border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
               <ShieldCheckIcon className="w-56 h-56" />
             </div>
@@ -471,7 +471,7 @@ export default function OverviewSection() {
           </div>
 
           {/* Orthogonal Styling (Spans 2 columns) */}
-          <div className="break-inside-avoid mb-6 rounded-[2rem] border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
+          <div className="break-inside-avoid mb-6 rounded-[2rem] border border-border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:-rotate-12 duration-700">
               <SlidersHorizontalIcon className="w-80 h-80" />
             </div>
@@ -489,7 +489,7 @@ export default function OverviewSection() {
               </p>
             </div>
             <div className="relative z-10 mt-auto pt-8 grid sm:grid-cols-2 gap-4">
-              <div className="p-3 sm:p-5 rounded-2xl border bg-background/60 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow">
+              <div className="p-3 sm:p-5 rounded-2xl border border-border bg-background/60 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow">
                 <strong className="block text-foreground text-base mb-2 flex items-center gap-2">
                   <BoxIcon className="size-4 text-muted-foreground" /> Trục
                   Variant
@@ -499,7 +499,7 @@ export default function OverviewSection() {
                   suốt.
                 </span>
               </div>
-              <div className="p-3 sm:p-5 rounded-2xl border bg-background/60 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow">
+              <div className="p-3 sm:p-5 rounded-2xl border border-border bg-background/60 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow">
                 <strong className="block text-foreground text-base mb-2 flex items-center gap-2">
                   <PaintbrushIcon className="size-4 text-muted-foreground" />{" "}
                   Trục Color
@@ -512,7 +512,7 @@ export default function OverviewSection() {
           </div>
 
           {/* Zero-Prop Defaults */}
-          <div className="break-inside-avoid mb-6 rounded-[2rem] border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
+          <div className="break-inside-avoid mb-6 rounded-[2rem] border border-border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:-rotate-12 duration-700">
               <ComponentIcon className="w-80 h-80" />
             </div>
@@ -547,7 +547,7 @@ export default function OverviewSection() {
           </div>
 
           {/* AHA Principle (Spans 1 column) */}
-          <div className="break-inside-avoid mb-6 rounded-[2rem] border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
+          <div className="break-inside-avoid mb-6 rounded-[2rem] border border-border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
               <LayersIcon className="w-56 h-56" />
             </div>
@@ -581,7 +581,7 @@ export default function OverviewSection() {
             </div>
           </div>
           {/* CSS Delegated Logic */}
-          <div className="break-inside-avoid mb-6 rounded-[2rem] border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
+          <div className="break-inside-avoid mb-6 rounded-[2rem] border border-border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
               <PaintbrushIcon className="w-56 h-56" />
             </div>
@@ -619,7 +619,7 @@ export default function OverviewSection() {
           </div>
 
           {/* Strict Polymorphism */}
-          <div className="break-inside-avoid mb-6 rounded-[2rem] border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
+          <div className="break-inside-avoid mb-6 rounded-[2rem] border border-border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
               <CopyIcon className="w-56 h-56" />
             </div>
@@ -654,7 +654,7 @@ export default function OverviewSection() {
           </div>
 
           {/* Exhaustive Union Types */}
-          <div className="break-inside-avoid mb-6 rounded-[2rem] border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
+          <div className="break-inside-avoid mb-6 rounded-[2rem] border border-border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
               <BoxIcon className="w-56 h-56" />
             </div>
@@ -687,7 +687,7 @@ export default function OverviewSection() {
           </div>
 
           {/* Accessibility First */}
-          <div className="break-inside-avoid mb-6 rounded-[2rem] border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
+          <div className="break-inside-avoid mb-6 rounded-[2rem] border border-border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
               <AccessibilityIcon className="w-56 h-56" />
             </div>
@@ -717,7 +717,7 @@ export default function OverviewSection() {
           </div>
 
           {/* Readability is Maintainability */}
-          <div className="break-inside-avoid mb-6 rounded-[2rem] border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
+          <div className="break-inside-avoid mb-6 rounded-[2rem] border border-border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
               <SparklesIcon className="w-56 h-56" />
             </div>
@@ -747,7 +747,7 @@ export default function OverviewSection() {
           </div>
 
           {/* Single Source of Truth for Variants */}
-          <div className="break-inside-avoid mb-6 rounded-[2rem] border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
+          <div className="break-inside-avoid mb-6 rounded-[2rem] border border-border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
               <SlidersHorizontalIcon className="w-56 h-56" />
             </div>
@@ -777,7 +777,7 @@ export default function OverviewSection() {
           </div>
 
           {/* Pure Composition */}
-          <div className="break-inside-avoid mb-6 rounded-[2rem] border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
+          <div className="break-inside-avoid mb-6 rounded-[2rem] border border-border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
               <BlocksIcon className="w-56 h-56" />
             </div>
@@ -822,7 +822,7 @@ export default function OverviewSection() {
 
       {/* 🎨 OKLCH COLOR TOKENS */}
       <section className="container max-w-6xl mx-auto px-4">
-        <div className="rounded-[2.5rem] border bg-card/30 p-10 md:p-16 shadow-xl relative overflow-hidden group">
+        <div className="rounded-[2.5rem] border border-border bg-card/30 p-10 md:p-16 shadow-xl relative overflow-hidden group">
           <div className="absolute -top-10 -right-10 p-8 opacity-5 pointer-events-none group-hover:rotate-12 group-hover:scale-125 transition-all duration-1000">
             <PaletteIcon className="size-64 md:size-[400px]" />
           </div>

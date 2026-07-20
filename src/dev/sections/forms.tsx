@@ -81,7 +81,7 @@ export default function FormsSection() {
       {/* Masonry layout */}
       <div className="columns-1 md:columns-2 gap-6 space-y-6 [&>div]:break-inside-avoid">
         {/* 1. TEXT FIELDS */}
-        <div className="rounded-2xl border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md flex flex-col gap-5">
+        <div className="rounded-2xl border border-border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md flex flex-col gap-5">
           <div className="flex items-center gap-3 mb-2">
             <div className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
               <TypeIcon className="size-5" />
@@ -170,7 +170,7 @@ export default function FormsSection() {
         </div>
 
         {/* 2. PICKERS & DROPDOWNS */}
-        <div className="rounded-2xl border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md flex flex-col gap-5">
+        <div className="rounded-2xl border border-border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md flex flex-col gap-5">
           <div className="flex items-center gap-3 mb-2">
             <div className="flex size-10 items-center justify-center rounded-xl bg-success/10 text-success">
               <MousePointerClickIcon className="size-5" />
@@ -290,7 +290,7 @@ export default function FormsSection() {
         </div>
 
         {/* 3. TOGGLES & SELECTORS */}
-        <div className="rounded-2xl border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md flex flex-col gap-5">
+        <div className="rounded-2xl border border-border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md flex flex-col gap-5">
           <div className="flex items-center gap-3 mb-2">
             <div className="flex size-10 items-center justify-center rounded-xl bg-info/10 text-info">
               <ToggleLeftIcon className="size-5" />
@@ -415,7 +415,7 @@ export default function FormsSection() {
         </div>
 
         {/* 4. FORM LAYOUT */}
-        <div className="rounded-2xl border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md flex flex-col gap-5">
+        <div className="rounded-2xl border border-border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md flex flex-col gap-5">
           <div className="flex items-center gap-3 mb-2">
             <div className="flex size-10 items-center justify-center rounded-xl bg-secondary/30 text-secondary-foreground">
               <LayoutTemplateIcon className="size-5" />
@@ -447,7 +447,7 @@ export default function FormsSection() {
         </div>
 
         {/* 4.5 CALENDAR */}
-        <div className="rounded-2xl border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md flex flex-col gap-5">
+        <div className="rounded-2xl border border-border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md flex flex-col gap-5">
           <div className="flex items-center gap-3 mb-2">
             <div className="flex size-10 items-center justify-center rounded-xl bg-tertiary/10 text-tertiary">
               <CalendarIcon className="size-5" />
@@ -459,7 +459,7 @@ export default function FormsSection() {
               </p>
             </div>
           </div>
-          <div className="flex justify-center rounded-xl border p-2 bg-card">
+          <div className="flex justify-center rounded-xl border border-border p-2 bg-card">
             <Calendar
               size={globalSize}
               mode="single"
@@ -471,7 +471,7 @@ export default function FormsSection() {
         </div>
 
         {/* 5. VALIDATION UX */}
-        <div className="rounded-2xl border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md flex flex-col gap-5">
+        <div className="rounded-2xl border border-border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md flex flex-col gap-5">
           <div className="flex items-center gap-3 mb-2">
             <div className="flex size-10 items-center justify-center rounded-xl bg-destructive/10 text-destructive">
               <TriangleAlertIcon className="size-5" />

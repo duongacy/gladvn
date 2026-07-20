@@ -43,7 +43,7 @@ return (
   </div>
 );`}
       >
-        <div className="rounded-xl border overflow-hidden flex h-[500px] w-full bg-background">
+        <div className="rounded-xl border border-border overflow-hidden flex h-[500px] w-full bg-background">
           <Sidebar
             ref={sidebarRef}
             defaultState={defaultState}

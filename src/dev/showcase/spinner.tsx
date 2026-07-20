@@ -71,13 +71,13 @@ function SpinnerMicroShowcase({ globalSize }: { globalSize: Size }) {
       <ExampleSection
         label="Overlay Loading"
         description="Đặt Spinner trên một overlay để chặn tương tác trong khi tải nội dung."
-        codeString={`<div className="relative rounded-xl border bg-card h-32">
+        codeString={`<div className="relative rounded-xl border border-border bg-card h-32">
   <div className="absolute inset-0 flex items-center justify-center bg-background/60 rounded-xl">
     <Spinner size="lg" className="text-primary" />
   </div>
 </div>`}
       >
-        <div className="relative rounded-xl border bg-card h-32 w-full max-w-sm">
+        <div className="relative rounded-xl border border-border bg-card h-32 w-full max-w-sm">
           <div className="absolute inset-0 flex items-center justify-center bg-background/60 rounded-xl">
             <Spinner size="lg" className="text-primary" />
           </div>

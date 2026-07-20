@@ -58,7 +58,7 @@ export default function ButtonsSection() {
       {/* Real-world Contexts Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
         {/* Context 1: Danger Zone */}
-        <div className="rounded-2xl border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md">
+        <div className="rounded-2xl border border-border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md">
           <div className="flex items-center gap-3 mb-4">
             <div className="flex size-10 items-center justify-center rounded-xl bg-destructive/10 text-destructive">
               <ShieldAlertIcon className="size-5" />
@@ -102,7 +102,7 @@ export default function ButtonsSection() {
         </div>
 
         {/* Context 2: Form Actions */}
-        <div className="rounded-2xl border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md">
+        <div className="rounded-2xl border border-border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md">
           <div className="flex items-center gap-3 mb-4">
             <div className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
               <SendIcon className="size-5" />
@@ -112,7 +112,7 @@ export default function ButtonsSection() {
               <p className="text-xs text-muted-foreground">Primary workflows</p>
             </div>
           </div>
-          <div className="rounded-xl border bg-card p-4 shadow-sm flex flex-col gap-4">
+          <div className="rounded-xl border border-border bg-card p-4 shadow-sm flex flex-col gap-4">
             <div className="flex items-center gap-3">
               <Avatar className="size-8">
                 <AvatarFallback className="bg-primary/10 text-primary">
@@ -150,7 +150,7 @@ export default function ButtonsSection() {
         </div>
 
         {/* Context 3: Quick Actions */}
-        <div className="rounded-2xl border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md">
+        <div className="rounded-2xl border border-border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md">
           <div className="flex items-center gap-3 mb-4">
             <div className="flex size-10 items-center justify-center rounded-xl bg-info/10 text-info">
               <LayersIcon className="size-5" />
@@ -160,7 +160,7 @@ export default function ButtonsSection() {
               <p className="text-xs text-muted-foreground">Icon-only buttons</p>
             </div>
           </div>
-          <div className="flex items-center gap-4 justify-center p-6 border rounded-xl bg-card shadow-sm mt-4">
+          <div className="flex items-center gap-4 justify-center p-6 border border-border rounded-xl bg-card shadow-sm mt-4">
             <Button size={globalSize} variant="soft" color="primary" iconOnly>
               <PlusIcon />
             </Button>
@@ -180,8 +180,8 @@ export default function ButtonsSection() {
       </div>
 
       {/* The Matrix (Variants x Colors) */}
-      <div className="rounded-2xl border bg-card/40 overflow-hidden shadow-sm">
-        <div className="border-b bg-muted/30 px-6 py-4">
+      <div className="rounded-2xl border border-border bg-card/40 overflow-hidden shadow-sm">
+        <div className="border-b border-b-border bg-muted/30 px-6 py-4">
           <h3 className="font-semibold text-lg flex items-center gap-2">
             <BoxIcon className="size-5 text-primary" />
             The Button Matrix

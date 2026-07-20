@@ -2,6 +2,12 @@
 @import "../styles/tokens.css";
 @import "../styles/gladcn.css";
 
+/* Consumer responsibility: set body bg/text using design tokens */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
 /* ── Shiki dual-theme (github-light / github-dark) ────────────────────
    When defaultColor: false is set in codeToHtml(), Shiki outputs
    --shiki-light and --shiki-dark CSS variables on each token.

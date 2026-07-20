@@ -99,7 +99,7 @@ function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
       <ExampleGrid>
         <ExampleSection
           label="Password Toggle"
-          description="InputGroupButton icon đặt trực tiếp trong InputGroup — tự có border-l phân tách."
+          description="InputGroupButton icon đặt trực tiếp trong InputGroup — tự có border-l border-l-border phân tách."
           codeString={`const [show, setShow] = useState(false);
 
 <InputGroup size="md">
@@ -208,7 +208,7 @@ function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
 
         <ExampleSection
           label="Both Ends — Counter"
-          description="Button ở cả 2 đầu — border-r (start) và border-l (end) tự động theo vị trí DOM."
+          description="Button ở cả 2 đầu — border-r border-r-border (start) và border-l border-l-border (end) tự động theo vị trí DOM."
           codeString={`const [count, setCount] = useState(0);
 
 <InputGroup size="md">
@@ -388,7 +388,7 @@ function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
 
         <ExampleSection
           label="Invalid / Error"
-          description="aria-invalid='true' trên input delegate border đỏ lên toàn bộ wrapper qua has-[...aria-invalid]."
+          description="aria-invalid='true' trên input delegate border border-border đỏ lên toàn bộ wrapper qua has-[...aria-invalid]."
           codeString={`<InputGroup size="md">
   <InputGroupAddon>
     <InputGroupText>$</InputGroupText>
@@ -475,7 +475,7 @@ export default function InputGroupShowcase() {
             <DocsLi>
               <DocsCode>InputGroupButton</DocsCode> — đặt trực tiếp trong{" "}
               <DocsCode>InputGroup</DocsCode> (không bọc trong Addon). Tự có
-              separator border theo vị trí DOM.
+              separator border border-border theo vị trí DOM.
             </DocsLi>
           </DocsUl>
 

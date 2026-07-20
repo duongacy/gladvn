@@ -43,7 +43,7 @@ function VerticalList() {
       {items.map((label) => (
         <div
           key={label}
-          className="text-sm py-3 border-b last:border-0 hover:bg-muted/50 cursor-pointer"
+          className="text-sm py-3 border-b border-b-border last:border-0 hover:bg-muted/50 cursor-pointer"
         >
           {label}
         </div>
@@ -85,19 +85,19 @@ function ScrollAreaMicroShowcase() {
         <ExampleSection
           label="Cuộn dọc (Vertical)"
           description="Danh sách các mục có thể cuộn từ trên xuống dưới."
-          codeString={`<ScrollArea className="h-72 w-full max-w-sm rounded-xl border bg-card">
+          codeString={`<ScrollArea className="h-72 w-full max-w-sm rounded-xl border border-border bg-card">
   <div className="p-4">
     <h4 className="mb-4 text-sm font-medium leading-none">
       Cài đặt hệ thống
     </h4>
-    <div className="text-sm py-3 border-b hover:bg-muted/50 cursor-pointer">Tùy chọn 1</div>
-    <div className="text-sm py-3 border-b hover:bg-muted/50 cursor-pointer">Tùy chọn 2</div>
-    <div className="text-sm py-3 border-b hover:bg-muted/50 cursor-pointer">Tùy chọn 3</div>
+    <div className="text-sm py-3 border-b border-b-border hover:bg-muted/50 cursor-pointer">Tùy chọn 1</div>
+    <div className="text-sm py-3 border-b border-b-border hover:bg-muted/50 cursor-pointer">Tùy chọn 2</div>
+    <div className="text-sm py-3 border-b border-b-border hover:bg-muted/50 cursor-pointer">Tùy chọn 3</div>
     {/* ... */}
   </div>
 </ScrollArea>`}
         >
-          <ScrollArea className="h-72 w-full max-w-sm rounded-xl border bg-card">
+          <ScrollArea className="h-72 w-full max-w-sm rounded-xl border border-border bg-card">
             <VerticalList />
           </ScrollArea>
         </ExampleSection>
@@ -105,7 +105,7 @@ function ScrollAreaMicroShowcase() {
         <ExampleSection
           label="Cuộn ngang (Horizontal)"
           description="Trình bày danh sách phần tử nằm ngang (thường dùng cho ảnh, card)."
-          codeString={`<ScrollArea className="w-full max-w-sm whitespace-nowrap rounded-xl border bg-card p-4">
+          codeString={`<ScrollArea className="w-full max-w-sm whitespace-nowrap rounded-xl border border-border bg-card p-4">
   <div className="flex w-max space-x-4">
     <div className="w-[150px] shrink-0">
       <div className="aspect-[3/4] rounded-md bg-muted" />
@@ -120,7 +120,7 @@ function ScrollAreaMicroShowcase() {
   <ScrollBar orientation="horizontal" />
 </ScrollArea>`}
         >
-          <ScrollArea className="w-full max-w-sm whitespace-nowrap rounded-xl border bg-card">
+          <ScrollArea className="w-full max-w-sm whitespace-nowrap rounded-xl border border-border bg-card">
             <HorizontalList />
             <ScrollBar orientation="horizontal" />
           </ScrollArea>

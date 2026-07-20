@@ -54,7 +54,7 @@ export default function OverviewSection() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
         {/* 🌟 Hero Banner - Span 2 cols */}
         <div
-          className="md:col-span-2 row-span-2 relative overflow-hidden rounded-2xl border bg-card/40 p-6 md:p-8 shadow-sm transition-all hover:shadow-md hover:bg-card/60 group opacity-0 animate-fade-up"
+          className="md:col-span-2 row-span-2 relative overflow-hidden rounded-2xl border border-border bg-card/40 p-6 md:p-8 shadow-sm transition-all hover:shadow-md hover:bg-card/60 group opacity-0 animate-fade-up"
           style={{ animationDelay: "0ms" }}
         >
           <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-50 group-hover:opacity-70 transition-opacity duration-500" />
@@ -102,7 +102,7 @@ export default function OverviewSection() {
               </div>
 
               <div className="absolute bottom-4 left-0 hover:-translate-y-1 transition-transform duration-300 animate-float-fast">
-                <div className="flex flex-col gap-3 p-4 rounded-xl border bg-card/50 backdrop-blur-md shadow-lg w-[260px]">
+                <div className="flex flex-col gap-3 p-4 rounded-xl border border-border bg-card/50 backdrop-blur-md shadow-lg w-[260px]">
                   <div className="flex items-center justify-between">
                     <Label className="text-sm font-medium">Dark Mode</Label>
                     <Switch defaultChecked />
@@ -132,7 +132,7 @@ export default function OverviewSection() {
 
         {/* 📦 Quick Example - Span 1 col */}
         <div
-          className="md:col-span-1 rounded-2xl border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md hover:-translate-y-1 group flex flex-col justify-between opacity-0 animate-fade-up"
+          className="md:col-span-1 rounded-2xl border border-border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md hover:-translate-y-1 group flex flex-col justify-between opacity-0 animate-fade-up"
           style={{ animationDelay: "100ms" }}
         >
           <div>
@@ -145,7 +145,7 @@ export default function OverviewSection() {
             <p className="text-sm text-muted-foreground mb-4">
               Available on npm. Add gladcn to your project in seconds.
             </p>
-            <div className="rounded-lg bg-muted/50 px-3 py-2.5 font-mono text-xs border flex items-center justify-between">
+            <div className="rounded-lg bg-muted/50 px-3 py-2.5 font-mono text-xs border border-border flex items-center justify-between">
               <span className="truncate">npm i @duongy96/gladcn</span>
             </div>
           </div>
@@ -184,7 +184,7 @@ export default function OverviewSection() {
             return (
               <div
                 key={s.label}
-                className="rounded-2xl border bg-card/40 p-4 flex flex-col items-center justify-center text-center shadow-sm transition-all hover:shadow-md hover:bg-muted/50 group"
+                className="rounded-2xl border border-border bg-card/40 p-4 flex flex-col items-center justify-center text-center shadow-sm transition-all hover:shadow-md hover:bg-muted/50 group"
               >
                 <div className="text-muted-foreground/50 mb-2 group-hover:text-primary/50 transition-colors [&>svg]:size-5">
                   {icons[i % icons.length]}
@@ -202,7 +202,7 @@ export default function OverviewSection() {
 
         {/* 🎨 Color Tokens - Span 3 cols */}
         <div
-          className="md:col-span-3 rounded-2xl border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md group opacity-0 animate-fade-up"
+          className="md:col-span-3 rounded-2xl border border-border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md group opacity-0 animate-fade-up"
           style={{ animationDelay: "300ms" }}
         >
           <div className="flex items-center justify-between mb-6 border-b border-border/50 pb-4">
@@ -230,7 +230,7 @@ export default function OverviewSection() {
 
         {/* 📚 Architecture Cheatsheet - Span 3 cols */}
         <div
-          className="md:col-span-3 rounded-2xl border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md group opacity-0 animate-fade-up"
+          className="md:col-span-3 rounded-2xl border border-border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md group opacity-0 animate-fade-up"
           style={{ animationDelay: "400ms" }}
         >
           <div className="flex items-center justify-between mb-6 border-b border-border/50 pb-4">

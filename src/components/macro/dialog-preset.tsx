@@ -67,7 +67,7 @@ const DialogPreset = React.forwardRef<HTMLDivElement, DialogPresetProps>(
           <div className="flex-1 min-h-0 overflow-y-auto p-4">{children}</div>
 
           {footer && (
-            <DialogFooter className="shrink-0 rounded-b-xl border-t bg-muted/50 p-4">
+            <DialogFooter className="shrink-0 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
               {footer}
             </DialogFooter>
           )}

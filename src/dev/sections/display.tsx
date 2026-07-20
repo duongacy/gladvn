@@ -41,7 +41,7 @@ export default function DisplaySection() {
       />
 
       {/* Avatar Showcase */}
-      <div className="rounded-2xl border bg-card/40 p-6 shadow-sm">
+      <div className="rounded-2xl border border-border bg-card/40 p-6 shadow-sm">
         <div className="flex items-center justify-between mb-6">
           <div>
             <h3 className="font-semibold text-lg flex items-center gap-2">
@@ -57,7 +57,7 @@ export default function DisplaySection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Sizes & Fallbacks */}
-          <div className="rounded-xl border bg-card p-5 shadow-sm flex flex-col gap-4">
+          <div className="rounded-xl border border-border bg-card p-5 shadow-sm flex flex-col gap-4">
             <h4 className="text-sm font-medium text-muted-foreground">
               Sizes & Fallbacks
             </h4>
@@ -80,7 +80,7 @@ export default function DisplaySection() {
           </div>
 
           {/* Group & Badge */}
-          <div className="rounded-xl border bg-card p-5 shadow-sm flex flex-col gap-4">
+          <div className="rounded-xl border border-border bg-card p-5 shadow-sm flex flex-col gap-4">
             <h4 className="text-sm font-medium text-muted-foreground">
               Groups & Status Badges
             </h4>
@@ -123,8 +123,8 @@ export default function DisplaySection() {
       </div>
 
       {/* The Badge Matrix */}
-      <div className="rounded-2xl border bg-card/40 overflow-hidden shadow-sm">
-        <div className="border-b bg-muted/30 px-6 py-4">
+      <div className="rounded-2xl border border-border bg-card/40 overflow-hidden shadow-sm">
+        <div className="border-b border-b-border bg-muted/30 px-6 py-4">
           <h3 className="font-semibold text-lg flex items-center gap-2">
             <ShieldAlertIcon className="size-5 text-primary" />
             The Badge Matrix

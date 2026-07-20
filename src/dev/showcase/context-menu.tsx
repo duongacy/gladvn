@@ -37,7 +37,7 @@ function ContextMenuMicroShowcase() {
         label="Full Context Menu"
         description="Nhấp chuột phải vào khu vực bên dưới để mở."
         codeString={`<ContextMenu>
-  <ContextMenuTrigger className="flex h-[150px] w-full max-w-[400px] items-center justify-center rounded-md border border-dashed text-sm">
+  <ContextMenuTrigger className="flex h-[150px] w-full max-w-[400px] items-center justify-center rounded-md border border-border border-dashed text-sm">
     Right click here
   </ContextMenuTrigger>
   <ContextMenuContent className="w-64">
@@ -98,7 +98,7 @@ function ContextMenuMicroShowcase() {
 `}
       >
         <ContextMenu>
-          <ContextMenuTrigger className="flex h-[150px] w-full max-w-[400px] items-center justify-center rounded-md border border-dashed text-sm">
+          <ContextMenuTrigger className="flex h-[150px] w-full max-w-[400px] items-center justify-center rounded-md border border-border border-dashed text-sm">
             Right click here
           </ContextMenuTrigger>
           <ContextMenuContent className="w-64">
@@ -162,7 +162,7 @@ function ContextMenuMicroShowcase() {
         label="Destructive Variant"
         description="Context menu với các action nguy hiểm hiển thị màu destructive."
         codeString={`<ContextMenu>
-  <ContextMenuTrigger className="flex h-[100px] w-full max-w-[300px] items-center justify-center rounded-md border border-dashed text-sm">
+  <ContextMenuTrigger className="flex h-[100px] w-full max-w-[300px] items-center justify-center rounded-md border border-border border-dashed text-sm">
     Right click here
   </ContextMenuTrigger>
   <ContextMenuContent className="w-52">
@@ -181,7 +181,7 @@ function ContextMenuMicroShowcase() {
 `}
       >
         <ContextMenu>
-          <ContextMenuTrigger className="flex h-[100px] w-full max-w-[300px] items-center justify-center rounded-md border border-dashed text-sm">
+          <ContextMenuTrigger className="flex h-[100px] w-full max-w-[300px] items-center justify-center rounded-md border border-border border-dashed text-sm">
             Right click here
           </ContextMenuTrigger>
           <ContextMenuContent className="w-52">

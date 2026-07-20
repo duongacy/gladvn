@@ -25,7 +25,7 @@ function ThemeAwareCard() {
   const theme = useTheme();
 
   return (
-    <div className="rounded-xl border bg-card text-card-foreground p-4 space-y-3">
+    <div className="rounded-xl border border-border bg-card text-card-foreground p-4 space-y-3">
       <div className="flex items-center justify-between">
         <span className="text-sm font-medium">Thẻ nội dung</span>
         <span className="text-xs px-2 py-0.5 rounded-full bg-muted text-muted-foreground">
@@ -116,7 +116,7 @@ function ThemeProviderMicroShowcase() {
   <App />
 </ThemeProvider>`}
       >
-        <div className="rounded-xl border bg-muted/50 p-4">
+        <div className="rounded-xl border border-border bg-muted/50 p-4">
           <p className="text-sm text-muted-foreground">
             <span className="font-medium text-foreground">isRoot</span> — khi
             bật, ThemeProvider sẽ toggle class <DocsCode>dark</DocsCode> /{" "}

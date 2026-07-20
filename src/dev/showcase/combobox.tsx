@@ -558,7 +558,7 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
   <FieldLabel>Chọn Engine</FieldLabel>
   <FieldContent>
     <Combobox items={engineItems}>
-      <ComboboxTrigger className="w-full justify-between flex items-center border rounded-md p-2 hover:bg-accent focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">
+      <ComboboxTrigger className="w-full justify-between flex items-center border border-border rounded-md p-2 hover:bg-accent focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">
         <ComboboxValue placeholder="Chọn một engine" />
       </ComboboxTrigger>
       <ComboboxContent>
@@ -585,7 +585,7 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
             <FieldLabel>Chọn Engine</FieldLabel>
             <FieldContent>
               <Combobox items={engineItems}>
-                <ComboboxTrigger className="w-full justify-between flex items-center border rounded-md p-2 hover:bg-accent focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">
+                <ComboboxTrigger className="w-full justify-between flex items-center border border-border rounded-md p-2 hover:bg-accent focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">
                   <ComboboxValue placeholder="Chọn một engine" />
                 </ComboboxTrigger>
                 <ComboboxContent>

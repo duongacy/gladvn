@@ -91,14 +91,6 @@
   }
 }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
 
 @theme inline {
   --animate-accordion-down: accordion-down 0.2s ease-out forwards;

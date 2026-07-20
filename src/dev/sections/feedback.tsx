@@ -321,7 +321,7 @@ export default function FeedbackSection() {
       {/* ── Empty ── */}
       <ShowcaseBlock title="Empty">
         <div className="grid gap-5 sm:grid-cols-3">
-          <Empty className="border">
+          <Empty className="border border-border">
             <EmptyHeader>
               <EmptyMedia variant="icon">
                 <InboxIcon />
@@ -333,7 +333,7 @@ export default function FeedbackSection() {
             </EmptyHeader>
           </Empty>
 
-          <Empty className="border">
+          <Empty className="border border-border">
             <EmptyHeader>
               <EmptyMedia variant="icon">
                 <SearchIcon />
@@ -350,7 +350,7 @@ export default function FeedbackSection() {
             </EmptyContent>
           </Empty>
 
-          <Empty className="border">
+          <Empty className="border border-border">
             <EmptyHeader>
               <EmptyMedia variant="icon">
                 <FileX2Icon />

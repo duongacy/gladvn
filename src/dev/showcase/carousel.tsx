@@ -78,7 +78,7 @@ function ControlledCarouselDemo() {
             {
               id: "c1",
               content: (
-                <div className="p-1 border rounded-xl">
+                <div className="p-1 border border-border rounded-xl">
                   <div className="flex aspect-square items-center justify-center p-6 bg-slate-100 dark:bg-slate-800 rounded-lg">
                     <span className="text-4xl font-semibold">1</span>
                   </div>
@@ -88,7 +88,7 @@ function ControlledCarouselDemo() {
             {
               id: "c2",
               content: (
-                <div className="p-1 border rounded-xl">
+                <div className="p-1 border border-border rounded-xl">
                   <div className="flex aspect-square items-center justify-center p-6 bg-slate-100 dark:bg-slate-800 rounded-lg">
                     <span className="text-4xl font-semibold">2</span>
                   </div>
@@ -98,7 +98,7 @@ function ControlledCarouselDemo() {
             {
               id: "c3",
               content: (
-                <div className="p-1 border rounded-xl">
+                <div className="p-1 border border-border rounded-xl">
                   <div className="flex aspect-square items-center justify-center p-6 bg-slate-100 dark:bg-slate-800 rounded-lg">
                     <span className="text-4xl font-semibold">3</span>
                   </div>
@@ -128,9 +128,9 @@ function CarouselMacroShowcase() {
           description="Băng chuyền cơ bản nhất với cầu trượt."
           codeString={`<CarouselPreset
   items={[
-    { id: "std-1", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg"><span className="text-4xl font-semibold">1</span></div></div> },
-    { id: "std-2", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg"><span className="text-4xl font-semibold">2</span></div></div> },
-    { id: "std-3", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg"><span className="text-4xl font-semibold">3</span></div></div> },
+    { id: "std-1", content: <div className="p-1 border border-border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg"><span className="text-4xl font-semibold">1</span></div></div> },
+    { id: "std-2", content: <div className="p-1 border border-border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg"><span className="text-4xl font-semibold">2</span></div></div> },
+    { id: "std-3", content: <div className="p-1 border border-border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg"><span className="text-4xl font-semibold">3</span></div></div> },
   ]}
 />`}
         >
@@ -140,7 +140,7 @@ function CarouselMacroShowcase() {
                 {
                   id: "std-1",
                   content: (
-                    <div className="p-1 border rounded-xl">
+                    <div className="p-1 border border-border rounded-xl">
                       <div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg">
                         <span className="text-4xl font-semibold">1</span>
                       </div>
@@ -150,7 +150,7 @@ function CarouselMacroShowcase() {
                 {
                   id: "std-2",
                   content: (
-                    <div className="p-1 border rounded-xl">
+                    <div className="p-1 border border-border rounded-xl">
                       <div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg">
                         <span className="text-4xl font-semibold">2</span>
                       </div>
@@ -160,7 +160,7 @@ function CarouselMacroShowcase() {
                 {
                   id: "std-3",
                   content: (
-                    <div className="p-1 border rounded-xl">
+                    <div className="p-1 border border-border rounded-xl">
                       <div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg">
                         <span className="text-4xl font-semibold">3</span>
                       </div>
@@ -230,9 +230,9 @@ function CarouselMacroShowcase() {
   opts={{ loop: true }}
   showArrows={false}
   items={[
-    { id: "loop-1", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-gradient-to-tr from-violet-500 to-purple-500 rounded-lg text-white"><span className="text-4xl font-semibold">1</span></div></div> },
-    { id: "loop-2", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-gradient-to-tr from-pink-500 to-rose-500 rounded-lg text-white"><span className="text-4xl font-semibold">2</span></div></div> },
-    { id: "loop-3", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-gradient-to-tr from-blue-500 to-cyan-500 rounded-lg text-white"><span className="text-4xl font-semibold">3</span></div></div> },
+    { id: "loop-1", content: <div className="p-1 border border-border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-gradient-to-tr from-violet-500 to-purple-500 rounded-lg text-white"><span className="text-4xl font-semibold">1</span></div></div> },
+    { id: "loop-2", content: <div className="p-1 border border-border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-gradient-to-tr from-pink-500 to-rose-500 rounded-lg text-white"><span className="text-4xl font-semibold">2</span></div></div> },
+    { id: "loop-3", content: <div className="p-1 border border-border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-gradient-to-tr from-blue-500 to-cyan-500 rounded-lg text-white"><span className="text-4xl font-semibold">3</span></div></div> },
   ]}
 />`}
         >
@@ -244,7 +244,7 @@ function CarouselMacroShowcase() {
                 {
                   id: "loop-1",
                   content: (
-                    <div className="p-1 border rounded-xl">
+                    <div className="p-1 border border-border rounded-xl">
                       <div className="flex aspect-square items-center justify-center p-6 bg-gradient-to-tr from-violet-500 to-purple-500 rounded-lg text-white">
                         <span className="text-4xl font-semibold">1</span>
                       </div>
@@ -254,7 +254,7 @@ function CarouselMacroShowcase() {
                 {
                   id: "loop-2",
                   content: (
-                    <div className="p-1 border rounded-xl">
+                    <div className="p-1 border border-border rounded-xl">
                       <div className="flex aspect-square items-center justify-center p-6 bg-gradient-to-tr from-pink-500 to-rose-500 rounded-lg text-white">
                         <span className="text-4xl font-semibold">2</span>
                       </div>
@@ -264,7 +264,7 @@ function CarouselMacroShowcase() {
                 {
                   id: "loop-3",
                   content: (
-                    <div className="p-1 border rounded-xl">
+                    <div className="p-1 border border-border rounded-xl">
                       <div className="flex aspect-square items-center justify-center p-6 bg-gradient-to-tr from-blue-500 to-cyan-500 rounded-lg text-white">
                         <span className="text-4xl font-semibold">3</span>
                       </div>
@@ -282,9 +282,9 @@ function CarouselMacroShowcase() {
           codeString={`<CarouselPreset
   showDots={false}
   items={[
-    { id: "arr-1", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg"><span className="text-4xl font-semibold">A</span></div></div> },
-    { id: "arr-2", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg"><span className="text-4xl font-semibold">B</span></div></div> },
-    { id: "arr-3", content: <div className="p-1 border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg"><span className="text-4xl font-semibold">C</span></div></div> },
+    { id: "arr-1", content: <div className="p-1 border border-border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg"><span className="text-4xl font-semibold">A</span></div></div> },
+    { id: "arr-2", content: <div className="p-1 border border-border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg"><span className="text-4xl font-semibold">B</span></div></div> },
+    { id: "arr-3", content: <div className="p-1 border border-border rounded-xl"><div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg"><span className="text-4xl font-semibold">C</span></div></div> },
   ]}
 />`}
         >
@@ -295,7 +295,7 @@ function CarouselMacroShowcase() {
                 {
                   id: "arr-1",
                   content: (
-                    <div className="p-1 border rounded-xl">
+                    <div className="p-1 border border-border rounded-xl">
                       <div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg">
                         <span className="text-4xl font-semibold">A</span>
                       </div>
@@ -305,7 +305,7 @@ function CarouselMacroShowcase() {
                 {
                   id: "arr-2",
                   content: (
-                    <div className="p-1 border rounded-xl">
+                    <div className="p-1 border border-border rounded-xl">
                       <div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg">
                         <span className="text-4xl font-semibold">B</span>
                       </div>
@@ -315,7 +315,7 @@ function CarouselMacroShowcase() {
                 {
                   id: "arr-3",
                   content: (
-                    <div className="p-1 border rounded-xl">
+                    <div className="p-1 border border-border rounded-xl">
                       <div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg">
                         <span className="text-4xl font-semibold">C</span>
                       </div>
@@ -354,9 +354,9 @@ return (
   contentClassName="h-[300px]"
   itemClassName="basis-[250px]"
   items={[
-    { id: "v1", content: <div className="h-full w-full border rounded-xl flex items-center justify-center bg-muted/20 text-4xl font-semibold">A</div> },
-    { id: "v2", content: <div className="h-full w-full border rounded-xl flex items-center justify-center bg-muted/20 text-4xl font-semibold">B</div> },
-    { id: "v3", content: <div className="h-full w-full border rounded-xl flex items-center justify-center bg-muted/20 text-4xl font-semibold">C</div> },
+    { id: "v1", content: <div className="h-full w-full border border-border rounded-xl flex items-center justify-center bg-muted/20 text-4xl font-semibold">A</div> },
+    { id: "v2", content: <div className="h-full w-full border border-border rounded-xl flex items-center justify-center bg-muted/20 text-4xl font-semibold">B</div> },
+    { id: "v3", content: <div className="h-full w-full border border-border rounded-xl flex items-center justify-center bg-muted/20 text-4xl font-semibold">C</div> },
   ]}
 />`}
         >
@@ -370,7 +370,7 @@ return (
                 {
                   id: "v1",
                   content: (
-                    <div className="h-full w-full border rounded-xl flex items-center justify-center bg-muted/20 text-4xl font-semibold">
+                    <div className="h-full w-full border border-border rounded-xl flex items-center justify-center bg-muted/20 text-4xl font-semibold">
                       A
                     </div>
                   ),
@@ -378,7 +378,7 @@ return (
                 {
                   id: "v2",
                   content: (
-                    <div className="h-full w-full border rounded-xl flex items-center justify-center bg-muted/20 text-4xl font-semibold">
+                    <div className="h-full w-full border border-border rounded-xl flex items-center justify-center bg-muted/20 text-4xl font-semibold">
                       B
                     </div>
                   ),
@@ -386,7 +386,7 @@ return (
                 {
                   id: "v3",
                   content: (
-                    <div className="h-full w-full border rounded-xl flex items-center justify-center bg-muted/20 text-4xl font-semibold">
+                    <div className="h-full w-full border border-border rounded-xl flex items-center justify-center bg-muted/20 text-4xl font-semibold">
                       C
                     </div>
                   ),

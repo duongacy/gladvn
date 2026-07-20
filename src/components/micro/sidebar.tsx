@@ -48,7 +48,7 @@ const Sidebar = React.forwardRef<
           } as React.CSSProperties
         }
         className={cn(
-          "group shrink-0 h-full overflow-hidden border-r bg-sidebar text-sidebar-foreground",
+          "group shrink-0 h-full overflow-hidden border-r border-r-border bg-sidebar text-sidebar-foreground",
           "transition-[width,border-width] duration-[400ms]",
           "data-[state=expanded]:w-[var(--sb-expanded)]",
           "data-[state=collapsed]:w-[var(--sb-collapsed)]",

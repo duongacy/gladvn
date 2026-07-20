@@ -18,7 +18,7 @@ function SeparatorMicroShowcase() {
         label="Ngang (Horizontal)"
         description="Sử dụng để phân tách các khối nội dung từ trên xuống dưới."
         fullWidth
-        codeString={`<div className="w-full max-w-sm rounded-lg border bg-card p-6">
+        codeString={`<div className="w-full max-w-sm rounded-lg border border-border bg-card p-6">
   <div className="space-y-1">
     <h4 className="text-sm font-medium leading-none">
       Gladcn UI
@@ -34,7 +34,7 @@ function SeparatorMicroShowcase() {
 </div>
 `}
       >
-        <div className="w-full max-w-sm rounded-lg border bg-card p-6">
+        <div className="w-full max-w-sm rounded-lg border border-border bg-card p-6">
           <div className="space-y-1">
             <h4 className="text-sm font-medium leading-none">Gladcn UI</h4>
             <p className="text-sm text-muted-foreground">

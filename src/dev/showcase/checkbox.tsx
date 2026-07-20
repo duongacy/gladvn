@@ -457,7 +457,7 @@ function CheckboxMicroShowcase({ globalSize }: { globalSize: Size }) {
       Bạn cần ô Checkbox ở đầu mỗi dòng trong bảng để chọn nhiều hàng. Ở đây Checkbox đứng độc lập, hoàn toàn không cần Label hay Description đi kèm.
     </p>
     <div className="rounded-lg bg-muted/50 p-3">
-      <div className="border rounded-md divide-y overflow-hidden">
+      <div className="border border-border rounded-md divide-y overflow-hidden">
         <div className="flex items-center gap-3 p-2 bg-muted">
           <Checkbox size="sm"><CheckboxIndicator><MinusIcon /></CheckboxIndicator></Checkbox>
           <span className="text-xs font-semibold">Tên nhân viên</span>
@@ -552,7 +552,7 @@ function CheckboxMicroShowcase({ globalSize }: { globalSize: Size }) {
               Description đi kèm.
             </p>
             <div className="rounded-lg bg-muted/50 p-3">
-              <div className="border rounded-md divide-y overflow-hidden">
+              <div className="border border-border rounded-md divide-y overflow-hidden">
                 <div className="flex items-center gap-3 p-2 bg-muted">
                   <Checkbox size="sm">
                     <CheckboxIndicator>

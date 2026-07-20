@@ -1,90 +1,118 @@
 /**
- * ✅ AUDITED & REFACTORED
- * - Design System Compliant (22 Commandments)
- * - WCAG AAA/AA
- * - Form Control Parity
- * - CSS Delegated Logic
+ * ThemeProvider — Micro primitive.
+ *
+ * Supports both **uncontrolled** and **controlled** modes:
+ *
+ * - **Uncontrolled**: pass `defaultMode` (optional). Internal state manages
+ *   the current mode. Children call `setMode()` via `useTheme()`.
+ * - **Controlled**: pass `mode` + `onModeChange`. The caller owns the state;
+ *   `setMode()` inside the context delegates to `onModeChange`.
+ *
+ * Does NOT read localStorage, system preference, or sync to <html>.
+ * All of that belongs to Macro layer (e.g. a ThemeManager preset).
  */
 "use client";
 
 import * as React from "react";
 
+// ─── Types ────────────────────────────────────────────────────────────────────
+
 type ThemeMode = "light" | "dark";
 
 type ThemeContextValue = {
+  /** The currently active mode. */
   mode: ThemeMode;
+  /** Change the mode. In controlled usage this calls `onModeChange`. */
   setMode: (mode: ThemeMode) => void;
 };
+
+// ─── Context ──────────────────────────────────────────────────────────────────
 
 const ThemeContext = React.createContext<ThemeContextValue | undefined>(
   undefined,
 );
 
+// ─── useTheme ─────────────────────────────────────────────────────────────────
+
 /**
- * Read the current theme context from the nearest ThemeProvider.
- * Returns `{ mode, setMode }` to read and control the theme.
- * Returns `undefined` if no ThemeProvider is found.
+ * Read and control the nearest ThemeProvider.
+ * Returns `undefined` when no provider is found in the tree.
  *
  * @example
  * ```tsx
- * const theme = useTheme()
- * theme?.setMode("dark")
+ * const theme = useTheme();
+ * theme?.setMode("dark");
+ * console.log(theme?.mode); // "light" | "dark"
  * ```
  */
 function useTheme(): ThemeContextValue | undefined {
   return React.useContext(ThemeContext);
 }
 
+// ─── ThemeProvider ────────────────────────────────────────────────────────────
+
+type ThemeProviderProps = {
+  children: React.ReactNode;
+} & (
+  | {
+      /** Uncontrolled: starting mode. Defaults to "light". */
+      defaultMode?: ThemeMode;
+      mode?: never;
+      onModeChange?: never;
+    }
+  | {
+      /** Controlled: current mode owned by the caller. */
+      mode: ThemeMode;
+      /** Called when children request a mode change via `setMode()`. */
+      onModeChange: (mode: ThemeMode) => void;
+      defaultMode?: never;
+    }
+);
+
 /**
- * ThemeProvider — Wraps children in a `display: contents` div with the
- * appropriate `.dark` or `.light` class, enabling CSS variable cascade
- * without affecting layout. Provides `{ mode, setMode }` via context.
+ * ThemeProvider — wraps children in a `display: contents` div with the
+ * `.dark` or `.light` class applied, enabling CSS variable cascade without
+ * affecting layout.
  *
- * Always uncontrolled — manages its own state internally. Consumers
- * read and change theme via the `useTheme()` hook.
- *
- * Portal-based components use `ThemeWrapper` to tunnel the theme across
- * the Portal boundary automatically.
- *
- * @param initialMode — The starting theme mode. Default: `"light"`.
- * @param isRoot — When `true`, syncs the theme class to `<html>` for
- *   global coverage (body bg, scrollbar, etc.). Default: `false`.
- *
- * @example
+ * @example Uncontrolled
  * ```tsx
- * // Root provider (syncs to <html>)
- * <ThemeProvider initialMode="light" isRoot>
+ * <ThemeProvider defaultMode="dark">
  *   <App />
  * </ThemeProvider>
+ * ```
  *
- * // Partial dark mode
- * <ThemeProvider initialMode="dark">
- *   <Sidebar />
+ * @example Controlled
+ * ```tsx
+ * const [mode, setMode] = useState<ThemeMode>("light");
+ *
+ * <ThemeProvider mode={mode} onModeChange={setMode}>
+ *   <App />
  * </ThemeProvider>
  * ```
  */
-function ThemeProvider({
-  initialMode = "light",
-  isRoot = false,
-  children,
-}: {
-  initialMode?: ThemeMode;
-  isRoot?: boolean;
-  children: React.ReactNode;
-}) {
-  const [mode, setMode] = React.useState<ThemeMode>(initialMode);
+function ThemeProvider({ children, defaultMode, mode: controlledMode, onModeChange }: ThemeProviderProps) {
+  const isControlled = controlledMode !== undefined;
 
-  // Only sync to <html> when this is the root provider
-  React.useEffect(() => {
-    if (!isRoot) return;
-    const root = document.documentElement;
-    root.classList.toggle("dark", mode === "dark");
-    root.classList.toggle("light", mode === "light");
-  }, [mode, isRoot]);
+  const [internalMode, setInternalMode] = React.useState<ThemeMode>(
+    defaultMode ?? "light",
+  );
+
+  const mode = isControlled ? controlledMode : internalMode;
+
+  const setMode = React.useCallback(
+    (next: ThemeMode) => {
+      if (isControlled) {
+        onModeChange!(next);
+      } else {
+        setInternalMode(next);
+      }
+    },
+    [isControlled, onModeChange],
+  );
 
   const value = React.useMemo<ThemeContextValue>(
     () => ({ mode, setMode }),
-    [mode],
+    [mode, setMode],
   );
 
   return (
@@ -96,12 +124,17 @@ function ThemeProvider({
   );
 }
 
+ThemeProvider.displayName = "ThemeProvider";
+
+// ─── ThemeWrapper ─────────────────────────────────────────────────────────────
+
 /**
- * ThemeWrapper — A utility component used internally by Portal-based
- * components to re-apply the theme class on the portal side.
+ * ThemeWrapper — re-applies the current theme class inside a Portal.
+ * Used internally by Dialog, Tooltip, Popover, etc. to tunnel the theme
+ * across the Portal boundary.
  *
- * If no ThemeProvider is found in the tree, it renders children as-is
- * (no wrapper div), falling back to the global theme on <html>.
+ * Falls back gracefully (renders children as-is) when no ThemeProvider
+ * is found in the tree.
  */
 function ThemeWrapper({ children }: { children: React.ReactNode }) {
   const theme = useTheme();
@@ -116,6 +149,10 @@ function ThemeWrapper({ children }: { children: React.ReactNode }) {
     </div>
   );
 }
+
+ThemeWrapper.displayName = "ThemeWrapper";
+
+// ─── Exports ──────────────────────────────────────────────────────────────────
 
 export { ThemeProvider, ThemeWrapper, useTheme };
 export type { ThemeMode };

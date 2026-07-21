@@ -1,6 +1,6 @@
 {
   "name": "gladvn",
-  "version": "0.2.15",
+  "version": "0.2.16",
   "type": "module",
   "description": "DO NOT 'npm install'. Use 'npx gladvn init' instead! A highly composable React component library built with Tailwind CSS.",
   "keywords": [

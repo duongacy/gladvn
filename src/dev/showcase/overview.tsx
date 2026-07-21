@@ -1061,7 +1061,7 @@ export default function OverviewSection() {
         <div className="flex flex-col items-center text-center space-y-8">
           <div className="space-y-4 max-w-2xl">
             <h2 className="text-3xl font-extrabold tracking-tight">
-              Những Người Đóng Góp
+              Contributors
             </h2>
             <p className="text-muted-foreground text-lg">
               Thư viện này được xây dựng và phát triển nhờ sự đóng góp của cộng đồng. Cảm ơn tất cả mọi người!
@@ -1071,22 +1071,10 @@ export default function OverviewSection() {
           <div className="flex flex-wrap justify-center gap-6">
             {[
               {
-                name: "Duongacy",
+                name: "Ý Le",
                 role: "Creator & Maintainer",
                 avatar: "https://github.com/duongacy.png",
                 url: "https://github.com/duongacy",
-              },
-              {
-                name: "Shadcn",
-                role: "Inspiration",
-                avatar: "https://github.com/shadcn.png",
-                url: "https://github.com/shadcn",
-              },
-              {
-                name: "Base UI",
-                role: "Primitives",
-                avatar: "https://github.com/mui.png",
-                url: "https://github.com/mui/base-ui",
               }
             ].map((user) => (
               <a

@@ -20,6 +20,7 @@ import { toast } from "sonner";
 import { GladvnLogo } from "../../dev/components/GladvnLogo";
 
 import { ProgressPreset as Progress } from "../../components/macro/progress-preset";
+import { Avatar, AvatarFallback, AvatarImage } from "../../components/micro/avatar";
 import { Badge } from "../../components/micro/badge";
 import { Button } from "../../components/micro/button";
 import {
@@ -1052,6 +1053,64 @@ export default function OverviewSection() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* 🤝 CONTRIBUTORS */}
+      <section className="container max-w-6xl mx-auto px-4 mb-24">
+        <div className="flex flex-col items-center text-center space-y-8">
+          <div className="space-y-4 max-w-2xl">
+            <h2 className="text-3xl font-extrabold tracking-tight">
+              Những Người Đóng Góp
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              Thư viện này được xây dựng và phát triển nhờ sự đóng góp của cộng đồng. Cảm ơn tất cả mọi người!
+            </p>
+          </div>
+          
+          <div className="flex flex-wrap justify-center gap-6">
+            {[
+              {
+                name: "Duongacy",
+                role: "Creator & Maintainer",
+                avatar: "https://github.com/duongacy.png",
+                url: "https://github.com/duongacy",
+              },
+              {
+                name: "Shadcn",
+                role: "Inspiration",
+                avatar: "https://github.com/shadcn.png",
+                url: "https://github.com/shadcn",
+              },
+              {
+                name: "Base UI",
+                role: "Primitives",
+                avatar: "https://github.com/mui.png",
+                url: "https://github.com/mui/base-ui",
+              }
+            ].map((user) => (
+              <a
+                key={user.name}
+                href={user.url}
+                target="_blank"
+                rel="noreferrer"
+                className="group flex flex-col items-center gap-3 p-4 rounded-2xl hover:bg-muted/50 transition-colors"
+              >
+                <Avatar className="size-16 border-2 border-transparent group-hover:border-primary/20 transition-all duration-300 group-hover:scale-105">
+                  <AvatarImage src={user.avatar} alt={user.name} />
+                  <AvatarFallback className="text-lg bg-primary/5 text-primary">{user.name.substring(0, 2).toUpperCase()}</AvatarFallback>
+                </Avatar>
+                <div className="text-center">
+                  <div className="font-semibold text-sm group-hover:text-primary transition-colors">{user.name}</div>
+                  <div className="text-xs text-muted-foreground mt-0.5">{user.role}</div>
+                </div>
+              </a>
+            ))}
+          </div>
+          
+          <Button variant="outline" className="mt-4 rounded-full" render={<a href="https://github.com/duongacy/gladcn" target="_blank" rel="noreferrer" />}>
+            Trở thành Contributor
+          </Button>
         </div>
       </section>
 

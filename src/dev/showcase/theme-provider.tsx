@@ -1,4 +1,10 @@
-import { Tooltip as TooltipPrimitive } from "@base-ui/react/tooltip";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipPortal,
+  TooltipProvider,
+  TooltipTrigger,
+} from "../../components/micro/tooltip";
 import { MoonIcon, SunIcon } from "lucide-react";
 import { useState } from "react";
 
@@ -206,118 +212,115 @@ function ChildContent() {
         </div>
       </ExampleSection>
 
-      {/* ── Utilities ── */}
-      <SectionHeader
-        title="Utilities"
-        description="ThemeWrapper để tunnel theme class qua Portal boundary (Dialog, Tooltip, Popover...) — thường dùng nội bộ khi thiết kế components, không cần gọi trực tiếp ở tầng ứng dụng."
-      />
-
-      {/* ThemeWrapper — Portal tunnel */}
-      <ExampleSection
-        fullWidth
-        label="ThemeWrapper — Portal Tunnel"
-        description="ThemeWrapper re-apply class dark/light bên trong Portal boundary. Dùng nội bộ bởi Dialog, Tooltip, Popover để theme không bị mất khi render ra ngoài document.body."
-        codeString={`<ThemeProvider defaultMode="dark">
-  <div className="flex gap-10">
-    {/* ❌ LỖI KHÔNG CÓ THEMEWRAPPER */}
-    <TooltipPrimitive.Root>
-      <TooltipPrimitive.Trigger>Hover tôi (Lỗi)</TooltipPrimitive.Trigger>
-      <TooltipPrimitive.Portal>
-        {/* Nội dung render ra document.body (vốn đang là Light mode) */}
-        {/* Do KHÔNG CÓ ThemeWrapper, Tooltip này sẽ bị sáng trắng lên, sai màu. */}
-        <TooltipPrimitive.Positioner sideOffset={8}>
-          <TooltipPrimitive.Popup className="bg-card text-card-foreground">
-            Trắng toát! Lạc quẻ với nền đen.
-          </TooltipPrimitive.Popup>
-        </TooltipPrimitive.Positioner>
-      </TooltipPrimitive.Portal>
-    </TooltipPrimitive.Root>
-
-    {/* ✅ ĐÃ SỬA BẰNG THEMEWRAPPER */}
-    <TooltipPrimitive.Root>
-      <TooltipPrimitive.Trigger>Hover tôi (Chuẩn)</TooltipPrimitive.Trigger>
-      <TooltipPrimitive.Portal>
-        <ThemeWrapper>
-          {/* ThemeWrapper đem Context "tao đang ở vùng Dark" chui qua Portal */}
-          {/* Tooltip này sẽ giữ đúng màu Đen của Provider cha. */}
-          <TooltipPrimitive.Positioner sideOffset={8}>
-            <TooltipPrimitive.Popup className="bg-card text-card-foreground">
-              Màu Tối! Đồng bộ với provider cha.
-            </TooltipPrimitive.Popup>
-          </TooltipPrimitive.Positioner>
-        </ThemeWrapper>
-      </TooltipPrimitive.Portal>
-    </TooltipPrimitive.Root>
-  </div>
-</ThemeProvider>`}
-      >
-        <ThemeProvider defaultMode="dark">
-          <div className="space-y-6 w-full rounded-xl border border-border bg-background p-6">
-            <p className="text-sm text-foreground leading-relaxed">
-              Vùng này đang bị ép thành <DocsCode>dark</DocsCode> mode cục bộ.{" "}
-              <br />
-              <span className="text-muted-foreground mt-1 block">
-                💡 <strong>Mẹo:</strong> Hãy đổi theme của cả trang web sang{" "}
-                <strong>Light Mode</strong> (ở góc trên bên phải), sau đó mở 2
-                tooltip bên dưới để thấy rõ sự cố khi content bị văng ra ngoài{" "}
-                <DocsCode>document.body</DocsCode>.
-              </span>
-            </p>
-
-            <div className="flex gap-10">
-              {/* Without ThemeWrapper */}
-              <div className="space-y-3">
-                <p className="text-xs font-semibold text-destructive flex items-center gap-1.5">
-                  ❌ Không có ThemeWrapper
-                </p>
-                <TooltipPrimitive.Root>
-                  <TooltipPrimitive.Trigger className="rounded-md bg-primary text-primary-foreground px-4 py-2 text-sm font-medium">
-                    Hover tôi
-                  </TooltipPrimitive.Trigger>
-                  <TooltipPrimitive.Portal>
-                    <TooltipPrimitive.Positioner sideOffset={8}>
-                      <TooltipPrimitive.Popup className="z-50 bg-card text-card-foreground border border-border px-3 py-2 text-sm rounded shadow-md">
-                        Trắng toát! Lạc quẻ với nền đen.
-                      </TooltipPrimitive.Popup>
-                    </TooltipPrimitive.Positioner>
-                  </TooltipPrimitive.Portal>
-                </TooltipPrimitive.Root>
-              </div>
-
-              {/* With ThemeWrapper */}
-              <div className="space-y-3">
-                <p className="text-xs font-semibold text-success flex items-center gap-1.5">
-                  ✅ Có ThemeWrapper
-                </p>
-                <TooltipPrimitive.Root>
-                  <TooltipPrimitive.Trigger className="rounded-md bg-primary text-primary-foreground px-4 py-2 text-sm font-medium">
-                    Hover tôi
-                  </TooltipPrimitive.Trigger>
-                  <TooltipPrimitive.Portal>
-                    <ThemeWrapper>
-                      <TooltipPrimitive.Positioner sideOffset={8}>
-                        <TooltipPrimitive.Popup className="z-50 bg-card text-card-foreground border border-border px-3 py-2 text-sm rounded shadow-md">
-                          Màu Tối! Đồng bộ với provider cha.
-                        </TooltipPrimitive.Popup>
-                      </TooltipPrimitive.Positioner>
-                    </ThemeWrapper>
-                  </TooltipPrimitive.Portal>
-                </TooltipPrimitive.Root>
-              </div>
-            </div>
-          </div>
-        </ThemeProvider>
-      </ExampleSection>
-
-      {/* QA Testing Ground - Title */}
+      {/* ── ThemeWrapper & Portal Tunnels ── */}
       <div className="pt-16 pb-6">
         <SectionHeader
-          title="QA Testing Ground"
-          description="Kiểm thử thực tế với các Component hoàn chỉnh của gladcn (đang ép Dark Mode). Hãy chuyển Theme tổng sang Light Mode để xem sức mạnh của ThemeWrapper."
+          title="ThemeWrapper & Portal Tunnels"
+          description="ThemeWrapper được dùng để tunnel theme class qua Portal boundary (Dialog, Tooltip, Popover...). Dưới đây là kiểm thử thực tế với các component của gladcn (ép Dark Mode cục bộ). Hãy chuyển Theme tổng sang Light Mode để xem tác dụng của ThemeWrapper."
         />
       </div>
 
       <ExampleGrid>
+        {/* Tooltip */}
+        <ExampleSection
+          label="Tooltip"
+          description="TooltipPortal render ra document.body — nếu không có ThemeWrapper sẽ mất dark mode."
+          codeString={`<ThemeProvider defaultMode="dark">
+  <div className="w-full flex gap-10 rounded-xl border border-border bg-background p-10">
+    <div className="flex-1 flex flex-col items-center gap-4">
+      <span className="text-sm font-medium text-muted-foreground">
+        Không dùng ThemeWrapper
+      </span>
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger
+            render={<Button variant="solid">Hover tôi</Button>}
+          />
+          <TooltipPortal>
+            <TooltipContent
+              sideOffset={8}
+              className="bg-card text-card-foreground border border-border shadow-md"
+            >
+              Trắng toát! Lạc quẻ với nền đen.
+            </TooltipContent>
+          </TooltipPortal>
+        </Tooltip>
+      </TooltipProvider>
+    </div>
+
+    <div className="flex-1 flex flex-col items-center gap-4">
+      <span className="text-sm font-medium text-muted-foreground">
+        Có ThemeWrapper
+      </span>
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger
+            render={<Button variant="solid">Hover tôi</Button>}
+          />
+          <TooltipPortal>
+            <ThemeWrapper>
+              <TooltipContent
+                sideOffset={8}
+                className="bg-card text-card-foreground border border-border shadow-md"
+              >
+                Màu Tối! Đồng bộ với provider cha.
+              </TooltipContent>
+            </ThemeWrapper>
+          </TooltipPortal>
+        </Tooltip>
+      </TooltipProvider>
+    </div>
+  </div>
+</ThemeProvider>`}
+        >
+          <ThemeProvider defaultMode="dark">
+            <div className="w-full flex gap-10 rounded-xl border border-border bg-background p-10">
+              <div className="flex-1 flex flex-col items-center gap-4">
+                <span className="text-sm font-medium text-muted-foreground">
+                  Không dùng ThemeWrapper
+                </span>
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger
+                      render={<Button variant="solid">Hover tôi</Button>}
+                    />
+                    <TooltipPortal>
+                      <TooltipContent
+                        sideOffset={8}
+                        className="bg-card text-card-foreground border border-border shadow-md"
+                      >
+                        Trắng toát! Lạc quẻ với nền đen.
+                      </TooltipContent>
+                    </TooltipPortal>
+                  </Tooltip>
+                </TooltipProvider>
+              </div>
+
+              <div className="flex-1 flex flex-col items-center gap-4">
+                <span className="text-sm font-medium text-muted-foreground">
+                  Có ThemeWrapper
+                </span>
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger
+                      render={<Button variant="solid">Hover tôi</Button>}
+                    />
+                    <TooltipPortal>
+                      <ThemeWrapper>
+                        <TooltipContent
+                          sideOffset={8}
+                          className="bg-card text-card-foreground border border-border shadow-md"
+                        >
+                          Màu Tối! Đồng bộ với provider cha.
+                        </TooltipContent>
+                      </ThemeWrapper>
+                    </TooltipPortal>
+                  </Tooltip>
+                </TooltipProvider>
+              </div>
+            </div>
+          </ThemeProvider>
+        </ExampleSection>
 
         {/* Popover */}
         <ExampleSection

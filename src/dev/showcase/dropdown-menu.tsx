@@ -151,17 +151,17 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
       <DropdownMenuLabel>Actions</DropdownMenuLabel>
       <DropdownMenuSeparator />
       <DropdownMenuItem>
-      <UserIcon className="mr-2 h-4 w-4" />
-      <span>Edit Profile</span>
-    </DropdownMenuItem>
-    <DropdownMenuItem disabled>
-      <CreditCardIcon className="mr-2 h-4 w-4" />
-      <span>Upgrade Plan</span>
-    </DropdownMenuItem>
-    <DropdownMenuItem disabled>
-      <HelpCircleIcon className="mr-2 h-4 w-4" />
-      <span>Support (Offline)</span>
-    </DropdownMenuItem>
+        <UserIcon className="mr-2 h-4 w-4" />
+        <span>Edit Profile</span>
+      </DropdownMenuItem>
+      <DropdownMenuItem disabled>
+        <CreditCardIcon className="mr-2 h-4 w-4" />
+        <span>Upgrade Plan</span>
+      </DropdownMenuItem>
+      <DropdownMenuItem disabled>
+        <HelpCircleIcon className="mr-2 h-4 w-4" />
+        <span>Support (Offline)</span>
+      </DropdownMenuItem>
     </DropdownMenuGroup>
     <DropdownMenuSeparator />
     <DropdownMenuItem>
@@ -220,40 +220,40 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
     <DropdownMenuGroup>
       <DropdownMenuLabel>Appearance</DropdownMenuLabel>
       <DropdownMenuSeparator />
-    <DropdownMenuCheckboxItem
-      checked={showStatusBar}
-      onCheckedChange={setShowStatusBar}
-    >
-      Show Status Bar
-    </DropdownMenuCheckboxItem>
-    <DropdownMenuCheckboxItem disabled>
-      Show Activity Bar
-    </DropdownMenuCheckboxItem>
-    <DropdownMenuCheckboxItem
-      checked={showPanel}
-      onCheckedChange={setShowPanel}
-    >
-      Show Panel
-    </DropdownMenuCheckboxItem>
-    <DropdownMenuSeparator />
-    <DropdownMenuSub>
-      <DropdownMenuSubTrigger>Theme</DropdownMenuSubTrigger>
-      <DropdownMenuSubContent>
-        <DropdownMenuItem>Light</DropdownMenuItem>
-        <DropdownMenuItem>Dark</DropdownMenuItem>
-        <DropdownMenuItem>System</DropdownMenuItem>
-      </DropdownMenuSubContent>
-    </DropdownMenuSub>
-    <DropdownMenuSeparator />
-    <DropdownMenuRadioGroup value="bottom">
-      <DropdownMenuRadioItem value="top">Top</DropdownMenuRadioItem>
-      <DropdownMenuRadioItem value="bottom">
-        Bottom
-      </DropdownMenuRadioItem>
-      <DropdownMenuRadioItem value="right">
-        Right
-      </DropdownMenuRadioItem>
-    </DropdownMenuRadioGroup>
+      <DropdownMenuCheckboxItem
+        checked={showStatusBar}
+        onCheckedChange={setShowStatusBar}
+      >
+        Show Status Bar
+      </DropdownMenuCheckboxItem>
+      <DropdownMenuCheckboxItem disabled>
+        Show Activity Bar
+      </DropdownMenuCheckboxItem>
+      <DropdownMenuCheckboxItem
+        checked={showPanel}
+        onCheckedChange={setShowPanel}
+      >
+        Show Panel
+      </DropdownMenuCheckboxItem>
+      <DropdownMenuSeparator />
+      <DropdownMenuSub>
+        <DropdownMenuSubTrigger>Theme</DropdownMenuSubTrigger>
+        <DropdownMenuSubContent>
+          <DropdownMenuItem>Light</DropdownMenuItem>
+          <DropdownMenuItem>Dark</DropdownMenuItem>
+          <DropdownMenuItem>System</DropdownMenuItem>
+        </DropdownMenuSubContent>
+      </DropdownMenuSub>
+      <DropdownMenuSeparator />
+      <DropdownMenuRadioGroup value="bottom">
+        <DropdownMenuRadioItem value="top">Top</DropdownMenuRadioItem>
+        <DropdownMenuRadioItem value="bottom">
+          Bottom
+        </DropdownMenuRadioItem>
+        <DropdownMenuRadioItem value="right">
+          Right
+        </DropdownMenuRadioItem>
+      </DropdownMenuRadioGroup>
     </DropdownMenuGroup>
   </DropdownMenuContent>
 </DropdownMenu>

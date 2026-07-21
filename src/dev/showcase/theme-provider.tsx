@@ -2,6 +2,14 @@ import { useState } from "react";
 import { MoonIcon, SunIcon } from "lucide-react";
 import { Tooltip as TooltipPrimitive } from "@base-ui/react/tooltip";
 
+import { Button } from "../../components/micro/button";
+import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "../../components/micro/dialog";
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator } from "../../components/micro/dropdown-menu";
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "../../components/micro/select";
+import { Tooltip, TooltipTrigger, TooltipContent } from "../../components/micro/tooltip";
+import { Popover, PopoverTrigger, PopoverContent } from "../../components/micro/popover";
+import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle } from "../../components/micro/sheet";
+
 import {
   ThemeProvider,
   ThemeWrapper,
@@ -262,6 +270,108 @@ function ChildContent() {
         </ThemeProvider>
       </ExampleSection>
 
+      {/* QA Testing Ground */}
+      <ExampleSection
+        fullWidth
+        label="Portal Tunnel - QA Testing Ground"
+        description="Kiểm thử thực tế với các Component hoàn chỉnh của gladcn (Dialog, Select, DropdownMenu...). Vùng này đang bị ép thành Dark Mode."
+        codeString={`<ThemeProvider defaultMode="dark">
+  <div className="flex gap-4">
+    {/* Các Component dưới đây sẽ render ra document.body */}
+    {/* Nhờ ThemeWrapper, chúng sẽ không bị lỗi sáng màu! */}
+    <Dialog>...</Dialog>
+    <Select>...</Select>
+    <DropdownMenu>...</DropdownMenu>
+    <Tooltip>...</Tooltip>
+    <Popover>...</Popover>
+    <Sheet>...</Sheet>
+  </div>
+</ThemeProvider>`}
+      >
+        <ThemeProvider defaultMode="dark">
+          <div className="w-full rounded-xl border border-border bg-background p-6">
+            <p className="text-sm text-foreground mb-6">
+              Vùng này đang bị ép thành <DocsCode>dark</DocsCode> mode cục bộ. <br />
+              <span className="text-muted-foreground mt-1 block">
+                💡 <strong>Mẹo:</strong> Đổi theme tổng thành Light Mode, rồi mở thử các Component nổi bên dưới để kiểm chứng độ hoàn hảo của ThemeWrapper.
+              </span>
+            </p>
+
+            <div className="flex flex-wrap items-center gap-4">
+              {/* Tooltip */}
+              <Tooltip>
+                <TooltipTrigger render={<Button variant="outline">Tooltip</Button>} />
+                <TooltipContent>
+                  <p>Màu tối đồng bộ hoàn hảo!</p>
+                </TooltipContent>
+              </Tooltip>
+
+              {/* Popover */}
+              <Popover>
+                <PopoverTrigger render={<Button variant="outline">Popover</Button>} />
+                <PopoverContent className="w-64">
+                  <div className="space-y-2">
+                    <h4 className="font-medium leading-none">Nội dung Popover</h4>
+                    <p className="text-sm text-muted-foreground">
+                      Lớp Portal Tunnel đã hoạt động chính xác.
+                    </p>
+                  </div>
+                </PopoverContent>
+              </Popover>
+
+              {/* Select */}
+              <Select>
+                <SelectTrigger className="w-[140px]">
+                  <SelectValue placeholder="Select" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="1">Lựa chọn 1</SelectItem>
+                  <SelectItem value="2">Lựa chọn 2</SelectItem>
+                  <SelectItem value="3">Lựa chọn 3</SelectItem>
+                </SelectContent>
+              </Select>
+
+              {/* DropdownMenu */}
+              <DropdownMenu>
+                <DropdownMenuTrigger render={<Button variant="outline">Dropdown</Button>} />
+                <DropdownMenuContent className="w-48">
+                  <DropdownMenuLabel>Tài khoản</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem>Trang cá nhân</DropdownMenuItem>
+                  <DropdownMenuItem>Cài đặt</DropdownMenuItem>
+                  <DropdownMenuItem>Đăng xuất</DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+
+              {/* Dialog */}
+              <Dialog>
+                <DialogTrigger render={<Button variant="outline">Dialog</Button>} />
+                <DialogContent className="sm:max-w-md">
+                  <DialogHeader>
+                    <DialogTitle>Màu tối toàn vẹn</DialogTitle>
+                    <DialogDescription>
+                      Ngay cả khi mở Dialog bọc ngoài toàn bộ màn hình, Portal Tunnel vẫn bảo vệ được scope Dark Mode.
+                    </DialogDescription>
+                  </DialogHeader>
+                </DialogContent>
+              </Dialog>
+
+              {/* Sheet */}
+              <Sheet>
+                <SheetTrigger render={<Button variant="outline">Sheet</Button>} />
+                <SheetContent side="right">
+                  <SheetHeader>
+                    <SheetTitle>Sheet Panel</SheetTitle>
+                  </SheetHeader>
+                  <div className="py-6 text-sm text-muted-foreground">
+                    Panel này trượt ra từ bên phải màn hình, nằm ngoài cây DOM gốc nhưng vẫn kế thừa màu Dark Mode một cách diệu kỳ!
+                  </div>
+                </SheetContent>
+              </Sheet>
+            </div>
+          </div>
+        </ThemeProvider>
+      </ExampleSection>
 
     </div>
   );

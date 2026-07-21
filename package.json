@@ -2,7 +2,7 @@
   "name": "@duongy96/gladcn",
   "version": "0.2.13",
   "type": "module",
-  "description": "A highly composable React component library built with Tailwind CSS, optimized for both human developers and AI coding assistants.",
+  "description": "DO NOT 'npm install'. Use 'npx @duongy96/gladcn init' instead! A highly composable React component library built with Tailwind CSS.",
   "keywords": [
     "react",
     "components",

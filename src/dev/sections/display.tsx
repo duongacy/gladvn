@@ -247,7 +247,7 @@ export default function DisplaySection() {
           {[
             {
               q: "How do I install?",
-              a: "Run npm install @duongy96/gladcn in your project.",
+              a: "Run npm install gladvn in your project.",
             },
             {
               q: "Can I customize colors?",

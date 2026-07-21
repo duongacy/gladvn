@@ -88,7 +88,7 @@ export default function OverviewSection() {
   }, []);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText("npx @duongy96/gladcn init");
+    navigator.clipboard.writeText("npx gladvn init");
     setCopied(true);
     toast.success("Đã copy lệnh vào clipboard");
     setTimeout(() => setCopied(false), 2000);
@@ -344,7 +344,7 @@ export default function OverviewSection() {
                   className="bg-background/80 hover:bg-background border-border backdrop-blur-md px-6 py-4 rounded-2xl border hover:border-primary/50 transition-colors font-mono text-sm shadow-inner flex items-center gap-4 cursor-pointer group/copy"
                 >
                   <span className="text-primary font-bold">~</span>
-                  <span>npx @duongy96/gladcn init</span>
+                  <span>npx gladvn init</span>
                   <div className="ml-4 text-muted-foreground group-hover/copy:text-primary transition-colors">
                     {copied ? (
                       <CheckIcon className="size-4 text-success" />
@@ -1077,7 +1077,7 @@ export default function OverviewSection() {
                 className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 rounded-2xl font-mono text-sm shadow-lg shadow-primary/20 flex items-center gap-4 cursor-pointer transition-all hover:scale-105 active:scale-95"
               >
                 <span className="font-bold opacity-70">~</span>
-                <span>npx @duongy96/gladcn init</span>
+                <span>npx gladvn init</span>
                 <div className="ml-2">
                   {copied ? (
                     <CheckIcon className="size-4" />

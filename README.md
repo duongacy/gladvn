@@ -31,12 +31,12 @@ There are two ways to use `gladcn` in your project. We highly recommend **Option
 This approach automatically copies all component source code, hooks, and styles directly into your project. You own the code, you can freely modify it, and the CLI will automatically install necessary peer dependencies for you!
 
 ```bash
-npx @duongy96/gladcn init
+npx gladvn init
 ```
 
 *By default, this will create a `gladcn` folder at your project root. If you prefer to place it elsewhere, specify the path:*
 ```bash
-npx @duongy96/gladcn init components/ui
+npx gladvn init components/ui
 ```
 
 **Usage:**
@@ -50,7 +50,7 @@ import { Button } from "@/gladcn/components/micro/button";
 If you prefer to use the pre-built components without cluttering your repository with source code, install it via npm:
 
 ```bash
-npm install @duongy96/gladcn
+npm install gladvn
 ```
 
 **Setup Tailwind CSS v4:**
@@ -60,15 +60,15 @@ Update your main CSS file to scan the library for Tailwind utility classes and i
 @import "tailwindcss";
 
 /* 1. Tell Tailwind to scan gladcn for utility classes */
-@source "../node_modules/@duongy96/gladcn/dist";
+@source "../node_modules/gladvn/dist";
 
 /* 2. Import gladcn global CSS variables */
-@import "@duongy96/gladcn/gladcn.css";
+@import "gladvn/gladcn.css";
 ```
 
 **Usage:**
 ```tsx
-import { Button, Card, CardHeader, CardTitle, CardContent } from "@duongy96/gladcn";
+import { Button, Card, CardHeader, CardTitle, CardContent } from "gladvn";
 ```
 
 ---

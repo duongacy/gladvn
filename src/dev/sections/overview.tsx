@@ -42,7 +42,7 @@ export default function OverviewSection() {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText("npm i @duongy96/gladcn");
+    navigator.clipboard.writeText("npm i gladvn");
     setCopied(true);
     toast.success("Command copied to clipboard");
     setTimeout(() => setCopied(false), 2000);
@@ -146,7 +146,7 @@ export default function OverviewSection() {
               Available on npm. Add gladcn to your project in seconds.
             </p>
             <div className="rounded-lg bg-muted/50 px-3 py-2.5 font-mono text-xs border border-border flex items-center justify-between">
-              <span className="truncate">npm i @duongy96/gladcn</span>
+              <span className="truncate">npm i gladvn</span>
             </div>
           </div>
           <Button

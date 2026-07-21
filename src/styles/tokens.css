@@ -1,11 +1,11 @@
 /* ==========================================================================
- * @duongy96/gladcn - Design Tokens (Default Theme)
+ * gladvn - Design Tokens (Default Theme)
  * ==========================================================================
  * Copy this file into your project's CSS and customize the values below.
  * These CSS variables control the entire look & feel of all gladcn components.
  *
  * Usage: Copy this content into your project's main CSS BEFORE the
- *        @import "@duongy96/gladcn/gladcn.css" line.
+ *        @import "gladvn/gladcn.css" line.
  *
  * Color format: oklch(lightness chroma hue)
  * Docs: https://oklch.com

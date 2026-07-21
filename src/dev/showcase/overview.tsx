@@ -126,10 +126,10 @@ export default function OverviewSection() {
             style={{ animationDelay: "100ms", animationFillMode: "both" }}
           >
             <span className="block text-foreground drop-shadow-sm">
-              Đơn giản. Chặt chẽ.
+              Mọi component.
             </span>
             <span className="block mt-2 bg-gradient-to-r leading-[1.2] from-primary via-info to-primary bg-[length:200%_auto] bg-clip-text text-transparent animate-[spin_8s_linear_infinite] [animation-name:gradient] [animation-duration:8s] [animation-timing-function:linear] [animation-iteration-count:infinite]">
-              Dễ mở rộng.
+              Trong thư mục của bạn.
             </span>
           </h1>
 
@@ -137,9 +137,12 @@ export default function OverviewSection() {
             className="max-w-2xl text-lg md:text-xl text-muted-foreground leading-relaxed mb-10 animate-fade-up"
             style={{ animationDelay: "200ms", animationFillMode: "both" }}
           >
-            Thư viện UI component được thiết kế tối giản, loại bỏ hoàn toàn các
-            cấu trúc rườm rà. Tập trung tối đa vào hiệu năng, trải nghiệm
-            developer (DX) và khả năng tuỳ biến linh hoạt.
+            Component library thường đòi bạn follow quy tắc của họ mãi mãi.
+            gladcn đặt toàn bộ source code vào tay bạn ngay từ đầu —{" "}
+            <strong className="text-foreground">
+              không vendor lock-in, không breaking change bất ngờ, không
+              node_modules ẩn.
+            </strong>
           </p>
         </div>
 
@@ -294,97 +297,180 @@ export default function OverviewSection() {
       <section className="container max-w-6xl mx-auto space-y-12 px-4">
         <div className="text-center max-w-2xl mx-auto space-y-4">
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">
-            Nguyên tắc thiết kế cốt lõi
+            Tường minh từ thiết kế. Bền vững theo thời gian.
           </h2>
           <p className="text-muted-foreground text-lg">
-            Toàn bộ thư viện được xây dựng dựa trên{" "}
-            <strong className="text-foreground">
-              12 nguyên tắc (Design Principles)
-            </strong>{" "}
-            khắt khe để đảm bảo tính nhất quán, dễ bảo trì và mang lại DX tốt
-            nhất.
+            Phần lớn component library hỏng ở năm thứ hai — khi team cần thay
+            đổi nhưng không ai dám sửa vì không biết gì sẽ vỡ. gladcn được xây
+            trên{" "}
+            <strong className="text-foreground">12 nguyên tắc tường minh</strong>
+            {" "}để bạn luôn biết mình đang sửa ở tầng nào và điều gì sẽ bị ảnh
+            hưởng.
           </p>
         </div>
 
         {/* FULL OWNERSHIP - FEATURED BANNER */}
         <div
           id="ownership-section"
-          className="mb-12 rounded-[2.5rem] border-2 border-primary/50 bg-primary/5 p-4 sm:p-6 md:p-12 flex flex-col md:flex-row items-center gap-6 md:gap-8 group overflow-hidden relative hover:bg-primary/10 transition-colors duration-500 shadow-2xl shadow-primary/10"
+          className="mb-12 rounded-[2.5rem] border-2 border-primary/50 bg-primary/5 p-4 sm:p-6 md:p-12 flex flex-col gap-10 group overflow-hidden relative hover:bg-primary/10 transition-colors duration-500 shadow-2xl shadow-primary/10"
         >
-          <div className="relative z-10 flex-1 space-y-6">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary text-primary-foreground text-sm font-bold uppercase tracking-wider shadow-lg shadow-primary/20">
-              <SparklesIcon className="size-4" /> Điểm khác biệt lớn nhất
-            </div>
-            <h3 className="text-3xl md:text-5xl font-extrabold tracking-tight">
-              Sở hữu 100% mã nguồn
-            </h3>
-            <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl">
-              Chỉ với một lệnh duy nhất, toàn bộ source code của thư viện
-              (components, hooks, styles, contexts) sẽ được clone trực tiếp vào
-              dự án của bạn.{" "}
-              <strong className="text-foreground">
-                Không cài đặt qua node_modules, không bị khóa (vendor lock-in)
-              </strong>
-              , bạn có toàn quyền quyết định mọi dòng code.
-            </p>
+          <div className="flex flex-col md:flex-row items-start gap-6 md:gap-8">
+            <div className="relative z-10 flex-1 space-y-6">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary text-primary-foreground text-sm font-bold uppercase tracking-wider shadow-lg shadow-primary/20">
+                <SparklesIcon className="size-4" /> Điểm khác biệt lớn nhất
+              </div>
+              <h3 className="text-3xl md:text-5xl font-extrabold tracking-tight">
+                Sở hữu 100% mã nguồn
+              </h3>
+              <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl">
+                Chạy một lệnh duy nhất — toàn bộ source code (components, hooks,
+                styles, contexts) được sao chép thẳng vào thư mục{" "}
+                <code className="text-sm bg-primary/20 text-primary px-1.5 py-0.5 rounded">
+                  src/
+                </code>{" "}
+                của dự án bạn.{" "}
+                <strong className="text-foreground">
+                  Không cài qua node_modules, không bị vendor lock-in
+                </strong>{" "}
+                — bạn đọc được, sửa được, xoá được từng dòng code.
+              </p>
 
-            <div className="flex items-center gap-4 pt-4">
-              <button
-                onClick={handleCopy}
-                className="bg-background/80 hover:bg-background border-border backdrop-blur-md px-6 py-4 rounded-2xl border hover:border-primary/50 transition-colors font-mono text-sm shadow-inner flex items-center gap-4 cursor-pointer group/copy"
-              >
-                <span className="text-primary font-bold">~</span>
-                <span>npx @duongy96/gladcn init</span>
-                <div className="ml-4 text-muted-foreground group-hover/copy:text-primary transition-colors">
-                  {copied ? (
-                    <CheckIcon className="size-4 text-success" />
-                  ) : (
-                    <CopyIcon className="size-4" />
-                  )}
+              <div className="flex items-center gap-4 pt-2">
+                <button
+                  onClick={handleCopy}
+                  className="bg-background/80 hover:bg-background border-border backdrop-blur-md px-6 py-4 rounded-2xl border hover:border-primary/50 transition-colors font-mono text-sm shadow-inner flex items-center gap-4 cursor-pointer group/copy"
+                >
+                  <span className="text-primary font-bold">~</span>
+                  <span>npx @duongy96/gladcn init</span>
+                  <div className="ml-4 text-muted-foreground group-hover/copy:text-primary transition-colors">
+                    {copied ? (
+                      <CheckIcon className="size-4 text-success" />
+                    ) : (
+                      <CopyIcon className="size-4" />
+                    )}
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            <div className="relative z-10 w-full md:w-1/3 flex flex-col gap-4">
+              <div className="p-3 sm:p-5 rounded-2xl border border-success/30 bg-success/10 shadow-sm flex items-start gap-4 transform group-hover:-translate-x-2 transition-transform">
+                <div className="bg-success text-success-foreground p-2 rounded-full mt-1">
+                  <CheckIcon className="size-4" />
                 </div>
-              </button>
+                <div>
+                  <h4 className="font-bold text-success text-lg">
+                    Toàn bộ Component & Hook
+                  </h4>
+                  <p className="text-xs text-success/80 mt-1">
+                    Nằm gọn trong{" "}
+                    <code className="opacity-80">
+                      src/components/micro/ & macro/
+                    </code>
+                  </p>
+                </div>
+              </div>
+              <div className="p-3 sm:p-5 rounded-2xl border border-success/30 bg-success/10 shadow-sm flex items-start gap-4 transform group-hover:translate-x-2 transition-transform">
+                <div className="bg-success text-success-foreground p-2 rounded-full mt-1">
+                  <CheckIcon className="size-4" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-success text-lg">
+                    CSS Token & Theme Config
+                  </h4>
+                  <p className="text-xs text-success/80 mt-1">
+                    OKLCH color tokens, dark/light mode — đẹp ngay từ đầu
+                  </p>
+                </div>
+              </div>
+              <div className="p-3 sm:p-5 rounded-2xl border border-success/30 bg-success/10 shadow-sm flex items-start gap-4 transform group-hover:-translate-x-2 transition-transform">
+                <div className="bg-success text-success-foreground p-2 rounded-full mt-1">
+                  <CheckIcon className="size-4" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-success text-lg">
+                    Tự động cài Dependency
+                  </h4>
+                  <p className="text-xs text-success/80 mt-1">
+                    Tự nhận diện npm, yarn, pnpm, bun
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className="relative z-10 w-full md:w-1/3 flex flex-col gap-4">
-            <div className="p-3 sm:p-5 rounded-2xl border border-success/30 bg-success/10 shadow-sm flex items-start gap-4 transform group-hover:-translate-x-2 transition-transform">
-              <div className="bg-success text-success-foreground p-2 rounded-full mt-1">
-                <CheckIcon className="size-4" />
-              </div>
-              <div>
-                <h4 className="font-bold text-success text-lg">
-                  Copy 100% Component & Hook
+          {/* WHERE TO EDIT GUIDE */}
+          <div className="relative z-10 border-t border-primary/20 pt-8">
+            <p className="text-sm font-bold uppercase tracking-wider text-primary mb-5">
+              Tuỳ chỉnh theo từng tầng kiến trúc
+            </p>
+            <div className="grid sm:grid-cols-3 gap-4">
+
+              {/* MACRO — RECOMMENDED */}
+              <div className="p-5 rounded-2xl border-2 border-primary/40 bg-primary/5 space-y-3 relative">
+                <div className="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/10 px-2 py-0.5 rounded-full">
+                  Nên bắt đầu ở đây
+                </div>
+                <div className="font-mono text-xs text-primary/70">
+                  src/components/macro/
+                </div>
+                <h4 className="font-bold text-foreground text-base">
+                  Sửa Macro — an toàn nhất
                 </h4>
-                <p className="text-xs text-success/80 mt-1">
-                  Nằm gọn trong thư mục src/ của bạn
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Đây là nơi bạn nên chỉnh trước tiên. Mỗi Macro là một preset
+                  độc lập — thêm footer cho DatePicker, bỏ nút đóng của Dialog,
+                  điều chỉnh placeholder của Combobox.{" "}
+                  <strong className="text-foreground">
+                    Thay đổi chỉ ảnh hưởng đúng preset đó
+                  </strong>
+                  , không lan ra component nào khác.
                 </p>
               </div>
-            </div>
-            <div className="p-3 sm:p-5 rounded-2xl border border-success/30 bg-success/10 shadow-sm flex items-start gap-4 transform group-hover:translate-x-2 transition-transform">
-              <div className="bg-success text-success-foreground p-2 rounded-full mt-1">
-                <CheckIcon className="size-4" />
-              </div>
-              <div>
-                <h4 className="font-bold text-success text-lg">
-                  Thiết lập sẵn Theme & CSS
+
+              {/* MICRO — CAUTION */}
+              <div className="p-5 rounded-2xl border border-warning/40 bg-warning/5 space-y-3 relative">
+                <div className="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider text-warning bg-warning/10 px-2 py-0.5 rounded-full">
+                  Cẩn thận
+                </div>
+                <div className="font-mono text-xs text-warning/70">
+                  src/components/micro/
+                </div>
+                <h4 className="font-bold text-foreground text-base">
+                  Sửa Micro — ảnh hưởng rộng
                 </h4>
-                <p className="text-xs text-success/80 mt-1">
-                  Giao diện đẹp ngay từ giây đầu tiên
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Micro là nền tảng — mọi Macro đều xây trên chúng. Sửa một
+                  variant của Button hay thay animation của Tooltip sẽ{" "}
+                  <strong className="text-foreground">
+                    tác động đồng loạt đến toàn bộ nơi dùng component đó
+                  </strong>{" "}
+                  trong ứng dụng. Chỉ chỉnh khi bạn rõ mình đang làm gì.
                 </p>
               </div>
-            </div>
-            <div className="p-3 sm:p-5 rounded-2xl border border-success/30 bg-success/10 shadow-sm flex items-start gap-4 transform group-hover:-translate-x-2 transition-transform">
-              <div className="bg-success text-success-foreground p-2 rounded-full mt-1">
-                <CheckIcon className="size-4" />
-              </div>
-              <div>
-                <h4 className="font-bold text-success text-lg">
-                  Tự động cài Dependency
+
+              {/* CSS — HIGHEST IMPACT */}
+              <div className="p-5 rounded-2xl border border-destructive/30 bg-destructive/5 space-y-3 relative">
+                <div className="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider text-destructive bg-destructive/10 px-2 py-0.5 rounded-full">
+                  Ảnh hưởng toàn cục
+                </div>
+                <div className="font-mono text-xs text-destructive/60">
+                  src/index.css
+                </div>
+                <h4 className="font-bold text-foreground text-base">
+                  Sửa CSS — chạm toàn bộ hệ thống
                 </h4>
-                <p className="text-xs text-success/80 mt-1">
-                  Tự nhận diện npm, yarn, pnpm, bun
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  CSS token là ngôn ngữ chung của mọi component — màu sắc,
+                  typography, border-radius. Thay đổi một token ở đây{" "}
+                  <strong className="text-foreground">
+                    tức thời cập nhật toàn bộ giao diện
+                  </strong>
+                  , từ Button đến Dialog. Dùng khi bạn muốn rebrand hoặc thay
+                  đổi design language, không phải để vá từng chỗ.
                 </p>
               </div>
+
             </div>
           </div>
         </div>
@@ -396,11 +482,8 @@ export default function OverviewSection() {
               <BlocksIcon className="w-80 h-80" />
             </div>
             <div className="relative z-10 space-y-4 mb-10">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
-                <BlocksIcon className="size-3.5" /> Nguyên tắc 1
-              </div>
               <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">
-                Micro & Macro Architecture
+                Micro &amp; Macro Architecture
               </h3>
               <p className="text-muted-foreground max-w-lg text-lg leading-relaxed">
                 Tách biệt rõ ràng Core components linh hoạt (Micro) và các
@@ -468,9 +551,6 @@ export default function OverviewSection() {
               <ShieldCheckIcon className="w-56 h-56" />
             </div>
             <div className="relative z-10 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-destructive/10 text-destructive text-xs font-bold uppercase tracking-wider">
-                <ShieldCheckIcon className="size-3.5" /> Nguyên tắc 2
-              </div>
               <h3 className="text-2xl font-extrabold tracking-tight">
                 No Magic CSS
               </h3>
@@ -504,9 +584,6 @@ export default function OverviewSection() {
               <SlidersHorizontalIcon className="w-80 h-80" />
             </div>
             <div className="relative z-10 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 text-secondary text-xs font-bold uppercase tracking-wider">
-                <SlidersHorizontalIcon className="size-3.5" /> Nguyên tắc 3
-              </div>
               <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">
                 Orthogonal Styling
               </h3>
@@ -545,15 +622,15 @@ export default function OverviewSection() {
               <ComponentIcon className="w-80 h-80" />
             </div>
             <div className="relative z-10 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
-                <ComponentIcon className="size-3.5" /> Nguyên tắc 4
-              </div>
               <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">
                 Zero-prop Defaults
               </h3>
               <p className="text-muted-foreground text-lg leading-relaxed max-w-lg">
                 Component phải hoạt động mượt mà và render đúng UI chuẩn kể cả
-                khi dev không truyền bất kỳ prop nào vào.
+                khi dev không truyền bất kỳ prop nào vào.{" "}
+                <strong className="text-foreground">
+                  Nếu không, mỗi lần dùng là một lần tra tài liệu.
+                </strong>
               </p>
             </div>
             <div className="relative z-10 mt-auto pt-8 flex flex-col gap-4">
@@ -580,16 +657,16 @@ export default function OverviewSection() {
               <LayersIcon className="w-56 h-56" />
             </div>
             <div className="relative z-10 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-warning/10 text-warning text-xs font-bold uppercase tracking-wider">
-                <LayersIcon className="size-3.5" /> Nguyên tắc 5
-              </div>
               <h3 className="text-2xl font-extrabold tracking-tight">
                 AHA Principle
               </h3>
               <p className="text-muted-foreground text-base leading-relaxed">
                 Tránh trừu tượng hóa quá sớm (Avoid Hasty Abstractions). Code
                 lặp lại (WET) một chút còn hơn cố DRY rồi sinh ra đống prop phức
-                tạp.
+                tạp.{" "}
+                <strong className="text-foreground">
+                  Trừu tượng sớm tạo ra component không ai dám sửa sau 6 tháng.
+                </strong>
               </p>
             </div>
             <div className="relative z-10 mt-auto pt-8">
@@ -614,9 +691,6 @@ export default function OverviewSection() {
               <PaintbrushIcon className="w-56 h-56" />
             </div>
             <div className="relative z-10 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-info/10 text-info text-xs font-bold uppercase tracking-wider">
-                <PaintbrushIcon className="size-3.5" /> Nguyên tắc 6
-              </div>
               <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">
                 CSS Delegated Logic
               </h3>
@@ -652,9 +726,6 @@ export default function OverviewSection() {
               <CopyIcon className="w-56 h-56" />
             </div>
             <div className="relative z-10 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
-                <CopyIcon className="size-3.5" /> Nguyên tắc 7
-              </div>
               <h3 className="text-2xl font-extrabold tracking-tight">
                 Strict Polymorphism
               </h3>
@@ -687,15 +758,16 @@ export default function OverviewSection() {
               <BoxIcon className="w-56 h-56" />
             </div>
             <div className="relative z-10 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 text-secondary text-xs font-bold uppercase tracking-wider">
-                <BoxIcon className="size-3.5" /> Nguyên tắc 8
-              </div>
               <h3 className="text-2xl font-extrabold tracking-tight">
                 Exhaustive Union Types
               </h3>
               <p className="text-muted-foreground text-base leading-relaxed">
                 Khai báo tường minh Union Types cho các config prop thay vì dùng
-                kiểu <code>string</code> chung chung để tận dụng autocomplete.
+                kiểu <code>string</code> chung chung để tận dụng autocomplete.{" "}
+                <strong className="text-foreground">
+                  <code>string</code> là loại type nói "tôi không biết" — và IDE
+                  cũng sẽ không biết giúp bạn.
+                </strong>
               </p>
             </div>
             <div className="relative z-10 mt-auto pt-6 space-y-3">
@@ -720,16 +792,16 @@ export default function OverviewSection() {
               <AccessibilityIcon className="w-56 h-56" />
             </div>
             <div className="relative z-10 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-info/10 text-info text-xs font-bold uppercase tracking-wider">
-                <AccessibilityIcon className="size-3.5" /> Nguyên tắc 9
-              </div>
               <h3 className="text-2xl font-extrabold tracking-tight">
                 Accessibility First
               </h3>
               <p className="text-muted-foreground text-base leading-relaxed">
                 Ưu tiên HTML semantic, liên kết form qua{" "}
                 <code>aria-describedby</code>, ẩn icon trang trí bằng{" "}
-                <code>aria-hidden</code> để đảm bảo WCAG AAA/AA.
+                <code>aria-hidden</code> để đảm bảo WCAG AAA/AA.{" "}
+                <strong className="text-foreground">
+                  Accessibility là thứ không ai để ý — cho đến khi bị audit.
+                </strong>
               </p>
             </div>
             <div className="relative z-10 mt-auto pt-6 space-y-3">
@@ -756,16 +828,16 @@ export default function OverviewSection() {
               <SparklesIcon className="w-56 h-56" />
             </div>
             <div className="relative z-10 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-success/10 text-success text-xs font-bold uppercase tracking-wider">
-                <SparklesIcon className="size-3.5" /> Nguyên tắc 10
-              </div>
               <h3 className="text-2xl font-extrabold tracking-tight">
                 Code Self-documenting
               </h3>
               <p className="text-muted-foreground text-base leading-relaxed">
                 Code phải tự nói lên được ý nghĩa của nó. Comment chỉ dành riêng
                 cho việc giải thích business context hoặc lý do "tại sao lại
-                code thế này".
+                code thế này".{" "}
+                <strong className="text-foreground">
+                  Code cần comment để hiểu là code sắp được viết lại — hoặc bỏ.
+                </strong>
               </p>
             </div>
             <div className="relative z-10 mt-auto pt-8">
@@ -786,9 +858,6 @@ export default function OverviewSection() {
               <SlidersHorizontalIcon className="w-56 h-56" />
             </div>
             <div className="relative z-10 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-warning/10 text-warning text-xs font-bold uppercase tracking-wider">
-                <SlidersHorizontalIcon className="size-3.5" /> Nguyên tắc 11
-              </div>
               <h3 className="text-2xl font-extrabold tracking-tight">
                 No Default Variants
               </h3>
@@ -822,9 +891,6 @@ export default function OverviewSection() {
               <BlocksIcon className="w-56 h-56" />
             </div>
             <div className="relative z-10 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-destructive/10 text-destructive text-xs font-bold uppercase tracking-wider">
-                <BlocksIcon className="size-3.5" /> Nguyên tắc 12
-              </div>
               <h3 className="text-2xl font-extrabold tracking-tight">
                 Pure Composition
               </h3>
@@ -868,36 +934,71 @@ export default function OverviewSection() {
           </div>
 
           <div className="relative z-10 max-w-3xl mb-14 space-y-5">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-warning/20 text-warning text-xs font-bold uppercase tracking-wider mb-2">
-              <SparklesIcon className="size-3.5" /> Killer Feature
-            </div>
             <h3 className="text-3xl md:text-5xl font-extrabold tracking-tight text-warning">
               Scoped Theme Tunnel
             </h3>
             <p className="text-muted-foreground text-xl leading-relaxed">
-              Giải quyết triệt để "nỗi đau" của thư viện Tailwind UI truyền
-              thống: Bảo toàn hoàn hảo ngữ cảnh Dark/Light mode cục bộ kể cả khi
-              Component (Dialog, Tooltip, Select...) bị render ra ngoài
-              document.body thông qua React Portal.
+              Tưởng tượng: app đang chạy Light Mode nhưng bạn cần một vùng nền
+              tối nổi bật — hero section, dark sidebar, CTA banner. Bọc vùng đó
+              trong{" "}
+              <code className="text-sm bg-warning/20 text-warning px-1.5 py-0.5 rounded">
+                {"<ThemeProvider defaultMode=\"dark\">"}
+              </code>{" "}
+              là đủ để mọi component con hiểu ngữ cảnh đang là Dark và tự điều
+              chỉnh màu sắc.
+            </p>
+            <p className="text-muted-foreground text-xl leading-relaxed">
+              <strong className="text-foreground">
+                Nhưng có một bẫy ẩn:
+              </strong>{" "}
+              khi người dùng mở Tooltip hoặc Dialog từ bên trong vùng tối đó,
+              component này render ra{" "}
+              <code className="text-sm bg-warning/20 text-warning px-1.5 py-0.5 rounded">
+                document.body
+              </code>{" "}
+              qua React Portal — thoát hoàn toàn khỏi DOM tree. CSS variable
+              dark mode mất theo. Tooltip hiện ra{" "}
+              <strong className="text-foreground">trắng lạc quẻ</strong> giữa
+              nền đen. Đây là điểm mà hầu hết thư viện bỏ cuộc.
+            </p>
+            <p className="text-muted-foreground text-xl leading-relaxed">
+              gladcn giải quyết bằng{" "}
+              <code className="text-sm bg-warning/20 text-warning px-1.5 py-0.5 rounded">
+                {"<ThemeWrapper>"}
+              </code>{" "}
+              — một lớp được đặt{" "}
+              <strong className="text-foreground">ngay bên trong Portal</strong>{" "}
+              để đọc theme context từ trước khi vượt qua ranh giới Portal và
+              tái-inject nó vào phía bên kia.{" "}
+              <strong className="text-foreground">
+                Theme không bị chặn lại ở ranh giới — nó được đào hầm xuyên
+                qua.
+              </strong>{" "}
+              Kết quả: Dialog, Tooltip, Select... luôn hiển thị đúng màu dark
+              dù chúng render ở đâu trong DOM.
             </p>
           </div>
 
           <div className="relative z-10 grid sm:grid-cols-2 gap-6 max-w-3xl">
-            <div className="p-6 rounded-2xl border border-success/30 bg-success/10 shadow-sm flex flex-col justify-center">
-              <div className="text-success font-semibold mb-3 text-lg flex items-center gap-2">
-                ✅ gladcn
+            <div className="p-6 rounded-2xl border border-success/30 bg-success/10 shadow-sm flex flex-col gap-2">
+              <div className="text-success font-semibold text-lg flex items-center gap-2">
+                ✅ gladcn — ThemeWrapper
               </div>
-              <div className="font-mono text-success/90">
-                {"<ThemeWrapper> tunnel CSS Context hoàn hảo."}
-              </div>
+              <p className="text-success/80 text-sm leading-relaxed">
+                Theme được tunnel xuyên qua Portal boundary. Dialog, Tooltip,
+                Select... luôn hiển thị đúng dark mode dù render tại{" "}
+                <code className="opacity-80">document.body</code>.
+              </p>
             </div>
-            <div className="p-6 rounded-2xl border border-destructive/30 bg-destructive/10 shadow-sm opacity-80 flex flex-col justify-center">
-              <div className="text-destructive font-semibold mb-3 text-lg flex items-center gap-2">
-                ❌ Các thư viện khác
+            <div className="p-6 rounded-2xl border border-destructive/30 bg-destructive/10 shadow-sm opacity-80 flex flex-col gap-2">
+              <div className="text-destructive font-semibold text-lg flex items-center gap-2">
+                ❌ Các thư viện thông thường
               </div>
-              <div className="font-mono text-destructive/90">
-                {"Lỗi màu sắc do bị văng ra document.body."}
-              </div>
+              <p className="text-destructive/80 text-sm leading-relaxed">
+                Theme bị mất khi vượt qua Portal. Tooltip, Dialog bên trong
+                dark section vẫn hiển thị màu Light Mode — lỗi thầm lặng, khó
+                debug.
+              </p>
             </div>
           </div>
 
@@ -923,9 +1024,6 @@ export default function OverviewSection() {
           </div>
 
           <div className="relative z-10 max-w-3xl mb-14 space-y-5">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-2">
-              <PaletteIcon className="size-3.5" /> Bảng màu Thế hệ Mới
-            </div>
             <h3 className="text-3xl md:text-5xl font-extrabold tracking-tight">
               Không gian màu OKLCH
             </h3>
@@ -949,6 +1047,53 @@ export default function OverviewSection() {
                 <ColorSwatch color={c} />
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 🚀 FINAL CTA */}
+      <section className="container max-w-6xl mx-auto px-4">
+        <div className="rounded-[2.5rem] border-2 border-primary/40 bg-gradient-to-br from-primary/10 via-background to-info/5 p-10 md:p-16 shadow-2xl shadow-primary/5 text-center relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_0%,rgba(var(--primary-rgb),0.15),transparent)] pointer-events-none" />
+          <div className="relative z-10 space-y-6 max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight">
+              Sẵn sàng bắt đầu?
+            </h2>
+            <p className="text-muted-foreground text-lg leading-relaxed">
+              Toàn bộ source code sẽ nằm trong thư mục{" "}
+              <code className="text-sm bg-primary/20 text-primary px-1.5 py-0.5 rounded">
+                src/
+              </code>{" "}
+              của bạn trong vòng 30 giây. Không cần config. Không cần đọc thêm
+              tài liệu.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+              <button
+                onClick={handleCopy}
+                className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 rounded-2xl font-mono text-sm shadow-lg shadow-primary/20 flex items-center gap-4 cursor-pointer transition-all hover:scale-105 active:scale-95"
+              >
+                <span className="font-bold opacity-70">~</span>
+                <span>npx @duongy96/gladcn init</span>
+                <div className="ml-2">
+                  {copied ? (
+                    <CheckIcon className="size-4" />
+                  ) : (
+                    <CopyIcon className="size-4" />
+                  )}
+                </div>
+              </button>
+              <Button
+                render={<a href="?component=overview" />}
+                variant="ghost"
+                className="text-muted-foreground hover:text-foreground"
+              >
+                Xem tài liệu đầy đủ
+                <ArrowRightIcon className="size-4 ml-1" />
+              </Button>
+            </div>
+            <p className="text-xs text-muted-foreground pt-2">
+              Tương thích với npm, yarn, pnpm và bun. Hỗ trợ React 18+.
+            </p>
           </div>
         </div>
       </section>

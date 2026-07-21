@@ -89,19 +89,19 @@ function ThemeAwareCard({ readOnly }: { readOnly?: boolean } = {}) {
         Nền, chữ và viền được điều khiển bởi CSS variable từ ThemeProvider cha.
       </p>
       {!readOnly && (
-        <button
-          onClick={() =>
-            theme?.setMode(theme.mode === "dark" ? "light" : "dark")
-          }
-          className="flex items-center gap-2 rounded-lg px-3 py-1.5 text-xs font-medium bg-primary text-primary-foreground hover:opacity-90 transition-opacity"
+        <Button
+          variant="ghost"
+          size="sm"
+          iconOnly
+          aria-label={theme?.mode === "dark" ? "Chuyển sang Light" : "Chuyển sang Dark"}
+          onClick={() => theme?.setMode(theme.mode === "dark" ? "light" : "dark")}
         >
           {theme?.mode === "dark" ? (
-            <SunIcon className="size-3" aria-hidden="true" />
+            <SunIcon aria-hidden="true" />
           ) : (
-            <MoonIcon className="size-3" aria-hidden="true" />
+            <MoonIcon aria-hidden="true" />
           )}
-          Chuyển sang {theme?.mode === "dark" ? "Light" : "Dark"}
-        </button>
+        </Button>
       )}
     </div>
   );
@@ -115,7 +115,12 @@ function ThemeProviderMicroShowcase() {
   const [controlledMode, setControlledMode] = useState<ThemeMode>("light");
 
   return (
-    <div className="space-y-10 mt-6">
+    <div className="space-y-10">
+      <SectionHeader
+        title="ThemeProvider"
+        description="Context provider điều phối dark/light mode cho toàn bộ component tree. Hỗ trợ hai chế độ: Uncontrolled (tự quản lý state) và Controlled (state do component cha sở hữu). Dùng ThemeWrapper để tunnel theme qua Portal boundary."
+      />
+
       {/* ── Uncontrolled ── */}
       <SectionHeader
         title="Uncontrolled"
@@ -123,14 +128,14 @@ function ThemeProviderMicroShowcase() {
       />
       <ExampleSection
         label="defaultMode"
-        description="ThemeProvider giữ state nội bộ. Bất kỳ component con nào đều có thể sử dụng hook useTheme() để đọc hoặc cập nhật mode."
+        description="ThemeProvider giữ state nội bộ. Bất kỳ component con nào đều có thể sử dụng hook `useTheme()` để đọc hoặc cập nhật mode."
         codeString={`function ThemeAwareCard() {
   const theme = useTheme();
 
   return (
     <div className="rounded-xl border border-border bg-card text-card-foreground p-4 space-y-3">
       <div className="flex items-center justify-between">
-        <span className="text-sm font-medium">Ở nội dung</span>
+        <span className="text-sm font-medium">Thẻ nội dung</span>
         <span className="text-xs px-2 py-0.5 rounded-full bg-muted text-muted-foreground">
           {theme?.mode}
         </span>
@@ -159,31 +164,28 @@ function ThemeProviderMicroShowcase() {
       <ExampleSection
         label="mode + onModeChange"
         description="State hoàn toàn được quản lý bởi component cha. ThemeProvider chỉ nhận prop mode và cập nhật UI khi cha thay đổi state."
-        codeString={`function ControlledApp() {
-  const [mode, setMode] = useState<ThemeMode>("light");
+        codeString={`const [mode, setMode] = useState<ThemeMode>("light");
 
-  return (
-    <div className="space-y-4 p-4 border rounded-lg bg-background">
-      <button onClick={() => setMode(mode === "dark" ? "light" : "dark")}>
-        Chuyển Mode từ Component Cha
-      </button>
+<div className="space-y-3 w-full">
+  {/* Toggle nằm ở component cha — simulates Macro owning state */}
+  <div className="flex items-center gap-3 p-3 rounded-lg bg-muted/50 border border-border">
+    <span className="text-xs text-muted-foreground flex-1">
+      State ở component cha: <strong>{mode}</strong>
+    </span>
+    <Button
+      size="sm"
+      variant="outline"
+      onClick={() => setMode(mode === "dark" ? "light" : "dark")}
+    >
+      Toggle từ ngoài
+    </Button>
+  </div>
 
-      <ThemeProvider mode={mode} onModeChange={setMode}>
-        <ChildContent />
-      </ThemeProvider>
-    </div>
-  );
-}
-
-function ChildContent() {
-  const theme = useTheme();
-
-  return (
-    <div className="p-4 bg-card text-card-foreground rounded-lg">
-      <p>Mode hiện tại đang là: {theme?.mode}</p>
-    </div>
-  );
-}`}
+  <ThemeProvider mode={mode} onModeChange={setMode}>
+    {/* ThemeAwareCard là component đọc useTheme() để hiển thị mode hiện tại */}
+    <ThemeAwareCard readOnly />
+  </ThemeProvider>
+</div>`}
       >
         <div className="space-y-3 w-full">
           {/* External toggle (simulates Macro owning state) */}
@@ -191,19 +193,20 @@ function ChildContent() {
             <span className="text-xs text-muted-foreground flex-1">
               State ở component cha: <DocsCode>{controlledMode}</DocsCode>
             </span>
-            <button
+            <Button
+              size="sm"
+              variant="outline"
               onClick={() =>
                 setControlledMode(controlledMode === "dark" ? "light" : "dark")
               }
-              className="flex items-center gap-2 rounded-md px-2.5 py-1.5 text-xs font-medium bg-secondary text-secondary-foreground hover:opacity-90 transition-opacity"
             >
               {controlledMode === "dark" ? (
-                <SunIcon className="size-3" aria-hidden="true" />
+                <SunIcon aria-hidden="true" />
               ) : (
-                <MoonIcon className="size-3" aria-hidden="true" />
+                <MoonIcon aria-hidden="true" />
               )}
-              Toggle từ ngoài
-            </button>
+              {controlledMode === "dark" ? "Light" : "Dark"}
+            </Button>
           </div>
 
           <ThemeProvider mode={controlledMode} onModeChange={setControlledMode}>
@@ -216,15 +219,15 @@ function ChildContent() {
       <div className="pt-16 pb-6">
         <SectionHeader
           title="ThemeWrapper & Portal Tunnels"
-          description="ThemeWrapper được dùng để tunnel theme class qua Portal boundary (Dialog, Tooltip, Popover...). Dưới đây là kiểm thử thực tế với các component của gladcn (ép Dark Mode cục bộ). Hãy chuyển Theme tổng sang Light Mode để xem tác dụng của ThemeWrapper."
+          description="ThemeWrapper tunnel theme class qua Portal boundary (Dialog, Tooltip, Popover...) bằng cách re-apply CSS variable vào container mới. Dưới đây là so sánh trực tiếp giữa portal không có và có ThemeWrapper khi theme cục bộ (ThemeProvider cha) đang ở Dark Mode."
         />
       </div>
 
-      <ExampleGrid>
         {/* Tooltip */}
         <ExampleSection
+          fullWidth
           label="Tooltip"
-          description="TooltipPortal render ra document.body — nếu không có ThemeWrapper sẽ mất dark mode."
+          description="Tooltip được định vị gần trigger và hiển thị khi hover. Không có ThemeWrapper, tooltip của bạn sẽ trắng toát giữa một dark section — dười đây là bằng chứng trực quan."
           codeString={`<ThemeProvider defaultMode="dark">
   <div className="w-full flex gap-10 rounded-xl border border-border bg-background p-10">
     <div className="flex-1 flex flex-col items-center gap-4">
@@ -324,8 +327,9 @@ function ChildContent() {
 
         {/* Popover */}
         <ExampleSection
+          fullWidth
           label="Popover"
-          description="Popover Portal render ra document.body — nếu không có ThemeWrapper sẽ mất dark mode."
+          description="Popover chứa content phức tạp và mở khi click. Vì portal hướng tới `document.body`, toàn bộ nền popover lấy CSS variable từ root — sẽ trắng hoàn toàn dù trigger đang nằm trong dark section."
           codeString={`<ThemeProvider defaultMode="dark">
   <div className="w-full flex gap-10 rounded-xl border border-border bg-background p-10">
     <div className="flex-1 flex flex-col items-center gap-4">
@@ -433,8 +437,9 @@ function ChildContent() {
 
         {/* Select */}
         <ExampleSection
+          fullWidth
           label="Select"
-          description="SelectContent render qua Portal — ThemeWrapper giữ đồng bộ theme cho dropdown."
+          description="SelectContent được render tách biệt hoàn toàn khỏi trigger. Thiếu ThemeWrapper, dropdown option sẽ trắng xuộa trong khi trigger vẫn tối — mù quáng và khó đọc."
           codeString={`<ThemeProvider defaultMode="dark">
   <div className="w-full flex gap-10 rounded-xl border border-border bg-background p-10">
     <div className="flex-1 flex flex-col items-center gap-4">
@@ -522,8 +527,9 @@ function ChildContent() {
 
         {/* DropdownMenu */}
         <ExampleSection
+          fullWidth
           label="DropdownMenu"
-          description="DropdownMenuContent render qua Portal — cần ThemeWrapper để giữ dark mode."
+          description="DropdownMenu thường dùng cho navigation actions (profile, settings, logout). Khi hover qua từng item, màu highlight cũng lấy từ CSS variable — thiếu ThemeWrapper, cả nền menu lẫn trạng thái hover cùng lúc đều hiển thị sai màu."
           codeString={`<ThemeProvider defaultMode="dark">
   <div className="w-full flex gap-10 rounded-xl border border-border bg-background p-10">
     <div className="flex-1 flex flex-col items-center gap-4">
@@ -627,8 +633,9 @@ function ChildContent() {
 
         {/* Dialog */}
         <ExampleSection
+          fullWidth
           label="Dialog"
-          description="Dialog overlay + content render qua Portal — ThemeWrapper bảo vệ theme xuyên suốt."
+          description="Dialog là trường hợp phức tạp nhất: portal chứa cả Overlay backdrop lẫn Content panel. Cả hai layer đều cần được bọc trong ThemeWrapper để đảm bảo đồng bộ hoàn toàn."
           codeString={`<ThemeProvider defaultMode="dark">
   <div className="w-full flex gap-10 rounded-xl border border-border bg-background p-10">
     <div className="flex-1 flex flex-col items-center gap-4">
@@ -730,8 +737,9 @@ function ChildContent() {
 
         {/* Sheet */}
         <ExampleSection
+          fullWidth
           label="Sheet"
-          description="Sheet slide-in panel render qua Portal — ThemeWrapper tunnel dark mode vào panel."
+          description="Sheet trượt từ cạnh màn hình và phủ một vùng diện tích lớn — lỗi theme dễ nhận biết nhất vì panel thông thường chứa layout phức tạp hơn Popover hay Tooltip."
           codeString={`<ThemeProvider defaultMode="dark">
   <div className="w-full flex gap-10 rounded-xl border border-border bg-background p-10">
     <div className="flex-1 flex flex-col items-center gap-4">
@@ -818,7 +826,6 @@ function ChildContent() {
             </div>
           </ThemeProvider>
         </ExampleSection>
-      </ExampleGrid>
     </div>
   );
 }
@@ -833,25 +840,46 @@ export default function ThemeProviderShowcase() {
       description="Context provider cho light/dark mode — uncontrolled (defaultMode) hoặc controlled (mode + onModeChange). Portal-safe qua ThemeWrapper."
       generalConcept={
         <ShowcaseDocs>
-          <DocsH3>Theme Provider</DocsH3>
+          <DocsH3>ThemeProvider</DocsH3>
           <DocsP>
             <DocsCode>ThemeProvider</DocsCode> bọc children trong một{" "}
-            <DocsCode>{"div[display:contents]"}</DocsCode> với class{" "}
-            <DocsCode>light</DocsCode> hoặc <DocsCode>dark</DocsCode>, kích hoạt
-            CSS variable cascade mà không ảnh hưởng layout.
-          </DocsP>
-          <DocsP>
-            Hỗ trợ hai chế độ: <strong>Uncontrolled</strong> (truyền{" "}
-            <DocsCode>defaultMode</DocsCode> — ThemeProvider tự quản lý state)
-            và <strong>Controlled</strong> (truyền <DocsCode>mode</DocsCode> +{" "}
+            <DocsCode>{"div[display:contents]"}</DocsCode> và gắn class{" "}
+            <DocsCode>light</DocsCode> hoặc <DocsCode>dark</DocsCode> lên đó,
+            kích hoạt CSS variable cascade mà không ảnh hưởng layout. Hỗ trợ
+            hai chế độ: <strong>Uncontrolled</strong> (truyền{" "}
+            <DocsCode>defaultMode</DocsCode> — tự quản lý state) và{" "}
+            <strong>Controlled</strong> (truyền <DocsCode>mode</DocsCode> +{" "}
             <DocsCode>onModeChange</DocsCode> — state do component cha sở hữu).
             Việc đọc localStorage hoặc system preference thuộc về tầng Macro.
           </DocsP>
+
+          <DocsH3>ThemeWrapper &amp; Portal — Hard Requirement</DocsH3>
           <DocsP>
-            Dùng <DocsCode>useTheme()</DocsCode> để đọc{" "}
-            <DocsCode>mode</DocsCode> và gọi <DocsCode>setMode()</DocsCode> từ
-            bất kỳ component con nào. <DocsCode>ThemeWrapper</DocsCode> tự động
-            tunnel theme qua Portal boundary cho Dialog, Tooltip, Popover...
+            CSS variable cascade theo <strong>DOM tree</strong>, không theo
+            React component tree. Khi một component render qua Portal (ra{" "}
+            <DocsCode>document.body</DocsCode>), nó thoát khỏi hoàn toàn chuỗi
+            DOM ancestry — không còn tổ tiên nào mang class{" "}
+            <DocsCode>.dark</DocsCode>, và mọi CSS variable rơi thẳng về giá
+            trị <DocsCode>:root</DocsCode> (thường là light).
+          </DocsP>
+          <DocsP>
+            <DocsCode>ThemeWrapper</DocsCode> giải quyết vấn đề này bằng cách
+            đọc <DocsCode>useTheme()</DocsCode> và re-apply class theme vào một
+            container mới ngay bên trong Portal — tái thiết lập CSS variable
+            cascade cho toàn bộ nội dung bên trong.{" "}
+            <strong>
+              Đây không phải best practice tuỳ chọn — đây là yêu cầu bắt buộc
+            </strong>{" "}
+            khi dùng Portal trong bất kỳ scoped theme section nào. Bỏ qua{" "}
+            <DocsCode>ThemeWrapper</DocsCode> sẽ không gây lỗi compile hay
+            runtime warning, nhưng UI sẽ hiển thị sai màu âm thầm.
+          </DocsP>
+          <DocsP>
+            Trách nhiệm đặt <DocsCode>ThemeWrapper</DocsCode> không thể
+            delegate tuỳ tiện: Micro component không được tự ôm nó bên trong
+            (vi phạm nguyên tắc pure composition). Tầng nào kiểm soát Portal —
+            Macro component hoặc consumer trực tiếp — tầng đó phải tự đặt{" "}
+            <DocsCode>ThemeWrapper</DocsCode> ngay sau Portal boundary.
           </DocsP>
         </ShowcaseDocs>
       }

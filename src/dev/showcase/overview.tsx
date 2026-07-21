@@ -35,7 +35,8 @@ import {
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue, SelectPortal } from "../../components/micro/select";
+  SelectValue, SelectPortal
+} from "../../components/micro/select";
 import { Switch } from "../../components/micro/switch";
 import { ColorSwatch } from "../../dev/components/showcase";
 import { COLORS, STATS } from "../../dev/data";
@@ -213,18 +214,18 @@ export default function OverviewSection() {
                       <SelectValue placeholder="Chọn vùng" />
                     </SelectTrigger>
                     <SelectPortal>
-                                      <SelectContent>
-                                                            <SelectItem value="edge">
-                                                              Edge Network (Toàn cầu)
-                                                            </SelectItem>
-                                                            <SelectItem value="us-east">
-                                                              US East (Virginia)
-                                                            </SelectItem>
-                                                            <SelectItem value="ap-se">
-                                                              AP South East (Sing)
-                                                            </SelectItem>
-                                                          </SelectContent>
-                                      </SelectPortal>
+                      <SelectContent>
+                        <SelectItem value="edge">
+                          Edge Network (Toàn cầu)
+                        </SelectItem>
+                        <SelectItem value="us-east">
+                          US East (Virginia)
+                        </SelectItem>
+                        <SelectItem value="ap-se">
+                          AP South East (Sing)
+                        </SelectItem>
+                      </SelectContent>
+                    </SelectPortal>
                   </Select>
                 </div>
               </div>
@@ -1063,11 +1064,8 @@ export default function OverviewSection() {
             <h2 className="text-3xl font-extrabold tracking-tight">
               Contributors
             </h2>
-            <p className="text-muted-foreground text-lg">
-              Thư viện này được xây dựng và phát triển nhờ sự đóng góp của cộng đồng. Cảm ơn tất cả mọi người!
-            </p>
           </div>
-          
+
           <div className="flex flex-wrap justify-center gap-6">
             {[
               {
@@ -1095,7 +1093,7 @@ export default function OverviewSection() {
               </a>
             ))}
           </div>
-          
+
           <Button variant="outline" className="mt-4 rounded-full" render={<a href="https://github.com/duongacy/gladcn" target="_blank" rel="noreferrer" />}>
             Trở thành Contributor
           </Button>

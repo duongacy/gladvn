@@ -167,6 +167,7 @@ export default function App() {
               variant="ghost"
               iconOnly
               render={<a href="https://github.com/duongacy/gladcn" target="_blank" rel="noreferrer" />}
+              nativeButton={false}
               className="text-muted-foreground hover:text-foreground hidden sm:inline-flex"
             >
               {/* GitHub SVG mark */}

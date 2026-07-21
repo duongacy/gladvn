@@ -270,45 +270,35 @@ function ChildContent() {
         </ThemeProvider>
       </ExampleSection>
 
-      {/* QA Testing Ground */}
-      <ExampleSection
-        fullWidth
-        label="Portal Tunnel - QA Testing Ground"
-        description="Kiểm thử thực tế với các Component hoàn chỉnh của gladcn (Dialog, Select, DropdownMenu...). Vùng này đang bị ép thành Dark Mode."
-        codeString={`<ThemeProvider defaultMode="dark">
-  <div className="flex gap-4">
-    {/* Các Component dưới đây sẽ render ra document.body */}
-    {/* Nhờ ThemeWrapper, chúng sẽ không bị lỗi sáng màu! */}
-    <Dialog>...</Dialog>
-    <Select>...</Select>
-    <DropdownMenu>...</DropdownMenu>
-    <Tooltip>...</Tooltip>
-    <Popover>...</Popover>
-    <Sheet>...</Sheet>
-  </div>
-</ThemeProvider>`}
-      >
-        <ThemeProvider defaultMode="dark">
-          <div className="w-full rounded-xl border border-border bg-background p-6">
-            <p className="text-sm text-foreground mb-6">
-              Vùng này đang bị ép thành <DocsCode>dark</DocsCode> mode cục bộ. <br />
-              <span className="text-muted-foreground mt-1 block">
-                💡 <strong>Mẹo:</strong> Đổi theme tổng thành Light Mode, rồi mở thử các Component nổi bên dưới để kiểm chứng độ hoàn hảo của ThemeWrapper.
-              </span>
-            </p>
+      {/* QA Testing Ground - Title */}
+      <div className="pt-16 pb-6">
+        <SectionHeader
+          title="QA Testing Ground"
+          description="Kiểm thử thực tế với các Component hoàn chỉnh của gladcn (đang ép Dark Mode). Hãy chuyển Theme tổng sang Light Mode để xem sức mạnh của ThemeWrapper."
+        />
+      </div>
 
-            <div className="flex flex-wrap items-center gap-4">
-              {/* Tooltip */}
+      <ExampleGrid>
+        {/* Tooltip */}
+        <ExampleSection label="Tooltip">
+          <ThemeProvider defaultMode="dark">
+            <div className="w-full flex justify-center rounded-xl border border-border bg-background p-10">
               <Tooltip>
-                <TooltipTrigger render={<Button variant="outline">Tooltip</Button>} />
+                <TooltipTrigger render={<Button variant="outline">Hover Tooltip</Button>} />
                 <TooltipContent>
                   <p>Màu tối đồng bộ hoàn hảo!</p>
                 </TooltipContent>
               </Tooltip>
+            </div>
+          </ThemeProvider>
+        </ExampleSection>
 
-              {/* Popover */}
+        {/* Popover */}
+        <ExampleSection label="Popover">
+          <ThemeProvider defaultMode="dark">
+            <div className="w-full flex justify-center rounded-xl border border-border bg-background p-10">
               <Popover>
-                <PopoverTrigger render={<Button variant="outline">Popover</Button>} />
+                <PopoverTrigger render={<Button variant="outline">Click Popover</Button>} />
                 <PopoverContent className="w-64">
                   <div className="space-y-2">
                     <h4 className="font-medium leading-none">Nội dung Popover</h4>
@@ -318,8 +308,14 @@ function ChildContent() {
                   </div>
                 </PopoverContent>
               </Popover>
+            </div>
+          </ThemeProvider>
+        </ExampleSection>
 
-              {/* Select */}
+        {/* Select */}
+        <ExampleSection label="Select">
+          <ThemeProvider defaultMode="dark">
+            <div className="w-full flex justify-center rounded-xl border border-border bg-background p-10">
               <Select>
                 <SelectTrigger className="w-[140px]">
                   <SelectValue placeholder="Select" />
@@ -330,10 +326,16 @@ function ChildContent() {
                   <SelectItem value="3">Lựa chọn 3</SelectItem>
                 </SelectContent>
               </Select>
+            </div>
+          </ThemeProvider>
+        </ExampleSection>
 
-              {/* DropdownMenu */}
+        {/* DropdownMenu */}
+        <ExampleSection label="DropdownMenu">
+          <ThemeProvider defaultMode="dark">
+            <div className="w-full flex justify-center rounded-xl border border-border bg-background p-10">
               <DropdownMenu>
-                <DropdownMenuTrigger render={<Button variant="outline">Dropdown</Button>} />
+                <DropdownMenuTrigger render={<Button variant="outline">Open Dropdown</Button>} />
                 <DropdownMenuContent className="w-48">
                   <DropdownMenuLabel>Tài khoản</DropdownMenuLabel>
                   <DropdownMenuSeparator />
@@ -342,10 +344,16 @@ function ChildContent() {
                   <DropdownMenuItem>Đăng xuất</DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
+            </div>
+          </ThemeProvider>
+        </ExampleSection>
 
-              {/* Dialog */}
+        {/* Dialog */}
+        <ExampleSection label="Dialog">
+          <ThemeProvider defaultMode="dark">
+            <div className="w-full flex justify-center rounded-xl border border-border bg-background p-10">
               <Dialog>
-                <DialogTrigger render={<Button variant="outline">Dialog</Button>} />
+                <DialogTrigger render={<Button variant="outline">Open Dialog</Button>} />
                 <DialogContent className="sm:max-w-md">
                   <DialogHeader>
                     <DialogTitle>Màu tối toàn vẹn</DialogTitle>
@@ -355,10 +363,16 @@ function ChildContent() {
                   </DialogHeader>
                 </DialogContent>
               </Dialog>
+            </div>
+          </ThemeProvider>
+        </ExampleSection>
 
-              {/* Sheet */}
+        {/* Sheet */}
+        <ExampleSection label="Sheet">
+          <ThemeProvider defaultMode="dark">
+            <div className="w-full flex justify-center rounded-xl border border-border bg-background p-10">
               <Sheet>
-                <SheetTrigger render={<Button variant="outline">Sheet</Button>} />
+                <SheetTrigger render={<Button variant="outline">Open Sheet</Button>} />
                 <SheetContent side="right">
                   <SheetHeader>
                     <SheetTitle>Sheet Panel</SheetTitle>
@@ -369,9 +383,9 @@ function ChildContent() {
                 </SheetContent>
               </Sheet>
             </div>
-          </div>
-        </ThemeProvider>
-      </ExampleSection>
+          </ThemeProvider>
+        </ExampleSection>
+      </ExampleGrid>
 
     </div>
   );

@@ -184,7 +184,7 @@ function ChildContent() {
         {/* Do KHÔNG CÓ ThemeWrapper, Tooltip này sẽ bị sáng trắng lên, sai màu. */}
         <TooltipPrimitive.Positioner sideOffset={8}>
           <TooltipPrimitive.Popup className="bg-card text-card-foreground">
-            Trắng toát! Lạc quẻ với nút màu đen.
+            Trắng toát! Lạc quẻ với nền đen.
           </TooltipPrimitive.Popup>
         </TooltipPrimitive.Positioner>
       </TooltipPrimitive.Portal>
@@ -210,8 +210,11 @@ function ChildContent() {
       >
         <ThemeProvider defaultMode="dark">
           <div className="space-y-6 w-full rounded-xl border border-border bg-background p-6">
-            <p className="text-sm text-foreground">
-              Vùng này đang bị ép thành <DocsCode>dark</DocsCode> mode cục bộ. Hãy mở 2 tooltip bên dưới để xem sự khác biệt khi content bị văng ra ngoài <DocsCode>document.body</DocsCode> (nơi vốn là Light mode).
+            <p className="text-sm text-foreground leading-relaxed">
+              Vùng này đang bị ép thành <DocsCode>dark</DocsCode> mode cục bộ. <br />
+              <span className="text-muted-foreground mt-1 block">
+                💡 <strong>Mẹo:</strong> Hãy đổi theme của cả trang web sang <strong>Light Mode</strong> (ở góc trên bên phải), sau đó mở 2 tooltip bên dưới để thấy rõ sự cố khi content bị văng ra ngoài <DocsCode>document.body</DocsCode>.
+              </span>
             </p>
 
             <div className="flex gap-10">
@@ -227,7 +230,7 @@ function ChildContent() {
                   <TooltipPrimitive.Portal>
                     <TooltipPrimitive.Positioner sideOffset={8}>
                       <TooltipPrimitive.Popup className="z-50 bg-card text-card-foreground border border-border px-3 py-2 text-sm rounded shadow-md">
-                        Trắng toát! Lạc quẻ với nút màu đen.
+                        Trắng toát! Lạc quẻ với nền đen.
                       </TooltipPrimitive.Popup>
                     </TooltipPrimitive.Positioner>
                   </TooltipPrimitive.Portal>

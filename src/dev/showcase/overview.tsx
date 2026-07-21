@@ -618,6 +618,42 @@ export default function OverviewSection() {
             </div>
           </div>
 
+          {/* Scoped Theme Tunnel */}
+          <div className="break-inside-avoid mb-6 rounded-[2rem] border border-border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
+            <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
+              <PaletteIcon className="w-56 h-56" />
+            </div>
+            <div className="relative z-10 space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
+                <PaletteIcon className="size-3.5" /> Nguyên tắc 7
+              </div>
+              <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">
+                Scoped Theme Tunnel
+              </h3>
+              <p className="text-muted-foreground text-lg leading-relaxed max-w-lg">
+                Giải quyết triệt để "nỗi đau" của thư viện Tailwind UI truyền thống: Bảo toàn hoàn hảo ngữ cảnh Dark/Light mode cục bộ kể cả khi Component (Dialog, Tooltip, Select...) bị render ra ngoài document.body thông qua React Portal.
+              </p>
+            </div>
+            <div className="relative z-10 mt-auto pt-8 grid sm:grid-cols-2 gap-4">
+              <div className="p-4 rounded-xl border border-success/20 bg-success/5 shadow-sm">
+                <div className="text-success font-semibold mb-2 text-sm flex items-center gap-2">
+                  ✅ gladcn
+                </div>
+                <div className="text-[11px] font-mono text-success/80">
+                  {"<ThemeWrapper> tunnel CSS Context"}
+                </div>
+              </div>
+              <div className="p-4 rounded-xl border border-destructive/20 bg-destructive/5 shadow-sm opacity-60">
+                <div className="text-destructive font-semibold mb-2 text-sm flex items-center gap-2">
+                  ❌ Các thư viện khác
+                </div>
+                <div className="text-[11px] font-mono text-destructive/80">
+                  {"Lỗi màu do bị văng ra document.body"}
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Strict Polymorphism */}
           <div className="break-inside-avoid mb-6 rounded-[2rem] border border-border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">

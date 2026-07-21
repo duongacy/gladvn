@@ -619,13 +619,13 @@ export default function OverviewSection() {
           </div>
 
           {/* Scoped Theme Tunnel */}
-          <div className="break-inside-avoid mb-6 rounded-[2rem] border border-border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
-            <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
-              <PaletteIcon className="w-56 h-56" />
+          <div className="break-inside-avoid mb-6 rounded-[2rem] border border-warning/30 bg-warning/5 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-warning/10 transition-colors duration-500">
+            <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700 text-warning">
+              <SparklesIcon className="w-56 h-56" />
             </div>
             <div className="relative z-10 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
-                <PaletteIcon className="size-3.5" /> Nguyên tắc 7
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-warning/20 text-warning-foreground text-xs font-bold uppercase tracking-wider">
+                <SparklesIcon className="size-3.5" /> Killer Feature
               </div>
               <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">
                 Scoped Theme Tunnel

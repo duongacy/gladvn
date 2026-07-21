@@ -400,7 +400,7 @@ export default function DropdownMenuShowcase() {
   return (
     <Showcase
       title="Dropdown Menu"
-      description="Hiển thị một menu cho người dùng—chẳng hạn như một tập hợp các hành động hoặc chức năng—được kích hoạt bằng một nút."
+      description="Menu thả xuống kích hoạt bằng nút — chứa actions, checkbox, radio, và submenu."
       generalConcept={
         <ShowcaseDocs>
           <DocsP>

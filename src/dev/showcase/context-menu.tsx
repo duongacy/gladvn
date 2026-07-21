@@ -219,7 +219,7 @@ export default function ContextMenuShowcase() {
   return (
     <Showcase
       title="Context Menu"
-      description="Hiển thị một menu cho người dùng—chẳng hạn như một tập hợp các hành động hoặc chức năng—được kích hoạt bằng cách nhấp chuột phải."
+      description="Menu ngữ cảnh hiển thị khi click chuột phải — dùng cho các hành động nhanh."
       generalConcept={
         <ShowcaseDocs>
           <DocsP>

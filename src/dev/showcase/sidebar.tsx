@@ -1,4 +1,4 @@
-import { ExampleSection, Showcase } from "../../dev/components/showcase";
+import { DocsP, ExampleSection, Showcase, ShowcaseDocs } from "../../dev/components/showcase";
 import { FolderIcon, Package2Icon, SettingsIcon, UserIcon } from "lucide-react";
 
 import {
@@ -103,7 +103,17 @@ export default function SidebarShowcase() {
   return (
     <Showcase
       title="Sidebar (Ultra Primitive)"
-      description="Sidebar nguyên thủy nhất, chỉ nhận context state, không có JS lằng nhằng, CSS thuần túy đóng mở tức thì."
+      description="Sidebar nguyên thuỷ nhất, chỉ nhận context state, CSS thuần tuý đóng mở tức thì."
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsP>
+            Sidebar tối giản chỉ dùng CSS và DOM attribute để chuyển
+            trạng thái expanded/collapsed. Không có JS transition, không
+            re-render. Sử dụng useSidebarToggle hook để toggle bằng
+            direct DOM mutation.
+          </DocsP>
+        </ShowcaseDocs>
+      }
       tabs={[{ label: "Micro (Primitive)", content: <SidebarMicroShowcase /> }]}
     />
   );

@@ -283,7 +283,7 @@ export default function NavigationMenuShowcase() {
   return (
     <Showcase
       title="Navigation Menu"
-      description="Một bộ sưu tập các liên kết để điều hướng các trang web."
+      description="Thanh điều hướng đa cấp với panel thả xuống — dùng cho header navigation."
       generalConcept={
         <ShowcaseDocs>
           <DocsP>

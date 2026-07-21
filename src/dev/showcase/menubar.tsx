@@ -375,7 +375,7 @@ export default function MenubarShowcase() {
   return (
     <Showcase
       title="Menubar"
-      description="Một menu liên tục trực quan phổ biến trong các ứng dụng máy tính để bàn."
+      description="Thanh menu cố định dạng ngang — phổ biến trong các desktop app (File, Edit, View...)."
       generalConcept={
         <ShowcaseDocs>
           <DocsP>

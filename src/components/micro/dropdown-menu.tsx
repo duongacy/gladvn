@@ -12,6 +12,7 @@ import * as React from "react";
 
 import { cn } from "../../lib/utils";
 import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react";
+import { ThemeWrapper } from "./theme-provider";
 
 export type DropdownMenuVariant = "destructive";
 
@@ -20,8 +21,12 @@ function DropdownMenu({ ...props }: MenuPrimitive.Root.Props) {
 }
 DropdownMenu.displayName = "DropdownMenu";
 
-function DropdownMenuPortal({ ...props }: MenuPrimitive.Portal.Props) {
-  return <MenuPrimitive.Portal data-slot="dropdown-menu-portal" {...props} />;
+function DropdownMenuPortal({ children, ...props }: MenuPrimitive.Portal.Props) {
+  return (
+    <MenuPrimitive.Portal data-slot="dropdown-menu-portal" {...props}>
+      <ThemeWrapper>{children}</ThemeWrapper>
+    </MenuPrimitive.Portal>
+  );
 }
 DropdownMenuPortal.displayName = "DropdownMenuPortal";
 

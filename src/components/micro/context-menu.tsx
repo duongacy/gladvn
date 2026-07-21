@@ -12,6 +12,7 @@ import * as React from "react";
 
 import { cn } from "../../lib/utils";
 import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react";
+import { ThemeWrapper } from "./theme-provider";
 
 type ContextMenuVariant = "destructive";
 
@@ -31,9 +32,11 @@ function ContextMenu({ ...props }: ContextMenuPrimitive.Root.Props) {
 }
 ContextMenu.displayName = "ContextMenu";
 
-function ContextMenuPortal({ ...props }: ContextMenuPrimitive.Portal.Props) {
+function ContextMenuPortal({ children, ...props }: ContextMenuPrimitive.Portal.Props) {
   return (
-    <ContextMenuPrimitive.Portal data-slot="context-menu-portal" {...props} />
+    <ContextMenuPrimitive.Portal data-slot="context-menu-portal" {...props}>
+      <ThemeWrapper>{children}</ThemeWrapper>
+    </ContextMenuPrimitive.Portal>
   );
 }
 ContextMenuPortal.displayName = "ContextMenuPortal";

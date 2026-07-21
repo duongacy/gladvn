@@ -13,6 +13,7 @@ import { Drawer as DrawerPrimitive } from "vaul";
 import type {} from "@radix-ui/react-dialog";
 
 import { cn } from "../../lib/utils";
+import { ThemeWrapper } from "./theme-provider";
 
 function Drawer({
   ...props
@@ -30,9 +31,14 @@ const DrawerTrigger = React.forwardRef<
 DrawerTrigger.displayName = "DrawerTrigger";
 
 function DrawerPortal({
+  children,
   ...props
 }: React.ComponentProps<typeof DrawerPrimitive.Portal>) {
-  return <DrawerPrimitive.Portal data-slot="drawer-portal" {...props} />;
+  return (
+    <DrawerPrimitive.Portal data-slot="drawer-portal" {...props}>
+      <ThemeWrapper>{children}</ThemeWrapper>
+    </DrawerPrimitive.Portal>
+  );
 }
 DrawerPortal.displayName = "DrawerPortal";
 

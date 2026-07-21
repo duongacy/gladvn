@@ -11,6 +11,7 @@ import { Dialog as DialogPrimitive } from "@base-ui/react/dialog";
 import * as React from "react";
 
 import { cn } from "../../lib/utils";
+import { ThemeWrapper } from "./theme-provider";
 
 function Dialog({ ...props }: DialogPrimitive.Root.Props) {
   return <DialogPrimitive.Root data-slot="dialog" {...props} />;
@@ -24,8 +25,12 @@ const DialogTrigger = React.forwardRef<
 ));
 DialogTrigger.displayName = "DialogTrigger";
 
-function DialogPortal({ ...props }: DialogPrimitive.Portal.Props) {
-  return <DialogPrimitive.Portal data-slot="dialog-portal" {...props} />;
+function DialogPortal({ children, ...props }: DialogPrimitive.Portal.Props) {
+  return (
+    <DialogPrimitive.Portal data-slot="dialog-portal" {...props}>
+      <ThemeWrapper>{children}</ThemeWrapper>
+    </DialogPrimitive.Portal>
+  );
 }
 
 const DialogClose = React.forwardRef<

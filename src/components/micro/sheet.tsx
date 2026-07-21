@@ -13,6 +13,7 @@ import { XIcon } from "lucide-react";
 
 import { Button } from "../../components/micro/button";
 import { cn } from "../../lib/utils";
+import { ThemeWrapper } from "./theme-provider";
 
 function Sheet({ ...props }: SheetPrimitive.Root.Props) {
   return <SheetPrimitive.Root data-slot="sheet" {...props} />;
@@ -26,8 +27,12 @@ function SheetClose({ ...props }: SheetPrimitive.Close.Props) {
   return <SheetPrimitive.Close data-slot="sheet-close" {...props} />;
 }
 
-function SheetPortal({ ...props }: SheetPrimitive.Portal.Props) {
-  return <SheetPrimitive.Portal data-slot="sheet-portal" {...props} />;
+function SheetPortal({ children, ...props }: SheetPrimitive.Portal.Props) {
+  return (
+    <SheetPrimitive.Portal data-slot="sheet-portal" {...props}>
+      <ThemeWrapper>{children}</ThemeWrapper>
+    </SheetPrimitive.Portal>
+  );
 }
 
 function SheetOverlay({ className, ...props }: SheetPrimitive.Backdrop.Props) {

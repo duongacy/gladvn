@@ -838,6 +838,17 @@ export default function OverviewSection() {
             <p className="text-muted-foreground text-xl leading-relaxed">
               Giải quyết triệt để "nỗi đau" của thư viện Tailwind UI truyền thống: Bảo toàn hoàn hảo ngữ cảnh Dark/Light mode cục bộ kể cả khi Component (Dialog, Tooltip, Select...) bị render ra ngoài document.body thông qua React Portal.
             </p>
+            <div className="pt-4">
+              <Button
+                render={<a href="?component=theme-provider" />}
+                variant="outline"
+                color="warning"
+                className="gap-2 font-bold px-6 py-5 rounded-xl border-warning/30 bg-warning/10 hover:bg-warning/20 shadow-sm"
+              >
+                Xem Demo Thực tế
+                <ArrowRightIcon className="size-4" />
+              </Button>
+            </div>
           </div>
 
           <div className="relative z-10 grid sm:grid-cols-2 gap-6 max-w-3xl">

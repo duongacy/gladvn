@@ -34,8 +34,7 @@ import {
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue,
-} from "../../components/micro/select";
+  SelectValue, SelectPortal } from "../../components/micro/select";
 import { Switch } from "../../components/micro/switch";
 import { ColorSwatch } from "../../dev/components/showcase";
 import { COLORS, STATS } from "../../dev/data";
@@ -220,17 +219,19 @@ export default function OverviewSection() {
                     <SelectTrigger className="w-full bg-background/50">
                       <SelectValue placeholder="Chọn vùng" />
                     </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="edge">
-                        Edge Network (Toàn cầu)
-                      </SelectItem>
-                      <SelectItem value="us-east">
-                        US East (Virginia)
-                      </SelectItem>
-                      <SelectItem value="ap-se">
-                        AP South East (Sing)
-                      </SelectItem>
-                    </SelectContent>
+                    <SelectPortal>
+                                      <SelectContent>
+                                                            <SelectItem value="edge">
+                                                              Edge Network (Toàn cầu)
+                                                            </SelectItem>
+                                                            <SelectItem value="us-east">
+                                                              US East (Virginia)
+                                                            </SelectItem>
+                                                            <SelectItem value="ap-se">
+                                                              AP South East (Sing)
+                                                            </SelectItem>
+                                                          </SelectContent>
+                                      </SelectPortal>
                   </Select>
                 </div>
               </div>

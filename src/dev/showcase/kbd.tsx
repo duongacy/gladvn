@@ -21,14 +21,14 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
+  DropdownMenuPortal,
 } from "../../components/micro/dropdown-menu";
 import { Kbd, KbdGroup } from "../../components/micro/kbd";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
-  TooltipTrigger,
-} from "../../components/micro/tooltip";
+  TooltipTrigger, TooltipPortal } from "../../components/micro/tooltip";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 2: Micro Content (không export)
@@ -127,10 +127,12 @@ function KbdMicroShowcase() {
                   </Button>
                 }
               />
-              <TooltipContent>
-                Lưu tài liệu <Kbd>⌘</Kbd>
-                <Kbd>S</Kbd>
-              </TooltipContent>
+              <TooltipPortal>
+                          <TooltipContent>
+                                          Lưu tài liệu <Kbd>⌘</Kbd>
+                                          <Kbd>S</Kbd>
+                                        </TooltipContent>
+                          </TooltipPortal>
             </Tooltip>
           </TooltipProvider>
 
@@ -143,10 +145,12 @@ function KbdMicroShowcase() {
                   </Button>
                 }
               />
-              <TooltipContent>
-                Sao chép <Kbd>⌘</Kbd>
-                <Kbd>C</Kbd>
-              </TooltipContent>
+              <TooltipPortal>
+                          <TooltipContent>
+                                          Sao chép <Kbd>⌘</Kbd>
+                                          <Kbd>C</Kbd>
+                                        </TooltipContent>
+                          </TooltipPortal>
             </Tooltip>
           </TooltipProvider>
         </div>
@@ -176,42 +180,44 @@ function KbdMicroShowcase() {
           <DropdownMenuTrigger
             render={<Button variant="outline">File menu</Button>}
           />
-          <DropdownMenuContent className="w-56">
-            <DropdownMenuItem>
-              <FilePlusIcon aria-hidden="true" />
-              New File
-              <KbdGroup className="ml-auto">
-                <Kbd>⌘</Kbd>
-                <Kbd>N</Kbd>
-              </KbdGroup>
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <FolderOpenIcon aria-hidden="true" />
-              Open...
-              <KbdGroup className="ml-auto">
-                <Kbd>⌘</Kbd>
-                <Kbd>O</Kbd>
-              </KbdGroup>
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>
-              <SaveIcon aria-hidden="true" />
-              Save
-              <KbdGroup className="ml-auto">
-                <Kbd>⌘</Kbd>
-                <Kbd>S</Kbd>
-              </KbdGroup>
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <FileIcon aria-hidden="true" />
-              Save As...
-              <KbdGroup className="ml-auto">
-                <Kbd>⌘</Kbd>
-                <Kbd>⇧</Kbd>
-                <Kbd>S</Kbd>
-              </KbdGroup>
-            </DropdownMenuItem>
-          </DropdownMenuContent>
+          <DropdownMenuPortal>
+            <DropdownMenuContent className="w-56">
+              <DropdownMenuItem>
+                <FilePlusIcon aria-hidden="true" />
+                New File
+                <KbdGroup className="ml-auto">
+                  <Kbd>⌘</Kbd>
+                  <Kbd>N</Kbd>
+                </KbdGroup>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <FolderOpenIcon aria-hidden="true" />
+                Open...
+                <KbdGroup className="ml-auto">
+                  <Kbd>⌘</Kbd>
+                  <Kbd>O</Kbd>
+                </KbdGroup>
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>
+                <SaveIcon aria-hidden="true" />
+                Save
+                <KbdGroup className="ml-auto">
+                  <Kbd>⌘</Kbd>
+                  <Kbd>S</Kbd>
+                </KbdGroup>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <FileIcon aria-hidden="true" />
+                Save As...
+                <KbdGroup className="ml-auto">
+                  <Kbd>⌘</Kbd>
+                  <Kbd>⇧</Kbd>
+                  <Kbd>S</Kbd>
+                </KbdGroup>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenuPortal>
         </DropdownMenu>
       </ExampleSection>
 

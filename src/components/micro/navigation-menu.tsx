@@ -17,9 +17,8 @@ import { ChevronDownIcon } from "lucide-react";
  */
 const NavigationMenu = React.forwardRef<
   React.ComponentRef<typeof NavigationMenuPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Root> &
-    Pick<NavigationMenuPrimitive.Positioner.Props, "align">
->(({ align = "start", className, children, ...props }, ref) => {
+  React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Root>
+>(({ className, children, ...props }, ref) => {
   return (
     <NavigationMenuPrimitive.Root
       ref={ref}
@@ -31,7 +30,6 @@ const NavigationMenu = React.forwardRef<
       {...props}
     >
       {children}
-      <NavigationMenuPositioner align={align} />
     </NavigationMenuPrimitive.Root>
   );
 });

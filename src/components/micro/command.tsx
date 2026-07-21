@@ -10,13 +10,6 @@
 import { Command as CommandPrimitive } from "cmdk";
 import * as React from "react";
 
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "../../components/micro/dialog";
 import { InputGroup, InputGroupAddon } from "../../components/micro/input-group";
 import { cn } from "../../lib/utils";
 import { SearchIcon } from "lucide-react";
@@ -37,36 +30,6 @@ const Command = React.forwardRef<
 ));
 Command.displayName = "Command";
 
-function CommandDialog({
-  title = "Command Palette",
-  description = "Search for a command to run...",
-  children,
-  className,
-  ...props
-}: Omit<React.ComponentProps<typeof Dialog>, "children"> & {
-  title?: string;
-  description?: string;
-  className?: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <Dialog {...props}>
-      <DialogHeader className="sr-only">
-        <DialogTitle>{title}</DialogTitle>
-        <DialogDescription>{description}</DialogDescription>
-      </DialogHeader>
-      <DialogContent
-        className={cn(
-          "top-1/3 translate-y-0 overflow-hidden rounded-xl p-0",
-          className,
-        )}
-      >
-        {children}
-      </DialogContent>
-    </Dialog>
-  );
-}
-CommandDialog.displayName = "CommandDialog";
 
 const CommandInput = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Input>,
@@ -185,7 +148,6 @@ CommandShortcut.displayName = "CommandShortcut";
 
 export {
   Command,
-  CommandDialog,
   CommandEmpty,
   CommandGroup,
   CommandInput,

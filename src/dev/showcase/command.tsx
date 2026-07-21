@@ -1,7 +1,6 @@
 import { Button } from "../../components/micro/button";
 import {
   Command,
-  CommandDialog,
   CommandEmpty,
   CommandGroup,
   CommandInput,
@@ -10,6 +9,7 @@ import {
   CommandSeparator,
   CommandShortcut,
 } from "../../components/micro/command";
+import { CommandDialog } from "../../components/macro/command-preset";
 import {
   DocsP,
   ExampleGrid,

@@ -5,6 +5,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuPortal,
+  NavigationMenuPositioner,
   NavigationMenuTrigger,
   NavigationMenuViewport,
   navigationMenuTriggerStyle,
@@ -59,7 +60,7 @@ function NavigationMenuMicroShowcase() {
   <NavigationMenuList>
     <NavigationMenuItem>
       <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
-      <NavigationMenuPortal><NavigationMenuContent>
+      <NavigationMenuContent>
         <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
           <li className="row-span-3">
             <NavigationMenuLink
@@ -92,11 +93,11 @@ function NavigationMenuMicroShowcase() {
             Styles for headings, paragraphs, lists...etc
           </ListItem>
         </ul>
-      </NavigationMenuContent></NavigationMenuPortal>
+      </NavigationMenuContent>
     </NavigationMenuItem>
     <NavigationMenuItem>
       <NavigationMenuTrigger>Components</NavigationMenuTrigger>
-      <NavigationMenuPortal><NavigationMenuContent>
+      <NavigationMenuContent>
         <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
           <ListItem
             title="Alert Dialog"
@@ -123,7 +124,7 @@ function NavigationMenuMicroShowcase() {
             Visually or semantically separates content.
           </ListItem>
         </ul>
-      </NavigationMenuContent></NavigationMenuPortal>
+      </NavigationMenuContent>
     </NavigationMenuItem>
     <NavigationMenuItem>
       <NavigationMenuLink
@@ -134,6 +135,9 @@ function NavigationMenuMicroShowcase() {
       </NavigationMenuLink>
     </NavigationMenuItem>
   </NavigationMenuList>
+  <NavigationMenuPortal>
+    <NavigationMenuPositioner />
+  </NavigationMenuPortal>
 </NavigationMenu>
 `}
       >
@@ -142,7 +146,7 @@ function NavigationMenuMicroShowcase() {
             <NavigationMenuItem>
               <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
 
-              <NavigationMenuPortal>
+              
                 <NavigationMenuContent>
                   <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                     <li className="row-span-3">
@@ -178,12 +182,12 @@ function NavigationMenuMicroShowcase() {
                     </ListItem>
                   </ul>
                 </NavigationMenuContent>
-              </NavigationMenuPortal>
+              
             </NavigationMenuItem>
             <NavigationMenuItem>
               <NavigationMenuTrigger>Components</NavigationMenuTrigger>
 
-              <NavigationMenuPortal>
+              
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
                     <ListItem
@@ -212,7 +216,7 @@ function NavigationMenuMicroShowcase() {
                     </ListItem>
                   </ul>
                 </NavigationMenuContent>
-              </NavigationMenuPortal>
+              
             </NavigationMenuItem>
             <NavigationMenuItem>
               <NavigationMenuLink
@@ -223,6 +227,9 @@ function NavigationMenuMicroShowcase() {
               </NavigationMenuLink>
             </NavigationMenuItem>
           </NavigationMenuList>
+          <NavigationMenuPortal>
+            <NavigationMenuPositioner />
+          </NavigationMenuPortal>
         </NavigationMenu>
       </ExampleSection>
 
@@ -233,11 +240,14 @@ function NavigationMenuMicroShowcase() {
   <NavigationMenuList>
     <NavigationMenuItem>
       <NavigationMenuTrigger disabled>Disabled Trigger</NavigationMenuTrigger>
-      <NavigationMenuPortal><NavigationMenuContent>
+      <NavigationMenuContent>
         <div className="p-4 w-[200px]">Content will not be visible</div>
-      </NavigationMenuContent></NavigationMenuPortal>
+      </NavigationMenuContent>
     </NavigationMenuItem>
   </NavigationMenuList>
+  <NavigationMenuPortal>
+    <NavigationMenuPositioner />
+  </NavigationMenuPortal>
 </NavigationMenu>
 `}
       >
@@ -248,15 +258,18 @@ function NavigationMenuMicroShowcase() {
                 Disabled Trigger
               </NavigationMenuTrigger>
 
-              <NavigationMenuPortal>
+              
                 <NavigationMenuContent>
                   <div className="p-4 w-[200px]">
                     Content will not be visible
                   </div>
                 </NavigationMenuContent>
-              </NavigationMenuPortal>
+              
             </NavigationMenuItem>
           </NavigationMenuList>
+          <NavigationMenuPortal>
+            <NavigationMenuPositioner />
+          </NavigationMenuPortal>
         </NavigationMenu>
       </ExampleSection>
     </div>

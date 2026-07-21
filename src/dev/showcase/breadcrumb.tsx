@@ -21,6 +21,7 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuPortal,
   DropdownMenuTrigger,
 } from "../../components/micro/dropdown-menu";
 
@@ -183,11 +184,13 @@ function BreadcrumbMicroShowcase() {
           <BreadcrumbEllipsis className="h-4 w-4" />
           <span className="sr-only">Toggle menu</span>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="start">
-          <DropdownMenuItem>Tài liệu</DropdownMenuItem>
-          <DropdownMenuItem>Giao diện</DropdownMenuItem>
-          <DropdownMenuItem>GitHub</DropdownMenuItem>
-        </DropdownMenuContent>
+        <DropdownMenuPortal>
+          <DropdownMenuContent align="start">
+            <DropdownMenuItem>Tài liệu</DropdownMenuItem>
+            <DropdownMenuItem>Giao diện</DropdownMenuItem>
+            <DropdownMenuItem>GitHub</DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenuPortal>
       </DropdownMenu>
     </BreadcrumbItem>
     <BreadcrumbSeparator />
@@ -213,11 +216,13 @@ function BreadcrumbMicroShowcase() {
                     <BreadcrumbEllipsis className="h-4 w-4" />
                     <span className="sr-only">Toggle menu</span>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent align="start">
-                    <DropdownMenuItem>Tài liệu</DropdownMenuItem>
-                    <DropdownMenuItem>Giao diện</DropdownMenuItem>
-                    <DropdownMenuItem>GitHub</DropdownMenuItem>
-                  </DropdownMenuContent>
+                  <DropdownMenuPortal>
+                    <DropdownMenuContent align="start">
+                      <DropdownMenuItem>Tài liệu</DropdownMenuItem>
+                      <DropdownMenuItem>Giao diện</DropdownMenuItem>
+                      <DropdownMenuItem>GitHub</DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenuPortal>
                 </DropdownMenu>
               </BreadcrumbItem>
               <BreadcrumbSeparator />

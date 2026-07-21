@@ -1,6 +1,6 @@
 {
   "name": "@duongy96/gladcn",
-  "version": "0.2.13",
+  "version": "0.2.14",
   "type": "module",
   "description": "DO NOT 'npm install'. Use 'npx @duongy96/gladcn init' instead! A highly composable React component library built with Tailwind CSS.",
   "keywords": [

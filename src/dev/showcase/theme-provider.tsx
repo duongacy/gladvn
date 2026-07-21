@@ -6,7 +6,7 @@ import { Button } from "../../components/micro/button";
 import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "../../components/micro/dialog";
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator } from "../../components/micro/dropdown-menu";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "../../components/micro/select";
-import { Tooltip, TooltipTrigger, TooltipContent } from "../../components/micro/tooltip";
+import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "../../components/micro/tooltip";
 import { Popover, PopoverTrigger, PopoverContent } from "../../components/micro/popover";
 import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle } from "../../components/micro/sheet";
 
@@ -283,12 +283,14 @@ function ChildContent() {
         <ExampleSection label="Tooltip">
           <ThemeProvider defaultMode="dark">
             <div className="w-full flex justify-center rounded-xl border border-border bg-background p-10">
-              <Tooltip>
-                <TooltipTrigger render={<Button variant="outline">Hover Tooltip</Button>} />
-                <TooltipContent>
-                  <p>Màu tối đồng bộ hoàn hảo!</p>
-                </TooltipContent>
-              </Tooltip>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger render={<Button variant="outline">Hover Tooltip</Button>} />
+                  <TooltipContent>
+                    <p>Màu tối đồng bộ hoàn hảo!</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
             </div>
           </ThemeProvider>
         </ExampleSection>

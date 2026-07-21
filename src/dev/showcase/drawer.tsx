@@ -27,7 +27,7 @@ function DrawerMicroShowcase() {
       <ExampleGrid>
         <ExampleSection
           label="Bottom Drawer"
-          description="Kiểu trang tính dưới cùng mặc định."
+          description="Drawer mặc định trượt từ dưới lên."
           codeString={`<Drawer>
   <DrawerTrigger asChild>
     <Button variant="outline">Open Bottom</Button>
@@ -135,7 +135,7 @@ function DrawerMicroShowcase() {
 
         <ExampleSection
           label="Simple Message"
-          description="Ngăn kéo có nội dung văn bản đơn giản."
+          description="Drawer với nội dung văn bản đơn giản."
           codeString={`<Drawer>
   <DrawerTrigger asChild>
     <Button variant="outline">Show Info</Button>
@@ -370,7 +370,7 @@ export default function DrawerShowcase() {
   return (
     <Showcase
       title="Drawer"
-      description="Một thành phần ngăn kéo mở rộng từ các cạnh của màn hình."
+      description="Panel trượt ra từ cạnh màn hình — thường dùng cho bottom sheet, sidebar trên mobile."
       generalConcept={
         <ShowcaseDocs>
           <DocsP>

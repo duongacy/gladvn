@@ -223,7 +223,7 @@ export default function CommandShowcase() {
   return (
     <Showcase
       title="Command"
-      description="Menu lệnh nhanh, có thể kết hợp, không theo kiểu cho React."
+      description="Command palette có tìm kiếm, kích hoạt bằng phím tắt (⌘K)."
       generalConcept={
         <ShowcaseDocs>
           <DocsP>

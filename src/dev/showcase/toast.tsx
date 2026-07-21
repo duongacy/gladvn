@@ -17,7 +17,7 @@ function ToastMicroShowcase({ globalSize }: { globalSize: Size }) {
     <div className="space-y-10 mt-6">
       <ExampleSection
         label="Toast Notifications"
-        description="Nhấp để kích hoạt các lời chúc mừng khác nhau."
+        description="Nhấp để kích hoạt các loại toast khác nhau."
         codeString={`<div className="flex flex-wrap gap-3">
   <Button
     variant="outline"

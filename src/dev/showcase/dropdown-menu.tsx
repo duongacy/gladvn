@@ -56,9 +56,9 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
     }
   />
   <DropdownMenuContent className="w-56">
-    <DropdownMenuLabel>My Account</DropdownMenuLabel>
-    <DropdownMenuSeparator />
     <DropdownMenuGroup>
+      <DropdownMenuLabel>My Account</DropdownMenuLabel>
+      <DropdownMenuSeparator />
       <DropdownMenuItem>
         <UserIcon className="mr-2 h-4 w-4" />
         <span>Profile</span>
@@ -100,9 +100,9 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
               }
             />
             <DropdownMenuContent className="w-56">
-              <DropdownMenuLabel>My Account</DropdownMenuLabel>
-              <DropdownMenuSeparator />
               <DropdownMenuGroup>
+                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                <DropdownMenuSeparator />
                 <DropdownMenuItem>
                   <UserIcon className="mr-2 h-4 w-4" />
                   <span>Profile</span>
@@ -147,9 +147,10 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
     }
   />
   <DropdownMenuContent className="w-56">
-    <DropdownMenuLabel>Actions</DropdownMenuLabel>
-    <DropdownMenuSeparator />
-    <DropdownMenuItem>
+    <DropdownMenuGroup>
+      <DropdownMenuLabel>Actions</DropdownMenuLabel>
+      <DropdownMenuSeparator />
+      <DropdownMenuItem>
       <UserIcon className="mr-2 h-4 w-4" />
       <span>Edit Profile</span>
     </DropdownMenuItem>
@@ -161,6 +162,7 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
       <HelpCircleIcon className="mr-2 h-4 w-4" />
       <span>Support (Offline)</span>
     </DropdownMenuItem>
+    </DropdownMenuGroup>
     <DropdownMenuSeparator />
     <DropdownMenuItem>
       <LogOutIcon className="mr-2 h-4 w-4" />
@@ -179,20 +181,22 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
               }
             />
             <DropdownMenuContent className="w-56">
-              <DropdownMenuLabel>Actions</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>
-                <UserIcon className="mr-2 h-4 w-4" />
-                <span>Edit Profile</span>
-              </DropdownMenuItem>
-              <DropdownMenuItem disabled>
-                <CreditCardIcon className="mr-2 h-4 w-4" />
-                <span>Upgrade Plan</span>
-              </DropdownMenuItem>
-              <DropdownMenuItem disabled>
-                <HelpCircleIcon className="mr-2 h-4 w-4" />
-                <span>Support (Offline)</span>
-              </DropdownMenuItem>
+              <DropdownMenuGroup>
+                <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>
+                  <UserIcon className="mr-2 h-4 w-4" />
+                  <span>Edit Profile</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem disabled>
+                  <CreditCardIcon className="mr-2 h-4 w-4" />
+                  <span>Upgrade Plan</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem disabled>
+                  <HelpCircleIcon className="mr-2 h-4 w-4" />
+                  <span>Support (Offline)</span>
+                </DropdownMenuItem>
+              </DropdownMenuGroup>
               <DropdownMenuSeparator />
               <DropdownMenuItem>
                 <LogOutIcon className="mr-2 h-4 w-4" />
@@ -213,8 +217,9 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
     }
   />
   <DropdownMenuContent className="w-56">
-    <DropdownMenuLabel>Appearance</DropdownMenuLabel>
-    <DropdownMenuSeparator />
+    <DropdownMenuGroup>
+      <DropdownMenuLabel>Appearance</DropdownMenuLabel>
+      <DropdownMenuSeparator />
     <DropdownMenuCheckboxItem
       checked={showStatusBar}
       onCheckedChange={setShowStatusBar}
@@ -249,6 +254,7 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
         Right
       </DropdownMenuRadioItem>
     </DropdownMenuRadioGroup>
+    </DropdownMenuGroup>
   </DropdownMenuContent>
 </DropdownMenu>
 `}
@@ -262,8 +268,9 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
               }
             />
             <DropdownMenuContent className="w-56">
-              <DropdownMenuLabel>Appearance</DropdownMenuLabel>
-              <DropdownMenuSeparator />
+              <DropdownMenuGroup>
+                <DropdownMenuLabel>Appearance</DropdownMenuLabel>
+                <DropdownMenuSeparator />
               <DropdownMenuCheckboxItem
                 checked={showStatusBar}
                 onCheckedChange={setShowStatusBar}
@@ -298,6 +305,7 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
                   Right
                 </DropdownMenuRadioItem>
               </DropdownMenuRadioGroup>
+              </DropdownMenuGroup>
             </DropdownMenuContent>
           </DropdownMenu>
         </ExampleSection>
@@ -313,16 +321,20 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
     }
   />
   <DropdownMenuContent className="w-48">
-    <DropdownMenuLabel inset>View</DropdownMenuLabel>
+    <DropdownMenuGroup>
+      <DropdownMenuLabel inset>View</DropdownMenuLabel>
+      <DropdownMenuSeparator />
+      <DropdownMenuItem inset>Zoom In</DropdownMenuItem>
+      <DropdownMenuItem inset>Zoom Out</DropdownMenuItem>
+      <DropdownMenuItem inset>Reset Zoom</DropdownMenuItem>
+    </DropdownMenuGroup>
     <DropdownMenuSeparator />
-    <DropdownMenuItem inset>Zoom In</DropdownMenuItem>
-    <DropdownMenuItem inset>Zoom Out</DropdownMenuItem>
-    <DropdownMenuItem inset>Reset Zoom</DropdownMenuItem>
-    <DropdownMenuSeparator />
-    <DropdownMenuLabel inset>Layout</DropdownMenuLabel>
-    <DropdownMenuSeparator />
-    <DropdownMenuItem inset>Single Column</DropdownMenuItem>
-    <DropdownMenuItem inset>Two Columns</DropdownMenuItem>
+    <DropdownMenuGroup>
+      <DropdownMenuLabel inset>Layout</DropdownMenuLabel>
+      <DropdownMenuSeparator />
+      <DropdownMenuItem inset>Single Column</DropdownMenuItem>
+      <DropdownMenuItem inset>Two Columns</DropdownMenuItem>
+    </DropdownMenuGroup>
   </DropdownMenuContent>
 </DropdownMenu>
 `}
@@ -336,16 +348,20 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
               }
             />
             <DropdownMenuContent className="w-48">
-              <DropdownMenuLabel inset>View</DropdownMenuLabel>
+              <DropdownMenuGroup>
+                <DropdownMenuLabel inset>View</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem inset>Zoom In</DropdownMenuItem>
+                <DropdownMenuItem inset>Zoom Out</DropdownMenuItem>
+                <DropdownMenuItem inset>Reset Zoom</DropdownMenuItem>
+              </DropdownMenuGroup>
               <DropdownMenuSeparator />
-              <DropdownMenuItem inset>Zoom In</DropdownMenuItem>
-              <DropdownMenuItem inset>Zoom Out</DropdownMenuItem>
-              <DropdownMenuItem inset>Reset Zoom</DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuLabel inset>Layout</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem inset>Single Column</DropdownMenuItem>
-              <DropdownMenuItem inset>Two Columns</DropdownMenuItem>
+              <DropdownMenuGroup>
+                <DropdownMenuLabel inset>Layout</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem inset>Single Column</DropdownMenuItem>
+                <DropdownMenuItem inset>Two Columns</DropdownMenuItem>
+              </DropdownMenuGroup>
             </DropdownMenuContent>
           </DropdownMenu>
         </ExampleSection>

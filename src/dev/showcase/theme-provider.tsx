@@ -4,7 +4,7 @@ import { Tooltip as TooltipPrimitive } from "@base-ui/react/tooltip";
 
 import { Button } from "../../components/micro/button";
 import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "../../components/micro/dialog";
-import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator } from "../../components/micro/dropdown-menu";
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator } from "../../components/micro/dropdown-menu";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "../../components/micro/select";
 import { Tooltip, TooltipTrigger, TooltipContent } from "../../components/micro/tooltip";
 import { Popover, PopoverTrigger, PopoverContent } from "../../components/micro/popover";
@@ -337,10 +337,12 @@ function ChildContent() {
               <DropdownMenu>
                 <DropdownMenuTrigger render={<Button variant="outline">Open Dropdown</Button>} />
                 <DropdownMenuContent className="w-48">
-                  <DropdownMenuLabel>Tài khoản</DropdownMenuLabel>
+                  <DropdownMenuGroup>
+                    <DropdownMenuLabel>Tài khoản</DropdownMenuLabel>
+                    <DropdownMenuItem>Trang cá nhân</DropdownMenuItem>
+                    <DropdownMenuItem>Cài đặt</DropdownMenuItem>
+                  </DropdownMenuGroup>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem>Trang cá nhân</DropdownMenuItem>
-                  <DropdownMenuItem>Cài đặt</DropdownMenuItem>
                   <DropdownMenuItem>Đăng xuất</DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>

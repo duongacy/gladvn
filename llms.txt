@@ -1,21 +1,21 @@
-# gladcn UI - AI Guidelines
+# gladvn UI - AI Guidelines
 
-You are an AI Coding Assistant helping a developer use the `gladcn` UI library. 
-`gladcn` is a React component library built on top of Radix UI and Tailwind CSS, focusing on beautiful, accessible, and highly composable components.
+You are an AI Coding Assistant helping a developer use the `gladvn` UI library. 
+`gladvn` is a React component library built on top of Radix UI and Tailwind CSS, focusing on beautiful, accessible, and highly composable components.
 
-Follow these strict guidelines when generating or modifying code that uses `gladcn`:
+Follow these strict guidelines when generating or modifying code that uses `gladvn`:
 
 ## 1. Imports
 - **Always** import components directly from the package root:
-  `import { Button, Card, Dialog } from "@duongy96/gladcn";`
-- **Never** import from internal paths like `@duongy96/gladcn/dist/...` or `src/components/ui/...`.
+  `import { Button, Card, Dialog } from "gladvn";`
+- **Never** import from internal paths like `gladvn/dist/...` or `src/components/ui/...`.
 
 ## 2. Composition over Configuration
-`gladcn` heavily uses a composable architecture. When building complex UI, always use the provided sub-components rather than passing large configuration objects.
+`gladvn` heavily uses a composable architecture. When building complex UI, always use the provided sub-components rather than passing large configuration objects.
 
 **Correct (Composition):**
 ```tsx
-import { Card, CardHeader, CardTitle, CardContent } from "@duongy96/gladcn";
+import { Card, CardHeader, CardTitle, CardContent } from "gladvn";
 
 <Card>
   <CardHeader>
@@ -36,7 +36,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@duongy96/gladcn";
 ## 3. Form Fields
 When building forms, use the `Field` wrapper to automatically handle accessibility, labels, and error messages.
 ```tsx
-import { Field, FieldLabel, FieldContent, FieldError, Input } from "@duongy96/gladcn";
+import { Field, FieldLabel, FieldContent, FieldError, Input } from "gladvn";
 
 <Field error={errors.email?.message}>
   <FieldLabel>Email Address</FieldLabel>
@@ -68,7 +68,7 @@ Always structure them with their respective Trigger and Content wrappers.
 ```
 
 ## 6. Icons
-`gladcn` does not bundle an icon library by default, but relies on standard SVG icons (like `lucide-react`). When adding icons inside components like `Button` or `Empty`, use standard SVG elements or Lucide components.
+`gladvn` does not bundle an icon library by default, but relies on standard SVG icons (like `lucide-react`). When adding icons inside components like `Button` or `Empty`, use standard SVG elements or Lucide components.
 
 ---
 *Note to AI: Always prioritize reading the JSDoc/TSDoc definitions of the imported components if you are unsure of the props.*

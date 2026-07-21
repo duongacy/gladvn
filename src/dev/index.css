@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @import "../styles/tokens.css";
-@import "../styles/gladcn.css";
+@import "../styles/gladvn.css";
 
 /* Consumer responsibility: set body bg/text using design tokens */
 body {

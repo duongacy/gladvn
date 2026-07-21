@@ -69,7 +69,7 @@ export default function OverviewSection() {
           <div className="relative z-10 flex flex-col h-full">
             <div>
               <Badge color="secondary" className="mb-3 px-2.5 py-0.5 shadow-sm">
-                ✨ gladcn UI v0.2.1
+                ✨ gladvn UI v0.2.1
               </Badge>
               <h2 className="text-3xl font-bold tracking-tight mb-2">
                 Crafted for Perfection
@@ -143,7 +143,7 @@ export default function OverviewSection() {
               <h3 className="font-semibold">Quick Install</h3>
             </div>
             <p className="text-sm text-muted-foreground mb-4">
-              Available on npm. Add gladcn to your project in seconds.
+              Available on npm. Add gladvn to your project in seconds.
             </p>
             <div className="rounded-lg bg-muted/50 px-3 py-2.5 font-mono text-xs border border-border flex items-center justify-between">
               <span className="truncate">npm i gladvn</span>

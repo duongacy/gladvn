@@ -1,5 +1,5 @@
 {
-  "name": "gladcn",
+  "name": "gladvn",
   "buildCommand": "npm run build:app",
   "outputDirectory": "dist-app"
 }

@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
-import { GladcnLogo } from "../../dev/components/GladcnLogo";
+import { GladvnLogo } from "../../dev/components/GladvnLogo";
 
 import { ProgressPreset as Progress } from "../../components/macro/progress-preset";
 import { Badge } from "../../components/micro/badge";
@@ -139,7 +139,7 @@ export default function OverviewSection() {
             style={{ animationDelay: "200ms", animationFillMode: "both" }}
           >
             Component library thường đòi bạn follow quy tắc của họ mãi mãi.
-            gladcn đặt toàn bộ source code vào tay bạn ngay từ đầu —{" "}
+            gladvn đặt toàn bộ source code vào tay bạn ngay từ đầu —{" "}
             <strong className="text-foreground">
               không vendor lock-in, không breaking change bất ngờ, không
               node_modules ẩn.
@@ -304,7 +304,7 @@ export default function OverviewSection() {
           </h2>
           <p className="text-muted-foreground text-lg">
             Phần lớn component library hỏng ở năm thứ hai — khi team cần thay
-            đổi nhưng không ai dám sửa vì không biết gì sẽ vỡ. gladcn được xây
+            đổi nhưng không ai dám sửa vì không biết gì sẽ vỡ. gladvn được xây
             trên{" "}
             <strong className="text-foreground">Các nguyên tắc tường minh</strong>
             {" "}để bạn luôn biết mình đang sửa ở tầng nào và điều gì sẽ bị ảnh
@@ -966,7 +966,7 @@ export default function OverviewSection() {
               nền đen. Đây là điểm mà hầu hết thư viện bỏ cuộc.
             </p>
             <p className="text-muted-foreground text-xl leading-relaxed">
-              gladcn giải quyết bằng{" "}
+              gladvn giải quyết bằng{" "}
               <code className="text-sm bg-warning/20 text-warning px-1.5 py-0.5 rounded">
                 {"<ThemeWrapper>"}
               </code>{" "}
@@ -986,7 +986,7 @@ export default function OverviewSection() {
           <div className="relative z-10 grid sm:grid-cols-2 gap-6 max-w-3xl">
             <div className="p-6 rounded-2xl border border-success/30 bg-success/10 shadow-sm flex flex-col gap-2">
               <div className="text-success font-semibold text-lg flex items-center gap-2">
-                ✅ gladcn — ThemeWrapper
+                ✅ gladvn — ThemeWrapper
               </div>
               <p className="text-success/80 text-sm leading-relaxed">
                 Theme được tunnel xuyên qua Portal boundary. Dialog, Tooltip,

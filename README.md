@@ -1,10 +1,10 @@
-# 🌊 gladcn
+# 🌊 gladvn
 
-> **✨ [Explore the Interactive Showcase & Documentation](https://gladcn.vercel.app/)**
+> **✨ [Explore the Interactive Showcase & Documentation](https://gladvn.vercel.app/)**
 
-A highly composable, accessible, and beautifully designed React component library. Built on top of [shadcn/ui](https://ui.shadcn.com/), [Base UI](https://base-ui.com/), and powered by **Tailwind CSS v4+**, `gladcn` provides a robust, zero-magic foundation for your next web application. 
+A highly composable, accessible, and beautifully designed React component library. Built on top of [shadcn/ui](https://ui.shadcn.com/), [Base UI](https://base-ui.com/), and powered by **Tailwind CSS v4+**, `gladvn` provides a robust, zero-magic foundation for your next web application. 
 
-Designed with strict architectural principles, `gladcn` is optimized not just for human developers, but specifically for **AI coding assistants**, ensuring predictable styling and maintenance.
+Designed with strict architectural principles, `gladvn` is optimized not just for human developers, but specifically for **AI coding assistants**, ensuring predictable styling and maintenance.
 
 ---
 
@@ -24,7 +24,7 @@ Designed with strict architectural principles, `gladcn` is optimized not just fo
 > [!WARNING]  
 > **Please use `npx` to clone the components into your project instead of installing via `npm`.** While installing via `npm` works, using `npx` (Option 1) gives you full control over the source code and styling, which is the core philosophy and intended way to use this library.
 
-There are two ways to use `gladcn` in your project. We highly recommend **Option 1** for maximum flexibility.
+There are two ways to use `gladvn` in your project. We highly recommend **Option 1** for maximum flexibility.
 
 ### Option 1: Clone components to your project (Recommended)
 
@@ -34,7 +34,7 @@ This approach automatically copies all component source code, hooks, and styles 
 npx gladvn init
 ```
 
-*By default, this will create a `gladcn` folder at your project root. If you prefer to place it elsewhere, specify the path:*
+*By default, this will create a `gladvn` folder at your project root. If you prefer to place it elsewhere, specify the path:*
 ```bash
 npx gladvn init components/ui
 ```
@@ -42,7 +42,7 @@ npx gladvn init components/ui
 **Usage:**
 ```tsx
 // Import directly from your local folder
-import { Button } from "@/gladcn/components/micro/button";
+import { Button } from "@/gladvn/components/micro/button";
 ```
 
 ### Option 2: Install as an npm package
@@ -59,11 +59,11 @@ Update your main CSS file to scan the library for Tailwind utility classes and i
 ```css
 @import "tailwindcss";
 
-/* 1. Tell Tailwind to scan gladcn for utility classes */
+/* 1. Tell Tailwind to scan gladvn for utility classes */
 @source "../node_modules/gladvn/dist";
 
-/* 2. Import gladcn global CSS variables */
-@import "gladvn/gladcn.css";
+/* 2. Import gladvn global CSS variables */
+@import "gladvn/gladvn.css";
 ```
 
 **Usage:**
@@ -75,14 +75,14 @@ import { Button, Card, CardHeader, CardTitle, CardContent } from "gladvn";
 
 ## 🏗️ Architecture: Micro vs. Macro
 
-Most component libraries fail in their second year because developers become afraid to modify the core files. `gladcn` solves this with explicit architectural boundaries:
+Most component libraries fail in their second year because developers become afraid to modify the core files. `gladvn` solves this with explicit architectural boundaries:
 
 - **Micro Components** (`components/micro/`): "Dumb" presentational primitives (e.g., `Button`, `Badge`, `Input`). They do not contain internal React state (`useState`) or business logic. They strictly rely on props for rendering and avoid dictating layout boundaries (like `w-full`).
 - **Macro Components** (`components/macro/`): "Smart" presets and compositions (e.g., `DatePicker`, `SelectPreset`, `PaginationPreset`). These components combine multiple Micro components and manage complex state, accessibility (a11y), and interactions. Macro components strictly reuse Micro components via pure composition.
 
 ## 🎨 Theming & Customization
 
-`gladcn` uses standard CSS variables for theming, ensuring zero runtime parsing overhead. You can easily override these variables in your own CSS file.
+`gladvn` uses standard CSS variables for theming, ensuring zero runtime parsing overhead. You can easily override these variables in your own CSS file.
 
 ```css
 :root {
@@ -92,7 +92,7 @@ Most component libraries fail in their second year because developers become afr
 }
 ```
 
-If you cloned the components via `npx` (Option 1), you can modify the CSS directly inside the `gladcn/styles/` directory.
+If you cloned the components via `npx` (Option 1), you can modify the CSS directly inside the `gladvn/styles/` directory.
 
 ---
 

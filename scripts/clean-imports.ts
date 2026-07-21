@@ -1,11 +1,11 @@
 import { Project } from "ts-morph";
 
 const project = new Project({
-  tsConfigFilePath: "/Users/y/Desktop/github/gladcn/tsconfig.json",
+  tsConfigFilePath: "/Users/y/Desktop/github/gladvn/tsconfig.json",
 });
 
 const sourceFiles = project.getSourceFiles(
-  "/Users/y/Desktop/github/gladcn/src/dev/showcase/**/*.tsx",
+  "/Users/y/Desktop/github/gladvn/src/dev/showcase/**/*.tsx",
 );
 console.log(`Found ${sourceFiles.length} showcase files to process.`);
 

@@ -138,7 +138,7 @@ export default function FormsSection() {
                   <InputGroupAddon>
                     <InputGroupText>https://</InputGroupText>
                   </InputGroupAddon>
-                  <InputGroupInput id="tf-group" placeholder="gladcn.ui" />
+                  <InputGroupInput id="tf-group" placeholder="gladvn.ui" />
                   <InputGroupAddon>
                     <InputGroupText>.com</InputGroupText>
                   </InputGroupAddon>

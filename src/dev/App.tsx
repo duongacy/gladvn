@@ -14,7 +14,7 @@ import {
 } from "../components/macro/command-preset";
 import { useDevContext } from "../dev/components/dev-context";
 import { SizeToggle } from "../dev/components/showcase";
-import { GladcnLogo } from "../dev/components/GladcnLogo";
+import { GladvnLogo } from "../dev/components/GladvnLogo";
 import { COMPONENTS } from "../dev/data";
 import OverviewSection from "../dev/showcase/overview";
 import {
@@ -164,7 +164,7 @@ export default function App() {
               )}
             </button>
             <a href="/" className="inline-flex items-center hover:opacity-80 transition-opacity">
-              <GladcnLogo variant="wordmark" />
+              <GladvnLogo variant="wordmark" />
             </a>
           </div>
 
@@ -187,7 +187,7 @@ export default function App() {
             <Button
               variant="ghost"
               iconOnly
-              render={<a href="https://github.com/duongacy/gladcn" target="_blank" rel="noreferrer" />}
+              render={<a href="https://github.com/duongacy/gladvn" target="_blank" rel="noreferrer" />}
               nativeButton={false}
               className="text-muted-foreground hover:text-foreground hidden sm:inline-flex"
             >
@@ -296,7 +296,7 @@ export default function App() {
         open={cmdOpen}
         onOpenChange={setCmdOpen}
         title="Tìm component"
-        description="Tìm kiếm nhanh component trong Gladcn UI"
+        description="Tìm kiếm nhanh component trong Gladvn UI"
       >
         <Command size="lg">
           <CommandInput placeholder="Nhập tên component..." autoFocus />

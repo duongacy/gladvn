@@ -15,17 +15,17 @@ const reset = "\x1b[0m";
 if (process.argv.includes('--help') || process.argv.includes('-h')) {
   console.log(`
 Usage:
-  npx @duongy96/gladcn init [destination]
+  npx gladvn init [destination]
 
 Options:
-  [destination]   The folder where components will be copied. Defaults to "gladcn".
+  [destination]   The folder where components will be copied. Defaults to "gladvn".
   --help, -h      Show this help message.
 `);
   process.exit(0);
 }
 
 // Find destination
-let userDest = "gladcn";
+let userDest = "gladvn";
 const args = process.argv.slice(2);
 
 if (args[0] === "init") {
@@ -123,7 +123,7 @@ async function selectOption(message, options) {
 
 async function main() {
   console.log(`\n${cyan}╔══════════════════════════════════════════════════════════════════╗${reset}`);
-  console.log(`${cyan}║  ${bold}gladcn${reset}${cyan} — Initialization                                     ║${reset}`);
+  console.log(`${cyan}║  ${bold}gladvn${reset}${cyan} — Initialization                                     ║${reset}`);
   console.log(`${cyan}╚══════════════════════════════════════════════════════════════════╝${reset}\n`);
 
   let targetCss = "app/globals.css";
@@ -169,7 +169,7 @@ async function main() {
     console.log(`\x1b[32m✔\x1b[0m \x1b[1mFound global CSS file\x1b[0m \x1b[90m…\x1b[0m \x1b[36m${targetCss}\x1b[0m`);
   } else {
     // We have more than 1 file, and environment is TTY
-    targetCss = await selectOption("Which CSS file should we inject gladcn styles into?", cssFiles);
+    targetCss = await selectOption("Which CSS file should we inject gladvn styles into?", cssFiles);
   }
 
   let cssFilePath = null;
@@ -184,7 +184,7 @@ async function main() {
     dirsToCopy = fs.readdirSync(srcDir).filter(item => !excludeList.includes(item));
   }
 
-  console.log(`\n\x1b[36mInitializing gladcn components into ${userDest}...\x1b[0m`);
+  console.log(`\n\x1b[36mInitializing gladvn components into ${userDest}...\x1b[0m`);
 
   if (!fs.existsSync(destPath)) {
     fs.mkdirSync(destPath, { recursive: true });
@@ -211,10 +211,10 @@ async function main() {
 
   // 2. Inject CSS import
   if (cssFilePath && fs.existsSync(cssFilePath)) {
-    const gladcnCssPath = path.resolve(destPath, "styles", "gladcn.css");
+    const gladvnCssPath = path.resolve(destPath, "styles", "gladvn.css");
     const cssDir = path.dirname(cssFilePath);
     
-    let relPath = path.relative(cssDir, gladcnCssPath);
+    let relPath = path.relative(cssDir, gladvnCssPath);
     if (!relPath.startsWith('.')) {
       relPath = './' + relPath;
     }
@@ -238,15 +238,15 @@ async function main() {
       console.log(`\x1b[32m✔ Injected CSS import into ${targetCss}\x1b[0m`);
     }
   } else if (targetCss) {
-    console.log(`\x1b[33m⚠ CSS file not found at ${targetCss}. You will need to manually import ${userDest}/styles/gladcn.css\x1b[0m`);
+    console.log(`\x1b[33m⚠ CSS file not found at ${targetCss}. You will need to manually import ${userDest}/styles/gladvn.css\x1b[0m`);
   } else {
-    console.log(`\x1b[33m⚠ No CSS file configured. You will need to manually import ${userDest}/styles/gladcn.css into your project.\x1b[0m`);
+    console.log(`\x1b[33m⚠ No CSS file configured. You will need to manually import ${userDest}/styles/gladvn.css into your project.\x1b[0m`);
   }
 
   // 2.5 Configure tsconfig.json
   if (isTTY) {
     const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
-    const answer = await new Promise((resolve) => rl.question(`\n${yellow}? Do you want to configure tsconfig.json to use the @gladcn/* alias? (Y/n)${reset} `, resolve));
+    const answer = await new Promise((resolve) => rl.question(`\n${yellow}? Do you want to configure tsconfig.json to use the @gladvn/* alias? (Y/n)${reset} `, resolve));
     rl.close();
 
     if (answer.trim().toLowerCase() !== 'n') {
@@ -255,20 +255,20 @@ async function main() {
         let tsContent = fs.readFileSync(tsconfigPath, 'utf8');
         const aliasPath = `./${userDest}/*`;
 
-        if (tsContent.includes('"@gladcn/*"')) {
-          console.log(`\x1b[90m⏭  @gladcn/* alias already exists in tsconfig.json\x1b[0m`);
+        if (tsContent.includes('"@gladvn/*"')) {
+          console.log(`\x1b[90m⏭  @gladvn/* alias already exists in tsconfig.json\x1b[0m`);
         } else {
           const pathsRegex = /"paths"\s*:\s*\{/;
           if (pathsRegex.test(tsContent)) {
-            tsContent = tsContent.replace(pathsRegex, `"paths": {\n      "@gladcn/*": ["${aliasPath}"],`);
+            tsContent = tsContent.replace(pathsRegex, `"paths": {\n      "@gladvn/*": ["${aliasPath}"],`);
             fs.writeFileSync(tsconfigPath, tsContent);
-            console.log(`\x1b[32m✔ Injected @gladcn/* alias into existing paths\x1b[0m`);
+            console.log(`\x1b[32m✔ Injected @gladvn/* alias into existing paths\x1b[0m`);
           } else {
             const compilerOptionsRegex = /"compilerOptions"\s*:\s*\{/;
             if (compilerOptionsRegex.test(tsContent)) {
-              tsContent = tsContent.replace(compilerOptionsRegex, `"compilerOptions": {\n    "paths": {\n      "@gladcn/*": ["${aliasPath}"]\n    },`);
+              tsContent = tsContent.replace(compilerOptionsRegex, `"compilerOptions": {\n    "paths": {\n      "@gladvn/*": ["${aliasPath}"]\n    },`);
               fs.writeFileSync(tsconfigPath, tsContent);
-              console.log(`\x1b[32m✔ Injected paths object and @gladcn/* alias\x1b[0m`);
+              console.log(`\x1b[32m✔ Injected paths object and @gladvn/* alias\x1b[0m`);
             } else {
               console.log(`\x1b[33m⚠ Could not find compilerOptions in tsconfig.json. Please add manually.\x1b[0m`);
             }
@@ -316,7 +316,7 @@ async function main() {
   }
 
   if (!hasErrors) {
-    console.log(`\n\x1b[32m✨ Successfully initialized gladcn files in ${userDest}!\x1b[0m`);
+    console.log(`\n\x1b[32m✨ Successfully initialized gladvn files in ${userDest}!\x1b[0m`);
   }
 }
 

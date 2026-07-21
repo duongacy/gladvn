@@ -1,9 +1,1 @@
-function e(e, t, n, r) {
-  return (
-    e.addEventListener(t, n, r),
-    () => {
-      e.removeEventListener(t, n, r);
-    }
-  );
-}
-export { e as t };
+function e(e,t,n,r){return e.addEventListener(t,n,r),()=>{e.removeEventListener(t,n,r)}}export{e as t};

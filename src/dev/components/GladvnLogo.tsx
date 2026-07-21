@@ -1,6 +1,6 @@
 import { cn } from "../../lib/utils";
 
-interface GladcnLogoProps {
+interface GladvnLogoProps {
   className?: string;
   /** Size of the icon SVG */
   iconSize?: string;
@@ -8,11 +8,11 @@ interface GladcnLogoProps {
   variant?: "icon" | "wordmark";
 }
 
-export function GladcnLogo({
+export function GladvnLogo({
   className,
   iconSize = "size-7",
   variant = "icon",
-}: GladcnLogoProps) {
+}: GladvnLogoProps) {
   const icon = (
     <svg
       viewBox="0 0 32 32"
@@ -70,7 +70,7 @@ export function GladcnLogo({
       <div className={cn("flex items-center gap-2.5", className)}>
         {icon}
         <span className="font-bold text-[15px] tracking-tight leading-none">
-          gladcn
+          gladvn
         </span>
       </div>
     );

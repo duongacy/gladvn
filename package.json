@@ -16,7 +16,7 @@
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
-    "gladcn": "bin/cli.js"
+    "gladvn": "bin/cli.js"
   },
   "exports": {
     ".": {
@@ -29,7 +29,7 @@
         "default": "./dist/index.cjs"
       }
     },
-    "./gladcn.css": "./src/styles/gladcn.css",
+    "./gladvn.css": "./src/styles/gladvn.css",
     "./tokens.css": "./src/styles/tokens.css"
   },
   "files": [

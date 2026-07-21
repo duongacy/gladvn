@@ -85,7 +85,7 @@ function injectImports(cssFilePath, tokensRelPath) {
   let content = fs.readFileSync(cssFilePath, "utf8");
 
   // Check if already configured
-  if (content.includes("gladvn/gladcn.css")) {
+  if (content.includes("gladvn/gladvn.css")) {
     console.log(
       `${dim}   ⏭  gladvn already configured in this file — skipped${reset}`,
     );
@@ -95,7 +95,7 @@ function injectImports(cssFilePath, tokensRelPath) {
   // Build the import lines
   const sourceDirective = `@source "../node_modules/gladvn/dist";`;
   const tokensImport = `@import "${tokensRelPath}";`;
-  const globalsImport = `@import "gladvn/gladcn.css";`;
+  const globalsImport = `@import "gladvn/gladvn.css";`;
 
   const imports = `\n/* gladvn */\n${sourceDirective}\n${tokensImport}\n${globalsImport}\n`;
 
@@ -109,7 +109,7 @@ function injectImports(cssFilePath, tokensRelPath) {
 
   fs.writeFileSync(cssFilePath, content);
   console.log(
-    `${green}   ✅ Injected gladcn imports into ${path.basename(
+    `${green}   ✅ Injected gladvn imports into ${path.basename(
       cssFilePath,
     )}${reset}`,
   );
@@ -188,7 +188,7 @@ ${cyan}╔═══════════════════════�
 ║      ${green}@import "tailwindcss";${cyan}                                      ║
 ║      ${green}@source "../node_modules/gladvn/dist";${cyan}             ║
 ║      ${green}@import "./tokens.css";${cyan}                                     ║
-║      ${green}@import "gladvn/gladcn.css";${cyan}                       ║
+║      ${green}@import "gladvn/gladvn.css";${cyan}                       ║
 ║                                                                  ║
 ║   ${yellow}3. Use components:${cyan}                                             ║
 ║                                                                  ║

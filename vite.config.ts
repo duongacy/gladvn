@@ -35,7 +35,7 @@ export default defineConfig(({ command }) => ({
   build: {
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
-      name: "gladcn",
+      name: "gladvn",
       fileName: (format) => `index.${format === "es" ? "js" : "cjs"}`,
       formats: ["es", "cjs"],
     },

@@ -88,7 +88,7 @@ function ProgressMicroShowcase({ globalSize }: { globalSize: Size }) {
       <ExampleGrid>
         <ExampleSection
           label="Chỉ Thanh tiến trình (Core)"
-          description="Thanh tiến trình tiêu chuẩn sử dụng API tổng hợp thuần túy (không nhãn)."
+          description="Thanh tiến trình micro, lắp ráp thủ công (không có label)."
           codeString={`<Progress value={60} className="w-full max-w-sm">
   <ProgressTrack>
     <ProgressIndicator />

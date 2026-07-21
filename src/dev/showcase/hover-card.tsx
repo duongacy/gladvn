@@ -309,7 +309,7 @@ export default function HoverCardShowcase() {
   return (
     <Showcase
       title="Hover Card"
-      description="Để người dùng sáng mắt xem trước nội dung có sẵn đằng sau một liên kết."
+      description="Xem trước nội dung đằng sau một liên kết khi hover."
       generalConcept={
         <ShowcaseDocs>
           <DocsP>

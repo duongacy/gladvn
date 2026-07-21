@@ -352,7 +352,7 @@ export default function PopoverShowcase() {
   return (
     <Showcase
       title="Popover"
-      description="Hiển thị nội dung phong phú trong cổng thông tin, được kích hoạt bằng một nút."
+      description="Popup nội dung phong phú, kích hoạt bằng một nút hoặc trigger."
       generalConcept={
         <ShowcaseDocs>
           <DocsP>

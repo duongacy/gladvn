@@ -618,41 +618,6 @@ export default function OverviewSection() {
             </div>
           </div>
 
-          {/* Scoped Theme Tunnel */}
-          <div className="break-inside-avoid mb-6 rounded-[2rem] border border-warning/30 bg-warning/5 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-warning/10 transition-colors duration-500">
-            <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700 text-warning">
-              <SparklesIcon className="w-56 h-56" />
-            </div>
-            <div className="relative z-10 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-warning/20 text-warning-foreground text-xs font-bold uppercase tracking-wider">
-                <SparklesIcon className="size-3.5" /> Killer Feature
-              </div>
-              <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">
-                Scoped Theme Tunnel
-              </h3>
-              <p className="text-muted-foreground text-lg leading-relaxed max-w-lg">
-                Giải quyết triệt để "nỗi đau" của thư viện Tailwind UI truyền thống: Bảo toàn hoàn hảo ngữ cảnh Dark/Light mode cục bộ kể cả khi Component (Dialog, Tooltip, Select...) bị render ra ngoài document.body thông qua React Portal.
-              </p>
-            </div>
-            <div className="relative z-10 mt-auto pt-8 grid sm:grid-cols-2 gap-4">
-              <div className="p-4 rounded-xl border border-success/20 bg-success/5 shadow-sm">
-                <div className="text-success font-semibold mb-2 text-sm flex items-center gap-2">
-                  ✅ gladcn
-                </div>
-                <div className="text-[11px] font-mono text-success/80">
-                  {"<ThemeWrapper> tunnel CSS Context"}
-                </div>
-              </div>
-              <div className="p-4 rounded-xl border border-destructive/20 bg-destructive/5 shadow-sm opacity-60">
-                <div className="text-destructive font-semibold mb-2 text-sm flex items-center gap-2">
-                  ❌ Các thư viện khác
-                </div>
-                <div className="text-[11px] font-mono text-destructive/80">
-                  {"Lỗi màu do bị văng ra document.body"}
-                </div>
-              </div>
-            </div>
-          </div>
 
           {/* Strict Polymorphism */}
           <div className="break-inside-avoid mb-6 rounded-[2rem] border border-border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
@@ -850,6 +815,46 @@ export default function OverviewSection() {
                 <span className="text-destructive/80 line-through">
                   &lt;Select items=&#123;[...]&#125; /&gt;
                 </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ✨ KILLER FEATURE: SCOPED THEME TUNNEL */}
+      <section className="container max-w-6xl mx-auto px-4 mb-16">
+        <div className="rounded-[2.5rem] border border-warning/30 bg-warning/5 p-10 md:p-16 shadow-xl relative overflow-hidden group">
+          <div className="absolute -top-10 -right-10 p-8 opacity-10 pointer-events-none group-hover:rotate-12 group-hover:scale-125 transition-all duration-1000 text-warning">
+            <SparklesIcon className="size-64 md:size-[400px]" />
+          </div>
+
+          <div className="relative z-10 max-w-3xl mb-14 space-y-5">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-warning/20 text-warning-foreground text-xs font-bold uppercase tracking-wider mb-2">
+              <SparklesIcon className="size-3.5" /> Killer Feature
+            </div>
+            <h3 className="text-3xl md:text-5xl font-extrabold tracking-tight text-warning-foreground">
+              Scoped Theme Tunnel
+            </h3>
+            <p className="text-muted-foreground text-xl leading-relaxed">
+              Giải quyết triệt để "nỗi đau" của thư viện Tailwind UI truyền thống: Bảo toàn hoàn hảo ngữ cảnh Dark/Light mode cục bộ kể cả khi Component (Dialog, Tooltip, Select...) bị render ra ngoài document.body thông qua React Portal.
+            </p>
+          </div>
+
+          <div className="relative z-10 grid sm:grid-cols-2 gap-6 max-w-3xl">
+            <div className="p-6 rounded-2xl border border-success/30 bg-success/10 shadow-sm flex flex-col justify-center">
+              <div className="text-success font-semibold mb-3 text-lg flex items-center gap-2">
+                ✅ gladcn
+              </div>
+              <div className="font-mono text-success/90">
+                {"<ThemeWrapper> tunnel CSS Context hoàn hảo."}
+              </div>
+            </div>
+            <div className="p-6 rounded-2xl border border-destructive/30 bg-destructive/10 shadow-sm opacity-80 flex flex-col justify-center">
+              <div className="text-destructive font-semibold mb-3 text-lg flex items-center gap-2">
+                ❌ Các thư viện khác
+              </div>
+              <div className="font-mono text-destructive/90">
+                {"Lỗi màu sắc do bị văng ra document.body."}
               </div>
             </div>
           </div>

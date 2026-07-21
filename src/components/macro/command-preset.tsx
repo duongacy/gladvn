@@ -42,7 +42,7 @@ function CommandDialog({
         <ThemeWrapper>
           <DialogContent
             className={cn(
-              "top-1/3 translate-y-0 overflow-hidden rounded-xl p-0",
+              "top-1/3 translate-y-0 overflow-hidden rounded-xl p-0 sm:max-w-lg",
               className,
             )}
           >

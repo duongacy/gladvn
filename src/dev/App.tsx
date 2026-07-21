@@ -2,6 +2,16 @@ import { Badge } from "../components/micro/badge";
 import { Button } from "../components/micro/button";
 import { Separator } from "../components/micro/separator";
 import { useTheme } from "../components/micro/theme-provider";
+import {
+  Command,
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandSeparator,
+} from "../components/macro/command-preset";
 import { useDevContext } from "../dev/components/dev-context";
 import { SizeToggle } from "../dev/components/showcase";
 import { GladcnLogo } from "../dev/components/GladcnLogo";
@@ -15,7 +25,7 @@ import {
   MoonIcon,
   SearchIcon,
 } from "lucide-react";
-import React, { Suspense, lazy, useEffect, useState } from "react";
+import React, { Suspense, lazy, useCallback, useEffect, useState } from "react";
 
 const components: Record<string, React.LazyExoticComponent<any>> = {};
 COMPONENTS.forEach((comp) => {
@@ -61,6 +71,7 @@ export default function App() {
   const theme = useTheme();
   const { size, setSize } = useDevContext();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [cmdOpen, setCmdOpen] = useState(false);
   const [active, setActiveState] = useState(() => {
     if (typeof window !== "undefined") {
       const params = new URLSearchParams(window.location.search);
@@ -69,9 +80,10 @@ export default function App() {
     return "overview";
   });
 
-  const setActive = (id: string) => {
+  const setActive = useCallback((id: string) => {
     setActiveState(id);
-    setIsMobileMenuOpen(false); // Close mobile menu on select
+    setIsMobileMenuOpen(false);
+    setCmdOpen(false);
     if (typeof window !== "undefined") {
       const url = new URL(window.location.href);
       url.searchParams.set("component", id);
@@ -84,7 +96,7 @@ export default function App() {
         }
       }, 50);
     }
-  };
+  }, []);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -121,11 +133,23 @@ export default function App() {
     };
   }, [isMobileMenuOpen]);
 
+  // ⌘K / Ctrl+K listener
+  useEffect(() => {
+    const down = (e: KeyboardEvent) => {
+      if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault();
+        setCmdOpen((prev) => !prev);
+      }
+    };
+    document.addEventListener("keydown", down);
+    return () => document.removeEventListener("keydown", down);
+  }, []);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Top nav */}
       <header className="sticky top-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-md">
-        <div className="mx-auto flex h-14 max-w-[1440px] items-center justify-between px-6">
+        <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between px-6">
           {/* Left — Logo + version */}
           <div className="flex items-center gap-3">
             <button
@@ -148,11 +172,12 @@ export default function App() {
             </Badge>
           </div>
 
-          {/* Center — Fake search bar */}
+          {/* Center — Search bar (opens Command Palette) */}
           <button
-            className="hidden md:flex items-center gap-2.5 px-3 py-1.5 rounded-lg border border-border bg-muted/30 text-sm text-muted-foreground hover:bg-muted/60 transition-colors w-52 xl:w-72 cursor-default"
-            tabIndex={-1}
-            aria-hidden="true"
+            id="cmd-search-trigger"
+            onClick={() => setCmdOpen(true)}
+            className="hidden md:flex h-9 items-center gap-2.5 px-4 rounded-lg border border-border bg-muted/30 text-sm text-muted-foreground hover:bg-muted/60 transition-colors w-64 xl:w-80"
+            aria-label="Tìm component (⌘K)"
           >
             <SearchIcon className="size-3.5 shrink-0" />
             <span className="flex-1 text-left text-[13px]">Tìm component...</span>
@@ -205,7 +230,7 @@ export default function App() {
 
         {/* Sidebar */}
         <aside
-          className={`fixed inset-y-0 left-0 z-50 w-64 transform border-r bg-background border-border pt-4 px-3 transition-transform duration-200 ease-in-out md:sticky md:top-14 md:block md:h-[calc(100vh-3.5rem)] md:w-56 md:translate-x-0 md:pt-6 md:z-0 overflow-y-auto custom-scrollbar ${isMobileMenuOpen ? "translate-x-0 shadow-2xl" : "-translate-x-full"
+          className={`fixed inset-y-0 left-0 z-50 w-64 transform border-r bg-background border-border pt-4 px-3 transition-transform duration-200 ease-in-out md:sticky md:top-16 md:block md:h-[calc(100vh-4rem)] md:w-56 md:translate-x-0 md:pt-6 md:z-0 overflow-y-auto custom-scrollbar ${isMobileMenuOpen ? "translate-x-0 shadow-2xl" : "-translate-x-full"
             }`}
         >
           <nav className="space-y-0.5">
@@ -264,14 +289,38 @@ export default function App() {
       {/* Floating Size Toggle */}
       {COMPONENTS.find((c) => c.id === active)?.hasSize && (
         <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-1.5 items-end animate-in fade-in slide-in-from-bottom-4 duration-300">
-          {/* <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground mr-1">
-            Chọn size
-          </span> */}
           <div className="rounded-xl border border-border/50 bg-background/80 p-1 shadow-2xl backdrop-blur-xl">
             <SizeToggle value={size} onValueChange={setSize} />
           </div>
         </div>
       )}
+
+      {/* ⌘K Command Palette */}
+      <CommandDialog
+        open={cmdOpen}
+        onOpenChange={setCmdOpen}
+        title="Tìm component"
+        description="Tìm kiếm nhanh component trong Gladcn UI"
+      >
+        <Command size="lg">
+          <CommandInput placeholder="Nhập tên component..." autoFocus />
+          <CommandList className="max-h-96">
+            <CommandEmpty>Không tìm thấy component nào.</CommandEmpty>
+
+            <CommandGroup>
+              {COMPONENTS.map(({ id, label, category }) => (
+                <CommandItem
+                  key={id}
+                  value={`${label} ${category}`}
+                  onSelect={() => setActive(id)}
+                >
+                  {label}
+                </CommandItem>
+              ))}
+            </CommandGroup>
+          </CommandList>
+        </Command>
+      </CommandDialog>
     </div>
   );
 }

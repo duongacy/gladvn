@@ -9,49 +9,88 @@
 
 import { Command as CommandPrimitive } from "cmdk";
 import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
 
 import { InputGroup, InputGroupAddon } from "../../components/micro/input-group";
 import { cn } from "../../lib/utils";
 import { SearchIcon } from "lucide-react";
+import { type Size } from "../../lib/types";
+
+const CommandContext = React.createContext<{ size: Size }>({ size: "md" });
 
 const Command = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive>,
-  React.ComponentPropsWithoutRef<typeof CommandPrimitive>
->(({ className, ...props }, ref) => (
-  <CommandPrimitive
-    ref={ref}
-    data-slot="command"
-    className={cn(
-      "flex size-full flex-col overflow-hidden rounded-xl bg-popover p-1 text-popover-foreground",
-      className,
-    )}
-    {...props}
-  />
+  React.ComponentPropsWithoutRef<typeof CommandPrimitive> & {
+    size?: Size;
+  }
+>(({ className, size = "md", ...props }, ref) => (
+  <CommandContext.Provider value={{ size }}>
+    <CommandPrimitive
+      ref={ref}
+      data-slot="command"
+      className={cn(
+        "flex size-full flex-col overflow-hidden rounded-xl bg-popover text-popover-foreground",
+        className,
+      )}
+      {...props}
+    />
+  </CommandContext.Provider>
 ));
 Command.displayName = "Command";
 
 
+const commandInputVariants = cva(
+  "w-full outline-hidden disabled:cursor-not-allowed disabled:opacity-50",
+  {
+    variants: {
+      size: {
+        sm: "text-sm",
+        md: "text-sm",
+        lg: "text-base",
+      },
+    },
+    defaultVariants: {
+      size: "md",
+    },
+  }
+);
+
 const CommandInput = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Input>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input>
->(({ className, ...props }, ref) => (
-  <div data-slot="command-input-wrapper" className="p-1 pb-0">
-    <InputGroup className="h-8 rounded-lg border-input/30 bg-input/30 shadow-none">
-      <CommandPrimitive.Input
-        ref={ref}
-        data-slot="command-input"
+>(({ className, ...props }, ref) => {
+  const { size } = React.useContext(CommandContext);
+  return (
+    <div 
+      data-slot="command-input-wrapper" 
+      className={cn(
+        "pb-0",
+        size === "sm" && "p-1",
+        size === "md" && "p-2",
+        size === "lg" && "p-3"
+      )}
+    >
+      <InputGroup 
         className={cn(
-          "w-full text-sm outline-hidden disabled:cursor-not-allowed disabled:opacity-50",
-          className,
+          "rounded-lg border-input/30 bg-input/30 shadow-none",
+          size === "sm" && "h-8",
+          size === "md" && "h-10",
+          size === "lg" && "h-11"
         )}
-        {...props}
-      />
-      <InputGroupAddon className="pl-2">
-        <SearchIcon className="size-4 shrink-0 opacity-50" />
-      </InputGroupAddon>
-    </InputGroup>
-  </div>
-));
+      >
+        <CommandPrimitive.Input
+          ref={ref}
+          data-slot="command-input"
+          className={cn(commandInputVariants({ size }), className)}
+          {...props}
+        />
+        <InputGroupAddon className={cn("shrink-0", size === "lg" ? "pl-3" : "pl-2")}>
+          <SearchIcon className={cn("opacity-50", size === "lg" ? "size-5" : "size-4")} />
+        </InputGroupAddon>
+      </InputGroup>
+    </div>
+  );
+});
 CommandInput.displayName = "CommandInput";
 
 const CommandList = React.forwardRef<
@@ -73,30 +112,55 @@ CommandList.displayName = "CommandList";
 const CommandEmpty = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Empty>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Empty>
->(({ className, ...props }, ref) => (
-  <CommandPrimitive.Empty
-    ref={ref}
-    data-slot="command-empty"
-    className={cn("py-6 text-center text-sm", className)}
-    {...props}
-  />
-));
+>(({ className, ...props }, ref) => {
+  const { size } = React.useContext(CommandContext);
+  return (
+    <CommandPrimitive.Empty
+      ref={ref}
+      data-slot="command-empty"
+      className={cn(
+        "text-center",
+        size === "sm" && "py-4 text-xs",
+        size === "md" && "py-6 text-sm",
+        size === "lg" && "py-8 text-base",
+        className
+      )}
+      {...props}
+    />
+  );
+});
 CommandEmpty.displayName = "CommandEmpty";
+
+const commandGroupVariants = cva(
+  "overflow-hidden text-foreground **:[[cmdk-group-heading]]:font-medium **:[[cmdk-group-heading]]:text-muted-foreground **:[[cmdk-group-items]]:flex **:[[cmdk-group-items]]:flex-col",
+  {
+    variants: {
+      size: {
+        sm: "p-1 **:[[cmdk-group-heading]]:px-2 **:[[cmdk-group-heading]]:py-1.5 **:[[cmdk-group-heading]]:text-xs **:[[cmdk-group-items]]:gap-0.5",
+        md: "p-2 **:[[cmdk-group-heading]]:px-2 **:[[cmdk-group-heading]]:py-1.5 **:[[cmdk-group-heading]]:text-xs **:[[cmdk-group-items]]:gap-1",
+        lg: "p-3 **:[[cmdk-group-heading]]:px-2 **:[[cmdk-group-heading]]:py-2 **:[[cmdk-group-heading]]:text-sm **:[[cmdk-group-items]]:gap-1",
+      },
+    },
+    defaultVariants: {
+      size: "md",
+    },
+  }
+);
 
 const CommandGroup = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Group>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Group>
->(({ className, ...props }, ref) => (
-  <CommandPrimitive.Group
-    ref={ref}
-    data-slot="command-group"
-    className={cn(
-      "overflow-hidden p-1 text-foreground **:[[cmdk-group-heading]]:px-2 **:[[cmdk-group-heading]]:py-1.5 **:[[cmdk-group-heading]]:text-xs **:[[cmdk-group-heading]]:font-medium **:[[cmdk-group-heading]]:text-muted-foreground **:[[cmdk-group-items]]:flex **:[[cmdk-group-items]]:flex-col **:[[cmdk-group-items]]:gap-1",
-      className,
-    )}
-    {...props}
-  />
-));
+>(({ className, ...props }, ref) => {
+  const { size } = React.useContext(CommandContext);
+  return (
+    <CommandPrimitive.Group
+      ref={ref}
+      data-slot="command-group"
+      className={cn(commandGroupVariants({ size }), className)}
+      {...props}
+    />
+  );
+});
 CommandGroup.displayName = "CommandGroup";
 
 const CommandSeparator = React.forwardRef<
@@ -112,22 +176,38 @@ const CommandSeparator = React.forwardRef<
 ));
 CommandSeparator.displayName = "CommandSeparator";
 
+const commandItemVariants = cva(
+  "group/command-item relative flex cursor-default items-center outline-hidden select-none in-data-[slot=dialog-content]:rounded-lg data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 hover:bg-accent hover:text-accent-foreground data-[selected=true]:bg-accent data-[selected=true]:text-accent-foreground aria-selected:bg-accent aria-selected:text-accent-foreground *:pointer-events-none *:shrink-0 hover:*:text-accent-foreground data-[selected=true]:*:text-accent-foreground aria-selected:*:text-accent-foreground",
+  {
+    variants: {
+      size: {
+        sm: "gap-2 rounded-sm px-2 py-1 text-xs **:[svg:not([class*='size-'])]:size-3.5",
+        md: "gap-2 rounded-sm px-2 py-1.5 text-sm **:[svg:not([class*='size-'])]:size-4",
+        lg: "gap-3 rounded-md px-3 py-2.5 text-base **:[svg:not([class*='size-'])]:size-5",
+      },
+    },
+    defaultVariants: {
+      size: "md",
+    },
+  }
+);
+
 const CommandItem = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Item>
->(({ className, children, ...props }, ref) => (
-  <CommandPrimitive.Item
-    ref={ref}
-    data-slot="command-item"
-    className={cn(
-      "group/command-item relative flex cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden select-none in-data-[slot=dialog-content]:rounded-lg data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 data-selected:bg-muted data-selected:text-foreground *:pointer-events-none *:shrink-0 **:[svg:not([class*='size-'])]:size-4 data-selected:*:text-foreground",
-      className,
-    )}
-    {...props}
-  >
-    {children}
-  </CommandPrimitive.Item>
-));
+>(({ className, children, ...props }, ref) => {
+  const { size } = React.useContext(CommandContext);
+  return (
+    <CommandPrimitive.Item
+      ref={ref}
+      data-slot="command-item"
+      className={cn(commandItemVariants({ size }), className)}
+      {...props}
+    >
+      {children}
+    </CommandPrimitive.Item>
+  );
+});
 CommandItem.displayName = "CommandItem";
 
 const CommandShortcut = React.forwardRef<

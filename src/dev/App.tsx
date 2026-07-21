@@ -22,6 +22,22 @@ COMPONENTS.forEach((comp) => {
   components[comp.id] = lazy(() => import(`./showcase/${comp.id}.tsx`));
 });
 
+const groupedComponents = COMPONENTS.reduce((acc, comp) => {
+  const cat = (comp as any).category || "Other";
+  if (!acc[cat]) acc[cat] = [];
+  acc[cat].push(comp);
+  return acc;
+}, {} as Record<string, typeof COMPONENTS[number][]>);
+
+const categoryOrder = [
+  "Layout & Structure",
+  "Forms & Inputs",
+  "Feedback & Overlays",
+  "Navigation",
+  "Data Display",
+  "Other"
+];
+
 function ComponentViewer({ id }: { id: string }) {
   const compDef = COMPONENTS.find((c) => c.id === id);
   if (!compDef) return null;
@@ -188,7 +204,7 @@ export default function App() {
 
         {/* Sidebar */}
         <aside
-          className={`fixed inset-y-0 left-0 z-50 w-64 transform border-r bg-background border-border pt-4 px-3 transition-transform duration-200 ease-in-out md:sticky md:top-14 md:block md:h-[calc(100vh-3.5rem)] md:w-56 md:translate-x-0 md:pt-6 md:z-0 overflow-y-auto ${isMobileMenuOpen ? "translate-x-0 shadow-2xl" : "-translate-x-full"
+          className={`fixed inset-y-0 left-0 z-50 w-64 transform border-r bg-background border-border pt-4 px-3 transition-transform duration-200 ease-in-out md:sticky md:top-14 md:block md:h-[calc(100vh-3.5rem)] md:w-56 md:translate-x-0 md:pt-6 md:z-0 overflow-y-auto custom-scrollbar ${isMobileMenuOpen ? "translate-x-0 shadow-2xl" : "-translate-x-full"
             }`}
         >
           <nav className="space-y-0.5">
@@ -204,23 +220,33 @@ export default function App() {
             </button>
           </nav>
 
-          <p className="mb-2 px-2 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground mt-4">
-            Components (A-Z)
-          </p>
-          <nav className="space-y-0.5">
-            {COMPONENTS.map(({ id, label, hasMacro, hasMicro, status }) => (
-              <button
-                key={id}
-                onClick={() => setActive(id)}
-                className={`w-full flex items-center justify-between gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors text-left ${active === id
-                  ? "bg-accent text-accent-foreground font-medium"
-                  : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
-                  }`}
-              >
-                <span>{label}</span>
-              </button>
-            ))}
-          </nav>
+          <div className="mt-6">
+            {categoryOrder.map(cat => {
+              const comps = groupedComponents[cat];
+              if (!comps || comps.length === 0) return null;
+              return (
+                <div key={cat} className="mb-4">
+                  <p className="mb-2 px-2 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+                    {cat}
+                  </p>
+                  <nav className="space-y-0.5">
+                    {comps.map(({ id, label }) => (
+                      <button
+                        key={id}
+                        onClick={() => setActive(id)}
+                        className={`w-full flex items-center justify-between gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors text-left ${active === id
+                          ? "bg-accent text-accent-foreground font-medium"
+                          : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
+                          }`}
+                      >
+                        <span>{label}</span>
+                      </button>
+                    ))}
+                  </nav>
+                </div>
+              );
+            })}
+          </div>
 
 
         </aside>

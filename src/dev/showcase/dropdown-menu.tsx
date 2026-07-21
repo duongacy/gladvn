@@ -23,6 +23,7 @@ import {
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
+  DropdownMenuPortal,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuSeparator,
@@ -55,7 +56,8 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
       </Button>
     }
   />
-  <DropdownMenuContent className="w-56">
+  
+<DropdownMenuPortal><DropdownMenuContent className="w-56">
     <DropdownMenuGroup>
       <DropdownMenuLabel>My Account</DropdownMenuLabel>
       <DropdownMenuSeparator />
@@ -87,7 +89,8 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
       <span>Delete Account</span>
       <DropdownMenuShortcut>⌘⌫</DropdownMenuShortcut>
     </DropdownMenuItem>
-  </DropdownMenuContent>
+  </DropdownMenuContent></DropdownMenuPortal>
+
 </DropdownMenu>
 `}
         >
@@ -99,39 +102,42 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
                 </Button>
               }
             />
-            <DropdownMenuContent className="w-56">
-              <DropdownMenuGroup>
-                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+
+            <DropdownMenuPortal>
+              <DropdownMenuContent className="w-56">
+                <DropdownMenuGroup>
+                  <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem>
+                    <UserIcon className="mr-2 h-4 w-4" />
+                    <span>Profile</span>
+                    <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <SettingsIcon className="mr-2 h-4 w-4" />
+                    <span>Settings</span>
+                    <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <CreditCardIcon className="mr-2 h-4 w-4" />
+                    <span>Billing</span>
+                    <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
+                  </DropdownMenuItem>
+                </DropdownMenuGroup>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
-                  <UserIcon className="mr-2 h-4 w-4" />
-                  <span>Profile</span>
-                  <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
+                  <LogOutIcon className="mr-2 h-4 w-4" />
+                  <span>Log out</span>
+                  <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
                 </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <SettingsIcon className="mr-2 h-4 w-4" />
-                  <span>Settings</span>
-                  <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem variant="destructive">
+                  <LogOutIcon className="mr-2 h-4 w-4" />
+                  <span>Delete Account</span>
+                  <DropdownMenuShortcut>⌘⌫</DropdownMenuShortcut>
                 </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <CreditCardIcon className="mr-2 h-4 w-4" />
-                  <span>Billing</span>
-                  <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
-                </DropdownMenuItem>
-              </DropdownMenuGroup>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>
-                <LogOutIcon className="mr-2 h-4 w-4" />
-                <span>Log out</span>
-                <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
-              </DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem variant="destructive">
-                <LogOutIcon className="mr-2 h-4 w-4" />
-                <span>Delete Account</span>
-                <DropdownMenuShortcut>⌘⌫</DropdownMenuShortcut>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
+              </DropdownMenuContent>
+            </DropdownMenuPortal>
           </DropdownMenu>
         </ExampleSection>
 
@@ -146,7 +152,8 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
       </Button>
     }
   />
-  <DropdownMenuContent className="w-56">
+  
+<DropdownMenuPortal><DropdownMenuContent className="w-56">
     <DropdownMenuGroup>
       <DropdownMenuLabel>Actions</DropdownMenuLabel>
       <DropdownMenuSeparator />
@@ -168,7 +175,8 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
       <LogOutIcon className="mr-2 h-4 w-4" />
       <span>Log out</span>
     </DropdownMenuItem>
-  </DropdownMenuContent>
+  </DropdownMenuContent></DropdownMenuPortal>
+
 </DropdownMenu>
 `}
         >
@@ -180,29 +188,32 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
                 </Button>
               }
             />
-            <DropdownMenuContent className="w-56">
-              <DropdownMenuGroup>
-                <DropdownMenuLabel>Actions</DropdownMenuLabel>
+
+            <DropdownMenuPortal>
+              <DropdownMenuContent className="w-56">
+                <DropdownMenuGroup>
+                  <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem>
+                    <UserIcon className="mr-2 h-4 w-4" />
+                    <span>Edit Profile</span>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem disabled>
+                    <CreditCardIcon className="mr-2 h-4 w-4" />
+                    <span>Upgrade Plan</span>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem disabled>
+                    <HelpCircleIcon className="mr-2 h-4 w-4" />
+                    <span>Support (Offline)</span>
+                  </DropdownMenuItem>
+                </DropdownMenuGroup>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
-                  <UserIcon className="mr-2 h-4 w-4" />
-                  <span>Edit Profile</span>
+                  <LogOutIcon className="mr-2 h-4 w-4" />
+                  <span>Log out</span>
                 </DropdownMenuItem>
-                <DropdownMenuItem disabled>
-                  <CreditCardIcon className="mr-2 h-4 w-4" />
-                  <span>Upgrade Plan</span>
-                </DropdownMenuItem>
-                <DropdownMenuItem disabled>
-                  <HelpCircleIcon className="mr-2 h-4 w-4" />
-                  <span>Support (Offline)</span>
-                </DropdownMenuItem>
-              </DropdownMenuGroup>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>
-                <LogOutIcon className="mr-2 h-4 w-4" />
-                <span>Log out</span>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
+              </DropdownMenuContent>
+            </DropdownMenuPortal>
           </DropdownMenu>
         </ExampleSection>
         <ExampleSection
@@ -216,7 +227,8 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
       </Button>
     }
   />
-  <DropdownMenuContent className="w-56">
+  
+<DropdownMenuPortal><DropdownMenuContent className="w-56">
     <DropdownMenuGroup>
       <DropdownMenuLabel>Appearance</DropdownMenuLabel>
       <DropdownMenuSeparator />
@@ -238,11 +250,13 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
       <DropdownMenuSeparator />
       <DropdownMenuSub>
         <DropdownMenuSubTrigger>Theme</DropdownMenuSubTrigger>
-        <DropdownMenuSubContent>
+        
+<DropdownMenuPortal><DropdownMenuSubContent>
           <DropdownMenuItem>Light</DropdownMenuItem>
           <DropdownMenuItem>Dark</DropdownMenuItem>
           <DropdownMenuItem>System</DropdownMenuItem>
-        </DropdownMenuSubContent>
+        </DropdownMenuSubContent></DropdownMenuPortal>
+
       </DropdownMenuSub>
       <DropdownMenuSeparator />
       <DropdownMenuRadioGroup value="bottom">
@@ -255,7 +269,7 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
         </DropdownMenuRadioItem>
       </DropdownMenuRadioGroup>
     </DropdownMenuGroup>
-  </DropdownMenuContent>
+  </DropdownMenuContent></DropdownMenuPortal>
 </DropdownMenu>
 `}
         >
@@ -267,46 +281,52 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
                 </Button>
               }
             />
-            <DropdownMenuContent className="w-56">
-              <DropdownMenuGroup>
-                <DropdownMenuLabel>Appearance</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-              <DropdownMenuCheckboxItem
-                checked={showStatusBar}
-                onCheckedChange={setShowStatusBar}
-              >
-                Show Status Bar
-              </DropdownMenuCheckboxItem>
-              <DropdownMenuCheckboxItem disabled>
-                Show Activity Bar
-              </DropdownMenuCheckboxItem>
-              <DropdownMenuCheckboxItem
-                checked={showPanel}
-                onCheckedChange={setShowPanel}
-              >
-                Show Panel
-              </DropdownMenuCheckboxItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuSub>
-                <DropdownMenuSubTrigger>Theme</DropdownMenuSubTrigger>
-                <DropdownMenuSubContent>
-                  <DropdownMenuItem>Light</DropdownMenuItem>
-                  <DropdownMenuItem>Dark</DropdownMenuItem>
-                  <DropdownMenuItem>System</DropdownMenuItem>
-                </DropdownMenuSubContent>
-              </DropdownMenuSub>
-              <DropdownMenuSeparator />
-              <DropdownMenuRadioGroup value="bottom">
-                <DropdownMenuRadioItem value="top">Top</DropdownMenuRadioItem>
-                <DropdownMenuRadioItem value="bottom">
-                  Bottom
-                </DropdownMenuRadioItem>
-                <DropdownMenuRadioItem value="right">
-                  Right
-                </DropdownMenuRadioItem>
-              </DropdownMenuRadioGroup>
-              </DropdownMenuGroup>
-            </DropdownMenuContent>
+            <DropdownMenuPortal>
+              <DropdownMenuContent className="w-56">
+                <DropdownMenuGroup>
+                  <DropdownMenuLabel>Appearance</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuCheckboxItem
+                    checked={showStatusBar}
+                    onCheckedChange={setShowStatusBar}
+                  >
+                    Show Status Bar
+                  </DropdownMenuCheckboxItem>
+                  <DropdownMenuCheckboxItem disabled>
+                    Show Activity Bar
+                  </DropdownMenuCheckboxItem>
+                  <DropdownMenuCheckboxItem
+                    checked={showPanel}
+                    onCheckedChange={setShowPanel}
+                  >
+                    Show Panel
+                  </DropdownMenuCheckboxItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuSub>
+                    <DropdownMenuSubTrigger>Theme</DropdownMenuSubTrigger>
+                    <DropdownMenuPortal>
+                      <DropdownMenuSubContent>
+                        <DropdownMenuItem>Light</DropdownMenuItem>
+                        <DropdownMenuItem>Dark</DropdownMenuItem>
+                        <DropdownMenuItem>System</DropdownMenuItem>
+                      </DropdownMenuSubContent>
+                    </DropdownMenuPortal>
+                  </DropdownMenuSub>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuRadioGroup value="bottom">
+                    <DropdownMenuRadioItem value="top">
+                      Top
+                    </DropdownMenuRadioItem>
+                    <DropdownMenuRadioItem value="bottom">
+                      Bottom
+                    </DropdownMenuRadioItem>
+                    <DropdownMenuRadioItem value="right">
+                      Right
+                    </DropdownMenuRadioItem>
+                  </DropdownMenuRadioGroup>
+                </DropdownMenuGroup>
+              </DropdownMenuContent>
+            </DropdownMenuPortal>
           </DropdownMenu>
         </ExampleSection>
         <ExampleSection
@@ -320,7 +340,7 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
       </Button>
     }
   />
-  <DropdownMenuContent className="w-48">
+  <DropdownMenuPortal><DropdownMenuContent className="w-48">
     <DropdownMenuGroup>
       <DropdownMenuLabel inset>View</DropdownMenuLabel>
       <DropdownMenuSeparator />
@@ -335,7 +355,7 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
       <DropdownMenuItem inset>Single Column</DropdownMenuItem>
       <DropdownMenuItem inset>Two Columns</DropdownMenuItem>
     </DropdownMenuGroup>
-  </DropdownMenuContent>
+  </DropdownMenuContent></DropdownMenuPortal>
 </DropdownMenu>
 `}
         >
@@ -347,22 +367,24 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
                 </Button>
               }
             />
-            <DropdownMenuContent className="w-48">
-              <DropdownMenuGroup>
-                <DropdownMenuLabel inset>View</DropdownMenuLabel>
+            <DropdownMenuPortal>
+              <DropdownMenuContent className="w-48">
+                <DropdownMenuGroup>
+                  <DropdownMenuLabel inset>View</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem inset>Zoom In</DropdownMenuItem>
+                  <DropdownMenuItem inset>Zoom Out</DropdownMenuItem>
+                  <DropdownMenuItem inset>Reset Zoom</DropdownMenuItem>
+                </DropdownMenuGroup>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem inset>Zoom In</DropdownMenuItem>
-                <DropdownMenuItem inset>Zoom Out</DropdownMenuItem>
-                <DropdownMenuItem inset>Reset Zoom</DropdownMenuItem>
-              </DropdownMenuGroup>
-              <DropdownMenuSeparator />
-              <DropdownMenuGroup>
-                <DropdownMenuLabel inset>Layout</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem inset>Single Column</DropdownMenuItem>
-                <DropdownMenuItem inset>Two Columns</DropdownMenuItem>
-              </DropdownMenuGroup>
-            </DropdownMenuContent>
+                <DropdownMenuGroup>
+                  <DropdownMenuLabel inset>Layout</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem inset>Single Column</DropdownMenuItem>
+                  <DropdownMenuItem inset>Two Columns</DropdownMenuItem>
+                </DropdownMenuGroup>
+              </DropdownMenuContent>
+            </DropdownMenuPortal>
           </DropdownMenu>
         </ExampleSection>
       </ExampleGrid>

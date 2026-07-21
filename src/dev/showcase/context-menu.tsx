@@ -13,6 +13,7 @@ import {
   ContextMenuSubContent,
   ContextMenuSubTrigger,
   ContextMenuTrigger,
+  ContextMenuPortal,
 } from "../../components/micro/context-menu";
 import {
   DocsP,
@@ -40,7 +41,7 @@ function ContextMenuMicroShowcase() {
   <ContextMenuTrigger className="flex h-[150px] w-full max-w-[400px] items-center justify-center rounded-md border border-border border-dashed text-sm">
     Right click here
   </ContextMenuTrigger>
-  <ContextMenuContent className="w-64">
+  <ContextMenuPortal><ContextMenuContent className="w-64">
     <ContextMenuItem inset>
       Back
       <ContextMenuShortcut>⌘[</ContextMenuShortcut>
@@ -55,7 +56,7 @@ function ContextMenuMicroShowcase() {
     </ContextMenuItem>
     <ContextMenuSub>
       <ContextMenuSubTrigger inset>More Tools</ContextMenuSubTrigger>
-      <ContextMenuSubContent className="w-48">
+      <ContextMenuPortal><ContextMenuSubContent className="w-48">
         <ContextMenuItem>
           Save Page As...
           <ContextMenuShortcut>⇧⌘S</ContextMenuShortcut>
@@ -64,7 +65,7 @@ function ContextMenuMicroShowcase() {
         <ContextMenuItem>Name Window...</ContextMenuItem>
         <ContextMenuSeparator />
         <ContextMenuItem>Developer Tools</ContextMenuItem>
-      </ContextMenuSubContent>
+      </ContextMenuSubContent></ContextMenuPortal>
     </ContextMenuSub>
     <ContextMenuSeparator />
     <ContextMenuCheckboxItem
@@ -93,7 +94,7 @@ function ContextMenuMicroShowcase() {
         </ContextMenuRadioItem>
       </ContextMenuRadioGroup>
     </ContextMenuGroup>
-  </ContextMenuContent>
+  </ContextMenuContent></ContextMenuPortal>
 </ContextMenu>
 `}
       >
@@ -101,60 +102,66 @@ function ContextMenuMicroShowcase() {
           <ContextMenuTrigger className="flex h-[150px] w-full max-w-[400px] items-center justify-center rounded-md border border-border border-dashed text-sm">
             Right click here
           </ContextMenuTrigger>
-          <ContextMenuContent className="w-64">
-            <ContextMenuItem inset>
-              Back
-              <ContextMenuShortcut>⌘[</ContextMenuShortcut>
-            </ContextMenuItem>
-            <ContextMenuItem inset disabled>
-              Forward
-              <ContextMenuShortcut>⌘]</ContextMenuShortcut>
-            </ContextMenuItem>
-            <ContextMenuItem inset>
-              Reload
-              <ContextMenuShortcut>⌘R</ContextMenuShortcut>
-            </ContextMenuItem>
-            <ContextMenuSub>
-              <ContextMenuSubTrigger inset>More Tools</ContextMenuSubTrigger>
-              <ContextMenuSubContent className="w-48">
-                <ContextMenuItem>
-                  Save Page As...
-                  <ContextMenuShortcut>⇧⌘S</ContextMenuShortcut>
-                </ContextMenuItem>
-                <ContextMenuItem>Create Shortcut...</ContextMenuItem>
-                <ContextMenuItem>Name Window...</ContextMenuItem>
-                <ContextMenuSeparator />
-                <ContextMenuItem>Developer Tools</ContextMenuItem>
-              </ContextMenuSubContent>
-            </ContextMenuSub>
-            <ContextMenuSeparator />
-            <ContextMenuCheckboxItem
-              checked={showBookmarks}
-              onCheckedChange={setShowBookmarks}
-            >
-              Show Bookmarks Bar
-              <ContextMenuShortcut>⌘⇧B</ContextMenuShortcut>
-            </ContextMenuCheckboxItem>
-            <ContextMenuCheckboxItem
-              checked={showFullUrls}
-              onCheckedChange={setShowFullUrls}
-            >
-              Show Full URLs
-            </ContextMenuCheckboxItem>
-            <ContextMenuSeparator />
-            <ContextMenuGroup>
-              <ContextMenuLabel inset>People</ContextMenuLabel>
+
+          <ContextMenuPortal>
+            <ContextMenuContent className="w-64">
+              <ContextMenuItem inset>
+                Back
+                <ContextMenuShortcut>⌘[</ContextMenuShortcut>
+              </ContextMenuItem>
+              <ContextMenuItem inset disabled>
+                Forward
+                <ContextMenuShortcut>⌘]</ContextMenuShortcut>
+              </ContextMenuItem>
+              <ContextMenuItem inset>
+                Reload
+                <ContextMenuShortcut>⌘R</ContextMenuShortcut>
+              </ContextMenuItem>
+              <ContextMenuSub>
+                <ContextMenuSubTrigger inset>More Tools</ContextMenuSubTrigger>
+
+                <ContextMenuPortal>
+                  <ContextMenuSubContent className="w-48">
+                    <ContextMenuItem>
+                      Save Page As...
+                      <ContextMenuShortcut>⇧⌘S</ContextMenuShortcut>
+                    </ContextMenuItem>
+                    <ContextMenuItem>Create Shortcut...</ContextMenuItem>
+                    <ContextMenuItem>Name Window...</ContextMenuItem>
+                    <ContextMenuSeparator />
+                    <ContextMenuItem>Developer Tools</ContextMenuItem>
+                  </ContextMenuSubContent>
+                </ContextMenuPortal>
+              </ContextMenuSub>
               <ContextMenuSeparator />
-              <ContextMenuRadioGroup value={person} onValueChange={setPerson}>
-                <ContextMenuRadioItem value="pedro">
-                  Pedro Duarte
-                </ContextMenuRadioItem>
-                <ContextMenuRadioItem value="colm">
-                  Colm Tuite
-                </ContextMenuRadioItem>
-              </ContextMenuRadioGroup>
-            </ContextMenuGroup>
-          </ContextMenuContent>
+              <ContextMenuCheckboxItem
+                checked={showBookmarks}
+                onCheckedChange={setShowBookmarks}
+              >
+                Show Bookmarks Bar
+                <ContextMenuShortcut>⌘⇧B</ContextMenuShortcut>
+              </ContextMenuCheckboxItem>
+              <ContextMenuCheckboxItem
+                checked={showFullUrls}
+                onCheckedChange={setShowFullUrls}
+              >
+                Show Full URLs
+              </ContextMenuCheckboxItem>
+              <ContextMenuSeparator />
+              <ContextMenuGroup>
+                <ContextMenuLabel inset>People</ContextMenuLabel>
+                <ContextMenuSeparator />
+                <ContextMenuRadioGroup value={person} onValueChange={setPerson}>
+                  <ContextMenuRadioItem value="pedro">
+                    Pedro Duarte
+                  </ContextMenuRadioItem>
+                  <ContextMenuRadioItem value="colm">
+                    Colm Tuite
+                  </ContextMenuRadioItem>
+                </ContextMenuRadioGroup>
+              </ContextMenuGroup>
+            </ContextMenuContent>
+          </ContextMenuPortal>
         </ContextMenu>
       </ExampleSection>
 
@@ -165,7 +172,7 @@ function ContextMenuMicroShowcase() {
   <ContextMenuTrigger className="flex h-[100px] w-full max-w-[300px] items-center justify-center rounded-md border border-border border-dashed text-sm">
     Right click here
   </ContextMenuTrigger>
-  <ContextMenuContent className="w-52">
+  <ContextMenuPortal><ContextMenuContent className="w-52">
     <ContextMenuItem>
       Rename
       <ContextMenuShortcut>⌘R</ContextMenuShortcut>
@@ -176,7 +183,7 @@ function ContextMenuMicroShowcase() {
       Delete
       <ContextMenuShortcut>⌫</ContextMenuShortcut>
     </ContextMenuItem>
-  </ContextMenuContent>
+  </ContextMenuContent></ContextMenuPortal>
 </ContextMenu>
 `}
       >
@@ -184,18 +191,21 @@ function ContextMenuMicroShowcase() {
           <ContextMenuTrigger className="flex h-[100px] w-full max-w-[300px] items-center justify-center rounded-md border border-border border-dashed text-sm">
             Right click here
           </ContextMenuTrigger>
-          <ContextMenuContent className="w-52">
-            <ContextMenuItem>
-              Rename
-              <ContextMenuShortcut>⌘R</ContextMenuShortcut>
-            </ContextMenuItem>
-            <ContextMenuItem>Duplicate</ContextMenuItem>
-            <ContextMenuSeparator />
-            <ContextMenuItem variant="destructive">
-              Delete
-              <ContextMenuShortcut>⌫</ContextMenuShortcut>
-            </ContextMenuItem>
-          </ContextMenuContent>
+
+          <ContextMenuPortal>
+            <ContextMenuContent className="w-52">
+              <ContextMenuItem>
+                Rename
+                <ContextMenuShortcut>⌘R</ContextMenuShortcut>
+              </ContextMenuItem>
+              <ContextMenuItem>Duplicate</ContextMenuItem>
+              <ContextMenuSeparator />
+              <ContextMenuItem variant="destructive">
+                Delete
+                <ContextMenuShortcut>⌫</ContextMenuShortcut>
+              </ContextMenuItem>
+            </ContextMenuContent>
+          </ContextMenuPortal>
         </ContextMenu>
       </ExampleSection>
     </div>

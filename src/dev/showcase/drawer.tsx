@@ -8,6 +8,7 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
+  DrawerPortal,
 } from "../../components/micro/drawer";
 import {
   DocsP,
@@ -31,7 +32,7 @@ function DrawerMicroShowcase() {
   <DrawerTrigger asChild>
     <Button variant="outline">Open Bottom</Button>
   </DrawerTrigger>
-  <DrawerContent>
+  <DrawerPortal><DrawerContent>
     <div className="mx-auto w-full max-w-sm">
       <DrawerHeader>
         <DrawerTitle>Move Goal</DrawerTitle>
@@ -74,7 +75,7 @@ function DrawerMicroShowcase() {
         </DrawerClose>
       </DrawerFooter>
     </div>
-  </DrawerContent>
+  </DrawerContent></DrawerPortal>
 </Drawer>
 `}
         >
@@ -82,50 +83,53 @@ function DrawerMicroShowcase() {
             <DrawerTrigger asChild>
               <Button variant="outline">Open Bottom</Button>
             </DrawerTrigger>
-            <DrawerContent>
-              <div className="mx-auto w-full max-w-sm">
-                <DrawerHeader>
-                  <DrawerTitle>Move Goal</DrawerTitle>
-                  <DrawerDescription>
-                    Set your daily activity goal.
-                  </DrawerDescription>
-                </DrawerHeader>
-                <div className="p-4 pb-0">
-                  <div className="flex items-center justify-center space-x-2">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="h-8 w-8 rounded-full"
-                      onClick={() => {}}
-                    >
-                      -
-                    </Button>
-                    <div className="flex-1 text-center">
-                      <div className="text-7xl font-bold tracking-tighter">
-                        350
+
+            <DrawerPortal>
+              <DrawerContent>
+                <div className="mx-auto w-full max-w-sm">
+                  <DrawerHeader>
+                    <DrawerTitle>Move Goal</DrawerTitle>
+                    <DrawerDescription>
+                      Set your daily activity goal.
+                    </DrawerDescription>
+                  </DrawerHeader>
+                  <div className="p-4 pb-0">
+                    <div className="flex items-center justify-center space-x-2">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="h-8 w-8 rounded-full"
+                        onClick={() => {}}
+                      >
+                        -
+                      </Button>
+                      <div className="flex-1 text-center">
+                        <div className="text-7xl font-bold tracking-tighter">
+                          350
+                        </div>
+                        <div className="text-[0.70rem] uppercase text-muted-foreground">
+                          Calories/day
+                        </div>
                       </div>
-                      <div className="text-[0.70rem] uppercase text-muted-foreground">
-                        Calories/day
-                      </div>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="h-8 w-8 rounded-full"
+                        onClick={() => {}}
+                      >
+                        +
+                      </Button>
                     </div>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="h-8 w-8 rounded-full"
-                      onClick={() => {}}
-                    >
-                      +
-                    </Button>
                   </div>
+                  <DrawerFooter>
+                    <Button>Submit</Button>
+                    <DrawerClose asChild>
+                      <Button variant="outline">Cancel</Button>
+                    </DrawerClose>
+                  </DrawerFooter>
                 </div>
-                <DrawerFooter>
-                  <Button>Submit</Button>
-                  <DrawerClose asChild>
-                    <Button variant="outline">Cancel</Button>
-                  </DrawerClose>
-                </DrawerFooter>
-              </div>
-            </DrawerContent>
+              </DrawerContent>
+            </DrawerPortal>
           </Drawer>
         </ExampleSection>
 
@@ -136,7 +140,7 @@ function DrawerMicroShowcase() {
   <DrawerTrigger asChild>
     <Button variant="outline">Show Info</Button>
   </DrawerTrigger>
-  <DrawerContent>
+  <DrawerPortal><DrawerContent>
     <div className="mx-auto w-full max-w-sm">
       <DrawerHeader>
         <DrawerTitle>About this feature</DrawerTitle>
@@ -152,7 +156,7 @@ function DrawerMicroShowcase() {
         </DrawerClose>
       </DrawerFooter>
     </div>
-  </DrawerContent>
+  </DrawerContent></DrawerPortal>
 </Drawer>
 `}
         >
@@ -160,23 +164,26 @@ function DrawerMicroShowcase() {
             <DrawerTrigger asChild>
               <Button variant="outline">Show Info</Button>
             </DrawerTrigger>
-            <DrawerContent>
-              <div className="mx-auto w-full max-w-sm">
-                <DrawerHeader>
-                  <DrawerTitle>About this feature</DrawerTitle>
-                  <DrawerDescription>
-                    This feature is currently in beta. Some functionality may be
-                    limited or change without notice. We appreciate your
-                    feedback as we work to improve the experience.
-                  </DrawerDescription>
-                </DrawerHeader>
-                <DrawerFooter>
-                  <DrawerClose asChild>
-                    <Button variant="outline">Got it</Button>
-                  </DrawerClose>
-                </DrawerFooter>
-              </div>
-            </DrawerContent>
+
+            <DrawerPortal>
+              <DrawerContent>
+                <div className="mx-auto w-full max-w-sm">
+                  <DrawerHeader>
+                    <DrawerTitle>About this feature</DrawerTitle>
+                    <DrawerDescription>
+                      This feature is currently in beta. Some functionality may
+                      be limited or change without notice. We appreciate your
+                      feedback as we work to improve the experience.
+                    </DrawerDescription>
+                  </DrawerHeader>
+                  <DrawerFooter>
+                    <DrawerClose asChild>
+                      <Button variant="outline">Got it</Button>
+                    </DrawerClose>
+                  </DrawerFooter>
+                </div>
+              </DrawerContent>
+            </DrawerPortal>
           </Drawer>
         </ExampleSection>
         <ExampleSection
@@ -186,7 +193,7 @@ function DrawerMicroShowcase() {
     <DrawerTrigger asChild>
       <Button variant="outline">Open Left</Button>
     </DrawerTrigger>
-    <DrawerContent>
+    <DrawerPortal><DrawerContent>
       <DrawerHeader>
         <DrawerTitle>Sidebar Menu</DrawerTitle>
         <DrawerDescription>
@@ -205,14 +212,14 @@ function DrawerMicroShowcase() {
           <Button variant="outline">Close</Button>
         </DrawerClose>
       </DrawerFooter>
-    </DrawerContent>
+    </DrawerContent></DrawerPortal>
   </Drawer>
 
   <Drawer direction="right">
     <DrawerTrigger asChild>
       <Button variant="outline">Open Right</Button>
     </DrawerTrigger>
-    <DrawerContent>
+    <DrawerPortal><DrawerContent>
       <DrawerHeader>
         <DrawerTitle>Filters</DrawerTitle>
         <DrawerDescription>
@@ -230,7 +237,7 @@ function DrawerMicroShowcase() {
           <Button variant="outline">Cancel</Button>
         </DrawerClose>
       </DrawerFooter>
-    </DrawerContent>
+    </DrawerContent></DrawerPortal>
   </Drawer>
 `}
         >
@@ -238,51 +245,57 @@ function DrawerMicroShowcase() {
             <DrawerTrigger asChild>
               <Button variant="outline">Open Left</Button>
             </DrawerTrigger>
-            <DrawerContent>
-              <DrawerHeader>
-                <DrawerTitle>Sidebar Menu</DrawerTitle>
-                <DrawerDescription>
-                  Điều hướng từ cạnh trái của màn hình.
-                </DrawerDescription>
-              </DrawerHeader>
-              <div className="flex-1 p-4">
-                <ul className="space-y-4 text-sm">
-                  <li>Dashboard</li>
-                  <li>Settings</li>
-                  <li>Profile</li>
-                </ul>
-              </div>
-              <DrawerFooter>
-                <DrawerClose asChild>
-                  <Button variant="outline">Close</Button>
-                </DrawerClose>
-              </DrawerFooter>
-            </DrawerContent>
+
+            <DrawerPortal>
+              <DrawerContent>
+                <DrawerHeader>
+                  <DrawerTitle>Sidebar Menu</DrawerTitle>
+                  <DrawerDescription>
+                    Điều hướng từ cạnh trái của màn hình.
+                  </DrawerDescription>
+                </DrawerHeader>
+                <div className="flex-1 p-4">
+                  <ul className="space-y-4 text-sm">
+                    <li>Dashboard</li>
+                    <li>Settings</li>
+                    <li>Profile</li>
+                  </ul>
+                </div>
+                <DrawerFooter>
+                  <DrawerClose asChild>
+                    <Button variant="outline">Close</Button>
+                  </DrawerClose>
+                </DrawerFooter>
+              </DrawerContent>
+            </DrawerPortal>
           </Drawer>
 
           <Drawer direction="right">
             <DrawerTrigger asChild>
               <Button variant="outline">Open Right</Button>
             </DrawerTrigger>
-            <DrawerContent>
-              <DrawerHeader>
-                <DrawerTitle>Filters</DrawerTitle>
-                <DrawerDescription>
-                  Bộ lọc tìm kiếm từ cạnh phải.
-                </DrawerDescription>
-              </DrawerHeader>
-              <div className="flex-1 space-y-2 p-4">
-                <div className="h-4 w-1/2 rounded bg-muted" />
-                <div className="h-4 w-3/4 rounded bg-muted" />
-                <div className="h-4 w-2/3 rounded bg-muted" />
-              </div>
-              <DrawerFooter>
-                <Button>Apply Filters</Button>
-                <DrawerClose asChild>
-                  <Button variant="outline">Cancel</Button>
-                </DrawerClose>
-              </DrawerFooter>
-            </DrawerContent>
+
+            <DrawerPortal>
+              <DrawerContent>
+                <DrawerHeader>
+                  <DrawerTitle>Filters</DrawerTitle>
+                  <DrawerDescription>
+                    Bộ lọc tìm kiếm từ cạnh phải.
+                  </DrawerDescription>
+                </DrawerHeader>
+                <div className="flex-1 space-y-2 p-4">
+                  <div className="h-4 w-1/2 rounded bg-muted" />
+                  <div className="h-4 w-3/4 rounded bg-muted" />
+                  <div className="h-4 w-2/3 rounded bg-muted" />
+                </div>
+                <DrawerFooter>
+                  <Button>Apply Filters</Button>
+                  <DrawerClose asChild>
+                    <Button variant="outline">Cancel</Button>
+                  </DrawerClose>
+                </DrawerFooter>
+              </DrawerContent>
+            </DrawerPortal>
           </Drawer>
         </ExampleSection>
 
@@ -293,7 +306,7 @@ function DrawerMicroShowcase() {
   <DrawerTrigger asChild>
     <Button variant="outline">Open Top</Button>
   </DrawerTrigger>
-  <DrawerContent>
+  <DrawerPortal><DrawerContent>
     <div className="mx-auto w-full max-w-sm">
       <DrawerHeader>
         <DrawerTitle>New Notification</DrawerTitle>
@@ -312,7 +325,7 @@ function DrawerMicroShowcase() {
         </DrawerClose>
       </DrawerFooter>
     </div>
-  </DrawerContent>
+  </DrawerContent></DrawerPortal>
 </Drawer>
 `}
         >
@@ -320,26 +333,29 @@ function DrawerMicroShowcase() {
             <DrawerTrigger asChild>
               <Button variant="outline">Open Top</Button>
             </DrawerTrigger>
-            <DrawerContent>
-              <div className="mx-auto w-full max-w-sm">
-                <DrawerHeader>
-                  <DrawerTitle>New Notification</DrawerTitle>
-                  <DrawerDescription>
-                    Bạn có 3 thông báo chưa đọc.
-                  </DrawerDescription>
-                </DrawerHeader>
-                <div className="space-y-2 px-4 pb-2 text-sm text-muted-foreground">
-                  <p>🔔 Your order has been shipped.</p>
-                  <p>🔔 A new comment on your post.</p>
-                  <p>🔔 Your subscription renews in 3 days.</p>
+
+            <DrawerPortal>
+              <DrawerContent>
+                <div className="mx-auto w-full max-w-sm">
+                  <DrawerHeader>
+                    <DrawerTitle>New Notification</DrawerTitle>
+                    <DrawerDescription>
+                      Bạn có 3 thông báo chưa đọc.
+                    </DrawerDescription>
+                  </DrawerHeader>
+                  <div className="space-y-2 px-4 pb-2 text-sm text-muted-foreground">
+                    <p>🔔 Your order has been shipped.</p>
+                    <p>🔔 A new comment on your post.</p>
+                    <p>🔔 Your subscription renews in 3 days.</p>
+                  </div>
+                  <DrawerFooter>
+                    <DrawerClose asChild>
+                      <Button variant="outline">Dismiss all</Button>
+                    </DrawerClose>
+                  </DrawerFooter>
                 </div>
-                <DrawerFooter>
-                  <DrawerClose asChild>
-                    <Button variant="outline">Dismiss all</Button>
-                  </DrawerClose>
-                </DrawerFooter>
-              </div>
-            </DrawerContent>
+              </DrawerContent>
+            </DrawerPortal>
           </Drawer>
         </ExampleSection>
       </ExampleGrid>

@@ -43,12 +43,13 @@ function InputOTPMacroShowcase({ globalSize }: { globalSize: Size }) {
   description="Vui lòng nhập mã 6 số được gửi tới điện thoại của bạn."
 />`}
         >
-          <InputOTPPreset className="w-full"
-              groups={[3, 3]}
-              size={globalSize}
-              label="Mã xác thực"
-              description="Vui lòng nhập mã 6 số được gửi tới điện thoại của bạn."
-            />
+          <InputOTPPreset
+            className="w-full"
+            groups={[3, 3]}
+            size={globalSize}
+            label="Mã xác thực"
+            description="Vui lòng nhập mã 6 số được gửi tới điện thoại của bạn."
+          />
         </ExampleSection>
 
         <ExampleSection
@@ -61,12 +62,13 @@ function InputOTPMacroShowcase({ globalSize }: { globalSize: Size }) {
   errorMessage="Mã xác nhận không chính xác. Vui lòng thử lại."
 />`}
         >
-          <InputOTPPreset className="w-full"
-              groups={[3, 3]}
-              size={globalSize}
-              label="Mã bảo mật (Lỗi)"
-              errorMessage="Mã xác nhận không chính xác. Vui lòng thử lại."
-            />
+          <InputOTPPreset
+            className="w-full"
+            groups={[3, 3]}
+            size={globalSize}
+            label="Mã bảo mật (Lỗi)"
+            errorMessage="Mã xác nhận không chính xác. Vui lòng thử lại."
+          />
         </ExampleSection>
       </ExampleGrid>
 
@@ -82,13 +84,14 @@ function InputOTPMacroShowcase({ globalSize }: { globalSize: Size }) {
   disabled
 />`}
         >
-          <InputOTPPreset className="w-full"
-              groups={[4]}
-              size={globalSize}
-              label="Mã khôi phục"
-              description="Tài khoản của bạn đang bị khóa tạm thời."
-              disabled
-            />
+          <InputOTPPreset
+            className="w-full"
+            groups={[4]}
+            size={globalSize}
+            label="Mã khôi phục"
+            description="Tài khoản của bạn đang bị khóa tạm thời."
+            disabled
+          />
         </ExampleSection>
 
         <ExampleSection
@@ -144,20 +147,20 @@ function InputOTPMicroShowcase({ globalSize }: { globalSize: Size }) {
 </Field>`}
         >
           <Field className="w-full" size={globalSize}>
-              <FieldLabel htmlFor="tf-otp-0">Mã PIN</FieldLabel>
-              <FieldContent>
-                <InputOTP id="tf-otp-0" size={globalSize} maxLength={6}>
-                  <InputOTPGroup>
-                    {Array.from({ length: 6 }).map((_, index) => (
-                      <InputOTPSlot
-                        key={`tf-otp-0-slot-${index}`}
-                        index={index}
-                      />
-                    ))}
-                  </InputOTPGroup>
-                </InputOTP>
-              </FieldContent>
-            </Field>
+            <FieldLabel htmlFor="tf-otp-0">Mã PIN</FieldLabel>
+            <FieldContent>
+              <InputOTP id="tf-otp-0" size={globalSize} maxLength={6}>
+                <InputOTPGroup>
+                  {Array.from({ length: 6 }).map((_, index) => (
+                    <InputOTPSlot
+                      key={`tf-otp-0-slot-${index}`}
+                      index={index}
+                    />
+                  ))}
+                </InputOTPGroup>
+              </InputOTP>
+            </FieldContent>
+          </Field>
         </ExampleSection>
 
         <ExampleSection
@@ -183,29 +186,29 @@ function InputOTPMicroShowcase({ globalSize }: { globalSize: Size }) {
 </Field>`}
         >
           <Field className="w-full" size={globalSize}>
-              <FieldLabel htmlFor="tf-otp-1">Mã bảo mật</FieldLabel>
-              <FieldContent>
-                <InputOTP id="tf-otp-1" size={globalSize} maxLength={6}>
-                  <InputOTPGroup>
-                    {Array.from({ length: 3 }).map((_, index) => (
-                      <InputOTPSlot
-                        key={`tf-otp-1-slot-a-${index}`}
-                        index={index}
-                      />
-                    ))}
-                  </InputOTPGroup>
-                  <InputOTPSeparator />
-                  <InputOTPGroup>
-                    {Array.from({ length: 3 }).map((_, index) => (
-                      <InputOTPSlot
-                        key={`tf-otp-1-slot-b-${index + 3}`}
-                        index={index + 3}
-                      />
-                    ))}
-                  </InputOTPGroup>
-                </InputOTP>
-              </FieldContent>
-            </Field>
+            <FieldLabel htmlFor="tf-otp-1">Mã bảo mật</FieldLabel>
+            <FieldContent>
+              <InputOTP id="tf-otp-1" size={globalSize} maxLength={6}>
+                <InputOTPGroup>
+                  {Array.from({ length: 3 }).map((_, index) => (
+                    <InputOTPSlot
+                      key={`tf-otp-1-slot-a-${index}`}
+                      index={index}
+                    />
+                  ))}
+                </InputOTPGroup>
+                <InputOTPSeparator />
+                <InputOTPGroup>
+                  {Array.from({ length: 3 }).map((_, index) => (
+                    <InputOTPSlot
+                      key={`tf-otp-1-slot-b-${index + 3}`}
+                      index={index + 3}
+                    />
+                  ))}
+                </InputOTPGroup>
+              </InputOTP>
+            </FieldContent>
+          </Field>
         </ExampleSection>
       </ExampleGrid>
 
@@ -228,21 +231,21 @@ function InputOTPMicroShowcase({ globalSize }: { globalSize: Size }) {
 </Field>`}
         >
           <Field className="w-full" size={globalSize} data-invalid={true}>
-              <FieldLabel htmlFor="tf-otp-err">Mã xác minh</FieldLabel>
-              <FieldContent>
-                <InputOTP id="tf-otp-err" size={globalSize} maxLength={4}>
-                  <InputOTPGroup>
-                    {Array.from({ length: 4 }).map((_, index) => (
-                      <InputOTPSlot
-                        key={`tf-otp-err-slot-${index}`}
-                        index={index}
-                      />
-                    ))}
-                  </InputOTPGroup>
-                </InputOTP>
-              </FieldContent>
-              <FieldError>Mã không hợp lệ.</FieldError>
-            </Field>
+            <FieldLabel htmlFor="tf-otp-err">Mã xác minh</FieldLabel>
+            <FieldContent>
+              <InputOTP id="tf-otp-err" size={globalSize} maxLength={4}>
+                <InputOTPGroup>
+                  {Array.from({ length: 4 }).map((_, index) => (
+                    <InputOTPSlot
+                      key={`tf-otp-err-slot-${index}`}
+                      index={index}
+                    />
+                  ))}
+                </InputOTPGroup>
+              </InputOTP>
+            </FieldContent>
+            <FieldError>Mã không hợp lệ.</FieldError>
+          </Field>
         </ExampleSection>
 
         <ExampleSection
@@ -262,25 +265,20 @@ function InputOTPMicroShowcase({ globalSize }: { globalSize: Size }) {
 </Field>`}
         >
           <Field className="w-full" size={globalSize}>
-              <FieldLabel htmlFor="tf-otp-d">Mã OTP</FieldLabel>
-              <FieldContent>
-                <InputOTP
-                  id="tf-otp-d"
-                  size={globalSize}
-                  maxLength={4}
-                  disabled
-                >
-                  <InputOTPGroup>
-                    {Array.from({ length: 4 }).map((_, index) => (
-                      <InputOTPSlot
-                        key={`tf-otp-d-slot-${index}`}
-                        index={index}
-                      />
-                    ))}
-                  </InputOTPGroup>
-                </InputOTP>
-              </FieldContent>
-            </Field>
+            <FieldLabel htmlFor="tf-otp-d">Mã OTP</FieldLabel>
+            <FieldContent>
+              <InputOTP id="tf-otp-d" size={globalSize} maxLength={4} disabled>
+                <InputOTPGroup>
+                  {Array.from({ length: 4 }).map((_, index) => (
+                    <InputOTPSlot
+                      key={`tf-otp-d-slot-${index}`}
+                      index={index}
+                    />
+                  ))}
+                </InputOTPGroup>
+              </InputOTP>
+            </FieldContent>
+          </Field>
         </ExampleSection>
       </ExampleGrid>
 

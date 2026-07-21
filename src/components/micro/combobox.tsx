@@ -85,45 +85,38 @@ function ComboboxInput({ className, ...props }: ComboboxPrimitive.Input.Props) {
   );
 }
 
-function ComboboxContent({
-  className,
-  side = "bottom",
-  sideOffset = 4,
-  align = "start",
-  alignOffset = 0,
-  anchor,
-  ...props
-}: ComboboxPrimitive.Popup.Props &
-  Pick<
-    ComboboxPrimitive.Positioner.Props,
-    "side" | "align" | "sideOffset" | "alignOffset" | "anchor"
-  >) {
+const ComboboxContent = React.forwardRef<
+  HTMLDivElement,
+  ComboboxPrimitive.Popup.Props &
+    Pick<
+      ComboboxPrimitive.Positioner.Props,
+      "side" | "align" | "sideOffset" | "alignOffset" | "anchor"
+    >
+>(({ className, side = "bottom", sideOffset = 4, align = "start", alignOffset = 0, anchor, ...props }, ref) => {
   const { anchor: contextAnchor } = React.useContext(ComboboxContext);
   return (
-    <ComboboxPrimitive.Portal>
-      <ThemeWrapper>
-        <ComboboxPrimitive.Positioner
-          side={side}
-          sideOffset={sideOffset}
-          align={align}
-          alignOffset={alignOffset}
-          anchor={anchor || contextAnchor}
-          className="isolate z-50"
-        >
-          <ComboboxPrimitive.Popup
-            data-slot="combobox-content"
-            data-chips={!!anchor}
-            className={cn(
-              "group/combobox-content relative max-h-(--available-height) min-w-(--anchor-width) max-w-(--available-width) origin-(--transform-origin) overflow-x-hidden overflow-y-auto rounded-lg bg-popover text-popover-foreground shadow-md ring-1 ring-foreground/10 duration-100 p-1 data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 [&_[data-slot=input-group]]:mb-1 [&_[data-slot=input-group]]:w-full [&_[data-slot=input-group]]:border-input/30 [&_[data-slot=input-group]]:bg-input/30 [&_[data-slot=input-group]]:shadow-none data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
-              className,
-            )}
-            {...props}
-          />
-        </ComboboxPrimitive.Positioner>
-      </ThemeWrapper>
-    </ComboboxPrimitive.Portal>
+    <ComboboxPrimitive.Positioner
+      side={side}
+      sideOffset={sideOffset}
+      align={align}
+      alignOffset={alignOffset}
+      anchor={anchor || contextAnchor}
+      className="isolate z-50"
+    >
+      <ComboboxPrimitive.Popup
+        ref={ref}
+        data-slot="combobox-content"
+        data-chips={!!anchor}
+        className={cn(
+          "group/combobox-content relative max-h-(--available-height) min-w-(--anchor-width) max-w-(--available-width) origin-(--transform-origin) overflow-x-hidden overflow-y-auto rounded-lg bg-popover text-popover-foreground shadow-md ring-1 ring-foreground/10 duration-100 p-1 data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 [&_[data-slot=input-group]]:mb-1 [&_[data-slot=input-group]]:w-full [&_[data-slot=input-group]]:border-input/30 [&_[data-slot=input-group]]:bg-input/30 [&_[data-slot=input-group]]:shadow-none data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
+          className,
+        )}
+        {...props}
+      />
+    </ComboboxPrimitive.Positioner>
   );
-}
+});
+ComboboxContent.displayName = "ComboboxContent";
 
 function ComboboxList({ className, ...props }: ComboboxPrimitive.List.Props) {
   return (
@@ -218,6 +211,8 @@ function ComboboxSeparator({
     />
   );
 }
+
+const ComboboxPortal = ComboboxPrimitive.Portal;
 
 import { cva, type VariantProps } from "class-variance-authority";
 
@@ -346,6 +341,7 @@ export {
   ComboboxItem,
   ComboboxLabel,
   ComboboxList,
+  ComboboxPortal,
   ComboboxSeparator,
   ComboboxTrigger,
   ComboboxValue,

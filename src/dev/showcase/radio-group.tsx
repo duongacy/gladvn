@@ -120,17 +120,18 @@ function RadioGroupMacroShowcase({ globalSize }: { globalSize: Size }) {
   />
 `}
         >
-          <RadioGroupPreset className="w-full"
-              size={globalSize}
-              label="Sở thích"
-              description="Chọn một ngôn ngữ lập trình bạn yêu thích nhất."
-              options={[
-                { value: "ts", label: "TypeScript" },
-                { value: "go", label: "Golang" },
-                { value: "rust", label: "Rust" },
-              ]}
-              defaultValue="ts"
-            />
+          <RadioGroupPreset
+            className="w-full"
+            size={globalSize}
+            label="Sở thích"
+            description="Chọn một ngôn ngữ lập trình bạn yêu thích nhất."
+            options={[
+              { value: "ts", label: "TypeScript" },
+              { value: "go", label: "Golang" },
+              { value: "rust", label: "Rust" },
+            ]}
+            defaultValue="ts"
+          />
         </ExampleSection>
 
         <ExampleSection
@@ -178,21 +179,22 @@ function RadioGroupMacroShowcase({ globalSize }: { globalSize: Size }) {
   />
 `}
         >
-          <RadioGroupPreset className="w-full"
-              size={globalSize}
-              label="Giao diện (Theme)"
-              description="Chế độ Mặc định hệ thống sẽ tự động đồng bộ theo OS."
-              options={[
-                { value: "light", label: "Sáng (Light)" },
-                { value: "dark", label: "Tối (Dark)" },
-                {
-                  value: "system",
-                  label: "Theo hệ thống",
-                  description: "Khuyên dùng để tiết kiệm pin",
-                },
-              ]}
-              defaultValue="system"
-            />
+          <RadioGroupPreset
+            className="w-full"
+            size={globalSize}
+            label="Giao diện (Theme)"
+            description="Chế độ Mặc định hệ thống sẽ tự động đồng bộ theo OS."
+            options={[
+              { value: "light", label: "Sáng (Light)" },
+              { value: "dark", label: "Tối (Dark)" },
+              {
+                value: "system",
+                label: "Theo hệ thống",
+                description: "Khuyên dùng để tiết kiệm pin",
+              },
+            ]}
+            defaultValue="system"
+          />
         </ExampleSection>
 
         <ExampleSection
@@ -210,17 +212,18 @@ function RadioGroupMacroShowcase({ globalSize }: { globalSize: Size }) {
   />
 `}
         >
-          <RadioGroupPreset className="w-full"
-              size={globalSize}
-              label="Phiên bản (Disabled)"
-              description="Bạn không thể hạ cấp phiên bản tại thời điểm này."
-              options={[
-                { value: "v1", label: "v1.0.0 (Legacy)" },
-                { value: "v2", label: "v2.0.0 (Current)" },
-              ]}
-              defaultValue="v2"
-              disabled
-            />
+          <RadioGroupPreset
+            className="w-full"
+            size={globalSize}
+            label="Phiên bản (Disabled)"
+            description="Bạn không thể hạ cấp phiên bản tại thời điểm này."
+            options={[
+              { value: "v1", label: "v1.0.0 (Legacy)" },
+              { value: "v2", label: "v2.0.0 (Current)" },
+            ]}
+            defaultValue="v2"
+            disabled
+          />
         </ExampleSection>
       </ExampleGrid>
 

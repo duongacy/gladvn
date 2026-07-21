@@ -106,11 +106,12 @@ function SwitchMacroShowcase({ globalSize }: { globalSize: Size }) {
   />
 `}
         >
-          <SwitchPreset className="w-full"
-              size={globalSize}
-              label="Chế độ máy bay"
-              description="Vô hiệu hóa tất cả các kết nối không dây."
-            />
+          <SwitchPreset
+            className="w-full"
+            size={globalSize}
+            label="Chế độ máy bay"
+            description="Vô hiệu hóa tất cả các kết nối không dây."
+          />
         </ExampleSection>
 
         <ExampleSection
@@ -185,17 +186,17 @@ function SwitchMacroShowcase({ globalSize }: { globalSize: Size }) {
 `}
         >
           <SwitchPreset
-              size={globalSize}
-              label={
-                <span className="flex items-center gap-2">
-                  Xác thực 2 bước (2FA)
-                  <span className="rounded bg-success/20 px-1.5 py-0.5 text-[10px] font-semibold text-success">
-                    KHUYÊN DÙNG
-                  </span>
+            size={globalSize}
+            label={
+              <span className="flex items-center gap-2">
+                Xác thực 2 bước (2FA)
+                <span className="rounded bg-success/20 px-1.5 py-0.5 text-[10px] font-semibold text-success">
+                  KHUYÊN DÙNG
                 </span>
-              }
-              description="Thêm một lớp bảo mật bổ sung cho tài khoản của bạn. Chúng tôi sẽ yêu cầu mã xác nhận mỗi khi bạn đăng nhập từ thiết bị mới."
-            />
+              </span>
+            }
+            description="Thêm một lớp bảo mật bổ sung cho tài khoản của bạn. Chúng tôi sẽ yêu cầu mã xác nhận mỗi khi bạn đăng nhập từ thiết bị mới."
+          />
         </ExampleSection>
       </ExampleGrid>
 

@@ -12,7 +12,6 @@ import * as React from "react";
 
 import { cn } from "../../lib/utils";
 import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react";
-import { ThemeWrapper } from "./theme-provider";
 
 export type DropdownMenuVariant = "destructive";
 
@@ -21,13 +20,7 @@ function DropdownMenu({ ...props }: MenuPrimitive.Root.Props) {
 }
 DropdownMenu.displayName = "DropdownMenu";
 
-function DropdownMenuPortal({ children, ...props }: MenuPrimitive.Portal.Props) {
-  return (
-    <MenuPrimitive.Portal data-slot="dropdown-menu-portal" {...props}>
-      <ThemeWrapper>{children}</ThemeWrapper>
-    </MenuPrimitive.Portal>
-  );
-}
+const DropdownMenuPortal = MenuPrimitive.Portal;
 DropdownMenuPortal.displayName = "DropdownMenuPortal";
 
 const DropdownMenuTrigger = React.forwardRef<
@@ -62,7 +55,7 @@ const DropdownMenuContent = React.forwardRef<
     ref,
   ) => {
     return (
-      <DropdownMenuPortal>
+      <>
         <MenuPrimitive.Positioner
           className="isolate z-50 outline-none"
           align={align}
@@ -80,7 +73,7 @@ const DropdownMenuContent = React.forwardRef<
             {...props}
           />
         </MenuPrimitive.Positioner>
-      </DropdownMenuPortal>
+      </>
     );
   },
 );

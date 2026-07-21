@@ -6,7 +6,6 @@ import * as React from "react";
 import { Button } from "../../components/micro/button";
 import { type Size } from "../../lib/types";
 import { cn } from "../../lib/utils";
-import { ThemeWrapper } from "./theme-provider";
 
 /**
  * @description A modal dialog that interrupts the user with important content and expects a response.
@@ -36,13 +35,7 @@ function AlertDialogClose({ ...props }: AlertDialogPrimitive.Close.Props) {
   );
 }
 
-function AlertDialogPortal({ children, ...props }: AlertDialogPrimitive.Portal.Props) {
-  return (
-    <AlertDialogPrimitive.Portal data-slot="alert-dialog-portal" {...props}>
-      <ThemeWrapper>{children}</ThemeWrapper>
-    </AlertDialogPrimitive.Portal>
-  );
-}
+const AlertDialogPortal = AlertDialogPrimitive.Portal;
 
 function AlertDialogOverlay({
   className,
@@ -68,7 +61,7 @@ function AlertDialogContent({
   size?: Size;
 }) {
   return (
-    <AlertDialogPortal>
+    <>
       <AlertDialogOverlay />
       <AlertDialogPrimitive.Popup
         data-slot="alert-dialog-content"
@@ -83,7 +76,7 @@ function AlertDialogContent({
         )}
         {...props}
       />
-    </AlertDialogPortal>
+    </>
   );
 }
 

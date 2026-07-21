@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+// This is a debug bookmarklet - paste into browser console
+// after opening select dropdown on theme-provider showcase
+function debugSelect() {
+  const popup = document.querySelector('[data-slot="select-content"]');
+  if (!popup) { console.log('No popup found'); return; }
+  const computed = getComputedStyle(popup);
+  console.log('--popover:', computed.getPropertyValue('--popover'));
+  console.log('--popover-foreground:', computed.getPropertyValue('--popover-foreground'));
+  console.log('bg:', computed.backgroundColor);
+  console.log('color:', computed.color);
+  let el = popup.parentElement;
+  let depth = 0;
+  while (el && el !== document.body) {
+    const s = getComputedStyle(el);
+    console.log(`parent[${depth}]:`, el.tagName, 'class=', el.className, 'display=', s.display, '--popover=', s.getPropertyValue('--popover'));
+    el = el.parentElement;
+    depth++;
+  }
+}
+</script>
+</head>
+<body>
+<p>Open browser console, open select dropdown on theme-provider page, then run: debugSelect()</p>
+</body>
+</html>

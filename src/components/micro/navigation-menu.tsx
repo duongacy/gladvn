@@ -9,7 +9,6 @@ import { NavigationMenu as NavigationMenuPrimitive } from "@base-ui/react/naviga
 import * as React from "react";
 
 import { cn } from "../../lib/utils";
-import { ThemeWrapper } from "./theme-provider";
 import { ChevronDownIcon } from "lucide-react";
 
 /**
@@ -133,9 +132,7 @@ const NavigationMenuPositioner = React.forwardRef<
     ref,
   ) => {
     return (
-      <NavigationMenuPrimitive.Portal>
-        <ThemeWrapper>
-          <NavigationMenuPrimitive.Positioner
+      <NavigationMenuPrimitive.Positioner
             ref={ref}
             side={side}
             sideOffset={sideOffset}
@@ -148,15 +145,25 @@ const NavigationMenuPositioner = React.forwardRef<
             {...props}
           >
             <NavigationMenuPrimitive.Popup className="data-ending-style:easing-[ease] xs:w-(--popup-width) relative h-(--popup-height) w-(--popup-width) origin-(--transform-origin) rounded-lg bg-popover text-popover-foreground shadow ring-1 ring-foreground/10 transition-[opacity,transform,width,height,scale,translate] duration-[0.35s] ease-[cubic-bezier(0.22,1,0.36,1)] outline-none data-ending-style:scale-90 data-ending-style:opacity-0 data-ending-style:duration-150 data-starting-style:scale-90 data-starting-style:opacity-0">
-              <NavigationMenuPrimitive.Viewport className="relative size-full overflow-hidden" />
+              <NavigationMenuViewport />
             </NavigationMenuPrimitive.Popup>
-          </NavigationMenuPrimitive.Positioner>
-        </ThemeWrapper>
-      </NavigationMenuPrimitive.Portal>
+      </NavigationMenuPrimitive.Positioner>
     );
   },
 );
 NavigationMenuPositioner.displayName = "NavigationMenuPositioner";
+
+const NavigationMenuViewport = React.forwardRef<
+  React.ComponentRef<typeof NavigationMenuPrimitive.Viewport>,
+  React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Viewport>
+>(({ className, ...props }, ref) => (
+  <NavigationMenuPrimitive.Viewport
+    ref={ref}
+    className={cn("relative size-full overflow-hidden", className)}
+    {...props}
+  />
+));
+NavigationMenuViewport.displayName = "NavigationMenuViewport";
 
 const NavigationMenuLink = React.forwardRef<
   React.ComponentRef<typeof NavigationMenuPrimitive.Link>,
@@ -176,13 +183,17 @@ const NavigationMenuLink = React.forwardRef<
 });
 NavigationMenuLink.displayName = "NavigationMenuLink";
 
+const NavigationMenuPortal = NavigationMenuPrimitive.Portal;
+
 export {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
+  NavigationMenuPortal,
   NavigationMenuPositioner,
   NavigationMenuTrigger,
+  NavigationMenuViewport,
   navigationMenuTriggerStyle,
 };

@@ -35,6 +35,7 @@ import {
   SelectSeparator,
   SelectTrigger,
   SelectValue,
+  SelectPortal,
 } from "../../components/micro/select";
 
 // ──────────────────────────────────────────────────────────
@@ -138,17 +139,18 @@ function SelectMacroShowcase({ globalSize }: { globalSize: Size }) {
   />
 `}
         >
-          <SelectPreset className="w-full"
-              size={globalSize}
-              label="Trái cây yêu thích"
-              description="Chọn một loại trái cây bạn thích nhất."
-              placeholder="Chọn trái cây..."
-              options={[
-                { value: "apple", label: "Táo (Apple)" },
-                { value: "banana", label: "Chuối (Banana)" },
-                { value: "cherry", label: "Anh đào (Cherry)" },
-              ]}
-            />
+          <SelectPreset
+            className="w-full"
+            size={globalSize}
+            label="Trái cây yêu thích"
+            description="Chọn một loại trái cây bạn thích nhất."
+            placeholder="Chọn trái cây..."
+            options={[
+              { value: "apple", label: "Táo (Apple)" },
+              { value: "banana", label: "Chuối (Banana)" },
+              { value: "cherry", label: "Anh đào (Cherry)" },
+            ]}
+          />
         </ExampleSection>
 
         <ExampleSection
@@ -196,18 +198,19 @@ function SelectMacroShowcase({ globalSize }: { globalSize: Size }) {
   />
 `}
         >
-          <SelectPreset className="w-full"
-              size={globalSize}
-              label="Gói tài khoản"
-              description="Bạn không thể thay đổi gói cước khi chưa thanh toán nợ."
-              placeholder="Chọn gói..."
-              value="pro"
-              options={[
-                { value: "basic", label: "Cơ bản (Free)" },
-                { value: "pro", label: "Chuyên nghiệp (Pro)" },
-              ]}
-              disabled
-            />
+          <SelectPreset
+            className="w-full"
+            size={globalSize}
+            label="Gói tài khoản"
+            description="Bạn không thể thay đổi gói cước khi chưa thanh toán nợ."
+            placeholder="Chọn gói..."
+            value="pro"
+            options={[
+              { value: "basic", label: "Cơ bản (Free)" },
+              { value: "pro", label: "Chuyên nghiệp (Pro)" },
+            ]}
+            disabled
+          />
         </ExampleSection>
 
         <ExampleSection
@@ -230,20 +233,20 @@ function SelectMacroShowcase({ globalSize }: { globalSize: Size }) {
 `}
         >
           <SelectPreset
-              size={globalSize}
-              label={
-                <span className="flex items-center gap-2">
-                  Quốc gia cư trú
-                  <span className="text-destructive">*</span>
-                </span>
-              }
-              description="Thông tin này được sử dụng cho mục đích tính thuế, phải khớp với địa chỉ thanh toán."
-              placeholder="Chọn quốc gia..."
-              options={[
-                { value: "us", label: "United States" },
-                { value: "vn", label: "Việt Nam" },
-              ]}
-            />
+            size={globalSize}
+            label={
+              <span className="flex items-center gap-2">
+                Quốc gia cư trú
+                <span className="text-destructive">*</span>
+              </span>
+            }
+            description="Thông tin này được sử dụng cho mục đích tính thuế, phải khớp với địa chỉ thanh toán."
+            placeholder="Chọn quốc gia..."
+            options={[
+              { value: "us", label: "United States" },
+              { value: "vn", label: "Việt Nam" },
+            ]}
+          />
         </ExampleSection>
       </ExampleGrid>
 
@@ -277,13 +280,13 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
       <SelectTrigger>
         <SelectValue placeholder="Chọn framework..." />
       </SelectTrigger>
-      <SelectContent>
+      <SelectPortal><SelectContent>
         <SelectScrollUpButton />
         <SelectItem value="next">Next.js</SelectItem>
         <SelectItem value="vite">Vite</SelectItem>
         <SelectItem value="remix">Remix</SelectItem>
         <SelectScrollDownButton />
-      </SelectContent>
+      </SelectContent></SelectPortal>
     </Select>
   </FieldContent>
   <FieldDescription>
@@ -299,13 +302,16 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
                 <SelectTrigger size={globalSize}>
                   <SelectValue placeholder="Chọn framework..." />
                 </SelectTrigger>
-                <SelectContent>
-                  <SelectScrollUpButton />
-                  <SelectItem value="next">Next.js</SelectItem>
-                  <SelectItem value="vite">Vite</SelectItem>
-                  <SelectItem value="remix">Remix</SelectItem>
-                  <SelectScrollDownButton />
-                </SelectContent>
+
+                <SelectPortal>
+                  <SelectContent>
+                    <SelectScrollUpButton />
+                    <SelectItem value="next">Next.js</SelectItem>
+                    <SelectItem value="vite">Vite</SelectItem>
+                    <SelectItem value="remix">Remix</SelectItem>
+                    <SelectScrollDownButton />
+                  </SelectContent>
+                </SelectPortal>
               </Select>
             </FieldContent>
             <FieldDescription>
@@ -331,7 +337,7 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
       <SelectTrigger>
         <SelectValue placeholder="Chọn loại quả..." />
       </SelectTrigger>
-      <SelectContent>
+      <SelectPortal><SelectContent>
         <SelectGroup>
           <SelectLabel>Họ cam chanh (Citrus)</SelectLabel>
           <SelectItem value="orange">Orange</SelectItem>
@@ -343,7 +349,7 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
           <SelectItem value="strawberry">Strawberry</SelectItem>
           <SelectItem value="blueberry">Blueberry</SelectItem>
         </SelectGroup>
-      </SelectContent>
+      </SelectContent></SelectPortal>
     </Select>
   </FieldContent>
 </Field>
@@ -363,19 +369,21 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
                 <SelectTrigger size={globalSize}>
                   <SelectValue placeholder="Chọn loại quả..." />
                 </SelectTrigger>
-                <SelectContent>
-                  <SelectGroup>
-                    <SelectLabel>Họ cam chanh (Citrus)</SelectLabel>
-                    <SelectItem value="orange">Orange</SelectItem>
-                    <SelectItem value="lemon">Lemon</SelectItem>
-                  </SelectGroup>
-                  <SelectSeparator />
-                  <SelectGroup>
-                    <SelectLabel>Họ dâu (Berry)</SelectLabel>
-                    <SelectItem value="strawberry">Strawberry</SelectItem>
-                    <SelectItem value="blueberry">Blueberry</SelectItem>
-                  </SelectGroup>
-                </SelectContent>
+                <SelectPortal>
+                  <SelectContent>
+                    <SelectGroup>
+                      <SelectLabel>Họ cam chanh (Citrus)</SelectLabel>
+                      <SelectItem value="orange">Orange</SelectItem>
+                      <SelectItem value="lemon">Lemon</SelectItem>
+                    </SelectGroup>
+                    <SelectSeparator />
+                    <SelectGroup>
+                      <SelectLabel>Họ dâu (Berry)</SelectLabel>
+                      <SelectItem value="strawberry">Strawberry</SelectItem>
+                      <SelectItem value="blueberry">Blueberry</SelectItem>
+                    </SelectGroup>
+                  </SelectContent>
+                </SelectPortal>
               </Select>
             </FieldContent>
           </Field>
@@ -393,9 +401,9 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
       <SelectTrigger aria-invalid={true}>
         <SelectValue placeholder="Chọn dự án..." />
       </SelectTrigger>
-      <SelectContent>
+      <SelectPortal><SelectContent>
         <SelectItem value="p1">Project 1</SelectItem>
-      </SelectContent>
+      </SelectContent></SelectPortal>
     </Select>
   </FieldContent>
   <FieldError>Vui lòng chọn một dự án hợp lệ.</FieldError>
@@ -409,9 +417,11 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
                 <SelectTrigger size={globalSize} aria-invalid={true}>
                   <SelectValue placeholder="Chọn dự án..." />
                 </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="p1">Project 1</SelectItem>
-                </SelectContent>
+                <SelectPortal>
+                  <SelectContent>
+                    <SelectItem value="p1">Project 1</SelectItem>
+                  </SelectContent>
+                </SelectPortal>
               </Select>
             </FieldContent>
             <FieldError>Vui lòng chọn một dự án hợp lệ.</FieldError>
@@ -428,9 +438,9 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
       <SelectTrigger disabled>
         <SelectValue placeholder="Chọn múi giờ..." />
       </SelectTrigger>
-      <SelectContent>
+      <SelectPortal><SelectContent>
         <SelectItem value="gmt">GMT+7 (Indochina Time)</SelectItem>
-      </SelectContent>
+      </SelectContent></SelectPortal>
     </Select>
   </FieldContent>
   <FieldDescription>
@@ -446,9 +456,11 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
                 <SelectTrigger size={globalSize} disabled>
                   <SelectValue placeholder="Chọn múi giờ..." />
                 </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="gmt">GMT+7 (Indochina Time)</SelectItem>
-                </SelectContent>
+                <SelectPortal>
+                  <SelectContent>
+                    <SelectItem value="gmt">GMT+7 (Indochina Time)</SelectItem>
+                  </SelectContent>
+                </SelectPortal>
               </Select>
             </FieldContent>
             <FieldDescription>

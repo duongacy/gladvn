@@ -30,6 +30,7 @@ import {
   ComboboxItem,
   ComboboxLabel,
   ComboboxList,
+  ComboboxPortal,
   ComboboxSeparator,
   ComboboxTrigger,
   ComboboxValue,
@@ -162,20 +163,21 @@ function ComboboxMacroShowcase({ globalSize }: { globalSize: Size }) {
   />
 `}
         >
-          <ComboboxPreset className="w-full"
-              size={globalSize}
-              label="Framework"
-              description="Hỗ trợ hàng ngàn bản ghi mà không lag."
-              placeholder="Chọn framework..."
-              searchPlaceholder="Tìm kiếm framework..."
-              emptyText="Không tìm thấy framework nào."
-              options={[
-                { value: "react", label: "React" },
-                { value: "vue", label: "Vue" },
-                { value: "angular", label: "Angular" },
-                { value: "svelte", label: "Svelte" },
-              ]}
-            />
+          <ComboboxPreset
+            className="w-full"
+            size={globalSize}
+            label="Framework"
+            description="Hỗ trợ hàng ngàn bản ghi mà không lag."
+            placeholder="Chọn framework..."
+            searchPlaceholder="Tìm kiếm framework..."
+            emptyText="Không tìm thấy framework nào."
+            options={[
+              { value: "react", label: "React" },
+              { value: "vue", label: "Vue" },
+              { value: "angular", label: "Angular" },
+              { value: "svelte", label: "Svelte" },
+            ]}
+          />
         </ExampleSection>
 
         <ExampleSection
@@ -220,18 +222,19 @@ function ComboboxMacroShowcase({ globalSize }: { globalSize: Size }) {
   />
 `}
         >
-          <ComboboxPreset className="w-full"
-              size={globalSize}
-              label="Đội nhóm (Team)"
-              description="Bạn không có quyền thay đổi đội trong dự án này."
-              placeholder="Chọn đội..."
-              options={[
-                { value: "engineering", label: "Engineering" },
-                { value: "design", label: "Design" },
-              ]}
-              value="engineering"
-              disabled
-            />
+          <ComboboxPreset
+            className="w-full"
+            size={globalSize}
+            label="Đội nhóm (Team)"
+            description="Bạn không có quyền thay đổi đội trong dự án này."
+            placeholder="Chọn đội..."
+            options={[
+              { value: "engineering", label: "Engineering" },
+              { value: "design", label: "Design" },
+            ]}
+            value="engineering"
+            disabled
+          />
         </ExampleSection>
 
         <ExampleSection
@@ -250,17 +253,18 @@ function ComboboxMacroShowcase({ globalSize }: { globalSize: Size }) {
   />
 `}
         >
-          <ComboboxPreset className="w-full"
-              size={globalSize}
-              label="Múi giờ (Timezone)"
-              placeholder="Chọn múi giờ..."
-              searchPlaceholder="Tìm kiếm múi giờ..."
-              emptyText="Không tìm thấy múi giờ."
-              options={Array.from({ length: 50 }).map((_, i) => ({
-                value: `utc${i - 12}`,
-                label: `UTC ${i - 12 > 0 ? "+" : ""}${i - 12}:00`,
-              }))}
-            />
+          <ComboboxPreset
+            className="w-full"
+            size={globalSize}
+            label="Múi giờ (Timezone)"
+            placeholder="Chọn múi giờ..."
+            searchPlaceholder="Tìm kiếm múi giờ..."
+            emptyText="Không tìm thấy múi giờ."
+            options={Array.from({ length: 50 }).map((_, i) => ({
+              value: `utc${i - 12}`,
+              label: `UTC ${i - 12 > 0 ? "+" : ""}${i - 12}:00`,
+            }))}
+          />
         </ExampleSection>
       </ExampleGrid>
 
@@ -303,7 +307,7 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
           </InputGroupAddon>
         </InputGroup>
       </ComboboxAnchor>
-      <ComboboxContent>
+      <ComboboxPortal><ComboboxContent>
         <ComboboxEmpty>Không tìm thấy.</ComboboxEmpty>
         <ComboboxList>
           <ComboboxGroup>
@@ -319,7 +323,7 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
             <ComboboxItem value="nest">NestJS</ComboboxItem>
           </ComboboxGroup>
         </ComboboxList>
-      </ComboboxContent>
+      </ComboboxContent></ComboboxPortal>
     </Combobox>
   </FieldContent>
 </Field>
@@ -341,23 +345,26 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
                     </InputGroupAddon>
                   </InputGroup>
                 </ComboboxAnchor>
-                <ComboboxContent>
-                  <ComboboxEmpty>Không tìm thấy.</ComboboxEmpty>
-                  <ComboboxList>
-                    <ComboboxGroup>
-                      <ComboboxLabel>Frontend</ComboboxLabel>
-                      <ComboboxItem value="react">React</ComboboxItem>
-                      <ComboboxItem value="vue">Vue</ComboboxItem>
-                      <ComboboxItem value="svelte">Svelte</ComboboxItem>
-                    </ComboboxGroup>
-                    <ComboboxSeparator />
-                    <ComboboxGroup>
-                      <ComboboxLabel>Backend</ComboboxLabel>
-                      <ComboboxItem value="express">Express</ComboboxItem>
-                      <ComboboxItem value="nest">NestJS</ComboboxItem>
-                    </ComboboxGroup>
-                  </ComboboxList>
-                </ComboboxContent>
+
+                <ComboboxPortal>
+                  <ComboboxContent>
+                    <ComboboxEmpty>Không tìm thấy.</ComboboxEmpty>
+                    <ComboboxList>
+                      <ComboboxGroup>
+                        <ComboboxLabel>Frontend</ComboboxLabel>
+                        <ComboboxItem value="react">React</ComboboxItem>
+                        <ComboboxItem value="vue">Vue</ComboboxItem>
+                        <ComboboxItem value="svelte">Svelte</ComboboxItem>
+                      </ComboboxGroup>
+                      <ComboboxSeparator />
+                      <ComboboxGroup>
+                        <ComboboxLabel>Backend</ComboboxLabel>
+                        <ComboboxItem value="express">Express</ComboboxItem>
+                        <ComboboxItem value="nest">NestJS</ComboboxItem>
+                      </ComboboxGroup>
+                    </ComboboxList>
+                  </ComboboxContent>
+                </ComboboxPortal>
               </Combobox>
             </FieldContent>
           </Field>
@@ -377,7 +384,7 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
         </ComboboxChip>
         <ComboboxChipsInput placeholder="Thêm thẻ..." />
       </ComboboxChips>
-      <ComboboxContent>
+      <ComboboxPortal><ComboboxContent>
         <ComboboxEmpty>Không tìm thấy thẻ.</ComboboxEmpty>
         <ComboboxList>
           <ComboboxItem value="bug">Lỗi (Bug)</ComboboxItem>
@@ -387,7 +394,7 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
           <ComboboxItem value="enhancement">Cải thiện</ComboboxItem>
           <ComboboxItem value="docs">Tài liệu</ComboboxItem>
         </ComboboxList>
-      </ComboboxContent>
+      </ComboboxContent></ComboboxPortal>
     </Combobox>
   </FieldContent>
   <FieldDescription>
@@ -407,17 +414,20 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
                   </ComboboxChip>
                   <ComboboxChipsInput placeholder="Thêm thẻ..." />
                 </ComboboxChips>
-                <ComboboxContent>
-                  <ComboboxEmpty>Không tìm thấy thẻ.</ComboboxEmpty>
-                  <ComboboxList>
-                    <ComboboxItem value="bug">Lỗi (Bug)</ComboboxItem>
-                    <ComboboxItem value="feature">
-                      Tính năng (Feature)
-                    </ComboboxItem>
-                    <ComboboxItem value="enhancement">Cải thiện</ComboboxItem>
-                    <ComboboxItem value="docs">Tài liệu</ComboboxItem>
-                  </ComboboxList>
-                </ComboboxContent>
+
+                <ComboboxPortal>
+                  <ComboboxContent>
+                    <ComboboxEmpty>Không tìm thấy thẻ.</ComboboxEmpty>
+                    <ComboboxList>
+                      <ComboboxItem value="bug">Lỗi (Bug)</ComboboxItem>
+                      <ComboboxItem value="feature">
+                        Tính năng (Feature)
+                      </ComboboxItem>
+                      <ComboboxItem value="enhancement">Cải thiện</ComboboxItem>
+                      <ComboboxItem value="docs">Tài liệu</ComboboxItem>
+                    </ComboboxList>
+                  </ComboboxContent>
+                </ComboboxPortal>
               </Combobox>
             </FieldContent>
             <FieldDescription>
@@ -447,11 +457,11 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
           </InputGroupAddon>
         </InputGroup>
       </ComboboxAnchor>
-      <ComboboxContent>
+      <ComboboxPortal><ComboboxContent>
         <ComboboxList>
           <ComboboxItem value="react">React</ComboboxItem>
         </ComboboxList>
-      </ComboboxContent>
+      </ComboboxContent></ComboboxPortal>
     </Combobox>
   </FieldContent>
 </Field>
@@ -476,11 +486,14 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
                     </InputGroupAddon>
                   </InputGroup>
                 </ComboboxAnchor>
-                <ComboboxContent>
-                  <ComboboxList>
-                    <ComboboxItem value="react">React</ComboboxItem>
-                  </ComboboxList>
-                </ComboboxContent>
+
+                <ComboboxPortal>
+                  <ComboboxContent>
+                    <ComboboxList>
+                      <ComboboxItem value="react">React</ComboboxItem>
+                    </ComboboxList>
+                  </ComboboxContent>
+                </ComboboxPortal>
               </Combobox>
             </FieldContent>
           </Field>
@@ -506,13 +519,13 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
           </InputGroupAddon>
         </InputGroup>
       </ComboboxAnchor>
-      <ComboboxContent>
+      <ComboboxPortal><ComboboxContent>
         <ComboboxEmpty>Không tìm thấy mã.</ComboboxEmpty>
         <ComboboxList>
           <ComboboxItem value="sale20">Giảm 20%</ComboboxItem>
           <ComboboxItem value="sale50">Giảm 50%</ComboboxItem>
         </ComboboxList>
-      </ComboboxContent>
+      </ComboboxContent></ComboboxPortal>
     </Combobox>
   </FieldContent>
   <FieldError>Mã này đã hết hạn.</FieldError>
@@ -536,13 +549,16 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
                     </InputGroupAddon>
                   </InputGroup>
                 </ComboboxAnchor>
-                <ComboboxContent>
-                  <ComboboxEmpty>Không tìm thấy mã.</ComboboxEmpty>
-                  <ComboboxList>
-                    <ComboboxItem value="sale20">Giảm 20%</ComboboxItem>
-                    <ComboboxItem value="sale50">Giảm 50%</ComboboxItem>
-                  </ComboboxList>
-                </ComboboxContent>
+
+                <ComboboxPortal>
+                  <ComboboxContent>
+                    <ComboboxEmpty>Không tìm thấy mã.</ComboboxEmpty>
+                    <ComboboxList>
+                      <ComboboxItem value="sale20">Giảm 20%</ComboboxItem>
+                      <ComboboxItem value="sale50">Giảm 50%</ComboboxItem>
+                    </ComboboxList>
+                  </ComboboxContent>
+                </ComboboxPortal>
               </Combobox>
             </FieldContent>
             <FieldError>Mã này đã hết hạn.</FieldError>
@@ -561,7 +577,7 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
       <ComboboxTrigger className="w-full justify-between flex items-center border border-border rounded-md p-2 hover:bg-accent focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">
         <ComboboxValue placeholder="Chọn một engine" />
       </ComboboxTrigger>
-      <ComboboxContent>
+      <ComboboxPortal><ComboboxContent>
         <div className="p-1">
           <InputGroup className="w-full">
             <ComboboxInput
@@ -575,7 +591,7 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
           <ComboboxItem value="v8">V8 (Chrome)</ComboboxItem>
           <ComboboxItem value="spidermonkey">SpiderMonkey (Firefox)</ComboboxItem>
         </ComboboxList>
-      </ComboboxContent>
+      </ComboboxContent></ComboboxPortal>
     </Combobox>
   </FieldContent>
 </Field>
@@ -588,23 +604,26 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
                 <ComboboxTrigger className="w-full justify-between flex items-center border border-border rounded-md p-2 hover:bg-accent focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">
                   <ComboboxValue placeholder="Chọn một engine" />
                 </ComboboxTrigger>
-                <ComboboxContent>
-                  <div className="p-1">
-                    <InputGroup size={globalSize} className="w-full">
-                      <ComboboxInput
-                        placeholder="Tìm engine..."
-                        render={<InputGroupInput />}
-                      />
-                    </InputGroup>
-                  </div>
-                  <ComboboxEmpty>Không tìm thấy.</ComboboxEmpty>
-                  <ComboboxList>
-                    <ComboboxItem value="v8">V8 (Chrome)</ComboboxItem>
-                    <ComboboxItem value="spidermonkey">
-                      SpiderMonkey (Firefox)
-                    </ComboboxItem>
-                  </ComboboxList>
-                </ComboboxContent>
+
+                <ComboboxPortal>
+                  <ComboboxContent>
+                    <div className="p-1">
+                      <InputGroup size={globalSize} className="w-full">
+                        <ComboboxInput
+                          placeholder="Tìm engine..."
+                          render={<InputGroupInput />}
+                        />
+                      </InputGroup>
+                    </div>
+                    <ComboboxEmpty>Không tìm thấy.</ComboboxEmpty>
+                    <ComboboxList>
+                      <ComboboxItem value="v8">V8 (Chrome)</ComboboxItem>
+                      <ComboboxItem value="spidermonkey">
+                        SpiderMonkey (Firefox)
+                      </ComboboxItem>
+                    </ComboboxList>
+                  </ComboboxContent>
+                </ComboboxPortal>
               </Combobox>
             </FieldContent>
           </Field>

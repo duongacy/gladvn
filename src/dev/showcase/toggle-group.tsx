@@ -9,7 +9,10 @@ import {
   UnderlineIcon,
 } from "lucide-react";
 
-import { ToggleGroup, ToggleGroupItem } from "../../components/micro/toggle-group";
+import {
+  ToggleGroup,
+  ToggleGroupItem,
+} from "../../components/micro/toggle-group";
 import { type Size } from "../../lib/types";
 import {
   DocsCode,

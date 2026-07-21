@@ -202,12 +202,13 @@ function CalendarMacroShowcase({ globalSize }: { globalSize: Size }) {
     onValueChange={setDate}
   />`}
         >
-          <DatePicker className="w-64"
-              size={globalSize}
-              label="Date"
-              value={singleDate}
-              onValueChange={setSingleDate}
-            />
+          <DatePicker
+            className="w-64"
+            size={globalSize}
+            label="Date"
+            value={singleDate}
+            onValueChange={setSingleDate}
+          />
         </ExampleSection>
 
         {/* ── Date Range ── */}
@@ -223,13 +224,14 @@ function CalendarMacroShowcase({ globalSize }: { globalSize: Size }) {
     onRangeChange={setRange}
   />`}
         >
-          <DatePicker className="w-64"
-              mode="range"
-              size={globalSize}
-              label="Date Range"
-              rangeValue={rangeDate}
-              onRangeChange={setRangeDate}
-            />
+          <DatePicker
+            className="w-64"
+            mode="range"
+            size={globalSize}
+            label="Date Range"
+            rangeValue={rangeDate}
+            onRangeChange={setRangeDate}
+          />
         </ExampleSection>
       </ExampleGrid>
 
@@ -245,15 +247,16 @@ function CalendarMacroShowcase({ globalSize }: { globalSize: Size }) {
       endMonth={new Date()}
     />`}
         >
-          <DatePicker className="w-64"
-              size={globalSize}
-              label="Birthday"
-              captionLayout="dropdown"
-              startMonth={new Date(1900, 0)}
-              endMonth={new Date()}
-              value={singleDate}
-              onValueChange={setSingleDate}
-            />
+          <DatePicker
+            className="w-64"
+            size={globalSize}
+            label="Birthday"
+            captionLayout="dropdown"
+            startMonth={new Date(1900, 0)}
+            endMonth={new Date()}
+            value={singleDate}
+            onValueChange={setSingleDate}
+          />
         </ExampleSection>
         <ExampleSection
           label="Range Dropdown"
@@ -267,17 +270,18 @@ function CalendarMacroShowcase({ globalSize }: { globalSize: Size }) {
       endMonth={new Date(2030, 11)}
     />`}
         >
-          <DatePicker className="w-fit"
-              mode="range"
-              size={globalSize}
-              label="Date Range with Dropdowns"
-              captionLayout="dropdown"
-              numberOfMonths={2}
-              startMonth={new Date(2020, 0)}
-              endMonth={new Date(2030, 11)}
-              rangeValue={rangeDate}
-              onRangeChange={setRangeDate}
-            />
+          <DatePicker
+            className="w-fit"
+            mode="range"
+            size={globalSize}
+            label="Date Range with Dropdowns"
+            captionLayout="dropdown"
+            numberOfMonths={2}
+            startMonth={new Date(2020, 0)}
+            endMonth={new Date(2030, 11)}
+            rangeValue={rangeDate}
+            onRangeChange={setRangeDate}
+          />
         </ExampleSection>
       </ExampleGrid>
 
@@ -291,14 +295,15 @@ function CalendarMacroShowcase({ globalSize }: { globalSize: Size }) {
     placeholder="Pick a date"
   />`}
       >
-        <DatePicker className="w-64"
-            size={globalSize}
-            label="Start Date"
-            description="Select the project start date."
-            placeholder="Pick a date"
-            value={descDate}
-            onValueChange={setDescDate}
-          />
+        <DatePicker
+          className="w-64"
+          size={globalSize}
+          label="Start Date"
+          description="Select the project start date."
+          placeholder="Pick a date"
+          value={descDate}
+          onValueChange={setDescDate}
+        />
       </ExampleSection>
 
       {/* ── Error / Validation ── */}
@@ -310,13 +315,14 @@ function CalendarMacroShowcase({ globalSize }: { globalSize: Size }) {
     errorMessage="Due date is required."
   />`}
       >
-        <DatePicker className="w-64"
-            size={globalSize}
-            label="Due Date"
-            errorMessage="Due date is required."
-            value={errDate}
-            onValueChange={setErrDate}
-          />
+        <DatePicker
+          className="w-64"
+          size={globalSize}
+          label="Due Date"
+          errorMessage="Due date is required."
+          value={errDate}
+          onValueChange={setErrDate}
+        />
       </ExampleSection>
 
       {/* ── Disabled ── */}
@@ -328,16 +334,15 @@ function CalendarMacroShowcase({ globalSize }: { globalSize: Size }) {
     disabled
   />`}
       >
-        <DatePicker className="w-64"
-            size={globalSize}
-            label="Date"
-            disabled
-            value={disDate}
-            onValueChange={setDisDate}
-          />
+        <DatePicker
+          className="w-64"
+          size={globalSize}
+          label="Date"
+          disabled
+          value={disDate}
+          onValueChange={setDisDate}
+        />
       </ExampleSection>
-
-
     </div>
   );
 }

@@ -22,6 +22,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
+  SheetPortal,
 } from "../../components/micro/sheet";
 import { type Size } from "../../lib/types";
 
@@ -39,7 +40,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
         description="Sheet có thể trượt ra từ bốn cạnh: right (mặc định), left, top, bottom."
         codeString={`<Sheet>
   <SheetTrigger render={<Button variant="outline" className="capitalize">right</Button>} />
-  <SheetContent side="right">
+  <SheetPortal><SheetContent side="right">
     <SheetHeader>
       <SheetTitle>Edit Profile</SheetTitle>
       <SheetDescription>
@@ -66,7 +67,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
       </SheetClose>
       <Button>Lưu thay đổi</Button>
     </SheetFooter>
-  </SheetContent>
+  </SheetContent></SheetPortal>
 </Sheet>`}
       >
         <div className="grid grid-cols-2 gap-2">
@@ -83,34 +84,37 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
             >
               top
             </SheetTrigger>
-            <SheetContent side="top">
-              <SheetHeader>
-                <SheetTitle>Edit Profile</SheetTitle>
-                <SheetDescription>
-                  Thay đổi thông tin tài khoản của bạn và nhấn Lưu.
-                </SheetDescription>
-              </SheetHeader>
-              <div className="grid gap-4 py-4 px-4">
-                <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="name-top" className="text-right">
-                    Tên
-                  </Label>
-                  <Input
-                    id="name-top"
-                    defaultValue="Pedro Duarte"
-                    className="col-span-3"
-                  />
+
+            <SheetPortal>
+              <SheetContent side="top">
+                <SheetHeader>
+                  <SheetTitle>Edit Profile</SheetTitle>
+                  <SheetDescription>
+                    Thay đổi thông tin tài khoản của bạn và nhấn Lưu.
+                  </SheetDescription>
+                </SheetHeader>
+                <div className="grid gap-4 py-4 px-4">
+                  <div className="grid grid-cols-4 items-center gap-4">
+                    <Label htmlFor="name-top" className="text-right">
+                      Tên
+                    </Label>
+                    <Input
+                      id="name-top"
+                      defaultValue="Pedro Duarte"
+                      className="col-span-3"
+                    />
+                  </div>
                 </div>
-              </div>
-              <SheetFooter>
-                <SheetClose
-                  render={<Button variant="outline" size={globalSize} />}
-                >
-                  Huỷ
-                </SheetClose>
-                <Button size={globalSize}>Lưu thay đổi</Button>
-              </SheetFooter>
-            </SheetContent>
+                <SheetFooter>
+                  <SheetClose
+                    render={<Button variant="outline" size={globalSize} />}
+                  >
+                    Huỷ
+                  </SheetClose>
+                  <Button size={globalSize}>Lưu thay đổi</Button>
+                </SheetFooter>
+              </SheetContent>
+            </SheetPortal>
           </Sheet>
 
           {/* right */}
@@ -126,44 +130,47 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
             >
               right
             </SheetTrigger>
-            <SheetContent side="right">
-              <SheetHeader>
-                <SheetTitle>Edit Profile</SheetTitle>
-                <SheetDescription>
-                  Thay đổi thông tin tài khoản của bạn và nhấn Lưu.
-                </SheetDescription>
-              </SheetHeader>
-              <div className="grid gap-4 py-4 px-4">
-                <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="name-right" className="text-right">
-                    Tên
-                  </Label>
-                  <Input
-                    id="name-right"
-                    defaultValue="Pedro Duarte"
-                    className="col-span-3"
-                  />
+
+            <SheetPortal>
+              <SheetContent side="right">
+                <SheetHeader>
+                  <SheetTitle>Edit Profile</SheetTitle>
+                  <SheetDescription>
+                    Thay đổi thông tin tài khoản của bạn và nhấn Lưu.
+                  </SheetDescription>
+                </SheetHeader>
+                <div className="grid gap-4 py-4 px-4">
+                  <div className="grid grid-cols-4 items-center gap-4">
+                    <Label htmlFor="name-right" className="text-right">
+                      Tên
+                    </Label>
+                    <Input
+                      id="name-right"
+                      defaultValue="Pedro Duarte"
+                      className="col-span-3"
+                    />
+                  </div>
+                  <div className="grid grid-cols-4 items-center gap-4">
+                    <Label htmlFor="username-right" className="text-right">
+                      Username
+                    </Label>
+                    <Input
+                      id="username-right"
+                      defaultValue="@peduarte"
+                      className="col-span-3"
+                    />
+                  </div>
                 </div>
-                <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="username-right" className="text-right">
-                    Username
-                  </Label>
-                  <Input
-                    id="username-right"
-                    defaultValue="@peduarte"
-                    className="col-span-3"
-                  />
-                </div>
-              </div>
-              <SheetFooter>
-                <SheetClose
-                  render={<Button variant="outline" size={globalSize} />}
-                >
-                  Huỷ
-                </SheetClose>
-                <Button size={globalSize}>Lưu thay đổi</Button>
-              </SheetFooter>
-            </SheetContent>
+                <SheetFooter>
+                  <SheetClose
+                    render={<Button variant="outline" size={globalSize} />}
+                  >
+                    Huỷ
+                  </SheetClose>
+                  <Button size={globalSize}>Lưu thay đổi</Button>
+                </SheetFooter>
+              </SheetContent>
+            </SheetPortal>
           </Sheet>
 
           {/* bottom */}
@@ -179,34 +186,37 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
             >
               bottom
             </SheetTrigger>
-            <SheetContent side="bottom">
-              <SheetHeader>
-                <SheetTitle>Edit Profile</SheetTitle>
-                <SheetDescription>
-                  Thay đổi thông tin tài khoản của bạn và nhấn Lưu.
-                </SheetDescription>
-              </SheetHeader>
-              <div className="grid gap-4 py-4 px-4">
-                <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="name-bottom" className="text-right">
-                    Tên
-                  </Label>
-                  <Input
-                    id="name-bottom"
-                    defaultValue="Pedro Duarte"
-                    className="col-span-3"
-                  />
+
+            <SheetPortal>
+              <SheetContent side="bottom">
+                <SheetHeader>
+                  <SheetTitle>Edit Profile</SheetTitle>
+                  <SheetDescription>
+                    Thay đổi thông tin tài khoản của bạn và nhấn Lưu.
+                  </SheetDescription>
+                </SheetHeader>
+                <div className="grid gap-4 py-4 px-4">
+                  <div className="grid grid-cols-4 items-center gap-4">
+                    <Label htmlFor="name-bottom" className="text-right">
+                      Tên
+                    </Label>
+                    <Input
+                      id="name-bottom"
+                      defaultValue="Pedro Duarte"
+                      className="col-span-3"
+                    />
+                  </div>
                 </div>
-              </div>
-              <SheetFooter>
-                <SheetClose
-                  render={<Button variant="outline" size={globalSize} />}
-                >
-                  Huỷ
-                </SheetClose>
-                <Button size={globalSize}>Lưu thay đổi</Button>
-              </SheetFooter>
-            </SheetContent>
+                <SheetFooter>
+                  <SheetClose
+                    render={<Button variant="outline" size={globalSize} />}
+                  >
+                    Huỷ
+                  </SheetClose>
+                  <Button size={globalSize}>Lưu thay đổi</Button>
+                </SheetFooter>
+              </SheetContent>
+            </SheetPortal>
           </Sheet>
 
           {/* left */}
@@ -222,44 +232,47 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
             >
               left
             </SheetTrigger>
-            <SheetContent side="left">
-              <SheetHeader>
-                <SheetTitle>Edit Profile</SheetTitle>
-                <SheetDescription>
-                  Thay đổi thông tin tài khoản của bạn và nhấn Lưu.
-                </SheetDescription>
-              </SheetHeader>
-              <div className="grid gap-4 py-4 px-4">
-                <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="name-left" className="text-right">
-                    Tên
-                  </Label>
-                  <Input
-                    id="name-left"
-                    defaultValue="Pedro Duarte"
-                    className="col-span-3"
-                  />
+
+            <SheetPortal>
+              <SheetContent side="left">
+                <SheetHeader>
+                  <SheetTitle>Edit Profile</SheetTitle>
+                  <SheetDescription>
+                    Thay đổi thông tin tài khoản của bạn và nhấn Lưu.
+                  </SheetDescription>
+                </SheetHeader>
+                <div className="grid gap-4 py-4 px-4">
+                  <div className="grid grid-cols-4 items-center gap-4">
+                    <Label htmlFor="name-left" className="text-right">
+                      Tên
+                    </Label>
+                    <Input
+                      id="name-left"
+                      defaultValue="Pedro Duarte"
+                      className="col-span-3"
+                    />
+                  </div>
+                  <div className="grid grid-cols-4 items-center gap-4">
+                    <Label htmlFor="username-left" className="text-right">
+                      Username
+                    </Label>
+                    <Input
+                      id="username-left"
+                      defaultValue="@peduarte"
+                      className="col-span-3"
+                    />
+                  </div>
                 </div>
-                <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="username-left" className="text-right">
-                    Username
-                  </Label>
-                  <Input
-                    id="username-left"
-                    defaultValue="@peduarte"
-                    className="col-span-3"
-                  />
-                </div>
-              </div>
-              <SheetFooter>
-                <SheetClose
-                  render={<Button variant="outline" size={globalSize} />}
-                >
-                  Huỷ
-                </SheetClose>
-                <Button size={globalSize}>Lưu thay đổi</Button>
-              </SheetFooter>
-            </SheetContent>
+                <SheetFooter>
+                  <SheetClose
+                    render={<Button variant="outline" size={globalSize} />}
+                  >
+                    Huỷ
+                  </SheetClose>
+                  <Button size={globalSize}>Lưu thay đổi</Button>
+                </SheetFooter>
+              </SheetContent>
+            </SheetPortal>
           </Sheet>
         </div>
       </ExampleSection>
@@ -274,12 +287,12 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
     <PanelRightIcon />
     Mở Sheet
   </SheetTrigger>
-  <SheetContent side="right">
+  <SheetPortal><SheetContent side="right">
     <SheetHeader>
       <SheetTitle>Có nút đóng</SheetTitle>
       <SheetDescription>Nút X xuất hiện tự động.</SheetDescription>
     </SheetHeader>
-  </SheetContent>
+  </SheetContent></SheetPortal>
 </Sheet>`}
         >
           <Sheet>
@@ -289,12 +302,15 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
               <PanelRightIcon aria-hidden="true" />
               Mở Sheet
             </SheetTrigger>
-            <SheetContent side="right">
-              <SheetHeader>
-                <SheetTitle>Có nút đóng</SheetTitle>
-                <SheetDescription>Nút X xuất hiện tự động.</SheetDescription>
-              </SheetHeader>
-            </SheetContent>
+
+            <SheetPortal>
+              <SheetContent side="right">
+                <SheetHeader>
+                  <SheetTitle>Có nút đóng</SheetTitle>
+                  <SheetDescription>Nút X xuất hiện tự động.</SheetDescription>
+                </SheetHeader>
+              </SheetContent>
+            </SheetPortal>
           </Sheet>
         </ExampleSection>
 
@@ -306,7 +322,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
     <PanelRightIcon />
     Không có X
   </SheetTrigger>
-  <SheetContent side="right" showCloseButton={false}>
+  <SheetPortal><SheetContent side="right" showCloseButton={false}>
     <SheetHeader>
       <SheetTitle>Ẩn nút đóng</SheetTitle>
       <SheetDescription>
@@ -318,7 +334,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
         Đóng thủ công
       </SheetClose>
     </SheetFooter>
-  </SheetContent>
+  </SheetContent></SheetPortal>
 </Sheet>`}
         >
           <Sheet>
@@ -328,27 +344,30 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
               <PanelRightIcon aria-hidden="true" />
               Không có X
             </SheetTrigger>
-            <SheetContent side="right" showCloseButton={false}>
-              <SheetHeader>
-                <SheetTitle>Ẩn nút đóng</SheetTitle>
-                <SheetDescription>
-                  Consumer tự render nút đóng trong footer.
-                </SheetDescription>
-              </SheetHeader>
-              <SheetFooter>
-                <SheetClose
-                  render={
-                    <Button
-                      variant="outline"
-                      size={globalSize}
-                      className="w-full"
-                    />
-                  }
-                >
-                  Đóng thủ công
-                </SheetClose>
-              </SheetFooter>
-            </SheetContent>
+
+            <SheetPortal>
+              <SheetContent side="right" showCloseButton={false}>
+                <SheetHeader>
+                  <SheetTitle>Ẩn nút đóng</SheetTitle>
+                  <SheetDescription>
+                    Consumer tự render nút đóng trong footer.
+                  </SheetDescription>
+                </SheetHeader>
+                <SheetFooter>
+                  <SheetClose
+                    render={
+                      <Button
+                        variant="outline"
+                        size={globalSize}
+                        className="w-full"
+                      />
+                    }
+                  >
+                    Đóng thủ công
+                  </SheetClose>
+                </SheetFooter>
+              </SheetContent>
+            </SheetPortal>
           </Sheet>
         </ExampleSection>
       </ExampleGrid>
@@ -365,7 +384,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
       <SettingsIcon />
       Toggle Controlled
     </SheetTrigger>
-    <SheetContent side="right">
+    <SheetPortal><SheetContent side="right">
       <SheetHeader>
         <SheetTitle>Controlled Mode</SheetTitle>
         <SheetDescription>
@@ -377,7 +396,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
           Đóng bằng state
         </Button>
       </SheetFooter>
-    </SheetContent>
+    </SheetContent></SheetPortal>
   </Sheet>
   <p className="text-sm text-muted-foreground">
     Trạng thái:{" "}
@@ -398,19 +417,22 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
               <SettingsIcon aria-hidden="true" />
               Toggle Controlled
             </SheetTrigger>
-            <SheetContent side="right">
-              <SheetHeader>
-                <SheetTitle>Controlled Mode</SheetTitle>
-                <SheetDescription>
-                  Sheet được điều khiển hoàn toàn bởi React state.
-                </SheetDescription>
-              </SheetHeader>
-              <SheetFooter>
-                <Button size={globalSize} onClick={() => setOpen(false)}>
-                  Đóng bằng state
-                </Button>
-              </SheetFooter>
-            </SheetContent>
+
+            <SheetPortal>
+              <SheetContent side="right">
+                <SheetHeader>
+                  <SheetTitle>Controlled Mode</SheetTitle>
+                  <SheetDescription>
+                    Sheet được điều khiển hoàn toàn bởi React state.
+                  </SheetDescription>
+                </SheetHeader>
+                <SheetFooter>
+                  <Button size={globalSize} onClick={() => setOpen(false)}>
+                    Đóng bằng state
+                  </Button>
+                </SheetFooter>
+              </SheetContent>
+            </SheetPortal>
           </Sheet>
           <p className="text-sm text-muted-foreground">
             Trạng thái:{" "}
@@ -433,7 +455,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
     <FilterIcon />
     Lọc dữ liệu
   </SheetTrigger>
-  <SheetContent side="right">
+  <SheetPortal><SheetContent side="right">
     <SheetHeader>
       <SheetTitle>Bộ lọc</SheetTitle>
       <SheetDescription>
@@ -460,7 +482,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
       </SheetClose>
       <Button>Áp dụng</Button>
     </SheetFooter>
-  </SheetContent>
+  </SheetContent></SheetPortal>
 </Sheet>`}
       >
         <Sheet>
@@ -468,36 +490,39 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
             <FilterIcon aria-hidden="true" />
             Lọc dữ liệu
           </SheetTrigger>
-          <SheetContent side="right">
-            <SheetHeader>
-              <SheetTitle>Bộ lọc</SheetTitle>
-              <SheetDescription>
-                Tinh chỉnh kết quả hiển thị theo điều kiện.
-              </SheetDescription>
-            </SheetHeader>
-            <div className="flex flex-col gap-4 p-4">
-              <div className="flex flex-col gap-2">
-                <Label htmlFor="filter-status">Trạng thái</Label>
-                <Input id="filter-status" placeholder="Tất cả" />
+
+          <SheetPortal>
+            <SheetContent side="right">
+              <SheetHeader>
+                <SheetTitle>Bộ lọc</SheetTitle>
+                <SheetDescription>
+                  Tinh chỉnh kết quả hiển thị theo điều kiện.
+                </SheetDescription>
+              </SheetHeader>
+              <div className="flex flex-col gap-4 p-4">
+                <div className="flex flex-col gap-2">
+                  <Label htmlFor="filter-status">Trạng thái</Label>
+                  <Input id="filter-status" placeholder="Tất cả" />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <Label htmlFor="filter-date-from">Từ ngày</Label>
+                  <Input id="filter-date-from" type="date" />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <Label htmlFor="filter-date-to">Đến ngày</Label>
+                  <Input id="filter-date-to" type="date" />
+                </div>
               </div>
-              <div className="flex flex-col gap-2">
-                <Label htmlFor="filter-date-from">Từ ngày</Label>
-                <Input id="filter-date-from" type="date" />
-              </div>
-              <div className="flex flex-col gap-2">
-                <Label htmlFor="filter-date-to">Đến ngày</Label>
-                <Input id="filter-date-to" type="date" />
-              </div>
-            </div>
-            <SheetFooter>
-              <SheetClose
-                render={<Button variant="outline" size={globalSize} />}
-              >
-                Xoá bộ lọc
-              </SheetClose>
-              <Button size={globalSize}>Áp dụng</Button>
-            </SheetFooter>
-          </SheetContent>
+              <SheetFooter>
+                <SheetClose
+                  render={<Button variant="outline" size={globalSize} />}
+                >
+                  Xoá bộ lọc
+                </SheetClose>
+                <Button size={globalSize}>Áp dụng</Button>
+              </SheetFooter>
+            </SheetContent>
+          </SheetPortal>
         </Sheet>
       </ExampleSection>
     </div>

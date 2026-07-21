@@ -18,6 +18,7 @@ import {
   PopoverHeader,
   PopoverTitle,
   PopoverTrigger,
+  PopoverPortal,
 } from "../../components/micro/popover";
 import { type Size } from "../../lib/types";
 import { Bell, Settings } from "lucide-react";
@@ -42,7 +43,7 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
       </Button>
     }
   />
-  <PopoverContent className="w-80" sideOffset={8}>
+  <PopoverPortal><PopoverContent className="w-80" sideOffset={8}>
     <PopoverHeader>
       <PopoverTitle>Dimensions</PopoverTitle>
       <PopoverDescription>
@@ -67,7 +68,7 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
         />
       </div>
     </div>
-  </PopoverContent>
+  </PopoverContent></PopoverPortal>
 </Popover>
 `}
         >
@@ -79,32 +80,35 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
                 </Button>
               }
             />
-            <PopoverContent className="w-80" sideOffset={8}>
-              <PopoverHeader>
-                <PopoverTitle>Dimensions</PopoverTitle>
-                <PopoverDescription>
-                  Cài đặt kích thước cho layer.
-                </PopoverDescription>
-              </PopoverHeader>
-              <div className="grid gap-4 mt-4">
-                <div className="grid grid-cols-3 items-center gap-4">
-                  <Label htmlFor="width">Width</Label>
-                  <Input
-                    id="width"
-                    defaultValue="100%"
-                    className="col-span-2 h-8"
-                  />
+
+            <PopoverPortal>
+              <PopoverContent className="w-80" sideOffset={8}>
+                <PopoverHeader>
+                  <PopoverTitle>Dimensions</PopoverTitle>
+                  <PopoverDescription>
+                    Cài đặt kích thước cho layer.
+                  </PopoverDescription>
+                </PopoverHeader>
+                <div className="grid gap-4 mt-4">
+                  <div className="grid grid-cols-3 items-center gap-4">
+                    <Label htmlFor="width">Width</Label>
+                    <Input
+                      id="width"
+                      defaultValue="100%"
+                      className="col-span-2 h-8"
+                    />
+                  </div>
+                  <div className="grid grid-cols-3 items-center gap-4">
+                    <Label htmlFor="height">Height</Label>
+                    <Input
+                      id="height"
+                      defaultValue="200px"
+                      className="col-span-2 h-8"
+                    />
+                  </div>
                 </div>
-                <div className="grid grid-cols-3 items-center gap-4">
-                  <Label htmlFor="height">Height</Label>
-                  <Input
-                    id="height"
-                    defaultValue="200px"
-                    className="col-span-2 h-8"
-                  />
-                </div>
-              </div>
-            </PopoverContent>
+              </PopoverContent>
+            </PopoverPortal>
           </Popover>
         </ExampleSection>
 
@@ -125,14 +129,14 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
         </Button>
       }
     />
-    <PopoverContent className="w-64" sideOffset={8} align="start">
+    <PopoverPortal><PopoverContent className="w-64" sideOffset={8} align="start">
       <PopoverHeader>
         <PopoverTitle>Thông báo</PopoverTitle>
         <PopoverDescription>
           Bạn có 3 tin nhắn chưa đọc.
         </PopoverDescription>
       </PopoverHeader>
-    </PopoverContent>
+    </PopoverContent></PopoverPortal>
   </Popover>
 
   <Popover>
@@ -143,7 +147,7 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
         </Button>
       }
     />
-    <PopoverContent className="w-56" sideOffset={8}>
+    <PopoverPortal><PopoverContent className="w-56" sideOffset={8}>
       <PopoverHeader>
         <PopoverTitle>Cài đặt nhanh</PopoverTitle>
       </PopoverHeader>
@@ -161,7 +165,7 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
           Đăng xuất
         </Button>
       </div>
-    </PopoverContent>
+    </PopoverContent></PopoverPortal>
   </Popover>
 </div>
 `}
@@ -180,14 +184,17 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
                   </Button>
                 }
               />
-              <PopoverContent className="w-64" sideOffset={8} align="start">
-                <PopoverHeader>
-                  <PopoverTitle>Thông báo</PopoverTitle>
-                  <PopoverDescription>
-                    Bạn có 3 tin nhắn chưa đọc.
-                  </PopoverDescription>
-                </PopoverHeader>
-              </PopoverContent>
+
+              <PopoverPortal>
+                <PopoverContent className="w-64" sideOffset={8} align="start">
+                  <PopoverHeader>
+                    <PopoverTitle>Thông báo</PopoverTitle>
+                    <PopoverDescription>
+                      Bạn có 3 tin nhắn chưa đọc.
+                    </PopoverDescription>
+                  </PopoverHeader>
+                </PopoverContent>
+              </PopoverPortal>
             </Popover>
 
             <Popover>
@@ -198,25 +205,28 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
                   </Button>
                 }
               />
-              <PopoverContent className="w-56" sideOffset={8}>
-                <PopoverHeader>
-                  <PopoverTitle>Cài đặt nhanh</PopoverTitle>
-                </PopoverHeader>
-                <div className="flex flex-col gap-2 mt-2">
-                  <Button variant="ghost" className="justify-start">
-                    Tài khoản
-                  </Button>
-                  <Button variant="ghost" className="justify-start">
-                    Giao diện
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    className="justify-start text-destructive hover:text-destructive"
-                  >
-                    Đăng xuất
-                  </Button>
-                </div>
-              </PopoverContent>
+
+              <PopoverPortal>
+                <PopoverContent className="w-56" sideOffset={8}>
+                  <PopoverHeader>
+                    <PopoverTitle>Cài đặt nhanh</PopoverTitle>
+                  </PopoverHeader>
+                  <div className="flex flex-col gap-2 mt-2">
+                    <Button variant="ghost" className="justify-start">
+                      Tài khoản
+                    </Button>
+                    <Button variant="ghost" className="justify-start">
+                      Giao diện
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      className="justify-start text-destructive hover:text-destructive"
+                    >
+                      Đăng xuất
+                    </Button>
+                  </div>
+                </PopoverContent>
+              </PopoverPortal>
             </Popover>
           </div>
         </ExampleSection>
@@ -229,9 +239,9 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
   <PopoverTrigger asChild>
     <Button variant="outline">top</Button>
   </PopoverTrigger>
-  <PopoverContent side="top" sideOffset={8} className="w-48 text-center text-sm p-4">
+  <PopoverPortal><PopoverContent side="top" sideOffset={8} className="w-48 text-center text-sm p-4">
     Hiển thị ở phía <strong>top</strong>
-  </PopoverContent>
+  </PopoverContent></PopoverPortal>
 </Popover>`}
       >
         <div className="flex flex-wrap items-center justify-center gap-4 py-8">
@@ -248,13 +258,15 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
                   </Button>
                 }
               />
-              <PopoverContent
-                side={side}
-                sideOffset={8}
-                className="w-48 text-center text-sm p-4"
-              >
-                Hiển thị ở phía <strong className="capitalize">{side}</strong>
-              </PopoverContent>
+              <PopoverPortal>
+                <PopoverContent
+                  side={side}
+                  sideOffset={8}
+                  className="w-48 text-center text-sm p-4"
+                >
+                  Hiển thị ở phía <strong className="capitalize">{side}</strong>
+                </PopoverContent>
+              </PopoverPortal>
             </Popover>
           ))}
         </div>
@@ -270,7 +282,7 @@ return (
     <PopoverTrigger asChild>
       <Button variant="outline">Toggle Controlled Popover</Button>
     </PopoverTrigger>
-    <PopoverContent className="w-80" sideOffset={8}>
+    <PopoverPortal><PopoverContent className="w-80" sideOffset={8}>
       <PopoverHeader>
         <PopoverTitle>Controlled Mode</PopoverTitle>
         <PopoverDescription>
@@ -282,7 +294,7 @@ return (
           Đóng Popover
         </Button>
       </div>
-    </PopoverContent>
+    </PopoverContent></PopoverPortal>
   </Popover>
 )`}
       >
@@ -295,24 +307,26 @@ return (
                 </Button>
               }
             />
-            <PopoverContent className="w-80" sideOffset={8}>
-              <PopoverHeader>
-                <PopoverTitle>Controlled Mode</PopoverTitle>
-                <PopoverDescription>
-                  Popover này được control bởi state. Bạn có thể đóng nó bằng
-                  nút bên dưới hoặc click ra ngoài.
-                </PopoverDescription>
-              </PopoverHeader>
-              <div className="mt-4 flex justify-end">
-                <Button
-                  size="sm"
-                  color="secondary"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Đóng Popover
-                </Button>
-              </div>
-            </PopoverContent>
+            <PopoverPortal>
+              <PopoverContent className="w-80" sideOffset={8}>
+                <PopoverHeader>
+                  <PopoverTitle>Controlled Mode</PopoverTitle>
+                  <PopoverDescription>
+                    Popover này được control bởi state. Bạn có thể đóng nó bằng
+                    nút bên dưới hoặc click ra ngoài.
+                  </PopoverDescription>
+                </PopoverHeader>
+                <div className="mt-4 flex justify-end">
+                  <Button
+                    size="sm"
+                    color="secondary"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Đóng Popover
+                  </Button>
+                </div>
+              </PopoverContent>
+            </PopoverPortal>
           </Popover>
 
           <div className="text-sm text-muted-foreground">

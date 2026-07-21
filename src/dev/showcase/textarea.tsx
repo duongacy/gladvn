@@ -110,31 +110,31 @@ return (
 );`}
         >
           <TextareaPreset
-              label="Tiểu sử"
-              description={
-                <span className="flex justify-between">
-                  <span>Mô tả ngắn gọn về bản thân bạn.</span>
-                  <span
-                    data-invalid={bio.length > maxLength ? "" : undefined}
-                    className="data-invalid:text-destructive data-invalid:font-medium"
-                  >
-                    {bio.length}/{maxLength}
-                  </span>
+            label="Tiểu sử"
+            description={
+              <span className="flex justify-between">
+                <span>Mô tả ngắn gọn về bản thân bạn.</span>
+                <span
+                  data-invalid={bio.length > maxLength ? "" : undefined}
+                  className="data-invalid:text-destructive data-invalid:font-medium"
+                >
+                  {bio.length}/{maxLength}
                 </span>
-              }
-              placeholder="I'm a developer who loves..."
-              value={bio}
-              onChange={(e) => setBio(e.target.value)}
-              maxLength={maxLength}
-              errorMessage={
-                bio.length > maxLength
-                  ? `Vượt quá ${bio.length - maxLength} ký tự.`
-                  : undefined
-              }
-              size={globalSize}
-              className="w-full"
-              rows={4}
-            />
+              </span>
+            }
+            placeholder="I'm a developer who loves..."
+            value={bio}
+            onChange={(e) => setBio(e.target.value)}
+            maxLength={maxLength}
+            errorMessage={
+              bio.length > maxLength
+                ? `Vượt quá ${bio.length - maxLength} ký tự.`
+                : undefined
+            }
+            size={globalSize}
+            className="w-full"
+            rows={4}
+          />
         </ExampleSection>
 
         <ExampleSection

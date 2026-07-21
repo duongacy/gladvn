@@ -49,14 +49,15 @@ function SliderMacroShowcase({ globalSize }: { globalSize: Size }) {
   />
 `}
         >
-          <SliderPreset className="w-full"
-              size={globalSize}
-              label="Âm lượng"
-              description="Điều chỉnh âm lượng hệ thống."
-              defaultValue={[50]}
-              max={100}
-              step={1}
-            />
+          <SliderPreset
+            className="w-full"
+            size={globalSize}
+            label="Âm lượng"
+            description="Điều chỉnh âm lượng hệ thống."
+            defaultValue={[50]}
+            max={100}
+            step={1}
+          />
         </ExampleSection>
 
         <ExampleSection
@@ -103,15 +104,16 @@ return (
   />
 );`}
         >
-          <SliderPreset className="w-full"
-              size={globalSize}
-              label="Khoảng giá"
-              description={`Hiển thị sản phẩm từ $${rangeVal[0]} đến $${rangeVal[1]}`}
-              value={rangeVal}
-              onValueChange={(v) => setRangeVal(v as number[])}
-              max={100}
-              step={5}
-            />
+          <SliderPreset
+            className="w-full"
+            size={globalSize}
+            label="Khoảng giá"
+            description={`Hiển thị sản phẩm từ $${rangeVal[0]} đến $${rangeVal[1]}`}
+            value={rangeVal}
+            onValueChange={(v) => setRangeVal(v as number[])}
+            max={100}
+            step={5}
+          />
         </ExampleSection>
 
         <ExampleSection
@@ -126,14 +128,15 @@ return (
   />
 `}
         >
-          <SliderPreset className="w-full"
-              size={globalSize}
-              label="Độ sáng màn hình"
-              description="Độ sáng đang được hệ thống điều khiển tự động (Auto-brightness)."
-              defaultValue={[75]}
-              max={100}
-              disabled
-            />
+          <SliderPreset
+            className="w-full"
+            size={globalSize}
+            label="Độ sáng màn hình"
+            description="Độ sáng đang được hệ thống điều khiển tự động (Auto-brightness)."
+            defaultValue={[75]}
+            max={100}
+            disabled
+          />
         </ExampleSection>
       </ExampleGrid>
 

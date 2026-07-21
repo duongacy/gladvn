@@ -55,13 +55,13 @@ function CodeBlock({
         "p-4 rounded-xl border border-border shadow-sm text-[11px] sm:text-xs font-mono",
         isSuccess
           ? "border-success/20 bg-success/5"
-          : "border-destructive/20 bg-destructive/5 opacity-80"
+          : "border-destructive/20 bg-destructive/5 opacity-80",
       )}
     >
       <div
         className={cn(
           "font-semibold mb-2 flex items-center gap-2",
-          isSuccess ? "text-success" : "text-destructive"
+          isSuccess ? "text-success" : "text-destructive",
         )}
       >
         {isSuccess ? "✅" : "❌"} {title}
@@ -69,7 +69,7 @@ function CodeBlock({
       <div
         className={cn(
           "text-muted-foreground pl-3 border-l-2 leading-relaxed",
-          isSuccess ? "border-success/50" : "border-destructive/50"
+          isSuccess ? "border-success/50" : "border-destructive/50",
         )}
       >
         {children}
@@ -307,9 +307,10 @@ export default function OverviewSection() {
         </div>
 
         {/* FULL OWNERSHIP - FEATURED BANNER */}
-        <div id="ownership-section" className="mb-12 rounded-[2.5rem] border-2 border-primary/50 bg-primary/5 p-4 sm:p-6 md:p-12 flex flex-col md:flex-row items-center gap-6 md:gap-8 group overflow-hidden relative hover:bg-primary/10 transition-colors duration-500 shadow-2xl shadow-primary/10">
-
-
+        <div
+          id="ownership-section"
+          className="mb-12 rounded-[2.5rem] border-2 border-primary/50 bg-primary/5 p-4 sm:p-6 md:p-12 flex flex-col md:flex-row items-center gap-6 md:gap-8 group overflow-hidden relative hover:bg-primary/10 transition-colors duration-500 shadow-2xl shadow-primary/10"
+        >
           <div className="relative z-10 flex-1 space-y-6">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary text-primary-foreground text-sm font-bold uppercase tracking-wider shadow-lg shadow-primary/20">
               <SparklesIcon className="size-4" /> Điểm khác biệt lớn nhất
@@ -318,7 +319,13 @@ export default function OverviewSection() {
               Sở hữu 100% mã nguồn
             </h3>
             <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl">
-              Chỉ với một lệnh duy nhất, toàn bộ source code của thư viện (components, hooks, styles, contexts) sẽ được clone trực tiếp vào dự án của bạn. <strong className="text-foreground">Không cài đặt qua node_modules, không bị khóa (vendor lock-in)</strong>, bạn có toàn quyền quyết định mọi dòng code.
+              Chỉ với một lệnh duy nhất, toàn bộ source code của thư viện
+              (components, hooks, styles, contexts) sẽ được clone trực tiếp vào
+              dự án của bạn.{" "}
+              <strong className="text-foreground">
+                Không cài đặt qua node_modules, không bị khóa (vendor lock-in)
+              </strong>
+              , bạn có toàn quyền quyết định mọi dòng code.
             </p>
 
             <div className="flex items-center gap-4 pt-4">
@@ -329,7 +336,11 @@ export default function OverviewSection() {
                 <span className="text-primary font-bold">~</span>
                 <span>npx @duongy96/gladcn init</span>
                 <div className="ml-4 text-muted-foreground group-hover/copy:text-primary transition-colors">
-                  {copied ? <CheckIcon className="size-4 text-success" /> : <CopyIcon className="size-4" />}
+                  {copied ? (
+                    <CheckIcon className="size-4 text-success" />
+                  ) : (
+                    <CopyIcon className="size-4" />
+                  )}
                 </div>
               </button>
             </div>
@@ -341,8 +352,12 @@ export default function OverviewSection() {
                 <CheckIcon className="size-4" />
               </div>
               <div>
-                <h4 className="font-bold text-success text-lg">Copy 100% Component & Hook</h4>
-                <p className="text-xs text-success/80 mt-1">Nằm gọn trong thư mục src/ của bạn</p>
+                <h4 className="font-bold text-success text-lg">
+                  Copy 100% Component & Hook
+                </h4>
+                <p className="text-xs text-success/80 mt-1">
+                  Nằm gọn trong thư mục src/ của bạn
+                </p>
               </div>
             </div>
             <div className="p-3 sm:p-5 rounded-2xl border border-success/30 bg-success/10 shadow-sm flex items-start gap-4 transform group-hover:translate-x-2 transition-transform">
@@ -350,8 +365,12 @@ export default function OverviewSection() {
                 <CheckIcon className="size-4" />
               </div>
               <div>
-                <h4 className="font-bold text-success text-lg">Thiết lập sẵn Theme & CSS</h4>
-                <p className="text-xs text-success/80 mt-1">Giao diện đẹp ngay từ giây đầu tiên</p>
+                <h4 className="font-bold text-success text-lg">
+                  Thiết lập sẵn Theme & CSS
+                </h4>
+                <p className="text-xs text-success/80 mt-1">
+                  Giao diện đẹp ngay từ giây đầu tiên
+                </p>
               </div>
             </div>
             <div className="p-3 sm:p-5 rounded-2xl border border-success/30 bg-success/10 shadow-sm flex items-start gap-4 transform group-hover:-translate-x-2 transition-transform">
@@ -359,8 +378,12 @@ export default function OverviewSection() {
                 <CheckIcon className="size-4" />
               </div>
               <div>
-                <h4 className="font-bold text-success text-lg">Tự động cài Dependency</h4>
-                <p className="text-xs text-success/80 mt-1">Tự nhận diện npm, yarn, pnpm, bun</p>
+                <h4 className="font-bold text-success text-lg">
+                  Tự động cài Dependency
+                </h4>
+                <p className="text-xs text-success/80 mt-1">
+                  Tự nhận diện npm, yarn, pnpm, bun
+                </p>
               </div>
             </div>
           </div>
@@ -407,10 +430,15 @@ export default function OverviewSection() {
                   {'<Button className="ml-auto">Xác nhận</Button>'}
                 </span>
                 <br />
-                <span className="text-foreground">{"</AlertDialogFooter>"}</span>
+                <span className="text-foreground">
+                  {"</AlertDialogFooter>"}
+                </span>
               </CodeBlock>
 
-              <CodeBlock type="destructive" title="Ép Layout ở Micro (Primitive):">
+              <CodeBlock
+                type="destructive"
+                title="Ép Layout ở Micro (Primitive):"
+              >
                 <span className="text-destructive/80">
                   {
                     "/* Micro mù mờ về thẻ con nên phải dùng Magic CSS đoán mò */"
@@ -427,12 +455,12 @@ export default function OverviewSection() {
                 <br />
                 <span className="pl-4">{"{children}"}</span>
                 <br />
-                <span className="text-foreground">{"</AlertDialogFooter>"}</span>
+                <span className="text-foreground">
+                  {"</AlertDialogFooter>"}
+                </span>
               </CodeBlock>
             </div>
           </div>
-
-
 
           {/* No Magic CSS */}
           <div className="break-inside-avoid mb-6 rounded-[2rem] border border-border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
@@ -618,7 +646,6 @@ export default function OverviewSection() {
             </div>
           </div>
 
-
           {/* Strict Polymorphism */}
           <div className="break-inside-avoid mb-6 rounded-[2rem] border border-border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
@@ -708,11 +735,17 @@ export default function OverviewSection() {
             <div className="relative z-10 mt-auto pt-6 space-y-3">
               <div className="p-3 rounded-xl border border-success/20 bg-success/5 text-[11px] font-mono shadow-sm flex items-center">
                 <span className="text-success font-bold mr-3 text-lg">✅</span>
-                <span className="text-success/90">&lt;svg aria-hidden="true" /&gt;</span>
+                <span className="text-success/90">
+                  &lt;svg aria-hidden="true" /&gt;
+                </span>
               </div>
               <div className="p-3 rounded-xl border border-destructive/20 bg-destructive/5 text-[11px] font-mono shadow-sm flex items-center opacity-70">
-                <span className="text-destructive font-bold mr-3 text-lg">❌</span>
-                <span className="text-destructive/80 line-through">&lt;div role="button"&gt;</span>
+                <span className="text-destructive font-bold mr-3 text-lg">
+                  ❌
+                </span>
+                <span className="text-destructive/80 line-through">
+                  &lt;div role="button"&gt;
+                </span>
               </div>
             </div>
           </div>
@@ -768,11 +801,17 @@ export default function OverviewSection() {
             <div className="relative z-10 mt-auto pt-6 space-y-3">
               <div className="p-3 rounded-xl border border-success/20 bg-success/5 text-[11px] font-mono shadow-sm flex items-center">
                 <span className="text-success font-bold mr-3 text-lg">✅</span>
-                <span className="text-success/90">function Button(&#123; size = "md" &#125;)</span>
+                <span className="text-success/90">
+                  function Button(&#123; size = "md" &#125;)
+                </span>
               </div>
               <div className="p-3 rounded-xl border border-destructive/20 bg-destructive/5 text-[11px] font-mono shadow-sm flex items-center opacity-70">
-                <span className="text-destructive font-bold mr-3 text-lg">❌</span>
-                <span className="text-destructive/80 line-through">defaultVariants: &#123; size: "md" &#125;</span>
+                <span className="text-destructive font-bold mr-3 text-lg">
+                  ❌
+                </span>
+                <span className="text-destructive/80 line-through">
+                  defaultVariants: &#123; size: "md" &#125;
+                </span>
               </div>
             </div>
           </div>
@@ -836,9 +875,11 @@ export default function OverviewSection() {
               Scoped Theme Tunnel
             </h3>
             <p className="text-muted-foreground text-xl leading-relaxed">
-              Giải quyết triệt để "nỗi đau" của thư viện Tailwind UI truyền thống: Bảo toàn hoàn hảo ngữ cảnh Dark/Light mode cục bộ kể cả khi Component (Dialog, Tooltip, Select...) bị render ra ngoài document.body thông qua React Portal.
+              Giải quyết triệt để "nỗi đau" của thư viện Tailwind UI truyền
+              thống: Bảo toàn hoàn hảo ngữ cảnh Dark/Light mode cục bộ kể cả khi
+              Component (Dialog, Tooltip, Select...) bị render ra ngoài
+              document.body thông qua React Portal.
             </p>
-
           </div>
 
           <div className="relative z-10 grid sm:grid-cols-2 gap-6 max-w-3xl">

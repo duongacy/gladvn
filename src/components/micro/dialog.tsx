@@ -11,7 +11,6 @@ import { Dialog as DialogPrimitive } from "@base-ui/react/dialog";
 import * as React from "react";
 
 import { cn } from "../../lib/utils";
-import { ThemeWrapper } from "./theme-provider";
 
 function Dialog({ ...props }: DialogPrimitive.Root.Props) {
   return <DialogPrimitive.Root data-slot="dialog" {...props} />;
@@ -25,13 +24,7 @@ const DialogTrigger = React.forwardRef<
 ));
 DialogTrigger.displayName = "DialogTrigger";
 
-function DialogPortal({ children, ...props }: DialogPrimitive.Portal.Props) {
-  return (
-    <DialogPrimitive.Portal data-slot="dialog-portal" {...props}>
-      <ThemeWrapper>{children}</ThemeWrapper>
-    </DialogPrimitive.Portal>
-  );
-}
+const DialogPortal = DialogPrimitive.Portal;
 
 const DialogClose = React.forwardRef<
   HTMLButtonElement,
@@ -61,7 +54,7 @@ const DialogContent = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Popup>
 >(({ className, children, ...props }, ref) => (
-  <DialogPortal>
+  <>
     <DialogOverlay />
     <DialogPrimitive.Popup
       ref={ref}
@@ -75,7 +68,7 @@ const DialogContent = React.forwardRef<
     >
       {children}
     </DialogPrimitive.Popup>
-  </DialogPortal>
+  </>
 ));
 DialogContent.displayName = "DialogContent";
 

@@ -12,7 +12,6 @@ import * as React from "react";
 
 import { cn } from "../../lib/utils";
 import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react";
-import { ThemeWrapper } from "./theme-provider";
 
 type ContextMenuVariant = "destructive";
 
@@ -32,13 +31,7 @@ function ContextMenu({ ...props }: ContextMenuPrimitive.Root.Props) {
 }
 ContextMenu.displayName = "ContextMenu";
 
-function ContextMenuPortal({ children, ...props }: ContextMenuPrimitive.Portal.Props) {
-  return (
-    <ContextMenuPrimitive.Portal data-slot="context-menu-portal" {...props}>
-      <ThemeWrapper>{children}</ThemeWrapper>
-    </ContextMenuPrimitive.Portal>
-  );
-}
+const ContextMenuPortal = ContextMenuPrimitive.Portal;
 ContextMenuPortal.displayName = "ContextMenuPortal";
 
 const ContextMenuTrigger = React.forwardRef<
@@ -67,7 +60,7 @@ function ContextMenuContent({
     "align" | "alignOffset" | "side" | "sideOffset"
   >) {
   return (
-    <ContextMenuPortal>
+    <>
       <ContextMenuPrimitive.Positioner
         className="isolate z-50 outline-none"
         align={align}
@@ -84,7 +77,7 @@ function ContextMenuContent({
           {...props}
         />
       </ContextMenuPrimitive.Positioner>
-    </ContextMenuPortal>
+    </>
   );
 }
 ContextMenuContent.displayName = "ContextMenuContent";

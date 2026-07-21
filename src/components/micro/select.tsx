@@ -11,7 +11,6 @@ import { Select as SelectPrimitive } from "@base-ui/react/select";
 import { cva, type VariantProps } from "class-variance-authority";
 import * as React from "react";
 
-import { ThemeWrapper } from "../../components/micro/theme-provider";
 import { cn } from "../../lib/utils";
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from "lucide-react";
 
@@ -43,8 +42,10 @@ const SelectValue = React.forwardRef<
 ));
 SelectValue.displayName = "SelectValue";
 
+const SelectPortal = SelectPrimitive.Portal;
+
 const selectTriggerVariants = cva(
-  "inline-flex items-center justify-between rounded-lg border border-input bg-transparent text-sm whitespace-nowrap transition-colors outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-offset-1 focus-visible:ring-offset-background disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:ring-3 aria-invalid:focus-visible:ring-destructive/50 data-placeholder:text-muted-foreground [&_[data-slot=select-value]]:line-clamp-1 [&_[data-slot=select-value]]:flex [&_[data-slot=select-value]]:items-center [&>svg]:pointer-events-none [&>svg]:shrink-0 [&>svg:not([class*='size-'])]:size-4 dark:bg-input/30 dark:aria-invalid:border-destructive/50 dark:aria-invalid:focus-visible:ring-destructive/50",
+  "inline-flex items-center justify-between rounded-lg border border-input bg-transparent text-foreground text-sm whitespace-nowrap transition-colors outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-offset-1 focus-visible:ring-offset-background disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:ring-3 aria-invalid:focus-visible:ring-destructive/50 data-placeholder:text-muted-foreground [&_[data-slot=select-value]]:line-clamp-1 [&_[data-slot=select-value]]:flex [&_[data-slot=select-value]]:items-center [&>svg]:pointer-events-none [&>svg]:shrink-0 [&>svg:not([class*='size-'])]:size-4 dark:bg-input/30 dark:aria-invalid:border-destructive/50 dark:aria-invalid:focus-visible:ring-destructive/50",
   {
     variants: {
       size: {
@@ -98,36 +99,32 @@ const SelectContent = React.forwardRef<
     },
     ref,
   ) => (
-    <SelectPrimitive.Portal>
-      <ThemeWrapper>
-        <SelectPrimitive.Positioner
-          side={side}
-          sideOffset={sideOffset}
-          align={align}
-          alignOffset={alignOffset}
-          alignItemWithTrigger={alignItemWithTrigger}
-          className="isolate z-50"
-        >
-          <SelectPrimitive.Popup
-            ref={ref}
-            data-slot="select-content"
-            data-align-trigger={alignItemWithTrigger}
-            className={cn(
-              "relative isolate z-50 max-h-(--available-height) w-[calc(var(--anchor-width)+8px)] overflow-x-hidden overflow-y-auto rounded-lg bg-popover p-1 text-popover-foreground shadow-md ring-1 ring-foreground/10 data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
-              alignItemWithTrigger
-                ? "origin-(--transform-origin) data-[align-trigger=true]:animate-none"
-                : "",
-              className,
-            )}
-            {...props}
-          >
-            <SelectScrollUpButton />
-            <SelectPrimitive.List>{children}</SelectPrimitive.List>
-            <SelectScrollDownButton />
-          </SelectPrimitive.Popup>
-        </SelectPrimitive.Positioner>
-      </ThemeWrapper>
-    </SelectPrimitive.Portal>
+    <SelectPrimitive.Positioner
+      side={side}
+      sideOffset={sideOffset}
+      align={align}
+      alignOffset={alignOffset}
+      alignItemWithTrigger={alignItemWithTrigger}
+      className="isolate z-50"
+    >
+      <SelectPrimitive.Popup
+        ref={ref}
+        data-slot="select-content"
+        data-align-trigger={alignItemWithTrigger}
+        className={cn(
+          "relative isolate z-50 max-h-(--available-height) w-[calc(var(--anchor-width)+8px)] overflow-x-hidden overflow-y-auto rounded-lg bg-popover p-1 text-popover-foreground shadow-md ring-1 ring-foreground/10 data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
+          alignItemWithTrigger
+            ? "origin-(--transform-origin) data-[align-trigger=true]:animate-none"
+            : "",
+          className,
+        )}
+        {...props}
+      >
+        <SelectScrollUpButton />
+        <SelectPrimitive.List>{children}</SelectPrimitive.List>
+        <SelectScrollDownButton />
+      </SelectPrimitive.Popup>
+    </SelectPrimitive.Positioner>
   ),
 );
 SelectContent.displayName = "SelectContent";
@@ -227,6 +224,7 @@ export {
   SelectGroup,
   SelectItem,
   SelectLabel,
+  SelectPortal,
   SelectScrollDownButton,
   SelectScrollUpButton,
   SelectSeparator,

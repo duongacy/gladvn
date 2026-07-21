@@ -90,7 +90,12 @@ type ThemeProviderProps = {
  * </ThemeProvider>
  * ```
  */
-function ThemeProvider({ children, defaultMode, mode: controlledMode, onModeChange }: ThemeProviderProps) {
+function ThemeProvider({
+  children,
+  defaultMode,
+  mode: controlledMode,
+  onModeChange,
+}: ThemeProviderProps) {
   const isControlled = controlledMode !== undefined;
 
   const [internalMode, setInternalMode] = React.useState<ThemeMode>(

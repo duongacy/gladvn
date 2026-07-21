@@ -30,6 +30,7 @@ import {
   AlertDialogMedia,
   AlertDialogTitle,
   AlertDialogTrigger,
+  AlertDialogPortal,
 } from "../../components/micro/alert-dialog";
 import { Button } from "../../components/micro/button";
 import { type Size } from "../../lib/types";
@@ -368,7 +369,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
       </Button>
     }
   />
-  <AlertDialogContent>
+  <AlertDialogPortal><AlertDialogContent>
     <AlertDialogHeader>
       <AlertDialogTitle>Cấu trúc nguyên thuỷ</AlertDialogTitle>
       <AlertDialogDescription>
@@ -382,7 +383,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
         Tiếp tục
       </AlertDialogAction>
     </AlertDialogFooter>
-  </AlertDialogContent>
+  </AlertDialogContent></AlertDialogPortal>
 </AlertDialog>
 `}
         >
@@ -394,21 +395,26 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                 </Button>
               }
             />
-            <AlertDialogContent size={globalSize}>
-              <AlertDialogHeader>
-                <AlertDialogTitle>Cấu trúc nguyên thuỷ</AlertDialogTitle>
-                <AlertDialogDescription>
-                  Không có bất kỳ layout "thần thánh" nào ép buộc ở đây. Các
-                  thành phần chỉ xếp dọc (flex-col) mặc định.
-                </AlertDialogDescription>
-              </AlertDialogHeader>
-              <AlertDialogFooter>
-                <AlertDialogCancel size={globalSize}>Huỷ bỏ</AlertDialogCancel>
-                <AlertDialogAction size={globalSize}>
-                  Tiếp tục
-                </AlertDialogAction>
-              </AlertDialogFooter>
-            </AlertDialogContent>
+
+            <AlertDialogPortal>
+              <AlertDialogContent size={globalSize}>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>Cấu trúc nguyên thuỷ</AlertDialogTitle>
+                  <AlertDialogDescription>
+                    Không có bất kỳ layout "thần thánh" nào ép buộc ở đây. Các
+                    thành phần chỉ xếp dọc (flex-col) mặc định.
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogCancel size={globalSize}>
+                    Huỷ bỏ
+                  </AlertDialogCancel>
+                  <AlertDialogAction size={globalSize}>
+                    Tiếp tục
+                  </AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialogPortal>
           </AlertDialog>
         </ExampleSection>
 
@@ -423,7 +429,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
       </Button>
     }
   />
-  <AlertDialogContent className="border-warning/50">
+  <AlertDialogPortal><AlertDialogContent className="border-warning/50">
     <div className="flex flex-col-reverse items-center justify-center gap-4 py-4 sm:flex-row">
       <div className="size-16 rounded-lg bg-warning/20 border border-warning" />
       <AlertDialogHeader className="sm:text-left">
@@ -441,7 +447,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
         Tôi đã hiểu
       </AlertDialogCancel>
     </AlertDialogFooter>
-  </AlertDialogContent>
+  </AlertDialogContent></AlertDialogPortal>
 </AlertDialog>
 `}
         >
@@ -453,25 +459,31 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                 </Button>
               }
             />
-            <AlertDialogContent size={globalSize} className="border-warning/50">
-              <div className="flex flex-col-reverse items-center justify-center gap-4 py-4 sm:flex-row">
-                <div className="size-16 rounded-lg bg-warning/20 border border-warning" />
-                <AlertDialogHeader className="sm:text-left">
-                  <AlertDialogTitle className="text-warning">
-                    Cảnh báo Tùy chỉnh
-                  </AlertDialogTitle>
-                  <AlertDialogDescription>
-                    Icon đang nằm bên trái, hoặc có thể dời sang phải tuỳ ý bạn
-                    vì bạn đang kiểm soát HTML.
-                  </AlertDialogDescription>
-                </AlertDialogHeader>
-              </div>
-              <AlertDialogFooter className="border-t-0 bg-transparent">
-                <AlertDialogCancel size={globalSize} className="w-full">
-                  Tôi đã hiểu
-                </AlertDialogCancel>
-              </AlertDialogFooter>
-            </AlertDialogContent>
+
+            <AlertDialogPortal>
+              <AlertDialogContent
+                size={globalSize}
+                className="border-warning/50"
+              >
+                <div className="flex flex-col-reverse items-center justify-center gap-4 py-4 sm:flex-row">
+                  <div className="size-16 rounded-lg bg-warning/20 border border-warning" />
+                  <AlertDialogHeader className="sm:text-left">
+                    <AlertDialogTitle className="text-warning">
+                      Cảnh báo Tùy chỉnh
+                    </AlertDialogTitle>
+                    <AlertDialogDescription>
+                      Icon đang nằm bên trái, hoặc có thể dời sang phải tuỳ ý
+                      bạn vì bạn đang kiểm soát HTML.
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+                </div>
+                <AlertDialogFooter className="border-t-0 bg-transparent">
+                  <AlertDialogCancel size={globalSize} className="w-full">
+                    Tôi đã hiểu
+                  </AlertDialogCancel>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialogPortal>
           </AlertDialog>
         </ExampleSection>
       </ExampleGrid>
@@ -488,7 +500,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
       </Button>
     }
   />
-  <AlertDialogContent>
+  <AlertDialogPortal><AlertDialogContent>
     <div className="flex flex-col gap-1.5 sm:flex-row sm:gap-4">
       <AlertDialogMedia className="mx-auto mb-2 shrink-0 sm:mx-0 sm:mb-0">
         <ShieldAlertIcon className="text-warning" />
@@ -507,7 +519,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
         Xác nhận
       </AlertDialogAction>
     </AlertDialogFooter>
-  </AlertDialogContent>
+  </AlertDialogContent></AlertDialogPortal>
 </AlertDialog>
 `}
         >
@@ -519,26 +531,29 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                 </Button>
               }
             />
-            <AlertDialogContent size={globalSize}>
-              <div className="flex flex-col gap-1.5 sm:flex-row sm:gap-4">
-                <AlertDialogMedia className="mx-auto mb-2 shrink-0 sm:mx-0 sm:mb-0">
-                  <ShieldAlertIcon className="text-warning" />
-                </AlertDialogMedia>
-                <AlertDialogHeader>
-                  <AlertDialogTitle>Cảnh báo bảo mật</AlertDialogTitle>
-                  <AlertDialogDescription>
-                    AlertDialogMedia là khối div chứa icon, tự động scale kích
-                    thước theo data-size của AlertDialogContent.
-                  </AlertDialogDescription>
-                </AlertDialogHeader>
-              </div>
-              <AlertDialogFooter>
-                <AlertDialogCancel size={globalSize}>Huỷ</AlertDialogCancel>
-                <AlertDialogAction size={globalSize} color="warning">
-                  Xác nhận
-                </AlertDialogAction>
-              </AlertDialogFooter>
-            </AlertDialogContent>
+
+            <AlertDialogPortal>
+              <AlertDialogContent size={globalSize}>
+                <div className="flex flex-col gap-1.5 sm:flex-row sm:gap-4">
+                  <AlertDialogMedia className="mx-auto mb-2 shrink-0 sm:mx-0 sm:mb-0">
+                    <ShieldAlertIcon className="text-warning" />
+                  </AlertDialogMedia>
+                  <AlertDialogHeader>
+                    <AlertDialogTitle>Cảnh báo bảo mật</AlertDialogTitle>
+                    <AlertDialogDescription>
+                      AlertDialogMedia là khối div chứa icon, tự động scale kích
+                      thước theo data-size của AlertDialogContent.
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+                </div>
+                <AlertDialogFooter>
+                  <AlertDialogCancel size={globalSize}>Huỷ</AlertDialogCancel>
+                  <AlertDialogAction size={globalSize} color="warning">
+                    Xác nhận
+                  </AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialogPortal>
           </AlertDialog>
         </ExampleSection>
 
@@ -553,7 +568,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
       </Button>
     }
   />
-  <AlertDialogContent>
+  <AlertDialogPortal><AlertDialogContent>
     <AlertDialogClose className="absolute top-3 right-3 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:outline-none">
       <XIcon className="size-4" />
       <span className="sr-only">Đóng</span>
@@ -570,7 +585,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
       <AlertDialogCancel>Huỷ</AlertDialogCancel>
       <AlertDialogAction>Đồng ý</AlertDialogAction>
     </AlertDialogFooter>
-  </AlertDialogContent>
+  </AlertDialogContent></AlertDialogPortal>
 </AlertDialog>
 `}
         >
@@ -582,24 +597,29 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                 </Button>
               }
             />
-            <AlertDialogContent size={globalSize}>
-              <AlertDialogClose className="absolute top-3 right-3 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:outline-none">
-                <XIcon className="size-4" />
-                <span className="sr-only">Đóng</span>
-              </AlertDialogClose>
-              <AlertDialogHeader>
-                <AlertDialogTitle>AlertDialogClose</AlertDialogTitle>
-                <AlertDialogDescription>
-                  Khác với AlertDialogCancel (luôn render Button),
-                  AlertDialogClose là bare-bone — bạn có thể render icon X,
-                  link, hay bất kỳ thứ gì.
-                </AlertDialogDescription>
-              </AlertDialogHeader>
-              <AlertDialogFooter>
-                <AlertDialogCancel size={globalSize}>Huỷ</AlertDialogCancel>
-                <AlertDialogAction size={globalSize}>Đồng ý</AlertDialogAction>
-              </AlertDialogFooter>
-            </AlertDialogContent>
+
+            <AlertDialogPortal>
+              <AlertDialogContent size={globalSize}>
+                <AlertDialogClose className="absolute top-3 right-3 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:outline-none">
+                  <XIcon className="size-4" />
+                  <span className="sr-only">Đóng</span>
+                </AlertDialogClose>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>AlertDialogClose</AlertDialogTitle>
+                  <AlertDialogDescription>
+                    Khác với AlertDialogCancel (luôn render Button),
+                    AlertDialogClose là bare-bone — bạn có thể render icon X,
+                    link, hay bất kỳ thứ gì.
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogCancel size={globalSize}>Huỷ</AlertDialogCancel>
+                  <AlertDialogAction size={globalSize}>
+                    Đồng ý
+                  </AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialogPortal>
           </AlertDialog>
         </ExampleSection>
       </ExampleGrid>
@@ -616,7 +636,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
       </Button>
     }
   />
-  <AlertDialogContent>
+  <AlertDialogPortal><AlertDialogContent>
     <div className="flex flex-col gap-1.5 sm:flex-row sm:gap-4">
       <AlertDialogMedia className="mx-auto mb-2 shrink-0 sm:mx-0 sm:mb-0">
         <TrashIcon className="text-destructive" />
@@ -634,7 +654,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
         Xoá vĩnh viễn
       </AlertDialogAction>
     </AlertDialogFooter>
-  </AlertDialogContent>
+  </AlertDialogContent></AlertDialogPortal>
 </AlertDialog>
 `}
         >
@@ -646,25 +666,30 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                 </Button>
               }
             />
-            <AlertDialogContent size={globalSize}>
-              <div className="flex flex-col gap-1.5 sm:flex-row sm:gap-4">
-                <AlertDialogMedia className="mx-auto mb-2 shrink-0 sm:mx-0 sm:mb-0">
-                  <TrashIcon className="text-destructive" />
-                </AlertDialogMedia>
-                <AlertDialogHeader>
-                  <AlertDialogTitle>Xoá tài khoản vĩnh viễn?</AlertDialogTitle>
-                  <AlertDialogDescription>
-                    Tất cả dữ liệu sẽ bị xoá và không thể khôi phục.
-                  </AlertDialogDescription>
-                </AlertDialogHeader>
-              </div>
-              <AlertDialogFooter>
-                <AlertDialogCancel size={globalSize}>Huỷ</AlertDialogCancel>
-                <AlertDialogAction size={globalSize} color="destructive">
-                  Xoá vĩnh viễn
-                </AlertDialogAction>
-              </AlertDialogFooter>
-            </AlertDialogContent>
+
+            <AlertDialogPortal>
+              <AlertDialogContent size={globalSize}>
+                <div className="flex flex-col gap-1.5 sm:flex-row sm:gap-4">
+                  <AlertDialogMedia className="mx-auto mb-2 shrink-0 sm:mx-0 sm:mb-0">
+                    <TrashIcon className="text-destructive" />
+                  </AlertDialogMedia>
+                  <AlertDialogHeader>
+                    <AlertDialogTitle>
+                      Xoá tài khoản vĩnh viễn?
+                    </AlertDialogTitle>
+                    <AlertDialogDescription>
+                      Tất cả dữ liệu sẽ bị xoá và không thể khôi phục.
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+                </div>
+                <AlertDialogFooter>
+                  <AlertDialogCancel size={globalSize}>Huỷ</AlertDialogCancel>
+                  <AlertDialogAction size={globalSize} color="destructive">
+                    Xoá vĩnh viễn
+                  </AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialogPortal>
           </AlertDialog>
         </ExampleSection>
 
@@ -679,7 +704,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
       </Button>
     }
   />
-  <AlertDialogContent>
+  <AlertDialogPortal><AlertDialogContent>
     <div className="flex flex-col gap-1.5 sm:flex-row sm:gap-4">
       <AlertDialogMedia className="mx-auto mb-2 shrink-0 sm:mx-0 sm:mb-0">
         <LogOutIcon />
@@ -703,7 +728,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
         Đăng xuất
       </AlertDialogAction>
     </AlertDialogFooter>
-  </AlertDialogContent>
+  </AlertDialogContent></AlertDialogPortal>
 </AlertDialog>
 `}
         >
@@ -715,32 +740,35 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                 </Button>
               }
             />
-            <AlertDialogContent size={globalSize}>
-              <div className="flex flex-col gap-1.5 sm:flex-row sm:gap-4">
-                <AlertDialogMedia className="mx-auto mb-2 shrink-0 sm:mx-0 sm:mb-0">
-                  <LogOutIcon />
-                </AlertDialogMedia>
-                <AlertDialogHeader>
-                  <AlertDialogTitle>Đăng xuất?</AlertDialogTitle>
-                  <AlertDialogDescription>
-                    Phiên đăng nhập của bạn sẽ kết thúc. Bạn cần nhập lại mật
-                    khẩu để quay lại.
-                  </AlertDialogDescription>
-                </AlertDialogHeader>
-              </div>
-              <AlertDialogFooter>
-                <AlertDialogCancel size={globalSize} variant="ghost">
-                  Ở lại
-                </AlertDialogCancel>
-                <AlertDialogAction
-                  size={globalSize}
-                  variant="soft"
-                  color="info"
-                >
-                  Đăng xuất
-                </AlertDialogAction>
-              </AlertDialogFooter>
-            </AlertDialogContent>
+
+            <AlertDialogPortal>
+              <AlertDialogContent size={globalSize}>
+                <div className="flex flex-col gap-1.5 sm:flex-row sm:gap-4">
+                  <AlertDialogMedia className="mx-auto mb-2 shrink-0 sm:mx-0 sm:mb-0">
+                    <LogOutIcon />
+                  </AlertDialogMedia>
+                  <AlertDialogHeader>
+                    <AlertDialogTitle>Đăng xuất?</AlertDialogTitle>
+                    <AlertDialogDescription>
+                      Phiên đăng nhập của bạn sẽ kết thúc. Bạn cần nhập lại mật
+                      khẩu để quay lại.
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+                </div>
+                <AlertDialogFooter>
+                  <AlertDialogCancel size={globalSize} variant="ghost">
+                    Ở lại
+                  </AlertDialogCancel>
+                  <AlertDialogAction
+                    size={globalSize}
+                    variant="soft"
+                    color="info"
+                  >
+                    Đăng xuất
+                  </AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialogPortal>
           </AlertDialog>
         </ExampleSection>
       </ExampleGrid>
@@ -836,7 +864,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
             </Button>
           }
         />
-        <AlertDialogContent size="sm">
+        <AlertDialogPortal><AlertDialogContent size="sm">
           <div className="h-24 w-full rounded-md bg-muted flex items-center justify-center text-xs text-muted-foreground">
             Custom Image
           </div>
@@ -852,7 +880,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
               Cancel
             </AlertDialogCancel>
           </AlertDialogFooter>
-        </AlertDialogContent>
+        </AlertDialogContent></AlertDialogPortal>
       </AlertDialog>
     </div>
 
@@ -953,23 +981,30 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                     </Button>
                   }
                 />
-                <AlertDialogContent size="sm">
-                  <div className="h-24 w-full rounded-md bg-muted flex items-center justify-center text-xs text-muted-foreground">
-                    Custom Image
-                  </div>
-                  <AlertDialogHeader>
-                    <AlertDialogTitle>Tùy biến 100%</AlertDialogTitle>
-                  </AlertDialogHeader>
-                  <AlertDialogFooter className="flex-col gap-2 sm:flex-col">
-                    <Button className="w-full">Action 1</Button>
-                    <Button color="secondary" variant="soft" className="w-full">
-                      Action 2
-                    </Button>
-                    <AlertDialogCancel className="w-full">
-                      Cancel
-                    </AlertDialogCancel>
-                  </AlertDialogFooter>
-                </AlertDialogContent>
+
+                <AlertDialogPortal>
+                  <AlertDialogContent size="sm">
+                    <div className="h-24 w-full rounded-md bg-muted flex items-center justify-center text-xs text-muted-foreground">
+                      Custom Image
+                    </div>
+                    <AlertDialogHeader>
+                      <AlertDialogTitle>Tùy biến 100%</AlertDialogTitle>
+                    </AlertDialogHeader>
+                    <AlertDialogFooter className="flex-col gap-2 sm:flex-col">
+                      <Button className="w-full">Action 1</Button>
+                      <Button
+                        color="secondary"
+                        variant="soft"
+                        className="w-full"
+                      >
+                        Action 2
+                      </Button>
+                      <AlertDialogCancel className="w-full">
+                        Cancel
+                      </AlertDialogCancel>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                </AlertDialogPortal>
               </AlertDialog>
             </div>
 

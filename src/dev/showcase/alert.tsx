@@ -37,7 +37,10 @@ function AlertMacroShowcase({ globalSize }: { globalSize: Size }) {
 
   return (
     <div className="space-y-10 mt-6">
-      <ExampleSection label="Controlled vs Uncontrolled" fullWidth codeString={`<div className="space-y-4 px-2 py-4">
+      <ExampleSection
+        label="Controlled vs Uncontrolled"
+        fullWidth
+        codeString={`<div className="space-y-4 px-2 py-4">
           <DocsUl>
             <DocsLi>
               <b>Uncontrolled (Mặc định):</b> Nếu truyền{" "}
@@ -51,7 +54,8 @@ function AlertMacroShowcase({ globalSize }: { globalSize: Size }) {
               hãy render nó có điều kiện bên ngoài.
             </DocsLi>
           </DocsUl>
-        </div>`}>
+        </div>`}
+      >
         <div className="space-y-4 px-2 py-4">
           <DocsUl>
             <DocsLi>

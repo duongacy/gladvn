@@ -11,7 +11,6 @@ import * as React from "react";
 import { PreviewCard as PreviewCardPrimitive } from "@base-ui/react/preview-card";
 
 import { cn } from "../../lib/utils";
-import { ThemeWrapper } from "./theme-provider";
 
 /**
  * @description For sighted users to preview content available behind a link.
@@ -38,6 +37,8 @@ const HoverCardTrigger = React.forwardRef<
 ));
 HoverCardTrigger.displayName = "HoverCardTrigger";
 
+const HoverCardPortal = PreviewCardPrimitive.Portal;
+
 const HoverCardContent = React.forwardRef<
   React.ElementRef<typeof PreviewCardPrimitive.Popup>,
   React.ComponentPropsWithoutRef<typeof PreviewCardPrimitive.Popup> &
@@ -58,9 +59,7 @@ const HoverCardContent = React.forwardRef<
     ref,
   ) => {
     return (
-      <PreviewCardPrimitive.Portal data-slot="hover-card-portal">
-        <ThemeWrapper>
-          <PreviewCardPrimitive.Positioner
+      <PreviewCardPrimitive.Positioner
             align={align}
             alignOffset={alignOffset}
             side={side}
@@ -79,11 +78,9 @@ const HoverCardContent = React.forwardRef<
               {...props}
             />
           </PreviewCardPrimitive.Positioner>
-        </ThemeWrapper>
-      </PreviewCardPrimitive.Portal>
     );
   },
 );
 HoverCardContent.displayName = "HoverCardContent";
 
-export { HoverCard, HoverCardContent, HoverCardTrigger };
+export { HoverCard, HoverCardContent, HoverCardTrigger, HoverCardPortal };

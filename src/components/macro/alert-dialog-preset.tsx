@@ -11,7 +11,9 @@ import {
   AlertDialogMedia,
   AlertDialogTitle,
   AlertDialogTrigger,
+  AlertDialogPortal,
 } from "../../components/micro/alert-dialog";
+import { ThemeWrapper } from "../../components/micro/theme-provider";
 import { type Color, type Size, type Variant } from "../../lib/types";
 import { cn } from "../../lib/utils";
 import * as React from "react";
@@ -56,8 +58,10 @@ function AlertDialogPreset({
   return (
     <AlertDialog {...props}>
       {trigger && <AlertDialogTrigger render={trigger} />}
-      <AlertDialogContent size={size}>
-        <div
+      <AlertDialogPortal>
+        <ThemeWrapper>
+          <AlertDialogContent size={size}>
+            <div
           className={cn("flex flex-col gap-1.5", {
             "sm:flex-row sm:gap-4": !!icon,
           })}
@@ -98,8 +102,10 @@ function AlertDialogPreset({
               </AlertDialogAction>
             )}
           </AlertDialogFooter>
-        )}
-      </AlertDialogContent>
+          )}
+        </AlertDialogContent>
+        </ThemeWrapper>
+      </AlertDialogPortal>
     </AlertDialog>
   );
 }

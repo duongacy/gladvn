@@ -11,7 +11,9 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
+  PopoverPortal,
 } from "../../components/micro/popover";
+import { ThemeWrapper } from "../../components/micro/theme-provider";
 import { type Size } from "../../lib/types";
 import { cn } from "../../lib/utils";
 import { FieldPreset } from "./field-preset";
@@ -214,64 +216,68 @@ const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
             <CalendarIcon />
             <span className="flex-1 truncate text-left min-w-0">{triggerLabel}</span>
           </PopoverTrigger>
-          <PopoverContent
-            side="bottom"
-            align="start"
-            sideOffset={4}
-            className="p-0 w-auto"
-          >
-              {mode === "single" ? (
-                <Calendar
-                  mode="single"
-                  size={size}
-                  locale={locale}
-                  numberOfMonths={numberOfMonths}
-                  captionLayout={captionLayout}
-                  disabled={disabledDates}
-                  startMonth={startMonth}
-                  endMonth={endMonth}
-                  defaultMonth={defaultMonth ?? value}
-                  selected={tempValue}
-                  onSelect={setTempValue}
-                />
-              ) : (
-                <Calendar
-                  mode="range"
-                  size={size}
-                  locale={locale}
-                  numberOfMonths={numberOfMonths ?? 1}
-                  captionLayout={captionLayout}
-                  disabled={disabledDates}
-                  startMonth={startMonth}
-                  endMonth={endMonth}
-                  defaultMonth={defaultMonth ?? rangeValue?.from}
-                  selected={tempRangeValue}
-                  onSelect={setTempRangeValue}
-                />
-              )}
-              <div className="flex items-center justify-end gap-2 px-3 pb-3 pt-1">
-                <Button
-                  variant="outline"
-                  size={size}
-                  onClick={() => setOpen(false)}
-                >
-                  Huỷ
-                </Button>
-                <Button
-                  size={size}
-                  onClick={() => {
-                    if (mode === "single") {
-                      onValueChange?.(tempValue);
-                    } else {
-                      onRangeChange?.(tempRangeValue);
-                    }
-                    setOpen(false);
-                  }}
-                >
-                  Xác nhận
-                </Button>
-              </div>
-          </PopoverContent>
+          <PopoverPortal>
+            <ThemeWrapper>
+              <PopoverContent
+                side="bottom"
+                align="start"
+                sideOffset={4}
+                className="p-0 w-auto"
+              >
+                  {mode === "single" ? (
+                    <Calendar
+                      mode="single"
+                      size={size}
+                      locale={locale}
+                      numberOfMonths={numberOfMonths}
+                      captionLayout={captionLayout}
+                      disabled={disabledDates}
+                      startMonth={startMonth}
+                      endMonth={endMonth}
+                      defaultMonth={defaultMonth ?? value}
+                      selected={tempValue}
+                      onSelect={setTempValue}
+                    />
+                  ) : (
+                    <Calendar
+                      mode="range"
+                      size={size}
+                      locale={locale}
+                      numberOfMonths={numberOfMonths ?? 1}
+                      captionLayout={captionLayout}
+                      disabled={disabledDates}
+                      startMonth={startMonth}
+                      endMonth={endMonth}
+                      defaultMonth={defaultMonth ?? rangeValue?.from}
+                      selected={tempRangeValue}
+                      onSelect={setTempRangeValue}
+                    />
+                  )}
+                  <div className="flex items-center justify-end gap-2 px-3 pb-3 pt-1">
+                    <Button
+                      variant="outline"
+                      size={size}
+                      onClick={() => setOpen(false)}
+                    >
+                      Huỷ
+                    </Button>
+                    <Button
+                      size={size}
+                      onClick={() => {
+                        if (mode === "single") {
+                          onValueChange?.(tempValue);
+                        } else {
+                          onRangeChange?.(tempRangeValue);
+                        }
+                        setOpen(false);
+                      }}
+                    >
+                      Xác nhận
+                    </Button>
+                  </div>
+              </PopoverContent>
+            </ThemeWrapper>
+          </PopoverPortal>
         </Popover>
       </FieldPreset>
     );

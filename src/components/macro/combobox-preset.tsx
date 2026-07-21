@@ -9,7 +9,9 @@ import {
   ComboboxList,
   ComboboxTrigger,
   useComboboxContext,
+  ComboboxPortal,
 } from "../../components/micro/combobox";
+import { ThemeWrapper } from "../../components/micro/theme-provider";
 import {
   InputGroup,
   InputGroupAddon,
@@ -99,22 +101,26 @@ const ComboboxPreset = React.forwardRef<HTMLInputElement, ComboboxPresetProps>(
             aria-invalid={!!errorMessage || undefined}
             disabled={disabled}
           />
-          <ComboboxContent>
-            <ComboboxEmpty>{emptyText}</ComboboxEmpty>
-            <ComboboxList>
-              <ComboboxGroup>
-                {options.map((option) => (
-                  <ComboboxItem
-                    key={option.value}
-                    value={option.value}
-                    disabled={option.disabled}
-                  >
-                    {option.label}
-                  </ComboboxItem>
-                ))}
-              </ComboboxGroup>
-            </ComboboxList>
-          </ComboboxContent>
+          <ComboboxPortal>
+            <ThemeWrapper>
+              <ComboboxContent>
+                <ComboboxEmpty>{emptyText}</ComboboxEmpty>
+                <ComboboxList>
+                  <ComboboxGroup>
+                    {options.map((option) => (
+                      <ComboboxItem
+                        key={option.value}
+                        value={option.value}
+                        disabled={option.disabled}
+                      >
+                        {option.label}
+                      </ComboboxItem>
+                    ))}
+                  </ComboboxGroup>
+                </ComboboxList>
+              </ComboboxContent>
+            </ThemeWrapper>
+          </ComboboxPortal>
         </Combobox>
       </FieldPreset>
     );

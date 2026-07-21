@@ -10,7 +10,9 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
+  DialogPortal,
 } from "../../components/micro/dialog";
+import { ThemeWrapper } from "../../components/micro/theme-provider";
 import { type Size } from "../../lib/types";
 import { cn } from "../../lib/utils";
 import { XIcon } from "lucide-react";
@@ -46,8 +48,10 @@ const DialogPreset = React.forwardRef<HTMLDivElement, DialogPresetProps>(
     return (
       <Dialog {...props}>
         {trigger && <DialogTrigger render={trigger} />}
-        <DialogContent
-          ref={ref}
+        <DialogPortal>
+          <ThemeWrapper>
+            <DialogContent
+              ref={ref}
           className={cn(
             size === "sm" && "sm:max-w-md",
             size === "md" && "sm:max-w-lg",
@@ -87,7 +91,9 @@ const DialogPreset = React.forwardRef<HTMLDivElement, DialogPresetProps>(
               <span className="sr-only">Close</span>
             </DialogClose>
           )}
-        </DialogContent>
+            </DialogContent>
+          </ThemeWrapper>
+        </DialogPortal>
       </Dialog>
     );
   },

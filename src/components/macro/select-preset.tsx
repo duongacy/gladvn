@@ -6,7 +6,9 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
+  SelectPortal,
 } from "../../components/micro/select";
+import { ThemeWrapper } from "../../components/micro/theme-provider";
 import { type Size } from "../../lib/types";
 import * as React from "react";
 import { FieldPreset } from "./field-preset";
@@ -107,50 +109,54 @@ const SelectPreset = React.forwardRef<
           >
             <SelectValue placeholder={placeholder} />
           </SelectTrigger>
-          <SelectContent>
-            {(() => {
-              const groups = new Map<
-                string | undefined,
-                SelectPresetOption[]
-              >();
-              options.forEach((opt) => {
-                const key = opt.group;
-                if (!groups.has(key)) {
-                  groups.set(key, []);
-                }
-                groups.get(key)!.push(opt);
-              });
+          <SelectPortal>
+            <ThemeWrapper>
+              <SelectContent>
+                {(() => {
+                  const groups = new Map<
+                    string | undefined,
+                    SelectPresetOption[]
+                  >();
+                  options.forEach((opt) => {
+                    const key = opt.group;
+                    if (!groups.has(key)) {
+                      groups.set(key, []);
+                    }
+                    groups.get(key)!.push(opt);
+                  });
 
-              return Array.from(groups.entries()).map(([groupLabel, opts]) => {
-                if (groupLabel) {
-                  return (
-                    <SelectGroup key={groupLabel}>
-                      <SelectLabel>{groupLabel}</SelectLabel>
-                      {opts.map((opt) => (
-                        <SelectItem
-                          key={opt.value}
-                          value={opt.value}
-                          disabled={opt.disabled}
-                        >
-                          {opt.dropdownLabel || opt.label}
-                        </SelectItem>
-                      ))}
-                    </SelectGroup>
-                  );
-                }
-                // Items without a group
-                return opts.map((opt) => (
-                  <SelectItem
-                    key={opt.value}
-                    value={opt.value}
-                    disabled={opt.disabled}
-                  >
-                    {opt.dropdownLabel || opt.label}
-                  </SelectItem>
-                ));
-              });
-            })()}
-          </SelectContent>
+                  return Array.from(groups.entries()).map(([groupLabel, opts]) => {
+                    if (groupLabel) {
+                      return (
+                        <SelectGroup key={groupLabel}>
+                          <SelectLabel>{groupLabel}</SelectLabel>
+                          {opts.map((opt) => (
+                            <SelectItem
+                              key={opt.value}
+                              value={opt.value}
+                              disabled={opt.disabled}
+                            >
+                              {opt.dropdownLabel || opt.label}
+                            </SelectItem>
+                          ))}
+                        </SelectGroup>
+                      );
+                    }
+                    // Items without a group
+                    return opts.map((opt) => (
+                      <SelectItem
+                        key={opt.value}
+                        value={opt.value}
+                        disabled={opt.disabled}
+                      >
+                        {opt.dropdownLabel || opt.label}
+                      </SelectItem>
+                    ));
+                  });
+                })()}
+              </SelectContent>
+            </ThemeWrapper>
+          </SelectPortal>
         </Select>
       </FieldPreset>
     );

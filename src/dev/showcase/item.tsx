@@ -31,7 +31,7 @@ function ItemMicroShowcase({ globalSize }: { globalSize: Size }) {
       <ExampleGrid>
         <ExampleSection
           label="Basic Content"
-          description="Một mục có cấu trúc với tiêu đề và mô tả."
+          description="Item cơ bản với tiêu đề và mô tả."
           codeString={`<Item className="w-full">
   <ItemContent>
     <ItemTitle>Basic Item Content</ItemTitle>
@@ -54,7 +54,7 @@ function ItemMicroShowcase({ globalSize }: { globalSize: Size }) {
 
         <ExampleSection
           label="With Media"
-          description="Vật phẩm có biểu tượng hoặc hình đại diện."
+          description="Item kèm icon hoặc avatar."
           codeString={`<Item className="w-full">
   <ItemMedia className="bg-primary/10 text-primary rounded-md p-2">
     <UserIcon className="size-4" />
@@ -81,7 +81,7 @@ function ItemMicroShowcase({ globalSize }: { globalSize: Size }) {
       <ExampleGrid>
         <ExampleSection
           label="Variants"
-          description="Các phong cách hình ảnh khác nhau (phác thảo, tắt tiếng)."
+          description="Các variant khác nhau: outline, muted."
           codeString={`<div className="flex flex-col gap-3 w-full">
   <Item variant="outline">
     <ItemContent>
@@ -112,7 +112,7 @@ function ItemMicroShowcase({ globalSize }: { globalSize: Size }) {
 
         <ExampleSection
           label="Media Variants"
-          description="Mục có thể được tạo kiểu cho phương tiện cụ thể như biểu tượng hoặc hình ảnh."
+          description="ItemMedia hỗ trợ các variant riêng: icon và image."
           codeString={`<div className="flex flex-col gap-3 w-full">
   <Item>
     <ItemMedia variant="icon" className="bg-primary/10 text-primary">
@@ -155,7 +155,7 @@ function ItemMicroShowcase({ globalSize }: { globalSize: Size }) {
 
         <ExampleSection
           label="With Actions"
-          description="Mục có các nút hành động ở cuối."
+          description="Item có các nút hành động ở cuối (ItemActions)."
           codeString={`<Item className="w-full">
   <ItemContent>
     <ItemTitle>Actionable Item</ItemTitle>
@@ -189,7 +189,7 @@ function ItemMicroShowcase({ globalSize }: { globalSize: Size }) {
 
       <ExampleSection
         label="Item Group"
-        description="Các mục được nhóm bằng dấu phân cách."
+        description="Nhóm các Item và phân cách bằng ItemSeparator."
         codeString={`<ItemGroup className="w-full max-w-sm mx-auto">
   <Item>
     <ItemContent>
@@ -234,7 +234,7 @@ function ItemMicroShowcase({ globalSize }: { globalSize: Size }) {
 
       <ExampleSection
         label="With Header and Footer"
-        description="Mục phức tạp với các vùng vị trí cụ thể."
+        description="Item phức tạp với ItemHeader và ItemFooter."
         codeString={`<Item
   className="w-full max-w-sm mx-auto flex-col items-start gap-2"
 >
@@ -274,7 +274,7 @@ export default function ItemShowcase() {
   return (
     <Showcase
       title="Item"
-      description="Một vùng chứa linh hoạt cho các mục danh sách hoặc khối nội dung có cấu trúc."
+      description="Container linh hoạt cho danh sách hoặc khối nội dung có cấu trúc."
       generalConcept={
         <ShowcaseDocs>
           <DocsH3>Item</DocsH3>

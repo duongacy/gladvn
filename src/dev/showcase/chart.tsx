@@ -7,19 +7,45 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "../../components/micro/chart";
-import { ExampleSection, SectionHeader } from "../../dev/components/showcase";
+import {
+  DocsCode,
+  DocsP,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+} from "../../dev/components/showcase";
 
 export default function ChartShowcase() {
   return (
-    <div className="space-y-10">
-      <SectionHeader
-        title="Chart"
-        description="Biểu đồ đẹp và đáp ứng được xây dựng bằng Recharts."
-      />
+    <Showcase
+      title="Chart"
+      description="Biểu đồ đẹp và responsive, xây dựng trên nền Recharts."
+      generalConcept={
+        <ShowcaseDocs>
+          <DocsP>
+            Component wrapper cho thư viện <DocsCode>Recharts</DocsCode>. Cung cấp{" "}
+            <DocsCode>ChartContainer</DocsCode> để cấu hình theme màu sắc,{" "}
+            <DocsCode>ChartTooltip</DocsCode> và <DocsCode>ChartLegend</DocsCode>{" "}
+            để hiển thị thông tin bổ sung khi hover.
+          </DocsP>
+        </ShowcaseDocs>
+      }
+      tabs={[
+        {
+          label: "Micro (Primitive)",
+          content: <ChartMicroShowcase />,
+        },
+      ]}
+    />
+  );
+}
 
+function ChartMicroShowcase() {
+  return (
+    <div className="space-y-10 mt-6">
       <ExampleSection
         label="Bar Chart"
-        description="Biểu đồ thanh đơn giản với chú giải công cụ và chú giải."
+        description="Biểu đồ cột cơ bản kèm tooltip và legend."
         codeString={`const chartData = [
   { month: "January", desktop: 186, mobile: 80 },
   { month: "February", desktop: 305, mobile: 200 },
@@ -41,10 +67,7 @@ const chartConfig = {
 } satisfies ChartConfig
 
 <ChartContainer
-  config={{
-    desktop: { label: "Desktop", color: "hsl(var(--chart-1))" },
-    mobile: { label: "Mobile", color: "hsl(var(--chart-2))" },
-  }}
+  config={chartConfig}
   className="min-h-[200px] w-full max-w-lg"
 >
   <BarChart accessibilityLayer data={chartData}>

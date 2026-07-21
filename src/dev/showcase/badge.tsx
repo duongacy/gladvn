@@ -17,7 +17,7 @@ export default function BadgeShowcase() {
   return (
     <Showcase
       title="Badge"
-      description="Hiển thị huy hiệu hoặc nhãn phân loại nội dung."
+      description="Hiển thị nhãn trạng thái, phân loại hoặc đếm số lượng."
       generalConcept={
         <ShowcaseDocs>
           <DocsP>
@@ -57,7 +57,7 @@ function BadgeMicroShowcase({ globalSize }: { globalSize: Size }) {
       <ExampleGrid>
         <ExampleSection
           label="Solid Colors"
-          description="Mã thông báo màu ngữ nghĩa được áp dụng cho huy hiệu (Solid)."
+          description="Các màu semantic áp dụng cho Badge dạng Solid."
           codeString={`<Badge color="primary">Primary</Badge>
 <Badge color="secondary">Secondary</Badge>
 <Badge color="destructive">Destructive</Badge>
@@ -77,7 +77,7 @@ function BadgeMicroShowcase({ globalSize }: { globalSize: Size }) {
 
         <ExampleSection
           label="Soft Colors"
-          description="Mã thông báo màu ngữ nghĩa được áp dụng cho huy hiệu (Soft)."
+          description="Các màu semantic áp dụng cho Badge dạng Soft."
           codeString={`<Badge variant="soft" color="primary">Primary</Badge>
 <Badge variant="soft" color="secondary">Secondary</Badge>
 <Badge variant="soft" color="destructive">Destructive</Badge>
@@ -113,7 +113,7 @@ function BadgeMicroShowcase({ globalSize }: { globalSize: Size }) {
       {/* ── With Icons ── */}
       <ExampleSection
         label="With Icons"
-        description="Huy hiệu có biểu tượng nội tuyến để bổ sung ngữ cảnh."
+        description="Badge kèm icon để bổ sung ngữ cảnh."
         codeString={`<Badge color="success">
   <CheckIcon className="size-3.5" />
   Approved
@@ -201,7 +201,7 @@ function BadgeMicroShowcase({ globalSize }: { globalSize: Size }) {
       {/* ── As Link ── */}
       <ExampleSection
         label="As Link"
-        description="Huy hiệu được hiển thị dưới dạng phần tử neo bằng cách sử dụng giá trị hiển thị."
+        description="Badge render dưới dạng thẻ a nhờ prop render."
         codeString={`<Badge render={<a href="#" />}>
   Clickable Badge
 </Badge>

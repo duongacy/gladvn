@@ -829,10 +829,10 @@ export default function OverviewSection() {
           </div>
 
           <div className="relative z-10 max-w-3xl mb-14 space-y-5">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-warning/20 text-warning-foreground text-xs font-bold uppercase tracking-wider mb-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-warning/20 text-warning text-xs font-bold uppercase tracking-wider mb-2">
               <SparklesIcon className="size-3.5" /> Killer Feature
             </div>
-            <h3 className="text-3xl md:text-5xl font-extrabold tracking-tight text-warning-foreground">
+            <h3 className="text-3xl md:text-5xl font-extrabold tracking-tight text-warning">
               Scoped Theme Tunnel
             </h3>
             <p className="text-muted-foreground text-xl leading-relaxed">

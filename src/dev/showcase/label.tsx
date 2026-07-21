@@ -99,7 +99,7 @@ export default function LabelShowcase() {
   return (
     <Showcase
       title="Label"
-      description="Hiển thị nhãn có thể truy cập được liên kết với các điều khiển."
+      description="Nhãn gắn với form control, cải thiện accessibility."
       generalConcept={
         <ShowcaseDocs>
           <DocsP>

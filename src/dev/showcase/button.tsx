@@ -70,7 +70,7 @@ function ButtonMicroShowcase({ globalSize }: { globalSize: Size }) {
       {/* ── Colors ── */}
       <ExampleSection
         label="Colors"
-        description="Màu sắc theo ngữ nghĩa đi kèm với biến thể solid."
+        description="Các màu semantic đi kèm variant solid."
         codeString={`<Button color="primary">
   Primary
 </Button>
@@ -133,7 +133,7 @@ function ButtonMicroShowcase({ globalSize }: { globalSize: Size }) {
       <ExampleGrid>
         <ExampleSection
           label="With Icon"
-          description="Nút kèm biểu tượng ở đầu hoặc cuối."
+          description="Button kèm icon ở đầu hoặc cuối."
           codeString={`<Button variant="outline">
   <ButtonIcon render={<MailIcon />} />
   Login with Email
@@ -156,7 +156,7 @@ function ButtonMicroShowcase({ globalSize }: { globalSize: Size }) {
 
         <ExampleSection
           label="Icon Only"
-          description="Nút hình vuông chỉ chứa biểu tượng."
+          description="Button vuông chỉ chứa icon."
           codeString={`<Button variant="outline" iconOnly={true}>
   <ButtonIcon render={<PlusIcon />} />
 </Button>
@@ -183,7 +183,7 @@ function ButtonMicroShowcase({ globalSize }: { globalSize: Size }) {
       {/* ── Disabled ── */}
       <ExampleSection
         label="Disabled"
-        description="Trạng thái nút không thể tương tác."
+        description="Button không thể tương tác, hiển thị mờ."
         codeString={`<Button disabled>
   Solid Disabled
 </Button>
@@ -222,7 +222,7 @@ function ButtonMicroShowcase({ globalSize }: { globalSize: Size }) {
       <ExampleGrid>
         <ExampleSection
           label="Loading State"
-          description="Nút kèm spinner trong quá trình xử lý bất đồng bộ."
+          description="Button kèm Spinner khi đang xử lý async."
           fullWidth
           codeString={`<Button color="primary" className="w-full" disabled={isSending} onClick={handleSend}>
   {isSending && <Spinner />}
@@ -251,7 +251,7 @@ function ButtonMicroShowcase({ globalSize }: { globalSize: Size }) {
 
         <ExampleSection
           label="Destructive"
-          description="Xác nhận một hành động nguy hiểm."
+          description="Xác nhận hành động nguy hiểm (xoá dữ liệu, huỷ tài khoản...)."
           fullWidth
           codeString={`<Button color="destructive" className="w-full mt-1" disabled={isDeleting} onClick={handleDelete}>
   {isDeleting && <Spinner />}
@@ -288,13 +288,13 @@ export default function ButtonShowcase() {
   return (
     <Showcase
       title="Button"
-      description="Kích hoạt một hành động hoặc sự kiện, chẳng hạn như gửi biểu mẫu hoặc mở hộp thoại."
+      description="Kích hoạt hành động hoặc sự kiện — ví dụ: submit form, mở dialog."
       generalConcept={
         <ShowcaseDocs>
           <DocsP>
-            Thành phần cơ bản để người dùng tương tác. Hỗ trợ nhiều biến thể,
-            màu sắc, icon, và trạng thái loading/disabled. Thường được sử dụng
-            trong form, hộp thoại, hoặc thanh công cụ.
+            Thành phần cơ bản để người dùng tương tác. Hỗ trợ nhiều variant,
+            màu sắc, icon, và trạng thái loading/disabled. Thường được dùng
+            trong form, dialog, hoặc toolbar.
           </DocsP>
         </ShowcaseDocs>
       }

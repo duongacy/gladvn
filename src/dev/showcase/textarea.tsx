@@ -164,7 +164,7 @@ return (
 
       <ExampleSection
         label="Thực tế sử dụng (Real-world Form)"
-        description="Trình bày bố cục trong ngữ cảnh biểu mẫu rộng hơn."
+        description="Bố cục thực tế trong một form hoàn chỉnh."
         fullWidth
         codeString={`<div className="w-full max-w-lg rounded-xl border border-border bg-card p-5 shadow-sm">
   <h3 className="mb-4 font-semibold">Tạo Ticket Hỗ Trợ</h3>

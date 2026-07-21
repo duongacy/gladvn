@@ -113,14 +113,6 @@ export default function OverviewSection() {
         </div>
 
         <div className="container relative z-10 flex flex-col items-center text-center px-4">
-          {/* Logo mark */}
-          <div
-            className="mb-8 animate-fade-up"
-            style={{ animationFillMode: "both" }}
-          >
-            <GladcnLogo className="size-14 mx-auto" />
-          </div>
-
           <div
             className="inline-flex items-center gap-2 px-4 py-1.5 mb-8 text-sm font-medium rounded-full border border-primary/20 bg-background/50 backdrop-blur-md shadow-sm animate-fade-up"
           >
@@ -314,7 +306,7 @@ export default function OverviewSection() {
             Phần lớn component library hỏng ở năm thứ hai — khi team cần thay
             đổi nhưng không ai dám sửa vì không biết gì sẽ vỡ. gladcn được xây
             trên{" "}
-            <strong className="text-foreground">12 nguyên tắc tường minh</strong>
+            <strong className="text-foreground">Các nguyên tắc tường minh</strong>
             {" "}để bạn luôn biết mình đang sửa ở tầng nào và điều gì sẽ bị ảnh
             hưởng.
           </p>

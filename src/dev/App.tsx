@@ -163,13 +163,9 @@ export default function App() {
                 <MenuIcon className="size-5" />
               )}
             </button>
-            <GladcnLogo variant="wordmark" />
-            <Badge
-              color="secondary"
-              className="text-[10px] px-1.5 py-0 font-medium hidden sm:inline-flex"
-            >
-              v0.2.3
-            </Badge>
+            <a href="/" className="inline-flex items-center hover:opacity-80 transition-opacity">
+              <GladcnLogo variant="wordmark" />
+            </a>
           </div>
 
           {/* Center — Search bar (opens Command Palette) */}

@@ -13,9 +13,11 @@ import {
   ShieldCheckIcon,
   SlidersHorizontalIcon,
   SparklesIcon,
+  CodeIcon,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
+import { GladcnLogo } from "../../dev/components/GladcnLogo";
 
 import { ProgressPreset as Progress } from "../../components/macro/progress-preset";
 import { Badge } from "../../components/micro/badge";
@@ -112,14 +114,22 @@ export default function OverviewSection() {
         </div>
 
         <div className="container relative z-10 flex flex-col items-center text-center px-4">
-          <Badge
-            color="secondary"
-            variant="soft"
-            className="px-4 py-1.5 mb-8 text-sm font-medium rounded-full border border-primary/20 bg-background/50 backdrop-blur-md shadow-sm animate-fade-up"
+          {/* Logo mark */}
+          <div
+            className="mb-8 animate-fade-up"
+            style={{ animationFillMode: "both" }}
           >
-            <SparklesIcon className="w-4 h-4 mr-2 text-primary animate-pulse" />
-            <span>gladcn UI v0.2.3 ra mắt</span>
-          </Badge>
+            <GladcnLogo className="size-14 mx-auto" />
+          </div>
+
+          <div
+            className="inline-flex items-center gap-2 px-4 py-1.5 mb-8 text-sm font-medium rounded-full border border-primary/20 bg-background/50 backdrop-blur-md shadow-sm animate-fade-up"
+          >
+            <CodeIcon className="w-3.5 h-3.5 text-primary" />
+            <span className="text-muted-foreground">
+              Copy code · Own everything · Zero lock-in
+            </span>
+          </div>
 
           <h1
             className="max-w-4xl text-5xl md:text-7xl font-extrabold tracking-tighter mb-8 animate-fade-up"

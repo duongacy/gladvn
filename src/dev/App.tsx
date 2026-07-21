@@ -4,9 +4,17 @@ import { Separator } from "../components/micro/separator";
 import { useTheme } from "../components/micro/theme-provider";
 import { useDevContext } from "../dev/components/dev-context";
 import { SizeToggle } from "../dev/components/showcase";
+import { GladcnLogo } from "../dev/components/GladcnLogo";
 import { COMPONENTS } from "../dev/data";
 import OverviewSection from "../dev/showcase/overview";
-import { LayersIcon, MenuIcon, XIcon, SunIcon, MoonIcon } from "lucide-react";
+import {
+  LayersIcon,
+  MenuIcon,
+  XIcon,
+  SunIcon,
+  MoonIcon,
+  SearchIcon,
+} from "lucide-react";
 import React, { Suspense, lazy, useEffect, useState } from "react";
 
 const components: Record<string, React.LazyExoticComponent<any>> = {};
@@ -102,6 +110,7 @@ export default function App() {
       {/* Top nav */}
       <header className="sticky top-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-md">
         <div className="mx-auto flex h-14 max-w-[1440px] items-center justify-between px-6">
+          {/* Left — Logo + version */}
           <div className="flex items-center gap-3">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -114,12 +123,7 @@ export default function App() {
                 <MenuIcon className="size-5" />
               )}
             </button>
-            <div className="size-7 rounded-[9px] bg-primary flex items-center justify-center shadow-sm border border-primary/20">
-              <LayersIcon className="size-4 text-primary-foreground" />
-            </div>
-            <span className="font-bold text-[15px] tracking-tight">
-              gladcn.ui
-            </span>
+            <GladcnLogo variant="wordmark" />
             <Badge
               color="secondary"
               className="text-[10px] px-1.5 py-0 font-medium hidden sm:inline-flex"
@@ -127,7 +131,37 @@ export default function App() {
               v0.2.3
             </Badge>
           </div>
-          <div className="flex items-center gap-2">
+
+          {/* Center — Fake search bar */}
+          <button
+            className="hidden md:flex items-center gap-2.5 px-3 py-1.5 rounded-lg border border-border bg-muted/30 text-sm text-muted-foreground hover:bg-muted/60 transition-colors w-52 xl:w-72 cursor-default"
+            tabIndex={-1}
+            aria-hidden="true"
+          >
+            <SearchIcon className="size-3.5 shrink-0" />
+            <span className="flex-1 text-left text-[13px]">Tìm component...</span>
+            <kbd className="text-[10px] bg-background border border-border/80 rounded px-1.5 py-0.5 font-sans leading-none">
+              ⌘K
+            </kbd>
+          </button>
+
+          {/* Right — GitHub + npx + theme toggle */}
+          <div className="flex items-center gap-1.5">
+            <Button
+              variant="ghost"
+              iconOnly
+              render={<a href="https://github.com/duongacy/gladcn" target="_blank" rel="noreferrer" />}
+              className="text-muted-foreground hover:text-foreground hidden sm:inline-flex"
+            >
+              {/* GitHub SVG mark */}
+              <svg viewBox="0 0 24 24" className="size-4" fill="currentColor" aria-hidden="true">
+                <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z" />
+              </svg>
+              <span className="sr-only">GitHub</span>
+            </Button>
+
+            <Separator orientation="vertical" className="h-4 mx-1 hidden sm:block" />
+
             <Button
               variant="ghost"
               iconOnly
@@ -184,29 +218,11 @@ export default function App() {
                   }`}
               >
                 <span>{label}</span>
-                <div className="flex gap-1 shrink-0">
-                  {status === "stable" && (
-                    <span
-                      className="text-[9px] bg-green-500/10 text-green-500 dark:bg-green-500/20 dark:text-green-400 px-1.5 py-0.5 rounded-sm font-medium tracking-tight"
-                      title="Stable & Audited"
-                    >
-                      Stable
-                    </span>
-                  )}
-                </div>
               </button>
             ))}
           </nav>
 
-          <Separator className="my-4" />
-          <div className="px-2 space-y-1">
-            <p className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground mb-2">
-              Install
-            </p>
-            <div className="rounded-md bg-muted px-2.5 py-2 font-mono text-[10px] text-muted-foreground break-all">
-              npm i @duongy96/gladcn
-            </div>
-          </div>
+
         </aside>
 
         {/* Main */}

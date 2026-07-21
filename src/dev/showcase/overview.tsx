@@ -129,10 +129,10 @@ export default function OverviewSection() {
             style={{ animationDelay: "100ms", animationFillMode: "both" }}
           >
             <span className="block text-foreground drop-shadow-sm">
-              Mọi component.
+              Tinh tế. Đẳng cấp.
             </span>
             <span className="block mt-2 bg-gradient-to-r leading-[1.2] from-primary via-info to-primary bg-[length:200%_auto] bg-clip-text text-transparent animate-[spin_8s_linear_infinite] [animation-name:gradient] [animation-duration:8s] [animation-timing-function:linear] [animation-iteration-count:infinite]">
-              Nằm trong src/ của bạn.
+              Sạch sẽ.
             </span>
           </h1>
 

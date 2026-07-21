@@ -291,7 +291,7 @@ function CalendarMacroShowcase({ globalSize }: { globalSize: Size }) {
         description="Hiển thị label và mô tả bên dưới trigger."
         codeString={`<DatePicker className="w-64"
     label="Start Date"
-    description="Select the project start date."
+    description="Chọn ngày bắt đầu dự án."
     placeholder="Pick a date"
   />`}
       >
@@ -299,7 +299,7 @@ function CalendarMacroShowcase({ globalSize }: { globalSize: Size }) {
           className="w-64"
           size={globalSize}
           label="Start Date"
-          description="Select the project start date."
+          description="Chọn ngày bắt đầu dự án."
           placeholder="Pick a date"
           value={descDate}
           onValueChange={setDescDate}
@@ -355,7 +355,7 @@ export default function CalendarShowcase() {
   return (
     <Showcase
       title="Calendar"
-      description="Thành phần trường ngày cho phép người dùng nhập và chỉnh sửa ngày."
+      description="Thành phần chọn ngày, khoảng thời gian hoặc nhiều ngày."
       generalConcept={
         <ShowcaseDocs>
           <DocsP>

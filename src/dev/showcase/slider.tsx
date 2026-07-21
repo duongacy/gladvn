@@ -179,7 +179,7 @@ function SliderMicroShowcase({ globalSize }: { globalSize: Size }) {
       <ExampleGrid>
         <ExampleSection
           label="Cơ bản (Primitive)"
-          description="Thanh trượt trần truồng không có Field hay Label bọc ngoài."
+          description="Slider đơn giản không có Field hay Label bọc ngoài."
           codeString={`<CompositionalSlider
   defaultValue={[40]}
   max={100}

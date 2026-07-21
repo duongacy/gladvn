@@ -545,35 +545,33 @@ export default function OverviewSection() {
             </div>
           </div>
 
-          {/* No Magic CSS */}
+          {/* Style Encapsulation */}
           <div className="break-inside-avoid mb-6 rounded-[2rem] border border-border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
               <ShieldCheckIcon className="w-56 h-56" />
             </div>
             <div className="relative z-10 space-y-4">
               <h3 className="text-2xl font-extrabold tracking-tight">
-                No Magic CSS
+                Style Encapsulation
               </h3>
               <p className="text-muted-foreground text-base leading-relaxed">
-                Giữ tính encapsulation. Style thông qua <code>data-[slot]</code>{" "}
-                hoặc <code>data-[state]</code>, tuyệt đối không viết CSS
-                selector lồng nhau.
+                Mỗi component là một hộp đen styling. Consumer chỉ tác động
+                vào bên trong qua{" "}
+                <code>data-slot</code> — contract đã được khai báo chính thức
+                trong API.{" "}
+                <strong className="text-foreground">
+                  Refactor nội tại không bao giờ phá vỡ code của người dùng.
+                </strong>
               </p>
             </div>
             <div className="relative z-10 mt-auto pt-6 space-y-3">
               <div className="p-3 rounded-xl border border-destructive/20 bg-destructive/5 text-xs font-mono shadow-sm flex items-center">
-                <span className="text-destructive font-bold mr-3 text-lg">
-                  ❌
-                </span>
-                <span className="opacity-80">
-                  {"[&>div>span]:text-red-500"}
-                </span>
+                <span className="text-destructive font-bold mr-3 text-lg">❌</span>
+                <span className="opacity-80 line-through">{"[&>div>span]:color"}</span>
               </div>
               <div className="p-3 rounded-xl border border-success/20 bg-success/5 text-xs font-mono shadow-sm flex items-center">
                 <span className="text-success font-bold mr-3 text-lg">✅</span>
-                <span className="text-foreground font-medium">
-                  data-[slot=icon]:text-red-500
-                </span>
+                <span className="text-foreground font-medium">data-[slot=icon]:color</span>
               </div>
             </div>
           </div>
@@ -651,70 +649,67 @@ export default function OverviewSection() {
             </div>
           </div>
 
-          {/* AHA Principle (Spans 1 column) */}
+          {/* Headless Behavior Layer */}
           <div className="break-inside-avoid mb-6 rounded-[2rem] border border-border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
               <LayersIcon className="w-56 h-56" />
             </div>
             <div className="relative z-10 space-y-4">
               <h3 className="text-2xl font-extrabold tracking-tight">
-                AHA Principle
+                Headless Behavior Layer
               </h3>
               <p className="text-muted-foreground text-base leading-relaxed">
-                Tránh trừu tượng hóa quá sớm (Avoid Hasty Abstractions). Code
-                lặp lại (WET) một chút còn hơn cố DRY rồi sinh ra đống prop phức
-                tạp.{" "}
+                Keyboard navigation, focus management, ARIA state — tất cả được
+                tách sang lớp Headless UI (Base UI). Micro component chỉ wrap
+                và thêm visual style, không tự implement logic tương tác.{" "}
                 <strong className="text-foreground">
-                  Trừu tượng sớm tạo ra component không ai dám sửa sau 6 tháng.
+                  Behavior đúng mặc định, không cần test lại từng lần.
                 </strong>
               </p>
             </div>
             <div className="relative z-10 mt-auto pt-8">
-              <div className="p-4 rounded-xl bg-foreground/5 border border-border/50 text-[11px] sm:text-xs overflow-hidden text-muted-foreground font-mono shadow-inner">
-                <span className="text-foreground font-semibold">
-                  {"className="}
-                </span>
-                <span className="text-success">
-                  {'"animate-in fade-in zoom-in"'}
-                </span>
-                <br />
-                <br />
-                <span className="text-destructive line-through">
-                  {'className="popup-animation"'}
-                </span>
+              <div className="p-4 rounded-xl bg-foreground/5 border border-border/50 text-[11px] sm:text-xs font-mono shadow-inner space-y-1">
+                <div className="text-muted-foreground">// Micro = Headless + Style</div>
+                <div>
+                  <span className="text-primary">{'<Base UI Select>'}</span>
+                  <span className="text-muted-foreground"> ← behavior</span>
+                </div>
+                <div className="pl-4">
+                  <span className="text-success">{'<SelectTrigger>'}</span>
+                  <span className="text-muted-foreground"> ← style only</span>
+                </div>
               </div>
             </div>
           </div>
-          {/* CSS Delegated Logic */}
+          {/* CSS Token Architecture */}
           <div className="break-inside-avoid mb-6 rounded-[2rem] border border-border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
-              <PaintbrushIcon className="w-56 h-56" />
+              <PaletteIcon className="w-56 h-56" />
             </div>
             <div className="relative z-10 space-y-4">
               <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">
-                CSS Delegated Logic
+                CSS Token Architecture
               </h3>
               <p className="text-muted-foreground text-lg leading-relaxed max-w-lg">
-                Ưu tiên xử lý UI state bằng CSS thuần (ví dụ: hover,
-                focus-within, data-state) thay vì quản lý cồng kềnh qua state
-                của React.
+                Không component nào được hardcode màu sắc, spacing hay
+                border-radius trực tiếp. Tất cả tham chiếu CSS custom property
+                từ hệ thống token.{" "}
+                <strong className="text-foreground">
+                  Thay đổi một token — toàn hệ thống cập nhật tức thì.
+                </strong>
               </p>
             </div>
             <div className="relative z-10 mt-auto pt-8 grid sm:grid-cols-2 gap-4">
               <div className="p-4 rounded-xl border border-success/20 bg-success/5 shadow-sm">
-                <div className="text-success font-semibold mb-2 text-sm flex items-center gap-2">
-                  ✅ CSS State
-                </div>
+                <div className="text-success font-semibold mb-2 text-sm">✅ Token</div>
                 <div className="text-[11px] font-mono text-success/80">
-                  className="hover:bg-muted focus:ring group-hover:text-primary"
+                  oklch(var(--primary))
                 </div>
               </div>
               <div className="p-4 rounded-xl border border-destructive/20 bg-destructive/5 shadow-sm opacity-60">
-                <div className="text-destructive font-semibold mb-2 text-sm flex items-center gap-2">
-                  ❌ React State
-                </div>
+                <div className="text-destructive font-semibold mb-2 text-sm">❌ Hardcode</div>
                 <div className="text-[11px] font-mono text-destructive/80 line-through">
-                  const [hover, setHover] = useState(false)
+                  #2563eb
                 </div>
               </div>
             </div>
@@ -752,35 +747,34 @@ export default function OverviewSection() {
             </div>
           </div>
 
-          {/* Exhaustive Union Types */}
+          {/* Dumb Primitives */}
           <div className="break-inside-avoid mb-6 rounded-[2rem] border border-border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
               <BoxIcon className="w-56 h-56" />
             </div>
             <div className="relative z-10 space-y-4">
               <h3 className="text-2xl font-extrabold tracking-tight">
-                Exhaustive Union Types
+                Dumb Primitives
               </h3>
               <p className="text-muted-foreground text-base leading-relaxed">
-                Khai báo tường minh Union Types cho các config prop thay vì dùng
-                kiểu <code>string</code> chung chung để tận dụng autocomplete.{" "}
+                Micro component không được chứa{" "}
+                <code>useState</code> hay <code>useEffect</code>. Chúng hoàn
+                toàn stateless — mọi state đều thuộc về Headless UI hoặc Macro
+                preset.{" "}
                 <strong className="text-foreground">
-                  <code>string</code> là loại type nói "tôi không biết" — và IDE
-                  cũng sẽ không biết giúp bạn.
+                  Primitive càng "ngu" càng dễ test và dễ tin tưởng.
                 </strong>
               </p>
             </div>
             <div className="relative z-10 mt-auto pt-6 space-y-3">
               <div className="p-3 rounded-xl border border-success/20 bg-success/5 text-[11px] font-mono shadow-sm flex items-center">
                 <span className="text-success font-bold mr-3 text-lg">✅</span>
-                <span className="text-success/90">type Size = "sm" | "md"</span>
+                <span className="text-success/90">{"function Button({ ...props })"}</span>
               </div>
               <div className="p-3 rounded-xl border border-destructive/20 bg-destructive/5 text-[11px] font-mono shadow-sm flex items-center opacity-70">
-                <span className="text-destructive font-bold mr-3 text-lg">
-                  ❌
-                </span>
+                <span className="text-destructive font-bold mr-3 text-lg">❌</span>
                 <span className="text-destructive/80 line-through">
-                  type Size = string
+                  {"const [open, setOpen] = useState()"}
                 </span>
               </div>
             </div>
@@ -822,65 +816,72 @@ export default function OverviewSection() {
             </div>
           </div>
 
-          {/* Readability is Maintainability */}
+          {/* Explicit State Contract */}
           <div className="break-inside-avoid mb-6 rounded-[2rem] border border-border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
-              <SparklesIcon className="w-56 h-56" />
+              <DatabaseIcon className="w-56 h-56" />
             </div>
             <div className="relative z-10 space-y-4">
               <h3 className="text-2xl font-extrabold tracking-tight">
-                Code Self-documenting
+                Explicit State Contract
               </h3>
               <p className="text-muted-foreground text-base leading-relaxed">
-                Code phải tự nói lên được ý nghĩa của nó. Comment chỉ dành riêng
-                cho việc giải thích business context hoặc lý do "tại sao lại
-                code thế này".{" "}
+                Component expose trạng thái ra ngoài qua{" "}
+                <code>data-attributes</code>, không phải qua imperative ref
+                methods. Consumer CSS và animation target chính xác từng
+                trạng thái mà không cần JavaScript.{" "}
                 <strong className="text-foreground">
-                  Code cần comment để hiểu là code sắp được viết lại — hoặc bỏ.
+                  State là public API — phải tường minh và ổn định.
                 </strong>
               </p>
             </div>
             <div className="relative z-10 mt-auto pt-8">
-              <div className="p-4 rounded-xl border border-success/20 bg-success/5 text-sm font-mono text-success flex flex-col gap-2 shadow-sm">
-                <span className="text-success/60 text-xs">
-                  // ✅ Đặt tên biến rõ ràng thay vì comment
-                </span>
-                <span>
-                  const isAccountLocked = loginAttempts &gt; MAX_ATTEMPTS;
-                </span>
+              <div className="p-4 rounded-xl bg-foreground/5 border border-border/50 text-[11px] sm:text-xs font-mono shadow-inner space-y-2">
+                <div>
+                  <span className="text-success">data-[state=open]</span>
+                  <span className="text-muted-foreground">:rotate-180</span>
+                </div>
+                <div>
+                  <span className="text-success">data-disabled</span>
+                  <span className="text-muted-foreground">:opacity-50</span>
+                </div>
+                <div className="pt-1 border-t border-border/30">
+                  <span className="text-destructive/60 line-through">ref.current.isOpen</span>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Single Source of Truth for Variants */}
+          {/* 3-Layer Source Ownership */}
           <div className="break-inside-avoid mb-6 rounded-[2rem] border border-border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
               <SlidersHorizontalIcon className="w-56 h-56" />
             </div>
             <div className="relative z-10 space-y-4">
               <h3 className="text-2xl font-extrabold tracking-tight">
-                No Default Variants
+                3-Layer Source Ownership
               </h3>
               <p className="text-muted-foreground text-base leading-relaxed">
-                Không dùng <code>defaultVariants</code> ẩn bên trong cấu hình{" "}
-                <code>cva()</code>. Đưa mọi prop mặc định ra ngoài component
-                interface để dễ tracking và override.
+                Source được phân tầng: <code>micro/</code> (primitive không
+                có layout cứng nhắc), <code>macro/</code> (preset lắp ráp có
+                chủ đích), <code>index.css</code> (token toàn hệ thống).{" "}
+                <strong className="text-foreground">
+                  Sửa ở tầng nào chỉ ảnh hưởng đến tầng đó.
+                </strong>
               </p>
             </div>
-            <div className="relative z-10 mt-auto pt-6 space-y-3">
-              <div className="p-3 rounded-xl border border-success/20 bg-success/5 text-[11px] font-mono shadow-sm flex items-center">
-                <span className="text-success font-bold mr-3 text-lg">✅</span>
-                <span className="text-success/90">
-                  function Button(&#123; size = "md" &#125;)
-                </span>
+            <div className="relative z-10 mt-auto pt-6 space-y-2">
+              <div className="p-3 rounded-xl border border-border bg-background/60 text-[11px] font-mono flex items-center gap-3">
+                <span className="text-destructive font-bold">CSS</span>
+                <span className="text-muted-foreground">index.css — token toàn cục</span>
               </div>
-              <div className="p-3 rounded-xl border border-destructive/20 bg-destructive/5 text-[11px] font-mono shadow-sm flex items-center opacity-70">
-                <span className="text-destructive font-bold mr-3 text-lg">
-                  ❌
-                </span>
-                <span className="text-destructive/80 line-through">
-                  defaultVariants: &#123; size: "md" &#125;
-                </span>
+              <div className="p-3 rounded-xl border border-border bg-background/60 text-[11px] font-mono flex items-center gap-3">
+                <span className="text-warning font-bold">Macro</span>
+                <span className="text-muted-foreground">macro/ — preset lắp ráp</span>
+              </div>
+              <div className="p-3 rounded-xl border border-border bg-background/60 text-[11px] font-mono flex items-center gap-3">
+                <span className="text-success font-bold">Micro</span>
+                <span className="text-muted-foreground">micro/ — primitive thuần</span>
               </div>
             </div>
           </div>

@@ -62,7 +62,7 @@ const DropdownMenuContent = React.forwardRef<
     ref,
   ) => {
     return (
-      <MenuPrimitive.Portal>
+      <DropdownMenuPortal>
         <MenuPrimitive.Positioner
           className="isolate z-50 outline-none"
           align={align}
@@ -80,7 +80,7 @@ const DropdownMenuContent = React.forwardRef<
             {...props}
           />
         </MenuPrimitive.Positioner>
-      </MenuPrimitive.Portal>
+      </DropdownMenuPortal>
     );
   },
 );

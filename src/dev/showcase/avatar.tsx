@@ -451,8 +451,7 @@ export default function AvatarShowcase() {
         <ShowcaseDocs>
           <DocsP>
             Dùng để hiển thị hình ảnh đại diện cho người dùng, nhóm hoặc tổ
-            chức. Hỗ trợ tự động hiển thị chữ cái viết tắt hoặc biểu tượng mặc
-            định khi hình ảnh bị lỗi hoặc chưa được tải.
+            chức. Hỗ trợ tự động hiển thị chữ cái viết tắt hoặc icon mặc định khi không tải được ảnh.
           </DocsP>
         </ShowcaseDocs>
       }

@@ -58,7 +58,7 @@ function BreadcrumbMacroShowcase() {
           description="Đường dẫn dài hơn điển hình cho các trang lồng nhau."
           codeString={`<BreadcrumbPreset
   items={[
-    { label: "Bảng điều khiển", href: "/dashboard" },
+    { label: "Dashboard", href: "/dashboard" },
     { label: "Cài đặt", href: "/settings" },
     { label: "Tài khoản", href: "/settings/account" },
     { label: "Hóa đơn" },
@@ -68,7 +68,7 @@ function BreadcrumbMacroShowcase() {
         >
           <BreadcrumbPreset
             items={[
-              { label: "Bảng điều khiển", href: "/dashboard" },
+              { label: "Dashboard", href: "/dashboard" },
               { label: "Cài đặt", href: "/settings" },
               { label: "Tài khoản", href: "/settings/account" },
               { label: "Hóa đơn" },

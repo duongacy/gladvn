@@ -279,7 +279,7 @@ export default function ItemShowcase() {
         <ShowcaseDocs>
           <DocsH3>Item</DocsH3>
           <DocsP>
-            Sử dụng để tạo danh sách hoặc khối nội dung có biểu tượng, tiêu đề,
+            Sử dụng để tạo danh sách hoặc khối nội dung có icon, tiêu đề,
             mô tả và hành động.
           </DocsP>
         </ShowcaseDocs>

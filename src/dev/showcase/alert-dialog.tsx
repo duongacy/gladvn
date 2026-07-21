@@ -80,7 +80,7 @@ function AlertDialogMacroShowcase({ globalSize }: { globalSize: Size }) {
 
         <ExampleSection
           label="Xác Nhận Tiêu Chuẩn"
-          description="Hộp thoại xác nhận thông thường chỉ với Text."
+          description="Dialog xác nhận thông thường chỉ với Text."
           codeString={`<AlertDialogPreset
   trigger={
     <Button variant="outline">
@@ -322,7 +322,7 @@ return (
     </div>
   }
   title="Xác nhận hành động?"
-  description="Đây là hộp thoại dạng nhỏ, phù hợp cho các thao tác nhanh với 2 nút nằm ngang."
+  description="Đây là dialog dạng nhỏ, phù hợp cho các thao tác nhanh với 2 nút nằm ngang."
   cancelLabel="Không"
   actionLabel="Có"
 />
@@ -341,7 +341,7 @@ return (
               </div>
             }
             title="Xác nhận hành động?"
-            description="Đây là hộp thoại dạng nhỏ, phù hợp cho các thao tác nhanh với 2 nút nằm ngang."
+            description="Đây là dialog dạng nhỏ, phù hợp cho các thao tác nhanh với 2 nút nằm ngang."
             cancelLabel="Không"
             actionLabel="Có"
           />
@@ -365,7 +365,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
   <AlertDialogTrigger
     render={
       <Button variant="outline">
-        Mở Hộp Thoại Trắng
+        Mở Dialog Trắng
       </Button>
     }
   />
@@ -391,7 +391,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
             <AlertDialogTrigger
               render={
                 <Button variant="outline" size={globalSize}>
-                  Mở Hộp Thoại Trắng
+                  Mở Dialog Trắng
                 </Button>
               }
             />
@@ -796,7 +796,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
     </div>
 
     <p className="text-xs text-muted-foreground leading-relaxed">
-      Bạn cần làm một hộp thoại xác nhận xoá với layout Side-by-Side
+      Bạn cần làm một dialog xác nhận xoá với layout Side-by-Side
       (Icon nằm bên trái trên màn hình lớn, nằm ở trên cùng trên màn
       hình nhỏ).
     </p>
@@ -913,7 +913,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
             </div>
 
             <p className="text-xs text-muted-foreground leading-relaxed">
-              Bạn cần làm một hộp thoại xác nhận xoá với layout Side-by-Side
+              Bạn cần làm một dialog xác nhận xoá với layout Side-by-Side
               (Icon nằm bên trái trên màn hình lớn, nằm ở trên cùng trên màn
               hình nhỏ).
             </p>
@@ -1030,7 +1030,7 @@ export default function AlertDialogShowcase() {
   return (
     <Showcase
       title="Alert Dialog"
-      description="Hộp thoại gián đoạn yêu cầu người dùng xác nhận các hành động quan trọng hoặc mang tính phá hủy."
+      description="Dialog gián đoạn yêu cầu người dùng xác nhận các hành động quan trọng hoặc mang tính phá hủy."
       generalConcept={
         <ShowcaseDocs>
           <DocsP>

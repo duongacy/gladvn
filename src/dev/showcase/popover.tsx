@@ -359,7 +359,7 @@ export default function PopoverShowcase() {
             Popover là một floating panel hiển thị khi người dùng click vào một
             phần tử (trigger). Khác với Tooltip (hiển thị khi hover), Popover
             dùng cho những nội dung phong phú hơn, chứa các tương tác phức tạp
-            như biểu mẫu, danh sách cài đặt, v.v.
+            như form, danh sách cài đặt, v.v.
           </DocsP>
         </ShowcaseDocs>
       }

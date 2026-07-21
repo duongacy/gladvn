@@ -428,7 +428,7 @@ export default function CardShowcase() {
           <DocsP>
             Dùng để nhóm các thông tin liên quan lại với nhau trong một
             container có cấu trúc rõ ràng. Thường được sử dụng để hiển thị các
-            mục dữ liệu, bảng điều khiển (dashboard), hoặc các biểu mẫu (form)
+            mục dữ liệu, dashboard, hoặc các form
             nhỏ.
           </DocsP>
         </ShowcaseDocs>

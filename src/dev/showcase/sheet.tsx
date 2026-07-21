@@ -541,7 +541,7 @@ export default function SheetShowcase() {
       generalConcept={
         <ShowcaseDocs>
           <DocsP>
-            <DocsCode>Sheet</DocsCode> là một biến thể của Dialog, nhưng thay vì
+            <DocsCode>Sheet</DocsCode> là một variant của Dialog, nhưng thay vì
             hiện ở giữa màn hình, nó trượt ra từ một cạnh (right, left, top,
             bottom). Phù hợp cho navigation drawer, filter panel, settings
             sidebar, hay form chỉnh sửa.

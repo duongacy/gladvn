@@ -174,7 +174,7 @@ function CommandMicroShowcase() {
 
       <ExampleSection
         label="Dialog Menu"
-        description="Menu lệnh được hiển thị bên trong hộp thoại."
+        description="Menu lệnh được hiển thị bên trong dialog."
         codeString={`<Button onClick={() => setOpen(true)}>Open Command Palette</Button>
 <CommandDialog open={open} onOpenChange={setOpen}>
   <CommandInput placeholder="Type a command or search..." />

@@ -252,7 +252,7 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
     open={controlledOpen}
     onOpenChange={setControlledOpen}
     title="Controlled Dialog"
-    description="Trạng thái của hộp thoại này được quản lý hoàn toàn bởi React state bên ngoài."
+    description="Trạng thái của dialog này được quản lý hoàn toàn bởi React state bên ngoài."
     footer={
       <Button color="primary" onClick={() => setControlledOpen(false)}>
         Close Manually
@@ -283,7 +283,7 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
               onOpenChange={setControlledOpen}
               size={globalSize}
               title="Controlled Dialog"
-              description="Trạng thái của hộp thoại này được quản lý hoàn toàn bởi React state bên ngoài."
+              description="Trạng thái của dialog này được quản lý hoàn toàn bởi React state bên ngoài."
               footer={
                 <Button
                   color="primary"
@@ -799,7 +799,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
       <DialogHeader>
         <DialogTitle>Controlled Dialog</DialogTitle>
         <DialogDescription>
-          Trạng thái của hộp thoại này được quản lý hoàn toàn bởi React state bên ngoài.
+          Trạng thái của dialog này được quản lý hoàn toàn bởi React state bên ngoài.
         </DialogDescription>
       </DialogHeader>
       <p className="text-sm text-foreground">Bạn có thể đóng bằng nút bên dưới hoặc dấu X.</p>
@@ -847,7 +847,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                   <DialogHeader>
                     <DialogTitle>Controlled Dialog</DialogTitle>
                     <DialogDescription>
-                      Trạng thái của hộp thoại này được quản lý hoàn toàn bởi
+                      Trạng thái của dialog này được quản lý hoàn toàn bởi
                       React state bên ngoài.
                     </DialogDescription>
                   </DialogHeader>

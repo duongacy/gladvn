@@ -2,21 +2,26 @@
 
 > **✨ [Explore the Interactive Showcase & Documentation](https://gladcn.vercel.app/)**
 
-A highly composable, accessible, and beautifully designed React component library. Built on top of [shadcn/ui](https://ui.shadcn.com/) and powered by **Tailwind CSS v4+**, `gladcn` provides a robust foundation for your next web application.
+A highly composable, accessible, and beautifully designed React component library. Built on top of [shadcn/ui](https://ui.shadcn.com/), [Base UI](https://base-ui.com/), and powered by **Tailwind CSS v4+**, `gladcn` provides a robust, zero-magic foundation for your next web application. 
 
-## ✨ Features
+Designed with strict architectural principles, `gladcn` is optimized not just for human developers, but specifically for **AI coding assistants**, ensuring predictable styling and maintenance.
 
-- **55+ Components**: From basic buttons to complex comboboxes and date pickers.
+---
+
+## ✨ Key Features
+
 - **Micro & Macro Architecture**: Cleanly separates primitive UI elements (Micro) from complex, stateful, composite components (Macro).
+- **Zero "Magic CSS"**: No arbitrary deep descendant overrides (`[&_p]`, `has-[>div]`). Styling is predictable, slot-based, and relies on strict data-attributes (e.g., `data-active`, `data-disabled`).
 - **Tailwind CSS v4 Ready**: Fully compatible with the modern `@tailwindcss/postcss` and `@tailwindcss/vite` ecosystem.
 - **Copy-Paste or Install**: Choose between cloning the source code directly into your repo (the shadcn way) or installing it as a standard npm dependency.
-- **Fully Customizable**: Extend and tweak everything to match your brand.
+- **55+ Components**: From basic buttons to complex comboboxes and date pickers.
+- **Comprehensive Showcase**: Comes with an interactive, beautifully designed showcase featuring bilingual documentation (Vietnamese/English).
 
 ---
 
 ## 🚀 Installation
 
-> [!WARNING]
+> [!WARNING]  
 > **Please use `npx` to clone the components into your project instead of installing via `npm`.** While installing via `npm` works, using `npx` (Option 1) gives you full control over the source code and styling, which is the core philosophy and intended way to use this library.
 
 There are two ways to use `gladcn` in your project. We highly recommend **Option 1** for maximum flexibility.
@@ -64,35 +69,20 @@ Update your main CSS file to scan the library for Tailwind utility classes and i
 **Usage:**
 ```tsx
 import { Button, Card, CardHeader, CardTitle, CardContent } from "@duongy96/gladcn";
-
-export function MyComponent() {
-  return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Hello from gladcn!</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <Button variant="default">Click me</Button>
-      </CardContent>
-    </Card>
-  );
-}
 ```
 
 ---
 
 ## 🏗️ Architecture: Micro vs. Macro
 
-`gladcn` introduces a strict architectural separation to keep your codebase maintainable:
+Most component libraries fail in their second year because developers become afraid to modify the core files. `gladcn` solves this with explicit architectural boundaries:
 
-- **Micro Components** (`components/micro/`): "Dumb" presentational primitives (e.g., `Button`, `Badge`, `Input`). They do not contain internal React state (`useState`) or business logic. They strictly rely on props for rendering.
-- **Macro Components** (`components/macro/`): "Smart" presets and compositions (e.g., `DatePicker`, `SelectPreset`, `PaginationPreset`). These components combine multiple Micro components and manage complex state, accessibility (a11y), and interactions.
-
----
+- **Micro Components** (`components/micro/`): "Dumb" presentational primitives (e.g., `Button`, `Badge`, `Input`). They do not contain internal React state (`useState`) or business logic. They strictly rely on props for rendering and avoid dictating layout boundaries (like `w-full`).
+- **Macro Components** (`components/macro/`): "Smart" presets and compositions (e.g., `DatePicker`, `SelectPreset`, `PaginationPreset`). These components combine multiple Micro components and manage complex state, accessibility (a11y), and interactions. Macro components strictly reuse Micro components via pure composition.
 
 ## 🎨 Theming & Customization
 
-`gladcn` uses CSS variables for theming. You can easily override these variables in your own CSS file.
+`gladcn` uses standard CSS variables for theming, ensuring zero runtime parsing overhead. You can easily override these variables in your own CSS file.
 
 ```css
 :root {
@@ -107,8 +97,6 @@ If you cloned the components via `npx` (Option 1), you can modify the CSS direct
 ---
 
 ## 📦 Included Components
-
-All 55+ essential UI components are included out of the box:
 
 | Basic | Forms & Inputs | Overlays & Feedback | Navigation & Data |
 | --- | --- | --- | --- |

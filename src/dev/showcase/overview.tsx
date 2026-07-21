@@ -129,10 +129,10 @@ export default function OverviewSection() {
             style={{ animationDelay: "100ms", animationFillMode: "both" }}
           >
             <span className="block text-foreground drop-shadow-sm">
-              Mọi component.
+              Giao diện tinh tế.
             </span>
             <span className="block mt-2 bg-gradient-to-r leading-[1.2] from-primary via-info to-primary bg-[length:200%_auto] bg-clip-text text-transparent animate-[spin_8s_linear_infinite] [animation-name:gradient] [animation-duration:8s] [animation-timing-function:linear] [animation-iteration-count:infinite]">
-              Trong thư mục của bạn.
+              Hoàn toàn thuộc về bạn.
             </span>
           </h1>
 
@@ -140,11 +140,11 @@ export default function OverviewSection() {
             className="max-w-2xl text-lg md:text-xl text-muted-foreground leading-relaxed mb-10 animate-fade-up"
             style={{ animationDelay: "200ms", animationFillMode: "both" }}
           >
-            Component library thường đòi bạn follow quy tắc của họ mãi mãi.
-            gladvn đặt toàn bộ source code vào tay bạn ngay từ đầu —{" "}
+            Các component library thông thường luôn ép bạn phải theo luật của họ.
+            Với gladvn, bạn sở hữu 100% mã nguồn ngay từ phút đầu tiên —{" "}
             <strong className="text-foreground">
-              không vendor lock-in, không breaking change bất ngờ, không
-              node_modules ẩn.
+              không bị phụ thuộc, không lo breaking changes, và nói không với các
+              module ẩn.
             </strong>
           </p>
         </div>
@@ -302,15 +302,15 @@ export default function OverviewSection() {
       <section className="container max-w-6xl mx-auto space-y-12 px-4">
         <div className="text-center max-w-2xl mx-auto space-y-4">
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">
-            Tường minh từ thiết kế. Bền vững theo thời gian.
+            Kiến trúc minh bạch. Bền vững cùng năm tháng.
           </h2>
           <p className="text-muted-foreground text-lg">
-            Phần lớn component library hỏng ở năm thứ hai — khi team cần thay
-            đổi nhưng không ai dám sửa vì không biết gì sẽ vỡ. gladvn được xây
-            trên{" "}
-            <strong className="text-foreground">Các nguyên tắc tường minh</strong>
-            {" "}để bạn luôn biết mình đang sửa ở tầng nào và điều gì sẽ bị ảnh
-            hưởng.
+            Hầu hết các dự án thường rơi vào bế tắc ở năm thứ hai — khi cần thay
+            đổi nhưng không ai dám chạm vào code cũ vì sợ hỏng hóc. gladvn được thiết kế
+            dựa trên sự{" "}
+            <strong className="text-foreground">phân tầng rạch ròi</strong>
+            {", "}giúp bạn luôn làm chủ hệ thống và biết chính xác phạm vi ảnh hưởng
+            của từng dòng code.
           </p>
         </div>
 
@@ -325,19 +325,19 @@ export default function OverviewSection() {
                 <SparklesIcon className="size-4" /> Điểm khác biệt lớn nhất
               </div>
               <h3 className="text-3xl md:text-5xl font-extrabold tracking-tight">
-                Sở hữu 100% mã nguồn
+                Toàn quyền kiểm soát mã nguồn
               </h3>
               <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl">
-                Chạy một lệnh duy nhất — toàn bộ source code (components, hooks,
-                styles, contexts) được sao chép thẳng vào thư mục{" "}
+                Chỉ với một dòng lệnh, toàn bộ thành phần cốt lõi (components, hooks,
+                styles, contexts) sẽ được tích hợp trực tiếp vào thư mục{" "}
                 <code className="text-sm bg-primary/20 text-primary px-1.5 py-0.5 rounded">
                   src/
                 </code>{" "}
-                của dự án bạn.{" "}
+                của bạn.{" "}
                 <strong className="text-foreground">
-                  Không cài qua node_modules, không bị vendor lock-in
+                  Không cần cài đặt rườm rà qua node_modules, không lo bị phụ thuộc
                 </strong>{" "}
-                — bạn đọc được, sửa được, xoá được từng dòng code.
+                — bạn hoàn toàn có thể đọc, chỉnh sửa hoặc xóa bất kỳ dòng code nào.
               </p>
 
               <div className="flex items-center gap-4 pt-2">
@@ -420,16 +420,16 @@ export default function OverviewSection() {
                   src/components/macro/
                 </div>
                 <h4 className="font-bold text-foreground text-base">
-                  Sửa Macro — an toàn nhất
+                  Lớp Macro — An toàn và linh hoạt
                 </h4>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Đây là nơi bạn nên chỉnh trước tiên. Mỗi Macro là một preset
-                  độc lập — thêm footer cho DatePicker, bỏ nút đóng của Dialog,
-                  điều chỉnh placeholder của Combobox.{" "}
+                  Đây là điểm khởi đầu lý tưởng để tùy biến. Mỗi Macro đóng vai trò
+                  như một bản mẫu (preset) độc lập — ví dụ: thêm footer cho DatePicker,
+                  hay tinh chỉnh giao diện Combobox.{" "}
                   <strong className="text-foreground">
-                    Thay đổi chỉ ảnh hưởng đúng preset đó
+                    Mọi thay đổi ở đây đều hoàn toàn cách ly
                   </strong>
-                  , không lan ra component nào khác.
+                  {" "}và không ảnh hưởng chéo đến các thành phần khác.
                 </p>
               </div>
 
@@ -442,15 +442,15 @@ export default function OverviewSection() {
                   src/components/micro/
                 </div>
                 <h4 className="font-bold text-foreground text-base">
-                  Sửa Micro — ảnh hưởng rộng
+                  Lớp Micro — Nền tảng cốt lõi
                 </h4>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Micro là nền tảng — mọi Macro đều xây trên chúng. Sửa một
-                  variant của Button hay thay animation của Tooltip sẽ{" "}
+                  Micro là móng nhà vững chắc nâng đỡ mọi Macro. Khi bạn thay đổi
+                  một variant của Button hay animation của Tooltip, hiệu ứng sẽ{" "}
                   <strong className="text-foreground">
-                    tác động đồng loạt đến toàn bộ nơi dùng component đó
+                    lập tức lan tỏa toàn cục
                   </strong>{" "}
-                  trong ứng dụng. Chỉ chỉnh khi bạn rõ mình đang làm gì.
+                  trên toàn hệ thống. Chỉ nên can thiệp khi bạn thực sự nắm rõ quy trình.
                 </p>
               </div>
 
@@ -463,16 +463,16 @@ export default function OverviewSection() {
                   src/index.css
                 </div>
                 <h4 className="font-bold text-foreground text-base">
-                  Sửa CSS — chạm toàn bộ hệ thống
+                  Lớp CSS — Hơi thở của toàn hệ thống
                 </h4>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  CSS token là ngôn ngữ chung của mọi component — màu sắc,
-                  typography, border-radius. Thay đổi một token ở đây{" "}
+                  CSS token là ngôn ngữ chung quyết định màu sắc, font chữ và hình khối.
+                  Một chỉnh sửa nhỏ tại đây sẽ{" "}
                   <strong className="text-foreground">
-                    tức thời cập nhật toàn bộ giao diện
+                    lập tức khoác áo mới cho toàn bộ giao diện
                   </strong>
-                  , từ Button đến Dialog. Dùng khi bạn muốn rebrand hoặc thay
-                  đổi design language, không phải để vá từng chỗ.
+                  . Rất hoàn hảo cho việc tái định vị thương hiệu (rebrand),
+                  nhưng không nên dùng để sửa lỗi lặt vặt.
                 </p>
               </div>
 
@@ -488,15 +488,14 @@ export default function OverviewSection() {
             </div>
             <div className="relative z-10 space-y-4 mb-10">
               <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">
-                Micro &amp; Macro Architecture
+                Kiến trúc Đa tầng
               </h3>
               <p className="text-muted-foreground max-w-lg text-lg leading-relaxed">
-                Tách biệt rõ ràng Core components linh hoạt (Micro) và các
-                pattern tiện dụng (Macro).
-                <strong className="text-foreground">
-                  Micro tuyệt đối không áp đặt layout phức tạp (Opinionated).
-                  Mọi logic lắp ráp giao diện đều phải uỷ quyền (Delegate) hoàn
-                  toàn cho Macro.
+                Sự phân tách hoàn hảo giữa các thành phần linh hoạt (Micro) và các
+                khối lắp ghép tiện dụng (Macro).
+                <strong className="text-foreground block mt-2">
+                  Các Micro component không bao giờ áp đặt bố cục, nhường toàn bộ quyền
+                  quyết định logic lắp ráp cho lớp Macro.
                 </strong>
               </p>
             </div>
@@ -557,15 +556,15 @@ export default function OverviewSection() {
             </div>
             <div className="relative z-10 space-y-4">
               <h3 className="text-2xl font-extrabold tracking-tight">
-                Style Encapsulation
+                Bảo mật Styling
               </h3>
               <p className="text-muted-foreground text-base leading-relaxed">
-                Mỗi component là một hộp đen styling. Consumer chỉ tác động
-                vào bên trong qua{" "}
-                <code>data-slot</code> — contract đã được khai báo chính thức
-                trong API.{" "}
+                Mỗi component hoạt động như một khối độc lập về giao diện. Bạn chỉ
+                có thể tuỳ chỉnh từ bên ngoài thông qua các{" "}
+                <code>data-slot</code> chuẩn hóa.{" "}
                 <strong className="text-foreground">
-                  Refactor nội tại không bao giờ phá vỡ code của người dùng.
+                  Điều này đảm bảo quá trình refactor bên trong không bao giờ
+                  làm vỡ layout dự án của bạn.
                 </strong>
               </p>
             </div>
@@ -588,12 +587,12 @@ export default function OverviewSection() {
             </div>
             <div className="relative z-10 space-y-4">
               <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">
-                Orthogonal Styling
+                Thiết kế Styling Độc lập
               </h3>
               <p className="text-muted-foreground text-lg leading-relaxed max-w-lg">
-                Tách biệt rõ ràng trục cấu trúc (Variant) và trục màu sắc
-                (Color) thành các style độc lập, giúp tránh bùng nổ tổ hợp CSS
-                class.
+                Hệ thống phân tách rạch ròi giữa trục cấu trúc (Variant) và
+                dải màu (Color), ngăn chặn triệt để tình trạng bùng nổ tổ hợp
+                CSS class dư thừa.
               </p>
             </div>
             <div className="relative z-10 mt-auto pt-8 grid sm:grid-cols-2 gap-4">
@@ -626,13 +625,13 @@ export default function OverviewSection() {
             </div>
             <div className="relative z-10 space-y-4">
               <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">
-                Zero-prop Defaults
+                Mặc định Hoàn hảo
               </h3>
               <p className="text-muted-foreground text-lg leading-relaxed max-w-lg">
-                Component phải hoạt động mượt mà và render đúng UI chuẩn kể cả
-                khi dev không truyền bất kỳ prop nào vào.{" "}
+                Mọi component đều sẵn sàng hoạt động mượt mà với giao diện chuẩn
+                ngay cả khi không có bất kỳ cấu hình (prop) nào.{" "}
                 <strong className="text-foreground">
-                  Nếu không, mỗi lần dùng là một lần tra tài liệu.
+                  Không còn cảnh vừa code vừa phải liên tục tra cứu tài liệu.
                 </strong>
               </p>
             </div>
@@ -661,14 +660,14 @@ export default function OverviewSection() {
             </div>
             <div className="relative z-10 space-y-4">
               <h3 className="text-2xl font-extrabold tracking-tight">
-                Headless Behavior Layer
+                Trải nghiệm Headless Mượt mà
               </h3>
               <p className="text-muted-foreground text-base leading-relaxed">
-                Keyboard navigation, focus management, ARIA state — tất cả được
-                tách sang lớp Headless UI (Base UI). Micro component chỉ wrap
-                và thêm visual style, không tự implement logic tương tác.{" "}
+                Logic điều hướng, quản lý focus và trạng thái ARIA đều được uỷ
+                quyền cho lớp Headless UI (Base UI). Các Micro component chỉ tập
+                trung điểm tô giao diện,{" "}
                 <strong className="text-foreground">
-                  Behavior đúng mặc định, không cần test lại từng lần.
+                  đảm bảo mọi tương tác đều chuẩn xác ngay từ đầu.
                 </strong>
               </p>
             </div>
@@ -693,14 +692,13 @@ export default function OverviewSection() {
             </div>
             <div className="relative z-10 space-y-4">
               <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">
-                CSS Token Architecture
+                Kiến trúc CSS Token Đồng bộ
               </h3>
               <p className="text-muted-foreground text-lg leading-relaxed max-w-lg">
-                Không component nào được hardcode màu sắc, spacing hay
-                border-radius trực tiếp. Tất cả tham chiếu CSS custom property
-                từ hệ thống token.{" "}
+                Không có bất kỳ giá trị màu sắc hay khoảng cách nào bị "hardcode"
+                trong component. Mọi chi tiết đều được ánh xạ từ hệ thống token trung tâm,{" "}
                 <strong className="text-foreground">
-                  Thay đổi một token — toàn hệ thống cập nhật tức thì.
+                  giúp toàn bộ ứng dụng tự động cập nhật chỉ với một điểm chạm.
                 </strong>
               </p>
             </div>
@@ -727,11 +725,12 @@ export default function OverviewSection() {
             </div>
             <div className="relative z-10 space-y-4">
               <h3 className="text-2xl font-extrabold tracking-tight">
-                Strict Polymorphism
+                Đa hình Chặt chẽ
               </h3>
               <p className="text-muted-foreground text-base leading-relaxed">
-                Dùng pattern <code>asChild</code> hoặc <code>render</code> prop
-                để thay đổi thẻ HTML root, không đẻ bừa các prop lồng nhau.
+                Ứng dụng triệt để pattern <code>asChild</code> hoặc <code>render</code> prop
+                để linh hoạt chuyển đổi thẻ HTML root, loại bỏ hoàn toàn tình trạng
+                truyền prop lồng nhau phức tạp.
               </p>
             </div>
             <div className="relative z-10 mt-auto pt-6 space-y-3">
@@ -759,15 +758,13 @@ export default function OverviewSection() {
             </div>
             <div className="relative z-10 space-y-4">
               <h3 className="text-2xl font-extrabold tracking-tight">
-                Dumb Primitives
+                Primitive Thuần tuý
               </h3>
               <p className="text-muted-foreground text-base leading-relaxed">
-                Micro component không được chứa{" "}
-                <code>useState</code> hay <code>useEffect</code>. Chúng hoàn
-                toàn stateless — mọi state đều thuộc về Headless UI hoặc Macro
-                preset.{" "}
+                Các Micro component hoàn toàn vô trạng thái (stateless) — nói không với{" "}
+                <code>useState</code> hay <code>useEffect</code>. Mọi luồng dữ liệu đều được quản lý tại Headless UI hoặc Macro.{" "}
                 <strong className="text-foreground">
-                  Primitive càng "ngu" càng dễ test và dễ tin tưởng.
+                  Component càng đơn giản, hệ thống càng đáng tin cậy.
                 </strong>
               </p>
             </div>
@@ -792,14 +789,14 @@ export default function OverviewSection() {
             </div>
             <div className="relative z-10 space-y-4">
               <h3 className="text-2xl font-extrabold tracking-tight">
-                Accessibility First
+                Đặt Khả năng Tiếp cận lên Đầu
               </h3>
               <p className="text-muted-foreground text-base leading-relaxed">
-                Ưu tiên HTML semantic, liên kết form qua{" "}
-                <code>aria-describedby</code>, ẩn icon trang trí bằng{" "}
-                <code>aria-hidden</code> để đảm bảo WCAG AAA/AA.{" "}
+                Tuân thủ nghiêm ngặt tiêu chuẩn WCAG: sử dụng cấu trúc HTML
+                ngữ nghĩa, liên kết form chặt chẽ qua{" "}
+                <code>aria-describedby</code> và xử lý thông minh các icon trang trí.{" "}
                 <strong className="text-foreground">
-                  Accessibility là thứ không ai để ý — cho đến khi bị audit.
+                  Đảm bảo ứng dụng thân thiện với mọi đối tượng người dùng.
                 </strong>
               </p>
             </div>

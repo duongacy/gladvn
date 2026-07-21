@@ -277,7 +277,7 @@ export default function CollapsibleShowcase() {
   return (
     <Showcase
       title="Collapsible"
-      description="Một thành phần tương tác giúp mở rộng/thu gọn một bảng điều khiển."
+      description="Mở rộng/thu gọn một panel nội dung."
       generalConcept={
         <ShowcaseDocs>
           <DocsP>

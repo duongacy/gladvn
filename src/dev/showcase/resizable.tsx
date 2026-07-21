@@ -214,7 +214,7 @@ export default function ResizableShowcase() {
   return (
     <Showcase
       title="Resizable"
-      description="Các nhóm và bố cục bảng điều khiển có thể thay đổi kích thước với hỗ trợ bàn phím."
+      description="Panel có thể thay đổi kích thước với hỗ trợ bàn phím, lồng nhau linh hoạt."
       generalConcept={
         <ShowcaseDocs>
           <DocsP>

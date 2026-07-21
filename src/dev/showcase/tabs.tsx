@@ -241,7 +241,7 @@ function TabsMacroShowcase() {
 
       <ExampleSection
         label="Nội dung phức tạp (Complex Content)"
-        description="Hiển thị các thành phần phức tạp như biểu mẫu bên trong nội dung tab."
+        description="Hiển thị các component phức tạp như form bên trong nội dung tab."
         fullWidth
         codeString={`<div className="max-w-lg">
   <TabsPreset
@@ -384,7 +384,7 @@ function TabsMicroShowcase() {
 
         <ExampleSection
           label="Kèm Icon (With Icons)"
-          description="Thêm biểu tượng tuỳ chỉnh vào bên trong Tab Trigger."
+          description="Thêm icon tuỳ chỉnh vào bên trong Tab Trigger."
           codeString={`<Tabs defaultValue="profile" className="w-full">
   <TabsList className="w-full">
     <TabsTrigger value="profile">
@@ -629,7 +629,7 @@ export default function TabsShowcase() {
   return (
     <Showcase
       title="Tabs"
-      description="Một tập hợp các phần nội dung được xếp lớp—được gọi là bảng tab—được hiển thị lần lượt."
+      description="Tập hợp các tab panel được hiển thị lần lượt, chuyển đổi khi click vào tab tương ứng."
       generalConcept={
         <div className="space-y-4">
           <ShowcaseDocs>

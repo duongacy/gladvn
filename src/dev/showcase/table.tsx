@@ -183,7 +183,7 @@ export default function TableShowcase() {
   return (
     <Showcase
       title="Table"
-      description="Một thành phần bảng đáp ứng."
+      description="Bảng dữ liệu responsive."
       generalConcept={
         <ShowcaseDocs>
           <DocsH3>Table</DocsH3>

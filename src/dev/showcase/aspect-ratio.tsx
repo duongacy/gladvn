@@ -24,7 +24,7 @@ function AspectRatioMicroShowcase() {
       <ExampleGrid>
         <ExampleSection
           label="16:9"
-          description="Widescreen — video, hero banners"
+          description="Widescreen — dùng cho video, hero banner"
           codeString={`<AspectRatio
   ratio={16 / 9}
   className="bg-muted rounded-xl overflow-hidden flex items-center justify-center border border-border w-full"
@@ -47,7 +47,7 @@ function AspectRatioMicroShowcase() {
 
         <ExampleSection
           label="4:3"
-          description="Classic — presentations, old TV"
+          description="Classic — bài thuyết trình, TV cũ"
           codeString={`<AspectRatio
   ratio={4 / 3}
   className="bg-muted rounded-xl overflow-hidden flex items-center justify-center border border-border w-full"
@@ -70,7 +70,7 @@ function AspectRatioMicroShowcase() {
 
         <ExampleSection
           label="1:1"
-          description="Square — avatars, social media"
+          description="Vuông — avatar, social media"
           codeString={`<AspectRatio
   ratio={1}
   className="bg-muted rounded-xl overflow-hidden flex items-center justify-center border border-border w-full"

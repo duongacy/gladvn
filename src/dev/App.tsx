@@ -226,7 +226,7 @@ export default function App() {
               if (!comps || comps.length === 0) return null;
               return (
                 <div key={cat} className="mb-4">
-                  <p className="mb-2 px-2 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+                  <p className="mb-2 px-2 text-[10px] font-bold uppercase tracking-wider text-foreground/70">
                     {cat}
                   </p>
                   <nav className="space-y-0.5">

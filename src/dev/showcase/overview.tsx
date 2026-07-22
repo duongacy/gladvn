@@ -120,7 +120,7 @@ export default function OverviewSection() {
           >
             <CodeIcon className="w-3.5 h-3.5 text-primary" />
             <span className="text-muted-foreground">
-              Copy code · Own everything · Zero lock-in
+              Copy mã · Sở hữu trọn vẹn · Không phụ thuộc
             </span>
           </div>
 
@@ -132,7 +132,7 @@ export default function OverviewSection() {
               Tinh tế. Đẳng cấp.
             </span>
             <span className="block mt-2 bg-gradient-to-r leading-[1.2] from-primary via-info to-primary bg-[length:200%_auto] bg-clip-text text-transparent animate-[spin_8s_linear_infinite] [animation-name:gradient] [animation-duration:8s] [animation-timing-function:linear] [animation-iteration-count:infinite]">
-              Sạch sẽ.
+              Của bạn.
             </span>
           </h1>
 
@@ -140,11 +140,12 @@ export default function OverviewSection() {
             className="max-w-2xl text-lg md:text-xl text-muted-foreground leading-relaxed mb-10 animate-fade-up"
             style={{ animationDelay: "200ms", animationFillMode: "both" }}
           >
-            Đa số component library bắt bạn phải phụ thuộc vào họ mãi mãi.
-            gladvn copy thẳng source code vào dự án của bạn —{" "}
+            Hầu hết component library giữ code trong node_modules — bạn
+            dùng được nhưng không sửa được. gladvn copy thẳng vào{" "}
+            <code className="text-sm bg-primary/20 text-primary px-1.5 py-0.5 rounded">src/</code>{" "}
+            của bạn.{" "}
             <strong className="text-foreground">
-              không node_modules ẩn, không breaking change bất ngờ, không
-              vendor lock-in.
+              Đọc được, sửa được, xóa được.
             </strong>
           </p>
         </div>
@@ -302,12 +303,11 @@ export default function OverviewSection() {
       <section className="container max-w-6xl mx-auto space-y-12 px-4">
         <div className="text-center max-w-2xl mx-auto space-y-4">
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">
-            Rõ ràng từ đầu. Dùng lâu không sợ vỡ.
+            Kiến trúc rõ ràng. Sửa không lo vỡ.
           </h2>
           <p className="text-muted-foreground text-lg">
-            Nhiều dự án bắt đầu gãy ở năm thứ hai — ai cũng muốn sửa nhưng
-            không ai dám sửa vì không biết cái gì sẽ hỏng theo. gladvn chia code
-            thành{" "}
+            Nhiều dự án bắt đầu gãy ở năm thứ hai — muốn sửa mà không dám,
+            vì không biết gì sẽ vỡ theo. gladvn chia code thành{" "}
             <strong className="text-foreground">các tầng rõ ràng</strong>
             {", "}nên bạn luôn biết mình đang sửa ở đâu và ảnh hưởng đến đâu.
           </p>
@@ -321,7 +321,7 @@ export default function OverviewSection() {
           <div className="flex flex-col md:flex-row items-start gap-6 md:gap-8">
             <div className="relative z-10 flex-1 space-y-6">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary text-primary-foreground text-sm font-bold uppercase tracking-wider shadow-lg shadow-primary/20">
-                <SparklesIcon className="size-4" /> Điểm khác biệt lớn nhất
+                <SparklesIcon className="size-4" /> Cốt lõi
               </div>
               <h3 className="text-3xl md:text-5xl font-extrabold tracking-tight">
                 Code là của bạn, 100%
@@ -334,9 +334,9 @@ export default function OverviewSection() {
                 </code>{" "}
                 của bạn.{" "}
                 <strong className="text-foreground">
-                  Không qua node_modules, không bị khóa vào bất kỳ ai
+                  Không qua node_modules. Không phụ thuộc vào ai.
                 </strong>{" "}
-                — bạn đọc được, sửa được, xoá được từng dòng.
+                Đọc được, sửa được, xoá được từng dòng.
               </p>
 
               <div className="flex items-center gap-4 pt-2">
@@ -419,7 +419,7 @@ export default function OverviewSection() {
                   src/components/macro/
                 </div>
                 <h4 className="font-bold text-foreground text-base">
-                  Sửa Macro — an toàn nhất
+                  Macro — Sửa an toàn
                 </h4>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   Bắt đầu ở đây. Mỗi Macro là một preset độc lập — thêm footer
@@ -441,7 +441,7 @@ export default function OverviewSection() {
                   src/components/micro/
                 </div>
                 <h4 className="font-bold text-foreground text-base">
-                  Sửa Micro — cẩn thận hơn
+                  Micro — Sửa cẩn thận
                 </h4>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   Micro là nền — mọi Macro đều xây trên nó. Sửa variant của
@@ -462,7 +462,7 @@ export default function OverviewSection() {
                   src/index.css
                 </div>
                 <h4 className="font-bold text-foreground text-base">
-                  Sửa CSS — ảnh hưởng toàn bộ
+                  CSS Token — Ảnh hưởng toàn cục
                 </h4>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   CSS token quyết định màu, font, border-radius cho tất cả.
@@ -624,7 +624,7 @@ export default function OverviewSection() {
                 Zero-prop Defaults
               </h3>
               <p className="text-muted-foreground text-lg leading-relaxed max-w-lg">
-                Quẳng component vào mà không truyền prop nào — nó vẫn chạy đẹp,
+                Đặt component vào mà không truyền prop nào — vẫn chạy đẹp,
                 vẫn đúng behavior.{" "}
                 <strong className="text-foreground">
                   Không phải tra docs mỗi lần dùng.
@@ -936,44 +936,21 @@ export default function OverviewSection() {
               Scoped Theme Tunnel
             </h3>
             <p className="text-muted-foreground text-xl leading-relaxed">
-              Tưởng tượng: app đang chạy Light Mode nhưng bạn cần một vùng nền
-              tối nổi bật — hero section, dark sidebar, CTA banner. Bọc vùng đó
-              trong{" "}
-              <code className="text-sm bg-warning/20 text-warning px-1.5 py-0.5 rounded">
-                {"<ThemeProvider defaultMode=\"dark\">"}
-              </code>{" "}
-              là đủ để mọi component con hiểu ngữ cảnh đang là Dark và tự điều
-              chỉnh màu sắc.
+              Dark section bên trong Light app? Dễ. Nhưng khi Tooltip hay Dialog
+              render qua Portal — chúng thoát khỏi DOM tree và{" "}
+              <strong className="text-foreground">mất theme</strong>.
+              Hầu hết thư viện bỏ cuộc ở đây.
             </p>
             <p className="text-muted-foreground text-xl leading-relaxed">
-              <strong className="text-foreground">
-                Nhưng có một bẫy ẩn:
-              </strong>{" "}
-              khi người dùng mở Tooltip hoặc Dialog từ bên trong vùng tối đó,
-              component này render ra{" "}
-              <code className="text-sm bg-warning/20 text-warning px-1.5 py-0.5 rounded">
-                document.body
-              </code>{" "}
-              qua React Portal — thoát hoàn toàn khỏi DOM tree. CSS variable
-              dark mode mất theo. Tooltip hiện ra{" "}
-              <strong className="text-foreground">trắng lạc quẻ</strong> giữa
-              nền đen. Đây là điểm mà hầu hết thư viện bỏ cuộc.
-            </p>
-            <p className="text-muted-foreground text-xl leading-relaxed">
-              gladvn giải quyết bằng{" "}
+              gladvn dùng{" "}
               <code className="text-sm bg-warning/20 text-warning px-1.5 py-0.5 rounded">
                 {"<ThemeWrapper>"}
               </code>{" "}
-              — một lớp được đặt{" "}
-              <strong className="text-foreground">ngay bên trong Portal</strong>{" "}
-              để đọc theme context từ trước khi vượt qua ranh giới Portal và
-              tái-inject nó vào phía bên kia.{" "}
+              để tunnel theme xuyên qua Portal boundary.{" "}
               <strong className="text-foreground">
-                Theme không bị chặn lại ở ranh giới — nó được đào hầm xuyên
-                qua.
-              </strong>{" "}
-              Kết quả: Dialog, Tooltip, Select... luôn hiển thị đúng màu dark
-              dù chúng render ở đâu trong DOM.
+                Dialog, Tooltip, Select... luôn đúng màu, dù render ở đâu
+                trong DOM.
+              </strong>
             </p>
           </div>
 
@@ -1026,9 +1003,9 @@ export default function OverviewSection() {
               Không gian màu OKLCH
             </h3>
             <p className="text-muted-foreground text-xl leading-relaxed">
-              Mọi token màu sắc được tính toán toán học trên không gian OKLCH.
-              Đảm bảo độ chuyển sắc hoàn hảo, tỉ lệ tương phản WCAG AAA/AA trên
-              mọi theme mà không cần định nghĩa thủ công từng dải màu.
+              Mọi token màu sắc được tính trên không gian OKLCH — chuyển sắc
+              mượt, tương phản đạt WCAG AA/AAA trên mọi theme mà không cần
+              định nghĩa thủ công từng dải màu.
             </p>
           </div>
 
@@ -1087,7 +1064,7 @@ export default function OverviewSection() {
           </div>
 
           <Button variant="outline" className="mt-4 rounded-full" render={<a href="https://github.com/duongacy/gladcn" target="_blank" rel="noreferrer" />}>
-            Trở thành Contributor
+            Đóng góp cùng chúng tôi
           </Button>
         </div>
       </section>
@@ -1098,14 +1075,14 @@ export default function OverviewSection() {
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_0%,rgba(var(--primary-rgb),0.15),transparent)] pointer-events-none" />
           <div className="relative z-10 space-y-6 max-w-2xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight">
-              Thử ngay?
+              30 giây. Xong.
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed">
-              30 giây — toàn bộ code nằm trong{" "}
+              Toàn bộ code nằm trong{" "}
               <code className="text-sm bg-primary/20 text-primary px-1.5 py-0.5 rounded">
                 src/
               </code>{" "}
-              của bạn. Không config, không đọc docs.
+              của bạn. Không config rườm rà. Chạy là dùng.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
               <button

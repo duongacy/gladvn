@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 
 import { Textarea, TextareaProps } from "../../components/micro/textarea";

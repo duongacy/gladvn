@@ -212,20 +212,23 @@ async function main() {
   // 2. Inject CSS import
   if (cssFilePath && fs.existsSync(cssFilePath)) {
     const gladvnCssPath = path.resolve(destPath, "styles", "gladvn.css");
+    const tokensCssPath = path.resolve(destPath, "styles", "tokens.css");
     const cssDir = path.dirname(cssFilePath);
     
     let relPath = path.relative(cssDir, gladvnCssPath);
-    if (!relPath.startsWith('.')) {
-      relPath = './' + relPath;
-    }
+    if (!relPath.startsWith('.')) relPath = './' + relPath;
     relPath = relPath.replace(/\\/g, '/');
+
+    let tokensRelPath = path.relative(cssDir, tokensCssPath);
+    if (!tokensRelPath.startsWith('.')) tokensRelPath = './' + tokensRelPath;
+    tokensRelPath = tokensRelPath.replace(/\\/g, '/');
 
     let content = fs.readFileSync(cssFilePath, "utf8");
     
     if (content.includes(relPath)) {
-      console.log(`\x1b[90m⏭  CSS import already exists in ${targetCss}\x1b[0m`);
+      console.log(`\x1b[90m⏭  CSS imports already exist in ${targetCss}\x1b[0m`);
     } else {
-      const importStatement = `@import "${relPath}";`;
+      const importStatement = `@import "${tokensRelPath}";\n@import "${relPath}";`;
       
       const tailwindPattern = /@import\s+["']tailwindcss["'];?\s*\n?/;
       if (tailwindPattern.test(content)) {
@@ -235,7 +238,7 @@ async function main() {
       }
       
       fs.writeFileSync(cssFilePath, content);
-      console.log(`\x1b[32m✔ Injected CSS import into ${targetCss}\x1b[0m`);
+      console.log(`\x1b[32m✔ Injected CSS imports into ${targetCss}\x1b[0m`);
     }
   } else if (targetCss) {
     console.log(`\x1b[33m⚠ CSS file not found at ${targetCss}. You will need to manually import ${userDest}/styles/gladvn.css\x1b[0m`);

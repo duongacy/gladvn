@@ -1,3 +1,5 @@
+"use client";
+
 /**
  * ✅ STABLE
  * - Full Utilization of Micro Components

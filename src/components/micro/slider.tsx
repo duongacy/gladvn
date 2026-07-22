@@ -1,3 +1,5 @@
+"use client";
+
 /**
  * ✅ AUDITED & REFACTORED
  * - Design System Compliant (22 Commandments)

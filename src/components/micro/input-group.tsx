@@ -223,12 +223,11 @@ const InputGroupInput = React.forwardRef<
       ref={ref}
       data-slot="input-group-control"
       className={cn(
-        className,
         "min-w-0 flex-1 bg-transparent outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed",
-        "border-0 shadow-none focus-visible:ring-0 rounded-none h-auto",
         "group-data-[size=sm]/input-group:px-2 group-data-[size=sm]/input-group:py-0.5 group-data-[size=sm]/input-group:text-xs",
         "group-data-[size=md]/input-group:px-2.5 group-data-[size=md]/input-group:py-1 group-data-[size=md]/input-group:text-sm",
         "group-data-[size=lg]/input-group:px-3 group-data-[size=lg]/input-group:py-1.5 group-data-[size=lg]/input-group:text-sm",
+        className,
       )}
       {...props}
     />
@@ -248,12 +247,11 @@ const InputGroupTextarea = React.forwardRef<
       ref={ref}
       data-slot="input-group-control"
       className={cn(
-        className,
         "min-w-0 flex-1 resize-none bg-transparent py-2 outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed",
-        "border-0 shadow-none focus-visible:ring-0 rounded-none h-auto",
         "group-data-[size=sm]/input-group:px-2 group-data-[size=sm]/input-group:text-xs",
         "group-data-[size=md]/input-group:px-2.5 group-data-[size=md]/input-group:text-sm",
         "group-data-[size=lg]/input-group:px-3 group-data-[size=lg]/input-group:text-sm",
+        className,
       )}
       {...props}
     />

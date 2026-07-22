@@ -78,6 +78,12 @@ function ComboboxInput({ className, ...props }: ComboboxPrimitive.Input.Props) {
       data-slot="combobox-input"
       className={cn(
         "flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
+        // Clear standalone styles when inside InputGroup
+        "group-data-[slot=input-group]/input-group:border-0",
+        "group-data-[slot=input-group]/input-group:shadow-none",
+        "group-data-[slot=input-group]/input-group:h-auto",
+        "group-data-[slot=input-group]/input-group:rounded-none",
+        "group-data-[slot=input-group]/input-group:focus-visible:ring-0",
         className,
       )}
       {...props}

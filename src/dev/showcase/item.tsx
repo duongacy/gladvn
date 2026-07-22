@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import { CheckIcon, HeartIcon, MoreVerticalIcon, UserIcon } from "lucide-react";
 
 import { Button } from "../../components/micro/button";

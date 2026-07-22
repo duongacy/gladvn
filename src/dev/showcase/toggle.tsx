@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import { BoldIcon, ItalicIcon, UnderlineIcon } from "lucide-react";
 
 import { Toggle } from "../../components/micro/toggle";

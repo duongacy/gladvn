@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import { ProgressPreset } from "../../components/macro/progress-preset";
 import {
   Progress,

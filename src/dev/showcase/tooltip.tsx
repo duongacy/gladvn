@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import { InfoIcon, ShieldAlertIcon } from "lucide-react";
 
 import { Button } from "../../components/micro/button";

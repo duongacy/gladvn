@@ -230,6 +230,6 @@ export {
   SelectScrollUpButton,
   SelectSeparator,
   SelectTrigger,
-  selectTriggerVariants,
   SelectValue,
+  selectTriggerVariants,
 };

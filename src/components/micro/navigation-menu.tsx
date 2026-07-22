@@ -193,6 +193,6 @@ export {
   NavigationMenuPortal,
   NavigationMenuPositioner,
   NavigationMenuTrigger,
-  NavigationMenuViewport,
   navigationMenuTriggerStyle,
+  NavigationMenuViewport,
 };

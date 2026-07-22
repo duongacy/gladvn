@@ -21,7 +21,6 @@ import { type VariantProps, cva } from "class-variance-authority";
 import { CheckIcon, ChevronDownIcon, XIcon } from "lucide-react";
 
 import { InputGroupButton } from "../../components/micro/input-group";
-import { ThemeWrapper } from "../../components/micro/theme-provider";
 import { cn } from "../../lib/utils";
 
 const ComboboxContext = React.createContext<{

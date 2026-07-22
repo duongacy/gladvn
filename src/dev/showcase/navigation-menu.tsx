@@ -9,7 +9,6 @@ import {
   NavigationMenuPortal,
   NavigationMenuPositioner,
   NavigationMenuTrigger,
-  NavigationMenuViewport,
   navigationMenuTriggerStyle,
 } from "../../components/micro/navigation-menu";
 import {

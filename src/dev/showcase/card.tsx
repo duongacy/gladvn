@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import { CardPreset } from "../../components/macro/card-preset";
 import { Badge } from "../../components/micro/badge";
 import { Button } from "../../components/micro/button";

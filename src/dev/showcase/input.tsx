@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import { LinkIcon, SearchIcon } from "lucide-react";
 
 import { InputPreset } from "../../components/macro/input-preset";

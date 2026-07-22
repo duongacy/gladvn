@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import { AlertTriangleIcon, CheckIcon, InfoIcon, XIcon } from "lucide-react";
 
 import { Badge } from "../../components/micro/badge";

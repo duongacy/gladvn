@@ -10,8 +10,6 @@ import * as React from "react";
 import { type VariantProps, cva } from "class-variance-authority";
 import { Loader2Icon } from "lucide-react";
 
-import { cn } from "../../lib/utils";
-
 const spinnerVariants = cva("animate-spin motion-reduce:animate-none", {
   variants: {
     size: {

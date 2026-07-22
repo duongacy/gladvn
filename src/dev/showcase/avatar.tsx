@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import {
   CheckCircle2Icon,
   CheckIcon,

@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import { ShieldIcon, WrenchIcon } from "lucide-react";
 
 import { InputOTPPreset } from "../../components/macro/input-otp-preset";

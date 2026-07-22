@@ -61,7 +61,6 @@ import {
   DocsCode,
   DocsH3,
   DocsP,
-  ExampleGrid,
   ExampleSection,
   SectionHeader,
   Showcase,

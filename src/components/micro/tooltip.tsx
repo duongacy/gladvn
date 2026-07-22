@@ -105,7 +105,7 @@ TooltipContent.displayName = "TooltipContent";
 export {
   Tooltip,
   TooltipContent,
+  TooltipPortal,
   TooltipProvider,
   TooltipTrigger,
-  TooltipPortal,
 };

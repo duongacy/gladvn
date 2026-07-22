@@ -17,9 +17,7 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-  CommandSeparator,
 } from "../components/macro/command-preset";
-import { Badge } from "../components/micro/badge";
 import { Button } from "../components/micro/button";
 import { Separator } from "../components/micro/separator";
 import { useTheme } from "../components/micro/theme-provider";

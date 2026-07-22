@@ -25,7 +25,6 @@ import {
   AvatarFallback,
   AvatarImage,
 } from "../../components/micro/avatar";
-import { Badge } from "../../components/micro/badge";
 import { Button } from "../../components/micro/button";
 import {
   Card,
@@ -43,7 +42,6 @@ import {
   SelectValue,
 } from "../../components/micro/select";
 import { Switch } from "../../components/micro/switch";
-import { GladvnLogo } from "../../dev/components/GladvnLogo";
 import { ColorSwatch } from "../../dev/components/showcase";
 import { COLORS, STATS } from "../../dev/data";
 import { cn } from "../../lib/utils";

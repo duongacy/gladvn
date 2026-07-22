@@ -50,50 +50,46 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Standard Dropdown"
           description="Menu cơ bản với các phím tắt và action nguy hiểm."
           codeString={`<DropdownMenu>
-  <DropdownMenuTrigger
-    render={
-      <Button variant="outline">
-        Open Menu
-      </Button>
-    }
-  />
-  
-<DropdownMenuPortal><DropdownMenuContent className="w-56">
-    <DropdownMenuGroup>
-      <DropdownMenuLabel>My Account</DropdownMenuLabel>
-      <DropdownMenuSeparator />
-      <DropdownMenuItem>
-        <UserIcon className="mr-2 h-4 w-4" />
-        <span>Profile</span>
-        <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
-      </DropdownMenuItem>
-      <DropdownMenuItem>
-        <SettingsIcon className="mr-2 h-4 w-4" />
-        <span>Settings</span>
-        <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
-      </DropdownMenuItem>
-      <DropdownMenuItem>
-        <CreditCardIcon className="mr-2 h-4 w-4" />
-        <span>Billing</span>
-        <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
-      </DropdownMenuItem>
-    </DropdownMenuGroup>
-    <DropdownMenuSeparator />
-    <DropdownMenuItem>
-      <LogOutIcon className="mr-2 h-4 w-4" />
-      <span>Log out</span>
-      <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
-    </DropdownMenuItem>
-    <DropdownMenuSeparator />
-    <DropdownMenuItem variant="destructive">
-      <LogOutIcon className="mr-2 h-4 w-4" />
-      <span>Delete Account</span>
-      <DropdownMenuShortcut>⌘⌫</DropdownMenuShortcut>
-    </DropdownMenuItem>
-  </DropdownMenuContent></DropdownMenuPortal>
+    <DropdownMenuTrigger
+      render={<Button variant="outline">Open Menu</Button>}
+    />
 
-</DropdownMenu>
-`}
+    <DropdownMenuPortal>
+      <DropdownMenuContent className="w-56">
+        <DropdownMenuGroup>
+          <DropdownMenuLabel>My Account</DropdownMenuLabel>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem>
+            <UserIcon className="mr-2 h-4 w-4" />
+            <span>Profile</span>
+            <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <SettingsIcon className="mr-2 h-4 w-4" />
+            <span>Settings</span>
+            <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <CreditCardIcon className="mr-2 h-4 w-4" />
+            <span>Billing</span>
+            <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
+          </DropdownMenuItem>
+        </DropdownMenuGroup>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem>
+          <LogOutIcon className="mr-2 h-4 w-4" />
+          <span>Log out</span>
+          <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
+        </DropdownMenuItem>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem variant="destructive">
+          <LogOutIcon className="mr-2 h-4 w-4" />
+          <span>Delete Account</span>
+          <DropdownMenuShortcut>⌘⌫</DropdownMenuShortcut>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenuPortal>
+  </DropdownMenu>`}
         >
           <DropdownMenu>
             <DropdownMenuTrigger
@@ -146,40 +142,36 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="With Disabled Items"
           description="Một số mục không tương tác."
           codeString={`<DropdownMenu>
-  <DropdownMenuTrigger
-    render={
-      <Button variant="outline">
-        Actions
-      </Button>
-    }
-  />
-  
-<DropdownMenuPortal><DropdownMenuContent className="w-56">
-    <DropdownMenuGroup>
-      <DropdownMenuLabel>Actions</DropdownMenuLabel>
-      <DropdownMenuSeparator />
-      <DropdownMenuItem>
-        <UserIcon className="mr-2 h-4 w-4" />
-        <span>Edit Profile</span>
-      </DropdownMenuItem>
-      <DropdownMenuItem disabled>
-        <CreditCardIcon className="mr-2 h-4 w-4" />
-        <span>Upgrade Plan</span>
-      </DropdownMenuItem>
-      <DropdownMenuItem disabled>
-        <HelpCircleIcon className="mr-2 h-4 w-4" />
-        <span>Support (Offline)</span>
-      </DropdownMenuItem>
-    </DropdownMenuGroup>
-    <DropdownMenuSeparator />
-    <DropdownMenuItem>
-      <LogOutIcon className="mr-2 h-4 w-4" />
-      <span>Log out</span>
-    </DropdownMenuItem>
-  </DropdownMenuContent></DropdownMenuPortal>
+    <DropdownMenuTrigger
+      render={<Button variant="outline">Actions</Button>}
+    />
 
-</DropdownMenu>
-`}
+    <DropdownMenuPortal>
+      <DropdownMenuContent className="w-56">
+        <DropdownMenuGroup>
+          <DropdownMenuLabel>Actions</DropdownMenuLabel>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem>
+            <UserIcon className="mr-2 h-4 w-4" />
+            <span>Edit Profile</span>
+          </DropdownMenuItem>
+          <DropdownMenuItem disabled>
+            <CreditCardIcon className="mr-2 h-4 w-4" />
+            <span>Upgrade Plan</span>
+          </DropdownMenuItem>
+          <DropdownMenuItem disabled>
+            <HelpCircleIcon className="mr-2 h-4 w-4" />
+            <span>Support (Offline)</span>
+          </DropdownMenuItem>
+        </DropdownMenuGroup>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem>
+          <LogOutIcon className="mr-2 h-4 w-4" />
+          <span>Log out</span>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenuPortal>
+  </DropdownMenu>`}
         >
           <DropdownMenu>
             <DropdownMenuTrigger
@@ -221,58 +213,60 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Advanced Dropdown"
           description="Menu có các hộp kiểm, mục radio và menu con."
           codeString={`<DropdownMenu>
-  <DropdownMenuTrigger
-    render={
-      <Button variant="outline">
-        Advanced
-      </Button>
-    }
-  />
-  
-<DropdownMenuPortal><DropdownMenuContent className="w-56">
-    <DropdownMenuGroup>
-      <DropdownMenuLabel>Appearance</DropdownMenuLabel>
-      <DropdownMenuSeparator />
-      <DropdownMenuCheckboxItem
-        checked={showStatusBar}
-        onCheckedChange={setShowStatusBar}
-      >
-        Show Status Bar
-      </DropdownMenuCheckboxItem>
-      <DropdownMenuCheckboxItem disabled>
-        Show Activity Bar
-      </DropdownMenuCheckboxItem>
-      <DropdownMenuCheckboxItem
-        checked={showPanel}
-        onCheckedChange={setShowPanel}
-      >
-        Show Panel
-      </DropdownMenuCheckboxItem>
-      <DropdownMenuSeparator />
-      <DropdownMenuSub>
-        <DropdownMenuSubTrigger>Theme</DropdownMenuSubTrigger>
-        
-<DropdownMenuPortal><DropdownMenuSubContent>
-          <DropdownMenuItem>Light</DropdownMenuItem>
-          <DropdownMenuItem>Dark</DropdownMenuItem>
-          <DropdownMenuItem>System</DropdownMenuItem>
-        </DropdownMenuSubContent></DropdownMenuPortal>
+    <DropdownMenuTrigger
+      render={<Button variant="outline">Advanced</Button>}
+    />
 
-      </DropdownMenuSub>
-      <DropdownMenuSeparator />
-      <DropdownMenuRadioGroup value="bottom">
-        <DropdownMenuRadioItem value="top">Top</DropdownMenuRadioItem>
-        <DropdownMenuRadioItem value="bottom">
-          Bottom
-        </DropdownMenuRadioItem>
-        <DropdownMenuRadioItem value="right">
-          Right
-        </DropdownMenuRadioItem>
-      </DropdownMenuRadioGroup>
-    </DropdownMenuGroup>
-  </DropdownMenuContent></DropdownMenuPortal>
-</DropdownMenu>
-`}
+    <DropdownMenuPortal>
+      <DropdownMenuContent className="w-56">
+        <DropdownMenuGroup>
+          <DropdownMenuLabel>Appearance</DropdownMenuLabel>
+          <DropdownMenuSeparator />
+          <DropdownMenuCheckboxItem
+            checked={showStatusBar}
+            onCheckedChange={setShowStatusBar}
+          >
+            Show Status Bar
+          </DropdownMenuCheckboxItem>
+          <DropdownMenuCheckboxItem disabled>
+            Show Activity Bar
+          </DropdownMenuCheckboxItem>
+          <DropdownMenuCheckboxItem
+            checked={showPanel}
+            onCheckedChange={setShowPanel}
+          >
+            Show Panel
+          </DropdownMenuCheckboxItem>
+          <DropdownMenuSeparator />
+          <DropdownMenuSub>
+            <DropdownMenuSubTrigger>
+              Theme
+            </DropdownMenuSubTrigger>
+
+            <DropdownMenuPortal>
+              <DropdownMenuSubContent>
+                <DropdownMenuItem>Light</DropdownMenuItem>
+                <DropdownMenuItem>Dark</DropdownMenuItem>
+                <DropdownMenuItem>System</DropdownMenuItem>
+              </DropdownMenuSubContent>
+            </DropdownMenuPortal>
+          </DropdownMenuSub>
+          <DropdownMenuSeparator />
+          <DropdownMenuRadioGroup value="bottom">
+            <DropdownMenuRadioItem value="top">
+              Top
+            </DropdownMenuRadioItem>
+            <DropdownMenuRadioItem value="bottom">
+              Bottom
+            </DropdownMenuRadioItem>
+            <DropdownMenuRadioItem value="right">
+              Right
+            </DropdownMenuRadioItem>
+          </DropdownMenuRadioGroup>
+        </DropdownMenuGroup>
+      </DropdownMenuContent>
+    </DropdownMenuPortal>
+  </DropdownMenu>`}
         >
           <DropdownMenu>
             <DropdownMenuTrigger
@@ -334,31 +328,40 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Inset Items"
           description="Dùng prop inset trên label và items khi menu không có icon — giữ alignment đồng đều."
           codeString={`<DropdownMenu>
-  <DropdownMenuTrigger
-    render={
-      <Button variant="outline">
-        View Options
-      </Button>
-    }
-  />
-  <DropdownMenuPortal><DropdownMenuContent className="w-48">
-    <DropdownMenuGroup>
-      <DropdownMenuLabel inset>View</DropdownMenuLabel>
-      <DropdownMenuSeparator />
-      <DropdownMenuItem inset>Zoom In</DropdownMenuItem>
-      <DropdownMenuItem inset>Zoom Out</DropdownMenuItem>
-      <DropdownMenuItem inset>Reset Zoom</DropdownMenuItem>
-    </DropdownMenuGroup>
-    <DropdownMenuSeparator />
-    <DropdownMenuGroup>
-      <DropdownMenuLabel inset>Layout</DropdownMenuLabel>
-      <DropdownMenuSeparator />
-      <DropdownMenuItem inset>Single Column</DropdownMenuItem>
-      <DropdownMenuItem inset>Two Columns</DropdownMenuItem>
-    </DropdownMenuGroup>
-  </DropdownMenuContent></DropdownMenuPortal>
-</DropdownMenu>
-`}
+    <DropdownMenuTrigger
+      render={
+        <Button variant="outline">View Options</Button>
+      }
+    />
+    <DropdownMenuPortal>
+      <DropdownMenuContent className="w-48">
+        <DropdownMenuGroup>
+          <DropdownMenuLabel inset>View</DropdownMenuLabel>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem inset>Zoom In</DropdownMenuItem>
+          <DropdownMenuItem inset>
+            Zoom Out
+          </DropdownMenuItem>
+          <DropdownMenuItem inset>
+            Reset Zoom
+          </DropdownMenuItem>
+        </DropdownMenuGroup>
+        <DropdownMenuSeparator />
+        <DropdownMenuGroup>
+          <DropdownMenuLabel inset>
+            Layout
+          </DropdownMenuLabel>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem inset>
+            Single Column
+          </DropdownMenuItem>
+          <DropdownMenuItem inset>
+            Two Columns
+          </DropdownMenuItem>
+        </DropdownMenuGroup>
+      </DropdownMenuContent>
+    </DropdownMenuPortal>
+  </DropdownMenu>`}
         >
           <DropdownMenu>
             <DropdownMenuTrigger

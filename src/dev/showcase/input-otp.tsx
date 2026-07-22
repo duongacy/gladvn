@@ -36,11 +36,11 @@ function InputOTPMacroShowcase({ globalSize }: { globalSize: Size }) {
           label="Tiêu chuẩn (2 nhóm)"
           description="Chia mã 6 số thành 2 nhóm (mỗi nhóm 3 số) cách nhau bởi dấu gạch ngang."
           codeString={`<InputOTPPreset
-  groups={[3, 3]}
-  size="md"
-  label="Mã xác thực"
-  description="Vui lòng nhập mã 6 số được gửi tới điện thoại của bạn."
-/>`}
+    groups={[3, 3]}
+    size="md"
+    label="Mã xác thực"
+    description="Vui lòng nhập mã 6 số được gửi tới điện thoại của bạn."
+  />`}
         >
           <InputOTPPreset
             className="w-full"
@@ -55,11 +55,11 @@ function InputOTPMacroShowcase({ globalSize }: { globalSize: Size }) {
           label="Trạng thái Lỗi (Error)"
           description="Hiển thị viền đỏ và thông báo lỗi khi nhập sai mã."
           codeString={`<InputOTPPreset
-  groups={[3, 3]}
-  size="md"
-  label="Mã bảo mật"
-  errorMessage="Mã xác nhận không chính xác. Vui lòng thử lại."
-/>`}
+    groups={[3, 3]}
+    size="md"
+    label="Mã bảo mật"
+    errorMessage="Mã xác nhận không chính xác. Vui lòng thử lại."
+  />`}
         >
           <InputOTPPreset
             className="w-full"
@@ -76,12 +76,12 @@ function InputOTPMacroShowcase({ globalSize }: { globalSize: Size }) {
           label="Khóa / Bất hoạt (Disabled)"
           description="Người dùng không thể nhập mã khi ở trạng thái này."
           codeString={`<InputOTPPreset
-  groups={[4]}
-  size="md"
-  label="Mã khôi phục"
-  description="Tài khoản của bạn đang bị khóa tạm thời."
-  disabled
-/>`}
+    groups={[4]}
+    size="md"
+    label="Mã khôi phục"
+    description="Tài khoản của bạn đang bị khóa tạm thời."
+    disabled
+  />`}
         >
           <InputOTPPreset
             className="w-full"
@@ -97,11 +97,13 @@ function InputOTPMacroShowcase({ globalSize }: { globalSize: Size }) {
           label="Tuỳ biến Nhóm & Dấu phân cách"
           description="Dùng mảng groups tuỳ ý và đổi icon phân cách."
           codeString={`<InputOTPPreset
-  groups={[2, 2, 2]}
-  separator={<span className="text-muted-foreground/50">/</span>}
-  size="md"
-  label="Ngày sinh (DD/MM/YY)"
-/>`}
+    groups={[2, 2, 2]}
+    separator={
+      <span className="text-muted-foreground/50">/</span>
+    }
+    size="md"
+    label="Ngày sinh (DD/MM/YY)"
+  />`}
         >
           <div className="w-full flex flex-col gap-6">
             <InputOTPPreset
@@ -133,17 +135,17 @@ function InputOTPMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Cơ bản (Primitive)"
           description="Mã 6 chữ số liền mạch không có dấu phân cách."
           codeString={`<Field size="md">
-  <FieldLabel htmlFor="otp-basic">Mã PIN</FieldLabel>
-  <FieldContent>
-    <InputOTP id="otp-basic" size="md" maxLength={6}>
-      <InputOTPGroup>
-        {Array.from({ length: 6 }).map((_, i) => (
-          <InputOTPSlot key={i} index={i} />
-        ))}
-      </InputOTPGroup>
-    </InputOTP>
-  </FieldContent>
-</Field>`}
+    <FieldLabel htmlFor="otp-basic">Mã PIN</FieldLabel>
+    <FieldContent>
+      <InputOTP id="otp-basic" size="md" maxLength={6}>
+        <InputOTPGroup>
+          {Array.from({ length: 6 }).map((_, i) => (
+            <InputOTPSlot key={i} index={i} />
+          ))}
+        </InputOTPGroup>
+      </InputOTP>
+    </FieldContent>
+  </Field>`}
         >
           <Field className="w-full" size={globalSize}>
             <FieldLabel htmlFor="tf-otp-0">Mã PIN</FieldLabel>
@@ -166,23 +168,23 @@ function InputOTPMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Phân tách thủ công"
           description="Tự chèn InputOTPSeparator vào giữa các nhóm."
           codeString={`<Field size="md">
-  <FieldLabel htmlFor="otp-sep">Mã bảo mật</FieldLabel>
-  <FieldContent>
-    <InputOTP id="otp-sep" size="md" maxLength={6}>
-      <InputOTPGroup>
-        {Array.from({ length: 3 }).map((_, i) => (
-          <InputOTPSlot key={i} index={i} />
-        ))}
-      </InputOTPGroup>
-      <InputOTPSeparator />
-      <InputOTPGroup>
-        {Array.from({ length: 3 }).map((_, i) => (
-          <InputOTPSlot key={i + 3} index={i + 3} />
-        ))}
-      </InputOTPGroup>
-    </InputOTP>
-  </FieldContent>
-</Field>`}
+    <FieldLabel htmlFor="otp-sep">Mã bảo mật</FieldLabel>
+    <FieldContent>
+      <InputOTP id="otp-sep" size="md" maxLength={6}>
+        <InputOTPGroup>
+          {Array.from({ length: 3 }).map((_, i) => (
+            <InputOTPSlot key={i} index={i} />
+          ))}
+        </InputOTPGroup>
+        <InputOTPSeparator />
+        <InputOTPGroup>
+          {Array.from({ length: 3 }).map((_, i) => (
+            <InputOTPSlot key={i + 3} index={i + 3} />
+          ))}
+        </InputOTPGroup>
+      </InputOTP>
+    </FieldContent>
+  </Field>`}
         >
           <Field className="w-full" size={globalSize}>
             <FieldLabel htmlFor="tf-otp-1">Mã bảo mật</FieldLabel>
@@ -216,18 +218,18 @@ function InputOTPMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Trạng thái Lỗi thủ công"
           description="Gắn data-invalid vào Field để thay đổi màu sắc."
           codeString={`<Field size="md" data-invalid={true}>
-  <FieldLabel htmlFor="otp-err">Mã xác minh</FieldLabel>
-  <FieldContent>
-    <InputOTP id="otp-err" size="md" maxLength={4}>
-      <InputOTPGroup>
-        {Array.from({ length: 4 }).map((_, i) => (
-          <InputOTPSlot key={i} index={i} />
-        ))}
-      </InputOTPGroup>
-    </InputOTP>
-  </FieldContent>
-  <FieldError>Mã không hợp lệ.</FieldError>
-</Field>`}
+    <FieldLabel htmlFor="otp-err">Mã xác minh</FieldLabel>
+    <FieldContent>
+      <InputOTP id="otp-err" size="md" maxLength={4}>
+        <InputOTPGroup>
+          {Array.from({ length: 4 }).map((_, i) => (
+            <InputOTPSlot key={i} index={i} />
+          ))}
+        </InputOTPGroup>
+      </InputOTP>
+    </FieldContent>
+    <FieldError>Mã không hợp lệ.</FieldError>
+  </Field>`}
         >
           <Field className="w-full" size={globalSize} data-invalid={true}>
             <FieldLabel htmlFor="tf-otp-err">Mã xác minh</FieldLabel>
@@ -251,17 +253,22 @@ function InputOTPMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Disabled thủ công"
           description="Truyền thuộc tính disabled."
           codeString={`<Field size="md">
-  <FieldLabel htmlFor="otp-disabled">Mã OTP</FieldLabel>
-  <FieldContent>
-    <InputOTP id="otp-disabled" size="md" maxLength={4} disabled>
-      <InputOTPGroup>
-        {Array.from({ length: 4 }).map((_, i) => (
-          <InputOTPSlot key={i} index={i} />
-        ))}
-      </InputOTPGroup>
-    </InputOTP>
-  </FieldContent>
-</Field>`}
+    <FieldLabel htmlFor="otp-disabled">Mã OTP</FieldLabel>
+    <FieldContent>
+      <InputOTP
+        id="otp-disabled"
+        size="md"
+        maxLength={4}
+        disabled
+      >
+        <InputOTPGroup>
+          {Array.from({ length: 4 }).map((_, i) => (
+            <InputOTPSlot key={i} index={i} />
+          ))}
+        </InputOTPGroup>
+      </InputOTP>
+    </FieldContent>
+  </Field>`}
         >
           <Field className="w-full" size={globalSize}>
             <FieldLabel htmlFor="tf-otp-d">Mã OTP</FieldLabel>
@@ -286,22 +293,26 @@ function InputOTPMicroShowcase({ globalSize }: { globalSize: Size }) {
         description="So sánh nhanh khi nào dùng Micro và Macro."
         fullWidth
         codeString={`{/* Macro — đơn giản, 1 dòng khai báo */}
-<InputOTPPreset groups={[3, 3]} size="md" label="Mã xác thực" />
+  <InputOTPPreset
+    groups={[3, 3]}
+    size="md"
+    label="Mã xác thực"
+  />
 
-{/* Micro — khi cần custom từng slot */}
-<InputOTP size="md" maxLength={6}>
-  <InputOTPGroup>
-    {Array.from({ length: 3 }).map((_, i) => (
-      <InputOTPSlot key={i} index={i} />
-    ))}
-  </InputOTPGroup>
-  <InputOTPSeparator />
-  <InputOTPGroup>
-    {Array.from({ length: 3 }).map((_, i) => (
-      <InputOTPSlot key={i + 3} index={i + 3} />
-    ))}
-  </InputOTPGroup>
-</InputOTP>`}
+  {/* Micro — khi cần custom từng slot */}
+  <InputOTP size="md" maxLength={6}>
+    <InputOTPGroup>
+      {Array.from({ length: 3 }).map((_, i) => (
+        <InputOTPSlot key={i} index={i} />
+      ))}
+    </InputOTPGroup>
+    <InputOTPSeparator />
+    <InputOTPGroup>
+      {Array.from({ length: 3 }).map((_, i) => (
+        <InputOTPSlot key={i + 3} index={i + 3} />
+      ))}
+    </InputOTPGroup>
+  </InputOTP>`}
       >
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {/* Story 1: Macro wins */}

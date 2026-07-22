@@ -46,14 +46,17 @@ function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Text Prefix & Suffix"
           description="InputGroupAddon với văn bản — click addon để focus input."
           codeString={`<InputGroup size="md">
-  <InputGroupAddon>
-    <InputGroupText>https://</InputGroupText>
-  </InputGroupAddon>
-  <InputGroupInput id="url-input" placeholder="example.com" />
-  <InputGroupAddon align="end">
-    <InputGroupText>.vn</InputGroupText>
-  </InputGroupAddon>
-</InputGroup>`}
+    <InputGroupAddon>
+      <InputGroupText>https://</InputGroupText>
+    </InputGroupAddon>
+    <InputGroupInput
+      id="url-input"
+      placeholder="example.com"
+    />
+    <InputGroupAddon align="end">
+      <InputGroupText>.vn</InputGroupText>
+    </InputGroupAddon>
+  </InputGroup>`}
         >
           <InputGroup size={globalSize} className="w-full">
             <InputGroupAddon>
@@ -70,16 +73,16 @@ function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Icon Prefix & Text Suffix"
           description="InputGroupAddon với icon — thường dùng cho tiền tệ, số lượng."
           codeString={`<InputGroup size="md">
-  <InputGroupAddon>
-    <InputGroupText>
-      <DollarSignIcon aria-hidden="true" />
-    </InputGroupText>
-  </InputGroupAddon>
-  <InputGroupInput id="price-input" placeholder="0.00" />
-  <InputGroupAddon align="end">
-    <InputGroupText>USD</InputGroupText>
-  </InputGroupAddon>
-</InputGroup>`}
+    <InputGroupAddon>
+      <InputGroupText>
+        <DollarSignIcon aria-hidden="true" />
+      </InputGroupText>
+    </InputGroupAddon>
+    <InputGroupInput id="price-input" placeholder="0.00" />
+    <InputGroupAddon align="end">
+      <InputGroupText>USD</InputGroupText>
+    </InputGroupAddon>
+  </InputGroup>`}
         >
           <InputGroup size={globalSize} className="w-full">
             <InputGroupAddon>
@@ -101,21 +104,24 @@ function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Password Toggle"
           description="InputGroupButton icon đặt trực tiếp trong InputGroup — tự có border-l border-l-border phân tách."
           codeString={`const [show, setShow] = useState(false);
-
-<InputGroup size="md">
-  <InputGroupInput
-    id="password-input"
-    type={show ? "text" : "password"}
-    placeholder="••••••••"
-  />
-  <InputGroupButton
-    icon
-    aria-label={show ? "Hide password" : "Show password"}
-    onClick={() => setShow((p) => !p)}
-  >
-    {show ? <EyeOffIcon aria-hidden="true" /> : <EyeIcon aria-hidden="true" />}
-  </InputGroupButton>
-</InputGroup>`}
+  <InputGroup size="md">
+    <InputGroupInput
+      id="password-input"
+      type={show ? "text" : "password"}
+      placeholder="••••••••"
+    />
+    <InputGroupButton
+      icon
+      aria-label={show ? "Hide password" : "Show password"}
+      onClick={() => setShow((p) => !p)}
+    >
+      {show ? (
+        <EyeOffIcon aria-hidden="true" />
+      ) : (
+        <EyeIcon aria-hidden="true" />
+      )}
+    </InputGroupButton>
+  </InputGroup>`}
         >
           <InputGroup size={globalSize} className="w-full">
             <InputGroupInput
@@ -141,25 +147,28 @@ function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Clear Button"
           description="InputGroupButton icon để xoá nhanh nội dung — hiện có điều kiện."
           codeString={`const [value, setValue] = useState("");
-
-<InputGroup size="md">
-  <InputGroupAddon>
-    <InputGroupText>
-      <SearchIcon aria-hidden="true" />
-    </InputGroupText>
-  </InputGroupAddon>
-  <InputGroupInput
-    id="search-input"
-    value={value}
-    onChange={(e) => setValue(e.target.value)}
-    placeholder="Search..."
-  />
-  {value && (
-    <InputGroupButton icon aria-label="Clear" onClick={() => setValue("")}>
-      <XIcon aria-hidden="true" />
-    </InputGroupButton>
-  )}
-</InputGroup>`}
+  <InputGroup size="md">
+    <InputGroupAddon>
+      <InputGroupText>
+        <SearchIcon aria-hidden="true" />
+      </InputGroupText>
+    </InputGroupAddon>
+    <InputGroupInput
+      id="search-input"
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+      placeholder="Search..."
+    />
+    {value && (
+      <InputGroupButton
+        icon
+        aria-label="Clear"
+        onClick={() => setValue("")}
+      >
+        <XIcon aria-hidden="true" />
+      </InputGroupButton>
+    )}
+  </InputGroup>`}
         >
           <InputGroup size={globalSize} className="w-full">
             <InputGroupAddon>
@@ -192,11 +201,14 @@ function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Text Button (non-icon)"
           description="InputGroupButton không có prop icon — dùng horizontal padding và font-size từ group."
           codeString={`<InputGroup size="md">
-  <InputGroupInput id="find-input" placeholder="Search..." />
-  <InputGroupButton variant="solid">
-    <SearchIcon aria-hidden="true" /> Find
-  </InputGroupButton>
-</InputGroup>`}
+    <InputGroupInput
+      id="find-input"
+      placeholder="Search..."
+    />
+    <InputGroupButton variant="solid">
+      <SearchIcon aria-hidden="true" /> Find
+    </InputGroupButton>
+  </InputGroup>`}
         >
           <InputGroup size={globalSize} className="w-full">
             <InputGroupInput id="ig-find" placeholder="Search..." />
@@ -210,30 +222,29 @@ function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Both Ends — Counter"
           description="Button ở cả 2 đầu — border-r border-r-border (start) và border-l border-l-border (end) tự động theo vị trí DOM."
           codeString={`const [count, setCount] = useState(0);
-
-<InputGroup size="md">
-  <InputGroupButton
-    icon
-    aria-label="Decrement"
-    onClick={() => setCount((c) => c - 1)}
-  >
-    <MinusIcon aria-hidden="true" />
-  </InputGroupButton>
-  <InputGroupInput
-    id="counter-input"
-    type="number"
-    value={count}
-    onChange={(e) => setCount(Number(e.target.value))}
-    className="text-center"
-  />
-  <InputGroupButton
-    icon
-    aria-label="Increment"
-    onClick={() => setCount((c) => c + 1)}
-  >
-    <PlusIcon aria-hidden="true" />
-  </InputGroupButton>
-</InputGroup>`}
+  <InputGroup size="md">
+    <InputGroupButton
+      icon
+      aria-label="Decrement"
+      onClick={() => setCount((c) => c - 1)}
+    >
+      <MinusIcon aria-hidden="true" />
+    </InputGroupButton>
+    <InputGroupInput
+      id="counter-input"
+      type="number"
+      value={count}
+      onChange={(e) => setCount(Number(e.target.value))}
+      className="text-center"
+    />
+    <InputGroupButton
+      icon
+      aria-label="Increment"
+      onClick={() => setCount((c) => c + 1)}
+    >
+      <PlusIcon aria-hidden="true" />
+    </InputGroupButton>
+  </InputGroup>`}
         >
           <InputGroup size={globalSize} className="w-full">
             <InputGroupButton
@@ -266,54 +277,72 @@ function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
         label="Button Variants"
         description="InputGroupButton hỗ trợ 4 variants: ghost (default), solid, soft, outline. Demo với icon và text mode."
         codeString={`{/* icon mode — 4 variants */}
-<InputGroup size="md">
-  <InputGroupInput placeholder="ghost" />
-  <InputGroupButton icon variant="ghost" aria-label="Search">
-    <SearchIcon aria-hidden="true" />
-  </InputGroupButton>
-</InputGroup>
+  <InputGroup size="md">
+    <InputGroupInput placeholder="ghost" />
+    <InputGroupButton
+      icon
+      variant="ghost"
+      aria-label="Search"
+    >
+      <SearchIcon aria-hidden="true" />
+    </InputGroupButton>
+  </InputGroup>
 
-<InputGroup size="md">
-  <InputGroupInput placeholder="solid" />
-  <InputGroupButton icon variant="solid" aria-label="Search">
-    <SearchIcon aria-hidden="true" />
-  </InputGroupButton>
-</InputGroup>
+  <InputGroup size="md">
+    <InputGroupInput placeholder="solid" />
+    <InputGroupButton
+      icon
+      variant="solid"
+      aria-label="Search"
+    >
+      <SearchIcon aria-hidden="true" />
+    </InputGroupButton>
+  </InputGroup>
 
-<InputGroup size="md">
-  <InputGroupInput placeholder="soft" />
-  <InputGroupButton icon variant="soft" aria-label="Search">
-    <SearchIcon aria-hidden="true" />
-  </InputGroupButton>
-</InputGroup>
+  <InputGroup size="md">
+    <InputGroupInput placeholder="soft" />
+    <InputGroupButton
+      icon
+      variant="soft"
+      aria-label="Search"
+    >
+      <SearchIcon aria-hidden="true" />
+    </InputGroupButton>
+  </InputGroup>
 
-<InputGroup size="md">
-  <InputGroupInput placeholder="outline" />
-  <InputGroupButton icon variant="outline" aria-label="Search">
-    <SearchIcon aria-hidden="true" />
-  </InputGroupButton>
-</InputGroup>
+  <InputGroup size="md">
+    <InputGroupInput placeholder="outline" />
+    <InputGroupButton
+      icon
+      variant="outline"
+      aria-label="Search"
+    >
+      <SearchIcon aria-hidden="true" />
+    </InputGroupButton>
+  </InputGroup>
 
-{/* text mode — 4 variants */}
-<InputGroup size="md">
-  <InputGroupInput placeholder="ghost text" />
-  <InputGroupButton variant="ghost">Go</InputGroupButton>
-</InputGroup>
+  {/* text mode — 4 variants */}
+  <InputGroup size="md">
+    <InputGroupInput placeholder="ghost text" />
+    <InputGroupButton variant="ghost">Go</InputGroupButton>
+  </InputGroup>
 
-<InputGroup size="md">
-  <InputGroupInput placeholder="solid text" />
-  <InputGroupButton variant="solid">Go</InputGroupButton>
-</InputGroup>
+  <InputGroup size="md">
+    <InputGroupInput placeholder="solid text" />
+    <InputGroupButton variant="solid">Go</InputGroupButton>
+  </InputGroup>
 
-<InputGroup size="md">
-  <InputGroupInput placeholder="soft text" />
-  <InputGroupButton variant="soft">Go</InputGroupButton>
-</InputGroup>
+  <InputGroup size="md">
+    <InputGroupInput placeholder="soft text" />
+    <InputGroupButton variant="soft">Go</InputGroupButton>
+  </InputGroup>
 
-<InputGroup size="md">
-  <InputGroupInput placeholder="outline text" />
-  <InputGroupButton variant="outline">Go</InputGroupButton>
-</InputGroup>`}
+  <InputGroup size="md">
+    <InputGroupInput placeholder="outline text" />
+    <InputGroupButton variant="outline">
+      Go
+    </InputGroupButton>
+  </InputGroup>`}
         fullWidth
       >
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
@@ -368,13 +397,17 @@ function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Disabled"
           description="Trạng thái disabled delegate lên wrapper qua has-disabled: — toàn bộ group mờ đi."
           codeString={`<InputGroup size="md">
-  <InputGroupAddon>
-    <InputGroupText>
-      <GlobeIcon aria-hidden="true" />
-    </InputGroupText>
-  </InputGroupAddon>
-  <InputGroupInput id="disabled-input" placeholder="Disabled" disabled />
-</InputGroup>`}
+    <InputGroupAddon>
+      <InputGroupText>
+        <GlobeIcon aria-hidden="true" />
+      </InputGroupText>
+    </InputGroupAddon>
+    <InputGroupInput
+      id="disabled-input"
+      placeholder="Disabled"
+      disabled
+    />
+  </InputGroup>`}
         >
           <InputGroup size={globalSize} className="w-full">
             <InputGroupAddon>
@@ -390,16 +423,16 @@ function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Invalid / Error"
           description="aria-invalid='true' trên input delegate border border-border đỏ lên toàn bộ wrapper qua has-[...aria-invalid]."
           codeString={`<InputGroup size="md">
-  <InputGroupAddon>
-    <InputGroupText>$</InputGroupText>
-  </InputGroupAddon>
-  <InputGroupInput
-    id="error-input"
-    aria-invalid="true"
-    defaultValue="abc"
-    placeholder="0.00"
-  />
-</InputGroup>`}
+    <InputGroupAddon>
+      <InputGroupText>$</InputGroupText>
+    </InputGroupAddon>
+    <InputGroupInput
+      id="error-input"
+      aria-invalid="true"
+      defaultValue="abc"
+      placeholder="0.00"
+    />
+  </InputGroup>`}
         >
           <InputGroup size={globalSize} className="w-full">
             <InputGroupAddon>
@@ -420,15 +453,15 @@ function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
         label="With Textarea"
         description="InputGroupTextarea — InputGroup wrapper tự co giãn chiều cao với className='h-auto'."
         codeString={`<InputGroup size="md" className="h-auto">
-  <InputGroupAddon className="self-start">
-    <InputGroupText>@</InputGroupText>
-  </InputGroupAddon>
-  <InputGroupTextarea
-    id="comment-input"
-    placeholder="Write a comment..."
-    rows={4}
-  />
-</InputGroup>`}
+    <InputGroupAddon className="self-start">
+      <InputGroupText>@</InputGroupText>
+    </InputGroupAddon>
+    <InputGroupTextarea
+      id="comment-input"
+      placeholder="Write a comment..."
+      rows={4}
+    />
+  </InputGroup>`}
       >
         <InputGroup size={globalSize} className="h-auto w-full">
           <InputGroupAddon className="self-start">

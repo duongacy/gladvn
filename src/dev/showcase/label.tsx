@@ -18,10 +18,7 @@ function LabelMicroShowcase({ globalSize }: { globalSize: Size }) {
       <ExampleSection
         label="Default"
         description="Cách sử dụng nhãn tiêu chuẩn."
-        codeString={`<Label htmlFor="terms">
-  Accept terms and conditions
-</Label>
-`}
+        codeString={`<Label htmlFor="terms">Accept terms and conditions</Label>`}
       >
         <Label htmlFor="terms" size={globalSize}>
           Accept terms and conditions
@@ -32,11 +29,8 @@ function LabelMicroShowcase({ globalSize }: { globalSize: Size }) {
         label="Disabled"
         description="Trạng thái bị vô hiệu hóa khi nằm trong group bị vô hiệu."
         codeString={`<div data-disabled="true" className="group">
-  <Label htmlFor="disabled">
-    This label is disabled
-  </Label>
-</div>
-`}
+    <Label htmlFor="disabled">This label is disabled</Label>
+  </div>`}
       >
         <div data-disabled="true" className="group">
           <Label htmlFor="disabled" size={globalSize}>
@@ -49,11 +43,8 @@ function LabelMicroShowcase({ globalSize }: { globalSize: Size }) {
         label="Error State"
         description="Hiển thị màu đỏ khi nằm trong group bị lỗi (data-invalid)."
         codeString={`<div data-invalid="true" className="group">
-  <Label htmlFor="error">
-    Email is required
-  </Label>
-</div>
-`}
+    <Label htmlFor="error">Email is required</Label>
+  </div>`}
       >
         <div data-invalid="true" className="group">
           <Label htmlFor="error" size={globalSize}>
@@ -66,12 +57,16 @@ function LabelMicroShowcase({ globalSize }: { globalSize: Size }) {
         label="With Peer Input"
         description="Phản hồi trạng thái disabled của input liền kề (dùng class peer)."
         codeString={`<div className="flex items-center gap-2">
-  <input type="checkbox" disabled id="peer-disabled" className="peer w-4 h-4" />
-  <Label htmlFor="peer-disabled">
-    Disabled by peer checkbox
-  </Label>
-</div>
-`}
+    <input
+      type="checkbox"
+      disabled
+      id="peer-disabled"
+      className="peer w-4 h-4"
+    />
+    <Label htmlFor="peer-disabled">
+      Disabled by peer checkbox
+    </Label>
+  </div>`}
       >
         <div className="flex items-center gap-2">
           <input

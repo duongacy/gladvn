@@ -111,10 +111,10 @@ function CalendarMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Disabled Dates"
           description="Vô hiệu hóa chọn ngày (VD: ngày trong quá khứ)."
           codeString={`<Calendar
-  mode="single"
-  disabled={(date) => date < new Date()}
-  className="rounded-xl border border-border shadow"
-/>`}
+    mode="single"
+    disabled={(date) => date < new Date()}
+    className="rounded-xl border border-border shadow"
+  />`}
         >
           <div className="border border-border rounded-xl inline-block bg-card p-3">
             <Calendar
@@ -133,12 +133,12 @@ function CalendarMicroShowcase({ globalSize }: { globalSize: Size }) {
         label="Two Months"
         description="Hiển thị 2 tháng liền kề (numberOfMonths=2) thường dùng cho Date Range."
         codeString={`<Calendar
-  mode="range"
-  selected={date}
-  onSelect={setDate}
-  numberOfMonths={2}
-  className="rounded-xl border border-border shadow"
-/>`}
+    mode="range"
+    selected={date}
+    onSelect={setDate}
+    numberOfMonths={2}
+    className="rounded-xl border border-border shadow"
+  />`}
       >
         <div className="border border-border rounded-xl inline-block bg-card p-3 overflow-x-auto max-w-full">
           <Calendar
@@ -157,10 +157,10 @@ function CalendarMicroShowcase({ globalSize }: { globalSize: Size }) {
         label="With Navigation"
         description="Lịch với điều hướng thả xuống cho tháng/năm."
         codeString={`<Calendar
-  mode="single"
-  captionLayout="dropdown"
-  className="rounded-xl border border-border shadow"
-/>`}
+    mode="single"
+    captionLayout="dropdown"
+    className="rounded-xl border border-border shadow"
+  />`}
       >
         <div className="border border-border rounded-xl inline-block bg-card p-3">
           <Calendar
@@ -241,12 +241,13 @@ function CalendarMacroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Single Dropdown"
           description="Sổ danh sách để chọn tháng và năm nhanh chóng thay vì click qua lại liên tục."
-          codeString={`<DatePicker className="w-64"
-      label="Birthday"
-      captionLayout="dropdown"
-      startMonth={new Date(1900, 0)}
-      endMonth={new Date()}
-    />`}
+          codeString={`<DatePicker
+    className="w-64"
+    label="Birthday"
+    captionLayout="dropdown"
+    startMonth={new Date(1900, 0)}
+    endMonth={new Date()}
+  />`}
         >
           <DatePicker
             className="w-64"
@@ -262,14 +263,15 @@ function CalendarMacroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Range Dropdown"
           description="Sổ danh sách cho cả 2 tháng khi chọn khoảng thời gian (cần numberOfMonths={2})."
-          codeString={`<DatePicker className="w-fit"
-      mode="range"
-      label="Date Range with Dropdowns"
-      captionLayout="dropdown"
-      numberOfMonths={2}
-      startMonth={new Date(2020, 0)}
-      endMonth={new Date(2030, 11)}
-    />`}
+          codeString={`<DatePicker
+    className="w-fit"
+    mode="range"
+    label="Date Range with Dropdowns"
+    captionLayout="dropdown"
+    numberOfMonths={2}
+    startMonth={new Date(2020, 0)}
+    endMonth={new Date(2030, 11)}
+  />`}
         >
           <DatePicker
             className="w-fit"
@@ -290,7 +292,8 @@ function CalendarMacroShowcase({ globalSize }: { globalSize: Size }) {
       <ExampleSection
         label="With Label & Description"
         description="Hiển thị label và mô tả bên dưới trigger."
-        codeString={`<DatePicker className="w-64"
+        codeString={`<DatePicker
+    className="w-64"
     label="Start Date"
     description="Chọn ngày bắt đầu dự án."
     placeholder="Pick a date"
@@ -311,7 +314,8 @@ function CalendarMacroShowcase({ globalSize }: { globalSize: Size }) {
       <ExampleSection
         label="Error State"
         description="Trigger hiển thị viền đỏ khi có errorMessage."
-        codeString={`<DatePicker className="w-64"
+        codeString={`<DatePicker
+    className="w-64"
     label="Due Date"
     errorMessage="Due date is required."
   />`}
@@ -330,10 +334,7 @@ function CalendarMacroShowcase({ globalSize }: { globalSize: Size }) {
       <ExampleSection
         label="Disabled"
         description="Trigger bị vô hiệu hoá, người dùng không thể mở calendar."
-        codeString={`<DatePicker className="w-64"
-    label="Date"
-    disabled
-  />`}
+        codeString={`<DatePicker className="w-64" label="Date" disabled />`}
       >
         <DatePicker
           className="w-64"

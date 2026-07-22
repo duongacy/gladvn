@@ -248,11 +248,9 @@ toast.dismiss(toastId);`}
         label="Position"
         description="Toaster nhận prop position để xác định vị trí hiển thị — cấu hình một lần ở root layout. Nhấn vào từng vùng để xem toast xuất hiện ở đâu."
         codeString={`// Trong root layout (app/layout.tsx):
-<Toaster position="bottom-right" /> // mặc định
-
-// Các vị trí hỗ trợ:
-// "top-left" | "top-center" | "top-right"
-// "bottom-left" | "bottom-center" | "bottom-right"`}
+  <Toaster position="bottom-right" /> // mặc định // Các vị
+  trí hỗ trợ: // "top-left" | "top-center" | "top-right" //
+  "bottom-left" | "bottom-center" | "bottom-right"`}
       >
         {/* Visual 3×2 position grid */}
         <div className="w-full max-w-sm">

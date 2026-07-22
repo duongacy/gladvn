@@ -25,13 +25,13 @@ function ToggleMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Default (Ghost)"
           description="Variant mặc định — không viền, chỉ đổi nền khi pressed."
           codeString={`<Toggle aria-label="Toggle italic">
-  <ItalicIcon />
-  Italic
-</Toggle>
-<Toggle aria-label="Toggle bold">
-  <BoldIcon />
-  Bold
-</Toggle>`}
+    <ItalicIcon />
+    Italic
+  </Toggle>
+  <Toggle aria-label="Toggle bold">
+    <BoldIcon />
+    Bold
+  </Toggle>`}
         >
           <div className="flex gap-2">
             <Toggle aria-label="Toggle italic" size={globalSize}>
@@ -49,13 +49,13 @@ function ToggleMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Outline"
           description='variant="outline" thêm viền border-input xung quanh toggle.'
           codeString={`<Toggle variant="outline" aria-label="Toggle italic">
-  <ItalicIcon />
-  Italic
-</Toggle>
-<Toggle variant="outline" aria-label="Toggle underline">
-  <UnderlineIcon />
-  Underline
-</Toggle>`}
+    <ItalicIcon />
+    Italic
+  </Toggle>
+  <Toggle variant="outline" aria-label="Toggle underline">
+    <UnderlineIcon />
+    Underline
+  </Toggle>`}
         >
           <div className="flex gap-2">
             <Toggle
@@ -83,9 +83,15 @@ function ToggleMicroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="Icon Only"
           description="Toggle chỉ có icon — luôn truyền aria-label để đảm bảo a11y."
-          codeString={`<Toggle aria-label="Toggle italic"><ItalicIcon /></Toggle>
-<Toggle aria-label="Toggle bold"><BoldIcon /></Toggle>
-<Toggle variant="outline" aria-label="Toggle underline"><UnderlineIcon /></Toggle>`}
+          codeString={`<Toggle aria-label="Toggle italic">
+    <ItalicIcon />
+  </Toggle>
+  <Toggle aria-label="Toggle bold">
+    <BoldIcon />
+  </Toggle>
+  <Toggle variant="outline" aria-label="Toggle underline">
+    <UnderlineIcon />
+  </Toggle>`}
         >
           <div className="flex gap-2">
             <Toggle aria-label="Toggle italic" size={globalSize}>
@@ -108,13 +114,17 @@ function ToggleMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Disabled"
           description="Toggle bị vô hiệu hóa — không thể tương tác, hiển thị mờ."
           codeString={`<Toggle disabled aria-label="Toggle italic">
-  <ItalicIcon />
-  Italic
-</Toggle>
-<Toggle variant="outline" disabled aria-label="Toggle bold">
-  <BoldIcon />
-  Bold
-</Toggle>`}
+    <ItalicIcon />
+    Italic
+  </Toggle>
+  <Toggle
+    variant="outline"
+    disabled
+    aria-label="Toggle bold"
+  >
+    <BoldIcon />
+    Bold
+  </Toggle>`}
         >
           <div className="flex gap-2">
             <Toggle disabled aria-label="Toggle italic" size={globalSize}>

@@ -22,9 +22,9 @@ function SpinnerMicroShowcase({ globalSize }: { globalSize: Size }) {
         label="Default"
         description="Spinner mặc định với kích thước được kiểm soát bởi size toggle ở trên."
         codeString={`<Spinner />
-<Spinner size="sm" />
-<Spinner size="md" />
-<Spinner size="lg" />`}
+  <Spinner size="sm" />
+  <Spinner size="md" />
+  <Spinner size="lg" />`}
       >
         <Spinner size={globalSize} />
       </ExampleSection>
@@ -35,9 +35,9 @@ function SpinnerMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Custom Colors"
           description="Truyền className để override màu sắc — Spinner kế thừa currentColor của SVG."
           codeString={`<Spinner className="text-primary" />
-<Spinner className="text-destructive" />
-<Spinner className="text-warning" />
-<Spinner className="text-success" />`}
+  <Spinner className="text-destructive" />
+  <Spinner className="text-warning" />
+  <Spinner className="text-success" />`}
         >
           <div className="flex items-center gap-4">
             <Spinner size={globalSize} className="text-primary" />
@@ -50,10 +50,16 @@ function SpinnerMicroShowcase({ globalSize }: { globalSize: Size }) {
         <ExampleSection
           label="In Context — Button Loading"
           description="Kết hợp Spinner trong Button để mô phỏng trạng thái loading."
-          codeString={`<button disabled className="flex items-center gap-2 px-4 py-2 rounded-md bg-primary text-primary-foreground text-sm opacity-70">
-  <Spinner size="sm" className="text-primary-foreground" />
-  Đang lưu...
-</button>`}
+          codeString={`<button
+    disabled
+    className="flex items-center gap-2 px-4 py-2 rounded-md bg-primary text-primary-foreground text-sm opacity-70"
+  >
+    <Spinner
+      size="sm"
+      className="text-primary-foreground"
+    />
+    Đang lưu...
+  </button>`}
         >
           <button
             disabled
@@ -70,10 +76,10 @@ function SpinnerMicroShowcase({ globalSize }: { globalSize: Size }) {
         label="Overlay Loading"
         description="Đặt Spinner trên một overlay để chặn tương tác trong khi tải nội dung."
         codeString={`<div className="relative rounded-xl border border-border bg-card h-32">
-  <div className="absolute inset-0 flex items-center justify-center bg-background/60 rounded-xl">
-    <Spinner size="lg" className="text-primary" />
-  </div>
-</div>`}
+    <div className="absolute inset-0 flex items-center justify-center bg-background/60 rounded-xl">
+      <Spinner size="lg" className="text-primary" />
+    </div>
+  </div>`}
       >
         <div className="relative rounded-xl border border-border bg-card h-32 w-full max-w-sm">
           <div className="absolute inset-0 flex items-center justify-center bg-background/60 rounded-xl">

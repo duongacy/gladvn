@@ -32,14 +32,13 @@ function ItemMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Basic Content"
           description="Item cơ bản với tiêu đề và mô tả."
           codeString={`<Item className="w-full">
-  <ItemContent>
-    <ItemTitle>Basic Item Content</ItemTitle>
-    <ItemDescription>
-      This item shows structured text.
-    </ItemDescription>
-  </ItemContent>
-</Item>
-`}
+    <ItemContent>
+      <ItemTitle>Basic Item Content</ItemTitle>
+      <ItemDescription>
+        This item shows structured text.
+      </ItemDescription>
+    </ItemContent>
+  </Item>`}
         >
           <Item size={globalSize} className="w-full">
             <ItemContent>
@@ -55,15 +54,14 @@ function ItemMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="With Media"
           description="Item kèm icon hoặc avatar."
           codeString={`<Item className="w-full">
-  <ItemMedia className="bg-primary/10 text-primary rounded-md p-2">
-    <UserIcon className="size-4" />
-  </ItemMedia>
-  <ItemContent>
-    <ItemTitle>User Profile</ItemTitle>
-    <ItemDescription>Manage your account</ItemDescription>
-  </ItemContent>
-</Item>
-`}
+    <ItemMedia className="bg-primary/10 text-primary rounded-md p-2">
+      <UserIcon className="size-4" />
+    </ItemMedia>
+    <ItemContent>
+      <ItemTitle>User Profile</ItemTitle>
+      <ItemDescription>Manage your account</ItemDescription>
+    </ItemContent>
+  </Item>`}
         >
           <Item size={globalSize} className="w-full">
             <ItemMedia className="bg-primary/10 text-primary rounded-md p-2">
@@ -82,18 +80,17 @@ function ItemMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Variants"
           description="Các variant khác nhau: outline, muted."
           codeString={`<div className="flex flex-col gap-3 w-full">
-  <Item variant="outline">
-    <ItemContent>
-      <ItemTitle>Outline Variant</ItemTitle>
-    </ItemContent>
-  </Item>
-  <Item variant="muted">
-    <ItemContent>
-      <ItemTitle>Muted Variant</ItemTitle>
-    </ItemContent>
-  </Item>
-</div>
-`}
+    <Item variant="outline">
+      <ItemContent>
+        <ItemTitle>Outline Variant</ItemTitle>
+      </ItemContent>
+    </Item>
+    <Item variant="muted">
+      <ItemContent>
+        <ItemTitle>Muted Variant</ItemTitle>
+      </ItemContent>
+    </Item>
+  </div>`}
         >
           <div className="flex flex-col gap-3 w-full">
             <Item variant="outline" size={globalSize}>
@@ -113,24 +110,26 @@ function ItemMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Media Variants"
           description="ItemMedia hỗ trợ các variant riêng: icon và image."
           codeString={`<div className="flex flex-col gap-3 w-full">
-  <Item>
-    <ItemMedia variant="icon" className="bg-primary/10 text-primary">
-      <CheckIcon className="size-4" />
-    </ItemMedia>
-    <ItemContent>
-      <ItemTitle>Icon Variant</ItemTitle>
-    </ItemContent>
-  </Item>
-  <Item>
-    <ItemMedia variant="image" className="bg-muted">
-      <UserIcon className="size-4 text-muted-foreground" />
-    </ItemMedia>
-    <ItemContent>
-      <ItemTitle>Image Variant</ItemTitle>
-    </ItemContent>
-  </Item>
-</div>
-`}
+    <Item>
+      <ItemMedia
+        variant="icon"
+        className="bg-primary/10 text-primary"
+      >
+        <CheckIcon className="size-4" />
+      </ItemMedia>
+      <ItemContent>
+        <ItemTitle>Icon Variant</ItemTitle>
+      </ItemContent>
+    </Item>
+    <Item>
+      <ItemMedia variant="image" className="bg-muted">
+        <UserIcon className="size-4 text-muted-foreground" />
+      </ItemMedia>
+      <ItemContent>
+        <ItemTitle>Image Variant</ItemTitle>
+      </ItemContent>
+    </Item>
+  </div>`}
         >
           <div className="flex flex-col gap-3 w-full">
             <Item size={globalSize}>
@@ -156,19 +155,26 @@ function ItemMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="With Actions"
           description="Item có các nút hành động ở cuối (ItemActions)."
           codeString={`<Item className="w-full">
-  <ItemContent>
-    <ItemTitle>Actionable Item</ItemTitle>
-  </ItemContent>
-  <ItemActions>
-    <Button variant="ghost" size="sm" className="size-8 p-0">
-      <HeartIcon className="size-4" />
-    </Button>
-    <Button variant="ghost" size="sm" className="size-8 p-0">
-      <MoreVerticalIcon className="size-4" />
-    </Button>
-  </ItemActions>
-</Item>
-`}
+    <ItemContent>
+      <ItemTitle>Actionable Item</ItemTitle>
+    </ItemContent>
+    <ItemActions>
+      <Button
+        variant="ghost"
+        size="sm"
+        className="size-8 p-0"
+      >
+        <HeartIcon className="size-4" />
+      </Button>
+      <Button
+        variant="ghost"
+        size="sm"
+        className="size-8 p-0"
+      >
+        <MoreVerticalIcon className="size-4" />
+      </Button>
+    </ItemActions>
+  </Item>`}
         >
           <Item size={globalSize} className="w-full">
             <ItemContent>
@@ -190,25 +196,26 @@ function ItemMicroShowcase({ globalSize }: { globalSize: Size }) {
         label="Item Group"
         description="Nhóm các Item và phân cách bằng ItemSeparator."
         codeString={`<ItemGroup className="w-full max-w-sm mx-auto">
-  <Item>
-    <ItemContent>
-      <ItemTitle>Account Settings</ItemTitle>
-    </ItemContent>
-  </Item>
-  <ItemSeparator />
-  <Item>
-    <ItemContent>
-      <ItemTitle>Notification Preferences</ItemTitle>
-    </ItemContent>
-  </Item>
-  <ItemSeparator />
-  <Item>
-    <ItemContent>
-      <ItemTitle className="text-destructive">Delete Account</ItemTitle>
-    </ItemContent>
-  </Item>
-</ItemGroup>
-`}
+    <Item>
+      <ItemContent>
+        <ItemTitle>Account Settings</ItemTitle>
+      </ItemContent>
+    </Item>
+    <ItemSeparator />
+    <Item>
+      <ItemContent>
+        <ItemTitle>Notification Preferences</ItemTitle>
+      </ItemContent>
+    </Item>
+    <ItemSeparator />
+    <Item>
+      <ItemContent>
+        <ItemTitle className="text-destructive">
+          Delete Account
+        </ItemTitle>
+      </ItemContent>
+    </Item>
+  </ItemGroup>`}
       >
         <ItemGroup className="w-full max-w-sm mx-auto">
           <Item size={globalSize}>
@@ -234,20 +241,17 @@ function ItemMicroShowcase({ globalSize }: { globalSize: Size }) {
       <ExampleSection
         label="With Header and Footer"
         description="Item phức tạp với ItemHeader và ItemFooter."
-        codeString={`<Item
-  className="w-full max-w-sm mx-auto flex-col items-start gap-2"
->
-  <ItemHeader className="text-xs text-muted-foreground">
-    Order #12345
-  </ItemHeader>
-  <ItemContent>
-    <ItemTitle>Mechanical Keyboard v2</ItemTitle>
-  </ItemContent>
-  <ItemFooter className="text-xs text-success flex items-center gap-1">
-    <CheckIcon className="size-3" /> Delivered
-  </ItemFooter>
-</Item>
-`}
+        codeString={`<Item className="w-full max-w-sm mx-auto flex-col items-start gap-2">
+    <ItemHeader className="text-xs text-muted-foreground">
+      Order #12345
+    </ItemHeader>
+    <ItemContent>
+      <ItemTitle>Mechanical Keyboard v2</ItemTitle>
+    </ItemContent>
+    <ItemFooter className="text-xs text-success flex items-center gap-1">
+      <CheckIcon className="size-3" /> Delivered
+    </ItemFooter>
+  </Item>`}
       >
         <Item
           size={globalSize}

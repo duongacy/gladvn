@@ -177,24 +177,25 @@ function CommandMicroShowcase() {
       <ExampleSection
         label="Dialog Menu"
         description="Menu lệnh được hiển thị bên trong dialog."
-        codeString={`<Button onClick={() => setOpen(true)}>Open Command Palette</Button>
-<CommandDialog open={open} onOpenChange={setOpen}>
-  <CommandInput placeholder="Type a command or search..." />
-  <CommandList>
-    <CommandEmpty>No results found.</CommandEmpty>
-    <CommandGroup heading="Suggestions">
-      <CommandItem>
-        <CalendarIcon className="mr-2 h-4 w-4" />
-        <span>Calendar</span>
-      </CommandItem>
-      <CommandItem>
-        <SmileIcon className="mr-2 h-4 w-4" />
-        <span>Search Emoji</span>
-      </CommandItem>
-    </CommandGroup>
-  </CommandList>
-</CommandDialog>
-`}
+        codeString={`<Button onClick={() => setOpen(true)}>
+    Open Command Palette
+  </Button>
+  <CommandDialog open={open} onOpenChange={setOpen}>
+    <CommandInput placeholder="Type a command or search..." />
+    <CommandList>
+      <CommandEmpty>No results found.</CommandEmpty>
+      <CommandGroup heading="Suggestions">
+        <CommandItem>
+          <CalendarIcon className="mr-2 h-4 w-4" />
+          <span>Calendar</span>
+        </CommandItem>
+        <CommandItem>
+          <SmileIcon className="mr-2 h-4 w-4" />
+          <span>Search Emoji</span>
+        </CommandItem>
+      </CommandGroup>
+    </CommandList>
+  </CommandDialog>`}
       >
         <Button onClick={() => setOpen(true)}>Open Command Palette</Button>
         <CommandDialog open={open} onOpenChange={setOpen}>

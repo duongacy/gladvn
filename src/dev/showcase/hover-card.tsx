@@ -64,28 +64,42 @@ function HoverCardMicroShowcase({ globalSize }: { globalSize: Size }) {
         label="Default"
         description="Di chuột qua liên kết để xem bản xem trước. Trigger render dưới dạng Button với variant link."
         codeString={`<HoverCard>
-  <HoverCardTrigger render={<Button variant="link" />}>
-    @nextjs
-  </HoverCardTrigger>
-  <HoverCardPortal><HoverCardContent className="w-80">
-    <div className="flex justify-between space-x-4">
-      <Avatar>
-        <AvatarImage src="https://github.com/vercel.png" alt="Vercel avatar" />
-        <AvatarFallback>VC</AvatarFallback>
-      </Avatar>
-      <div className="space-y-1">
-        <h4 className="text-sm font-semibold">@nextjs</h4>
-        <p className="text-sm">
-          The React Framework – created and maintained by @vercel.
-        </p>
-        <div className="flex items-center pt-2">
-          <CalendarIcon aria-hidden="true" focusable="false" className="mr-2 h-4 w-4 opacity-70" />
-          <span className="text-xs text-muted-foreground">Joined December 2021</span>
+    <HoverCardTrigger render={<Button variant="link" />}>
+      @nextjs
+    </HoverCardTrigger>
+    <HoverCardPortal>
+      <HoverCardContent className="w-80">
+        <div className="flex justify-between space-x-4">
+          <Avatar>
+            <AvatarImage
+              src="https://github.com/vercel.png"
+              alt="Vercel avatar"
+            />
+            <AvatarFallback>VC</AvatarFallback>
+          </Avatar>
+          <div className="space-y-1">
+            <h4 className="text-sm font-semibold">
+              @nextjs
+            </h4>
+            <p className="text-sm">
+              The React Framework – created and maintained
+              by @vercel.
+            </p>
+            <div className="flex items-center pt-2">
+              <CalendarIcon
+                aria-hidden="true"
+                focusable="false"
+                className="mr-2 h-4 w-4 opacity-70"
+              />
+              <span className="text-xs text-muted-foreground">
+                Joined December 2021
+              </span>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </HoverCardContent></HoverCardPortal>
-</HoverCard>`}
+      </HoverCardContent>
+    </HoverCardPortal>
+  </HoverCard>`}
       >
         <HoverCard>
           <HoverCardTrigger
@@ -107,9 +121,15 @@ function HoverCardMicroShowcase({ globalSize }: { globalSize: Size }) {
         label="Vị trí (Side)"
         description="HoverCard có thể xuất hiện ở bốn phía của trigger thông qua prop side."
         codeString={`<HoverCard>
-  <HoverCardTrigger render={<Button variant="outline">Top</Button>} />
-  <HoverCardPortal><HoverCardContent side="top" className="w-80">...</HoverCardContent></HoverCardPortal>
-</HoverCard>`}
+    <HoverCardTrigger
+      render={<Button variant="outline">Top</Button>}
+    />
+    <HoverCardPortal>
+      <HoverCardContent side="top" className="w-80">
+        ...
+      </HoverCardContent>
+    </HoverCardPortal>
+  </HoverCard>`}
       >
         <div className="flex flex-wrap items-center justify-center gap-4 py-8">
           {(["top", "right", "bottom", "left"] as const).map((side) => (
@@ -174,8 +194,8 @@ function HoverCardMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Trigger: Button Link"
           description="Trigger render như Button variant link — phù hợp cho text nội tuyến."
           codeString={`<HoverCardTrigger render={<Button variant="link" />}>
-  @nextjs
-</HoverCardTrigger>`}
+    @nextjs
+  </HoverCardTrigger>`}
         >
           <HoverCard>
             <HoverCardTrigger
@@ -196,10 +216,15 @@ function HoverCardMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Trigger: Thẻ anchor thuần"
           description="Trigger render như thẻ <a> HTML thuần — phù hợp cho liên kết tự nhiên trong văn bản."
           codeString={`<HoverCardTrigger
-  render={<a href="#" className="text-primary underline underline-offset-4" />}
->
-  @nextjs
-</HoverCardTrigger>`}
+    render={
+      <a
+        href="#"
+        className="text-primary underline underline-offset-4"
+      />
+    }
+  >
+    @nextjs
+  </HoverCardTrigger>`}
         >
           <HoverCard>
             <HoverCardTrigger
@@ -228,19 +253,35 @@ function HoverCardMicroShowcase({ globalSize }: { globalSize: Size }) {
         description="Tuỳ chỉnh thời gian trễ trước khi card xuất hiện hoặc biến mất. Props delay và closeDelay đặt trên HoverCardTrigger."
         fullWidth
         codeString={`<HoverCard>
-  <HoverCardTrigger delay={0} render={<Button />}>Tức thì</HoverCardTrigger>
-  <HoverCardPortal><HoverCardContent>...</HoverCardContent></HoverCardPortal>
-</HoverCard>
+    <HoverCardTrigger delay={0} render={<Button />}>
+      Tức thì
+    </HoverCardTrigger>
+    <HoverCardPortal>
+      <HoverCardContent>...</HoverCardContent>
+    </HoverCardPortal>
+  </HoverCard>
 
-<HoverCard>
-  <HoverCardTrigger delay={500} render={<Button />}>Mặc định (500ms)</HoverCardTrigger>
-  <HoverCardPortal><HoverCardContent>...</HoverCardContent></HoverCardPortal>
-</HoverCard>
+  <HoverCard>
+    <HoverCardTrigger delay={500} render={<Button />}>
+      Mặc định (500ms)
+    </HoverCardTrigger>
+    <HoverCardPortal>
+      <HoverCardContent>...</HoverCardContent>
+    </HoverCardPortal>
+  </HoverCard>
 
-<HoverCard>
-  <HoverCardTrigger delay={1500} closeDelay={500} render={<Button />}>Chậm (1500ms)</HoverCardTrigger>
-  <HoverCardPortal><HoverCardContent>...</HoverCardContent></HoverCardPortal>
-</HoverCard>`}
+  <HoverCard>
+    <HoverCardTrigger
+      delay={1500}
+      closeDelay={500}
+      render={<Button />}
+    >
+      Chậm (1500ms)
+    </HoverCardTrigger>
+    <HoverCardPortal>
+      <HoverCardContent>...</HoverCardContent>
+    </HoverCardPortal>
+  </HoverCard>`}
       >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
           <HoverCard>

@@ -30,45 +30,60 @@ function TooltipMicroShowcase({ globalSize }: { globalSize: Size }) {
         label="Vị trí (Placements)"
         description="Tooltip có thể được đặt ở bất kỳ cạnh nào của trigger bằng thuộc tính side."
         codeString={`<div className="grid grid-cols-2 gap-4 max-w-md w-full place-items-center">
-  <TooltipProvider>
-    <Tooltip>
-      <TooltipTrigger
-        render={<Button variant="outline">Trên (Top)</Button>}
-      />
-      <TooltipPortal>
-        <TooltipContent side="top">Tooltip nằm trên</TooltipContent>
-      </TooltipPortal>
-    </Tooltip>
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger
+          render={
+            <Button variant="outline">Trên (Top)</Button>
+          }
+        />
+        <TooltipPortal>
+          <TooltipContent side="top">
+            Tooltip nằm trên
+          </TooltipContent>
+        </TooltipPortal>
+      </Tooltip>
 
-    <Tooltip>
-      <TooltipTrigger
-        render={<Button variant="outline">Dưới (Bottom)</Button>}
-      />
-      <TooltipPortal>
-        <TooltipContent side="bottom">Tooltip nằm dưới</TooltipContent>
-      </TooltipPortal>
-    </Tooltip>
+      <Tooltip>
+        <TooltipTrigger
+          render={
+            <Button variant="outline">Dưới (Bottom)</Button>
+          }
+        />
+        <TooltipPortal>
+          <TooltipContent side="bottom">
+            Tooltip nằm dưới
+          </TooltipContent>
+        </TooltipPortal>
+      </Tooltip>
 
-    <Tooltip>
-      <TooltipTrigger
-        render={<Button variant="outline">Trái (Left)</Button>}
-      />
-      <TooltipPortal>
-        <TooltipContent side="left">Tooltip nằm trái</TooltipContent>
-      </TooltipPortal>
-    </Tooltip>
+      <Tooltip>
+        <TooltipTrigger
+          render={
+            <Button variant="outline">Trái (Left)</Button>
+          }
+        />
+        <TooltipPortal>
+          <TooltipContent side="left">
+            Tooltip nằm trái
+          </TooltipContent>
+        </TooltipPortal>
+      </Tooltip>
 
-    <Tooltip>
-      <TooltipTrigger
-        render={<Button variant="outline">Phải (Right)</Button>}
-      />
-      <TooltipPortal>
-        <TooltipContent side="right">Tooltip nằm phải</TooltipContent>
-      </TooltipPortal>
-    </Tooltip>
-  </TooltipProvider>
-</div>
-`}
+      <Tooltip>
+        <TooltipTrigger
+          render={
+            <Button variant="outline">Phải (Right)</Button>
+          }
+        />
+        <TooltipPortal>
+          <TooltipContent side="right">
+            Tooltip nằm phải
+          </TooltipContent>
+        </TooltipPortal>
+      </Tooltip>
+    </TooltipProvider>
+  </div>`}
       >
         <div className="grid grid-cols-2 gap-4 max-w-md w-full place-items-center">
           <TooltipProvider>
@@ -136,24 +151,26 @@ function TooltipMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Nội dung dài (Long Content)"
           description="Tooltip tự động giới hạn chiều rộng và xuống dòng khi nội dung quá dài."
           codeString={`<TooltipProvider>
-  <Tooltip>
-    <TooltipTrigger
-      render={
-        <Button variant="outline" iconOnly>
-          <InfoIcon />
-        </Button>
-      }
-    />
-    <TooltipPortal>
-      <TooltipContent>
-        <p>
-          Đây là một đoạn nội dung tooltip khá dài nhằm mục đích trình diễn cách mà Tooltip tự động cắt và xuống dòng khi vượt quá chiều rộng tối đa (max-width) cho phép.
-        </p>
-      </TooltipContent>
-    </TooltipPortal>
-  </Tooltip>
-</TooltipProvider>
-`}
+    <Tooltip>
+      <TooltipTrigger
+        render={
+          <Button variant="outline" iconOnly>
+            <InfoIcon />
+          </Button>
+        }
+      />
+      <TooltipPortal>
+        <TooltipContent>
+          <p>
+            Đây là một đoạn nội dung tooltip khá dài nhằm
+            mục đích trình diễn cách mà Tooltip tự động cắt
+            và xuống dòng khi vượt quá chiều rộng tối đa
+            (max-width) cho phép.
+          </p>
+        </TooltipContent>
+      </TooltipPortal>
+    </Tooltip>
+  </TooltipProvider>`}
         >
           <TooltipProvider>
             <Tooltip>
@@ -182,29 +199,31 @@ function TooltipMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Trigger bị vô hiệu (Disabled Trigger)"
           description="Để bắt sự kiện hover trên nút disabled, cần bọc nó trong một thẻ span có tabIndex."
           codeString={`<TooltipProvider>
-  <Tooltip>
-    <TooltipTrigger
-      render={
-        <span tabIndex={0} className="inline-block cursor-not-allowed">
-          <Button
-            variant="outline"
-            disabled
-            className="pointer-events-none w-full h-full"
-            iconOnly
+    <Tooltip>
+      <TooltipTrigger
+        render={
+          <span
+            tabIndex={0}
+            className="inline-block cursor-not-allowed"
           >
-            <ShieldAlertIcon />
-          </Button>
-        </span>
-      }
-    />
-    <TooltipPortal>
-      <TooltipContent side="right">
-        <p>Bạn không có quyền thực hiện hành động này.</p>
-      </TooltipContent>
-    </TooltipPortal>
-  </Tooltip>
-</TooltipProvider>
-`}
+            <Button
+              variant="outline"
+              disabled
+              className="pointer-events-none w-full h-full"
+              iconOnly
+            >
+              <ShieldAlertIcon />
+            </Button>
+          </span>
+        }
+      />
+      <TooltipPortal>
+        <TooltipContent side="right">
+          <p>Bạn không có quyền thực hiện hành động này.</p>
+        </TooltipContent>
+      </TooltipPortal>
+    </Tooltip>
+  </TooltipProvider>`}
         >
           <TooltipProvider>
             <Tooltip>
@@ -242,40 +261,57 @@ function TooltipMicroShowcase({ globalSize }: { globalSize: Size }) {
         description="Thay đổi thời gian trễ trước khi tooltip xuất hiện thông qua thuộc tính delay của TooltipProvider."
         fullWidth
         codeString={`<div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-  <TooltipProvider delay={0}>
-    <Tooltip>
-      <TooltipTrigger
-        render={<Button variant="outline" className="w-full">Tức thì (0ms)</Button>}
-      />
-      <TooltipPortal>
-        <TooltipContent>Xuất hiện ngay lập tức</TooltipContent>
-      </TooltipPortal>
-    </Tooltip>
-  </TooltipProvider>
+    <TooltipProvider delay={0}>
+      <Tooltip>
+        <TooltipTrigger
+          render={
+            <Button variant="outline" className="w-full">
+              Tức thì (0ms)
+            </Button>
+          }
+        />
+        <TooltipPortal>
+          <TooltipContent>
+            Xuất hiện ngay lập tức
+          </TooltipContent>
+        </TooltipPortal>
+      </Tooltip>
+    </TooltipProvider>
 
-  <TooltipProvider delay={500}>
-    <Tooltip>
-      <TooltipTrigger
-        render={<Button variant="outline" className="w-full">Mặc định (500ms)</Button>}
-      />
-      <TooltipPortal>
-        <TooltipContent>Xuất hiện sau nửa giây</TooltipContent>
-      </TooltipPortal>
-    </Tooltip>
-  </TooltipProvider>
+    <TooltipProvider delay={500}>
+      <Tooltip>
+        <TooltipTrigger
+          render={
+            <Button variant="outline" className="w-full">
+              Mặc định (500ms)
+            </Button>
+          }
+        />
+        <TooltipPortal>
+          <TooltipContent>
+            Xuất hiện sau nửa giây
+          </TooltipContent>
+        </TooltipPortal>
+      </Tooltip>
+    </TooltipProvider>
 
-  <TooltipProvider delay={2000}>
-    <Tooltip>
-      <TooltipTrigger
-        render={<Button variant="outline" className="w-full">Chậm (2000ms)</Button>}
-      />
-      <TooltipPortal>
-        <TooltipContent>Xuất hiện sau 2 giây chờ đợi</TooltipContent>
-      </TooltipPortal>
-    </Tooltip>
-  </TooltipProvider>
-</div>
-`}
+    <TooltipProvider delay={2000}>
+      <Tooltip>
+        <TooltipTrigger
+          render={
+            <Button variant="outline" className="w-full">
+              Chậm (2000ms)
+            </Button>
+          }
+        />
+        <TooltipPortal>
+          <TooltipContent>
+            Xuất hiện sau 2 giây chờ đợi
+          </TooltipContent>
+        </TooltipPortal>
+      </Tooltip>
+    </TooltipProvider>
+  </div>`}
       >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <TooltipProvider delay={0}>

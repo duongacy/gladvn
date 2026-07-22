@@ -18,40 +18,40 @@ function ToastMicroShowcase({ globalSize }: { globalSize: Size }) {
         label="Toast Notifications"
         description="Nhấp để kích hoạt các loại toast khác nhau."
         codeString={`<div className="flex flex-wrap gap-3">
-  <Button
-    variant="outline"
-    onClick={() => {
-      toast("Event has been created", {
-        description: "Sunday, December 03, 2023 at 9:00 AM",
-        action: {
-          label: "Undo",
-          onClick: () => console.log("Undo"),
-        },
-      });
-    }}
-  >
-    Show Toast
-  </Button>
-  <Button
-    variant="outline"
-    color="success"
-    onClick={() => {
-      toast.success("Profile updated successfully");
-    }}
-  >
-    Success Toast
-  </Button>
-  <Button
-    variant="outline"
-    color="destructive"
-    onClick={() => {
-      toast.error("Failed to update profile");
-    }}
-  >
-    Error Toast
-  </Button>
-</div>
-`}
+    <Button
+      variant="outline"
+      onClick={() => {
+        toast("Event has been created", {
+          description:
+            "Sunday, December 03, 2023 at 9:00 AM",
+          action: {
+            label: "Undo",
+            onClick: () => console.log("Undo"),
+          },
+        })
+      }}
+    >
+      Show Toast
+    </Button>
+    <Button
+      variant="outline"
+      color="success"
+      onClick={() => {
+        toast.success("Profile updated successfully")
+      }}
+    >
+      Success Toast
+    </Button>
+    <Button
+      variant="outline"
+      color="destructive"
+      onClick={() => {
+        toast.error("Failed to update profile")
+      }}
+    >
+      Error Toast
+    </Button>
+  </div>`}
       >
         <div className="flex flex-wrap gap-3">
           <Button

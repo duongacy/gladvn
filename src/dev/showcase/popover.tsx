@@ -117,59 +117,72 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Icon Trigger"
           description="Mở Popover bằng Icon Button."
           codeString={`<div className="flex gap-4">
-  <Popover>
-    <PopoverTrigger
-      render={
-        <Button
-          variant="ghost"
-          size="md"
-          iconOnly
-          className="rounded-full"
+    <Popover>
+      <PopoverTrigger
+        render={
+          <Button
+            variant="ghost"
+            size="md"
+            iconOnly
+            className="rounded-full"
+          >
+            <Bell className="size-4" />
+          </Button>
+        }
+      />
+      <PopoverPortal>
+        <PopoverContent
+          className="w-64"
+          sideOffset={8}
+          align="start"
         >
-          <Bell className="size-4" />
-        </Button>
-      }
-    />
-    <PopoverPortal><PopoverContent className="w-64" sideOffset={8} align="start">
-      <PopoverHeader>
-        <PopoverTitle>Thông báo</PopoverTitle>
-        <PopoverDescription>
-          Bạn có 3 tin nhắn chưa đọc.
-        </PopoverDescription>
-      </PopoverHeader>
-    </PopoverContent></PopoverPortal>
-  </Popover>
+          <PopoverHeader>
+            <PopoverTitle>Thông báo</PopoverTitle>
+            <PopoverDescription>
+              Bạn có 3 tin nhắn chưa đọc.
+            </PopoverDescription>
+          </PopoverHeader>
+        </PopoverContent>
+      </PopoverPortal>
+    </Popover>
 
-  <Popover>
-    <PopoverTrigger
-      render={
-        <Button variant="outline" size="md" iconOnly>
-          <Settings className="size-4" />
-        </Button>
-      }
-    />
-    <PopoverPortal><PopoverContent className="w-56" sideOffset={8}>
-      <PopoverHeader>
-        <PopoverTitle>Cài đặt nhanh</PopoverTitle>
-      </PopoverHeader>
-      <div className="flex flex-col gap-2 mt-2">
-        <Button variant="ghost" className="justify-start">
-          Tài khoản
-        </Button>
-        <Button variant="ghost" className="justify-start">
-          Giao diện
-        </Button>
-        <Button
-          variant="ghost"
-          className="justify-start text-destructive hover:text-destructive"
-        >
-          Đăng xuất
-        </Button>
-      </div>
-    </PopoverContent></PopoverPortal>
-  </Popover>
-</div>
-`}
+    <Popover>
+      <PopoverTrigger
+        render={
+          <Button variant="outline" size="md" iconOnly>
+            <Settings className="size-4" />
+          </Button>
+        }
+      />
+      <PopoverPortal>
+        <PopoverContent className="w-56" sideOffset={8}>
+          <PopoverHeader>
+            <PopoverTitle>Cài đặt nhanh</PopoverTitle>
+          </PopoverHeader>
+          <div className="flex flex-col gap-2 mt-2">
+            <Button
+              variant="ghost"
+              className="justify-start"
+            >
+              Tài khoản
+            </Button>
+            <Button
+              variant="ghost"
+              className="justify-start"
+            >
+              Giao diện
+            </Button>
+            <Button
+              variant="ghost"
+              className="justify-start text-destructive hover:text-destructive"
+            >
+              Đăng xuất
+            </Button>
+          </div>
+        </PopoverContent>
+      </PopoverPortal>
+    </Popover>
+  </div>`}
         >
           <div className="flex gap-4">
             <Popover>
@@ -237,13 +250,19 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
         label="Placement (Vị trí)"
         description="Popover có thể hiển thị ở nhiều hướng khác nhau so với trigger (Top, Bottom, Left, Right)."
         codeString={`<Popover>
-  <PopoverTrigger asChild>
-    <Button variant="outline">top</Button>
-  </PopoverTrigger>
-  <PopoverPortal><PopoverContent side="top" sideOffset={8} className="w-48 text-center text-sm p-4">
-    Hiển thị ở phía <strong>top</strong>
-  </PopoverContent></PopoverPortal>
-</Popover>`}
+    <PopoverTrigger asChild>
+      <Button variant="outline">top</Button>
+    </PopoverTrigger>
+    <PopoverPortal>
+      <PopoverContent
+        side="top"
+        sideOffset={8}
+        className="w-48 text-center text-sm p-4"
+      >
+        Hiển thị ở phía <strong>top</strong>
+      </PopoverContent>
+    </PopoverPortal>
+  </Popover>`}
       >
         <div className="flex flex-wrap items-center justify-center gap-4 py-8">
           {(["top", "right", "bottom", "left"] as const).map((side) => (
@@ -276,28 +295,35 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
       <ExampleSection
         label="Controlled State"
         description="Quản lý trạng thái đóng/mở của Popover thông qua React state (open và onOpenChange)."
-        codeString={`const [isOpen, setIsOpen] = React.useState(false)
-
-return (
+        codeString={`const [isOpen, setIsOpen] = React.useState(false) return (
   <Popover open={isOpen} onOpenChange={setIsOpen}>
     <PopoverTrigger asChild>
-      <Button variant="outline">Toggle Controlled Popover</Button>
+      <Button variant="outline">
+        Toggle Controlled Popover
+      </Button>
     </PopoverTrigger>
-    <PopoverPortal><PopoverContent className="w-80" sideOffset={8}>
-      <PopoverHeader>
-        <PopoverTitle>Controlled Mode</PopoverTitle>
-        <PopoverDescription>
-          Popover này được control bởi state. Bạn có thể đóng nó bằng nút bên dưới hoặc click ra ngoài.
-        </PopoverDescription>
-      </PopoverHeader>
-      <div className="mt-4 flex justify-end">
-        <Button size="sm" color="secondary" onClick={() => setIsOpen(false)}>
-          Đóng Popover
-        </Button>
-      </div>
-    </PopoverContent></PopoverPortal>
+    <PopoverPortal>
+      <PopoverContent className="w-80" sideOffset={8}>
+        <PopoverHeader>
+          <PopoverTitle>Controlled Mode</PopoverTitle>
+          <PopoverDescription>
+            Popover này được control bởi state. Bạn có thể
+            đóng nó bằng nút bên dưới hoặc click ra ngoài.
+          </PopoverDescription>
+        </PopoverHeader>
+        <div className="mt-4 flex justify-end">
+          <Button
+            size="sm"
+            color="secondary"
+            onClick={() => setIsOpen(false)}
+          >
+            Đóng Popover
+          </Button>
+        </div>
+      </PopoverContent>
+    </PopoverPortal>
   </Popover>
-)`}
+  )`}
       >
         <div className="flex items-center gap-4">
           <Popover open={isOpen} onOpenChange={setIsOpen}>

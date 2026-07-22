@@ -35,16 +35,19 @@ function ToggleGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Single Selection"
           description="Chỉ có một mục có thể hoạt động tại một thời điểm."
           codeString={`<ToggleGroup defaultValue={["center"]}>
-  <ToggleGroupItem value="left" aria-label="Align left">
-    <AlignLeftIcon />
-  </ToggleGroupItem>
-  <ToggleGroupItem value="center" aria-label="Align center">
-    <AlignCenterIcon />
-  </ToggleGroupItem>
-  <ToggleGroupItem value="right" aria-label="Align right">
-    <AlignRightIcon />
-  </ToggleGroupItem>
-</ToggleGroup>`}
+    <ToggleGroupItem value="left" aria-label="Align left">
+      <AlignLeftIcon />
+    </ToggleGroupItem>
+    <ToggleGroupItem
+      value="center"
+      aria-label="Align center"
+    >
+      <AlignCenterIcon />
+    </ToggleGroupItem>
+    <ToggleGroupItem value="right" aria-label="Align right">
+      <AlignRightIcon />
+    </ToggleGroupItem>
+  </ToggleGroup>`}
         >
           <ToggleGroup defaultValue={["center"]} size={globalSize}>
             <ToggleGroupItem value="left" aria-label="Align left">
@@ -63,16 +66,22 @@ function ToggleGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Multiple Selection"
           description="Nhiều mục có thể được kích hoạt đồng thời."
           codeString={`<ToggleGroup defaultValue={["bold", "italic"]}>
-  <ToggleGroupItem value="bold" aria-label="Toggle bold">
-    <BoldIcon />
-  </ToggleGroupItem>
-  <ToggleGroupItem value="italic" aria-label="Toggle italic">
-    <ItalicIcon />
-  </ToggleGroupItem>
-  <ToggleGroupItem value="underline" aria-label="Toggle underline">
-    <UnderlineIcon />
-  </ToggleGroupItem>
-</ToggleGroup>`}
+    <ToggleGroupItem value="bold" aria-label="Toggle bold">
+      <BoldIcon />
+    </ToggleGroupItem>
+    <ToggleGroupItem
+      value="italic"
+      aria-label="Toggle italic"
+    >
+      <ItalicIcon />
+    </ToggleGroupItem>
+    <ToggleGroupItem
+      value="underline"
+      aria-label="Toggle underline"
+    >
+      <UnderlineIcon />
+    </ToggleGroupItem>
+  </ToggleGroup>`}
         >
           <ToggleGroup defaultValue={["bold", "italic"]} size={globalSize}>
             <ToggleGroupItem value="bold" aria-label="Toggle bold">
@@ -94,10 +103,19 @@ function ToggleGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Outline Variant"
           description='variant="outline" — viền bao quanh từng item.'
           codeString={`<ToggleGroup variant="outline">
-  <ToggleGroupItem value="bold" aria-label="Bold"><BoldIcon /></ToggleGroupItem>
-  <ToggleGroupItem value="italic" aria-label="Italic"><ItalicIcon /></ToggleGroupItem>
-  <ToggleGroupItem value="underline" aria-label="Underline"><UnderlineIcon /></ToggleGroupItem>
-</ToggleGroup>`}
+    <ToggleGroupItem value="bold" aria-label="Bold">
+      <BoldIcon />
+    </ToggleGroupItem>
+    <ToggleGroupItem value="italic" aria-label="Italic">
+      <ItalicIcon />
+    </ToggleGroupItem>
+    <ToggleGroupItem
+      value="underline"
+      aria-label="Underline"
+    >
+      <UnderlineIcon />
+    </ToggleGroupItem>
+  </ToggleGroup>`}
         >
           <ToggleGroup variant="outline" size={globalSize}>
             <ToggleGroupItem value="bold" aria-label="Bold">
@@ -116,10 +134,19 @@ function ToggleGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Compact (spacing={0})"
           description="spacing={0} — các nút dính liền nhau, phù hợp với toolbar."
           codeString={`<ToggleGroup variant="outline" spacing={0}>
-  <ToggleGroupItem value="left" aria-label="Align left"><AlignLeftIcon /></ToggleGroupItem>
-  <ToggleGroupItem value="center" aria-label="Align center"><AlignCenterIcon /></ToggleGroupItem>
-  <ToggleGroupItem value="right" aria-label="Align right"><AlignRightIcon /></ToggleGroupItem>
-</ToggleGroup>`}
+    <ToggleGroupItem value="left" aria-label="Align left">
+      <AlignLeftIcon />
+    </ToggleGroupItem>
+    <ToggleGroupItem
+      value="center"
+      aria-label="Align center"
+    >
+      <AlignCenterIcon />
+    </ToggleGroupItem>
+    <ToggleGroupItem value="right" aria-label="Align right">
+      <AlignRightIcon />
+    </ToggleGroupItem>
+  </ToggleGroup>`}
         >
           <ToggleGroup variant="outline" spacing={0} size={globalSize}>
             <ToggleGroupItem value="left" aria-label="Align left">
@@ -141,10 +168,19 @@ function ToggleGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Vertical"
           description='orientation="vertical" — sắp xếp các nút theo chiều dọc.'
           codeString={`<ToggleGroup orientation="vertical">
-  <ToggleGroupItem value="bold" aria-label="Bold"><BoldIcon /></ToggleGroupItem>
-  <ToggleGroupItem value="italic" aria-label="Italic"><ItalicIcon /></ToggleGroupItem>
-  <ToggleGroupItem value="underline" aria-label="Underline"><UnderlineIcon /></ToggleGroupItem>
-</ToggleGroup>`}
+    <ToggleGroupItem value="bold" aria-label="Bold">
+      <BoldIcon />
+    </ToggleGroupItem>
+    <ToggleGroupItem value="italic" aria-label="Italic">
+      <ItalicIcon />
+    </ToggleGroupItem>
+    <ToggleGroupItem
+      value="underline"
+      aria-label="Underline"
+    >
+      <UnderlineIcon />
+    </ToggleGroupItem>
+  </ToggleGroup>`}
         >
           <ToggleGroup orientation="vertical" size={globalSize}>
             <ToggleGroupItem value="bold" aria-label="Bold">
@@ -163,10 +199,23 @@ function ToggleGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Disabled Items"
           description="Từng ToggleGroupItem có thể bị vô hiệu hóa riêng lẻ."
           codeString={`<ToggleGroup>
-  <ToggleGroupItem value="bold" aria-label="Bold"><BoldIcon /></ToggleGroupItem>
-  <ToggleGroupItem value="italic" disabled aria-label="Italic (disabled)"><ItalicIcon /></ToggleGroupItem>
-  <ToggleGroupItem value="underline" aria-label="Underline"><UnderlineIcon /></ToggleGroupItem>
-</ToggleGroup>`}
+    <ToggleGroupItem value="bold" aria-label="Bold">
+      <BoldIcon />
+    </ToggleGroupItem>
+    <ToggleGroupItem
+      value="italic"
+      disabled
+      aria-label="Italic (disabled)"
+    >
+      <ItalicIcon />
+    </ToggleGroupItem>
+    <ToggleGroupItem
+      value="underline"
+      aria-label="Underline"
+    >
+      <UnderlineIcon />
+    </ToggleGroupItem>
+  </ToggleGroup>`}
         >
           <ToggleGroup size={globalSize}>
             <ToggleGroupItem value="bold" aria-label="Bold">

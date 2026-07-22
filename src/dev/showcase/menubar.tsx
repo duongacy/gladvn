@@ -41,74 +41,86 @@ function MenubarMicroShowcase() {
         label="Full Menubar"
         description="Thanh menu đầy đủ: Items, Checkbox, Radio, Submenu, Shortcut, Separator."
         codeString={`<Menubar className="w-fit">
-  <MenubarMenu>
-    <MenubarTrigger>File</MenubarTrigger>
-    <MenubarContent>
-      <MenubarItem>
-        New Tab <MenubarShortcut>⌘T</MenubarShortcut>
-      </MenubarItem>
-      <MenubarItem>
-        New Window <MenubarShortcut>⌘N</MenubarShortcut>
-      </MenubarItem>
-      <MenubarItem disabled>New Incognito Window</MenubarItem>
-      <MenubarSeparator />
-      <MenubarSub>
-        <MenubarSubTrigger>Share</MenubarSubTrigger>
-        <MenubarSubContent>
-          <MenubarItem>Email link</MenubarItem>
-          <MenubarItem>Messages</MenubarItem>
-          <MenubarItem>Notes</MenubarItem>
-        </MenubarSubContent>
-      </MenubarSub>
-      <MenubarSeparator />
-      <MenubarItem>
-        Print... <MenubarShortcut>⌘P</MenubarShortcut>
-      </MenubarItem>
-    </MenubarContent>
-  </MenubarMenu>
-  <MenubarMenu>
-    <MenubarTrigger>View</MenubarTrigger>
-    <MenubarContent>
-      <MenubarCheckboxItem
-        checked={showBookmarks}
-        onCheckedChange={setShowBookmarks}
-      >
-        Always Show Bookmarks Bar
-      </MenubarCheckboxItem>
-      <MenubarCheckboxItem
-        checked={showFullUrls}
-        onCheckedChange={setShowFullUrls}
-      >
-        Always Show Full URLs
-      </MenubarCheckboxItem>
-      <MenubarSeparator />
-      <MenubarItem inset>
-        Reload <MenubarShortcut>⌘R</MenubarShortcut>
-      </MenubarItem>
-      <MenubarItem disabled inset>
-        Force Reload <MenubarShortcut>⇧⌘R</MenubarShortcut>
-      </MenubarItem>
-    </MenubarContent>
-  </MenubarMenu>
-  <MenubarMenu>
-    <MenubarTrigger>Profiles</MenubarTrigger>
-    <MenubarContent>
-      <MenubarGroup>
-        <MenubarLabel inset>Select Profile</MenubarLabel>
+    <MenubarMenu>
+      <MenubarTrigger>File</MenubarTrigger>
+      <MenubarContent>
+        <MenubarItem>
+          New Tab <MenubarShortcut>⌘T</MenubarShortcut>
+        </MenubarItem>
+        <MenubarItem>
+          New Window <MenubarShortcut>⌘N</MenubarShortcut>
+        </MenubarItem>
+        <MenubarItem disabled>
+          New Incognito Window
+        </MenubarItem>
         <MenubarSeparator />
-        <MenubarRadioGroup value={profile} onValueChange={setProfile}>
-          <MenubarRadioItem value="pedro">Pedro</MenubarRadioItem>
-          <MenubarRadioItem value="colm">Colm</MenubarRadioItem>
-          <MenubarRadioItem value="andy">Andy</MenubarRadioItem>
-        </MenubarRadioGroup>
-      </MenubarGroup>
-      <MenubarSeparator />
-      <MenubarItem inset>Edit...</MenubarItem>
-      <MenubarSeparator />
-      <MenubarItem inset>Add Profile...</MenubarItem>
-    </MenubarContent>
-  </MenubarMenu>
-</Menubar>`}
+        <MenubarSub>
+          <MenubarSubTrigger>Share</MenubarSubTrigger>
+          <MenubarSubContent>
+            <MenubarItem>Email link</MenubarItem>
+            <MenubarItem>Messages</MenubarItem>
+            <MenubarItem>Notes</MenubarItem>
+          </MenubarSubContent>
+        </MenubarSub>
+        <MenubarSeparator />
+        <MenubarItem>
+          Print... <MenubarShortcut>⌘P</MenubarShortcut>
+        </MenubarItem>
+      </MenubarContent>
+    </MenubarMenu>
+    <MenubarMenu>
+      <MenubarTrigger>View</MenubarTrigger>
+      <MenubarContent>
+        <MenubarCheckboxItem
+          checked={showBookmarks}
+          onCheckedChange={setShowBookmarks}
+        >
+          Always Show Bookmarks Bar
+        </MenubarCheckboxItem>
+        <MenubarCheckboxItem
+          checked={showFullUrls}
+          onCheckedChange={setShowFullUrls}
+        >
+          Always Show Full URLs
+        </MenubarCheckboxItem>
+        <MenubarSeparator />
+        <MenubarItem inset>
+          Reload <MenubarShortcut>⌘R</MenubarShortcut>
+        </MenubarItem>
+        <MenubarItem disabled inset>
+          Force Reload{" "}
+          <MenubarShortcut>⇧⌘R</MenubarShortcut>
+        </MenubarItem>
+      </MenubarContent>
+    </MenubarMenu>
+    <MenubarMenu>
+      <MenubarTrigger>Profiles</MenubarTrigger>
+      <MenubarContent>
+        <MenubarGroup>
+          <MenubarLabel inset>Select Profile</MenubarLabel>
+          <MenubarSeparator />
+          <MenubarRadioGroup
+            value={profile}
+            onValueChange={setProfile}
+          >
+            <MenubarRadioItem value="pedro">
+              Pedro
+            </MenubarRadioItem>
+            <MenubarRadioItem value="colm">
+              Colm
+            </MenubarRadioItem>
+            <MenubarRadioItem value="andy">
+              Andy
+            </MenubarRadioItem>
+          </MenubarRadioGroup>
+        </MenubarGroup>
+        <MenubarSeparator />
+        <MenubarItem inset>Edit...</MenubarItem>
+        <MenubarSeparator />
+        <MenubarItem inset>Add Profile...</MenubarItem>
+      </MenubarContent>
+    </MenubarMenu>
+  </Menubar>`}
       >
         <Menubar className="w-fit">
           <MenubarMenu>
@@ -193,24 +205,24 @@ function MenubarMicroShowcase() {
           label="Checkbox Items"
           description="MenubarCheckboxItem cho phép bật/tắt từng tùy chọn độc lập nhau."
           codeString={`<Menubar className="w-fit">
-  <MenubarMenu>
-    <MenubarTrigger>View</MenubarTrigger>
-    <MenubarContent>
-      <MenubarCheckboxItem
-        checked={showBookmarks}
-        onCheckedChange={setShowBookmarks}
-      >
-        Show Bookmarks Bar
-      </MenubarCheckboxItem>
-      <MenubarCheckboxItem
-        checked={showFullUrls}
-        onCheckedChange={setShowFullUrls}
-      >
-        Show Full URLs
-      </MenubarCheckboxItem>
-    </MenubarContent>
-  </MenubarMenu>
-</Menubar>`}
+    <MenubarMenu>
+      <MenubarTrigger>View</MenubarTrigger>
+      <MenubarContent>
+        <MenubarCheckboxItem
+          checked={showBookmarks}
+          onCheckedChange={setShowBookmarks}
+        >
+          Show Bookmarks Bar
+        </MenubarCheckboxItem>
+        <MenubarCheckboxItem
+          checked={showFullUrls}
+          onCheckedChange={setShowFullUrls}
+        >
+          Show Full URLs
+        </MenubarCheckboxItem>
+      </MenubarContent>
+    </MenubarMenu>
+  </Menubar>`}
         >
           <Menubar className="w-fit">
             <MenubarMenu>
@@ -239,19 +251,28 @@ function MenubarMicroShowcase() {
           label="Radio Group"
           description="MenubarRadioGroup cho phép chọn một giá trị duy nhất từ danh sách."
           codeString={`<Menubar className="w-fit">
-  <MenubarMenu>
-    <MenubarTrigger>Profile</MenubarTrigger>
-    <MenubarContent>
-      <MenubarLabel inset>Account</MenubarLabel>
-      <MenubarSeparator />
-      <MenubarRadioGroup value={profile} onValueChange={setProfile}>
-        <MenubarRadioItem value="pedro">Pedro</MenubarRadioItem>
-        <MenubarRadioItem value="colm">Colm</MenubarRadioItem>
-        <MenubarRadioItem value="andy">Andy</MenubarRadioItem>
-      </MenubarRadioGroup>
-    </MenubarContent>
-  </MenubarMenu>
-</Menubar>`}
+    <MenubarMenu>
+      <MenubarTrigger>Profile</MenubarTrigger>
+      <MenubarContent>
+        <MenubarLabel inset>Account</MenubarLabel>
+        <MenubarSeparator />
+        <MenubarRadioGroup
+          value={profile}
+          onValueChange={setProfile}
+        >
+          <MenubarRadioItem value="pedro">
+            Pedro
+          </MenubarRadioItem>
+          <MenubarRadioItem value="colm">
+            Colm
+          </MenubarRadioItem>
+          <MenubarRadioItem value="andy">
+            Andy
+          </MenubarRadioItem>
+        </MenubarRadioGroup>
+      </MenubarContent>
+    </MenubarMenu>
+  </Menubar>`}
         >
           <Menubar className="w-fit">
             <MenubarMenu>
@@ -278,23 +299,23 @@ function MenubarMicroShowcase() {
           label="Submenu"
           description="MenubarSub tạo menu lồng nhau. Hover hoặc click vào SubTrigger để mở."
           codeString={`<Menubar className="w-fit">
-  <MenubarMenu>
-    <MenubarTrigger>File</MenubarTrigger>
-    <MenubarContent>
-      <MenubarSub>
-        <MenubarSubTrigger>Share</MenubarSubTrigger>
-        <MenubarSubContent>
-          <MenubarItem>Email link</MenubarItem>
-          <MenubarItem>Messages</MenubarItem>
-          <MenubarItem>Notes</MenubarItem>
-        </MenubarSubContent>
-      </MenubarSub>
-      <MenubarItem>
-        Print... <MenubarShortcut>⌘P</MenubarShortcut>
-      </MenubarItem>
-    </MenubarContent>
-  </MenubarMenu>
-</Menubar>`}
+    <MenubarMenu>
+      <MenubarTrigger>File</MenubarTrigger>
+      <MenubarContent>
+        <MenubarSub>
+          <MenubarSubTrigger>Share</MenubarSubTrigger>
+          <MenubarSubContent>
+            <MenubarItem>Email link</MenubarItem>
+            <MenubarItem>Messages</MenubarItem>
+            <MenubarItem>Notes</MenubarItem>
+          </MenubarSubContent>
+        </MenubarSub>
+        <MenubarItem>
+          Print... <MenubarShortcut>⌘P</MenubarShortcut>
+        </MenubarItem>
+      </MenubarContent>
+    </MenubarMenu>
+  </Menubar>`}
         >
           <Menubar className="w-fit">
             <MenubarMenu>
@@ -322,25 +343,25 @@ function MenubarMicroShowcase() {
           label="Disabled Items"
           description="Items bị vô hiệu hóa không thể tương tác và hiển thị ở trạng thái mờ."
           codeString={`<Menubar className="w-fit">
-  <MenubarMenu>
-    <MenubarTrigger>Edit</MenubarTrigger>
-    <MenubarContent>
-      <MenubarItem>
-        Undo <MenubarShortcut>⌘Z</MenubarShortcut>
-      </MenubarItem>
-      <MenubarItem disabled>
-        Redo <MenubarShortcut>⌘Y</MenubarShortcut>
-      </MenubarItem>
-      <MenubarSeparator />
-      <MenubarItem disabled>
-        Cut <MenubarShortcut>⌘X</MenubarShortcut>
-      </MenubarItem>
-      <MenubarItem>
-        Copy <MenubarShortcut>⌘C</MenubarShortcut>
-      </MenubarItem>
-    </MenubarContent>
-  </MenubarMenu>
-</Menubar>`}
+    <MenubarMenu>
+      <MenubarTrigger>Edit</MenubarTrigger>
+      <MenubarContent>
+        <MenubarItem>
+          Undo <MenubarShortcut>⌘Z</MenubarShortcut>
+        </MenubarItem>
+        <MenubarItem disabled>
+          Redo <MenubarShortcut>⌘Y</MenubarShortcut>
+        </MenubarItem>
+        <MenubarSeparator />
+        <MenubarItem disabled>
+          Cut <MenubarShortcut>⌘X</MenubarShortcut>
+        </MenubarItem>
+        <MenubarItem>
+          Copy <MenubarShortcut>⌘C</MenubarShortcut>
+        </MenubarItem>
+      </MenubarContent>
+    </MenubarMenu>
+  </Menubar>`}
         >
           <Menubar className="w-fit">
             <MenubarMenu>

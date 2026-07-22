@@ -36,13 +36,12 @@ function BreadcrumbMacroShowcase() {
           label="Tiêu chuẩn (Standard)"
           description="Mảng điều hướng cơ bản."
           codeString={`<BreadcrumbPreset
-  items={[
-    { label: "Trang chủ", href: "/" },
-    { label: "Thành phần", href: "/components" },
-    { label: "Breadcrumb" },
-  ]}
-/>
-`}
+    items={[
+      { label: "Trang chủ", href: "/" },
+      { label: "Thành phần", href: "/components" },
+      { label: "Breadcrumb" },
+    ]}
+  />`}
         >
           <BreadcrumbPreset
             items={[
@@ -57,14 +56,13 @@ function BreadcrumbMacroShowcase() {
           label="Nhiều cấp (Deep Navigation)"
           description="Đường dẫn dài hơn điển hình cho các trang lồng nhau."
           codeString={`<BreadcrumbPreset
-  items={[
-    { label: "Dashboard", href: "/dashboard" },
-    { label: "Cài đặt", href: "/settings" },
-    { label: "Tài khoản", href: "/settings/account" },
-    { label: "Hóa đơn" },
-  ]}
-/>
-`}
+    items={[
+      { label: "Dashboard", href: "/dashboard" },
+      { label: "Cài đặt", href: "/settings" },
+      { label: "Tài khoản", href: "/settings/account" },
+      { label: "Hóa đơn" },
+    ]}
+  />`}
         >
           <BreadcrumbPreset
             items={[
@@ -91,21 +89,22 @@ function BreadcrumbMicroShowcase() {
         description="Lắp ráp thủ công các item với dấu phân cách chevron mặc định."
         fullWidth
         codeString={`<Breadcrumb className="w-full max-w-lg">
-  <BreadcrumbList>
-    <BreadcrumbItem>
-      <BreadcrumbLink href="/">Trang chủ</BreadcrumbLink>
-    </BreadcrumbItem>
-    <BreadcrumbSeparator />
-    <BreadcrumbItem>
-      <BreadcrumbLink href="/components">Thành phần</BreadcrumbLink>
-    </BreadcrumbItem>
-    <BreadcrumbSeparator />
-    <BreadcrumbItem>
-      <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
-    </BreadcrumbItem>
-  </BreadcrumbList>
-</Breadcrumb>
-`}
+    <BreadcrumbList>
+      <BreadcrumbItem>
+        <BreadcrumbLink href="/">Trang chủ</BreadcrumbLink>
+      </BreadcrumbItem>
+      <BreadcrumbSeparator />
+      <BreadcrumbItem>
+        <BreadcrumbLink href="/components">
+          Thành phần
+        </BreadcrumbLink>
+      </BreadcrumbItem>
+      <BreadcrumbSeparator />
+      <BreadcrumbItem>
+        <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+      </BreadcrumbItem>
+    </BreadcrumbList>
+  </Breadcrumb>`}
       >
         <Breadcrumb className="w-full max-w-lg">
           <BreadcrumbList>
@@ -129,24 +128,26 @@ function BreadcrumbMicroShowcase() {
           label="Đổi dấu phân cách (Custom Separator)"
           description="Truyền icon bất kỳ (VD: SlashIcon) vào bên trong BreadcrumbSeparator."
           codeString={`<Breadcrumb className="w-full max-w-lg">
-  <BreadcrumbList>
-    <BreadcrumbItem>
-      <BreadcrumbLink href="/">Trang chủ</BreadcrumbLink>
-    </BreadcrumbItem>
-    <BreadcrumbSeparator>
-      <SlashIcon className="size-3.5" />
-    </BreadcrumbSeparator>
-    <BreadcrumbItem>
-      <BreadcrumbLink href="/components">Thành phần</BreadcrumbLink>
-    </BreadcrumbItem>
-    <BreadcrumbSeparator>
-      <SlashIcon className="size-3.5" />
-    </BreadcrumbSeparator>
-    <BreadcrumbItem>
-      <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
-    </BreadcrumbItem>
-  </BreadcrumbList>
-</Breadcrumb>`}
+    <BreadcrumbList>
+      <BreadcrumbItem>
+        <BreadcrumbLink href="/">Trang chủ</BreadcrumbLink>
+      </BreadcrumbItem>
+      <BreadcrumbSeparator>
+        <SlashIcon className="size-3.5" />
+      </BreadcrumbSeparator>
+      <BreadcrumbItem>
+        <BreadcrumbLink href="/components">
+          Thành phần
+        </BreadcrumbLink>
+      </BreadcrumbItem>
+      <BreadcrumbSeparator>
+        <SlashIcon className="size-3.5" />
+      </BreadcrumbSeparator>
+      <BreadcrumbItem>
+        <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+      </BreadcrumbItem>
+    </BreadcrumbList>
+  </Breadcrumb>`}
         >
           <Breadcrumb className="w-full max-w-lg">
             <BreadcrumbList>
@@ -173,36 +174,38 @@ function BreadcrumbMicroShowcase() {
           label="Dấu ba chấm (With Ellipsis)"
           description="Sử dụng BreadcrumbEllipsis cùng DropdownMenu để giấu các đường dẫn trung gian."
           codeString={`<Breadcrumb className="w-full max-w-lg">
-  <BreadcrumbList>
-    <BreadcrumbItem>
-      <BreadcrumbLink href="/">Trang chủ</BreadcrumbLink>
-    </BreadcrumbItem>
-    <BreadcrumbSeparator />
-    <BreadcrumbItem>
-      <DropdownMenu>
-        <DropdownMenuTrigger className="flex items-center gap-1 hover:text-foreground">
-          <BreadcrumbEllipsis className="h-4 w-4" />
-          <span className="sr-only">Toggle menu</span>
-        </DropdownMenuTrigger>
-        <DropdownMenuPortal>
-          <DropdownMenuContent align="start">
-            <DropdownMenuItem>Tài liệu</DropdownMenuItem>
-            <DropdownMenuItem>Giao diện</DropdownMenuItem>
-            <DropdownMenuItem>GitHub</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenuPortal>
-      </DropdownMenu>
-    </BreadcrumbItem>
-    <BreadcrumbSeparator />
-    <BreadcrumbItem>
-      <BreadcrumbLink href="/docs/components">Thành phần</BreadcrumbLink>
-    </BreadcrumbItem>
-    <BreadcrumbSeparator />
-    <BreadcrumbItem>
-      <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
-    </BreadcrumbItem>
-  </BreadcrumbList>
-</Breadcrumb>`}
+    <BreadcrumbList>
+      <BreadcrumbItem>
+        <BreadcrumbLink href="/">Trang chủ</BreadcrumbLink>
+      </BreadcrumbItem>
+      <BreadcrumbSeparator />
+      <BreadcrumbItem>
+        <DropdownMenu>
+          <DropdownMenuTrigger className="flex items-center gap-1 hover:text-foreground">
+            <BreadcrumbEllipsis className="h-4 w-4" />
+            <span className="sr-only">Toggle menu</span>
+          </DropdownMenuTrigger>
+          <DropdownMenuPortal>
+            <DropdownMenuContent align="start">
+              <DropdownMenuItem>Tài liệu</DropdownMenuItem>
+              <DropdownMenuItem>Giao diện</DropdownMenuItem>
+              <DropdownMenuItem>GitHub</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenuPortal>
+        </DropdownMenu>
+      </BreadcrumbItem>
+      <BreadcrumbSeparator />
+      <BreadcrumbItem>
+        <BreadcrumbLink href="/docs/components">
+          Thành phần
+        </BreadcrumbLink>
+      </BreadcrumbItem>
+      <BreadcrumbSeparator />
+      <BreadcrumbItem>
+        <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+      </BreadcrumbItem>
+    </BreadcrumbList>
+  </Breadcrumb>`}
         >
           <Breadcrumb className="w-full max-w-lg">
             <BreadcrumbList>

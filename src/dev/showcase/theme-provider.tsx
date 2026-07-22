@@ -231,52 +231,56 @@ function ThemeProviderMicroShowcase() {
         label="Tooltip"
         description="Tooltip được định vị gần trigger và hiển thị khi hover. Không có ThemeWrapper, tooltip của bạn sẽ trắng toát giữa một dark section — dười đây là bằng chứng trực quan."
         codeString={`<ThemeProvider defaultMode="dark">
-  <div className="w-full flex gap-10 rounded-xl border border-border bg-background p-10">
-    <div className="flex-1 flex flex-col items-center gap-4">
-      <span className="text-sm font-medium text-muted-foreground">
-        Không dùng ThemeWrapper
-      </span>
-      <TooltipProvider>
-        <Tooltip>
-          <TooltipTrigger
-            render={<Button variant="solid">Hover tôi</Button>}
-          />
-          <TooltipPortal>
-            <TooltipContent
-              sideOffset={8}
-              className="bg-card text-card-foreground border border-border shadow-md"
-            >
-              Trắng toát! Lạc quẻ với nền đen.
-            </TooltipContent>
-          </TooltipPortal>
-        </Tooltip>
-      </TooltipProvider>
-    </div>
-
-    <div className="flex-1 flex flex-col items-center gap-4">
-      <span className="text-sm font-medium text-muted-foreground">
-        Có ThemeWrapper
-      </span>
-      <TooltipProvider>
-        <Tooltip>
-          <TooltipTrigger
-            render={<Button variant="solid">Hover tôi</Button>}
-          />
-          <TooltipPortal>
-            <ThemeWrapper>
+    <div className="w-full flex gap-10 rounded-xl border border-border bg-background p-10">
+      <div className="flex-1 flex flex-col items-center gap-4">
+        <span className="text-sm font-medium text-muted-foreground">
+          Không dùng ThemeWrapper
+        </span>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger
+              render={
+                <Button variant="solid">Hover tôi</Button>
+              }
+            />
+            <TooltipPortal>
               <TooltipContent
                 sideOffset={8}
                 className="bg-card text-card-foreground border border-border shadow-md"
               >
-                Màu Tối! Đồng bộ với provider cha.
+                Trắng toát! Lạc quẻ với nền đen.
               </TooltipContent>
-            </ThemeWrapper>
-          </TooltipPortal>
-        </Tooltip>
-      </TooltipProvider>
+            </TooltipPortal>
+          </Tooltip>
+        </TooltipProvider>
+      </div>
+
+      <div className="flex-1 flex flex-col items-center gap-4">
+        <span className="text-sm font-medium text-muted-foreground">
+          Có ThemeWrapper
+        </span>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger
+              render={
+                <Button variant="solid">Hover tôi</Button>
+              }
+            />
+            <TooltipPortal>
+              <ThemeWrapper>
+                <TooltipContent
+                  sideOffset={8}
+                  className="bg-card text-card-foreground border border-border shadow-md"
+                >
+                  Màu Tối! Đồng bộ với provider cha.
+                </TooltipContent>
+              </ThemeWrapper>
+            </TooltipPortal>
+          </Tooltip>
+        </TooltipProvider>
+      </div>
     </div>
-  </div>
-</ThemeProvider>`}
+  </ThemeProvider>`}
       >
         <ThemeProvider defaultMode="dark">
           <div className="w-full flex gap-10 rounded-xl border border-border bg-background p-10">
@@ -333,56 +337,65 @@ function ThemeProviderMicroShowcase() {
         label="Popover"
         description="Popover chứa content phức tạp và mở khi click. Vì portal hướng tới `document.body`, toàn bộ nền popover lấy CSS variable từ root — sẽ trắng hoàn toàn dù trigger đang nằm trong dark section."
         codeString={`<ThemeProvider defaultMode="dark">
-  <div className="w-full flex gap-10 rounded-xl border border-border bg-background p-10">
-    <div className="flex-1 flex flex-col items-center gap-4">
-      <span className="text-sm font-medium text-muted-foreground">
-        Không dùng ThemeWrapper
-      </span>
-      <Popover>
-        <PopoverTrigger
-          render={<Button variant="outline">Click Popover</Button>}
-        />
-        <PopoverPortal>
-          <PopoverContent className="w-64">
-            <div className="space-y-2">
-              <h4 className="font-medium leading-none">
-                Nội dung Popover
-              </h4>
-              <p className="text-sm text-muted-foreground">
-                Lỗi: Hiển thị giao diện sáng.
-              </p>
-            </div>
-          </PopoverContent>
-        </PopoverPortal>
-      </Popover>
-    </div>
-
-    <div className="flex-1 flex flex-col items-center gap-4">
-      <span className="text-sm font-medium text-muted-foreground">
-        Có ThemeWrapper
-      </span>
-      <Popover>
-        <PopoverTrigger
-          render={<Button variant="outline">Click Popover</Button>}
-        />
-        <PopoverPortal>
-          <ThemeWrapper>
+    <div className="w-full flex gap-10 rounded-xl border border-border bg-background p-10">
+      <div className="flex-1 flex flex-col items-center gap-4">
+        <span className="text-sm font-medium text-muted-foreground">
+          Không dùng ThemeWrapper
+        </span>
+        <Popover>
+          <PopoverTrigger
+            render={
+              <Button variant="outline">
+                Click Popover
+              </Button>
+            }
+          />
+          <PopoverPortal>
             <PopoverContent className="w-64">
               <div className="space-y-2">
                 <h4 className="font-medium leading-none">
                   Nội dung Popover
                 </h4>
                 <p className="text-sm text-muted-foreground">
-                  Lớp Portal Tunnel đã hoạt động chính xác.
+                  Lỗi: Hiển thị giao diện sáng.
                 </p>
               </div>
             </PopoverContent>
-          </ThemeWrapper>
-        </PopoverPortal>
-      </Popover>
+          </PopoverPortal>
+        </Popover>
+      </div>
+
+      <div className="flex-1 flex flex-col items-center gap-4">
+        <span className="text-sm font-medium text-muted-foreground">
+          Có ThemeWrapper
+        </span>
+        <Popover>
+          <PopoverTrigger
+            render={
+              <Button variant="outline">
+                Click Popover
+              </Button>
+            }
+          />
+          <PopoverPortal>
+            <ThemeWrapper>
+              <PopoverContent className="w-64">
+                <div className="space-y-2">
+                  <h4 className="font-medium leading-none">
+                    Nội dung Popover
+                  </h4>
+                  <p className="text-sm text-muted-foreground">
+                    Lớp Portal Tunnel đã hoạt động chính
+                    xác.
+                  </p>
+                </div>
+              </PopoverContent>
+            </ThemeWrapper>
+          </PopoverPortal>
+        </Popover>
+      </div>
     </div>
-  </div>
-</ThemeProvider>`}
+  </ThemeProvider>`}
       >
         <ThemeProvider defaultMode="dark">
           <div className="w-full flex gap-10 rounded-xl border border-border bg-background p-10">
@@ -443,46 +456,60 @@ function ThemeProviderMicroShowcase() {
         label="Select"
         description="SelectContent được render tách biệt hoàn toàn khỏi trigger. Thiếu ThemeWrapper, dropdown option sẽ trắng xuộa trong khi trigger vẫn tối — mù quáng và khó đọc."
         codeString={`<ThemeProvider defaultMode="dark">
-  <div className="w-full flex gap-10 rounded-xl border border-border bg-background p-10">
-    <div className="flex-1 flex flex-col items-center gap-4">
-      <span className="text-sm font-medium text-muted-foreground">
-        Không dùng ThemeWrapper
-      </span>
-      <Select items={{ next: "Next.js", vite: "Vite", remix: "Remix" }}>
-        <SelectTrigger className="w-[140px]">
-          <SelectValue placeholder="Chọn framework..." />
-        </SelectTrigger>
-        <SelectPortal>
-          <SelectContent>
-            <SelectItem value="next">Next.js</SelectItem>
-            <SelectItem value="vite">Vite</SelectItem>
-            <SelectItem value="remix">Remix</SelectItem>
-          </SelectContent>
-        </SelectPortal>
-      </Select>
-    </div>
-
-    <div className="flex-1 flex flex-col items-center gap-4">
-      <span className="text-sm font-medium text-muted-foreground">
-        Có ThemeWrapper
-      </span>
-      <Select items={{ next: "Next.js", vite: "Vite", remix: "Remix" }}>
-        <SelectTrigger className="w-[140px]">
-          <SelectValue placeholder="Chọn framework..." />
-        </SelectTrigger>
-        <SelectPortal>
-          <ThemeWrapper>
+    <div className="w-full flex gap-10 rounded-xl border border-border bg-background p-10">
+      <div className="flex-1 flex flex-col items-center gap-4">
+        <span className="text-sm font-medium text-muted-foreground">
+          Không dùng ThemeWrapper
+        </span>
+        <Select
+          items={{
+            next: "Next.js",
+            vite: "Vite",
+            remix: "Remix",
+          }}
+        >
+          <SelectTrigger className="w-[140px]">
+            <SelectValue placeholder="Chọn framework..." />
+          </SelectTrigger>
+          <SelectPortal>
             <SelectContent>
               <SelectItem value="next">Next.js</SelectItem>
               <SelectItem value="vite">Vite</SelectItem>
               <SelectItem value="remix">Remix</SelectItem>
             </SelectContent>
-          </ThemeWrapper>
-        </SelectPortal>
-      </Select>
+          </SelectPortal>
+        </Select>
+      </div>
+
+      <div className="flex-1 flex flex-col items-center gap-4">
+        <span className="text-sm font-medium text-muted-foreground">
+          Có ThemeWrapper
+        </span>
+        <Select
+          items={{
+            next: "Next.js",
+            vite: "Vite",
+            remix: "Remix",
+          }}
+        >
+          <SelectTrigger className="w-[140px]">
+            <SelectValue placeholder="Chọn framework..." />
+          </SelectTrigger>
+          <SelectPortal>
+            <ThemeWrapper>
+              <SelectContent>
+                <SelectItem value="next">
+                  Next.js
+                </SelectItem>
+                <SelectItem value="vite">Vite</SelectItem>
+                <SelectItem value="remix">Remix</SelectItem>
+              </SelectContent>
+            </ThemeWrapper>
+          </SelectPortal>
+        </Select>
+      </div>
     </div>
-  </div>
-</ThemeProvider>`}
+  </ThemeProvider>`}
       >
         <ThemeProvider defaultMode="dark">
           <div className="w-full flex gap-10 rounded-xl border border-border bg-background p-10">
@@ -533,54 +560,74 @@ function ThemeProviderMicroShowcase() {
         label="DropdownMenu"
         description="DropdownMenu thường dùng cho navigation actions (profile, settings, logout). Khi hover qua từng item, màu highlight cũng lấy từ CSS variable — thiếu ThemeWrapper, cả nền menu lẫn trạng thái hover cùng lúc đều hiển thị sai màu."
         codeString={`<ThemeProvider defaultMode="dark">
-  <div className="w-full flex gap-10 rounded-xl border border-border bg-background p-10">
-    <div className="flex-1 flex flex-col items-center gap-4">
-      <span className="text-sm font-medium text-muted-foreground">
-        Không dùng ThemeWrapper
-      </span>
-      <DropdownMenu>
-        <DropdownMenuTrigger
-          render={<Button variant="outline">Open Dropdown</Button>}
-        />
-        <DropdownMenuPortal>
-          <DropdownMenuContent className="w-48">
-            <DropdownMenuGroup>
-              <DropdownMenuLabel>Tài khoản</DropdownMenuLabel>
-              <DropdownMenuItem>Trang cá nhân</DropdownMenuItem>
-              <DropdownMenuItem>Cài đặt</DropdownMenuItem>
-            </DropdownMenuGroup>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>Đăng xuất</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenuPortal>
-      </DropdownMenu>
-    </div>
-
-    <div className="flex-1 flex flex-col items-center gap-4">
-      <span className="text-sm font-medium text-muted-foreground">
-        Có ThemeWrapper
-      </span>
-      <DropdownMenu>
-        <DropdownMenuTrigger
-          render={<Button variant="outline">Open Dropdown</Button>}
-        />
-        <DropdownMenuPortal>
-          <ThemeWrapper>
+    <div className="w-full flex gap-10 rounded-xl border border-border bg-background p-10">
+      <div className="flex-1 flex flex-col items-center gap-4">
+        <span className="text-sm font-medium text-muted-foreground">
+          Không dùng ThemeWrapper
+        </span>
+        <DropdownMenu>
+          <DropdownMenuTrigger
+            render={
+              <Button variant="outline">
+                Open Dropdown
+              </Button>
+            }
+          />
+          <DropdownMenuPortal>
             <DropdownMenuContent className="w-48">
               <DropdownMenuGroup>
-                <DropdownMenuLabel>Tài khoản</DropdownMenuLabel>
-                <DropdownMenuItem>Trang cá nhân</DropdownMenuItem>
+                <DropdownMenuLabel>
+                  Tài khoản
+                </DropdownMenuLabel>
+                <DropdownMenuItem>
+                  Trang cá nhân
+                </DropdownMenuItem>
                 <DropdownMenuItem>Cài đặt</DropdownMenuItem>
               </DropdownMenuGroup>
               <DropdownMenuSeparator />
               <DropdownMenuItem>Đăng xuất</DropdownMenuItem>
             </DropdownMenuContent>
-          </ThemeWrapper>
-        </DropdownMenuPortal>
-      </DropdownMenu>
+          </DropdownMenuPortal>
+        </DropdownMenu>
+      </div>
+
+      <div className="flex-1 flex flex-col items-center gap-4">
+        <span className="text-sm font-medium text-muted-foreground">
+          Có ThemeWrapper
+        </span>
+        <DropdownMenu>
+          <DropdownMenuTrigger
+            render={
+              <Button variant="outline">
+                Open Dropdown
+              </Button>
+            }
+          />
+          <DropdownMenuPortal>
+            <ThemeWrapper>
+              <DropdownMenuContent className="w-48">
+                <DropdownMenuGroup>
+                  <DropdownMenuLabel>
+                    Tài khoản
+                  </DropdownMenuLabel>
+                  <DropdownMenuItem>
+                    Trang cá nhân
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    Cài đặt
+                  </DropdownMenuItem>
+                </DropdownMenuGroup>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>
+                  Đăng xuất
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </ThemeWrapper>
+          </DropdownMenuPortal>
+        </DropdownMenu>
+      </div>
     </div>
-  </div>
-</ThemeProvider>`}
+  </ThemeProvider>`}
       >
         <ThemeProvider defaultMode="dark">
           <div className="w-full flex gap-10 rounded-xl border border-border bg-background p-10">
@@ -639,53 +686,60 @@ function ThemeProviderMicroShowcase() {
         label="Dialog"
         description="Dialog là trường hợp phức tạp nhất: portal chứa cả Overlay backdrop lẫn Content panel. Cả hai layer đều cần được bọc trong ThemeWrapper để đảm bảo đồng bộ hoàn toàn."
         codeString={`<ThemeProvider defaultMode="dark">
-  <div className="w-full flex gap-10 rounded-xl border border-border bg-background p-10">
-    <div className="flex-1 flex flex-col items-center gap-4">
-      <span className="text-sm font-medium text-muted-foreground">
-        Không dùng ThemeWrapper
-      </span>
-      <Dialog>
-        <DialogTrigger
-          render={<Button variant="outline">Open Dialog</Button>}
-        />
-        <DialogPortal>
-          <DialogContent className="sm:max-w-md">
-            <DialogHeader>
-              <DialogTitle>Mất Dark Mode!</DialogTitle>
-              <DialogDescription>
-                Lỗi: Hiển thị giao diện sáng mặc định.
-              </DialogDescription>
-            </DialogHeader>
-          </DialogContent>
-        </DialogPortal>
-      </Dialog>
-    </div>
-
-    <div className="flex-1 flex flex-col items-center gap-4">
-      <span className="text-sm font-medium text-muted-foreground">
-        Có ThemeWrapper
-      </span>
-      <Dialog>
-        <DialogTrigger
-          render={<Button variant="outline">Open Dialog</Button>}
-        />
-        <DialogPortal>
-          <ThemeWrapper>
+    <div className="w-full flex gap-10 rounded-xl border border-border bg-background p-10">
+      <div className="flex-1 flex flex-col items-center gap-4">
+        <span className="text-sm font-medium text-muted-foreground">
+          Không dùng ThemeWrapper
+        </span>
+        <Dialog>
+          <DialogTrigger
+            render={
+              <Button variant="outline">Open Dialog</Button>
+            }
+          />
+          <DialogPortal>
             <DialogContent className="sm:max-w-md">
               <DialogHeader>
-                <DialogTitle>Màu tối toàn vẹn</DialogTitle>
+                <DialogTitle>Mất Dark Mode!</DialogTitle>
                 <DialogDescription>
-                  Ngay cả khi mở Dialog bọc ngoài toàn bộ màn hình,
-                  Portal Tunnel vẫn bảo vệ được scope Dark Mode.
+                  Lỗi: Hiển thị giao diện sáng mặc định.
                 </DialogDescription>
               </DialogHeader>
             </DialogContent>
-          </ThemeWrapper>
-        </DialogPortal>
-      </Dialog>
+          </DialogPortal>
+        </Dialog>
+      </div>
+
+      <div className="flex-1 flex flex-col items-center gap-4">
+        <span className="text-sm font-medium text-muted-foreground">
+          Có ThemeWrapper
+        </span>
+        <Dialog>
+          <DialogTrigger
+            render={
+              <Button variant="outline">Open Dialog</Button>
+            }
+          />
+          <DialogPortal>
+            <ThemeWrapper>
+              <DialogContent className="sm:max-w-md">
+                <DialogHeader>
+                  <DialogTitle>
+                    Màu tối toàn vẹn
+                  </DialogTitle>
+                  <DialogDescription>
+                    Ngay cả khi mở Dialog bọc ngoài toàn bộ
+                    màn hình, Portal Tunnel vẫn bảo vệ được
+                    scope Dark Mode.
+                  </DialogDescription>
+                </DialogHeader>
+              </DialogContent>
+            </ThemeWrapper>
+          </DialogPortal>
+        </Dialog>
+      </div>
     </div>
-  </div>
-</ThemeProvider>`}
+  </ThemeProvider>`}
       >
         <ThemeProvider defaultMode="dark">
           <div className="w-full flex gap-10 rounded-xl border border-border bg-background p-10">
@@ -743,47 +797,53 @@ function ThemeProviderMicroShowcase() {
         label="Sheet"
         description="Sheet trượt từ cạnh màn hình và phủ một vùng diện tích lớn — lỗi theme dễ nhận biết nhất vì panel thông thường chứa layout phức tạp hơn Popover hay Tooltip."
         codeString={`<ThemeProvider defaultMode="dark">
-  <div className="w-full flex gap-10 rounded-xl border border-border bg-background p-10">
-    <div className="flex-1 flex flex-col items-center gap-4">
-      <span className="text-sm font-medium text-muted-foreground">
-        Không dùng ThemeWrapper
-      </span>
-      <Sheet>
-        <SheetTrigger
-          render={<Button variant="outline">Open Sheet</Button>}
-        />
-        <SheetPortal>
-          <SheetContent side="right">
-            <SheetHeader>
-              <SheetTitle>Mất Dark Mode!</SheetTitle>
-            </SheetHeader>
-          </SheetContent>
-        </SheetPortal>
-      </Sheet>
-    </div>
-
-    <div className="flex-1 flex flex-col items-center gap-4">
-      <span className="text-sm font-medium text-muted-foreground">
-        Có ThemeWrapper
-      </span>
-      <Sheet>
-        <SheetTrigger
-          render={<Button variant="outline">Open Sheet</Button>}
-        />
-        <SheetPortal>
-          <ThemeWrapper>
+    <div className="w-full flex gap-10 rounded-xl border border-border bg-background p-10">
+      <div className="flex-1 flex flex-col items-center gap-4">
+        <span className="text-sm font-medium text-muted-foreground">
+          Không dùng ThemeWrapper
+        </span>
+        <Sheet>
+          <SheetTrigger
+            render={
+              <Button variant="outline">Open Sheet</Button>
+            }
+          />
+          <SheetPortal>
             <SheetContent side="right">
               <SheetHeader>
-                <SheetTitle>Sheet Demo</SheetTitle>
+                <SheetTitle>Mất Dark Mode!</SheetTitle>
               </SheetHeader>
-              <div className="py-4">Màu tối đồng bộ hoàn hảo!</div>
             </SheetContent>
-          </ThemeWrapper>
-        </SheetPortal>
-      </Sheet>
+          </SheetPortal>
+        </Sheet>
+      </div>
+
+      <div className="flex-1 flex flex-col items-center gap-4">
+        <span className="text-sm font-medium text-muted-foreground">
+          Có ThemeWrapper
+        </span>
+        <Sheet>
+          <SheetTrigger
+            render={
+              <Button variant="outline">Open Sheet</Button>
+            }
+          />
+          <SheetPortal>
+            <ThemeWrapper>
+              <SheetContent side="right">
+                <SheetHeader>
+                  <SheetTitle>Sheet Demo</SheetTitle>
+                </SheetHeader>
+                <div className="py-4">
+                  Màu tối đồng bộ hoàn hảo!
+                </div>
+              </SheetContent>
+            </ThemeWrapper>
+          </SheetPortal>
+        </Sheet>
+      </div>
     </div>
-  </div>
-</ThemeProvider>`}
+  </ThemeProvider>`}
       >
         <ThemeProvider defaultMode="dark">
           <div className="w-full flex gap-10 rounded-xl border border-border bg-background p-10">

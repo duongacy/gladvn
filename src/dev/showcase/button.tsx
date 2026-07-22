@@ -34,22 +34,11 @@ function ButtonMicroShowcase({ globalSize }: { globalSize: Size }) {
       <ExampleSection
         label="Variants"
         description="Tất cả các kiểu hiển thị hiện có."
-        codeString={`<Button variant="solid">
-  Solid
-</Button>
-<Button variant="outline">
-  Outline
-</Button>
-<Button variant="soft">
-  Soft
-</Button>
-<Button variant="ghost">
-  Ghost
-</Button>
-<Button variant="link">
-  Link
-</Button>
-`}
+        codeString={`<Button variant="solid">Solid</Button>
+  <Button variant="outline">Outline</Button>
+  <Button variant="soft">Soft</Button>
+  <Button variant="ghost">Ghost</Button>
+  <Button variant="link">Link</Button>`}
       >
         <Button size={globalSize} variant="solid">
           Solid
@@ -72,34 +61,15 @@ function ButtonMicroShowcase({ globalSize }: { globalSize: Size }) {
       <ExampleSection
         label="Colors"
         description="Các màu semantic đi kèm variant solid."
-        codeString={`<Button color="primary">
-  Primary
-</Button>
-<Button color="secondary">
-  Secondary
-</Button>
-<Button color="destructive">
-  Destructive
-</Button>
-<Button color="warning">
-  Warning
-</Button>
-<Button color="success">
-  Success
-</Button>
-<Button color="info">
-  Info
-</Button>
-<Button color="tertiary">
-  Tertiary
-</Button>
-<Button color="muted">
-  Muted
-</Button>
-<Button color="accent">
-  Accent
-</Button>
-`}
+        codeString={`<Button color="primary">Primary</Button>
+  <Button color="secondary">Secondary</Button>
+  <Button color="destructive">Destructive</Button>
+  <Button color="warning">Warning</Button>
+  <Button color="success">Success</Button>
+  <Button color="info">Info</Button>
+  <Button color="tertiary">Tertiary</Button>
+  <Button color="muted">Muted</Button>
+  <Button color="accent">Accent</Button>`}
       >
         <Button size={globalSize} color="primary">
           Primary
@@ -136,14 +106,13 @@ function ButtonMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="With Icon"
           description="Button kèm icon ở đầu hoặc cuối."
           codeString={`<Button variant="outline">
-  <ButtonIcon render={<MailIcon />} />
-  Login with Email
-</Button>
-<Button>
-  <ButtonIcon render={<DownloadIcon />} />
-  Download
-</Button>
-`}
+    <ButtonIcon render={<MailIcon />} />
+    Login with Email
+  </Button>
+  <Button>
+    <ButtonIcon render={<DownloadIcon />} />
+    Download
+  </Button>`}
         >
           <Button size={globalSize} variant="outline">
             <ButtonIcon render={<MailIcon />} />
@@ -159,15 +128,14 @@ function ButtonMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Icon Only"
           description="Button vuông chỉ chứa icon."
           codeString={`<Button variant="outline" iconOnly={true}>
-  <ButtonIcon render={<PlusIcon />} />
-</Button>
-<Button variant="ghost" iconOnly={true}>
-  <ButtonIcon render={<MailIcon />} />
-</Button>
-<Button variant="soft" iconOnly={true}>
-  <ButtonIcon render={<DownloadIcon />} />
-</Button>
-`}
+    <ButtonIcon render={<PlusIcon />} />
+  </Button>
+  <Button variant="ghost" iconOnly={true}>
+    <ButtonIcon render={<MailIcon />} />
+  </Button>
+  <Button variant="soft" iconOnly={true}>
+    <ButtonIcon render={<DownloadIcon />} />
+  </Button>`}
         >
           <Button size={globalSize} variant="outline" iconOnly={true}>
             <ButtonIcon render={<PlusIcon />} />
@@ -185,22 +153,19 @@ function ButtonMicroShowcase({ globalSize }: { globalSize: Size }) {
       <ExampleSection
         label="Disabled"
         description="Button không thể tương tác, hiển thị mờ."
-        codeString={`<Button disabled>
-  Solid Disabled
-</Button>
-<Button variant="outline" disabled>
-  Outline Disabled
-</Button>
-<Button variant="soft" disabled>
-  Soft Disabled
-</Button>
-<Button variant="ghost" disabled>
-  Ghost Disabled
-</Button>
-<Button variant="link" disabled>
-  Link Disabled
-</Button>
-`}
+        codeString={`<Button disabled>Solid Disabled</Button>
+  <Button variant="outline" disabled>
+    Outline Disabled
+  </Button>
+  <Button variant="soft" disabled>
+    Soft Disabled
+  </Button>
+  <Button variant="ghost" disabled>
+    Ghost Disabled
+  </Button>
+  <Button variant="link" disabled>
+    Link Disabled
+  </Button>`}
       >
         <Button size={globalSize} disabled>
           Solid Disabled
@@ -225,13 +190,18 @@ function ButtonMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Loading State"
           description="Button kèm Spinner khi đang xử lý async."
           fullWidth
-          codeString={`<Button color="primary" className="w-full" disabled={isSending} onClick={handleSend}>
-  {isSending && <Spinner />}
-  {isSending ? "Sending..." : "Send Message"}
-</Button>
-<Button variant="outline" className="w-full">
-  Save Draft
-</Button>`}
+          codeString={`<Button
+    color="primary"
+    className="w-full"
+    disabled={isSending}
+    onClick={handleSend}
+  >
+    {isSending && <Spinner />}
+    {isSending ? "Sending..." : "Send Message"}
+  </Button>
+  <Button variant="outline" className="w-full">
+    Save Draft
+  </Button>`}
         >
           <div className="flex flex-col gap-3 w-full max-w-xs mx-auto">
             <Button
@@ -254,10 +224,15 @@ function ButtonMicroShowcase({ globalSize }: { globalSize: Size }) {
           label="Destructive"
           description="Xác nhận hành động nguy hiểm (xoá dữ liệu, huỷ tài khoản...)."
           fullWidth
-          codeString={`<Button color="destructive" className="w-full mt-1" disabled={isDeleting} onClick={handleDelete}>
-  {isDeleting && <Spinner />}
-  {isDeleting ? "Deleting..." : "Delete Permanently"}
-</Button>`}
+          codeString={`<Button
+    color="destructive"
+    className="w-full mt-1"
+    disabled={isDeleting}
+    onClick={handleDelete}
+  >
+    {isDeleting && <Spinner />}
+    {isDeleting ? "Deleting..." : "Delete Permanently"}
+  </Button>`}
         >
           <div className="w-full max-w-xs mx-auto rounded-lg border border-destructive/20 bg-destructive/5 p-4 flex flex-col gap-2">
             <p className="text-sm font-medium">Delete Workspace</p>

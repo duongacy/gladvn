@@ -357,38 +357,76 @@ function InputMicroShowcase({ globalSize }: { globalSize: Size }) {
         description="So sánh nhanh khi nào dùng Micro và Macro."
         fullWidth
         codeString={`<div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-  {/* Story 1: Macro wins */}
-  <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
-    <div className="flex items-start gap-3">
-      <span className="mt-0.5 shrink-0 rounded-full bg-green-500/10 p-1.5 text-green-600">
-        <svg xmlns="http://www.w3.org/2000/svg" className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      </span>
-      <div>
-        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Story 1 · Dùng Macro</p>
-        <h3 className="mt-0.5 text-sm font-semibold text-foreground">Form nhập liệu tiêu chuẩn</h3>
+    {/* Story 1: Macro wins */}
+    <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
+      <div className="flex items-start gap-3">
+        <span className="mt-0.5 shrink-0 rounded-full bg-green-500/10 p-1.5 text-green-600">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="size-4"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+        </span>
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+            Story 1 · Dùng Macro
+          </p>
+          <h3 className="mt-0.5 text-sm font-semibold text-foreground">
+            Form nhập liệu tiêu chuẩn
+          </h3>
+        </div>
       </div>
+      <p className="text-xs text-muted-foreground leading-relaxed">
+        Khi bạn cần một trường nhập liệu đầy đủ nhãn
+        (Label), mô tả (Description), báo lỗi (Error) mà
+        không muốn phải lắp ráp thủ công bằng{" "}
+        <DocsCode>Field</DocsCode>.
+      </p>
     </div>
-    <p className="text-xs text-muted-foreground leading-relaxed">
-      Khi bạn cần một trường nhập liệu đầy đủ nhãn (Label), mô tả (Description), báo lỗi (Error) mà không muốn phải lắp ráp thủ công bằng <DocsCode>Field</DocsCode>.
-    </p>
-  </div>
 
-  {/* Story 2: Micro wins */}
-  <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
-    <div className="flex items-start gap-3">
-      <span className="mt-0.5 shrink-0 rounded-full bg-blue-500/10 p-1.5 text-blue-600">
-        <svg xmlns="http://www.w3.org/2000/svg" className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-      </span>
-      <div>
-        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Story 2 · Dùng Micro</p>
-        <h3 className="mt-0.5 text-sm font-semibold text-foreground">Input nằm trong Navbar hoặc Toolbar</h3>
+    {/* Story 2: Micro wins */}
+    <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
+      <div className="flex items-start gap-3">
+        <span className="mt-0.5 shrink-0 rounded-full bg-blue-500/10 p-1.5 text-blue-600">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="size-4"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+          </svg>
+        </span>
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+            Story 2 · Dùng Micro
+          </p>
+          <h3 className="mt-0.5 text-sm font-semibold text-foreground">
+            Input nằm trong Navbar hoặc Toolbar
+          </h3>
+        </div>
       </div>
+      <p className="text-xs text-muted-foreground leading-relaxed">
+        Chỉ cần một thẻ <DocsCode>Input</DocsCode> đơn giản
+        để tìm kiếm nhanh, không cần nhãn hay mô tả cầu kỳ,
+        hoặc khi phải nhúng nó vào một component phức tạp
+        khác.
+      </p>
     </div>
-    <p className="text-xs text-muted-foreground leading-relaxed">
-      Chỉ cần một thẻ <DocsCode>Input</DocsCode> đơn giản để tìm kiếm nhanh, không cần nhãn hay mô tả cầu kỳ, hoặc khi phải nhúng nó vào một component phức tạp khác.
-    </p>
-  </div>
-</div>`}
+  </div>`}
       >
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">

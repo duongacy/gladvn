@@ -8,8 +8,7 @@
  * importing this file. Copy tokens.css into your project and customize it.
  * ========================================================================== */
 
-@import "tw-animate-css/dist/tw-animate.css";
-
+@import "tw-animate-css";
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {

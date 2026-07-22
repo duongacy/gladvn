@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { CarouselPreset } from "../../components/macro/carousel-preset";
 import { Card, CardContent } from "../../components/micro/card";
 import {
@@ -16,7 +18,6 @@ import {
   ShowcaseDocs,
 } from "../../dev/components/showcase";
 import { cn } from "../../lib/utils";
-import { useState } from "react";
 
 const SLIDES = [
   {

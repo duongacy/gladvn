@@ -1,13 +1,3 @@
-import { useDevContext } from "../../dev/components/dev-context";
-import {
-  DocsCode,
-  DocsH3,
-  DocsP,
-  ExampleGrid,
-  ExampleSection,
-  Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
 import { useState } from "react";
 
 import { PaginationPreset } from "../../components/macro/pagination-preset";
@@ -20,6 +10,16 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "../../components/micro/pagination";
+import { useDevContext } from "../../dev/components/dev-context";
+import {
+  DocsCode,
+  DocsH3,
+  DocsP,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+} from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────

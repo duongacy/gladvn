@@ -5,11 +5,12 @@
  * - Form Control Parity
  * - CSS Delegated Logic
  */
-import { Accordion as AccordionPrimitive } from "@base-ui/react/accordion";
 import * as React from "react";
 
-import { cn } from "../../lib/utils";
+import { Accordion as AccordionPrimitive } from "@base-ui/react/accordion";
 import { ChevronDownIcon } from "lucide-react";
+
+import { cn } from "../../lib/utils";
 
 const Accordion = React.forwardRef<
   React.ComponentRef<typeof AccordionPrimitive.Root>,

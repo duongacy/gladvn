@@ -1,13 +1,3 @@
-import { useDevContext } from "../../dev/components/dev-context";
-import {
-  DocsCode,
-  DocsH3,
-  DocsP,
-  ExampleGrid,
-  ExampleSection,
-  Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
 import { useState } from "react";
 
 import { ProgressPreset } from "../../components/macro/progress-preset";
@@ -18,6 +8,16 @@ import {
   ProgressTrack,
   ProgressValue,
 } from "../../components/micro/progress";
+import { useDevContext } from "../../dev/components/dev-context";
+import {
+  DocsCode,
+  DocsH3,
+  DocsP,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+} from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────

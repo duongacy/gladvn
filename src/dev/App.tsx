@@ -1,7 +1,14 @@
-import { Badge } from "../components/micro/badge";
-import { Button } from "../components/micro/button";
-import { Separator } from "../components/micro/separator";
-import { useTheme } from "../components/micro/theme-provider";
+import React, { Suspense, lazy, useCallback, useEffect, useState } from "react";
+
+import {
+  LayersIcon,
+  MenuIcon,
+  MoonIcon,
+  SearchIcon,
+  SunIcon,
+  XIcon,
+} from "lucide-react";
+
 import {
   Command,
   CommandDialog,
@@ -12,32 +19,30 @@ import {
   CommandList,
   CommandSeparator,
 } from "../components/macro/command-preset";
+import { Badge } from "../components/micro/badge";
+import { Button } from "../components/micro/button";
+import { Separator } from "../components/micro/separator";
+import { useTheme } from "../components/micro/theme-provider";
+import { GladvnLogo } from "../dev/components/GladvnLogo";
 import { useDevContext } from "../dev/components/dev-context";
 import { SizeToggle } from "../dev/components/showcase";
-import { GladvnLogo } from "../dev/components/GladvnLogo";
 import { COMPONENTS } from "../dev/data";
 import OverviewSection from "../dev/showcase/overview";
-import {
-  LayersIcon,
-  MenuIcon,
-  XIcon,
-  SunIcon,
-  MoonIcon,
-  SearchIcon,
-} from "lucide-react";
-import React, { Suspense, lazy, useCallback, useEffect, useState } from "react";
 
 const components: Record<string, React.LazyExoticComponent<any>> = {};
 COMPONENTS.forEach((comp) => {
   components[comp.id] = lazy(() => import(`./showcase/${comp.id}.tsx`));
 });
 
-const groupedComponents = COMPONENTS.reduce((acc, comp) => {
-  const cat = (comp as any).category || "Other";
-  if (!acc[cat]) acc[cat] = [];
-  acc[cat].push(comp);
-  return acc;
-}, {} as Record<string, typeof COMPONENTS[number][]>);
+const groupedComponents = COMPONENTS.reduce(
+  (acc, comp) => {
+    const cat = (comp as any).category || "Other";
+    if (!acc[cat]) acc[cat] = [];
+    acc[cat].push(comp);
+    return acc;
+  },
+  {} as Record<string, (typeof COMPONENTS)[number][]>,
+);
 
 const categoryOrder = [
   "Layout & Structure",
@@ -45,7 +50,7 @@ const categoryOrder = [
   "Feedback & Overlays",
   "Navigation",
   "Data Display",
-  "Other"
+  "Other",
 ];
 
 function ComponentViewer({ id }: { id: string }) {
@@ -163,7 +168,10 @@ export default function App() {
                 <MenuIcon className="size-5" />
               )}
             </button>
-            <a href="/" className="inline-flex items-center hover:opacity-80 transition-opacity">
+            <a
+              href="/"
+              className="inline-flex items-center hover:opacity-80 transition-opacity"
+            >
               <GladvnLogo variant="wordmark" />
             </a>
           </div>
@@ -176,7 +184,9 @@ export default function App() {
             aria-label="Tìm component (⌘K)"
           >
             <SearchIcon className="size-3.5 shrink-0" />
-            <span className="flex-1 text-left text-[13px]">Tìm component...</span>
+            <span className="flex-1 text-left text-[13px]">
+              Tìm component...
+            </span>
             <kbd className="text-[10px] bg-background border border-border/80 rounded px-1.5 py-0.5 font-sans leading-none">
               ⌘K
             </kbd>
@@ -187,23 +197,39 @@ export default function App() {
             <Button
               variant="ghost"
               iconOnly
-              render={<a href="https://github.com/duongacy/gladvn" target="_blank" rel="noreferrer" />}
+              render={
+                <a
+                  href="https://github.com/duongacy/gladvn"
+                  target="_blank"
+                  rel="noreferrer"
+                />
+              }
               nativeButton={false}
               className="text-muted-foreground hover:text-foreground hidden sm:inline-flex"
             >
               {/* GitHub SVG mark */}
-              <svg viewBox="0 0 24 24" className="size-4" fill="currentColor" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                className="size-4"
+                fill="currentColor"
+                aria-hidden="true"
+              >
                 <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z" />
               </svg>
               <span className="sr-only">GitHub</span>
             </Button>
 
-            <Separator orientation="vertical" className="h-4 mx-1 hidden sm:block" />
+            <Separator
+              orientation="vertical"
+              className="h-4 mx-1 hidden sm:block"
+            />
 
             <Button
               variant="ghost"
               iconOnly
-              onClick={() => theme?.setMode(theme.mode === "light" ? "dark" : "light")}
+              onClick={() =>
+                theme?.setMode(theme.mode === "light" ? "dark" : "light")
+              }
               className="text-muted-foreground hover:text-foreground relative"
             >
               <SunIcon className="size-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
@@ -226,16 +252,18 @@ export default function App() {
 
         {/* Sidebar */}
         <aside
-          className={`fixed inset-y-0 left-0 z-50 w-64 transform border-r bg-background border-border pt-4 px-3 transition-transform duration-200 ease-in-out md:sticky md:top-16 md:block md:h-[calc(100vh-4rem)] md:w-56 md:translate-x-0 md:pt-6 md:z-0 overflow-y-auto custom-scrollbar ${isMobileMenuOpen ? "translate-x-0 shadow-2xl" : "-translate-x-full"
-            }`}
+          className={`fixed inset-y-0 left-0 z-50 w-64 transform border-r bg-background border-border pt-4 px-3 transition-transform duration-200 ease-in-out md:sticky md:top-16 md:block md:h-[calc(100vh-4rem)] md:w-56 md:translate-x-0 md:pt-6 md:z-0 overflow-y-auto custom-scrollbar ${
+            isMobileMenuOpen ? "translate-x-0 shadow-2xl" : "-translate-x-full"
+          }`}
         >
           <nav className="space-y-0.5">
             <button
               onClick={() => setActive("overview")}
-              className={`w-full flex items-center gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors text-left mb-2 ${active === "overview"
-                ? "bg-accent text-accent-foreground font-medium"
-                : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
-                }`}
+              className={`w-full flex items-center gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors text-left mb-2 ${
+                active === "overview"
+                  ? "bg-accent text-accent-foreground font-medium"
+                  : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
+              }`}
             >
               <LayersIcon className="size-3.5" />
               Overview
@@ -243,7 +271,7 @@ export default function App() {
           </nav>
 
           <div className="mt-6">
-            {categoryOrder.map(cat => {
+            {categoryOrder.map((cat) => {
               const comps = groupedComponents[cat];
               if (!comps || comps.length === 0) return null;
               return (
@@ -256,10 +284,11 @@ export default function App() {
                       <button
                         key={id}
                         onClick={() => setActive(id)}
-                        className={`w-full flex items-center justify-between gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors text-left ${active === id
-                          ? "bg-accent text-accent-foreground font-medium"
-                          : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
-                          }`}
+                        className={`w-full flex items-center justify-between gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors text-left ${
+                          active === id
+                            ? "bg-accent text-accent-foreground font-medium"
+                            : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
+                        }`}
                       >
                         <span>{label}</span>
                       </button>
@@ -269,8 +298,6 @@ export default function App() {
               );
             })}
           </div>
-
-
         </aside>
 
         {/* Main */}

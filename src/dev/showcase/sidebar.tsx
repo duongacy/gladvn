@@ -1,4 +1,3 @@
-import { DocsP, ExampleSection, Showcase, ShowcaseDocs } from "../../dev/components/showcase";
 import { FolderIcon, Package2Icon, SettingsIcon, UserIcon } from "lucide-react";
 
 import {
@@ -9,6 +8,12 @@ import {
   SidebarMenuItemList,
   useSidebarToggle,
 } from "../../components/micro/sidebar";
+import {
+  DocsP,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+} from "../../dev/components/showcase";
 
 function SidebarMicroShowcase() {
   const { sidebarRef, toggleSidebar, defaultState } =
@@ -107,10 +112,9 @@ export default function SidebarShowcase() {
       generalConcept={
         <ShowcaseDocs>
           <DocsP>
-            Sidebar tối giản chỉ dùng CSS và DOM attribute để chuyển
-            trạng thái expanded/collapsed. Không có JS transition, không
-            re-render. Sử dụng useSidebarToggle hook để toggle bằng
-            direct DOM mutation.
+            Sidebar tối giản chỉ dùng CSS và DOM attribute để chuyển trạng thái
+            expanded/collapsed. Không có JS transition, không re-render. Sử dụng
+            useSidebarToggle hook để toggle bằng direct DOM mutation.
           </DocsP>
         </ShowcaseDocs>
       }

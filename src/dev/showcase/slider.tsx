@@ -1,14 +1,3 @@
-import { useDevContext } from "../../dev/components/dev-context";
-import {
-  DocsCode,
-  DocsH3,
-  DocsP,
-  ExampleGrid,
-  ExampleSection,
-  Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
-import { type Size } from "../../lib/types";
 import { useState } from "react";
 
 import { SliderPreset } from "../../components/macro/slider-preset";
@@ -26,6 +15,17 @@ import {
   SliderThumb,
   SliderTrack,
 } from "../../components/micro/slider";
+import { useDevContext } from "../../dev/components/dev-context";
+import {
+  DocsCode,
+  DocsH3,
+  DocsP,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+} from "../../dev/components/showcase";
+import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Macro Content

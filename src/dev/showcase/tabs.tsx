@@ -1,3 +1,12 @@
+import { BellIcon, CreditCardIcon, UserIcon } from "lucide-react";
+
+import { TabsPreset } from "../../components/macro/tabs-preset";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "../../components/micro/tabs";
 import {
   DocsCode,
   DocsH3,
@@ -7,15 +16,6 @@ import {
   Showcase,
   ShowcaseDocs,
 } from "../../dev/components/showcase";
-
-import { TabsPreset } from "../../components/macro/tabs-preset";
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "../../components/micro/tabs";
-import { BellIcon, CreditCardIcon, UserIcon } from "lucide-react";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Macro Content

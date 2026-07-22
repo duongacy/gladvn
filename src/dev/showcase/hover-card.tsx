@@ -1,14 +1,6 @@
-import { useDevContext } from "../../dev/components/dev-context";
-import {
-  DocsCode,
-  DocsP,
-  ExampleGrid,
-  ExampleSection,
-  Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
-import { CalendarIcon } from "lucide-react";
 import { useState } from "react";
+
+import { CalendarIcon } from "lucide-react";
 
 import {
   Avatar,
@@ -19,9 +11,18 @@ import { Button } from "../../components/micro/button";
 import {
   HoverCard,
   HoverCardContent,
-  HoverCardTrigger,
   HoverCardPortal,
+  HoverCardTrigger,
 } from "../../components/micro/hover-card";
+import { useDevContext } from "../../dev/components/dev-context";
+import {
+  DocsCode,
+  DocsP,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+} from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────

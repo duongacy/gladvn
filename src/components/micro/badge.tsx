@@ -5,9 +5,11 @@
  * - Form Control Parity
  * - CSS Delegated Logic
  */
+import * as React from "react";
+
 import { mergeProps } from "@base-ui/react/merge-props";
 import { useRender } from "@base-ui/react/use-render";
-import { cva, type VariantProps } from "class-variance-authority";
+import { type VariantProps, cva } from "class-variance-authority";
 
 import { cn } from "../../lib/utils";
 
@@ -168,8 +170,6 @@ const badgeVariants = cva(
     ],
   },
 );
-
-import * as React from "react";
 
 /**
  * @description Displays a badge or a component that looks like a badge.

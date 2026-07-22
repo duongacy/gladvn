@@ -1,18 +1,8 @@
-import { useDevContext } from "../../dev/components/dev-context";
-import {
-  DocsCode,
-  DocsH3,
-  DocsLi,
-  DocsP,
-  DocsUl,
-  ExampleGrid,
-  ExampleSection,
-  Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
-import { LinkIcon, SearchIcon } from "lucide-react";
 import { useState } from "react";
 
+import { LinkIcon, SearchIcon } from "lucide-react";
+
+import { InputPreset } from "../../components/macro/input-preset";
 import {
   Field,
   FieldContent,
@@ -27,9 +17,19 @@ import {
   InputGroupInput,
   InputGroupText,
 } from "../../components/micro/input-group";
+import { useDevContext } from "../../dev/components/dev-context";
+import {
+  DocsCode,
+  DocsH3,
+  DocsLi,
+  DocsP,
+  DocsUl,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+} from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
-
-import { InputPreset } from "../../components/macro/input-preset";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Macro Content

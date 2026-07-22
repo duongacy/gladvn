@@ -1,18 +1,11 @@
-import { useDevContext } from "../../dev/components/dev-context";
-import {
-  DocsP,
-  ExampleGrid,
-  ExampleSection,
-  Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+import { useState } from "react";
+
 import {
   CheckCircle2Icon,
   CheckIcon,
   LayersIcon,
   UserIcon,
 } from "lucide-react";
-import { useState } from "react";
 
 import { AvatarPreset } from "../../components/macro/avatar-preset";
 import {
@@ -23,6 +16,14 @@ import {
   AvatarGroupCount,
   AvatarImage,
 } from "../../components/micro/avatar";
+import { useDevContext } from "../../dev/components/dev-context";
+import {
+  DocsP,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+} from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────
@@ -451,7 +452,8 @@ export default function AvatarShowcase() {
         <ShowcaseDocs>
           <DocsP>
             Dùng để hiển thị hình ảnh đại diện cho người dùng, nhóm hoặc tổ
-            chức. Hỗ trợ tự động hiển thị chữ cái viết tắt hoặc icon mặc định khi không tải được ảnh.
+            chức. Hỗ trợ tự động hiển thị chữ cái viết tắt hoặc icon mặc định
+            khi không tải được ảnh.
           </DocsP>
         </ShowcaseDocs>
       }

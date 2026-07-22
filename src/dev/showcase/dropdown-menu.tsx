@@ -1,11 +1,5 @@
-import { useDevContext } from "../../dev/components/dev-context";
-import {
-  DocsP,
-  ExampleGrid,
-  ExampleSection,
-  Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+import { useState } from "react";
+
 import {
   CreditCardIcon,
   HelpCircleIcon,
@@ -13,7 +7,6 @@ import {
   SettingsIcon,
   UserIcon,
 } from "lucide-react";
-import { useState } from "react";
 
 import { Button } from "../../components/micro/button";
 import {
@@ -33,6 +26,14 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "../../components/micro/dropdown-menu";
+import { useDevContext } from "../../dev/components/dev-context";
+import {
+  DocsP,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+} from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────

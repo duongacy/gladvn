@@ -5,8 +5,9 @@
  * - Form Control Parity
  * - CSS Delegated Logic
  */
-import { cn } from "../../lib/utils";
 import * as React from "react";
+
+import { cn } from "../../lib/utils";
 
 /**
  * @description Use to show a placeholder while content is loading.

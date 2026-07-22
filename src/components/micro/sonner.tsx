@@ -7,14 +7,15 @@
  */
 "use client";
 
-import { Toaster as Sonner, type ToasterProps } from "sonner";
 import * as React from "react";
+
 import {
   CircleCheckIcon,
   InfoIcon,
   OctagonXIcon,
   TriangleAlertIcon,
 } from "lucide-react";
+import { Toaster as Sonner, type ToasterProps } from "sonner";
 
 import { Spinner } from "../../components/micro/spinner";
 import { useTheme } from "../../components/micro/theme-provider";

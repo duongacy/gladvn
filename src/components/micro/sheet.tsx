@@ -7,8 +7,9 @@
  */
 "use client";
 
-import { Dialog as SheetPrimitive } from "@base-ui/react/dialog";
 import * as React from "react";
+
+import { Dialog as SheetPrimitive } from "@base-ui/react/dialog";
 import { XIcon } from "lucide-react";
 
 import { Button } from "../../components/micro/button";

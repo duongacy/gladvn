@@ -5,10 +5,12 @@
  * - Form Control Parity
  * - CSS Delegated Logic
  */
+import * as React from "react";
+
 import { Button as ButtonPrimitive } from "@base-ui/react/button";
 import { mergeProps } from "@base-ui/react/merge-props";
 import { useRender } from "@base-ui/react/use-render";
-import { cva, type VariantProps } from "class-variance-authority";
+import { type VariantProps, cva } from "class-variance-authority";
 
 import { cn } from "../../lib/utils";
 
@@ -290,8 +292,6 @@ const buttonVariants = cva(
     ],
   },
 );
-
-import * as React from "react";
 
 /**
  * @description Displays a button or a component that looks like a button.

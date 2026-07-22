@@ -1,3 +1,7 @@
+import * as React from "react";
+
+import { ChevronsUpDownIcon } from "lucide-react";
+
 import { Button } from "../../components/micro/button";
 import {
   Collapsible,
@@ -11,8 +15,6 @@ import {
   Showcase,
   ShowcaseDocs,
 } from "../../dev/components/showcase";
-import { ChevronsUpDownIcon } from "lucide-react";
-import * as React from "react";
 
 function CollapsibleMicroShowcase() {
   const [isOpen, setIsOpen] = React.useState(false);

@@ -1,5 +1,9 @@
 "use client";
 
+import * as React from "react";
+
+import { XIcon } from "lucide-react";
+
 import { Button } from "../../components/micro/button";
 import {
   Dialog,
@@ -8,15 +12,13 @@ import {
   DialogDescription,
   DialogFooter,
   DialogHeader,
+  DialogPortal,
   DialogTitle,
   DialogTrigger,
-  DialogPortal,
 } from "../../components/micro/dialog";
 import { ThemeWrapper } from "../../components/micro/theme-provider";
 import { type Size } from "../../lib/types";
 import { cn } from "../../lib/utils";
-import { XIcon } from "lucide-react";
-import * as React from "react";
 
 type DialogPresetProps = Omit<
   React.ComponentProps<typeof Dialog>,
@@ -52,45 +54,47 @@ const DialogPreset = React.forwardRef<HTMLDivElement, DialogPresetProps>(
           <ThemeWrapper>
             <DialogContent
               ref={ref}
-          className={cn(
-            size === "sm" && "sm:max-w-md",
-            size === "md" && "sm:max-w-lg",
-            size === "lg" && "sm:max-w-xl",
-            "flex flex-col gap-0 p-0 overflow-hidden",
-          )}
-        >
-          {(title || description) && (
-            <DialogHeader className="shrink-0 p-4 pb-0">
-              {title && <DialogTitle>{title}</DialogTitle>}
-              {description && (
-                <DialogDescription>{description}</DialogDescription>
+              className={cn(
+                size === "sm" && "sm:max-w-md",
+                size === "md" && "sm:max-w-lg",
+                size === "lg" && "sm:max-w-xl",
+                "flex flex-col gap-0 p-0 overflow-hidden",
               )}
-            </DialogHeader>
-          )}
-
-          <div className="flex-1 min-h-0 overflow-y-auto p-4">{children}</div>
-
-          {footer && (
-            <DialogFooter className="shrink-0 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
-              {footer}
-            </DialogFooter>
-          )}
-
-          {showCloseButton && (
-            <DialogClose
-              render={
-                <Button
-                  variant="ghost"
-                  className="absolute top-2 right-2"
-                  size="sm"
-                  iconOnly
-                />
-              }
             >
-              <XIcon />
-              <span className="sr-only">Close</span>
-            </DialogClose>
-          )}
+              {(title || description) && (
+                <DialogHeader className="shrink-0 p-4 pb-0">
+                  {title && <DialogTitle>{title}</DialogTitle>}
+                  {description && (
+                    <DialogDescription>{description}</DialogDescription>
+                  )}
+                </DialogHeader>
+              )}
+
+              <div className="flex-1 min-h-0 overflow-y-auto p-4">
+                {children}
+              </div>
+
+              {footer && (
+                <DialogFooter className="shrink-0 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
+                  {footer}
+                </DialogFooter>
+              )}
+
+              {showCloseButton && (
+                <DialogClose
+                  render={
+                    <Button
+                      variant="ghost"
+                      className="absolute top-2 right-2"
+                      size="sm"
+                      iconOnly
+                    />
+                  }
+                >
+                  <XIcon />
+                  <span className="sr-only">Close</span>
+                </DialogClose>
+              )}
             </DialogContent>
           </ThemeWrapper>
         </DialogPortal>

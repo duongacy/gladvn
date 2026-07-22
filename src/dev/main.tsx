@@ -1,10 +1,12 @@
 import { useEffect } from "react";
+import { StrictMode } from "react";
+
+import { createRoot } from "react-dom/client";
+
 import { ThemeProvider, useTheme } from "../components/micro/theme-provider";
 import App from "../dev/App";
 import { DevContextProvider } from "../dev/components/dev-context";
 import "../dev/index.css";
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
 
 /** Syncs the theme class to <html> — this is a Macro concern, done here for the dev playground. */
 function RootThemeSync() {
@@ -27,4 +29,3 @@ createRoot(document.getElementById("root")!).render(
     </ThemeProvider>
   </StrictMode>,
 );
-

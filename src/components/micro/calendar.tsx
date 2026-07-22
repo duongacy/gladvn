@@ -7,14 +7,19 @@
  */
 "use client";
 
-import { type Size } from "../../lib/types";
-import { cva, type VariantProps } from "class-variance-authority";
 import * as React from "react";
+
+import { type VariantProps, cva } from "class-variance-authority";
 import {
-  DayPicker,
-  getDefaultClassNames,
+  ChevronDownIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+} from "lucide-react";
+import {
   type DayButton,
+  DayPicker,
   type Locale,
+  getDefaultClassNames,
 } from "react-day-picker";
 
 import { buttonVariants } from "../../components/micro/button";
@@ -24,12 +29,8 @@ import {
   SelectItem,
   SelectTrigger,
 } from "../../components/micro/select";
+import { type Size } from "../../lib/types";
 import { cn } from "../../lib/utils";
-import {
-  ChevronDownIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-} from "lucide-react";
 
 function getDropdownLabel(
   options: Array<{ value: number | string; label: string }> | undefined,

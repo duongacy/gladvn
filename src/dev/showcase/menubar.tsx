@@ -8,6 +8,7 @@ import {
   MenubarItem,
   MenubarLabel,
   MenubarMenu,
+  MenubarPortal,
   MenubarRadioGroup,
   MenubarRadioItem,
   MenubarSeparator,
@@ -15,7 +16,8 @@ import {
   MenubarSub,
   MenubarSubContent,
   MenubarSubTrigger,
-  MenubarTrigger, MenubarPortal } from "../../components/micro/menubar";
+  MenubarTrigger,
+} from "../../components/micro/menubar";
 import {
   DocsP,
   ExampleGrid,
@@ -112,75 +114,75 @@ function MenubarMicroShowcase() {
           <MenubarMenu>
             <MenubarTrigger>File</MenubarTrigger>
             <MenubarPortal>
-                      <MenubarContent>
-                                    <MenubarItem>
-                                      New Tab <MenubarShortcut>⌘T</MenubarShortcut>
-                                    </MenubarItem>
-                                    <MenubarItem>
-                                      New Window <MenubarShortcut>⌘N</MenubarShortcut>
-                                    </MenubarItem>
-                                    <MenubarItem disabled>New Incognito Window</MenubarItem>
-                                    <MenubarSeparator />
-                                    <MenubarSub>
-                                      <MenubarSubTrigger>Share</MenubarSubTrigger>
-                                      <MenubarSubContent>
-                                        <MenubarItem>Email link</MenubarItem>
-                                        <MenubarItem>Messages</MenubarItem>
-                                        <MenubarItem>Notes</MenubarItem>
-                                      </MenubarSubContent>
-                                    </MenubarSub>
-                                    <MenubarSeparator />
-                                    <MenubarItem>
-                                      Print... <MenubarShortcut>⌘P</MenubarShortcut>
-                                    </MenubarItem>
-                                  </MenubarContent>
-                      </MenubarPortal>
+              <MenubarContent>
+                <MenubarItem>
+                  New Tab <MenubarShortcut>⌘T</MenubarShortcut>
+                </MenubarItem>
+                <MenubarItem>
+                  New Window <MenubarShortcut>⌘N</MenubarShortcut>
+                </MenubarItem>
+                <MenubarItem disabled>New Incognito Window</MenubarItem>
+                <MenubarSeparator />
+                <MenubarSub>
+                  <MenubarSubTrigger>Share</MenubarSubTrigger>
+                  <MenubarSubContent>
+                    <MenubarItem>Email link</MenubarItem>
+                    <MenubarItem>Messages</MenubarItem>
+                    <MenubarItem>Notes</MenubarItem>
+                  </MenubarSubContent>
+                </MenubarSub>
+                <MenubarSeparator />
+                <MenubarItem>
+                  Print... <MenubarShortcut>⌘P</MenubarShortcut>
+                </MenubarItem>
+              </MenubarContent>
+            </MenubarPortal>
           </MenubarMenu>
           <MenubarMenu>
             <MenubarTrigger>View</MenubarTrigger>
             <MenubarPortal>
-                      <MenubarContent>
-                                    <MenubarCheckboxItem
-                                      checked={showBookmarks}
-                                      onCheckedChange={setShowBookmarks}
-                                    >
-                                      Always Show Bookmarks Bar
-                                    </MenubarCheckboxItem>
-                                    <MenubarCheckboxItem
-                                      checked={showFullUrls}
-                                      onCheckedChange={setShowFullUrls}
-                                    >
-                                      Always Show Full URLs
-                                    </MenubarCheckboxItem>
-                                    <MenubarSeparator />
-                                    <MenubarItem inset>
-                                      Reload <MenubarShortcut>⌘R</MenubarShortcut>
-                                    </MenubarItem>
-                                    <MenubarItem disabled inset>
-                                      Force Reload <MenubarShortcut>⇧⌘R</MenubarShortcut>
-                                    </MenubarItem>
-                                  </MenubarContent>
-                      </MenubarPortal>
+              <MenubarContent>
+                <MenubarCheckboxItem
+                  checked={showBookmarks}
+                  onCheckedChange={setShowBookmarks}
+                >
+                  Always Show Bookmarks Bar
+                </MenubarCheckboxItem>
+                <MenubarCheckboxItem
+                  checked={showFullUrls}
+                  onCheckedChange={setShowFullUrls}
+                >
+                  Always Show Full URLs
+                </MenubarCheckboxItem>
+                <MenubarSeparator />
+                <MenubarItem inset>
+                  Reload <MenubarShortcut>⌘R</MenubarShortcut>
+                </MenubarItem>
+                <MenubarItem disabled inset>
+                  Force Reload <MenubarShortcut>⇧⌘R</MenubarShortcut>
+                </MenubarItem>
+              </MenubarContent>
+            </MenubarPortal>
           </MenubarMenu>
           <MenubarMenu>
             <MenubarTrigger>Profiles</MenubarTrigger>
             <MenubarPortal>
-                      <MenubarContent>
-                                    <MenubarGroup>
-                                      <MenubarLabel inset>Select Profile</MenubarLabel>
-                                      <MenubarSeparator />
-                                      <MenubarRadioGroup value={profile} onValueChange={setProfile}>
-                                        <MenubarRadioItem value="pedro">Pedro</MenubarRadioItem>
-                                        <MenubarRadioItem value="colm">Colm</MenubarRadioItem>
-                                        <MenubarRadioItem value="andy">Andy</MenubarRadioItem>
-                                      </MenubarRadioGroup>
-                                    </MenubarGroup>
-                                    <MenubarSeparator />
-                                    <MenubarItem inset>Edit...</MenubarItem>
-                                    <MenubarSeparator />
-                                    <MenubarItem inset>Add Profile...</MenubarItem>
-                                  </MenubarContent>
-                      </MenubarPortal>
+              <MenubarContent>
+                <MenubarGroup>
+                  <MenubarLabel inset>Select Profile</MenubarLabel>
+                  <MenubarSeparator />
+                  <MenubarRadioGroup value={profile} onValueChange={setProfile}>
+                    <MenubarRadioItem value="pedro">Pedro</MenubarRadioItem>
+                    <MenubarRadioItem value="colm">Colm</MenubarRadioItem>
+                    <MenubarRadioItem value="andy">Andy</MenubarRadioItem>
+                  </MenubarRadioGroup>
+                </MenubarGroup>
+                <MenubarSeparator />
+                <MenubarItem inset>Edit...</MenubarItem>
+                <MenubarSeparator />
+                <MenubarItem inset>Add Profile...</MenubarItem>
+              </MenubarContent>
+            </MenubarPortal>
           </MenubarMenu>
         </Menubar>
       </ExampleSection>
@@ -214,21 +216,21 @@ function MenubarMicroShowcase() {
             <MenubarMenu>
               <MenubarTrigger>View</MenubarTrigger>
               <MenubarPortal>
-                          <MenubarContent>
-                                          <MenubarCheckboxItem
-                                            checked={showBookmarks}
-                                            onCheckedChange={setShowBookmarks}
-                                          >
-                                            Show Bookmarks Bar
-                                          </MenubarCheckboxItem>
-                                          <MenubarCheckboxItem
-                                            checked={showFullUrls}
-                                            onCheckedChange={setShowFullUrls}
-                                          >
-                                            Show Full URLs
-                                          </MenubarCheckboxItem>
-                                        </MenubarContent>
-                          </MenubarPortal>
+                <MenubarContent>
+                  <MenubarCheckboxItem
+                    checked={showBookmarks}
+                    onCheckedChange={setShowBookmarks}
+                  >
+                    Show Bookmarks Bar
+                  </MenubarCheckboxItem>
+                  <MenubarCheckboxItem
+                    checked={showFullUrls}
+                    onCheckedChange={setShowFullUrls}
+                  >
+                    Show Full URLs
+                  </MenubarCheckboxItem>
+                </MenubarContent>
+              </MenubarPortal>
             </MenubarMenu>
           </Menubar>
         </ExampleSection>
@@ -255,16 +257,16 @@ function MenubarMicroShowcase() {
             <MenubarMenu>
               <MenubarTrigger>Profile</MenubarTrigger>
               <MenubarPortal>
-                          <MenubarContent>
-                                          <MenubarLabel inset>Account</MenubarLabel>
-                                          <MenubarSeparator />
-                                          <MenubarRadioGroup value={profile} onValueChange={setProfile}>
-                                            <MenubarRadioItem value="pedro">Pedro</MenubarRadioItem>
-                                            <MenubarRadioItem value="colm">Colm</MenubarRadioItem>
-                                            <MenubarRadioItem value="andy">Andy</MenubarRadioItem>
-                                          </MenubarRadioGroup>
-                                        </MenubarContent>
-                          </MenubarPortal>
+                <MenubarContent>
+                  <MenubarLabel inset>Account</MenubarLabel>
+                  <MenubarSeparator />
+                  <MenubarRadioGroup value={profile} onValueChange={setProfile}>
+                    <MenubarRadioItem value="pedro">Pedro</MenubarRadioItem>
+                    <MenubarRadioItem value="colm">Colm</MenubarRadioItem>
+                    <MenubarRadioItem value="andy">Andy</MenubarRadioItem>
+                  </MenubarRadioGroup>
+                </MenubarContent>
+              </MenubarPortal>
             </MenubarMenu>
           </Menubar>
         </ExampleSection>
@@ -298,20 +300,20 @@ function MenubarMicroShowcase() {
             <MenubarMenu>
               <MenubarTrigger>File</MenubarTrigger>
               <MenubarPortal>
-                          <MenubarContent>
-                                          <MenubarSub>
-                                            <MenubarSubTrigger>Share</MenubarSubTrigger>
-                                            <MenubarSubContent>
-                                              <MenubarItem>Email link</MenubarItem>
-                                              <MenubarItem>Messages</MenubarItem>
-                                              <MenubarItem>Notes</MenubarItem>
-                                            </MenubarSubContent>
-                                          </MenubarSub>
-                                          <MenubarItem>
-                                            Print... <MenubarShortcut>⌘P</MenubarShortcut>
-                                          </MenubarItem>
-                                        </MenubarContent>
-                          </MenubarPortal>
+                <MenubarContent>
+                  <MenubarSub>
+                    <MenubarSubTrigger>Share</MenubarSubTrigger>
+                    <MenubarSubContent>
+                      <MenubarItem>Email link</MenubarItem>
+                      <MenubarItem>Messages</MenubarItem>
+                      <MenubarItem>Notes</MenubarItem>
+                    </MenubarSubContent>
+                  </MenubarSub>
+                  <MenubarItem>
+                    Print... <MenubarShortcut>⌘P</MenubarShortcut>
+                  </MenubarItem>
+                </MenubarContent>
+              </MenubarPortal>
             </MenubarMenu>
           </Menubar>
         </ExampleSection>
@@ -344,22 +346,22 @@ function MenubarMicroShowcase() {
             <MenubarMenu>
               <MenubarTrigger>Edit</MenubarTrigger>
               <MenubarPortal>
-                          <MenubarContent>
-                                          <MenubarItem>
-                                            Undo <MenubarShortcut>⌘Z</MenubarShortcut>
-                                          </MenubarItem>
-                                          <MenubarItem disabled>
-                                            Redo <MenubarShortcut>⌘Y</MenubarShortcut>
-                                          </MenubarItem>
-                                          <MenubarSeparator />
-                                          <MenubarItem disabled>
-                                            Cut <MenubarShortcut>⌘X</MenubarShortcut>
-                                          </MenubarItem>
-                                          <MenubarItem>
-                                            Copy <MenubarShortcut>⌘C</MenubarShortcut>
-                                          </MenubarItem>
-                                        </MenubarContent>
-                          </MenubarPortal>
+                <MenubarContent>
+                  <MenubarItem>
+                    Undo <MenubarShortcut>⌘Z</MenubarShortcut>
+                  </MenubarItem>
+                  <MenubarItem disabled>
+                    Redo <MenubarShortcut>⌘Y</MenubarShortcut>
+                  </MenubarItem>
+                  <MenubarSeparator />
+                  <MenubarItem disabled>
+                    Cut <MenubarShortcut>⌘X</MenubarShortcut>
+                  </MenubarItem>
+                  <MenubarItem>
+                    Copy <MenubarShortcut>⌘C</MenubarShortcut>
+                  </MenubarItem>
+                </MenubarContent>
+              </MenubarPortal>
             </MenubarMenu>
           </Menubar>
         </ExampleSection>

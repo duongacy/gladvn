@@ -1,3 +1,8 @@
+import { useState } from "react";
+
+import { toast } from "sonner";
+
+import { Button } from "../../components/micro/button";
 import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsH3,
@@ -6,10 +11,6 @@ import {
   Showcase,
   ShowcaseDocs,
 } from "../../dev/components/showcase";
-import { useState } from "react";
-import { toast } from "sonner";
-
-import { Button } from "../../components/micro/button";
 import { type Size } from "../../lib/types";
 
 function ToastMicroShowcase({ globalSize }: { globalSize: Size }) {

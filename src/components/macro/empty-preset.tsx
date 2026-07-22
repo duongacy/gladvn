@@ -1,3 +1,5 @@
+import * as React from "react";
+
 import {
   Empty,
   EmptyAction,
@@ -8,7 +10,6 @@ import {
   EmptyTitle,
 } from "../../components/micro/empty";
 import { cn } from "../../lib/utils";
-import * as React from "react";
 
 type EmptyPresetProps = {
   icon?: React.ReactNode;

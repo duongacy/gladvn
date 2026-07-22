@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { createHighlighter, type Highlighter } from "shiki";
+
+import { type Highlighter, createHighlighter } from "shiki";
 
 // Singleton highlighter — loaded once, reused across all CodeHighlighter instances
 let highlighterPromise: Promise<Highlighter> | null = null;

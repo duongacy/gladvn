@@ -5,9 +5,10 @@
  * - Form Control Parity
  * - CSS Delegated Logic
  */
-import { Input as InputPrimitive } from "@base-ui/react/input";
-import { cva, type VariantProps } from "class-variance-authority";
 import * as React from "react";
+
+import { Input as InputPrimitive } from "@base-ui/react/input";
+import { type VariantProps, cva } from "class-variance-authority";
 
 import { type Size } from "../../lib/types";
 import { cn } from "../../lib/utils";

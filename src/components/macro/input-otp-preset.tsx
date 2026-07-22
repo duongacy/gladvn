@@ -4,14 +4,16 @@
  * - Custom Layout & Groups
  * - Form Control Integration
  */
+import * as React from "react";
+
+import { MinusIcon } from "lucide-react";
+
 import {
   InputOTP,
   InputOTPGroup,
   InputOTPSeparator,
   InputOTPSlot,
 } from "../../components/micro/input-otp";
-import { MinusIcon } from "lucide-react";
-import * as React from "react";
 import { FieldPreset } from "./field-preset";
 
 export type InputOTPPresetProps = Omit<

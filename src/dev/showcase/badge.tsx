@@ -1,5 +1,9 @@
-import { useDevContext } from "../../dev/components/dev-context";
+import { useState } from "react";
+
+import { AlertTriangleIcon, CheckIcon, InfoIcon, XIcon } from "lucide-react";
+
 import { Badge } from "../../components/micro/badge";
+import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsCode,
   DocsP,
@@ -9,8 +13,6 @@ import {
   ShowcaseDocs,
 } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
-import { AlertTriangleIcon, CheckIcon, InfoIcon, XIcon } from "lucide-react";
-import { useState } from "react";
 
 export default function BadgeShowcase() {
   const { size: globalSize } = useDevContext();

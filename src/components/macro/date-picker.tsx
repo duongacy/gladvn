@@ -1,8 +1,9 @@
 "use client";
 
+import * as React from "react";
+
 import { cva } from "class-variance-authority";
 import { CalendarIcon } from "lucide-react";
-import * as React from "react";
 import { type DateRange, type Locale, type Matcher } from "react-day-picker";
 
 import { Button } from "../../components/micro/button";
@@ -10,8 +11,8 @@ import { Calendar } from "../../components/micro/calendar";
 import {
   Popover,
   PopoverContent,
-  PopoverTrigger,
   PopoverPortal,
+  PopoverTrigger,
 } from "../../components/micro/popover";
 import { ThemeWrapper } from "../../components/micro/theme-provider";
 import { type Size } from "../../lib/types";
@@ -106,8 +107,11 @@ const triggerVariants = cva(
 // Helpers
 // ─────────────────────────────────────────────────────────────────────────────
 
-const fmt = (date: Date, opts: Intl.DateTimeFormatOptions, localeCode?: string) =>
-  new Intl.DateTimeFormat(localeCode ?? "en-US", opts).format(date);
+const fmt = (
+  date: Date,
+  opts: Intl.DateTimeFormatOptions,
+  localeCode?: string,
+) => new Intl.DateTimeFormat(localeCode ?? "en-US", opts).format(date);
 
 function formatTriggerLabel(
   mode: "single" | "range",
@@ -118,13 +122,25 @@ function formatTriggerLabel(
 ): string {
   if (mode === "single") {
     return value
-      ? fmt(value, { month: "short", day: "numeric", year: "numeric" }, localeCode)
+      ? fmt(
+          value,
+          { month: "short", day: "numeric", year: "numeric" },
+          localeCode,
+        )
       : placeholder;
   }
   if (!rangeValue?.from) return placeholder;
-  const fromStr = fmt(rangeValue.from, { month: "short", day: "numeric" }, localeCode);
+  const fromStr = fmt(
+    rangeValue.from,
+    { month: "short", day: "numeric" },
+    localeCode,
+  );
   if (!rangeValue.to) return `${fromStr} – ...`;
-  const toStr = fmt(rangeValue.to, { month: "short", day: "numeric", year: "numeric" }, localeCode);
+  const toStr = fmt(
+    rangeValue.to,
+    { month: "short", day: "numeric", year: "numeric" },
+    localeCode,
+  );
   return `${fromStr} – ${toStr}`;
 }
 
@@ -214,7 +230,9 @@ const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
             )}
           >
             <CalendarIcon />
-            <span className="flex-1 truncate text-left min-w-0">{triggerLabel}</span>
+            <span className="flex-1 truncate text-left min-w-0">
+              {triggerLabel}
+            </span>
           </PopoverTrigger>
           <PopoverPortal>
             <ThemeWrapper>
@@ -224,57 +242,57 @@ const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
                 sideOffset={4}
                 className="p-0 w-auto"
               >
-                  {mode === "single" ? (
-                    <Calendar
-                      mode="single"
-                      size={size}
-                      locale={locale}
-                      numberOfMonths={numberOfMonths}
-                      captionLayout={captionLayout}
-                      disabled={disabledDates}
-                      startMonth={startMonth}
-                      endMonth={endMonth}
-                      defaultMonth={defaultMonth ?? value}
-                      selected={tempValue}
-                      onSelect={setTempValue}
-                    />
-                  ) : (
-                    <Calendar
-                      mode="range"
-                      size={size}
-                      locale={locale}
-                      numberOfMonths={numberOfMonths ?? 1}
-                      captionLayout={captionLayout}
-                      disabled={disabledDates}
-                      startMonth={startMonth}
-                      endMonth={endMonth}
-                      defaultMonth={defaultMonth ?? rangeValue?.from}
-                      selected={tempRangeValue}
-                      onSelect={setTempRangeValue}
-                    />
-                  )}
-                  <div className="flex items-center justify-end gap-2 px-3 pb-3 pt-1">
-                    <Button
-                      variant="outline"
-                      size={size}
-                      onClick={() => setOpen(false)}
-                    >
-                      Huỷ
-                    </Button>
-                    <Button
-                      size={size}
-                      onClick={() => {
-                        if (mode === "single") {
-                          onValueChange?.(tempValue);
-                        } else {
-                          onRangeChange?.(tempRangeValue);
-                        }
-                        setOpen(false);
-                      }}
-                    >
-                      Xác nhận
-                    </Button>
-                  </div>
+                {mode === "single" ? (
+                  <Calendar
+                    mode="single"
+                    size={size}
+                    locale={locale}
+                    numberOfMonths={numberOfMonths}
+                    captionLayout={captionLayout}
+                    disabled={disabledDates}
+                    startMonth={startMonth}
+                    endMonth={endMonth}
+                    defaultMonth={defaultMonth ?? value}
+                    selected={tempValue}
+                    onSelect={setTempValue}
+                  />
+                ) : (
+                  <Calendar
+                    mode="range"
+                    size={size}
+                    locale={locale}
+                    numberOfMonths={numberOfMonths ?? 1}
+                    captionLayout={captionLayout}
+                    disabled={disabledDates}
+                    startMonth={startMonth}
+                    endMonth={endMonth}
+                    defaultMonth={defaultMonth ?? rangeValue?.from}
+                    selected={tempRangeValue}
+                    onSelect={setTempRangeValue}
+                  />
+                )}
+                <div className="flex items-center justify-end gap-2 px-3 pb-3 pt-1">
+                  <Button
+                    variant="outline"
+                    size={size}
+                    onClick={() => setOpen(false)}
+                  >
+                    Huỷ
+                  </Button>
+                  <Button
+                    size={size}
+                    onClick={() => {
+                      if (mode === "single") {
+                        onValueChange?.(tempValue);
+                      } else {
+                        onRangeChange?.(tempRangeValue);
+                      }
+                      setOpen(false);
+                    }}
+                  >
+                    Xác nhận
+                  </Button>
+                </div>
               </PopoverContent>
             </ThemeWrapper>
           </PopoverPortal>

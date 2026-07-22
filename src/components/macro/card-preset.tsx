@@ -1,3 +1,5 @@
+import * as React from "react";
+
 import {
   Card,
   CardContent,
@@ -6,7 +8,6 @@ import {
   CardHeader,
   CardTitle,
 } from "../../components/micro/card";
-import * as React from "react";
 
 export type CardPresetProps = Omit<
   React.ComponentProps<typeof Card>,

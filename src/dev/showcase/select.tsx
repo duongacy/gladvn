@@ -1,19 +1,8 @@
-import { useDevContext } from "../../dev/components/dev-context";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
+
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import * as z from "zod";
-
-import {
-  DocsCode,
-  DocsH3,
-  DocsP,
-  ExampleGrid,
-  ExampleSection,
-  Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
-import { type Size } from "../../lib/types";
 
 import { SelectPreset } from "../../components/macro/select-preset";
 import { Button } from "../../components/micro/button";
@@ -30,13 +19,24 @@ import {
   SelectGroup,
   SelectItem,
   SelectLabel,
+  SelectPortal,
   SelectScrollDownButton,
   SelectScrollUpButton,
   SelectSeparator,
   SelectTrigger,
   SelectValue,
-  SelectPortal,
 } from "../../components/micro/select";
+import { useDevContext } from "../../dev/components/dev-context";
+import {
+  DocsCode,
+  DocsH3,
+  DocsP,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+} from "../../dev/components/showcase";
+import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────
 // RHF Form Demo (Macro)

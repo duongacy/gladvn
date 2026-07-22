@@ -1,15 +1,6 @@
-import { useDevContext } from "../../dev/components/dev-context";
-import {
-  DocsCode,
-  DocsH3,
-  DocsP,
-  ExampleGrid,
-  ExampleSection,
-  Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
-import { CheckCircle2Icon, LayersIcon, XIcon } from "lucide-react";
 import { useState } from "react";
+
+import { CheckCircle2Icon, LayersIcon, XIcon } from "lucide-react";
 
 import { DialogPreset } from "../../components/macro/dialog-preset";
 import { Button } from "../../components/micro/button";
@@ -20,12 +11,22 @@ import {
   DialogDescription,
   DialogFooter,
   DialogHeader,
+  DialogPortal,
   DialogTitle,
   DialogTrigger,
-  DialogPortal,
 } from "../../components/micro/dialog";
 import { Input } from "../../components/micro/input";
 import { Label } from "../../components/micro/label";
+import { useDevContext } from "../../dev/components/dev-context";
+import {
+  DocsCode,
+  DocsH3,
+  DocsP,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+} from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 import { cn } from "../../lib/utils";
 
@@ -847,8 +848,8 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                   <DialogHeader>
                     <DialogTitle>Controlled Dialog</DialogTitle>
                     <DialogDescription>
-                      Trạng thái của dialog này được quản lý hoàn toàn bởi
-                      React state bên ngoài.
+                      Trạng thái của dialog này được quản lý hoàn toàn bởi React
+                      state bên ngoài.
                     </DialogDescription>
                   </DialogHeader>
                   <p className="text-sm text-foreground">

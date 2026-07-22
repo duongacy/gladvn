@@ -1,3 +1,5 @@
+import * as React from "react";
+
 import {
   Progress,
   ProgressIndicator,
@@ -5,7 +7,6 @@ import {
   ProgressTrack,
   ProgressValue,
 } from "../../components/micro/progress";
-import * as React from "react";
 
 export type ProgressPresetProps = Omit<
   React.ComponentProps<typeof Progress>,

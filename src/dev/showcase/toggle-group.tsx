@@ -1,5 +1,5 @@
-import { useDevContext } from "../../dev/components/dev-context";
 import { useState } from "react";
+
 import {
   AlignCenterIcon,
   AlignLeftIcon,
@@ -13,7 +13,7 @@ import {
   ToggleGroup,
   ToggleGroupItem,
 } from "../../components/micro/toggle-group";
-import { type Size } from "../../lib/types";
+import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsCode,
   DocsH3,
@@ -23,6 +23,7 @@ import {
   Showcase,
   ShowcaseDocs,
 } from "../../dev/components/showcase";
+import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Micro Content

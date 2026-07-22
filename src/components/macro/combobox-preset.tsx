@@ -1,3 +1,5 @@
+import * as React from "react";
+
 import {
   Combobox,
   ComboboxClear,
@@ -7,18 +9,17 @@ import {
   ComboboxInput,
   ComboboxItem,
   ComboboxList,
+  ComboboxPortal,
   ComboboxTrigger,
   useComboboxContext,
-  ComboboxPortal,
 } from "../../components/micro/combobox";
-import { ThemeWrapper } from "../../components/micro/theme-provider";
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
 } from "../../components/micro/input-group";
+import { ThemeWrapper } from "../../components/micro/theme-provider";
 import { type Size } from "../../lib/types";
-import * as React from "react";
 import { FieldPreset } from "./field-preset";
 
 export interface ComboboxOption {

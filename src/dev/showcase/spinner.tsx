@@ -1,8 +1,7 @@
-import { useDevContext } from "../../dev/components/dev-context";
 import { useState } from "react";
 
 import { Spinner } from "../../components/micro/spinner";
-import { type Size } from "../../lib/types";
+import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsCode,
   DocsH3,
@@ -12,6 +11,7 @@ import {
   Showcase,
   ShowcaseDocs,
 } from "../../dev/components/showcase";
+import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Micro Content

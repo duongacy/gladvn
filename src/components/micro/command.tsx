@@ -7,14 +7,18 @@
  */
 "use client";
 
-import { Command as CommandPrimitive } from "cmdk";
 import * as React from "react";
-import { cva, type VariantProps } from "class-variance-authority";
 
-import { InputGroup, InputGroupAddon } from "../../components/micro/input-group";
-import { cn } from "../../lib/utils";
+import { type VariantProps, cva } from "class-variance-authority";
+import { Command as CommandPrimitive } from "cmdk";
 import { SearchIcon } from "lucide-react";
+
+import {
+  InputGroup,
+  InputGroupAddon,
+} from "../../components/micro/input-group";
 import { type Size } from "../../lib/types";
+import { cn } from "../../lib/utils";
 
 const CommandContext = React.createContext<{ size: Size }>({ size: "md" });
 
@@ -38,7 +42,6 @@ const Command = React.forwardRef<
 ));
 Command.displayName = "Command";
 
-
 const commandInputVariants = cva(
   "w-full outline-hidden disabled:cursor-not-allowed disabled:opacity-50",
   {
@@ -52,7 +55,7 @@ const commandInputVariants = cva(
     defaultVariants: {
       size: "md",
     },
-  }
+  },
 );
 
 const CommandInput = React.forwardRef<
@@ -61,21 +64,21 @@ const CommandInput = React.forwardRef<
 >(({ className, ...props }, ref) => {
   const { size } = React.useContext(CommandContext);
   return (
-    <div 
-      data-slot="command-input-wrapper" 
+    <div
+      data-slot="command-input-wrapper"
       className={cn(
         "pb-0",
         size === "sm" && "p-1",
         size === "md" && "p-2",
-        size === "lg" && "p-3"
+        size === "lg" && "p-3",
       )}
     >
-      <InputGroup 
+      <InputGroup
         className={cn(
           "rounded-lg border-input/30 bg-input/30 shadow-none",
           size === "sm" && "h-8",
           size === "md" && "h-10",
-          size === "lg" && "h-11"
+          size === "lg" && "h-11",
         )}
       >
         <CommandPrimitive.Input
@@ -84,8 +87,12 @@ const CommandInput = React.forwardRef<
           className={cn(commandInputVariants({ size }), className)}
           {...props}
         />
-        <InputGroupAddon className={cn("shrink-0", size === "lg" ? "pl-3" : "pl-2")}>
-          <SearchIcon className={cn("opacity-50", size === "lg" ? "size-5" : "size-4")} />
+        <InputGroupAddon
+          className={cn("shrink-0", size === "lg" ? "pl-3" : "pl-2")}
+        >
+          <SearchIcon
+            className={cn("opacity-50", size === "lg" ? "size-5" : "size-4")}
+          />
         </InputGroupAddon>
       </InputGroup>
     </div>
@@ -123,7 +130,7 @@ const CommandEmpty = React.forwardRef<
         size === "sm" && "py-4 text-xs",
         size === "md" && "py-6 text-sm",
         size === "lg" && "py-8 text-base",
-        className
+        className,
       )}
       {...props}
     />
@@ -144,7 +151,7 @@ const commandGroupVariants = cva(
     defaultVariants: {
       size: "md",
     },
-  }
+  },
 );
 
 const CommandGroup = React.forwardRef<
@@ -189,7 +196,7 @@ const commandItemVariants = cva(
     defaultVariants: {
       size: "md",
     },
-  }
+  },
 );
 
 const CommandItem = React.forwardRef<

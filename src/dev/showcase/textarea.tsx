@@ -1,4 +1,5 @@
-import { useDevContext } from "../../dev/components/dev-context";
+import { useState } from "react";
+
 import { TextareaPreset } from "../../components/macro/textarea-preset";
 import {
   Field,
@@ -13,6 +14,7 @@ import {
   InputGroupTextarea,
 } from "../../components/micro/input-group";
 import { Textarea } from "../../components/micro/textarea";
+import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsCode,
   DocsH3,
@@ -23,7 +25,6 @@ import {
   ShowcaseDocs,
 } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
-import { useState } from "react";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Macro Content

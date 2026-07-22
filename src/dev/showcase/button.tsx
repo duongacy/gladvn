@@ -1,3 +1,9 @@
+import { useState } from "react";
+
+import { DownloadIcon, MailIcon, PlusIcon } from "lucide-react";
+
+import { Button, ButtonIcon } from "../../components/micro/button";
+import { Spinner } from "../../components/micro/spinner";
 import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsP,
@@ -6,11 +12,6 @@ import {
   Showcase,
   ShowcaseDocs,
 } from "../../dev/components/showcase";
-import { DownloadIcon, MailIcon, PlusIcon } from "lucide-react";
-import { useState } from "react";
-
-import { Button, ButtonIcon } from "../../components/micro/button";
-import { Spinner } from "../../components/micro/spinner";
 import { type Size } from "../../lib/types";
 
 function ButtonMicroShowcase({ globalSize }: { globalSize: Size }) {
@@ -292,9 +293,9 @@ export default function ButtonShowcase() {
       generalConcept={
         <ShowcaseDocs>
           <DocsP>
-            Thành phần cơ bản để người dùng tương tác. Hỗ trợ nhiều variant,
-            màu sắc, icon, và trạng thái loading/disabled. Thường được dùng
-            trong form, dialog, hoặc toolbar.
+            Thành phần cơ bản để người dùng tương tác. Hỗ trợ nhiều variant, màu
+            sắc, icon, và trạng thái loading/disabled. Thường được dùng trong
+            form, dialog, hoặc toolbar.
           </DocsP>
         </ShowcaseDocs>
       }

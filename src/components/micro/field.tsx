@@ -7,9 +7,10 @@
  */
 "use client";
 
-import { cva, type VariantProps } from "class-variance-authority";
-import { AlertCircleIcon } from "lucide-react";
 import * as React from "react";
+
+import { type VariantProps, cva } from "class-variance-authority";
+import { AlertCircleIcon } from "lucide-react";
 
 import { Label } from "../../components/micro/label";
 import { Separator } from "../../components/micro/separator";
@@ -112,7 +113,7 @@ const fieldVariants = cva("group/field flex min-w-fit", {
 const Field = React.forwardRef<
   HTMLDivElement,
   React.ComponentProps<"div"> &
-  VariantProps<typeof fieldVariants> & { error?: boolean | string }
+    VariantProps<typeof fieldVariants> & { error?: boolean | string }
 >(
   (
     { className, orientation = "vertical", size = "md", error, ...props },

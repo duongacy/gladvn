@@ -6,6 +6,7 @@
  * - CSS Delegated Logic
  */
 import * as React from "react";
+
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
@@ -13,8 +14,8 @@ import {
 } from "lucide-react";
 
 import { Button } from "../../components/micro/button";
-import { cn } from "../../lib/utils";
 import type { Size } from "../../lib/types";
+import { cn } from "../../lib/utils";
 
 const ellipsisSizeMap: Record<Size, { container: string; icon: string }> = {
   sm: { container: "size-7", icon: "[&>svg:not([class*='size-'])]:size-3" },

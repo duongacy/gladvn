@@ -1,3 +1,15 @@
+import { useState } from "react";
+
+import {
+  CalculatorIcon,
+  CalendarIcon,
+  CreditCardIcon,
+  SettingsIcon,
+  SmileIcon,
+  UserIcon,
+} from "lucide-react";
+
+import { CommandDialog } from "../../components/macro/command-preset";
 import { Button } from "../../components/micro/button";
 import {
   Command,
@@ -9,7 +21,6 @@ import {
   CommandSeparator,
   CommandShortcut,
 } from "../../components/micro/command";
-import { CommandDialog } from "../../components/macro/command-preset";
 import {
   DocsP,
   ExampleGrid,
@@ -17,15 +28,6 @@ import {
   Showcase,
   ShowcaseDocs,
 } from "../../dev/components/showcase";
-import {
-  CalculatorIcon,
-  CalendarIcon,
-  CreditCardIcon,
-  SettingsIcon,
-  SmileIcon,
-  UserIcon,
-} from "lucide-react";
-import { useState } from "react";
 
 function CommandMicroShowcase() {
   const [open, setOpen] = useState(false);

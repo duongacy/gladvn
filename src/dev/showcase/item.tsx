@@ -1,5 +1,5 @@
-import { useDevContext } from "../../dev/components/dev-context";
 import { useState } from "react";
+
 import { CheckIcon, HeartIcon, MoreVerticalIcon, UserIcon } from "lucide-react";
 
 import { Button } from "../../components/micro/button";
@@ -15,7 +15,7 @@ import {
   ItemSeparator,
   ItemTitle,
 } from "../../components/micro/item";
-import { type Size } from "../../lib/types";
+import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsH3,
   DocsP,
@@ -24,6 +24,7 @@ import {
   Showcase,
   ShowcaseDocs,
 } from "../../dev/components/showcase";
+import { type Size } from "../../lib/types";
 
 function ItemMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
@@ -279,8 +280,8 @@ export default function ItemShowcase() {
         <ShowcaseDocs>
           <DocsH3>Item</DocsH3>
           <DocsP>
-            Sử dụng để tạo danh sách hoặc khối nội dung có icon, tiêu đề,
-            mô tả và hành động.
+            Sử dụng để tạo danh sách hoặc khối nội dung có icon, tiêu đề, mô tả
+            và hành động.
           </DocsP>
         </ShowcaseDocs>
       }

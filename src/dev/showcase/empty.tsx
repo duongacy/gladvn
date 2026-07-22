@@ -1,12 +1,4 @@
 import {
-  DocsP,
-  ExampleGrid,
-  ExampleSection,
-  Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
-
-import {
   CheckCircle2Icon,
   FileTextIcon,
   FolderOpenIcon,
@@ -27,6 +19,13 @@ import {
   EmptyMedia,
   EmptyTitle,
 } from "../../components/micro/empty";
+import {
+  DocsP,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+} from "../../dev/components/showcase";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Macro Content
@@ -479,8 +478,8 @@ export default function EmptyShowcase() {
         <ShowcaseDocs>
           <DocsP>
             Dùng để thông báo cho người dùng rằng không có dữ liệu để hiển thị ở
-            đây. Nó thường đi kèm với hình ảnh hoặc icon minh họa
-            và một hành động hướng dẫn để lấp đầy nội dung này (ví dụ: Tạo mới).
+            đây. Nó thường đi kèm với hình ảnh hoặc icon minh họa và một hành
+            động hướng dẫn để lấp đầy nội dung này (ví dụ: Tạo mới).
           </DocsP>
         </ShowcaseDocs>
       }

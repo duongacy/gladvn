@@ -1,16 +1,6 @@
-import { useDevContext } from "../../dev/components/dev-context";
-import {
-  DocsCode,
-  DocsH3,
-  DocsP,
-  ExampleGrid,
-  ExampleSection,
-  Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
-import { type Size } from "../../lib/types";
-import { ShieldIcon, WrenchIcon } from "lucide-react";
 import { useState } from "react";
+
+import { ShieldIcon, WrenchIcon } from "lucide-react";
 
 import { InputOTPPreset } from "../../components/macro/input-otp-preset";
 import {
@@ -25,6 +15,17 @@ import {
   InputOTPSeparator,
   InputOTPSlot,
 } from "../../components/micro/input-otp";
+import { useDevContext } from "../../dev/components/dev-context";
+import {
+  DocsCode,
+  DocsH3,
+  DocsP,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+} from "../../dev/components/showcase";
+import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Macro Content

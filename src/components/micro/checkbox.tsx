@@ -7,10 +7,10 @@
  */
 "use client";
 
-import { Checkbox as CheckboxPrimitive } from "@base-ui/react/checkbox";
 import * as React from "react";
 
-import { cva, type VariantProps } from "class-variance-authority";
+import { Checkbox as CheckboxPrimitive } from "@base-ui/react/checkbox";
+import { type VariantProps, cva } from "class-variance-authority";
 
 import { type Size } from "../../lib/types";
 import { cn } from "../../lib/utils";

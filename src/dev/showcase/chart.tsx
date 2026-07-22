@@ -23,10 +23,11 @@ export default function ChartShowcase() {
       generalConcept={
         <ShowcaseDocs>
           <DocsP>
-            Component wrapper cho thư viện <DocsCode>Recharts</DocsCode>. Cung cấp{" "}
-            <DocsCode>ChartContainer</DocsCode> để cấu hình theme màu sắc,{" "}
-            <DocsCode>ChartTooltip</DocsCode> và <DocsCode>ChartLegend</DocsCode>{" "}
-            để hiển thị thông tin bổ sung khi hover.
+            Component wrapper cho thư viện <DocsCode>Recharts</DocsCode>. Cung
+            cấp <DocsCode>ChartContainer</DocsCode> để cấu hình theme màu sắc,{" "}
+            <DocsCode>ChartTooltip</DocsCode> và{" "}
+            <DocsCode>ChartLegend</DocsCode> để hiển thị thông tin bổ sung khi
+            hover.
           </DocsP>
         </ShowcaseDocs>
       }

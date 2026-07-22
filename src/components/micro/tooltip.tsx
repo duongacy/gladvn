@@ -7,8 +7,9 @@
  */
 "use client";
 
-import { Tooltip as TooltipPrimitive } from "@base-ui/react/tooltip";
 import * as React from "react";
+
+import { Tooltip as TooltipPrimitive } from "@base-ui/react/tooltip";
 
 import { cn } from "../../lib/utils";
 
@@ -94,7 +95,6 @@ const TooltipContent = React.forwardRef<
           {...props}
         >
           {children}
-
         </TooltipPrimitive.Popup>
       </TooltipPrimitive.Positioner>
     );
@@ -102,4 +102,10 @@ const TooltipContent = React.forwardRef<
 );
 TooltipContent.displayName = "TooltipContent";
 
-export { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, TooltipPortal };
+export {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+  TooltipPortal,
+};

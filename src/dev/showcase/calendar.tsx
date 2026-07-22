@@ -1,3 +1,9 @@
+import { useState } from "react";
+
+import { type DateRange } from "react-day-picker";
+
+import { DatePicker } from "../../components/macro/date-picker";
+import { Calendar } from "../../components/micro/calendar";
 import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsP,
@@ -6,11 +12,6 @@ import {
   Showcase,
   ShowcaseDocs,
 } from "../../dev/components/showcase";
-import { useState } from "react";
-import { type DateRange } from "react-day-picker";
-
-import { Calendar } from "../../components/micro/calendar";
-import { DatePicker } from "../../components/macro/date-picker";
 import { type Size } from "../../lib/types";
 
 function CalendarMicroShowcase({ globalSize }: { globalSize: Size }) {

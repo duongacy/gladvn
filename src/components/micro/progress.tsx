@@ -7,8 +7,9 @@
  */
 "use client";
 
-import { Progress as ProgressPrimitive } from "@base-ui/react/progress";
 import * as React from "react";
+
+import { Progress as ProgressPrimitive } from "@base-ui/react/progress";
 
 import { type Color, type Size } from "../../lib/types";
 import { cn } from "../../lib/utils";

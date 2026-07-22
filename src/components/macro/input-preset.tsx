@@ -1,5 +1,9 @@
 "use client";
 
+import React, { useState } from "react";
+
+import { EyeIcon, EyeOffIcon } from "lucide-react";
+
 import { Input, InputProps } from "../../components/micro/input";
 import {
   InputGroup,
@@ -8,8 +12,6 @@ import {
   InputGroupInput,
   InputGroupText,
 } from "../../components/micro/input-group";
-import { EyeIcon, EyeOffIcon } from "lucide-react";
-import React, { useState } from "react";
 import { FieldPreset } from "./field-preset";
 
 export type InputPresetProps = Omit<InputProps, "className"> & {

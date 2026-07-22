@@ -1,9 +1,12 @@
+import { useEffect, useState } from "react";
+
 import {
   AccessibilityIcon,
   ArrowRightIcon,
   BlocksIcon,
   BoxIcon,
   CheckIcon,
+  CodeIcon,
   ComponentIcon,
   CopyIcon,
   DatabaseIcon,
@@ -13,14 +16,15 @@ import {
   ShieldCheckIcon,
   SlidersHorizontalIcon,
   SparklesIcon,
-  CodeIcon,
 } from "lucide-react";
-import { useEffect, useState } from "react";
 import { toast } from "sonner";
-import { GladvnLogo } from "../../dev/components/GladvnLogo";
 
 import { ProgressPreset as Progress } from "../../components/macro/progress-preset";
-import { Avatar, AvatarFallback, AvatarImage } from "../../components/micro/avatar";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "../../components/micro/avatar";
 import { Badge } from "../../components/micro/badge";
 import { Button } from "../../components/micro/button";
 import {
@@ -34,10 +38,12 @@ import {
   Select,
   SelectContent,
   SelectItem,
+  SelectPortal,
   SelectTrigger,
-  SelectValue, SelectPortal
+  SelectValue,
 } from "../../components/micro/select";
 import { Switch } from "../../components/micro/switch";
+import { GladvnLogo } from "../../dev/components/GladvnLogo";
 import { ColorSwatch } from "../../dev/components/showcase";
 import { COLORS, STATS } from "../../dev/data";
 import { cn } from "../../lib/utils";
@@ -115,9 +121,7 @@ export default function OverviewSection() {
         </div>
 
         <div className="container relative z-10 flex flex-col items-center text-center px-4">
-          <div
-            className="inline-flex items-center gap-2 px-4 py-1.5 mb-8 text-sm font-medium rounded-full border border-primary/20 bg-background/50 backdrop-blur-md shadow-sm animate-fade-up"
-          >
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-8 text-sm font-medium rounded-full border border-primary/20 bg-background/50 backdrop-blur-md shadow-sm animate-fade-up">
             <CodeIcon className="w-3.5 h-3.5 text-primary" />
             <span className="text-muted-foreground">
               Copy mã · Tuỳ biến tự do · Không lock-in
@@ -140,9 +144,11 @@ export default function OverviewSection() {
             className="max-w-2xl text-lg md:text-xl text-muted-foreground leading-relaxed mb-10 animate-fade-up"
             style={{ animationDelay: "200ms", animationFillMode: "both" }}
           >
-            Phần lớn component library giữ code trong node_modules — bạn
-            dùng được nhưng không sửa được. gladvn copy thẳng vào{" "}
-            <code className="text-sm bg-primary/20 text-primary px-1.5 py-0.5 rounded">src/</code>{" "}
+            Phần lớn component library giữ code trong node_modules — bạn dùng
+            được nhưng không sửa được. gladvn copy thẳng vào{" "}
+            <code className="text-sm bg-primary/20 text-primary px-1.5 py-0.5 rounded">
+              src/
+            </code>{" "}
             của bạn.{" "}
             <strong className="text-foreground">
               Đọc được, sửa được, xóa được.
@@ -254,7 +260,9 @@ export default function OverviewSection() {
                       <DatabaseIcon className="size-6" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-sm">Thiết kế theo Dữ liệu</h4>
+                      <h4 className="font-bold text-sm">
+                        Thiết kế theo Dữ liệu
+                      </h4>
                       <p className="text-xs text-muted-foreground font-medium mt-1">
                         Truyền items vào root, không map() thủ công
                       </p>
@@ -306,8 +314,8 @@ export default function OverviewSection() {
             Kiến trúc rõ ràng. Sửa không lo vỡ.
           </h2>
           <p className="text-muted-foreground text-lg">
-            Nhiều dự án bắt đầu gãy ở năm thứ hai — muốn sửa mà không dám,
-            vì không biết gì sẽ vỡ theo. gladvn chia code thành{" "}
+            Nhiều dự án bắt đầu gãy ở năm thứ hai — muốn sửa mà không dám, vì
+            không biết gì sẽ vỡ theo. gladvn chia code thành{" "}
             <strong className="text-foreground">các tầng rõ ràng</strong>
             {", "}nên bạn luôn biết mình đang sửa ở đâu và ảnh hưởng đến đâu.
           </p>
@@ -327,8 +335,8 @@ export default function OverviewSection() {
                 Code là của bạn, 100%
               </h3>
               <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl">
-                Chạy một lệnh — toàn bộ components, hooks, styles, contexts
-                được copy thẳng vào thư mục{" "}
+                Chạy một lệnh — toàn bộ components, hooks, styles, contexts được
+                copy thẳng vào thư mục{" "}
                 <code className="text-sm bg-primary/20 text-primary px-1.5 py-0.5 rounded">
                   src/
                 </code>{" "}
@@ -409,7 +417,6 @@ export default function OverviewSection() {
               Tuỳ chỉnh theo từng tầng kiến trúc
             </p>
             <div className="grid sm:grid-cols-3 gap-4">
-
               {/* MACRO — RECOMMENDED */}
               <div className="p-5 rounded-2xl border-2 border-primary/40 bg-primary/5 space-y-3 relative">
                 <div className="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/10 px-2 py-0.5 rounded-full">
@@ -465,15 +472,14 @@ export default function OverviewSection() {
                   CSS Token — Đổi một chỗ, cả app thay đổi
                 </h4>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  CSS token quyết định màu, font, border-radius cho tất cả.
-                  Đổi một token ở đây thì{" "}
+                  CSS token quyết định màu, font, border-radius cho tất cả. Đổi
+                  một token ở đây thì{" "}
                   <strong className="text-foreground">
                     toàn bộ giao diện cập nhật ngay
                   </strong>
                   . Dùng khi muốn rebrand, không phải để vá lỗi lẻ tẻ.
                 </p>
               </div>
-
             </div>
           </div>
         </div>
@@ -489,8 +495,8 @@ export default function OverviewSection() {
                 Micro & Macro
               </h3>
               <p className="text-muted-foreground max-w-lg text-lg leading-relaxed">
-                Micro là component thuần — chỉ lo style, không ép layout.
-                Macro là preset — lắp ghép Micro thành giao diện hoàn chỉnh.
+                Micro là component thuần — chỉ lo style, không ép layout. Macro
+                là preset — lắp ghép Micro thành giao diện hoàn chỉnh.
                 <strong className="text-foreground block mt-2">
                   Micro không bao giờ tự quyết layout. Việc đó thuộc về Macro.
                 </strong>
@@ -499,9 +505,7 @@ export default function OverviewSection() {
             <div className="relative z-10 mt-auto pt-6 space-y-3">
               <CodeBlock type="success" title="Đúng — Để Macro lo layout:">
                 <span className="text-success/80">
-                  {
-                    "/* Macro biết con mình là gì → gắn class chính xác */"
-                  }
+                  {"/* Macro biết con mình là gì → gắn class chính xác */"}
                 </span>
                 <br />
                 <span className="text-foreground">{"<AlertDialogFooter>"}</span>
@@ -519,14 +523,9 @@ export default function OverviewSection() {
                 </span>
               </CodeBlock>
 
-              <CodeBlock
-                type="destructive"
-                title="Sai — Micro tự đoán layout:"
-              >
+              <CodeBlock type="destructive" title="Sai — Micro tự đoán layout:">
                 <span className="text-destructive/80">
-                  {
-                    "/* Micro không biết con mình là gì → phải đoán bằng CSS */"
-                  }
+                  {"/* Micro không biết con mình là gì → phải đoán bằng CSS */"}
                 </span>
                 <br />
                 <span className="text-foreground">{"<AlertDialogFooter"}</span>
@@ -556,9 +555,8 @@ export default function OverviewSection() {
                 Style Encapsulation
               </h3>
               <p className="text-muted-foreground text-base leading-relaxed">
-                Style của mỗi component không rò rỉ ra ngoài. Muốn tuỳ chỉnh
-                thì dùng{" "}
-                <code>data-slot</code> — contract rõ ràng, có sẵn.{" "}
+                Style của mỗi component không rò rỉ ra ngoài. Muốn tuỳ chỉnh thì
+                dùng <code>data-slot</code> — contract rõ ràng, có sẵn.{" "}
                 <strong className="text-foreground">
                   Refactor bên trong mà không ảnh hưởng bên ngoài.
                 </strong>
@@ -566,12 +564,18 @@ export default function OverviewSection() {
             </div>
             <div className="relative z-10 mt-auto pt-6 space-y-3">
               <div className="p-3 rounded-xl border border-destructive/20 bg-destructive/5 text-xs font-mono shadow-sm flex items-center">
-                <span className="text-destructive font-bold mr-3 text-lg">❌</span>
-                <span className="opacity-80 line-through">{"[&>div>span]:color"}</span>
+                <span className="text-destructive font-bold mr-3 text-lg">
+                  ❌
+                </span>
+                <span className="opacity-80 line-through">
+                  {"[&>div>span]:color"}
+                </span>
               </div>
               <div className="p-3 rounded-xl border border-success/20 bg-success/5 text-xs font-mono shadow-sm flex items-center">
                 <span className="text-success font-bold mr-3 text-lg">✅</span>
-                <span className="text-foreground font-medium">data-[slot=icon]:color</span>
+                <span className="text-foreground font-medium">
+                  data-[slot=icon]:color
+                </span>
               </div>
             </div>
           </div>
@@ -586,8 +590,9 @@ export default function OverviewSection() {
                 Variant × Color
               </h3>
               <p className="text-muted-foreground text-lg leading-relaxed max-w-lg">
-                Variant (solid, outline, ghost...) và Color (primary, destructive...)
-                là hai trục độc lập. Kết hợp tự do mà class không phình ra.
+                Variant (solid, outline, ghost...) và Color (primary,
+                destructive...) là hai trục độc lập. Kết hợp tự do mà class
+                không phình ra.
               </p>
             </div>
             <div className="relative z-10 mt-auto pt-8 grid sm:grid-cols-2 gap-4">
@@ -607,7 +612,8 @@ export default function OverviewSection() {
                   Trục Color
                 </strong>
                 <span className="text-sm text-muted-foreground leading-relaxed">
-                  primary, secondary, destructive. Quyết định bảng màu của component.
+                  primary, secondary, destructive. Quyết định bảng màu của
+                  component.
                 </span>
               </div>
             </div>
@@ -623,8 +629,8 @@ export default function OverviewSection() {
                 Zero-prop Defaults
               </h3>
               <p className="text-muted-foreground text-lg leading-relaxed max-w-lg">
-                Đặt component vào mà không truyền prop nào — vẫn chạy đẹp,
-                vẫn đúng behavior.{" "}
+                Đặt component vào mà không truyền prop nào — vẫn chạy đẹp, vẫn
+                đúng behavior.{" "}
                 <strong className="text-foreground">
                   Không phải tra docs mỗi lần dùng.
                 </strong>
@@ -658,8 +664,8 @@ export default function OverviewSection() {
                 Headless + Style
               </h3>
               <p className="text-muted-foreground text-base leading-relaxed">
-                Keyboard, focus, ARIA — Base UI lo hết. Micro component chỉ
-                thêm lớp style lên trên, không tự viết logic tương tác.{" "}
+                Keyboard, focus, ARIA — Base UI lo hết. Micro component chỉ thêm
+                lớp style lên trên, không tự viết logic tương tác.{" "}
                 <strong className="text-foreground">
                   Behavior đúng sẵn, không cần test lại.
                 </strong>
@@ -667,13 +673,15 @@ export default function OverviewSection() {
             </div>
             <div className="relative z-10 mt-auto pt-8">
               <div className="p-4 rounded-xl bg-foreground/5 border border-border/50 text-[11px] sm:text-xs font-mono shadow-inner space-y-1">
-                <div className="text-muted-foreground">// Micro = Headless + Style</div>
+                <div className="text-muted-foreground">
+                  // Micro = Headless + Style
+                </div>
                 <div>
-                  <span className="text-primary">{'<Base UI Select>'}</span>
+                  <span className="text-primary">{"<Base UI Select>"}</span>
                   <span className="text-muted-foreground"> ← behavior</span>
                 </div>
                 <div className="pl-4">
-                  <span className="text-success">{'<SelectTrigger>'}</span>
+                  <span className="text-success">{"<SelectTrigger>"}</span>
                   <span className="text-muted-foreground"> ← style only</span>
                 </div>
               </div>
@@ -689,8 +697,8 @@ export default function OverviewSection() {
                 CSS Token
               </h3>
               <p className="text-muted-foreground text-lg leading-relaxed max-w-lg">
-                Không component nào hardcode màu hay spacing. Tất cả đều
-                tham chiếu từ hệ thống token chung.{" "}
+                Không component nào hardcode màu hay spacing. Tất cả đều tham
+                chiếu từ hệ thống token chung.{" "}
                 <strong className="text-foreground">
                   Đổi một token — cả app cập nhật.
                 </strong>
@@ -698,13 +706,17 @@ export default function OverviewSection() {
             </div>
             <div className="relative z-10 mt-auto pt-8 grid sm:grid-cols-2 gap-4">
               <div className="p-4 rounded-xl border border-success/20 bg-success/5 shadow-sm">
-                <div className="text-success font-semibold mb-2 text-sm">✅ Token</div>
+                <div className="text-success font-semibold mb-2 text-sm">
+                  ✅ Token
+                </div>
                 <div className="text-[11px] font-mono text-success/80">
                   oklch(var(--primary))
                 </div>
               </div>
               <div className="p-4 rounded-xl border border-destructive/20 bg-destructive/5 shadow-sm opacity-60">
-                <div className="text-destructive font-semibold mb-2 text-sm">❌ Hardcode</div>
+                <div className="text-destructive font-semibold mb-2 text-sm">
+                  ❌ Hardcode
+                </div>
                 <div className="text-[11px] font-mono text-destructive/80 line-through">
                   #2563eb
                 </div>
@@ -722,9 +734,9 @@ export default function OverviewSection() {
                 Polymorphism
               </h3>
               <p className="text-muted-foreground text-base leading-relaxed">
-                Dùng <code>render</code> prop để đổi thẻ HTML root —
-                ví dụ biến Button thành Link. Không cần prop <code>as</code>
-                {" "}hay tạo wrapper lồng nhau.
+                Dùng <code>render</code> prop để đổi thẻ HTML root — ví dụ biến
+                Button thành Link. Không cần prop <code>as</code> hay tạo
+                wrapper lồng nhau.
               </p>
             </div>
             <div className="relative z-10 mt-auto pt-6 space-y-3">
@@ -755,9 +767,8 @@ export default function OverviewSection() {
                 Stateless Primitive
               </h3>
               <p className="text-muted-foreground text-base leading-relaxed">
-                Micro component không chứa{" "}
-                <code>useState</code> hay <code>useEffect</code>. State nằm ở
-                Headless UI hoặc Macro.{" "}
+                Micro component không chứa <code>useState</code> hay{" "}
+                <code>useEffect</code>. State nằm ở Headless UI hoặc Macro.{" "}
                 <strong className="text-foreground">
                   Component càng đơn giản, càng ít bug.
                 </strong>
@@ -766,10 +777,14 @@ export default function OverviewSection() {
             <div className="relative z-10 mt-auto pt-6 space-y-3">
               <div className="p-3 rounded-xl border border-success/20 bg-success/5 text-[11px] font-mono shadow-sm flex items-center">
                 <span className="text-success font-bold mr-3 text-lg">✅</span>
-                <span className="text-success/90">{"function Button({ ...props })"}</span>
+                <span className="text-success/90">
+                  {"function Button({ ...props })"}
+                </span>
               </div>
               <div className="p-3 rounded-xl border border-destructive/20 bg-destructive/5 text-[11px] font-mono shadow-sm flex items-center opacity-70">
-                <span className="text-destructive font-bold mr-3 text-lg">❌</span>
+                <span className="text-destructive font-bold mr-3 text-lg">
+                  ❌
+                </span>
                 <span className="text-destructive/80 line-through">
                   {"const [open, setOpen] = useState()"}
                 </span>
@@ -787,8 +802,8 @@ export default function OverviewSection() {
                 Accessibility
               </h3>
               <p className="text-muted-foreground text-base leading-relaxed">
-                Semantic HTML, <code>aria-describedby</code> cho form,
-                icon trang trí tự ẩn khỏi screen reader.{" "}
+                Semantic HTML, <code>aria-describedby</code> cho form, icon
+                trang trí tự ẩn khỏi screen reader.{" "}
                 <strong className="text-foreground">
                   Chuẩn WCAG — không cần nghĩ thêm.
                 </strong>
@@ -822,10 +837,9 @@ export default function OverviewSection() {
                 Explicit State Contract
               </h3>
               <p className="text-muted-foreground text-base leading-relaxed">
-                Component công khai trạng thái qua{" "}
-                <code>data-attributes</code>, không phải qua imperative ref.
-                Bạn style và animate trực tiếp trên từng trạng thái, không cần
-                JavaScript.{" "}
+                Component công khai trạng thái qua <code>data-attributes</code>,
+                không phải qua imperative ref. Bạn style và animate trực tiếp
+                trên từng trạng thái, không cần JavaScript.{" "}
                 <strong className="text-foreground">
                   State là public API — tường minh và ổn định.
                 </strong>
@@ -842,7 +856,9 @@ export default function OverviewSection() {
                   <span className="text-muted-foreground">:opacity-50</span>
                 </div>
                 <div className="pt-1 border-t border-border/30">
-                  <span className="text-destructive/60 line-through">ref.current.isOpen</span>
+                  <span className="text-destructive/60 line-through">
+                    ref.current.isOpen
+                  </span>
                 </div>
               </div>
             </div>
@@ -858,9 +874,9 @@ export default function OverviewSection() {
                 3-Layer Source Ownership
               </h3>
               <p className="text-muted-foreground text-base leading-relaxed">
-                Source được phân tầng: <code>micro/</code> (primitive không
-                có layout cứng nhắc), <code>macro/</code> (preset lắp ráp có
-                chủ đích), <code>index.css</code> (token toàn hệ thống).{" "}
+                Source được phân tầng: <code>micro/</code> (primitive không có
+                layout cứng nhắc), <code>macro/</code> (preset lắp ráp có chủ
+                đích), <code>index.css</code> (token toàn hệ thống).{" "}
                 <strong className="text-foreground">
                   Sửa ở tầng nào chỉ ảnh hưởng đến tầng đó.
                 </strong>
@@ -869,15 +885,21 @@ export default function OverviewSection() {
             <div className="relative z-10 mt-auto pt-6 space-y-2">
               <div className="p-3 rounded-xl border border-border bg-background/60 text-[11px] font-mono flex items-center gap-3">
                 <span className="text-destructive font-bold">CSS</span>
-                <span className="text-muted-foreground">index.css — token toàn cục</span>
+                <span className="text-muted-foreground">
+                  index.css — token toàn cục
+                </span>
               </div>
               <div className="p-3 rounded-xl border border-border bg-background/60 text-[11px] font-mono flex items-center gap-3">
                 <span className="text-warning font-bold">Macro</span>
-                <span className="text-muted-foreground">macro/ — preset lắp ráp</span>
+                <span className="text-muted-foreground">
+                  macro/ — preset lắp ráp
+                </span>
               </div>
               <div className="p-3 rounded-xl border border-border bg-background/60 text-[11px] font-mono flex items-center gap-3">
                 <span className="text-success font-bold">Micro</span>
-                <span className="text-muted-foreground">micro/ — primitive thuần</span>
+                <span className="text-muted-foreground">
+                  micro/ — primitive thuần
+                </span>
               </div>
             </div>
           </div>
@@ -937,8 +959,8 @@ export default function OverviewSection() {
             <p className="text-muted-foreground text-xl leading-relaxed">
               Dark section bên trong Light app? Dễ. Nhưng khi Tooltip hay Dialog
               render qua Portal — chúng thoát khỏi DOM tree và{" "}
-              <strong className="text-foreground">mất theme</strong>.
-              Hầu hết thư viện bỏ cuộc ở đây.
+              <strong className="text-foreground">mất theme</strong>. Hầu hết
+              thư viện bỏ cuộc ở đây.
             </p>
             <p className="text-muted-foreground text-xl leading-relaxed">
               gladvn dùng{" "}
@@ -947,8 +969,8 @@ export default function OverviewSection() {
               </code>{" "}
               để tunnel theme xuyên qua Portal boundary.{" "}
               <strong className="text-foreground">
-                Dialog, Tooltip, Select... luôn đúng màu, dù render ở đâu
-                trong DOM.
+                Dialog, Tooltip, Select... luôn đúng màu, dù render ở đâu trong
+                DOM.
               </strong>
             </p>
           </div>
@@ -1001,8 +1023,8 @@ export default function OverviewSection() {
             </h3>
             <p className="text-muted-foreground text-xl leading-relaxed">
               Mọi token màu sắc được tính trên không gian OKLCH — chuyển sắc
-              mượt, tương phản đạt WCAG AA/AAA trên mọi theme mà không cần
-              định nghĩa thủ công từng dải màu.
+              mượt, tương phản đạt WCAG AA/AAA trên mọi theme mà không cần định
+              nghĩa thủ công từng dải màu.
             </p>
           </div>
 
@@ -1039,7 +1061,7 @@ export default function OverviewSection() {
                 role: "Creator & Maintainer",
                 avatar: "https://github.com/duongacy.png",
                 url: "https://github.com/duongacy",
-              }
+              },
             ].map((user) => (
               <a
                 key={user.name}
@@ -1050,17 +1072,33 @@ export default function OverviewSection() {
               >
                 <Avatar className="size-16 border-2 border-transparent group-hover:border-primary/20 transition-all duration-300 group-hover:scale-105">
                   <AvatarImage src={user.avatar} alt={user.name} />
-                  <AvatarFallback className="text-lg bg-primary/5 text-primary">{user.name.substring(0, 2).toUpperCase()}</AvatarFallback>
+                  <AvatarFallback className="text-lg bg-primary/5 text-primary">
+                    {user.name.substring(0, 2).toUpperCase()}
+                  </AvatarFallback>
                 </Avatar>
                 <div className="text-center">
-                  <div className="font-semibold text-sm group-hover:text-primary transition-colors">{user.name}</div>
-                  <div className="text-xs text-muted-foreground mt-0.5">{user.role}</div>
+                  <div className="font-semibold text-sm group-hover:text-primary transition-colors">
+                    {user.name}
+                  </div>
+                  <div className="text-xs text-muted-foreground mt-0.5">
+                    {user.role}
+                  </div>
                 </div>
               </a>
             ))}
           </div>
 
-          <Button variant="outline" className="mt-4 rounded-full" render={<a href="https://github.com/duongacy/gladcn" target="_blank" rel="noreferrer" />}>
+          <Button
+            variant="outline"
+            className="mt-4 rounded-full"
+            render={
+              <a
+                href="https://github.com/duongacy/gladcn"
+                target="_blank"
+                rel="noreferrer"
+              />
+            }
+          >
             Đóng góp cùng chúng tôi
           </Button>
         </div>
@@ -1097,7 +1135,13 @@ export default function OverviewSection() {
                 </div>
               </button>
               <Button
-                render={<a href="https://github.com/duongacy/gladcn" target="_blank" rel="noreferrer" />}
+                render={
+                  <a
+                    href="https://github.com/duongacy/gladcn"
+                    target="_blank"
+                    rel="noreferrer"
+                  />
+                }
                 variant="ghost"
                 className="text-muted-foreground hover:text-foreground"
               >

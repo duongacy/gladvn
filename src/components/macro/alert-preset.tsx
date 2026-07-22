@@ -1,15 +1,17 @@
+import * as React from "react";
+
+import { XIcon } from "lucide-react";
+
 import {
   Alert,
   AlertAction,
   AlertDescription,
   AlertIcon,
-  AlertTitle,
   type AlertProps,
+  AlertTitle,
 } from "../../components/micro/alert";
 import { Button } from "../../components/micro/button";
 import { cn } from "../../lib/utils";
-import { XIcon } from "lucide-react";
-import * as React from "react";
 
 export type AlertPresetProps = AlertProps & {
   title?: React.ReactNode;

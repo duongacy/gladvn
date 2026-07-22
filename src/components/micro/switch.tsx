@@ -7,10 +7,10 @@
  */
 "use client";
 
-import { Switch as SwitchPrimitive } from "@base-ui/react/switch";
 import * as React from "react";
 
-import { cva, type VariantProps } from "class-variance-authority";
+import { Switch as SwitchPrimitive } from "@base-ui/react/switch";
+import { type VariantProps, cva } from "class-variance-authority";
 
 import { cn } from "../../lib/utils";
 

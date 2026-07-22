@@ -1,3 +1,5 @@
+import * as React from "react";
+
 import {
   Field,
   FieldContent,
@@ -6,7 +8,6 @@ import {
   FieldLabel,
 } from "../../components/micro/field";
 import { type Size } from "../../lib/types";
-import * as React from "react";
 
 export type FieldPresetProps = Omit<
   React.ComponentProps<typeof Field>,

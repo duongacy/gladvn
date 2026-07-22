@@ -14,13 +14,15 @@
  */
 "use client";
 
-import { Combobox as ComboboxPrimitive } from "@base-ui/react";
 import * as React from "react";
+
+import { Combobox as ComboboxPrimitive } from "@base-ui/react";
+import { type VariantProps, cva } from "class-variance-authority";
+import { CheckIcon, ChevronDownIcon, XIcon } from "lucide-react";
 
 import { InputGroupButton } from "../../components/micro/input-group";
 import { ThemeWrapper } from "../../components/micro/theme-provider";
 import { cn } from "../../lib/utils";
-import { CheckIcon, ChevronDownIcon, XIcon } from "lucide-react";
 
 const ComboboxContext = React.createContext<{
   anchor: Element | null;
@@ -98,30 +100,43 @@ const ComboboxContent = React.forwardRef<
       ComboboxPrimitive.Positioner.Props,
       "side" | "align" | "sideOffset" | "alignOffset" | "anchor"
     >
->(({ className, side = "bottom", sideOffset = 4, align = "start", alignOffset = 0, anchor, ...props }, ref) => {
-  const { anchor: contextAnchor } = React.useContext(ComboboxContext);
-  return (
-    <ComboboxPrimitive.Positioner
-      side={side}
-      sideOffset={sideOffset}
-      align={align}
-      alignOffset={alignOffset}
-      anchor={anchor || contextAnchor}
-      className="isolate z-50"
-    >
-      <ComboboxPrimitive.Popup
-        ref={ref}
-        data-slot="combobox-content"
-        data-chips={!!anchor}
-        className={cn(
-          "group/combobox-content relative max-h-(--available-height) min-w-(--anchor-width) max-w-(--available-width) origin-(--transform-origin) overflow-x-hidden overflow-y-auto rounded-lg bg-popover text-popover-foreground shadow-md ring-1 ring-foreground/10 duration-100 p-1 data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 [&_[data-slot=input-group]]:mb-1 [&_[data-slot=input-group]]:w-full [&_[data-slot=input-group]]:border-input/30 [&_[data-slot=input-group]]:bg-input/30 [&_[data-slot=input-group]]:shadow-none data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
-          className,
-        )}
-        {...props}
-      />
-    </ComboboxPrimitive.Positioner>
-  );
-});
+>(
+  (
+    {
+      className,
+      side = "bottom",
+      sideOffset = 4,
+      align = "start",
+      alignOffset = 0,
+      anchor,
+      ...props
+    },
+    ref,
+  ) => {
+    const { anchor: contextAnchor } = React.useContext(ComboboxContext);
+    return (
+      <ComboboxPrimitive.Positioner
+        side={side}
+        sideOffset={sideOffset}
+        align={align}
+        alignOffset={alignOffset}
+        anchor={anchor || contextAnchor}
+        className="isolate z-50"
+      >
+        <ComboboxPrimitive.Popup
+          ref={ref}
+          data-slot="combobox-content"
+          data-chips={!!anchor}
+          className={cn(
+            "group/combobox-content relative max-h-(--available-height) min-w-(--anchor-width) max-w-(--available-width) origin-(--transform-origin) overflow-x-hidden overflow-y-auto rounded-lg bg-popover text-popover-foreground shadow-md ring-1 ring-foreground/10 duration-100 p-1 data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 [&_[data-slot=input-group]]:mb-1 [&_[data-slot=input-group]]:w-full [&_[data-slot=input-group]]:border-input/30 [&_[data-slot=input-group]]:bg-input/30 [&_[data-slot=input-group]]:shadow-none data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
+            className,
+          )}
+          {...props}
+        />
+      </ComboboxPrimitive.Positioner>
+    );
+  },
+);
 ComboboxContent.displayName = "ComboboxContent";
 
 function ComboboxList({ className, ...props }: ComboboxPrimitive.List.Props) {
@@ -219,8 +234,6 @@ function ComboboxSeparator({
 }
 
 const ComboboxPortal = ComboboxPrimitive.Portal;
-
-import { cva, type VariantProps } from "class-variance-authority";
 
 const comboboxChipsVariants = cva(
   "group/combobox-chips flex flex-wrap items-center gap-1 rounded-lg border border-input bg-transparent bg-clip-padding transition-colors focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/50 has-aria-invalid:border-destructive has-aria-invalid:focus-within:ring-3 has-aria-invalid:focus-within:ring-destructive/20 has-[[data-slot=combobox-chip]]:px-1 dark:bg-input/30 dark:has-aria-invalid:border-destructive/50 dark:has-aria-invalid:focus-within:ring-destructive/40 has-disabled:opacity-50 has-disabled:cursor-not-allowed has-disabled:pointer-events-none",

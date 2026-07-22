@@ -9,8 +9,8 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "../../components/micro/pagination";
-import { cn } from "../../lib/utils";
 import type { Size } from "../../lib/types";
+import { cn } from "../../lib/utils";
 
 export type PaginationPresetProps = React.ComponentProps<typeof Pagination> & {
   currentPage: number;

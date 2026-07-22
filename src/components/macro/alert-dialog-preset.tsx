@@ -1,5 +1,7 @@
 "use client";
 
+import * as React from "react";
+
 import {
   AlertDialog,
   AlertDialogAction,
@@ -9,14 +11,13 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogMedia,
+  AlertDialogPortal,
   AlertDialogTitle,
   AlertDialogTrigger,
-  AlertDialogPortal,
 } from "../../components/micro/alert-dialog";
 import { ThemeWrapper } from "../../components/micro/theme-provider";
 import { type Color, type Size, type Variant } from "../../lib/types";
 import { cn } from "../../lib/utils";
-import * as React from "react";
 
 type AlertDialogPresetProps = Omit<
   React.ComponentProps<typeof AlertDialog>,
@@ -62,48 +63,48 @@ function AlertDialogPreset({
         <ThemeWrapper>
           <AlertDialogContent size={size}>
             <div
-          className={cn("flex flex-col gap-1.5", {
-            "sm:flex-row sm:gap-4": !!icon,
-          })}
-        >
-          {icon && (
-            <AlertDialogMedia className="mx-auto mb-2 shrink-0 sm:mx-0 sm:mb-0">
-              {icon}
-            </AlertDialogMedia>
-          )}
-          <AlertDialogHeader>
-            {title && <AlertDialogTitle>{title}</AlertDialogTitle>}
-            {description && (
-              <AlertDialogDescription>{description}</AlertDialogDescription>
+              className={cn("flex flex-col gap-1.5", {
+                "sm:flex-row sm:gap-4": !!icon,
+              })}
+            >
+              {icon && (
+                <AlertDialogMedia className="mx-auto mb-2 shrink-0 sm:mx-0 sm:mb-0">
+                  {icon}
+                </AlertDialogMedia>
+              )}
+              <AlertDialogHeader>
+                {title && <AlertDialogTitle>{title}</AlertDialogTitle>}
+                {description && (
+                  <AlertDialogDescription>{description}</AlertDialogDescription>
+                )}
+                {children}
+              </AlertDialogHeader>
+            </div>
+            {(cancelLabel || actionLabel) && (
+              <AlertDialogFooter className="group-data-[size=sm]/alert-dialog-content:grid group-data-[size=sm]/alert-dialog-content:grid-cols-2 group-data-[size=sm]/alert-dialog-content:sm:flex group-data-[size=sm]/alert-dialog-content:sm:justify-end">
+                {cancelLabel && (
+                  <AlertDialogCancel
+                    size={size}
+                    color={cancelColor}
+                    variant={cancelVariant}
+                    onClick={onCancel}
+                  >
+                    {cancelLabel}
+                  </AlertDialogCancel>
+                )}
+                {actionLabel && (
+                  <AlertDialogAction
+                    size={size}
+                    color={actionColor}
+                    variant={actionVariant}
+                    onClick={onAction}
+                  >
+                    {actionLabel}
+                  </AlertDialogAction>
+                )}
+              </AlertDialogFooter>
             )}
-            {children}
-          </AlertDialogHeader>
-        </div>
-        {(cancelLabel || actionLabel) && (
-          <AlertDialogFooter className="group-data-[size=sm]/alert-dialog-content:grid group-data-[size=sm]/alert-dialog-content:grid-cols-2 group-data-[size=sm]/alert-dialog-content:sm:flex group-data-[size=sm]/alert-dialog-content:sm:justify-end">
-            {cancelLabel && (
-              <AlertDialogCancel
-                size={size}
-                color={cancelColor}
-                variant={cancelVariant}
-                onClick={onCancel}
-              >
-                {cancelLabel}
-              </AlertDialogCancel>
-            )}
-            {actionLabel && (
-              <AlertDialogAction
-                size={size}
-                color={actionColor}
-                variant={actionVariant}
-                onClick={onAction}
-              >
-                {actionLabel}
-              </AlertDialogAction>
-            )}
-          </AlertDialogFooter>
-          )}
-        </AlertDialogContent>
+          </AlertDialogContent>
         </ThemeWrapper>
       </AlertDialogPortal>
     </AlertDialog>

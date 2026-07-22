@@ -1,12 +1,4 @@
 import {
-  DocsCode,
-  DocsP,
-  ExampleGrid,
-  ExampleSection,
-  Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
-import {
   CopyIcon,
   FileIcon,
   FilePlusIcon,
@@ -19,16 +11,26 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuPortal,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-  DropdownMenuPortal,
 } from "../../components/micro/dropdown-menu";
 import { Kbd, KbdGroup } from "../../components/micro/kbd";
 import {
   Tooltip,
   TooltipContent,
+  TooltipPortal,
   TooltipProvider,
-  TooltipTrigger, TooltipPortal } from "../../components/micro/tooltip";
+  TooltipTrigger,
+} from "../../components/micro/tooltip";
+import {
+  DocsCode,
+  DocsP,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+} from "../../dev/components/showcase";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 2: Micro Content (không export)
@@ -128,11 +130,11 @@ function KbdMicroShowcase() {
                 }
               />
               <TooltipPortal>
-                          <TooltipContent>
-                                          Lưu tài liệu <Kbd>⌘</Kbd>
-                                          <Kbd>S</Kbd>
-                                        </TooltipContent>
-                          </TooltipPortal>
+                <TooltipContent>
+                  Lưu tài liệu <Kbd>⌘</Kbd>
+                  <Kbd>S</Kbd>
+                </TooltipContent>
+              </TooltipPortal>
             </Tooltip>
           </TooltipProvider>
 
@@ -146,11 +148,11 @@ function KbdMicroShowcase() {
                 }
               />
               <TooltipPortal>
-                          <TooltipContent>
-                                          Sao chép <Kbd>⌘</Kbd>
-                                          <Kbd>C</Kbd>
-                                        </TooltipContent>
-                          </TooltipPortal>
+                <TooltipContent>
+                  Sao chép <Kbd>⌘</Kbd>
+                  <Kbd>C</Kbd>
+                </TooltipContent>
+              </TooltipPortal>
             </Tooltip>
           </TooltipProvider>
         </div>

@@ -1,12 +1,6 @@
-import { useDevContext } from "../../dev/components/dev-context";
-import {
-  DocsP,
-  ExampleGrid,
-  ExampleSection,
-  Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
 import { useState } from "react";
+
+import { Bell, Settings } from "lucide-react";
 
 import { Button } from "../../components/micro/button";
 import { Input } from "../../components/micro/input";
@@ -16,12 +10,19 @@ import {
   PopoverContent,
   PopoverDescription,
   PopoverHeader,
+  PopoverPortal,
   PopoverTitle,
   PopoverTrigger,
-  PopoverPortal,
 } from "../../components/micro/popover";
+import { useDevContext } from "../../dev/components/dev-context";
+import {
+  DocsP,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+} from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
-import { Bell, Settings } from "lucide-react";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 2: Micro Content (không export)

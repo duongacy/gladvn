@@ -1,11 +1,5 @@
-import { useDevContext } from "../../dev/components/dev-context";
-import {
-  DocsP,
-  ExampleGrid,
-  ExampleSection,
-  Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+import { useState } from "react";
+
 import {
   InfoIcon,
   LogOutIcon,
@@ -15,7 +9,6 @@ import {
   TrashIcon,
   XIcon,
 } from "lucide-react";
-import { useState } from "react";
 
 import { AlertDialogPreset } from "../../components/macro/alert-dialog-preset";
 import {
@@ -28,11 +21,19 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogMedia,
+  AlertDialogPortal,
   AlertDialogTitle,
   AlertDialogTrigger,
-  AlertDialogPortal,
 } from "../../components/micro/alert-dialog";
 import { Button } from "../../components/micro/button";
+import { useDevContext } from "../../dev/components/dev-context";
+import {
+  DocsP,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+} from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────
@@ -913,9 +914,9 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
             </div>
 
             <p className="text-xs text-muted-foreground leading-relaxed">
-              Bạn cần làm một dialog xác nhận xoá với layout Side-by-Side
-              (Icon nằm bên trái trên màn hình lớn, nằm ở trên cùng trên màn
-              hình nhỏ).
+              Bạn cần làm một dialog xác nhận xoá với layout Side-by-Side (Icon
+              nằm bên trái trên màn hình lớn, nằm ở trên cùng trên màn hình
+              nhỏ).
             </p>
 
             <div className="rounded-lg bg-muted/50 p-3 flex justify-center">

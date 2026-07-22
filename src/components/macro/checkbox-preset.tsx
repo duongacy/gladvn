@@ -1,3 +1,7 @@
+import * as React from "react";
+
+import { CheckIcon } from "lucide-react";
+
 import { Checkbox, CheckboxIndicator } from "../../components/micro/checkbox";
 import {
   Field,
@@ -7,8 +11,6 @@ import {
 } from "../../components/micro/field";
 import { type Size } from "../../lib/types";
 import { cn } from "../../lib/utils";
-import { CheckIcon } from "lucide-react";
-import * as React from "react";
 
 export type CheckboxPresetProps = Omit<
   React.ComponentProps<typeof Checkbox>,

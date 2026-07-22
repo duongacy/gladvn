@@ -5,12 +5,13 @@
  * - Form Control Parity
  * - CSS Delegated Logic
  */
-import { mergeProps } from "@base-ui/react/merge-props";
-import { useRender } from "@base-ui/react/use-render";
 import * as React from "react";
 
-import { cn } from "../../lib/utils";
+import { mergeProps } from "@base-ui/react/merge-props";
+import { useRender } from "@base-ui/react/use-render";
 import { ChevronRightIcon, MoreHorizontalIcon } from "lucide-react";
+
+import { cn } from "../../lib/utils";
 
 /**
  * @description Displays the path to the current resource using a hierarchy of links.

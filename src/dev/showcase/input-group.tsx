@@ -1,17 +1,5 @@
-import { useDevContext } from "../../dev/components/dev-context";
 import { useState } from "react";
 
-import {
-  DocsCode,
-  DocsH3,
-  DocsLi,
-  DocsP,
-  DocsUl,
-  ExampleGrid,
-  ExampleSection,
-  Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
 import {
   DollarSignIcon,
   EyeIcon,
@@ -31,6 +19,18 @@ import {
   InputGroupText,
   InputGroupTextarea,
 } from "../../components/micro/input-group";
+import { useDevContext } from "../../dev/components/dev-context";
+import {
+  DocsCode,
+  DocsH3,
+  DocsLi,
+  DocsP,
+  DocsUl,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+} from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {

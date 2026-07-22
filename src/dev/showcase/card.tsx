@@ -1,11 +1,3 @@
-import { useDevContext } from "../../dev/components/dev-context";
-import {
-  DocsP,
-  ExampleGrid,
-  ExampleSection,
-  Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
 import { useState } from "react";
 
 import { CardPreset } from "../../components/macro/card-preset";
@@ -21,6 +13,14 @@ import {
 } from "../../components/micro/card";
 import { Input } from "../../components/micro/input";
 import { Label } from "../../components/micro/label";
+import { useDevContext } from "../../dev/components/dev-context";
+import {
+  DocsP,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+} from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────
@@ -428,8 +428,7 @@ export default function CardShowcase() {
           <DocsP>
             Dùng để nhóm các thông tin liên quan lại với nhau trong một
             container có cấu trúc rõ ràng. Thường được sử dụng để hiển thị các
-            mục dữ liệu, dashboard, hoặc các form
-            nhỏ.
+            mục dữ liệu, dashboard, hoặc các form nhỏ.
           </DocsP>
         </ShowcaseDocs>
       }

@@ -1,10 +1,3 @@
-import {
-  DocsP,
-  ExampleGrid,
-  ExampleSection,
-  Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
 import { SlashIcon } from "lucide-react";
 
 import { BreadcrumbPreset } from "../../components/macro/breadcrumb-preset";
@@ -24,6 +17,13 @@ import {
   DropdownMenuPortal,
   DropdownMenuTrigger,
 } from "../../components/micro/dropdown-menu";
+import {
+  DocsP,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+} from "../../dev/components/showcase";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Macro Content

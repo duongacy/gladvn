@@ -1,5 +1,7 @@
 "use client";
 
+import * as React from "react";
+
 import {
   Command,
   CommandEmpty,
@@ -20,9 +22,11 @@ import {
 } from "../../components/micro/dialog";
 import { ThemeWrapper } from "../../components/micro/theme-provider";
 import { cn } from "../../lib/utils";
-import * as React from "react";
 
-type CommandDialogProps = Omit<React.ComponentProps<typeof Dialog>, "children"> & {
+type CommandDialogProps = Omit<
+  React.ComponentProps<typeof Dialog>,
+  "children"
+> & {
   title?: string;
   description?: string;
   className?: string;

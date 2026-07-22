@@ -1,18 +1,9 @@
-import { useDevContext } from "../../dev/components/dev-context";
+import { useState } from "react";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CheckIcon, MinusIcon } from "lucide-react";
-import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import * as z from "zod";
-
-import {
-  DocsP,
-  ExampleGrid,
-  ExampleSection,
-  Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
-import { type Size } from "../../lib/types";
 
 import { CheckboxPreset } from "../../components/macro/checkbox-preset";
 import { Button } from "../../components/micro/button";
@@ -24,6 +15,15 @@ import {
   FieldLabel,
 } from "../../components/micro/field";
 import { Label } from "../../components/micro/label";
+import { useDevContext } from "../../dev/components/dev-context";
+import {
+  DocsP,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+} from "../../dev/components/showcase";
+import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────
 // RHF Form Demo (Macro)

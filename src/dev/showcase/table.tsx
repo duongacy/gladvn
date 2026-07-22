@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import {
   Table,
   TableBody,
@@ -15,7 +17,6 @@ import {
   Showcase,
   ShowcaseDocs,
 } from "../../dev/components/showcase";
-import { useState } from "react";
 
 type SortDirection = "asc" | "desc" | "none";
 

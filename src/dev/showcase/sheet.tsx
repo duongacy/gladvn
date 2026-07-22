@@ -1,14 +1,6 @@
-import { useDevContext } from "../../dev/components/dev-context";
-import {
-  DocsCode,
-  DocsP,
-  ExampleGrid,
-  ExampleSection,
-  Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
-import { FilterIcon, PanelRightIcon, SettingsIcon } from "lucide-react";
 import { useState } from "react";
+
+import { FilterIcon, PanelRightIcon, SettingsIcon } from "lucide-react";
 
 import { Button } from "../../components/micro/button";
 import { Input } from "../../components/micro/input";
@@ -20,10 +12,19 @@ import {
   SheetDescription,
   SheetFooter,
   SheetHeader,
+  SheetPortal,
   SheetTitle,
   SheetTrigger,
-  SheetPortal,
 } from "../../components/micro/sheet";
+import { useDevContext } from "../../dev/components/dev-context";
+import {
+  DocsCode,
+  DocsP,
+  ExampleGrid,
+  ExampleSection,
+  Showcase,
+  ShowcaseDocs,
+} from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────

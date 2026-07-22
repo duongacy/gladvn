@@ -1,3 +1,5 @@
+import * as React from "react";
+
 import {
   Slider,
   SliderControl,
@@ -5,7 +7,6 @@ import {
   SliderThumb,
   SliderTrack,
 } from "../../components/micro/slider";
-import * as React from "react";
 import { FieldPreset } from "./field-preset";
 
 export type SliderPresetProps = Omit<

@@ -1,3 +1,5 @@
+import * as React from "react";
+
 import {
   Field,
   FieldDescription,
@@ -6,7 +8,6 @@ import {
 } from "../../components/micro/field";
 import { Switch, SwitchThumb } from "../../components/micro/switch";
 import { cn } from "../../lib/utils";
-import * as React from "react";
 
 export type SwitchPresetProps = Omit<
   React.ComponentProps<typeof Switch>,

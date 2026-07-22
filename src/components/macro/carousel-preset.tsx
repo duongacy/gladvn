@@ -1,14 +1,15 @@
+import * as React from "react";
+
 import {
   Carousel,
+  type CarouselApi,
   CarouselContent,
   CarouselDots,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-  type CarouselApi,
 } from "../../components/micro/carousel";
 import { cn } from "../../lib/utils";
-import * as React from "react";
 
 export type CarouselPresetProps = Omit<
   React.ComponentProps<typeof Carousel>,

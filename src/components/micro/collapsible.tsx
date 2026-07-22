@@ -7,9 +7,11 @@
  */
 "use client";
 
-import { cn } from "../../lib/utils";
-import { Collapsible as CollapsiblePrimitive } from "@base-ui/react/collapsible";
 import * as React from "react";
+
+import { Collapsible as CollapsiblePrimitive } from "@base-ui/react/collapsible";
+
+import { cn } from "../../lib/utils";
 
 /**
  * @description An interactive component which expands/collapses a panel.

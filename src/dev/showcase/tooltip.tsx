@@ -1,3 +1,15 @@
+import { useState } from "react";
+
+import { InfoIcon, ShieldAlertIcon } from "lucide-react";
+
+import { Button } from "../../components/micro/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipPortal,
+  TooltipProvider,
+  TooltipTrigger,
+} from "../../components/micro/tooltip";
 import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsCode,
@@ -8,17 +20,6 @@ import {
   Showcase,
   ShowcaseDocs,
 } from "../../dev/components/showcase";
-import { InfoIcon, ShieldAlertIcon } from "lucide-react";
-import { useState } from "react";
-
-import { Button } from "../../components/micro/button";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-  TooltipPortal,
-} from "../../components/micro/tooltip";
 import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────

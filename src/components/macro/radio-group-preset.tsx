@@ -1,8 +1,9 @@
+import * as React from "react";
+
 import { Label } from "../../components/micro/label";
 import { RadioGroup, RadioGroupItem } from "../../components/micro/radio-group";
 import { type Size } from "../../lib/types";
 import { cn } from "../../lib/utils";
-import * as React from "react";
 import { FieldPreset } from "./field-preset";
 
 export interface RadioGroupOption {

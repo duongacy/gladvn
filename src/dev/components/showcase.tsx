@@ -1,3 +1,7 @@
+import React, { useState } from "react";
+
+import { BookOpenIcon, CheckIcon, CopyIcon } from "lucide-react";
+
 import { Button } from "../../components/micro/button";
 import {
   Tabs,
@@ -9,9 +13,6 @@ import { CodeHighlighter } from "../../dev/components/code-highlighter";
 import { COLORS, COLOR_INFO } from "../../dev/data";
 import { type Size } from "../../lib/types";
 import { cn } from "../../lib/utils";
-import { BookOpenIcon, CheckIcon, CopyIcon } from "lucide-react";
-import React, { useState } from "react";
-
 
 /* ─────────────────────────────────────────────────────────────────
    SectionHeader  –  page‐level title bar
@@ -176,9 +177,7 @@ export function ExampleSection({
             )}
           >
             <div className="absolute inset-0 -z-10 opacity-[0.03] dark:opacity-[0.05] [background-size:24px_24px] [background-image:radial-gradient(circle_at_center,var(--color-foreground)_1.5px,transparent_1.5px)]" />
-            <div className="relative z-10 w-full">
-              {children}
-            </div>
+            <div className="relative z-10 w-full">{children}</div>
           </div>
         </TabsContent>
 
@@ -358,14 +357,14 @@ export function Showcase({
         )}
         {hasTabs
           ? tabs.map((tab) => (
-            <TabsContent
-              key={tab.label}
-              value={tab.label}
-              className="mt-0 focus-visible:outline-none"
-            >
-              {tab.content}
-            </TabsContent>
-          ))
+              <TabsContent
+                key={tab.label}
+                value={tab.label}
+                className="mt-0 focus-visible:outline-none"
+              >
+                {tab.content}
+              </TabsContent>
+            ))
           : tabs[0]?.content}
       </div>
     </>

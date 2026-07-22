@@ -1,3 +1,7 @@
+import { useState } from "react";
+
+import { BoxIcon, SettingsIcon, SlidersHorizontalIcon } from "lucide-react";
+
 import { AccordionPreset } from "../../components/macro/accordion-preset";
 import {
   Accordion,
@@ -12,8 +16,6 @@ import {
   Showcase,
   ShowcaseDocs,
 } from "../../dev/components/showcase";
-import { BoxIcon, SettingsIcon, SlidersHorizontalIcon } from "lucide-react";
-import { useState } from "react";
 
 // ──────────────────────────────────────────────────────────
 // Shared Data

@@ -1,3 +1,17 @@
+import { useState } from "react";
+
+import {
+  BoxIcon,
+  CheckCircle2Icon,
+  LayersIcon,
+  PlusIcon,
+  SendIcon,
+  SettingsIcon,
+  ShieldAlertIcon,
+  Trash2Icon,
+  UserIcon,
+} from "lucide-react";
+
 import { SelectPreset } from "../../components/macro/select-preset";
 import { Avatar, AvatarFallback } from "../../components/micro/avatar";
 import { Button } from "../../components/micro/button";
@@ -10,18 +24,6 @@ import {
 } from "../../components/micro/tooltip";
 import { SectionHeader } from "../../dev/components/showcase";
 import { Size } from "../../lib/types";
-import {
-  BoxIcon,
-  CheckCircle2Icon,
-  LayersIcon,
-  PlusIcon,
-  SendIcon,
-  SettingsIcon,
-  ShieldAlertIcon,
-  Trash2Icon,
-  UserIcon,
-} from "lucide-react";
-import { useState } from "react";
 
 export default function ButtonsSection() {
   const [globalSize, setGlobalSize] = useState<Size>("md");

@@ -1,10 +1,11 @@
+import * as React from "react";
+
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "../../components/micro/accordion";
-import * as React from "react";
 
 export interface AccordionPresetItem {
   value: string;

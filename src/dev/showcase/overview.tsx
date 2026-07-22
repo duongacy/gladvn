@@ -120,7 +120,7 @@ export default function OverviewSection() {
           >
             <CodeIcon className="w-3.5 h-3.5 text-primary" />
             <span className="text-muted-foreground">
-              Copy mã · Sở hữu trọn vẹn · Không phụ thuộc
+              Copy mã · Tuỳ biến tự do · Không lock-in
             </span>
           </div>
 
@@ -140,7 +140,7 @@ export default function OverviewSection() {
             className="max-w-2xl text-lg md:text-xl text-muted-foreground leading-relaxed mb-10 animate-fade-up"
             style={{ animationDelay: "200ms", animationFillMode: "both" }}
           >
-            Hầu hết component library giữ code trong node_modules — bạn
+            Phần lớn component library giữ code trong node_modules — bạn
             dùng được nhưng không sửa được. gladvn copy thẳng vào{" "}
             <code className="text-sm bg-primary/20 text-primary px-1.5 py-0.5 rounded">src/</code>{" "}
             của bạn.{" "}
@@ -244,7 +244,7 @@ export default function OverviewSection() {
                         Kiến trúc Micro/Macro
                       </h4>
                       <p className="text-xs text-muted-foreground font-medium mt-1">
-                        Lắp ráp từ những mảnh ghép tối giản
+                        Primitive nhỏ, lắp thành preset lớn
                       </p>
                     </div>
                   </div>
@@ -254,9 +254,9 @@ export default function OverviewSection() {
                       <DatabaseIcon className="size-6" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-sm">Data-Driven Design</h4>
+                      <h4 className="font-bold text-sm">Thiết kế theo Dữ liệu</h4>
                       <p className="text-xs text-muted-foreground font-medium mt-1">
-                        Dữ liệu quyết định cấu trúc UI
+                        Truyền items vào root, không map() thủ công
                       </p>
                     </div>
                   </div>
@@ -266,7 +266,7 @@ export default function OverviewSection() {
                       <ShieldCheckIcon className="size-6" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-sm">Strict Styling</h4>
+                      <h4 className="font-bold text-sm">Styling có Kỷ luật</h4>
                       <p className="text-xs text-muted-foreground font-medium mt-1">
                         Nói không với Magic CSS
                       </p>
@@ -462,7 +462,7 @@ export default function OverviewSection() {
                   src/index.css
                 </div>
                 <h4 className="font-bold text-foreground text-base">
-                  CSS Token — Ảnh hưởng toàn cục
+                  CSS Token — Đổi một chỗ, cả app thay đổi
                 </h4>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   CSS token quyết định màu, font, border-radius cho tất cả.
@@ -497,10 +497,10 @@ export default function OverviewSection() {
               </p>
             </div>
             <div className="relative z-10 mt-auto pt-6 space-y-3">
-              <CodeBlock type="success" title="Uỷ quyền cho Macro (Preset):">
+              <CodeBlock type="success" title="Đúng — Để Macro lo layout:">
                 <span className="text-success/80">
                   {
-                    "/* Macro thấy toàn bộ cấu trúc nên gắn class thẳng vào đích */"
+                    "/* Macro biết con mình là gì → gắn class chính xác */"
                   }
                 </span>
                 <br />
@@ -521,11 +521,11 @@ export default function OverviewSection() {
 
               <CodeBlock
                 type="destructive"
-                title="Ép Layout ở Micro (Primitive):"
+                title="Sai — Micro tự đoán layout:"
               >
                 <span className="text-destructive/80">
                   {
-                    "/* Micro mù mờ về thẻ con nên phải dùng Magic CSS đoán mò */"
+                    "/* Micro không biết con mình là gì → phải đoán bằng CSS */"
                   }
                 </span>
                 <br />
@@ -556,11 +556,11 @@ export default function OverviewSection() {
                 Style Encapsulation
               </h3>
               <p className="text-muted-foreground text-base leading-relaxed">
-                Mỗi component là một hộp kín về style. Muốn tuỳ chỉnh từ ngoài
+                Style của mỗi component không rò rỉ ra ngoài. Muốn tuỳ chỉnh
                 thì dùng{" "}
-                <code>data-slot</code> — đã có sẵn contract rõ ràng.{" "}
+                <code>data-slot</code> — contract rõ ràng, có sẵn.{" "}
                 <strong className="text-foreground">
-                  Refactor bên trong thoải mái mà không phá code bên ngoài.
+                  Refactor bên trong mà không ảnh hưởng bên ngoài.
                 </strong>
               </p>
             </div>
@@ -587,8 +587,7 @@ export default function OverviewSection() {
               </h3>
               <p className="text-muted-foreground text-lg leading-relaxed max-w-lg">
                 Variant (solid, outline, ghost...) và Color (primary, destructive...)
-                là hai trục hoàn toàn độc lập. Kết hợp tự do mà không bị bùng nổ
-                class.
+                là hai trục độc lập. Kết hợp tự do mà class không phình ra.
               </p>
             </div>
             <div className="relative z-10 mt-auto pt-8 grid sm:grid-cols-2 gap-4">
@@ -598,8 +597,8 @@ export default function OverviewSection() {
                   Variant
                 </strong>
                 <span className="text-sm text-muted-foreground leading-relaxed">
-                  solid, outline, ghost, soft. Quyết định viền, nền, độ trong
-                  suốt.
+                  solid, outline, ghost, soft. Quyết định cách component trông
+                  như thế nào.
                 </span>
               </div>
               <div className="p-3 sm:p-5 rounded-2xl border border-border bg-background/60 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow">
@@ -608,7 +607,7 @@ export default function OverviewSection() {
                   Trục Color
                 </strong>
                 <span className="text-sm text-muted-foreground leading-relaxed">
-                  primary, secondary, destructive. Quyết định dải màu sắc (hue).
+                  primary, secondary, destructive. Quyết định bảng màu của component.
                 </span>
               </div>
             </div>
@@ -823,12 +822,12 @@ export default function OverviewSection() {
                 Explicit State Contract
               </h3>
               <p className="text-muted-foreground text-base leading-relaxed">
-                Component expose trạng thái ra ngoài qua{" "}
-                <code>data-attributes</code>, không phải qua imperative ref
-                methods. Consumer CSS và animation target chính xác từng
-                trạng thái mà không cần JavaScript.{" "}
+                Component công khai trạng thái qua{" "}
+                <code>data-attributes</code>, không phải qua imperative ref.
+                Bạn style và animate trực tiếp trên từng trạng thái, không cần
+                JavaScript.{" "}
                 <strong className="text-foreground">
-                  State là public API — phải tường minh và ổn định.
+                  State là public API — tường minh và ổn định.
                 </strong>
               </p>
             </div>
@@ -957,22 +956,20 @@ export default function OverviewSection() {
           <div className="relative z-10 grid sm:grid-cols-2 gap-6 max-w-3xl">
             <div className="p-6 rounded-2xl border border-success/30 bg-success/10 shadow-sm flex flex-col gap-2">
               <div className="text-success font-semibold text-lg flex items-center gap-2">
-                ✅ gladvn — ThemeWrapper
+                ✅ gladvn
               </div>
               <p className="text-success/80 text-sm leading-relaxed">
-                Theme được tunnel xuyên qua Portal boundary. Dialog, Tooltip,
-                Select... luôn hiển thị đúng dark mode dù render tại{" "}
+                Tooltip, Dialog trong dark section luôn đúng màu — kể cả khi
+                Portal render ra{" "}
                 <code className="opacity-80">document.body</code>.
               </p>
             </div>
             <div className="p-6 rounded-2xl border border-destructive/30 bg-destructive/10 shadow-sm opacity-80 flex flex-col gap-2">
               <div className="text-destructive font-semibold text-lg flex items-center gap-2">
-                ❌ Các thư viện thông thường
+                ❌ Thư viện khác
               </div>
               <p className="text-destructive/80 text-sm leading-relaxed">
-                Theme bị mất khi vượt qua Portal. Tooltip, Dialog bên trong
-                dark section vẫn hiển thị màu Light Mode — lỗi thầm lặng, khó
-                debug.
+                Tooltip, Dialog "trắng lạc quẻ" — theme bị mất khi vượt Portal.
               </p>
             </div>
           </div>
@@ -984,7 +981,7 @@ export default function OverviewSection() {
               color="warning"
               className="gap-2 font-bold px-6 py-5 rounded-xl border-warning/30 bg-warning/10 hover:bg-warning/20 shadow-sm"
             >
-              Xem Demo Thực tế
+              Xem demo thực tế
               <ArrowRightIcon className="size-4" />
             </Button>
           </div>
@@ -1100,11 +1097,11 @@ export default function OverviewSection() {
                 </div>
               </button>
               <Button
-                render={<a href="?component=overview" />}
+                render={<a href="https://github.com/duongacy/gladcn" target="_blank" rel="noreferrer" />}
                 variant="ghost"
                 className="text-muted-foreground hover:text-foreground"
               >
-                Xem tài liệu đầy đủ
+                Xem trên GitHub
                 <ArrowRightIcon className="size-4 ml-1" />
               </Button>
             </div>

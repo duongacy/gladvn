@@ -148,6 +148,19 @@ export default function App() {
     return () => document.removeEventListener("keydown", down);
   }, []);
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      if (active === "overview") {
+        document.title = "gladvn — Tailwind CSS React Components";
+      } else {
+        const compDef = COMPONENTS.find((c) => c.id === active);
+        if (compDef) {
+          document.title = `${compDef.label} — gladvn Components`;
+        }
+      }
+    }
+  }, [active]);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Top nav */}

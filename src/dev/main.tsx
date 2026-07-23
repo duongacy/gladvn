@@ -5,6 +5,10 @@ import { createRoot } from "react-dom/client";
 import { ThemeProvider, useTheme } from "../components/micro/theme-provider";
 import App from "../dev/App";
 import { DevContextProvider } from "../dev/components/dev-context";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/600.css";
+import "@fontsource/inter/700.css";
 import "../dev/index.css";
 
 /** Syncs the theme class to <html> — this is a Macro concern, done here for the dev playground. */

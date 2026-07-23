@@ -16,7 +16,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "../../components/micro/dialog";
-import { ThemeWrapper } from "../../components/micro/theme-provider";
 import { type Size } from "../../lib/types";
 import { cn } from "../../lib/utils";
 
@@ -51,52 +50,50 @@ const DialogPreset = React.forwardRef<HTMLDivElement, DialogPresetProps>(
       <Dialog {...props}>
         {trigger && <DialogTrigger render={trigger} />}
         <DialogPortal>
-          <ThemeWrapper>
-            <DialogContent
-              ref={ref}
-              className={cn(
-                size === "sm" && "sm:max-w-md",
-                size === "md" && "sm:max-w-lg",
-                size === "lg" && "sm:max-w-xl",
-                "flex flex-col gap-0 p-0 overflow-hidden",
-              )}
-            >
-              {(title || description) && (
-                <DialogHeader className="shrink-0 p-4 pb-0">
-                  {title && <DialogTitle>{title}</DialogTitle>}
-                  {description && (
-                    <DialogDescription>{description}</DialogDescription>
-                  )}
-                </DialogHeader>
-              )}
+          <DialogContent
+            ref={ref}
+            className={cn(
+              size === "sm" && "sm:max-w-md",
+              size === "md" && "sm:max-w-lg",
+              size === "lg" && "sm:max-w-xl",
+              "flex flex-col gap-0 p-0 overflow-hidden",
+            )}
+          >
+            {(title || description) && (
+              <DialogHeader className="shrink-0 p-4 pb-0">
+                {title && <DialogTitle>{title}</DialogTitle>}
+                {description && (
+                  <DialogDescription>{description}</DialogDescription>
+                )}
+              </DialogHeader>
+            )}
 
-              <div className="flex-1 min-h-0 overflow-y-auto p-4">
-                {children}
-              </div>
+            <div className="flex-1 min-h-0 overflow-y-auto p-4">
+              {children}
+            </div>
 
-              {footer && (
-                <DialogFooter className="shrink-0 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
-                  {footer}
-                </DialogFooter>
-              )}
+            {footer && (
+              <DialogFooter className="shrink-0 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
+                {footer}
+              </DialogFooter>
+            )}
 
-              {showCloseButton && (
-                <DialogClose
-                  render={
-                    <Button
-                      variant="ghost"
-                      className="absolute top-2 right-2"
-                      size="sm"
-                      iconOnly
-                    />
-                  }
-                >
-                  <XIcon />
-                  <span className="sr-only">Close</span>
-                </DialogClose>
-              )}
-            </DialogContent>
-          </ThemeWrapper>
+            {showCloseButton && (
+              <DialogClose
+                render={
+                  <Button
+                    variant="ghost"
+                    className="absolute top-2 right-2"
+                    size="sm"
+                    iconOnly
+                  />
+                }
+              >
+                <XIcon />
+                <span className="sr-only">Close</span>
+              </DialogClose>
+            )}
+          </DialogContent>
         </DialogPortal>
       </Dialog>
     );

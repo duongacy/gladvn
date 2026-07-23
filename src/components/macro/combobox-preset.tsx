@@ -20,7 +20,6 @@ import {
   InputGroupAddon,
   InputGroupInput,
 } from "../../components/micro/input-group";
-import { ThemeWrapper } from "../../components/micro/theme-provider";
 import { type Size } from "../../lib/types";
 import { FieldPreset } from "./field-preset";
 
@@ -105,8 +104,7 @@ const ComboboxPreset = React.forwardRef<HTMLInputElement, ComboboxPresetProps>(
             disabled={disabled}
           />
           <ComboboxPortal>
-            <ThemeWrapper>
-              <ComboboxContent>
+            <ComboboxContent>
                 <ComboboxEmpty>{emptyText}</ComboboxEmpty>
                 <ComboboxList>
                   <ComboboxGroup>
@@ -121,8 +119,7 @@ const ComboboxPreset = React.forwardRef<HTMLInputElement, ComboboxPresetProps>(
                     ))}
                   </ComboboxGroup>
                 </ComboboxList>
-              </ComboboxContent>
-            </ThemeWrapper>
+            </ComboboxContent>
           </ComboboxPortal>
         </Combobox>
       </FieldPreset>

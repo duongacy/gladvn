@@ -12,7 +12,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../../components/micro/select";
-import { ThemeWrapper } from "../../components/micro/theme-provider";
 import { type Size } from "../../lib/types";
 import { FieldPreset } from "./field-preset";
 
@@ -113,8 +112,7 @@ const SelectPreset = React.forwardRef<
             <SelectValue placeholder={placeholder} />
           </SelectTrigger>
           <SelectPortal>
-            <ThemeWrapper>
-              <SelectContent>
+            <SelectContent>
                 {(() => {
                   const groups = new Map<
                     string | undefined,
@@ -159,8 +157,7 @@ const SelectPreset = React.forwardRef<
                     },
                   );
                 })()}
-              </SelectContent>
-            </ThemeWrapper>
+            </SelectContent>
           </SelectPortal>
         </Select>
       </FieldPreset>

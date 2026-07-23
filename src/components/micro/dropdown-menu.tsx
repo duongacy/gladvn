@@ -13,6 +13,7 @@ import { Menu as MenuPrimitive } from "@base-ui/react/menu";
 import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react";
 
 import { cn } from "../../lib/utils";
+import { ThemeWrapper } from "./theme-provider";
 
 export type DropdownMenuVariant = "destructive";
 
@@ -21,7 +22,14 @@ function DropdownMenu({ ...props }: MenuPrimitive.Root.Props) {
 }
 DropdownMenu.displayName = "DropdownMenu";
 
-const DropdownMenuPortal = MenuPrimitive.Portal;
+const DropdownMenuPortal = ({
+  children,
+  ...props
+}: React.ComponentProps<typeof MenuPrimitive.Portal>) => (
+  <MenuPrimitive.Portal {...props}>
+    <ThemeWrapper>{children}</ThemeWrapper>
+  </MenuPrimitive.Portal>
+);
 DropdownMenuPortal.displayName = "DropdownMenuPortal";
 
 const DropdownMenuTrigger = React.forwardRef<

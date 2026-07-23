@@ -20,7 +20,6 @@ import {
   DialogPortal,
   DialogTitle,
 } from "../../components/micro/dialog";
-import { ThemeWrapper } from "../../components/micro/theme-provider";
 import { cn } from "../../lib/utils";
 
 type CommandDialogProps = Omit<
@@ -43,20 +42,18 @@ function CommandDialog({
   return (
     <Dialog {...props}>
       <DialogPortal>
-        <ThemeWrapper>
-          <DialogContent
-            className={cn(
-              "top-1/3 translate-y-0 overflow-hidden rounded-xl p-0 sm:max-w-lg",
-              className,
-            )}
-          >
-            <DialogHeader className="sr-only">
-              <DialogTitle>{title}</DialogTitle>
-              <DialogDescription>{description}</DialogDescription>
-            </DialogHeader>
-            {children}
-          </DialogContent>
-        </ThemeWrapper>
+        <DialogContent
+          className={cn(
+            "top-1/3 translate-y-0 overflow-hidden rounded-xl p-0 sm:max-w-lg",
+            className,
+          )}
+        >
+          <DialogHeader className="sr-only">
+            <DialogTitle>{title}</DialogTitle>
+            <DialogDescription>{description}</DialogDescription>
+          </DialogHeader>
+          {children}
+        </DialogContent>
       </DialogPortal>
     </Dialog>
   );

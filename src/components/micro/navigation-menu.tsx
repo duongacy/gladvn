@@ -11,6 +11,7 @@ import { NavigationMenu as NavigationMenuPrimitive } from "@base-ui/react/naviga
 import { ChevronDownIcon } from "lucide-react";
 
 import { cn } from "../../lib/utils";
+import { ThemeWrapper } from "./theme-provider";
 
 /**
  * @description A collection of links for navigating websites.
@@ -182,7 +183,15 @@ const NavigationMenuLink = React.forwardRef<
 });
 NavigationMenuLink.displayName = "NavigationMenuLink";
 
-const NavigationMenuPortal = NavigationMenuPrimitive.Portal;
+const NavigationMenuPortal = ({
+  children,
+  ...props
+}: React.ComponentProps<typeof NavigationMenuPrimitive.Portal>) => (
+  <NavigationMenuPrimitive.Portal {...props}>
+    <ThemeWrapper>{children}</ThemeWrapper>
+  </NavigationMenuPrimitive.Portal>
+);
+NavigationMenuPortal.displayName = "NavigationMenuPortal";
 
 export {
   NavigationMenu,

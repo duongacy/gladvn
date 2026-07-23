@@ -14,7 +14,6 @@ import {
   PopoverPortal,
   PopoverTrigger,
 } from "../../components/micro/popover";
-import { ThemeWrapper } from "../../components/micro/theme-provider";
 import { type Size } from "../../lib/types";
 import { cn } from "../../lib/utils";
 import { FieldPreset } from "./field-preset";
@@ -235,13 +234,12 @@ const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
             </span>
           </PopoverTrigger>
           <PopoverPortal>
-            <ThemeWrapper>
-              <PopoverContent
-                side="bottom"
-                align="start"
-                sideOffset={4}
-                className="p-0 w-auto"
-              >
+            <PopoverContent
+              side="bottom"
+              align="start"
+              sideOffset={4}
+              className="p-0 w-auto"
+            >
                 {mode === "single" ? (
                   <Calendar
                     mode="single"
@@ -293,8 +291,7 @@ const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
                     Xác nhận
                   </Button>
                 </div>
-              </PopoverContent>
-            </ThemeWrapper>
+            </PopoverContent>
           </PopoverPortal>
         </Popover>
       </FieldPreset>

@@ -13,6 +13,7 @@ import * as React from "react";
 import { Popover as PopoverPrimitive } from "@base-ui/react/popover";
 
 import { cn } from "../../lib/utils";
+import { ThemeWrapper } from "./theme-provider";
 
 function Popover(props: React.ComponentProps<typeof PopoverPrimitive.Root>) {
   return <PopoverPrimitive.Root {...props} />;
@@ -32,7 +33,15 @@ const PopoverTrigger = React.forwardRef<
 });
 PopoverTrigger.displayName = "PopoverTrigger";
 
-const PopoverPortal = PopoverPrimitive.Portal;
+const PopoverPortal = ({
+  children,
+  ...props
+}: React.ComponentProps<typeof PopoverPrimitive.Portal>) => (
+  <PopoverPrimitive.Portal {...props}>
+    <ThemeWrapper>{children}</ThemeWrapper>
+  </PopoverPrimitive.Portal>
+);
+PopoverPortal.displayName = "PopoverPortal";
 
 const PopoverContent = React.forwardRef<
   HTMLDivElement,

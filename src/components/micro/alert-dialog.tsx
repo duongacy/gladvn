@@ -7,6 +7,7 @@ import { AlertDialog as AlertDialogPrimitive } from "@base-ui/react/alert-dialog
 import { Button } from "../../components/micro/button";
 import { type Size } from "../../lib/types";
 import { cn } from "../../lib/utils";
+import { ThemeWrapper } from "./theme-provider";
 
 /**
  * @description A modal dialog that interrupts the user with important content and expects a response.
@@ -36,7 +37,15 @@ function AlertDialogClose({ ...props }: AlertDialogPrimitive.Close.Props) {
   );
 }
 
-const AlertDialogPortal = AlertDialogPrimitive.Portal;
+const AlertDialogPortal = ({
+  children,
+  ...props
+}: React.ComponentProps<typeof AlertDialogPrimitive.Portal>) => (
+  <AlertDialogPrimitive.Portal {...props}>
+    <ThemeWrapper>{children}</ThemeWrapper>
+  </AlertDialogPrimitive.Portal>
+);
+AlertDialogPortal.displayName = "AlertDialogPortal";
 
 function AlertDialogOverlay({
   className,

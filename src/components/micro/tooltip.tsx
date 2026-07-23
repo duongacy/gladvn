@@ -12,6 +12,7 @@ import * as React from "react";
 import { Tooltip as TooltipPrimitive } from "@base-ui/react/tooltip";
 
 import { cn } from "../../lib/utils";
+import { ThemeWrapper } from "./theme-provider";
 
 /**
  * @description A popup that displays information related to an element.
@@ -55,7 +56,15 @@ const TooltipTrigger = React.forwardRef<
 });
 TooltipTrigger.displayName = "TooltipTrigger";
 
-const TooltipPortal = TooltipPrimitive.Portal;
+const TooltipPortal = ({
+  children,
+  ...props
+}: React.ComponentProps<typeof TooltipPrimitive.Portal>) => (
+  <TooltipPrimitive.Portal {...props}>
+    <ThemeWrapper>{children}</ThemeWrapper>
+  </TooltipPrimitive.Portal>
+);
+TooltipPortal.displayName = "TooltipPortal";
 
 const TooltipContent = React.forwardRef<
   HTMLDivElement,

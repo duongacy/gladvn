@@ -2,6 +2,13 @@ import { useState } from "react";
 
 import { MoonIcon, SunIcon } from "lucide-react";
 
+import { Dialog as DialogPrimitive } from "@base-ui/react/dialog";
+import { Menu as MenuPrimitive } from "@base-ui/react/menu";
+import { Popover as PopoverPrimitive } from "@base-ui/react/popover";
+import { Select as SelectPrimitive } from "@base-ui/react/select";
+import { Dialog as SheetPrimitive } from "@base-ui/react/dialog";
+import { Tooltip as TooltipPrimitive } from "@base-ui/react/tooltip";
+
 import { Button } from "../../components/micro/button";
 import {
   Dialog,
@@ -47,7 +54,6 @@ import {
 import {
   type ThemeMode,
   ThemeProvider,
-  ThemeWrapper,
   useTheme,
 } from "../../components/micro/theme-provider";
 import {
@@ -120,7 +126,7 @@ function ThemeProviderMicroShowcase() {
     <div className="space-y-10">
       <SectionHeader
         title="ThemeProvider"
-        description="Context provider điều phối dark/light mode cho toàn bộ component tree. Hỗ trợ hai chế độ: Uncontrolled (tự quản lý state) và Controlled (state do component cha sở hữu). Dùng ThemeWrapper để tunnel theme qua Portal boundary."
+        description="Context provider điều phối dark/light mode cho toàn bộ component tree. Hỗ trợ hai chế độ: Uncontrolled (tự quản lý state) và Controlled (state do component cha sở hữu). Dùng Library *Portal để tunnel theme qua Portal boundary tự động."
       />
 
       {/* ── Uncontrolled ── */}
@@ -221,7 +227,7 @@ function ThemeProviderMicroShowcase() {
       <div className="pt-16 pb-6">
         <SectionHeader
           title="ThemeWrapper & Portal Tunnels"
-          description="ThemeWrapper tunnel theme class qua Portal boundary (Dialog, Tooltip, Popover...) bằng cách re-apply CSS variable vào container mới. Dưới đây là so sánh trực tiếp giữa portal không có và có ThemeWrapper khi theme cục bộ (ThemeProvider cha) đang ở Dark Mode."
+          description="So sánh trực tiếp: cột trái dùng Base UI primitive Portal trực tiếp (không có ThemeWrapper → mất dark mode), cột phải dùng Library Portal (tích hợp sẵn ThemeWrapper từ v0.2.20 → đúng màu tự động)."
         />
       </div>
 
@@ -229,64 +235,62 @@ function ThemeProviderMicroShowcase() {
       <ExampleSection
         fullWidth
         label="Tooltip"
-        description="Tooltip được định vị gần trigger và hiển thị khi hover. Không có ThemeWrapper, tooltip của bạn sẽ trắng toát giữa một dark section — dười đây là bằng chứng trực quan."
-        codeString={`<ThemeProvider defaultMode="dark">
-    <div className="w-full flex gap-10 rounded-xl border border-border bg-background p-10">
-      <div className="flex-1 flex flex-col items-center gap-4">
-        <span className="text-sm font-medium text-muted-foreground">
-          Không dùng ThemeWrapper
-        </span>
-        <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger
-              render={
-                <Button variant="solid">Hover tôi</Button>
-              }
-            />
-            <TooltipPortal>
-              <TooltipContent
-                sideOffset={8}
-                className="bg-card text-card-foreground border border-border shadow-md"
-              >
-                Trắng toát! Lạc quẻ với nền đen.
-              </TooltipContent>
-            </TooltipPortal>
-          </Tooltip>
-        </TooltipProvider>
-      </div>
+        description="Cột trái dùng TooltipPrimitive.Portal trực tiếp từ @base-ui/react — không có ThemeWrapper nên tooltip trắng toát giữa dark section. Cột phải dùng <TooltipPortal> của thư viện — tự động đúng màu."
+        codeString={`// ❌ Base UI primitive Portal — không có ThemeWrapper → mất dark mode
+import { Tooltip as TooltipPrimitive } from "@base-ui/react/tooltip";
 
-      <div className="flex-1 flex flex-col items-center gap-4">
-        <span className="text-sm font-medium text-muted-foreground">
-          Có ThemeWrapper
-        </span>
-        <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger
-              render={
-                <Button variant="solid">Hover tôi</Button>
-              }
-            />
-            <TooltipPortal>
-              <ThemeWrapper>
-                <TooltipContent
-                  sideOffset={8}
-                  className="bg-card text-card-foreground border border-border shadow-md"
-                >
-                  Màu Tối! Đồng bộ với provider cha.
-                </TooltipContent>
-              </ThemeWrapper>
-            </TooltipPortal>
-          </Tooltip>
-        </TooltipProvider>
-      </div>
-    </div>
-  </ThemeProvider>`}
+<ThemeProvider defaultMode="dark">
+  <TooltipPrimitive.Provider>
+    <TooltipPrimitive.Root>
+      <TooltipPrimitive.Trigger>Hover tôi</TooltipPrimitive.Trigger>
+      <TooltipPrimitive.Portal>
+        {/* Thoát khỏi DOM tree → mất .dark class → CSS vars sai */}
+        <TooltipPrimitive.Positioner>
+          <TooltipPrimitive.Popup>Trắng toát!</TooltipPrimitive.Popup>
+        </TooltipPrimitive.Positioner>
+      </TooltipPrimitive.Portal>
+    </TooltipPrimitive.Root>
+  </TooltipPrimitive.Provider>
+</ThemeProvider>
+
+// ✅ Library Portal — ThemeWrapper tích hợp sẵn từ v0.2.20
+<ThemeProvider defaultMode="dark">
+  <TooltipProvider>
+    <Tooltip>
+      <TooltipTrigger render={<Button>Hover tôi</Button>} />
+      <TooltipPortal>
+        {/* ← ThemeWrapper đã được bọc bên trong TooltipPortal */}
+        <TooltipContent>Màu tối đồng bộ!</TooltipContent>
+      </TooltipPortal>
+    </Tooltip>
+  </TooltipProvider>
+</ThemeProvider>`}
       >
         <ThemeProvider defaultMode="dark">
           <div className="w-full flex gap-10 rounded-xl border border-border bg-background p-10">
             <div className="flex-1 flex flex-col items-center gap-4">
               <span className="text-sm font-medium text-muted-foreground">
-                Không dùng ThemeWrapper
+                ❌ Base UI Primitive Portal
+              </span>
+              <TooltipPrimitive.Provider>
+                <TooltipPrimitive.Root>
+                  <TooltipPrimitive.Trigger
+                    render={<Button variant="solid">Hover tôi</Button>}
+                  />
+                  <TooltipPrimitive.Portal>
+                    <TooltipPrimitive.Positioner sideOffset={8}>
+                      <TooltipPrimitive.Popup className="bg-card text-card-foreground border border-border shadow-md rounded px-2 py-1 text-xs">
+                        Trắng toát! Lạc quẻ với nền đen.
+                      </TooltipPrimitive.Popup>
+                    </TooltipPrimitive.Positioner>
+                  </TooltipPrimitive.Portal>
+                </TooltipPrimitive.Root>
+              </TooltipPrimitive.Provider>
+            </div>
+
+            <div className="flex-1 flex flex-col items-center gap-4">
+              <span className="text-sm font-medium text-muted-foreground">
+                ✅ Library Portal (auto ThemeWrapper)
               </span>
               <TooltipProvider>
                 <Tooltip>
@@ -298,31 +302,8 @@ function ThemeProviderMicroShowcase() {
                       sideOffset={8}
                       className="bg-card text-card-foreground border border-border shadow-md"
                     >
-                      Trắng toát! Lạc quẻ với nền đen.
+                      Màu Tối! Đồng bộ với provider cha.
                     </TooltipContent>
-                  </TooltipPortal>
-                </Tooltip>
-              </TooltipProvider>
-            </div>
-
-            <div className="flex-1 flex flex-col items-center gap-4">
-              <span className="text-sm font-medium text-muted-foreground">
-                Có ThemeWrapper
-              </span>
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger
-                    render={<Button variant="solid">Hover tôi</Button>}
-                  />
-                  <TooltipPortal>
-                    <ThemeWrapper>
-                      <TooltipContent
-                        sideOffset={8}
-                        className="bg-card text-card-foreground border border-border shadow-md"
-                      >
-                        Màu Tối! Đồng bộ với provider cha.
-                      </TooltipContent>
-                    </ThemeWrapper>
                   </TooltipPortal>
                 </Tooltip>
               </TooltipProvider>
@@ -335,73 +316,63 @@ function ThemeProviderMicroShowcase() {
       <ExampleSection
         fullWidth
         label="Popover"
-        description="Popover chứa content phức tạp và mở khi click. Vì portal hướng tới `document.body`, toàn bộ nền popover lấy CSS variable từ root — sẽ trắng hoàn toàn dù trigger đang nằm trong dark section."
-        codeString={`<ThemeProvider defaultMode="dark">
-    <div className="w-full flex gap-10 rounded-xl border border-border bg-background p-10">
-      <div className="flex-1 flex flex-col items-center gap-4">
-        <span className="text-sm font-medium text-muted-foreground">
-          Không dùng ThemeWrapper
-        </span>
-        <Popover>
-          <PopoverTrigger
-            render={
-              <Button variant="outline">
-                Click Popover
-              </Button>
-            }
-          />
-          <PopoverPortal>
-            <PopoverContent className="w-64">
-              <div className="space-y-2">
-                <h4 className="font-medium leading-none">
-                  Nội dung Popover
-                </h4>
-                <p className="text-sm text-muted-foreground">
-                  Lỗi: Hiển thị giao diện sáng.
-                </p>
-              </div>
-            </PopoverContent>
-          </PopoverPortal>
-        </Popover>
-      </div>
+        description="Cột trái dùng PopoverPrimitive.Portal trực tiếp — nền popover trắng dù trigger đang ở dark section. Cột phải chỉ cần <PopoverPortal> của thư viện là xong."
+        codeString={`// ❌ Base UI primitive Portal
+import { Popover as PopoverPrimitive } from "@base-ui/react/popover";
 
-      <div className="flex-1 flex flex-col items-center gap-4">
-        <span className="text-sm font-medium text-muted-foreground">
-          Có ThemeWrapper
-        </span>
-        <Popover>
-          <PopoverTrigger
-            render={
-              <Button variant="outline">
-                Click Popover
-              </Button>
-            }
-          />
-          <PopoverPortal>
-            <ThemeWrapper>
-              <PopoverContent className="w-64">
-                <div className="space-y-2">
-                  <h4 className="font-medium leading-none">
-                    Nội dung Popover
-                  </h4>
-                  <p className="text-sm text-muted-foreground">
-                    Lớp Portal Tunnel đã hoạt động chính
-                    xác.
-                  </p>
-                </div>
-              </PopoverContent>
-            </ThemeWrapper>
-          </PopoverPortal>
-        </Popover>
-      </div>
-    </div>
-  </ThemeProvider>`}
+<ThemeProvider defaultMode="dark">
+  <PopoverPrimitive.Root>
+    <PopoverPrimitive.Trigger>Click Popover</PopoverPrimitive.Trigger>
+    <PopoverPrimitive.Portal>
+      {/* Không có ThemeWrapper → popover trắng */}
+      <PopoverPrimitive.Positioner>
+        <PopoverPrimitive.Popup>...</PopoverPrimitive.Popup>
+      </PopoverPrimitive.Positioner>
+    </PopoverPrimitive.Portal>
+  </PopoverPrimitive.Root>
+</ThemeProvider>
+
+// ✅ Library Portal
+<ThemeProvider defaultMode="dark">
+  <Popover>
+    <PopoverTrigger render={<Button>Click Popover</Button>} />
+    <PopoverPortal>
+      {/* ← ThemeWrapper đã được bọc bên trong PopoverPortal */}
+      <PopoverContent>...</PopoverContent>
+    </PopoverPortal>
+  </Popover>
+</ThemeProvider>`}
       >
         <ThemeProvider defaultMode="dark">
           <div className="w-full flex gap-10 rounded-xl border border-border bg-background p-10">
             <div className="flex-1 flex flex-col items-center gap-4">
               <span className="text-sm font-medium text-muted-foreground">
-                Không dùng ThemeWrapper
+                ❌ Base UI Primitive Portal
+              </span>
+              <PopoverPrimitive.Root>
+                <PopoverPrimitive.Trigger
+                  render={<Button variant="outline">Click Popover</Button>}
+                />
+                <PopoverPrimitive.Portal>
+                  <PopoverPrimitive.Positioner>
+                    <PopoverPrimitive.Popup className="z-50 rounded-lg border border-border bg-card text-card-foreground p-4 shadow-md w-64">
+                      <div className="space-y-2">
+                        <h4 className="font-medium leading-none">
+                          Nội dung Popover
+                        </h4>
+                        <p className="text-sm text-muted-foreground">
+                          Lỗi: Hiển thị giao diện sáng.
+                        </p>
+                      </div>
+                    </PopoverPrimitive.Popup>
+                  </PopoverPrimitive.Positioner>
+                </PopoverPrimitive.Portal>
+              </PopoverPrimitive.Root>
+            </div>
+
+            <div className="flex-1 flex flex-col items-center gap-4">
+              <span className="text-sm font-medium text-muted-foreground">
+                ✅ Library Portal (auto ThemeWrapper)
               </span>
               <Popover>
                 <PopoverTrigger
@@ -414,35 +385,10 @@ function ThemeProviderMicroShowcase() {
                         Nội dung Popover
                       </h4>
                       <p className="text-sm text-muted-foreground">
-                        Lỗi: Hiển thị giao diện sáng.
+                        Lớp Portal Tunnel đã hoạt động chính xác.
                       </p>
                     </div>
                   </PopoverContent>
-                </PopoverPortal>
-              </Popover>
-            </div>
-
-            <div className="flex-1 flex flex-col items-center gap-4">
-              <span className="text-sm font-medium text-muted-foreground">
-                Có ThemeWrapper
-              </span>
-              <Popover>
-                <PopoverTrigger
-                  render={<Button variant="outline">Click Popover</Button>}
-                />
-                <PopoverPortal>
-                  <ThemeWrapper>
-                    <PopoverContent className="w-64">
-                      <div className="space-y-2">
-                        <h4 className="font-medium leading-none">
-                          Nội dung Popover
-                        </h4>
-                        <p className="text-sm text-muted-foreground">
-                          Lớp Portal Tunnel đã hoạt động chính xác.
-                        </p>
-                      </div>
-                    </PopoverContent>
-                  </ThemeWrapper>
                 </PopoverPortal>
               </Popover>
             </div>
@@ -454,68 +400,75 @@ function ThemeProviderMicroShowcase() {
       <ExampleSection
         fullWidth
         label="Select"
-        description="SelectContent được render tách biệt hoàn toàn khỏi trigger. Thiếu ThemeWrapper, dropdown option sẽ trắng xuộa trong khi trigger vẫn tối — mù quáng và khó đọc."
-        codeString={`<ThemeProvider defaultMode="dark">
-    <div className="w-full flex gap-10 rounded-xl border border-border bg-background p-10">
-      <div className="flex-1 flex flex-col items-center gap-4">
-        <span className="text-sm font-medium text-muted-foreground">
-          Không dùng ThemeWrapper
-        </span>
-        <Select
-          items={{
-            next: "Next.js",
-            vite: "Vite",
-            remix: "Remix",
-          }}
-        >
-          <SelectTrigger className="w-[140px]">
-            <SelectValue placeholder="Chọn framework..." />
-          </SelectTrigger>
-          <SelectPortal>
-            <SelectContent>
-              <SelectItem value="next">Next.js</SelectItem>
-              <SelectItem value="vite">Vite</SelectItem>
-              <SelectItem value="remix">Remix</SelectItem>
-            </SelectContent>
-          </SelectPortal>
-        </Select>
-      </div>
+        description="Cột trái dùng SelectPrimitive.Portal trực tiếp — dropdown option trắng xuộa trong khi trigger vẫn tối. Cột phải dùng <SelectPortal> của thư viện là đúng màu ngay."
+        codeString={`// ❌ Base UI primitive Portal
+import { Select as SelectPrimitive } from "@base-ui/react/select";
 
-      <div className="flex-1 flex flex-col items-center gap-4">
-        <span className="text-sm font-medium text-muted-foreground">
-          Có ThemeWrapper
-        </span>
-        <Select
-          items={{
-            next: "Next.js",
-            vite: "Vite",
-            remix: "Remix",
-          }}
-        >
-          <SelectTrigger className="w-[140px]">
-            <SelectValue placeholder="Chọn framework..." />
-          </SelectTrigger>
-          <SelectPortal>
-            <ThemeWrapper>
-              <SelectContent>
-                <SelectItem value="next">
-                  Next.js
-                </SelectItem>
-                <SelectItem value="vite">Vite</SelectItem>
-                <SelectItem value="remix">Remix</SelectItem>
-              </SelectContent>
-            </ThemeWrapper>
-          </SelectPortal>
-        </Select>
-      </div>
-    </div>
-  </ThemeProvider>`}
+<ThemeProvider defaultMode="dark">
+  <SelectPrimitive.Root items={{ next: "Next.js", vite: "Vite" }}>
+    <SelectPrimitive.Trigger>...</SelectPrimitive.Trigger>
+    <SelectPrimitive.Portal>
+      {/* Không có ThemeWrapper → dropdown trắng */}
+      <SelectPrimitive.Positioner>
+        <SelectPrimitive.Popup>...</SelectPrimitive.Popup>
+      </SelectPrimitive.Positioner>
+    </SelectPrimitive.Portal>
+  </SelectPrimitive.Root>
+</ThemeProvider>
+
+// ✅ Library Portal
+<ThemeProvider defaultMode="dark">
+  <Select items={{ next: "Next.js", vite: "Vite" }}>
+    <SelectTrigger><SelectValue placeholder="Chọn..." /></SelectTrigger>
+    <SelectPortal>
+      {/* ← ThemeWrapper đã được bọc bên trong SelectPortal */}
+      <SelectContent>...</SelectContent>
+    </SelectPortal>
+  </Select>
+</ThemeProvider>`}
       >
         <ThemeProvider defaultMode="dark">
           <div className="w-full flex gap-10 rounded-xl border border-border bg-background p-10">
             <div className="flex-1 flex flex-col items-center gap-4">
               <span className="text-sm font-medium text-muted-foreground">
-                Không dùng ThemeWrapper
+                ❌ Base UI Primitive Portal
+              </span>
+              <SelectPrimitive.Root
+                items={{ next: "Next.js", vite: "Vite", remix: "Remix" }}
+              >
+                <SelectPrimitive.Trigger className="inline-flex h-8 items-center justify-between gap-1.5 rounded-lg border border-input bg-transparent px-2.5 py-1 text-sm text-foreground outline-none w-[140px]">
+                  <SelectPrimitive.Value placeholder="Chọn framework..." />
+                </SelectPrimitive.Trigger>
+                <SelectPrimitive.Portal>
+                  <SelectPrimitive.Positioner>
+                    <SelectPrimitive.Popup className="z-50 rounded-lg border border-border bg-card text-card-foreground p-1 shadow-md">
+                      <SelectPrimitive.Item
+                        value="next"
+                        className="rounded px-2 py-1.5 text-sm cursor-default"
+                      >
+                        <SelectPrimitive.ItemText>Next.js</SelectPrimitive.ItemText>
+                      </SelectPrimitive.Item>
+                      <SelectPrimitive.Item
+                        value="vite"
+                        className="rounded px-2 py-1.5 text-sm cursor-default"
+                      >
+                        <SelectPrimitive.ItemText>Vite</SelectPrimitive.ItemText>
+                      </SelectPrimitive.Item>
+                      <SelectPrimitive.Item
+                        value="remix"
+                        className="rounded px-2 py-1.5 text-sm cursor-default"
+                      >
+                        <SelectPrimitive.ItemText>Remix</SelectPrimitive.ItemText>
+                      </SelectPrimitive.Item>
+                    </SelectPrimitive.Popup>
+                  </SelectPrimitive.Positioner>
+                </SelectPrimitive.Portal>
+              </SelectPrimitive.Root>
+            </div>
+
+            <div className="flex-1 flex flex-col items-center gap-4">
+              <span className="text-sm font-medium text-muted-foreground">
+                ✅ Library Portal (auto ThemeWrapper)
               </span>
               <Select items={{ next: "Next.js", vite: "Vite", remix: "Remix" }}>
                 <SelectTrigger className="w-[140px]">
@@ -530,26 +483,6 @@ function ThemeProviderMicroShowcase() {
                 </SelectPortal>
               </Select>
             </div>
-
-            <div className="flex-1 flex flex-col items-center gap-4">
-              <span className="text-sm font-medium text-muted-foreground">
-                Có ThemeWrapper
-              </span>
-              <Select items={{ next: "Next.js", vite: "Vite", remix: "Remix" }}>
-                <SelectTrigger className="w-[140px]">
-                  <SelectValue placeholder="Chọn framework..." />
-                </SelectTrigger>
-                <SelectPortal>
-                  <ThemeWrapper>
-                    <SelectContent>
-                      <SelectItem value="next">Next.js</SelectItem>
-                      <SelectItem value="vite">Vite</SelectItem>
-                      <SelectItem value="remix">Remix</SelectItem>
-                    </SelectContent>
-                  </ThemeWrapper>
-                </SelectPortal>
-              </Select>
-            </div>
           </div>
         </ThemeProvider>
       </ExampleSection>
@@ -558,82 +491,70 @@ function ThemeProviderMicroShowcase() {
       <ExampleSection
         fullWidth
         label="DropdownMenu"
-        description="DropdownMenu thường dùng cho navigation actions (profile, settings, logout). Khi hover qua từng item, màu highlight cũng lấy từ CSS variable — thiếu ThemeWrapper, cả nền menu lẫn trạng thái hover cùng lúc đều hiển thị sai màu."
-        codeString={`<ThemeProvider defaultMode="dark">
-    <div className="w-full flex gap-10 rounded-xl border border-border bg-background p-10">
-      <div className="flex-1 flex flex-col items-center gap-4">
-        <span className="text-sm font-medium text-muted-foreground">
-          Không dùng ThemeWrapper
-        </span>
-        <DropdownMenu>
-          <DropdownMenuTrigger
-            render={
-              <Button variant="outline">
-                Open Dropdown
-              </Button>
-            }
-          />
-          <DropdownMenuPortal>
-            <DropdownMenuContent className="w-48">
-              <DropdownMenuGroup>
-                <DropdownMenuLabel>
-                  Tài khoản
-                </DropdownMenuLabel>
-                <DropdownMenuItem>
-                  Trang cá nhân
-                </DropdownMenuItem>
-                <DropdownMenuItem>Cài đặt</DropdownMenuItem>
-              </DropdownMenuGroup>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Đăng xuất</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenuPortal>
-        </DropdownMenu>
-      </div>
+        description="Cột trái dùng MenuPrimitive.Portal trực tiếp — cả nền menu lẫn hover state đều sai màu. Cột phải dùng <DropdownMenuPortal> thư viện là đúng ngay."
+        codeString={`// ❌ Base UI primitive Portal
+import { Menu as MenuPrimitive } from "@base-ui/react/menu";
 
-      <div className="flex-1 flex flex-col items-center gap-4">
-        <span className="text-sm font-medium text-muted-foreground">
-          Có ThemeWrapper
-        </span>
-        <DropdownMenu>
-          <DropdownMenuTrigger
-            render={
-              <Button variant="outline">
-                Open Dropdown
-              </Button>
-            }
-          />
-          <DropdownMenuPortal>
-            <ThemeWrapper>
-              <DropdownMenuContent className="w-48">
-                <DropdownMenuGroup>
-                  <DropdownMenuLabel>
-                    Tài khoản
-                  </DropdownMenuLabel>
-                  <DropdownMenuItem>
-                    Trang cá nhân
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    Cài đặt
-                  </DropdownMenuItem>
-                </DropdownMenuGroup>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem>
-                  Đăng xuất
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </ThemeWrapper>
-          </DropdownMenuPortal>
-        </DropdownMenu>
-      </div>
-    </div>
-  </ThemeProvider>`}
+<ThemeProvider defaultMode="dark">
+  <MenuPrimitive.Root>
+    <MenuPrimitive.Trigger>Open Dropdown</MenuPrimitive.Trigger>
+    <MenuPrimitive.Portal>
+      {/* Không có ThemeWrapper → menu trắng, hover sai màu */}
+      <MenuPrimitive.Positioner>
+        <MenuPrimitive.Popup>...</MenuPrimitive.Popup>
+      </MenuPrimitive.Positioner>
+    </MenuPrimitive.Portal>
+  </MenuPrimitive.Root>
+</ThemeProvider>
+
+// ✅ Library Portal
+<ThemeProvider defaultMode="dark">
+  <DropdownMenu>
+    <DropdownMenuTrigger render={<Button>Open Dropdown</Button>} />
+    <DropdownMenuPortal>
+      {/* ← ThemeWrapper đã được bọc bên trong DropdownMenuPortal */}
+      <DropdownMenuContent>...</DropdownMenuContent>
+    </DropdownMenuPortal>
+  </DropdownMenu>
+</ThemeProvider>`}
       >
         <ThemeProvider defaultMode="dark">
           <div className="w-full flex gap-10 rounded-xl border border-border bg-background p-10">
             <div className="flex-1 flex flex-col items-center gap-4">
               <span className="text-sm font-medium text-muted-foreground">
-                Không dùng ThemeWrapper
+                ❌ Base UI Primitive Portal
+              </span>
+              <MenuPrimitive.Root>
+                <MenuPrimitive.Trigger
+                  render={<Button variant="outline">Open Dropdown</Button>}
+                />
+                <MenuPrimitive.Portal>
+                  <MenuPrimitive.Positioner>
+                    <MenuPrimitive.Popup className="z-50 min-w-[8rem] rounded-lg border border-border bg-card text-card-foreground p-1 shadow-md">
+                      <MenuPrimitive.Group>
+                        <MenuPrimitive.GroupLabel className="px-2 py-1.5 text-xs font-medium text-muted-foreground">
+                          Tài khoản
+                        </MenuPrimitive.GroupLabel>
+                        <MenuPrimitive.Item className="rounded px-2 py-1.5 text-sm cursor-default">
+                          Trang cá nhân
+                        </MenuPrimitive.Item>
+                        <MenuPrimitive.Item className="rounded px-2 py-1.5 text-sm cursor-default">
+                          Cài đặt
+                        </MenuPrimitive.Item>
+                      </MenuPrimitive.Group>
+                      <MenuPrimitive.Separator className="my-1 h-px bg-border" />
+                      <MenuPrimitive.Item className="rounded px-2 py-1.5 text-sm cursor-default">
+                        Đăng xuất
+                      </MenuPrimitive.Item>
+                    </MenuPrimitive.Popup>
+                  </MenuPrimitive.Positioner>
+                </MenuPrimitive.Portal>
+              </MenuPrimitive.Root>
+            </div>
+
+            <div className="flex-1 flex flex-col items-center gap-4">
+              <span className="text-sm font-medium text-muted-foreground">
+                ✅ Library Portal (auto ThemeWrapper)
               </span>
               <DropdownMenu>
                 <DropdownMenuTrigger
@@ -652,30 +573,6 @@ function ThemeProviderMicroShowcase() {
                 </DropdownMenuPortal>
               </DropdownMenu>
             </div>
-
-            <div className="flex-1 flex flex-col items-center gap-4">
-              <span className="text-sm font-medium text-muted-foreground">
-                Có ThemeWrapper
-              </span>
-              <DropdownMenu>
-                <DropdownMenuTrigger
-                  render={<Button variant="outline">Open Dropdown</Button>}
-                />
-                <DropdownMenuPortal>
-                  <ThemeWrapper>
-                    <DropdownMenuContent className="w-48">
-                      <DropdownMenuGroup>
-                        <DropdownMenuLabel>Tài khoản</DropdownMenuLabel>
-                        <DropdownMenuItem>Trang cá nhân</DropdownMenuItem>
-                        <DropdownMenuItem>Cài đặt</DropdownMenuItem>
-                      </DropdownMenuGroup>
-                      <DropdownMenuSeparator />
-                      <DropdownMenuItem>Đăng xuất</DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </ThemeWrapper>
-                </DropdownMenuPortal>
-              </DropdownMenu>
-            </div>
           </div>
         </ThemeProvider>
       </ExampleSection>
@@ -684,68 +581,66 @@ function ThemeProviderMicroShowcase() {
       <ExampleSection
         fullWidth
         label="Dialog"
-        description="Dialog là trường hợp phức tạp nhất: portal chứa cả Overlay backdrop lẫn Content panel. Cả hai layer đều cần được bọc trong ThemeWrapper để đảm bảo đồng bộ hoàn toàn."
-        codeString={`<ThemeProvider defaultMode="dark">
-    <div className="w-full flex gap-10 rounded-xl border border-border bg-background p-10">
-      <div className="flex-1 flex flex-col items-center gap-4">
-        <span className="text-sm font-medium text-muted-foreground">
-          Không dùng ThemeWrapper
-        </span>
-        <Dialog>
-          <DialogTrigger
-            render={
-              <Button variant="outline">Open Dialog</Button>
-            }
-          />
-          <DialogPortal>
-            <DialogContent className="sm:max-w-md">
-              <DialogHeader>
-                <DialogTitle>Mất Dark Mode!</DialogTitle>
-                <DialogDescription>
-                  Lỗi: Hiển thị giao diện sáng mặc định.
-                </DialogDescription>
-              </DialogHeader>
-            </DialogContent>
-          </DialogPortal>
-        </Dialog>
-      </div>
+        description="Cột trái dùng DialogPrimitive.Portal trực tiếp — cả Overlay backdrop lẫn Content panel đều hiển thị sai màu. Cột phải dùng <DialogPortal> thư viện — đồng bộ hoàn hảo."
+        codeString={`// ❌ Base UI primitive Portal
+import { Dialog as DialogPrimitive } from "@base-ui/react/dialog";
 
-      <div className="flex-1 flex flex-col items-center gap-4">
-        <span className="text-sm font-medium text-muted-foreground">
-          Có ThemeWrapper
-        </span>
-        <Dialog>
-          <DialogTrigger
-            render={
-              <Button variant="outline">Open Dialog</Button>
-            }
-          />
-          <DialogPortal>
-            <ThemeWrapper>
-              <DialogContent className="sm:max-w-md">
-                <DialogHeader>
-                  <DialogTitle>
-                    Màu tối toàn vẹn
-                  </DialogTitle>
-                  <DialogDescription>
-                    Ngay cả khi mở Dialog bọc ngoài toàn bộ
-                    màn hình, Portal Tunnel vẫn bảo vệ được
-                    scope Dark Mode.
-                  </DialogDescription>
-                </DialogHeader>
-              </DialogContent>
-            </ThemeWrapper>
-          </DialogPortal>
-        </Dialog>
-      </div>
-    </div>
-  </ThemeProvider>`}
+<ThemeProvider defaultMode="dark">
+  <DialogPrimitive.Root>
+    <DialogPrimitive.Trigger>Open Dialog</DialogPrimitive.Trigger>
+    <DialogPrimitive.Portal>
+      {/* Không có ThemeWrapper → dialog trắng */}
+      <DialogPrimitive.Backdrop />
+      <DialogPrimitive.Popup>...</DialogPrimitive.Popup>
+    </DialogPrimitive.Portal>
+  </DialogPrimitive.Root>
+</ThemeProvider>
+
+// ✅ Library Portal
+<ThemeProvider defaultMode="dark">
+  <Dialog>
+    <DialogTrigger render={<Button>Open Dialog</Button>} />
+    <DialogPortal>
+      {/* ← ThemeWrapper đã được bọc bên trong DialogPortal */}
+      <DialogContent>...</DialogContent>
+    </DialogPortal>
+  </Dialog>
+</ThemeProvider>`}
       >
         <ThemeProvider defaultMode="dark">
           <div className="w-full flex gap-10 rounded-xl border border-border bg-background p-10">
             <div className="flex-1 flex flex-col items-center gap-4">
               <span className="text-sm font-medium text-muted-foreground">
-                Không dùng ThemeWrapper
+                ❌ Base UI Primitive Portal
+              </span>
+              <DialogPrimitive.Root>
+                <DialogPrimitive.Trigger
+                  render={<Button variant="outline">Open Dialog</Button>}
+                />
+                <DialogPrimitive.Portal>
+                  <DialogPrimitive.Backdrop className="fixed inset-0 bg-black/20 z-40" />
+                  <DialogPrimitive.Popup className="fixed left-1/2 top-1/2 z-50 -translate-x-1/2 -translate-y-1/2 rounded-xl border border-border bg-card text-card-foreground p-6 shadow-lg sm:max-w-md w-full">
+                    <DialogPrimitive.Title className="text-lg font-semibold">
+                      Mất Dark Mode!
+                    </DialogPrimitive.Title>
+                    <DialogPrimitive.Description className="mt-2 text-sm text-muted-foreground">
+                      Lỗi: Hiển thị giao diện sáng mặc định.
+                    </DialogPrimitive.Description>
+                    <DialogPrimitive.Close
+                      render={
+                        <Button variant="outline" className="mt-4">
+                          Đóng
+                        </Button>
+                      }
+                    />
+                  </DialogPrimitive.Popup>
+                </DialogPrimitive.Portal>
+              </DialogPrimitive.Root>
+            </div>
+
+            <div className="flex-1 flex flex-col items-center gap-4">
+              <span className="text-sm font-medium text-muted-foreground">
+                ✅ Library Portal (auto ThemeWrapper)
               </span>
               <Dialog>
                 <DialogTrigger
@@ -754,36 +649,12 @@ function ThemeProviderMicroShowcase() {
                 <DialogPortal>
                   <DialogContent className="sm:max-w-md">
                     <DialogHeader>
-                      <DialogTitle>Mất Dark Mode!</DialogTitle>
+                      <DialogTitle>Màu tối toàn vẹn</DialogTitle>
                       <DialogDescription>
-                        Lỗi: Hiển thị giao diện sáng mặc định.
+                        Portal Tunnel tự động bảo vệ scope Dark Mode.
                       </DialogDescription>
                     </DialogHeader>
                   </DialogContent>
-                </DialogPortal>
-              </Dialog>
-            </div>
-
-            <div className="flex-1 flex flex-col items-center gap-4">
-              <span className="text-sm font-medium text-muted-foreground">
-                Có ThemeWrapper
-              </span>
-              <Dialog>
-                <DialogTrigger
-                  render={<Button variant="outline">Open Dialog</Button>}
-                />
-                <DialogPortal>
-                  <ThemeWrapper>
-                    <DialogContent className="sm:max-w-md">
-                      <DialogHeader>
-                        <DialogTitle>Màu tối toàn vẹn</DialogTitle>
-                        <DialogDescription>
-                          Ngay cả khi mở Dialog bọc ngoài toàn bộ màn hình,
-                          Portal Tunnel vẫn bảo vệ được scope Dark Mode.
-                        </DialogDescription>
-                      </DialogHeader>
-                    </DialogContent>
-                  </ThemeWrapper>
                 </DialogPortal>
               </Dialog>
             </div>
@@ -795,61 +666,62 @@ function ThemeProviderMicroShowcase() {
       <ExampleSection
         fullWidth
         label="Sheet"
-        description="Sheet trượt từ cạnh màn hình và phủ một vùng diện tích lớn — lỗi theme dễ nhận biết nhất vì panel thông thường chứa layout phức tạp hơn Popover hay Tooltip."
-        codeString={`<ThemeProvider defaultMode="dark">
-    <div className="w-full flex gap-10 rounded-xl border border-border bg-background p-10">
-      <div className="flex-1 flex flex-col items-center gap-4">
-        <span className="text-sm font-medium text-muted-foreground">
-          Không dùng ThemeWrapper
-        </span>
-        <Sheet>
-          <SheetTrigger
-            render={
-              <Button variant="outline">Open Sheet</Button>
-            }
-          />
-          <SheetPortal>
-            <SheetContent side="right">
-              <SheetHeader>
-                <SheetTitle>Mất Dark Mode!</SheetTitle>
-              </SheetHeader>
-            </SheetContent>
-          </SheetPortal>
-        </Sheet>
-      </div>
+        description="Cột trái dùng SheetPrimitive.Portal (Dialog primitive) trực tiếp — panel trắng toát. Cột phải dùng <SheetPortal> của thư viện là đúng màu ngay."
+        codeString={`// ❌ Base UI primitive Portal (Sheet dùng Dialog primitive của Base UI)
+import { Dialog as SheetPrimitive } from "@base-ui/react/dialog";
 
-      <div className="flex-1 flex flex-col items-center gap-4">
-        <span className="text-sm font-medium text-muted-foreground">
-          Có ThemeWrapper
-        </span>
-        <Sheet>
-          <SheetTrigger
-            render={
-              <Button variant="outline">Open Sheet</Button>
-            }
-          />
-          <SheetPortal>
-            <ThemeWrapper>
-              <SheetContent side="right">
-                <SheetHeader>
-                  <SheetTitle>Sheet Demo</SheetTitle>
-                </SheetHeader>
-                <div className="py-4">
-                  Màu tối đồng bộ hoàn hảo!
-                </div>
-              </SheetContent>
-            </ThemeWrapper>
-          </SheetPortal>
-        </Sheet>
-      </div>
-    </div>
-  </ThemeProvider>`}
+<ThemeProvider defaultMode="dark">
+  <SheetPrimitive.Root>
+    <SheetPrimitive.Trigger>Open Sheet</SheetPrimitive.Trigger>
+    <SheetPrimitive.Portal>
+      {/* Không có ThemeWrapper → sheet trắng */}
+      <SheetPrimitive.Popup>...</SheetPrimitive.Popup>
+    </SheetPrimitive.Portal>
+  </SheetPrimitive.Root>
+</ThemeProvider>
+
+// ✅ Library Portal
+<ThemeProvider defaultMode="dark">
+  <Sheet>
+    <SheetTrigger render={<Button>Open Sheet</Button>} />
+    <SheetPortal>
+      {/* ← ThemeWrapper đã được bọc bên trong SheetPortal */}
+      <SheetContent side="right">...</SheetContent>
+    </SheetPortal>
+  </Sheet>
+</ThemeProvider>`}
       >
         <ThemeProvider defaultMode="dark">
           <div className="w-full flex gap-10 rounded-xl border border-border bg-background p-10">
             <div className="flex-1 flex flex-col items-center gap-4">
               <span className="text-sm font-medium text-muted-foreground">
-                Không dùng ThemeWrapper
+                ❌ Base UI Primitive Portal
+              </span>
+              <SheetPrimitive.Root>
+                <SheetPrimitive.Trigger
+                  render={<Button variant="outline">Open Sheet</Button>}
+                />
+                <SheetPrimitive.Portal>
+                  <SheetPrimitive.Backdrop className="fixed inset-0 bg-black/20 z-40" />
+                  <SheetPrimitive.Popup className="fixed right-0 top-0 z-50 h-full w-3/4 max-w-sm border-l border-border bg-card text-card-foreground p-6 shadow-lg">
+                    <SheetPrimitive.Title className="text-lg font-semibold">
+                      Mất Dark Mode!
+                    </SheetPrimitive.Title>
+                    <SheetPrimitive.Close
+                      render={
+                        <Button variant="ghost" size="sm" className="mt-4">
+                          Đóng
+                        </Button>
+                      }
+                    />
+                  </SheetPrimitive.Popup>
+                </SheetPrimitive.Portal>
+              </SheetPrimitive.Root>
+            </div>
+
+            <div className="flex-1 flex flex-col items-center gap-4">
+              <span className="text-sm font-medium text-muted-foreground">
+                ✅ Library Portal (auto ThemeWrapper)
               </span>
               <Sheet>
                 <SheetTrigger
@@ -858,30 +730,10 @@ function ThemeProviderMicroShowcase() {
                 <SheetPortal>
                   <SheetContent side="right">
                     <SheetHeader>
-                      <SheetTitle>Mất Dark Mode!</SheetTitle>
+                      <SheetTitle>Sheet Demo</SheetTitle>
                     </SheetHeader>
+                    <div className="py-4">Màu tối đồng bộ hoàn hảo!</div>
                   </SheetContent>
-                </SheetPortal>
-              </Sheet>
-            </div>
-
-            <div className="flex-1 flex flex-col items-center gap-4">
-              <span className="text-sm font-medium text-muted-foreground">
-                Có ThemeWrapper
-              </span>
-              <Sheet>
-                <SheetTrigger
-                  render={<Button variant="outline">Open Sheet</Button>}
-                />
-                <SheetPortal>
-                  <ThemeWrapper>
-                    <SheetContent side="right">
-                      <SheetHeader>
-                        <SheetTitle>Sheet Demo</SheetTitle>
-                      </SheetHeader>
-                      <div className="py-4">Màu tối đồng bộ hoàn hảo!</div>
-                    </SheetContent>
-                  </ThemeWrapper>
                 </SheetPortal>
               </Sheet>
             </div>
@@ -899,7 +751,7 @@ export default function ThemeProviderShowcase() {
   return (
     <Showcase
       title="Theme Provider"
-      description="Context provider cho light/dark mode — uncontrolled (defaultMode) hoặc controlled (mode + onModeChange). Portal-safe qua ThemeWrapper."
+      description="Context provider cho light/dark mode — uncontrolled (defaultMode) hoặc controlled (mode + onModeChange). Portal-safe qua ThemeWrapper tích hợp tự động từ v0.2.20."
       generalConcept={
         <ShowcaseDocs>
           <DocsH3>ThemeProvider</DocsH3>
@@ -907,41 +759,37 @@ export default function ThemeProviderShowcase() {
             <DocsCode>ThemeProvider</DocsCode> bọc children trong một{" "}
             <DocsCode>{"div[display:contents]"}</DocsCode> và gắn class{" "}
             <DocsCode>light</DocsCode> hoặc <DocsCode>dark</DocsCode> lên đó,
-            kích hoạt CSS variable cascade mà không ảnh hưởng layout. Hỗ trợ hai
-            chế độ: <strong>Uncontrolled</strong> (truyền{" "}
+            kích hoạt CSS variable cascade mà không ảnh hưởng layout. Hỗ trợ
+            hai chế độ: <strong>Uncontrolled</strong> (truyền{" "}
             <DocsCode>defaultMode</DocsCode> — tự quản lý state) và{" "}
             <strong>Controlled</strong> (truyền <DocsCode>mode</DocsCode> +{" "}
             <DocsCode>onModeChange</DocsCode> — state do component cha sở hữu).
             Việc đọc localStorage hoặc system preference thuộc về tầng Macro.
           </DocsP>
 
-          <DocsH3>ThemeWrapper &amp; Portal — Hard Requirement</DocsH3>
+          <DocsH3>ThemeWrapper &amp; Portal — Tích hợp tự động từ v0.2.20</DocsH3>
           <DocsP>
             CSS variable cascade theo <strong>DOM tree</strong>, không theo
             React component tree. Khi một component render qua Portal (ra{" "}
             <DocsCode>document.body</DocsCode>), nó thoát khỏi hoàn toàn chuỗi
             DOM ancestry — không còn tổ tiên nào mang class{" "}
-            <DocsCode>.dark</DocsCode>, và mọi CSS variable rơi thẳng về giá trị{" "}
-            <DocsCode>:root</DocsCode> (thường là light).
+            <DocsCode>.dark</DocsCode>, và mọi CSS variable rơi thẳng về giá
+            trị <DocsCode>:root</DocsCode> (thường là light).
           </DocsP>
           <DocsP>
             <DocsCode>ThemeWrapper</DocsCode> giải quyết vấn đề này bằng cách
             đọc <DocsCode>useTheme()</DocsCode> và re-apply class theme vào một
             container mới ngay bên trong Portal — tái thiết lập CSS variable
-            cascade cho toàn bộ nội dung bên trong.{" "}
-            <strong>
-              Đây không phải best practice tuỳ chọn — đây là yêu cầu bắt buộc
-            </strong>{" "}
-            khi dùng Portal trong bất kỳ scoped theme section nào. Bỏ qua{" "}
-            <DocsCode>ThemeWrapper</DocsCode> sẽ không gây lỗi compile hay
-            runtime warning, nhưng UI sẽ hiển thị sai màu âm thầm.
+            cascade cho toàn bộ nội dung bên trong.
           </DocsP>
           <DocsP>
-            Trách nhiệm đặt <DocsCode>ThemeWrapper</DocsCode> không thể delegate
-            tuỳ tiện: Micro component không được tự ôm nó bên trong (vi phạm
-            nguyên tắc pure composition). Tầng nào kiểm soát Portal — Macro
-            component hoặc consumer trực tiếp — tầng đó phải tự đặt{" "}
-            <DocsCode>ThemeWrapper</DocsCode> ngay sau Portal boundary.
+            <strong>Kể từ v0.2.20</strong>, tất cả{" "}
+            <DocsCode>*Portal</DocsCode> components của thư viện (DialogPortal,
+            PopoverPortal, TooltipPortal, SelectPortal, DropdownMenuPortal,
+            SheetPortal...) đã bọc sẵn <DocsCode>ThemeWrapper</DocsCode> bên
+            trong. <strong>Bạn không cần tự bọc nữa.</strong> Nếu bạn bypass
+            thư viện và dùng Base UI primitive Portal trực tiếp, vấn đề vẫn xảy
+            ra — demo bên dưới minh hoạ chính xác điều này.
           </DocsP>
         </ShowcaseDocs>
       }

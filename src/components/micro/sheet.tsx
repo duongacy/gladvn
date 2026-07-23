@@ -14,6 +14,7 @@ import { XIcon } from "lucide-react";
 
 import { Button } from "../../components/micro/button";
 import { cn } from "../../lib/utils";
+import { ThemeWrapper } from "./theme-provider";
 
 function Sheet({ ...props }: SheetPrimitive.Root.Props) {
   return <SheetPrimitive.Root data-slot="sheet" {...props} />;
@@ -27,7 +28,15 @@ function SheetClose({ ...props }: SheetPrimitive.Close.Props) {
   return <SheetPrimitive.Close data-slot="sheet-close" {...props} />;
 }
 
-const SheetPortal = SheetPrimitive.Portal;
+const SheetPortal = ({
+  children,
+  ...props
+}: React.ComponentProps<typeof SheetPrimitive.Portal>) => (
+  <SheetPrimitive.Portal {...props}>
+    <ThemeWrapper>{children}</ThemeWrapper>
+  </SheetPrimitive.Portal>
+);
+SheetPortal.displayName = "SheetPortal";
 
 function SheetOverlay({ className, ...props }: SheetPrimitive.Backdrop.Props) {
   return (

@@ -13,6 +13,7 @@ import { ContextMenu as ContextMenuPrimitive } from "@base-ui/react/context-menu
 import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react";
 
 import { cn } from "../../lib/utils";
+import { ThemeWrapper } from "./theme-provider";
 
 type ContextMenuVariant = "destructive";
 
@@ -32,7 +33,14 @@ function ContextMenu({ ...props }: ContextMenuPrimitive.Root.Props) {
 }
 ContextMenu.displayName = "ContextMenu";
 
-const ContextMenuPortal = ContextMenuPrimitive.Portal;
+const ContextMenuPortal = ({
+  children,
+  ...props
+}: React.ComponentProps<typeof ContextMenuPrimitive.Portal>) => (
+  <ContextMenuPrimitive.Portal {...props}>
+    <ThemeWrapper>{children}</ThemeWrapper>
+  </ContextMenuPrimitive.Portal>
+);
 ContextMenuPortal.displayName = "ContextMenuPortal";
 
 const ContextMenuTrigger = React.forwardRef<

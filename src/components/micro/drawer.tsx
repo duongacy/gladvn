@@ -14,6 +14,7 @@ import type {} from "@radix-ui/react-dialog";
 import { Drawer as DrawerPrimitive } from "vaul";
 
 import { cn } from "../../lib/utils";
+import { ThemeWrapper } from "./theme-provider";
 
 function Drawer({
   ...props
@@ -30,7 +31,15 @@ const DrawerTrigger = React.forwardRef<
 ));
 DrawerTrigger.displayName = "DrawerTrigger";
 
-const DrawerPortal = DrawerPrimitive.Portal;
+const DrawerPortal = ({
+  children,
+  ...props
+}: React.ComponentProps<typeof DrawerPrimitive.Portal>) => (
+  <DrawerPrimitive.Portal {...props}>
+    <ThemeWrapper>{children}</ThemeWrapper>
+  </DrawerPrimitive.Portal>
+);
+DrawerPortal.displayName = "DrawerPortal";
 
 const DrawerClose = React.forwardRef<
   React.ElementRef<typeof DrawerPrimitive.Close>,

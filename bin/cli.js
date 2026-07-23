@@ -257,21 +257,31 @@ async function main() {
       if (fs.existsSync(tsconfigPath)) {
         let tsContent = fs.readFileSync(tsconfigPath, 'utf8');
         const aliasPath = `./${userDest}/*`;
+        const rootAliasPath = `./${userDest}`;
 
         if (tsContent.includes('"@gladvn/*"')) {
-          console.log(`\x1b[90m⏭  @gladvn/* alias already exists in tsconfig.json\x1b[0m`);
+          if (!tsContent.includes(`"@gladvn":`)) {
+            const aliasRegex = /"@gladvn\/\*"\s*:/;
+            if (aliasRegex.test(tsContent)) {
+              tsContent = tsContent.replace(aliasRegex, `"@gladvn": ["${rootAliasPath}"],\n      "@gladvn/*":`);
+              fs.writeFileSync(tsconfigPath, tsContent);
+              console.log(`\x1b[32m✔ Injected @gladvn alias alongside existing @gladvn/*\x1b[0m`);
+            }
+          } else {
+            console.log(`\x1b[90m⏭  @gladvn aliases already exist in tsconfig.json\x1b[0m`);
+          }
         } else {
           const pathsRegex = /"paths"\s*:\s*\{/;
           if (pathsRegex.test(tsContent)) {
-            tsContent = tsContent.replace(pathsRegex, `"paths": {\n      "@gladvn/*": ["${aliasPath}"],`);
+            tsContent = tsContent.replace(pathsRegex, `"paths": {\n      "@gladvn": ["${rootAliasPath}"],\n      "@gladvn/*": ["${aliasPath}"],`);
             fs.writeFileSync(tsconfigPath, tsContent);
-            console.log(`\x1b[32m✔ Injected @gladvn/* alias into existing paths\x1b[0m`);
+            console.log(`\x1b[32m✔ Injected @gladvn alias into existing paths\x1b[0m`);
           } else {
             const compilerOptionsRegex = /"compilerOptions"\s*:\s*\{/;
             if (compilerOptionsRegex.test(tsContent)) {
-              tsContent = tsContent.replace(compilerOptionsRegex, `"compilerOptions": {\n    "paths": {\n      "@gladvn/*": ["${aliasPath}"]\n    },`);
+              tsContent = tsContent.replace(compilerOptionsRegex, `"compilerOptions": {\n    "paths": {\n      "@gladvn": ["${rootAliasPath}"],\n      "@gladvn/*": ["${aliasPath}"]\n    },`);
               fs.writeFileSync(tsconfigPath, tsContent);
-              console.log(`\x1b[32m✔ Injected paths object and @gladvn/* alias\x1b[0m`);
+              console.log(`\x1b[32m✔ Injected paths object and @gladvn alias\x1b[0m`);
             } else {
               console.log(`\x1b[33m⚠ Could not find compilerOptions in tsconfig.json. Please add manually.\x1b[0m`);
             }

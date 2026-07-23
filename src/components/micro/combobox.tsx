@@ -22,6 +22,7 @@ import { CheckIcon, ChevronDownIcon, XIcon } from "lucide-react";
 
 import { InputGroupButton } from "../../components/micro/input-group";
 import { cn } from "../../lib/utils";
+import { ThemeWrapper } from "./theme-provider";
 
 const ComboboxContext = React.createContext<{
   anchor: Element | null;
@@ -232,7 +233,15 @@ function ComboboxSeparator({
   );
 }
 
-const ComboboxPortal = ComboboxPrimitive.Portal;
+const ComboboxPortal = ({
+  children,
+  ...props
+}: React.ComponentProps<typeof ComboboxPrimitive.Portal>) => (
+  <ComboboxPrimitive.Portal {...props}>
+    <ThemeWrapper>{children}</ThemeWrapper>
+  </ComboboxPrimitive.Portal>
+);
+ComboboxPortal.displayName = "ComboboxPortal";
 
 const comboboxChipsVariants = cva(
   "group/combobox-chips flex flex-wrap items-center gap-1 rounded-lg border border-input bg-transparent bg-clip-padding transition-colors focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/50 has-aria-invalid:border-destructive has-aria-invalid:focus-within:ring-3 has-aria-invalid:focus-within:ring-destructive/20 has-[[data-slot=combobox-chip]]:px-1 dark:bg-input/30 dark:has-aria-invalid:border-destructive/50 dark:has-aria-invalid:focus-within:ring-destructive/40 has-disabled:opacity-50 has-disabled:cursor-not-allowed has-disabled:pointer-events-none",

@@ -1078,7 +1078,7 @@ export default function OverviewSection() {
             className="mt-4 rounded-full"
             render={
               <a
-                href="https://github.com/duongacy/gladcn"
+                href="https://github.com/duongacy/gladvn"
                 target="_blank"
                 rel="noreferrer"
               />
@@ -1122,7 +1122,7 @@ export default function OverviewSection() {
               <Button
                 render={
                   <a
-                    href="https://github.com/duongacy/gladcn"
+                    href="https://github.com/duongacy/gladvn"
                     target="_blank"
                     rel="noreferrer"
                   />

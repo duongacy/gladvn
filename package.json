@@ -15,7 +15,7 @@
   "homepage": "https://gladvn.vercel.app",
   "repository": {
     "type": "git",
-    "url": "https://github.com/duongacy/gladcn"
+    "url": "https://github.com/duongacy/gladvn"
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",

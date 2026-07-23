@@ -23,11 +23,11 @@ Designed with strict architectural principles, `gladvn` is optimized not just fo
 ## 🚀 Installation
 
 > [!WARNING]  
-> **Please use `npx` to clone the components into your project instead of installing via `npm`.** While installing via `npm` works, using `npx` (Option 1) gives you full control over the source code and styling, which is the core philosophy and intended way to use this library.
+> **Please use `npx` to clone the components into your project.** Installing via `npm` is no longer supported. Using `npx` gives you full control over the source code and styling, which is the core philosophy and intended way to use this library.
 
-There are two ways to use `gladvn` in your project. We highly recommend **Option 1** for maximum flexibility.
+We highly recommend using the CLI to initialize components for maximum flexibility.
 
-### Option 1: Clone components to your project (Recommended)
+### Installation
 
 This approach automatically copies all component source code, hooks, and styles directly into your project. You own the code, you can freely modify it, and the CLI will automatically install necessary peer dependencies for you!
 
@@ -46,31 +46,7 @@ npx gladvn init components/ui
 import { Button } from "@/gladvn/components/micro/button";
 ```
 
-### Option 2: Install as an npm package
 
-If you prefer to use the pre-built components without cluttering your repository with source code, install it via npm:
-
-```bash
-npm install gladvn
-```
-
-**Setup Tailwind CSS v4:**
-Update your main CSS file to scan the library for Tailwind utility classes and import its CSS variables:
-
-```css
-@import "tailwindcss";
-
-/* 1. Tell Tailwind to scan gladvn for utility classes */
-@source "../node_modules/gladvn/dist";
-
-/* 2. Import gladvn global CSS variables */
-@import "gladvn/gladvn.css";
-```
-
-**Usage:**
-```tsx
-import { Button, Card, CardHeader, CardTitle, CardContent } from "gladvn";
-```
 
 ---
 

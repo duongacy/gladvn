@@ -11,6 +11,7 @@ Designed with strict architectural principles, `gladvn` is optimized not just fo
 ## ✨ Key Features
 
 - **Micro & Macro Architecture**: Cleanly separates primitive UI elements (Micro) from complex, stateful, composite components (Macro).
+- **Zero-Portal API**: Say goodbye to manual `ThemeWrapper` and `*Portal` imports. Overlays (Dialog, Tooltip, Select) automatically tunnel the theme and manage portals out of the box.
 - **Zero "Magic CSS"**: No arbitrary deep descendant overrides (`[&_p]`, `has-[>div]`). Styling is predictable, slot-based, and relies on strict data-attributes (e.g., `data-active`, `data-disabled`).
 - **Tailwind CSS v4 Ready**: Fully compatible with the modern `@tailwindcss/postcss` and `@tailwindcss/vite` ecosystem.
 - **Copy-Paste or Install**: Choose between cloning the source code directly into your repo (the shadcn way) or installing it as a standard npm dependency.

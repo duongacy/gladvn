@@ -18,23 +18,20 @@ import {
   ComboboxItem,
   ComboboxLabel,
   ComboboxList,
-  ComboboxPortal,
+  
   ComboboxSeparator,
   ComboboxTrigger,
-  ComboboxValue,
-} from "../../components/micro/combobox";
+  ComboboxValue } from "../../components/micro/combobox";
 import {
   Field,
   FieldContent,
   FieldDescription,
   FieldError,
-  FieldLabel,
-} from "../../components/micro/field";
+  FieldLabel } from "../../components/micro/field";
 import {
   InputGroup,
   InputGroupAddon,
-  InputGroupInput,
-} from "../../components/micro/input-group";
+  InputGroupInput } from "../../components/micro/input-group";
 import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsCode,
@@ -42,8 +39,7 @@ import {
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+  ShowcaseDocs } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 const frontendFrameworks = ["react", "vue", "svelte"];
@@ -56,15 +52,13 @@ const engineItems = ["v8", "spidermonkey"];
 // RHF Form Demo (Macro)
 // ──────────────────────────────────────────────────────────
 const formSchema = z.object({
-  framework: z.string().min(1, "Vui lòng chọn một framework."),
-});
+  framework: z.string().min(1, "Vui lòng chọn một framework.") });
 type FormValues = z.infer<typeof formSchema>;
 
 function ComboboxForm({ size }: { size: Size }) {
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
-    defaultValues: { framework: "" },
-  });
+    defaultValues: { framework: "" } });
 
   return (
     <form
@@ -106,8 +100,7 @@ const rhfCode = `const formSchema = z.object({ framework: z.string().min(1, "B�
 function ComboboxForm({ size }: { size: Size }) {
   const form = useForm({
     resolver: zodResolver(formSchema),
-    defaultValues: { framework: "" },
-  });
+    defaultValues: { framework: "" } });
 
   return (
     <form onSubmit={form.handleSubmit(console.log)} className="space-y-6">
@@ -248,8 +241,7 @@ function ComboboxMacroShowcase({ globalSize }: { globalSize: Size }) {
     emptyText="Không tìm thấy múi giờ."
     options={Array.from({ length: 50 }).map((_, i) => ({
       value: \`utc\${i - 12}\`,
-      label: \`UTC \${i - 12 > 0 ? "+" : ""}\${i - 12}:00\`,
-    }))}
+      label: \`UTC \${i - 12 > 0 ? "+" : ""}\${i - 12}:00\` }))}
   />`}
         >
           <ComboboxPreset
@@ -261,8 +253,7 @@ function ComboboxMacroShowcase({ globalSize }: { globalSize: Size }) {
             emptyText="Không tìm thấy múi giờ."
             options={Array.from({ length: 50 }).map((_, i) => ({
               value: `utc${i - 12}`,
-              label: `UTC ${i - 12 > 0 ? "+" : ""}${i - 12}:00`,
-            }))}
+              label: `UTC ${i - 12 > 0 ? "+" : ""}${i - 12}:00` }))}
           />
         </ExampleSection>
       </ExampleGrid>
@@ -306,7 +297,7 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
             </InputGroupAddon>
           </InputGroup>
         </ComboboxAnchor>
-        <ComboboxPortal>
+        
           <ComboboxContent>
             <ComboboxEmpty>Không tìm thấy.</ComboboxEmpty>
             <ComboboxList>
@@ -332,7 +323,7 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
               </ComboboxGroup>
             </ComboboxList>
           </ComboboxContent>
-        </ComboboxPortal>
+        
       </Combobox>
     </FieldContent>
   </Field>`}
@@ -354,7 +345,6 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
                   </InputGroup>
                 </ComboboxAnchor>
 
-                <ComboboxPortal>
                   <ComboboxContent>
                     <ComboboxEmpty>Không tìm thấy.</ComboboxEmpty>
                     <ComboboxList>
@@ -372,7 +362,7 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
                       </ComboboxGroup>
                     </ComboboxList>
                   </ComboboxContent>
-                </ComboboxPortal>
+                
               </Combobox>
             </FieldContent>
           </Field>
@@ -392,7 +382,7 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
           </ComboboxChip>
           <ComboboxChipsInput placeholder="Thêm thẻ..." />
         </ComboboxChips>
-        <ComboboxPortal>
+        
           <ComboboxContent>
             <ComboboxEmpty>
               Không tìm thấy thẻ.
@@ -412,7 +402,7 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
               </ComboboxItem>
             </ComboboxList>
           </ComboboxContent>
-        </ComboboxPortal>
+        
       </Combobox>
     </FieldContent>
     <FieldDescription>
@@ -432,7 +422,6 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
                   <ComboboxChipsInput placeholder="Thêm thẻ..." />
                 </ComboboxChips>
 
-                <ComboboxPortal>
                   <ComboboxContent>
                     <ComboboxEmpty>Không tìm thấy thẻ.</ComboboxEmpty>
                     <ComboboxList>
@@ -444,7 +433,7 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
                       <ComboboxItem value="docs">Tài liệu</ComboboxItem>
                     </ComboboxList>
                   </ComboboxContent>
-                </ComboboxPortal>
+                
               </Combobox>
             </FieldContent>
             <FieldDescription>
@@ -477,7 +466,7 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
             </InputGroupAddon>
           </InputGroup>
         </ComboboxAnchor>
-        <ComboboxPortal>
+        
           <ComboboxContent>
             <ComboboxList>
               <ComboboxItem value="react">
@@ -485,7 +474,7 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
               </ComboboxItem>
             </ComboboxList>
           </ComboboxContent>
-        </ComboboxPortal>
+        
       </Combobox>
     </FieldContent>
   </Field>`}
@@ -510,13 +499,12 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
                   </InputGroup>
                 </ComboboxAnchor>
 
-                <ComboboxPortal>
                   <ComboboxContent>
                     <ComboboxList>
                       <ComboboxItem value="react">React</ComboboxItem>
                     </ComboboxList>
                   </ComboboxContent>
-                </ComboboxPortal>
+                
               </Combobox>
             </FieldContent>
           </Field>
@@ -542,7 +530,7 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
             </InputGroupAddon>
           </InputGroup>
         </ComboboxAnchor>
-        <ComboboxPortal>
+        
           <ComboboxContent>
             <ComboboxEmpty>
               Không tìm thấy mã.
@@ -556,7 +544,7 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
               </ComboboxItem>
             </ComboboxList>
           </ComboboxContent>
-        </ComboboxPortal>
+        
       </Combobox>
     </FieldContent>
     <FieldError>Mã này đã hết hạn.</FieldError>
@@ -580,7 +568,6 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
                   </InputGroup>
                 </ComboboxAnchor>
 
-                <ComboboxPortal>
                   <ComboboxContent>
                     <ComboboxEmpty>Không tìm thấy mã.</ComboboxEmpty>
                     <ComboboxList>
@@ -588,7 +575,7 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
                       <ComboboxItem value="sale50">Giảm 50%</ComboboxItem>
                     </ComboboxList>
                   </ComboboxContent>
-                </ComboboxPortal>
+                
               </Combobox>
             </FieldContent>
             <FieldError>Mã này đã hết hạn.</FieldError>
@@ -607,7 +594,7 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
         <ComboboxTrigger className="w-full justify-between flex items-center border border-border rounded-md p-2 hover:bg-accent focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">
           <ComboboxValue placeholder="Chọn một engine" />
         </ComboboxTrigger>
-        <ComboboxPortal>
+        
           <ComboboxContent>
             <div className="p-1">
               <InputGroup className="w-full">
@@ -627,7 +614,7 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
               </ComboboxItem>
             </ComboboxList>
           </ComboboxContent>
-        </ComboboxPortal>
+        
       </Combobox>
     </FieldContent>
   </Field>`}
@@ -640,7 +627,6 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
                   <ComboboxValue placeholder="Chọn một engine" />
                 </ComboboxTrigger>
 
-                <ComboboxPortal>
                   <ComboboxContent>
                     <div className="p-1">
                       <InputGroup size={globalSize} className="w-full">
@@ -658,7 +644,7 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
                       </ComboboxItem>
                     </ComboboxList>
                   </ComboboxContent>
-                </ComboboxPortal>
+                
               </Combobox>
             </FieldContent>
           </Field>
@@ -838,12 +824,10 @@ export default function ComboboxShowcase() {
       tabs={[
         {
           label: "Micro (Primitive)",
-          content: <ComboboxMicroShowcase globalSize={globalSize} />,
-        },
+          content: <ComboboxMicroShowcase globalSize={globalSize} /> },
         {
           label: "Macro (Preset)",
-          content: <ComboboxMacroShowcase globalSize={globalSize} />,
-        },
+          content: <ComboboxMacroShowcase globalSize={globalSize} /> },
       ]}
     />
   );

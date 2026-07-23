@@ -15,23 +15,20 @@ import {
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+  ShowcaseDocs } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────
 // RHF Form Demo (Macro)
 // ──────────────────────────────────────────────────────────
 const formSchema = z.object({
-  notify: z.string().min(1, "Vui lòng chọn phương thức thông báo."),
-});
+  notify: z.string().min(1, "Vui lòng chọn phương thức thông báo.") });
 type FormValues = z.infer<typeof formSchema>;
 
 function RadioGroupForm({ size }: { size: Size }) {
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
-    defaultValues: { notify: "" },
-  });
+    defaultValues: { notify: "" } });
 
   return (
     <form
@@ -69,8 +66,7 @@ const rhfCode = `const formSchema = z.object({ notify: z.string().min(1, "Bắt 
 function RadioGroupForm({ size }: { size: Size }) {
   const form = useForm({
     resolver: zodResolver(formSchema),
-    defaultValues: { notify: "" },
-  });
+    defaultValues: { notify: "" } });
 
   return (
     <form onSubmit={form.handleSubmit(console.log)} className="space-y-6">
@@ -174,8 +170,7 @@ function RadioGroupMacroShowcase({ globalSize }: { globalSize: Size }) {
       {
         value: "system",
         label: "Theo hệ thống",
-        description: "Khuyên dùng để tiết kiệm pin",
-      },
+        description: "Khuyên dùng để tiết kiệm pin" },
     ]}
     defaultValue="system"
   />`}
@@ -191,8 +186,7 @@ function RadioGroupMacroShowcase({ globalSize }: { globalSize: Size }) {
               {
                 value: "system",
                 label: "Theo hệ thống",
-                description: "Khuyên dùng để tiết kiệm pin",
-              },
+                description: "Khuyên dùng để tiết kiệm pin" },
             ]}
             defaultValue="system"
           />
@@ -683,12 +677,10 @@ export default function RadioGroupShowcase() {
       tabs={[
         {
           label: "Micro (Primitive)",
-          content: <RadioGroupMicroShowcase globalSize={globalSize} />,
-        },
+          content: <RadioGroupMicroShowcase globalSize={globalSize} /> },
         {
           label: "Macro (Preset)",
-          content: <RadioGroupMacroShowcase globalSize={globalSize} />,
-        },
+          content: <RadioGroupMacroShowcase globalSize={globalSize} /> },
       ]}
     />
   );

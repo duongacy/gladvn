@@ -7,8 +7,7 @@ import {
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+  ShowcaseDocs } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────
@@ -120,8 +119,7 @@ export default function SpinnerShowcase() {
       tabs={[
         {
           label: "Micro (Primitive)",
-          content: <SpinnerMicroShowcase globalSize={globalSize} />,
-        },
+          content: <SpinnerMicroShowcase globalSize={globalSize} /> },
       ]}
     />
   );

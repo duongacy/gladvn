@@ -6,17 +6,15 @@ import {
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuPortal,
+  
   NavigationMenuPositioner,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from "../../components/micro/navigation-menu";
+  navigationMenuTriggerStyle } from "../../components/micro/navigation-menu";
 import {
   DocsP,
   ExampleSection,
   Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+  ShowcaseDocs } from "../../dev/components/showcase";
 import { cn } from "../../lib/utils";
 
 const ListItem = React.forwardRef<
@@ -147,9 +145,9 @@ function NavigationMenuMicroShowcase() {
         </NavigationMenuLink>
       </NavigationMenuItem>
     </NavigationMenuList>
-    <NavigationMenuPortal>
+    
       <NavigationMenuPositioner />
-    </NavigationMenuPortal>
+    
   </NavigationMenu>`}
       >
         <NavigationMenu>
@@ -233,9 +231,9 @@ function NavigationMenuMicroShowcase() {
               </NavigationMenuLink>
             </NavigationMenuItem>
           </NavigationMenuList>
-          <NavigationMenuPortal>
+          
             <NavigationMenuPositioner />
-          </NavigationMenuPortal>
+          
         </NavigationMenu>
       </ExampleSection>
 
@@ -255,9 +253,9 @@ function NavigationMenuMicroShowcase() {
         </NavigationMenuContent>
       </NavigationMenuItem>
     </NavigationMenuList>
-    <NavigationMenuPortal>
+    
       <NavigationMenuPositioner />
-    </NavigationMenuPortal>
+    
   </NavigationMenu>`}
       >
         <NavigationMenu>
@@ -272,9 +270,9 @@ function NavigationMenuMicroShowcase() {
               </NavigationMenuContent>
             </NavigationMenuItem>
           </NavigationMenuList>
-          <NavigationMenuPortal>
+          
             <NavigationMenuPositioner />
-          </NavigationMenuPortal>
+          
         </NavigationMenu>
       </ExampleSection>
     </div>
@@ -301,8 +299,7 @@ export default function NavigationMenuShowcase() {
       tabs={[
         {
           label: "Micro (Primitive)",
-          content: <NavigationMenuMicroShowcase />,
-        },
+          content: <NavigationMenuMicroShowcase /> },
       ]}
     />
   );

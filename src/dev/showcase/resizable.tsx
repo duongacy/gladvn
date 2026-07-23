@@ -1,16 +1,14 @@
 import {
   ResizableHandle,
   ResizablePanel,
-  ResizablePanelGroup,
-} from "../../components/micro/resizable";
+  ResizablePanelGroup } from "../../components/micro/resizable";
 import {
   DocsCode,
   DocsP,
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+  ShowcaseDocs } from "../../dev/components/showcase";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Micro Content

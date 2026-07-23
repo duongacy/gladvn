@@ -15,32 +15,28 @@ import {
   PaletteIcon,
   ShieldCheckIcon,
   SlidersHorizontalIcon,
-  SparklesIcon,
-} from "lucide-react";
+  SparklesIcon } from "lucide-react";
 import { toast } from "sonner";
 
 import { ProgressPreset as Progress } from "../../components/macro/progress-preset";
 import {
   Avatar,
   AvatarFallback,
-  AvatarImage,
-} from "../../components/micro/avatar";
+  AvatarImage } from "../../components/micro/avatar";
 import { Button } from "../../components/micro/button";
 import {
   Card,
   CardContent,
   CardHeader,
-  CardTitle,
-} from "../../components/micro/card";
+  CardTitle } from "../../components/micro/card";
 import { Label } from "../../components/micro/label";
 import {
   Select,
   SelectContent,
   SelectItem,
-  SelectPortal,
+  
   SelectTrigger,
-  SelectValue,
-} from "../../components/micro/select";
+  SelectValue } from "../../components/micro/select";
 import { Switch } from "../../components/micro/switch";
 import { ColorSwatch } from "../../dev/components/showcase";
 import { COLORS, STATS } from "../../dev/data";
@@ -49,8 +45,7 @@ import { cn } from "../../lib/utils";
 function CodeBlock({
   type,
   title,
-  children,
-}: {
+  children }: {
   type: "success" | "destructive";
   title: string;
   children: React.ReactNode;
@@ -218,7 +213,7 @@ export default function OverviewSection() {
                     <SelectTrigger className="w-full bg-background/50">
                       <SelectValue placeholder="Chọn vùng" />
                     </SelectTrigger>
-                    <SelectPortal>
+                    
                       <SelectContent>
                         <SelectItem value="edge">
                           Edge Network (Toàn cầu)
@@ -230,7 +225,7 @@ export default function OverviewSection() {
                           AP South East (Sing)
                         </SelectItem>
                       </SelectContent>
-                    </SelectPortal>
+                    
                   </Select>
                 </div>
               </div>
@@ -956,20 +951,14 @@ export default function OverviewSection() {
             </h3>
             <p className="text-muted-foreground text-xl leading-relaxed">
               Dark section bên trong Light app? Dễ. Nhưng khi Tooltip hay Dialog
-              render qua Portal — chúng thoát khỏi DOM tree và{" "}
+              render nổi qua cơ chế Portaling — chúng thoát khỏi DOM tree hiện tại và{" "}
               <strong className="text-foreground">mất theme</strong>. Hầu hết
               thư viện bỏ cuộc ở đây.
             </p>
             <p className="text-muted-foreground text-xl leading-relaxed">
-              gladvn dùng{" "}
-              <code className="text-sm bg-warning/20 text-warning px-1.5 py-0.5 rounded">
-                {"<ThemeWrapper>"}
-              </code>{" "}
-              để tunnel theme xuyên qua Portal boundary.{" "}
-              <strong className="text-foreground">
-                Dialog, Tooltip, Select... luôn đúng màu, dù render ở đâu trong
-                DOM.
-              </strong>
+              Nhưng hiện tại thư viện đã áp dụng <strong>Zero-Portal API</strong> (kể từ v0.2.20).
+              Bạn không cần phải import <code className="text-sm bg-warning/20 text-warning px-1.5 py-0.5 rounded">ThemeWrapper</code> hay <code className="text-sm bg-warning/20 text-warning px-1.5 py-0.5 rounded">*Portal</code> nữa.
+              Toàn bộ logic portaling và ThemeWrapper đã được nhúng sẵn vào trong các <code className="text-sm bg-warning/20 text-warning px-1.5 py-0.5 rounded">*Content</code> components (VD: <code className="text-sm bg-warning/20 text-warning px-1.5 py-0.5 rounded">DialogContent</code>, <code className="text-sm bg-warning/20 text-warning px-1.5 py-0.5 rounded">TooltipContent</code>).
             </p>
           </div>
 
@@ -1033,8 +1022,7 @@ export default function OverviewSection() {
                 className="animate-fade-up"
                 style={{
                   animationDelay: `${i * 50}ms`,
-                  animationFillMode: "both",
-                }}
+                  animationFillMode: "both" }}
               >
                 <ColorSwatch color={c} />
               </div>
@@ -1058,8 +1046,7 @@ export default function OverviewSection() {
                 name: "Ý Le",
                 role: "Creator & Maintainer",
                 avatar: "https://github.com/duongacy.png",
-                url: "https://github.com/duongacy",
-              },
+                url: "https://github.com/duongacy" },
             ].map((user) => (
               <a
                 key={user.name}

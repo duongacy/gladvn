@@ -37,15 +37,7 @@ function AlertDialogClose({ ...props }: AlertDialogPrimitive.Close.Props) {
   );
 }
 
-const AlertDialogPortal = ({
-  children,
-  ...props
-}: React.ComponentProps<typeof AlertDialogPrimitive.Portal>) => (
-  <AlertDialogPrimitive.Portal {...props}>
-    <ThemeWrapper>{children}</ThemeWrapper>
-  </AlertDialogPrimitive.Portal>
-);
-AlertDialogPortal.displayName = "AlertDialogPortal";
+
 
 function AlertDialogOverlay({
   className,
@@ -63,17 +55,18 @@ function AlertDialogOverlay({
   );
 }
 
-function AlertDialogContent({
-  className,
-  size = "md",
-  ...props
-}: AlertDialogPrimitive.Popup.Props & {
-  size?: Size;
-}) {
-  return (
-    <>
+const AlertDialogContent = React.forwardRef<
+  HTMLDivElement,
+  React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Popup> & {
+    container?: React.ComponentProps<typeof AlertDialogPrimitive.Portal>["container"];
+    size?: Size;
+  }
+>(({ className, container, size = "md", ...props }, ref) => (
+  <AlertDialogPrimitive.Portal container={container}>
+    <ThemeWrapper>
       <AlertDialogOverlay />
       <AlertDialogPrimitive.Popup
+        ref={ref}
         data-slot="alert-dialog-content"
         data-size={size}
         className={cn(
@@ -86,9 +79,10 @@ function AlertDialogContent({
         )}
         {...props}
       />
-    </>
-  );
-}
+    </ThemeWrapper>
+  </AlertDialogPrimitive.Portal>
+));
+AlertDialogContent.displayName = "AlertDialogContent";
 
 function AlertDialogHeader({
   className,
@@ -217,7 +211,6 @@ export {
   AlertDialogHeader,
   AlertDialogMedia,
   AlertDialogOverlay,
-  AlertDialogPortal,
   AlertDialogTitle,
   AlertDialogTrigger,
 };

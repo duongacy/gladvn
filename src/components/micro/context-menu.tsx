@@ -33,15 +33,7 @@ function ContextMenu({ ...props }: ContextMenuPrimitive.Root.Props) {
 }
 ContextMenu.displayName = "ContextMenu";
 
-const ContextMenuPortal = ({
-  children,
-  ...props
-}: React.ComponentProps<typeof ContextMenuPrimitive.Portal>) => (
-  <ContextMenuPrimitive.Portal {...props}>
-    <ThemeWrapper>{children}</ThemeWrapper>
-  </ContextMenuPrimitive.Portal>
-);
-ContextMenuPortal.displayName = "ContextMenuPortal";
+
 
 const ContextMenuTrigger = React.forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.Trigger>,
@@ -56,39 +48,56 @@ const ContextMenuTrigger = React.forwardRef<
 ));
 ContextMenuTrigger.displayName = "ContextMenuTrigger";
 
-function ContextMenuContent({
-  className,
-  align = "start",
-  alignOffset = 4,
-  side = "right",
-  sideOffset = 0,
-  ...props
-}: ContextMenuPrimitive.Popup.Props &
-  Pick<
-    ContextMenuPrimitive.Positioner.Props,
-    "align" | "alignOffset" | "side" | "sideOffset"
-  >) {
-  return (
-    <>
-      <ContextMenuPrimitive.Positioner
-        className="isolate z-50 outline-none"
-        align={align}
-        alignOffset={alignOffset}
-        side={side}
-        sideOffset={sideOffset}
-      >
-        <ContextMenuPrimitive.Popup
-          data-slot="context-menu-content"
-          className={cn(
-            "z-50 max-h-(--available-height) min-w-36 origin-(--transform-origin) overflow-x-hidden overflow-y-auto rounded-lg bg-popover p-1 text-popover-foreground shadow-md ring-1 ring-foreground/10 duration-100 outline-none data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
-            className,
-          )}
-          {...props}
-        />
-      </ContextMenuPrimitive.Positioner>
-    </>
-  );
-}
+const ContextMenuContent = React.forwardRef<
+  HTMLDivElement,
+  React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.Popup> &
+    Pick<
+      React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.Positioner>,
+      "align" | "alignOffset" | "side" | "sideOffset"
+    > & {
+      container?: React.ComponentProps<typeof ContextMenuPrimitive.Portal>["container"];
+    }
+>(
+  (
+    {
+      className,
+      align = "start",
+      alignOffset = 0,
+      side = "right",
+      sideOffset = 4,
+      container,
+      children,
+      ...props
+    },
+    ref,
+  ) => {
+    return (
+      <ContextMenuPrimitive.Portal container={container}>
+        <ThemeWrapper>
+          <ContextMenuPrimitive.Positioner
+            align={align}
+            alignOffset={alignOffset}
+            side={side}
+            sideOffset={sideOffset}
+            className="isolate z-50 outline-none"
+          >
+            <ContextMenuPrimitive.Popup
+              ref={ref}
+              data-slot="context-menu-content"
+              className={cn(
+                "z-50 min-w-[8rem] origin-(--transform-origin) overflow-hidden rounded-lg border bg-popover p-1 text-popover-foreground shadow-md duration-100 data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
+                className,
+              )}
+              {...props}
+            >
+              {children}
+            </ContextMenuPrimitive.Popup>
+          </ContextMenuPrimitive.Positioner>
+        </ThemeWrapper>
+      </ContextMenuPrimitive.Portal>
+    );
+  },
+);
 ContextMenuContent.displayName = "ContextMenuContent";
 
 function ContextMenuGroup({ ...props }: ContextMenuPrimitive.Group.Props) {
@@ -282,7 +291,6 @@ export {
   ContextMenuGroup,
   ContextMenuItem,
   ContextMenuLabel,
-  ContextMenuPortal,
   ContextMenuRadioGroup,
   ContextMenuRadioItem,
   ContextMenuSeparator,

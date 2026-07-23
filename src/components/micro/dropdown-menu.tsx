@@ -22,15 +22,7 @@ function DropdownMenu({ ...props }: MenuPrimitive.Root.Props) {
 }
 DropdownMenu.displayName = "DropdownMenu";
 
-const DropdownMenuPortal = ({
-  children,
-  ...props
-}: React.ComponentProps<typeof MenuPrimitive.Portal>) => (
-  <MenuPrimitive.Portal {...props}>
-    <ThemeWrapper>{children}</ThemeWrapper>
-  </MenuPrimitive.Portal>
-);
-DropdownMenuPortal.displayName = "DropdownMenuPortal";
+
 
 const DropdownMenuTrigger = React.forwardRef<
   HTMLButtonElement,
@@ -45,32 +37,36 @@ const DropdownMenuTrigger = React.forwardRef<
 DropdownMenuTrigger.displayName = "DropdownMenuTrigger";
 
 const DropdownMenuContent = React.forwardRef<
-  React.ElementRef<typeof MenuPrimitive.Popup>,
-  MenuPrimitive.Popup.Props &
+  HTMLDivElement,
+  React.ComponentPropsWithoutRef<typeof MenuPrimitive.Popup> &
     Pick<
-      MenuPrimitive.Positioner.Props,
+      React.ComponentPropsWithoutRef<typeof MenuPrimitive.Positioner>,
       "align" | "alignOffset" | "side" | "sideOffset"
-    >
+    > & {
+      container?: React.ComponentProps<typeof MenuPrimitive.Portal>["container"];
+    }
 >(
   (
     {
+      className,
+      sideOffset = 4,
+      side = "bottom",
       align = "start",
       alignOffset = 0,
-      side = "bottom",
-      sideOffset = 4,
-      className,
+      container,
+      children,
       ...props
     },
     ref,
-  ) => {
-    return (
-      <>
+  ) => (
+    <MenuPrimitive.Portal container={container}>
+      <ThemeWrapper>
         <MenuPrimitive.Positioner
-          className="isolate z-50 outline-none"
           align={align}
           alignOffset={alignOffset}
           side={side}
           sideOffset={sideOffset}
+          className="isolate z-50 outline-none"
         >
           <MenuPrimitive.Popup
             ref={ref}
@@ -80,11 +76,13 @@ const DropdownMenuContent = React.forwardRef<
               className,
             )}
             {...props}
-          />
+          >
+            {children}
+          </MenuPrimitive.Popup>
         </MenuPrimitive.Positioner>
-      </>
-    );
-  },
+      </ThemeWrapper>
+    </MenuPrimitive.Portal>
+  ),
 );
 DropdownMenuContent.displayName = "DropdownMenuContent";
 
@@ -302,7 +300,6 @@ export {
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuPortal,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuSeparator,

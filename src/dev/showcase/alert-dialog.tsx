@@ -7,8 +7,7 @@ import {
   MessageSquareWarningIcon,
   ShieldAlertIcon,
   TrashIcon,
-  XIcon,
-} from "lucide-react";
+  XIcon } from "lucide-react";
 
 import { AlertDialogPreset } from "../../components/macro/alert-dialog-preset";
 import {
@@ -21,10 +20,9 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogMedia,
-  AlertDialogPortal,
+  
   AlertDialogTitle,
-  AlertDialogTrigger,
-} from "../../components/micro/alert-dialog";
+  AlertDialogTrigger } from "../../components/micro/alert-dialog";
 import { Button } from "../../components/micro/button";
 import { useDevContext } from "../../dev/components/dev-context";
 import {
@@ -32,8 +30,7 @@ import {
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+  ShowcaseDocs } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────
@@ -354,7 +351,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
         <Button variant="outline">Mở Dialog Trắng</Button>
       }
     />
-    <AlertDialogPortal>
+    
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle>
@@ -371,7 +368,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
           <AlertDialogAction>Tiếp tục</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
-    </AlertDialogPortal>
+    
   </AlertDialog>`}
         >
           <AlertDialog>
@@ -383,7 +380,6 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
               }
             />
 
-            <AlertDialogPortal>
               <AlertDialogContent size={globalSize}>
                 <AlertDialogHeader>
                   <AlertDialogTitle>Cấu trúc nguyên thuỷ</AlertDialogTitle>
@@ -401,7 +397,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                   </AlertDialogAction>
                 </AlertDialogFooter>
               </AlertDialogContent>
-            </AlertDialogPortal>
+            
           </AlertDialog>
         </ExampleSection>
 
@@ -416,7 +412,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
         </Button>
       }
     />
-    <AlertDialogPortal>
+    
       <AlertDialogContent className="border-warning/50">
         <div className="flex flex-col-reverse items-center justify-center gap-4 py-4 sm:flex-row">
           <div className="size-16 rounded-lg bg-warning/20 border border-warning" />
@@ -436,7 +432,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
           </AlertDialogCancel>
         </AlertDialogFooter>
       </AlertDialogContent>
-    </AlertDialogPortal>
+    
   </AlertDialog>`}
         >
           <AlertDialog>
@@ -448,7 +444,6 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
               }
             />
 
-            <AlertDialogPortal>
               <AlertDialogContent
                 size={globalSize}
                 className="border-warning/50"
@@ -471,7 +466,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                   </AlertDialogCancel>
                 </AlertDialogFooter>
               </AlertDialogContent>
-            </AlertDialogPortal>
+            
           </AlertDialog>
         </ExampleSection>
       </ExampleGrid>
@@ -484,7 +479,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
     <AlertDialogTrigger
       render={<Button variant="outline">Với Media</Button>}
     />
-    <AlertDialogPortal>
+    
       <AlertDialogContent>
         <div className="flex flex-col gap-1.5 sm:flex-row sm:gap-4">
           <AlertDialogMedia className="mx-auto mb-2 shrink-0 sm:mx-0 sm:mb-0">
@@ -508,7 +503,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
-    </AlertDialogPortal>
+    
   </AlertDialog>`}
         >
           <AlertDialog>
@@ -520,7 +515,6 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
               }
             />
 
-            <AlertDialogPortal>
               <AlertDialogContent size={globalSize}>
                 <div className="flex flex-col gap-1.5 sm:flex-row sm:gap-4">
                   <AlertDialogMedia className="mx-auto mb-2 shrink-0 sm:mx-0 sm:mb-0">
@@ -541,7 +535,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                   </AlertDialogAction>
                 </AlertDialogFooter>
               </AlertDialogContent>
-            </AlertDialogPortal>
+            
           </AlertDialog>
         </ExampleSection>
 
@@ -554,7 +548,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
         <Button variant="outline">Dialog Có Nút X</Button>
       }
     />
-    <AlertDialogPortal>
+    
       <AlertDialogContent>
         <AlertDialogClose className="absolute top-3 right-3 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:outline-none">
           <XIcon className="size-4" />
@@ -575,7 +569,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
           <AlertDialogAction>Đồng ý</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
-    </AlertDialogPortal>
+    
   </AlertDialog>`}
         >
           <AlertDialog>
@@ -587,7 +581,6 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
               }
             />
 
-            <AlertDialogPortal>
               <AlertDialogContent size={globalSize}>
                 <AlertDialogClose className="absolute top-3 right-3 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:outline-none">
                   <XIcon className="size-4" />
@@ -608,7 +601,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                   </AlertDialogAction>
                 </AlertDialogFooter>
               </AlertDialogContent>
-            </AlertDialogPortal>
+            
           </AlertDialog>
         </ExampleSection>
       </ExampleGrid>
@@ -625,7 +618,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
         </Button>
       }
     />
-    <AlertDialogPortal>
+    
       <AlertDialogContent>
         <div className="flex flex-col gap-1.5 sm:flex-row sm:gap-4">
           <AlertDialogMedia className="mx-auto mb-2 shrink-0 sm:mx-0 sm:mb-0">
@@ -648,7 +641,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
-    </AlertDialogPortal>
+    
   </AlertDialog>`}
         >
           <AlertDialog>
@@ -660,7 +653,6 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
               }
             />
 
-            <AlertDialogPortal>
               <AlertDialogContent size={globalSize}>
                 <div className="flex flex-col gap-1.5 sm:flex-row sm:gap-4">
                   <AlertDialogMedia className="mx-auto mb-2 shrink-0 sm:mx-0 sm:mb-0">
@@ -682,7 +674,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                   </AlertDialogAction>
                 </AlertDialogFooter>
               </AlertDialogContent>
-            </AlertDialogPortal>
+            
           </AlertDialog>
         </ExampleSection>
 
@@ -695,7 +687,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
         <Button variant="outline">Custom Variants</Button>
       }
     />
-    <AlertDialogPortal>
+    
       <AlertDialogContent>
         <div className="flex flex-col gap-1.5 sm:flex-row sm:gap-4">
           <AlertDialogMedia className="mx-auto mb-2 shrink-0 sm:mx-0 sm:mb-0">
@@ -718,7 +710,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
-    </AlertDialogPortal>
+    
   </AlertDialog>`}
         >
           <AlertDialog>
@@ -730,7 +722,6 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
               }
             />
 
-            <AlertDialogPortal>
               <AlertDialogContent size={globalSize}>
                 <div className="flex flex-col gap-1.5 sm:flex-row sm:gap-4">
                   <AlertDialogMedia className="mx-auto mb-2 shrink-0 sm:mx-0 sm:mb-0">
@@ -757,7 +748,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                   </AlertDialogAction>
                 </AlertDialogFooter>
               </AlertDialogContent>
-            </AlertDialogPortal>
+            
           </AlertDialog>
         </ExampleSection>
       </ExampleGrid>
@@ -859,7 +850,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
               </Button>
             }
           />
-          <AlertDialogPortal>
+          
             <AlertDialogContent size="sm">
               <div className="h-24 w-full rounded-md bg-muted flex items-center justify-center text-xs text-muted-foreground">
                 Custom Image
@@ -883,7 +874,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                 </AlertDialogCancel>
               </AlertDialogFooter>
             </AlertDialogContent>
-          </AlertDialogPortal>
+          
         </AlertDialog>
       </div>
 
@@ -985,7 +976,6 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                   }
                 />
 
-                <AlertDialogPortal>
                   <AlertDialogContent size="sm">
                     <div className="h-24 w-full rounded-md bg-muted flex items-center justify-center text-xs text-muted-foreground">
                       Custom Image
@@ -1007,7 +997,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                       </AlertDialogCancel>
                     </AlertDialogFooter>
                   </AlertDialogContent>
-                </AlertDialogPortal>
+                
               </AlertDialog>
             </div>
 
@@ -1047,12 +1037,10 @@ export default function AlertDialogShowcase() {
       tabs={[
         {
           label: "Micro (Primitive)",
-          content: <AlertDialogMicroShowcase globalSize={globalSize} />,
-        },
+          content: <AlertDialogMicroShowcase globalSize={globalSize} /> },
         {
           label: "Macro (Preset)",
-          content: <AlertDialogMacroShowcase globalSize={globalSize} />,
-        },
+          content: <AlertDialogMacroShowcase globalSize={globalSize} /> },
       ]}
     />
   );

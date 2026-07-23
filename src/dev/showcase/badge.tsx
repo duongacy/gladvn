@@ -8,8 +8,7 @@ import {
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+  ShowcaseDocs } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 export default function BadgeShowcase() {
@@ -30,8 +29,7 @@ export default function BadgeShowcase() {
       tabs={[
         {
           label: "Micro (Primitive)",
-          content: <BadgeMicroShowcase globalSize={globalSize} />,
-        },
+          content: <BadgeMicroShowcase globalSize={globalSize} /> },
       ]}
     />
   );

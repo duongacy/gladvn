@@ -4,10 +4,9 @@ import { Button } from "../../components/micro/button";
 import {
   Tooltip,
   TooltipContent,
-  TooltipPortal,
+  
   TooltipProvider,
-  TooltipTrigger,
-} from "../../components/micro/tooltip";
+  TooltipTrigger } from "../../components/micro/tooltip";
 import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsCode,
@@ -16,8 +15,7 @@ import {
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+  ShowcaseDocs } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────
@@ -37,11 +35,11 @@ function TooltipMicroShowcase({ globalSize }: { globalSize: Size }) {
             <Button variant="outline">Trên (Top)</Button>
           }
         />
-        <TooltipPortal>
+        
           <TooltipContent side="top">
             Tooltip nằm trên
           </TooltipContent>
-        </TooltipPortal>
+        
       </Tooltip>
 
       <Tooltip>
@@ -50,11 +48,11 @@ function TooltipMicroShowcase({ globalSize }: { globalSize: Size }) {
             <Button variant="outline">Dưới (Bottom)</Button>
           }
         />
-        <TooltipPortal>
+        
           <TooltipContent side="bottom">
             Tooltip nằm dưới
           </TooltipContent>
-        </TooltipPortal>
+        
       </Tooltip>
 
       <Tooltip>
@@ -63,11 +61,11 @@ function TooltipMicroShowcase({ globalSize }: { globalSize: Size }) {
             <Button variant="outline">Trái (Left)</Button>
           }
         />
-        <TooltipPortal>
+        
           <TooltipContent side="left">
             Tooltip nằm trái
           </TooltipContent>
-        </TooltipPortal>
+        
       </Tooltip>
 
       <Tooltip>
@@ -76,11 +74,11 @@ function TooltipMicroShowcase({ globalSize }: { globalSize: Size }) {
             <Button variant="outline">Phải (Right)</Button>
           }
         />
-        <TooltipPortal>
+        
           <TooltipContent side="right">
             Tooltip nằm phải
           </TooltipContent>
-        </TooltipPortal>
+        
       </Tooltip>
     </TooltipProvider>
   </div>`}
@@ -96,9 +94,8 @@ function TooltipMicroShowcase({ globalSize }: { globalSize: Size }) {
                 }
               />
 
-              <TooltipPortal>
                 <TooltipContent side="top">Tooltip nằm trên</TooltipContent>
-              </TooltipPortal>
+              
             </Tooltip>
 
             <Tooltip>
@@ -110,9 +107,8 @@ function TooltipMicroShowcase({ globalSize }: { globalSize: Size }) {
                 }
               />
 
-              <TooltipPortal>
                 <TooltipContent side="bottom">Tooltip nằm dưới</TooltipContent>
-              </TooltipPortal>
+              
             </Tooltip>
 
             <Tooltip>
@@ -124,9 +120,8 @@ function TooltipMicroShowcase({ globalSize }: { globalSize: Size }) {
                 }
               />
 
-              <TooltipPortal>
                 <TooltipContent side="left">Tooltip nằm trái</TooltipContent>
-              </TooltipPortal>
+              
             </Tooltip>
 
             <Tooltip>
@@ -138,9 +133,8 @@ function TooltipMicroShowcase({ globalSize }: { globalSize: Size }) {
                 }
               />
 
-              <TooltipPortal>
                 <TooltipContent side="right">Tooltip nằm phải</TooltipContent>
-              </TooltipPortal>
+              
             </Tooltip>
           </TooltipProvider>
         </div>
@@ -159,7 +153,7 @@ function TooltipMicroShowcase({ globalSize }: { globalSize: Size }) {
           </Button>
         }
       />
-      <TooltipPortal>
+      
         <TooltipContent>
           <p>
             Đây là một đoạn nội dung tooltip khá dài nhằm
@@ -168,7 +162,7 @@ function TooltipMicroShowcase({ globalSize }: { globalSize: Size }) {
             (max-width) cho phép.
           </p>
         </TooltipContent>
-      </TooltipPortal>
+      
     </Tooltip>
   </TooltipProvider>`}
         >
@@ -182,7 +176,6 @@ function TooltipMicroShowcase({ globalSize }: { globalSize: Size }) {
                 }
               />
 
-              <TooltipPortal>
                 <TooltipContent>
                   <p>
                     Đây là một đoạn nội dung tooltip khá dài nhằm mục đích trình
@@ -190,7 +183,7 @@ function TooltipMicroShowcase({ globalSize }: { globalSize: Size }) {
                     chiều rộng tối đa (max-width) cho phép.
                   </p>
                 </TooltipContent>
-              </TooltipPortal>
+              
             </Tooltip>
           </TooltipProvider>
         </ExampleSection>
@@ -217,11 +210,11 @@ function TooltipMicroShowcase({ globalSize }: { globalSize: Size }) {
           </span>
         }
       />
-      <TooltipPortal>
+      
         <TooltipContent side="right">
           <p>Bạn không có quyền thực hiện hành động này.</p>
         </TooltipContent>
-      </TooltipPortal>
+      
     </Tooltip>
   </TooltipProvider>`}
         >
@@ -246,11 +239,10 @@ function TooltipMicroShowcase({ globalSize }: { globalSize: Size }) {
                 }
               />
 
-              <TooltipPortal>
                 <TooltipContent side="right">
                   <p>Bạn không có quyền thực hiện hành động này.</p>
                 </TooltipContent>
-              </TooltipPortal>
+              
             </Tooltip>
           </TooltipProvider>
         </ExampleSection>
@@ -270,11 +262,11 @@ function TooltipMicroShowcase({ globalSize }: { globalSize: Size }) {
             </Button>
           }
         />
-        <TooltipPortal>
+        
           <TooltipContent>
             Xuất hiện ngay lập tức
           </TooltipContent>
-        </TooltipPortal>
+        
       </Tooltip>
     </TooltipProvider>
 
@@ -287,11 +279,11 @@ function TooltipMicroShowcase({ globalSize }: { globalSize: Size }) {
             </Button>
           }
         />
-        <TooltipPortal>
+        
           <TooltipContent>
             Xuất hiện sau nửa giây
           </TooltipContent>
-        </TooltipPortal>
+        
       </Tooltip>
     </TooltipProvider>
 
@@ -304,11 +296,11 @@ function TooltipMicroShowcase({ globalSize }: { globalSize: Size }) {
             </Button>
           }
         />
-        <TooltipPortal>
+        
           <TooltipContent>
             Xuất hiện sau 2 giây chờ đợi
           </TooltipContent>
-        </TooltipPortal>
+        
       </Tooltip>
     </TooltipProvider>
   </div>`}
@@ -327,9 +319,9 @@ function TooltipMicroShowcase({ globalSize }: { globalSize: Size }) {
                   </Button>
                 }
               />
-              <TooltipPortal>
+              
                 <TooltipContent>Xuất hiện ngay lập tức</TooltipContent>
-              </TooltipPortal>
+              
             </Tooltip>
           </TooltipProvider>
 
@@ -346,9 +338,9 @@ function TooltipMicroShowcase({ globalSize }: { globalSize: Size }) {
                   </Button>
                 }
               />
-              <TooltipPortal>
+              
                 <TooltipContent>Xuất hiện sau nửa giây</TooltipContent>
-              </TooltipPortal>
+              
             </Tooltip>
           </TooltipProvider>
 
@@ -365,9 +357,9 @@ function TooltipMicroShowcase({ globalSize }: { globalSize: Size }) {
                   </Button>
                 }
               />
-              <TooltipPortal>
+              
                 <TooltipContent>Xuất hiện sau 2 giây chờ đợi</TooltipContent>
-              </TooltipPortal>
+              
             </Tooltip>
           </TooltipProvider>
         </div>
@@ -399,8 +391,7 @@ export default function TooltipShowcase() {
       tabs={[
         {
           label: "Micro (Primitive)",
-          content: <TooltipMicroShowcase globalSize={globalSize} />,
-        },
+          content: <TooltipMicroShowcase globalSize={globalSize} /> },
       ]}
     />
   );

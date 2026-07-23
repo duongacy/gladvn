@@ -7,8 +7,7 @@ import {
   SliderControl,
   SliderIndicator,
   SliderThumb,
-  SliderTrack,
-} from "../../components/micro/slider";
+  SliderTrack } from "../../components/micro/slider";
 import { FieldPreset } from "./field-preset";
 
 export type SliderPresetProps = Omit<

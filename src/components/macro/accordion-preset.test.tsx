@@ -10,8 +10,7 @@ const items = [
     value: "item-3",
     title: "Section 3",
     content: "Content for section 3",
-    disabled: true,
-  },
+    disabled: true },
 ];
 
 describe("AccordionPreset", () => {

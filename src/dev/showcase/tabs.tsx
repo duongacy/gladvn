@@ -5,8 +5,7 @@ import {
   Tabs,
   TabsContent,
   TabsList,
-  TabsTrigger,
-} from "../../components/micro/tabs";
+  TabsTrigger } from "../../components/micro/tabs";
 import {
   DocsCode,
   DocsH3,
@@ -14,8 +13,7 @@ import {
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+  ShowcaseDocs } from "../../dev/components/showcase";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Macro Content
@@ -41,8 +39,7 @@ function TabsMacroShowcase() {
               Account settings here.
             </p>
           </div>
-        ),
-      },
+        ) },
       {
         value: "password",
         title: "Password",
@@ -53,8 +50,7 @@ function TabsMacroShowcase() {
               Change your password here.
             </p>
           </div>
-        ),
-      },
+        ) },
     ]}
   />`}
         >
@@ -72,8 +68,7 @@ function TabsMacroShowcase() {
                       Account settings here.
                     </p>
                   </div>
-                ),
-              },
+                ) },
               {
                 value: "password",
                 title: "Password",
@@ -84,8 +79,7 @@ function TabsMacroShowcase() {
                       Change your password here.
                     </p>
                   </div>
-                ),
-              },
+                ) },
             ]}
           />
         </ExampleSection>
@@ -107,14 +101,12 @@ function TabsMacroShowcase() {
               General settings.
             </p>
           </div>
-        ),
-      },
+        ) },
       {
         value: "advanced",
         title: "Advanced (Pro)",
         content: <></>,
-        disabled: true,
-      },
+        disabled: true },
     ]}
   />`}
         >
@@ -132,14 +124,12 @@ function TabsMacroShowcase() {
                       General settings.
                     </p>
                   </div>
-                ),
-              },
+                ) },
               {
                 value: "advanced",
                 title: "Advanced (Pro)",
                 content: <></>,
-                disabled: true,
-              },
+                disabled: true },
             ]}
           />
         </ExampleSection>
@@ -167,8 +157,7 @@ function TabsMacroShowcase() {
                 feed.
               </p>
             </div>
-          ),
-        },
+          ) },
         {
           value: "analytics",
           title: "Analytics",
@@ -179,8 +168,7 @@ function TabsMacroShowcase() {
                 Charts and data visualizations.
               </p>
             </div>
-          ),
-        },
+          ) },
         {
           value: "reports",
           title: "Reports",
@@ -191,8 +179,7 @@ function TabsMacroShowcase() {
                 Generated reports and exports.
               </p>
             </div>
-          ),
-        },
+          ) },
       ]}
     />
   </div>`}
@@ -214,8 +201,7 @@ function TabsMacroShowcase() {
                       High-level project statistics and activity feed.
                     </p>
                   </div>
-                ),
-              },
+                ) },
               {
                 value: "analytics",
                 title: "Analytics",
@@ -226,8 +212,7 @@ function TabsMacroShowcase() {
                       Charts and data visualizations.
                     </p>
                   </div>
-                ),
-              },
+                ) },
               {
                 value: "reports",
                 title: "Reports",
@@ -238,8 +223,7 @@ function TabsMacroShowcase() {
                       Generated reports and exports.
                     </p>
                   </div>
-                ),
-              },
+                ) },
             ]}
           />
         </div>
@@ -268,8 +252,7 @@ function TabsMacroShowcase() {
                 Sign In
               </button>
             </div>
-          ),
-        },
+          ) },
         {
           value: "register",
           title: "Register",
@@ -285,8 +268,7 @@ function TabsMacroShowcase() {
                 Sign Up
               </button>
             </div>
-          ),
-        },
+          ) },
       ]}
     />
   </div>`}
@@ -308,8 +290,7 @@ function TabsMacroShowcase() {
                       Sign In
                     </button>
                   </div>
-                ),
-              },
+                ) },
               {
                 value: "register",
                 title: "Register",
@@ -323,8 +304,7 @@ function TabsMacroShowcase() {
                       Sign Up
                     </button>
                   </div>
-                ),
-              },
+                ) },
             ]}
           />
         </div>

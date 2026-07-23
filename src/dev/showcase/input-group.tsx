@@ -8,8 +8,7 @@ import {
   MinusIcon,
   PlusIcon,
   SearchIcon,
-  XIcon,
-} from "lucide-react";
+  XIcon } from "lucide-react";
 
 import {
   InputGroup,
@@ -17,8 +16,7 @@ import {
   InputGroupButton,
   InputGroupInput,
   InputGroupText,
-  InputGroupTextarea,
-} from "../../components/micro/input-group";
+  InputGroupTextarea } from "../../components/micro/input-group";
 import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsCode,
@@ -29,8 +27,7 @@ import {
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+  ShowcaseDocs } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
@@ -536,8 +533,7 @@ export default function InputGroupShowcase() {
       tabs={[
         {
           label: "Micro (Primitive)",
-          content: <InputGroupMicroShowcase globalSize={globalSize} />,
-        },
+          content: <InputGroupMicroShowcase globalSize={globalSize} /> },
       ]}
     />
   );

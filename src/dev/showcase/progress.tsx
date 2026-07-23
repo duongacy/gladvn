@@ -4,8 +4,7 @@ import {
   ProgressIndicator,
   ProgressLabel,
   ProgressTrack,
-  ProgressValue,
-} from "../../components/micro/progress";
+  ProgressValue } from "../../components/micro/progress";
 import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsCode,
@@ -14,8 +13,7 @@ import {
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+  ShowcaseDocs } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────
@@ -317,12 +315,10 @@ export default function ProgressShowcase() {
       tabs={[
         {
           label: "Micro (Primitive)",
-          content: <ProgressMicroShowcase globalSize={globalSize} />,
-        },
+          content: <ProgressMicroShowcase globalSize={globalSize} /> },
         {
           label: "Macro (Preset)",
-          content: <ProgressMacroShowcase globalSize={globalSize} />,
-        },
+          content: <ProgressMacroShowcase globalSize={globalSize} /> },
       ]}
     />
   );

@@ -6,8 +6,7 @@ import {
   Field,
   FieldDescription,
   FieldError,
-  FieldLabel,
-} from "../../components/micro/field";
+  FieldLabel } from "../../components/micro/field";
 import { Switch, SwitchThumb } from "../../components/micro/switch";
 import { cn } from "../../lib/utils";
 

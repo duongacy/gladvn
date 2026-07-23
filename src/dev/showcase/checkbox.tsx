@@ -12,8 +12,7 @@ import {
   Field,
   FieldDescription,
   FieldError,
-  FieldLabel,
-} from "../../components/micro/field";
+  FieldLabel } from "../../components/micro/field";
 import { Label } from "../../components/micro/label";
 import { useDevContext } from "../../dev/components/dev-context";
 import {
@@ -21,23 +20,20 @@ import {
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+  ShowcaseDocs } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────
 // RHF Form Demo (Macro)
 // ──────────────────────────────────────────────────────────
 const formSchema = z.object({
-  mobile: z.boolean().default(false).optional(),
-});
+  mobile: z.boolean().default(false).optional() });
 type FormValues = z.infer<typeof formSchema>;
 
 function CheckboxForm({ size }: { size: Size }) {
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
-    defaultValues: { mobile: false },
-  });
+    defaultValues: { mobile: false } });
 
   function onSubmit(values: FormValues) {
     alert(JSON.stringify(values, null, 2));
@@ -74,8 +70,7 @@ const rhfCode = `const formSchema = z.object({ mobile: z.boolean().default(false
 function CheckboxForm({ size }: { size: Size }) {
   const form = useForm({
     resolver: zodResolver(formSchema),
-    defaultValues: { mobile: false },
-  });
+    defaultValues: { mobile: false } });
 
   return (
     <form onSubmit={form.handleSubmit(console.log)} className="space-y-6">
@@ -665,12 +660,10 @@ export default function CheckboxShowcase() {
       tabs={[
         {
           label: "Micro (Primitive)",
-          content: <CheckboxMicroShowcase globalSize={globalSize} />,
-        },
+          content: <CheckboxMicroShowcase globalSize={globalSize} /> },
         {
           label: "Macro (Preset)",
-          content: <CheckboxMacroShowcase globalSize={globalSize} />,
-        },
+          content: <CheckboxMacroShowcase globalSize={globalSize} /> },
       ]}
     />
   );

@@ -7,15 +7,13 @@ import {
   Accordion,
   AccordionContent,
   AccordionItem,
-  AccordionTrigger,
-} from "../../components/micro/accordion";
+  AccordionTrigger } from "../../components/micro/accordion";
 import {
   DocsP,
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+  ShowcaseDocs } from "../../dev/components/showcase";
 
 // ──────────────────────────────────────────────────────────
 // Shared Data
@@ -23,20 +21,16 @@ import {
 const faqItems = [
   {
     q: "Is it accessible?",
-    a: "Yes. It adheres to the WAI-ARIA design pattern. Keyboard navigation and screen readers are fully supported.",
-  },
+    a: "Yes. It adheres to the WAI-ARIA design pattern. Keyboard navigation and screen readers are fully supported." },
   {
     q: "Is it styled?",
-    a: "Yes. It comes with default styles that match the other components' aesthetic. You can override every token via CSS variables.",
-  },
+    a: "Yes. It comes with default styles that match the other components' aesthetic. You can override every token via CSS variables." },
   {
     q: "Is it animated?",
-    a: "Yes. It's animated by default with smooth expand/collapse transitions, but you can disable animation if you prefer.",
-  },
+    a: "Yes. It's animated by default with smooth expand/collapse transitions, but you can disable animation if you prefer." },
   {
     q: "Can I nest accordions?",
-    a: "Yes. You can nest accordion components inside each other to create multi-level collapsible sections.",
-  },
+    a: "Yes. You can nest accordion components inside each other to create multi-level collapsible sections." },
 ];
 
 const presetItems = [
@@ -44,19 +38,16 @@ const presetItems = [
     value: "item-1",
     title: "Is it accessible?",
     content:
-      "Yes. It adheres to the WAI-ARIA design pattern. Keyboard navigation and screen readers are fully supported.",
-  },
+      "Yes. It adheres to the WAI-ARIA design pattern. Keyboard navigation and screen readers are fully supported." },
   {
     value: "item-2",
     title: "Is it styled?",
     content:
-      "Yes. It comes with default styles that match the other components' aesthetic.",
-  },
+      "Yes. It comes with default styles that match the other components' aesthetic." },
   {
     value: "item-3",
     title: "Is it animated?",
-    content: "Yes. It's animated by default with smooth transitions.",
-  },
+    content: "Yes. It's animated by default with smooth transitions." },
 ];
 
 // ──────────────────────────────────────────────────────────
@@ -79,20 +70,17 @@ function AccordionMacroShowcase() {
         value: "item-1",
         title: "Is it accessible?",
         content:
-          "Yes. It adheres to the WAI-ARIA design pattern. Keyboard navigation and screen readers are fully supported.",
-      },
+          "Yes. It adheres to the WAI-ARIA design pattern. Keyboard navigation and screen readers are fully supported." },
       {
         value: "item-2",
         title: "Is it styled?",
         content:
-          "Yes. It comes with default styles that match the other components' aesthetic.",
-      },
+          "Yes. It comes with default styles that match the other components' aesthetic." },
       {
         value: "item-3",
         title: "Is it animated?",
         content:
-          "Yes. It's animated by default with smooth transitions.",
-      },
+          "Yes. It's animated by default with smooth transitions." },
     ]}
   />`}
         >
@@ -104,20 +92,17 @@ function AccordionMacroShowcase() {
                 value: "item-1",
                 title: "Is it accessible?",
                 content:
-                  "Yes. It adheres to the WAI-ARIA design pattern. Keyboard navigation and screen readers are fully supported.",
-              },
+                  "Yes. It adheres to the WAI-ARIA design pattern. Keyboard navigation and screen readers are fully supported." },
               {
                 value: "item-2",
                 title: "Is it styled?",
                 content:
-                  "Yes. It comes with default styles that match the other components' aesthetic.",
-              },
+                  "Yes. It comes with default styles that match the other components' aesthetic." },
               {
                 value: "item-3",
                 title: "Is it animated?",
                 content:
-                  "Yes. It's animated by default with smooth transitions.",
-              },
+                  "Yes. It's animated by default with smooth transitions." },
             ]}
           />
         </ExampleSection>
@@ -134,20 +119,17 @@ function AccordionMacroShowcase() {
         value: "item-1",
         title: "Is it accessible?",
         content:
-          "Yes. It adheres to the WAI-ARIA design pattern. Keyboard navigation and screen readers are fully supported.",
-      },
+          "Yes. It adheres to the WAI-ARIA design pattern. Keyboard navigation and screen readers are fully supported." },
       {
         value: "item-2",
         title: "Is it styled?",
         content:
-          "Yes. It comes with default styles that match the other components' aesthetic.",
-      },
+          "Yes. It comes with default styles that match the other components' aesthetic." },
       {
         value: "item-3",
         title: "Is it animated?",
         content:
-          "Yes. It's animated by default with smooth transitions.",
-      },
+          "Yes. It's animated by default with smooth transitions." },
     ]}
   />`}
         >
@@ -160,20 +142,17 @@ function AccordionMacroShowcase() {
                 value: "item-1",
                 title: "Is it accessible?",
                 content:
-                  "Yes. It adheres to the WAI-ARIA design pattern. Keyboard navigation and screen readers are fully supported.",
-              },
+                  "Yes. It adheres to the WAI-ARIA design pattern. Keyboard navigation and screen readers are fully supported." },
               {
                 value: "item-2",
                 title: "Is it styled?",
                 content:
-                  "Yes. It comes with default styles that match the other components' aesthetic.",
-              },
+                  "Yes. It comes with default styles that match the other components' aesthetic." },
               {
                 value: "item-3",
                 title: "Is it animated?",
                 content:
-                  "Yes. It's animated by default with smooth transitions.",
-              },
+                  "Yes. It's animated by default with smooth transitions." },
             ]}
           />
         </ExampleSection>
@@ -194,18 +173,15 @@ return (
               {
                 value: "item-1",
                 title: "Is it accessible?",
-                content: "Yes. It adheres to the WAI-ARIA design pattern. Keyboard navigation and screen readers are fully supported.",
-              },
+                content: "Yes. It adheres to the WAI-ARIA design pattern. Keyboard navigation and screen readers are fully supported." },
               {
                 value: "item-2",
                 title: "Is it styled?",
-                content: "Yes. It comes with default styles that match the other components' aesthetic.",
-              },
+                content: "Yes. It comes with default styles that match the other components' aesthetic." },
               {
                 value: "item-3",
                 title: "Is it animated?",
-                content: "Yes. It's animated by default with smooth transitions.",
-              },
+                content: "Yes. It's animated by default with smooth transitions." },
             ]}
   />
 );`}
@@ -229,20 +205,17 @@ return (
                   value: "item-1",
                   title: "Is it accessible?",
                   content:
-                    "Yes. It adheres to the WAI-ARIA design pattern. Keyboard navigation and screen readers are fully supported.",
-                },
+                    "Yes. It adheres to the WAI-ARIA design pattern. Keyboard navigation and screen readers are fully supported." },
                 {
                   value: "item-2",
                   title: "Is it styled?",
                   content:
-                    "Yes. It comes with default styles that match the other components' aesthetic.",
-                },
+                    "Yes. It comes with default styles that match the other components' aesthetic." },
                 {
                   value: "item-3",
                   title: "Is it animated?",
                   content:
-                    "Yes. It's animated by default with smooth transitions.",
-                },
+                    "Yes. It's animated by default with smooth transitions." },
               ]}
             />
           </div>
@@ -258,21 +231,18 @@ return (
         value: "enabled-1",
         title: "Available Feature",
         content:
-          "This feature is available and can be expanded normally.",
-      },
+          "This feature is available and can be expanded normally." },
       {
         value: "disabled-1",
         title: "Premium Feature (Locked)",
         content:
           "This content is hidden behind a premium plan.",
-        disabled: true,
-      },
+        disabled: true },
       {
         value: "enabled-2",
         title: "Another Feature",
         content:
-          "This is another available feature you can interact with freely.",
-      },
+          "This is another available feature you can interact with freely." },
     ]}
   />`}
         >
@@ -283,20 +253,17 @@ return (
                 value: "enabled-1",
                 title: "Available Feature",
                 content:
-                  "This feature is available and can be expanded normally.",
-              },
+                  "This feature is available and can be expanded normally." },
               {
                 value: "disabled-1",
                 title: "Premium Feature (Locked)",
                 content: "This content is hidden behind a premium plan.",
-                disabled: true,
-              },
+                disabled: true },
               {
                 value: "enabled-2",
                 title: "Another Feature",
                 content:
-                  "This is another available feature you can interact with freely.",
-              },
+                  "This is another available feature you can interact with freely." },
             ]}
           />
         </ExampleSection>
@@ -322,8 +289,7 @@ return (
               Edit Profile
             </button>
           </div>
-        ),
-      },
+        ) },
     ]}
   />`}
         >
@@ -342,8 +308,7 @@ return (
                       Edit Profile
                     </button>
                   </div>
-                ),
-              },
+                ) },
             ]}
           />
         </ExampleSection>
@@ -365,12 +330,10 @@ return (
                 value: "installation",
                 title: "Installation",
                 content:
-                  "Run npm install to add the component to your project.",
-              },
+                  "Run npm install to add the component to your project." },
             ]}
           />
-        ),
-      },
+        ) },
       {
         value: "advanced",
         title: "Advanced Usage",
@@ -382,12 +345,10 @@ return (
                 value: "controlled",
                 title: "Controlled Mode",
                 content:
-                  "Use the value and onValueChange props to control which items are open.",
-              },
+                  "Use the value and onValueChange props to control which items are open." },
             ]}
           />
-        ),
-      },
+        ) },
     ]}
   />`}
         >
@@ -405,12 +366,10 @@ return (
                         value: "installation",
                         title: "Installation",
                         content:
-                          "Run npm install to add the component to your project.",
-                      },
+                          "Run npm install to add the component to your project." },
                     ]}
                   />
-                ),
-              },
+                ) },
               {
                 value: "advanced",
                 title: "Advanced Usage",
@@ -422,12 +381,10 @@ return (
                         value: "controlled",
                         title: "Controlled Mode",
                         content:
-                          "Use the value and onValueChange props to control which items are open.",
-                      },
+                          "Use the value and onValueChange props to control which items are open." },
                     ]}
                   />
-                ),
-              },
+                ) },
             ]}
           />
         </ExampleSection>
@@ -821,14 +778,12 @@ function AccordionMicroShowcase() {
               value: "Is it accessible?",
               title: "Is it accessible?",
               content:
-                "Yes. It adheres to the WAI-ARIA design pattern.",
-            },
+                "Yes. It adheres to the WAI-ARIA design pattern." },
             {
               value: "Is it styled?",
               title: "Is it styled?",
               content:
-                "Yes. It comes with default styles that match the other components' aesthetic.",
-            },
+                "Yes. It comes with default styles that match the other components' aesthetic." },
           ]}
         />
       </div>
@@ -929,14 +884,12 @@ function AccordionMicroShowcase() {
                   {
                     value: "Is it accessible?",
                     title: "Is it accessible?",
-                    content: "Yes. It adheres to the WAI-ARIA design pattern.",
-                  },
+                    content: "Yes. It adheres to the WAI-ARIA design pattern." },
                   {
                     value: "Is it styled?",
                     title: "Is it styled?",
                     content:
-                      "Yes. It comes with default styles that match the other components' aesthetic.",
-                  },
+                      "Yes. It comes with default styles that match the other components' aesthetic." },
                 ]}
               />
             </div>

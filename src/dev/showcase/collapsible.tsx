@@ -6,15 +6,13 @@ import { Button } from "../../components/micro/button";
 import {
   Collapsible,
   CollapsibleContent,
-  CollapsibleTrigger,
-} from "../../components/micro/collapsible";
+  CollapsibleTrigger } from "../../components/micro/collapsible";
 import {
   DocsP,
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+  ShowcaseDocs } from "../../dev/components/showcase";
 
 function CollapsibleMicroShowcase() {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -314,8 +312,7 @@ export default function CollapsibleShowcase() {
       tabs={[
         {
           label: "Micro (Primitive)",
-          content: <CollapsibleMicroShowcase />,
-        },
+          content: <CollapsibleMicroShowcase /> },
       ]}
     />
   );

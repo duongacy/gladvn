@@ -6,17 +6,15 @@ import {
   DrawerDescription,
   DrawerFooter,
   DrawerHeader,
-  DrawerPortal,
+  
   DrawerTitle,
-  DrawerTrigger,
-} from "../../components/micro/drawer";
+  DrawerTrigger } from "../../components/micro/drawer";
 import {
   DocsP,
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+  ShowcaseDocs } from "../../dev/components/showcase";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 2: Micro Content (không export)
@@ -32,7 +30,7 @@ function DrawerMicroShowcase() {
     <DrawerTrigger asChild>
       <Button variant="outline">Open Bottom</Button>
     </DrawerTrigger>
-    <DrawerPortal>
+    
       <DrawerContent>
         <div className="mx-auto w-full max-w-sm">
           <DrawerHeader>
@@ -77,7 +75,7 @@ function DrawerMicroShowcase() {
           </DrawerFooter>
         </div>
       </DrawerContent>
-    </DrawerPortal>
+    
   </Drawer>`}
         >
           <Drawer>
@@ -85,7 +83,6 @@ function DrawerMicroShowcase() {
               <Button variant="outline">Open Bottom</Button>
             </DrawerTrigger>
 
-            <DrawerPortal>
               <DrawerContent>
                 <div className="mx-auto w-full max-w-sm">
                   <DrawerHeader>
@@ -130,7 +127,7 @@ function DrawerMicroShowcase() {
                   </DrawerFooter>
                 </div>
               </DrawerContent>
-            </DrawerPortal>
+            
           </Drawer>
         </ExampleSection>
 
@@ -141,7 +138,7 @@ function DrawerMicroShowcase() {
     <DrawerTrigger asChild>
       <Button variant="outline">Show Info</Button>
     </DrawerTrigger>
-    <DrawerPortal>
+    
       <DrawerContent>
         <div className="mx-auto w-full max-w-sm">
           <DrawerHeader>
@@ -160,7 +157,7 @@ function DrawerMicroShowcase() {
           </DrawerFooter>
         </div>
       </DrawerContent>
-    </DrawerPortal>
+    
   </Drawer>`}
         >
           <Drawer>
@@ -168,7 +165,6 @@ function DrawerMicroShowcase() {
               <Button variant="outline">Show Info</Button>
             </DrawerTrigger>
 
-            <DrawerPortal>
               <DrawerContent>
                 <div className="mx-auto w-full max-w-sm">
                   <DrawerHeader>
@@ -186,7 +182,7 @@ function DrawerMicroShowcase() {
                   </DrawerFooter>
                 </div>
               </DrawerContent>
-            </DrawerPortal>
+            
           </Drawer>
         </ExampleSection>
         <ExampleSection
@@ -196,7 +192,7 @@ function DrawerMicroShowcase() {
     <DrawerTrigger asChild>
       <Button variant="outline">Open Left</Button>
     </DrawerTrigger>
-    <DrawerPortal>
+    
       <DrawerContent>
         <DrawerHeader>
           <DrawerTitle>Sidebar Menu</DrawerTitle>
@@ -217,14 +213,14 @@ function DrawerMicroShowcase() {
           </DrawerClose>
         </DrawerFooter>
       </DrawerContent>
-    </DrawerPortal>
+    
   </Drawer>
 
   <Drawer direction="right">
     <DrawerTrigger asChild>
       <Button variant="outline">Open Right</Button>
     </DrawerTrigger>
-    <DrawerPortal>
+    
       <DrawerContent>
         <DrawerHeader>
           <DrawerTitle>Filters</DrawerTitle>
@@ -244,7 +240,7 @@ function DrawerMicroShowcase() {
           </DrawerClose>
         </DrawerFooter>
       </DrawerContent>
-    </DrawerPortal>
+    
   </Drawer>`}
         >
           <Drawer direction="left">
@@ -252,7 +248,6 @@ function DrawerMicroShowcase() {
               <Button variant="outline">Open Left</Button>
             </DrawerTrigger>
 
-            <DrawerPortal>
               <DrawerContent>
                 <DrawerHeader>
                   <DrawerTitle>Sidebar Menu</DrawerTitle>
@@ -273,7 +268,7 @@ function DrawerMicroShowcase() {
                   </DrawerClose>
                 </DrawerFooter>
               </DrawerContent>
-            </DrawerPortal>
+            
           </Drawer>
 
           <Drawer direction="right">
@@ -281,7 +276,6 @@ function DrawerMicroShowcase() {
               <Button variant="outline">Open Right</Button>
             </DrawerTrigger>
 
-            <DrawerPortal>
               <DrawerContent>
                 <DrawerHeader>
                   <DrawerTitle>Filters</DrawerTitle>
@@ -301,7 +295,7 @@ function DrawerMicroShowcase() {
                   </DrawerClose>
                 </DrawerFooter>
               </DrawerContent>
-            </DrawerPortal>
+            
           </Drawer>
         </ExampleSection>
 
@@ -312,7 +306,7 @@ function DrawerMicroShowcase() {
     <DrawerTrigger asChild>
       <Button variant="outline">Open Top</Button>
     </DrawerTrigger>
-    <DrawerPortal>
+    
       <DrawerContent>
         <div className="mx-auto w-full max-w-sm">
           <DrawerHeader>
@@ -333,7 +327,7 @@ function DrawerMicroShowcase() {
           </DrawerFooter>
         </div>
       </DrawerContent>
-    </DrawerPortal>
+    
   </Drawer>`}
         >
           <Drawer direction="top">
@@ -341,7 +335,6 @@ function DrawerMicroShowcase() {
               <Button variant="outline">Open Top</Button>
             </DrawerTrigger>
 
-            <DrawerPortal>
               <DrawerContent>
                 <div className="mx-auto w-full max-w-sm">
                   <DrawerHeader>
@@ -362,7 +355,7 @@ function DrawerMicroShowcase() {
                   </DrawerFooter>
                 </div>
               </DrawerContent>
-            </DrawerPortal>
+            
           </Drawer>
         </ExampleSection>
       </ExampleGrid>
@@ -391,8 +384,7 @@ export default function DrawerShowcase() {
       tabs={[
         {
           label: "Micro (Primitive)",
-          content: <DrawerMicroShowcase />,
-        },
+          content: <DrawerMicroShowcase /> },
       ]}
     />
   );

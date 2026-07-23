@@ -8,10 +8,9 @@ import {
   SelectGroup,
   SelectItem,
   SelectLabel,
-  SelectPortal,
+  
   SelectTrigger,
-  SelectValue,
-} from "../../components/micro/select";
+  SelectValue } from "../../components/micro/select";
 import { type Size } from "../../lib/types";
 import { FieldPreset } from "./field-preset";
 
@@ -71,8 +70,7 @@ const SelectPreset = React.forwardRef<
       description,
       errorMessage,
       showError = true,
-      id,
-    },
+      id },
     ref,
   ) => {
     const generatedId = React.useId();
@@ -111,7 +109,7 @@ const SelectPreset = React.forwardRef<
           >
             <SelectValue placeholder={placeholder} />
           </SelectTrigger>
-          <SelectPortal>
+          
             <SelectContent>
                 {(() => {
                   const groups = new Map<
@@ -158,7 +156,7 @@ const SelectPreset = React.forwardRef<
                   );
                 })()}
             </SelectContent>
-          </SelectPortal>
+          
         </Select>
       </FieldPreset>
     );

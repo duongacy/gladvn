@@ -8,8 +8,7 @@ import {
   PaginationItem,
   PaginationLink,
   PaginationNext,
-  PaginationPrevious,
-} from "../../components/micro/pagination";
+  PaginationPrevious } from "../../components/micro/pagination";
 import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsCode,
@@ -18,8 +17,7 @@ import {
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+  ShowcaseDocs } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────
@@ -332,12 +330,10 @@ export default function PaginationShowcase() {
       tabs={[
         {
           label: "Micro (Primitive)",
-          content: <PaginationMicroShowcase globalSize={globalSize} />,
-        },
+          content: <PaginationMicroShowcase globalSize={globalSize} /> },
         {
           label: "Macro (Preset)",
-          content: <PaginationMacroShowcase globalSize={globalSize} />,
-        },
+          content: <PaginationMacroShowcase globalSize={globalSize} /> },
       ]}
     />
   );

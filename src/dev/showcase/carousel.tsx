@@ -8,15 +8,13 @@ import {
   CarouselDots,
   CarouselItem,
   CarouselNext,
-  CarouselPrevious,
-} from "../../components/micro/carousel";
+  CarouselPrevious } from "../../components/micro/carousel";
 import {
   DocsP,
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+  ShowcaseDocs } from "../../dev/components/showcase";
 import { cn } from "../../lib/utils";
 
 const SLIDES = [
@@ -24,32 +22,27 @@ const SLIDES = [
     id: 1,
     title: "Modern Aesthetics",
     desc: "Crafting beautiful interfaces with tailwind.",
-    bg: "bg-gradient-to-tr from-violet-500 to-purple-500",
-  },
+    bg: "bg-gradient-to-tr from-violet-500 to-purple-500" },
   {
     id: 2,
     title: "Smooth Interactions",
     desc: "Fluid animations and micro-interactions.",
-    bg: "bg-gradient-to-tr from-pink-500 to-rose-500",
-  },
+    bg: "bg-gradient-to-tr from-pink-500 to-rose-500" },
   {
     id: 3,
     title: "Highly Customizable",
     desc: "Easily adapt to your brand.",
-    bg: "bg-gradient-to-tr from-blue-500 to-cyan-500",
-  },
+    bg: "bg-gradient-to-tr from-blue-500 to-cyan-500" },
   {
     id: 4,
     title: "Accessible by Default",
     desc: "Keyboard navigation out of the box.",
-    bg: "bg-gradient-to-tr from-emerald-500 to-teal-500",
-  },
+    bg: "bg-gradient-to-tr from-emerald-500 to-teal-500" },
   {
     id: 5,
     title: "Dark Mode Ready",
     desc: "Looks stunning on dark and light mode.",
-    bg: "bg-gradient-to-tr from-amber-500 to-orange-500",
-  },
+    bg: "bg-gradient-to-tr from-amber-500 to-orange-500" },
 ];
 
 function ControlledCarouselDemo() {
@@ -84,8 +77,7 @@ function ControlledCarouselDemo() {
                     <span className="text-4xl font-semibold">1</span>
                   </div>
                 </div>
-              ),
-            },
+              ) },
             {
               id: "c2",
               content: (
@@ -94,8 +86,7 @@ function ControlledCarouselDemo() {
                     <span className="text-4xl font-semibold">2</span>
                   </div>
                 </div>
-              ),
-            },
+              ) },
             {
               id: "c3",
               content: (
@@ -104,8 +95,7 @@ function ControlledCarouselDemo() {
                     <span className="text-4xl font-semibold">3</span>
                   </div>
                 </div>
-              ),
-            },
+              ) },
           ]}
         />
       </div>
@@ -139,8 +129,7 @@ function CarouselMacroShowcase() {
               </span>
             </div>
           </div>
-        ),
-      },
+        ) },
       {
         id: "std-2",
         content: (
@@ -151,8 +140,7 @@ function CarouselMacroShowcase() {
               </span>
             </div>
           </div>
-        ),
-      },
+        ) },
       {
         id: "std-3",
         content: (
@@ -163,8 +151,7 @@ function CarouselMacroShowcase() {
               </span>
             </div>
           </div>
-        ),
-      },
+        ) },
     ]}
   />`}
         >
@@ -179,8 +166,7 @@ function CarouselMacroShowcase() {
                         <span className="text-4xl font-semibold">1</span>
                       </div>
                     </div>
-                  ),
-                },
+                  ) },
                 {
                   id: "std-2",
                   content: (
@@ -189,8 +175,7 @@ function CarouselMacroShowcase() {
                         <span className="text-4xl font-semibold">2</span>
                       </div>
                     </div>
-                  ),
-                },
+                  ) },
                 {
                   id: "std-3",
                   content: (
@@ -199,8 +184,7 @@ function CarouselMacroShowcase() {
                         <span className="text-4xl font-semibold">3</span>
                       </div>
                     </div>
-                  ),
-                },
+                  ) },
               ]}
             />
           </div>
@@ -219,8 +203,7 @@ function CarouselMacroShowcase() {
             alt="Slide 1"
             className="rounded-xl object-cover"
           />
-        ),
-      },
+        ) },
       {
         id: "img-2",
         content: (
@@ -229,8 +212,7 @@ function CarouselMacroShowcase() {
             alt="Slide 2"
             className="rounded-xl object-cover"
           />
-        ),
-      },
+        ) },
       {
         id: "img-3",
         content: (
@@ -239,8 +221,7 @@ function CarouselMacroShowcase() {
             alt="Slide 3"
             className="rounded-xl object-cover"
           />
-        ),
-      },
+        ) },
     ]}
   />`}
         >
@@ -255,8 +236,7 @@ function CarouselMacroShowcase() {
                       alt="Slide 1"
                       className="rounded-xl object-cover"
                     />
-                  ),
-                },
+                  ) },
                 {
                   id: "img-2",
                   content: (
@@ -265,8 +245,7 @@ function CarouselMacroShowcase() {
                       alt="Slide 2"
                       className="rounded-xl object-cover"
                     />
-                  ),
-                },
+                  ) },
                 {
                   id: "img-3",
                   content: (
@@ -275,8 +254,7 @@ function CarouselMacroShowcase() {
                       alt="Slide 3"
                       className="rounded-xl object-cover"
                     />
-                  ),
-                },
+                  ) },
               ]}
             />
           </div>
@@ -301,8 +279,7 @@ function CarouselMacroShowcase() {
               </span>
             </div>
           </div>
-        ),
-      },
+        ) },
       {
         id: "loop-2",
         content: (
@@ -313,8 +290,7 @@ function CarouselMacroShowcase() {
               </span>
             </div>
           </div>
-        ),
-      },
+        ) },
       {
         id: "loop-3",
         content: (
@@ -325,8 +301,7 @@ function CarouselMacroShowcase() {
               </span>
             </div>
           </div>
-        ),
-      },
+        ) },
     ]}
   />`}
         >
@@ -343,8 +318,7 @@ function CarouselMacroShowcase() {
                         <span className="text-4xl font-semibold">1</span>
                       </div>
                     </div>
-                  ),
-                },
+                  ) },
                 {
                   id: "loop-2",
                   content: (
@@ -353,8 +327,7 @@ function CarouselMacroShowcase() {
                         <span className="text-4xl font-semibold">2</span>
                       </div>
                     </div>
-                  ),
-                },
+                  ) },
                 {
                   id: "loop-3",
                   content: (
@@ -363,8 +336,7 @@ function CarouselMacroShowcase() {
                         <span className="text-4xl font-semibold">3</span>
                       </div>
                     </div>
-                  ),
-                },
+                  ) },
               ]}
             />
           </div>
@@ -386,8 +358,7 @@ function CarouselMacroShowcase() {
               </span>
             </div>
           </div>
-        ),
-      },
+        ) },
       {
         id: "arr-2",
         content: (
@@ -398,8 +369,7 @@ function CarouselMacroShowcase() {
               </span>
             </div>
           </div>
-        ),
-      },
+        ) },
       {
         id: "arr-3",
         content: (
@@ -410,8 +380,7 @@ function CarouselMacroShowcase() {
               </span>
             </div>
           </div>
-        ),
-      },
+        ) },
     ]}
   />`}
         >
@@ -427,8 +396,7 @@ function CarouselMacroShowcase() {
                         <span className="text-4xl font-semibold">A</span>
                       </div>
                     </div>
-                  ),
-                },
+                  ) },
                 {
                   id: "arr-2",
                   content: (
@@ -437,8 +405,7 @@ function CarouselMacroShowcase() {
                         <span className="text-4xl font-semibold">B</span>
                       </div>
                     </div>
-                  ),
-                },
+                  ) },
                 {
                   id: "arr-3",
                   content: (
@@ -447,8 +414,7 @@ function CarouselMacroShowcase() {
                         <span className="text-4xl font-semibold">C</span>
                       </div>
                     </div>
-                  ),
-                },
+                  ) },
               ]}
             />
           </div>
@@ -487,24 +453,21 @@ return (
           <div className="h-full w-full border border-border rounded-xl flex items-center justify-center bg-muted/20 text-4xl font-semibold">
             A
           </div>
-        ),
-      },
+        ) },
       {
         id: "v2",
         content: (
           <div className="h-full w-full border border-border rounded-xl flex items-center justify-center bg-muted/20 text-4xl font-semibold">
             B
           </div>
-        ),
-      },
+        ) },
       {
         id: "v3",
         content: (
           <div className="h-full w-full border border-border rounded-xl flex items-center justify-center bg-muted/20 text-4xl font-semibold">
             C
           </div>
-        ),
-      },
+        ) },
     ]}
   />`}
         >
@@ -521,24 +484,21 @@ return (
                     <div className="h-full w-full border border-border rounded-xl flex items-center justify-center bg-muted/20 text-4xl font-semibold">
                       A
                     </div>
-                  ),
-                },
+                  ) },
                 {
                   id: "v2",
                   content: (
                     <div className="h-full w-full border border-border rounded-xl flex items-center justify-center bg-muted/20 text-4xl font-semibold">
                       B
                     </div>
-                  ),
-                },
+                  ) },
                 {
                   id: "v3",
                   content: (
                     <div className="h-full w-full border border-border rounded-xl flex items-center justify-center bg-muted/20 text-4xl font-semibold">
                       C
                     </div>
-                  ),
-                },
+                  ) },
               ]}
             />
           </div>

@@ -16,23 +16,20 @@ import {
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+  ShowcaseDocs } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────
 // RHF Form Demo (Macro)
 // ──────────────────────────────────────────────────────────
 const formSchema = z.object({
-  marketing: z.boolean().default(false).optional(),
-});
+  marketing: z.boolean().default(false).optional() });
 type FormValues = z.infer<typeof formSchema>;
 
 function SwitchForm({ size }: { size: Size }) {
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
-    defaultValues: { marketing: false },
-  });
+    defaultValues: { marketing: false } });
 
   return (
     <form
@@ -65,8 +62,7 @@ const rhfCode = `const formSchema = z.object({ marketing: z.boolean().default(fa
 function SwitchForm({ size }: { size: Size }) {
   const form = useForm({
     resolver: zodResolver(formSchema),
-    defaultValues: { marketing: false },
-  });
+    defaultValues: { marketing: false } });
 
   return (
     <form onSubmit={form.handleSubmit(console.log)} className="space-y-6">
@@ -687,12 +683,10 @@ export default function SwitchShowcase() {
       tabs={[
         {
           label: "Micro (Primitive)",
-          content: <SwitchMicroShowcase globalSize={globalSize} />,
-        },
+          content: <SwitchMicroShowcase globalSize={globalSize} /> },
         {
           label: "Macro (Preset)",
-          content: <SwitchMacroShowcase globalSize={globalSize} />,
-        },
+          content: <SwitchMacroShowcase globalSize={globalSize} /> },
       ]}
     />
   );

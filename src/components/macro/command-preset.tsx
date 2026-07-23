@@ -10,16 +10,14 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-  CommandShortcut,
-} from "../../components/micro/command";
+  CommandShortcut } from "../../components/micro/command";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
-  DialogPortal,
-  DialogTitle,
-} from "../../components/micro/dialog";
+  
+  DialogTitle } from "../../components/micro/dialog";
 import { cn } from "../../lib/utils";
 
 type CommandDialogProps = Omit<
@@ -41,7 +39,7 @@ function CommandDialog({
 }: CommandDialogProps) {
   return (
     <Dialog {...props}>
-      <DialogPortal>
+      
         <DialogContent
           className={cn(
             "top-1/3 translate-y-0 overflow-hidden rounded-xl p-0 sm:max-w-lg",
@@ -54,7 +52,7 @@ function CommandDialog({
           </DialogHeader>
           {children}
         </DialogContent>
-      </DialogPortal>
+      
     </Dialog>
   );
 }
@@ -70,6 +68,5 @@ export {
   CommandItem,
   CommandList,
   CommandSeparator,
-  CommandShortcut,
-};
+  CommandShortcut };
 export type { CommandDialogProps };

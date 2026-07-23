@@ -12,10 +12,9 @@ import {
   DialogDescription,
   DialogFooter,
   DialogHeader,
-  DialogPortal,
+  
   DialogTitle,
-  DialogTrigger,
-} from "../../components/micro/dialog";
+  DialogTrigger } from "../../components/micro/dialog";
 import { type Size } from "../../lib/types";
 import { cn } from "../../lib/utils";
 
@@ -49,7 +48,7 @@ const DialogPreset = React.forwardRef<HTMLDivElement, DialogPresetProps>(
     return (
       <Dialog {...props}>
         {trigger && <DialogTrigger render={trigger} />}
-        <DialogPortal>
+        
           <DialogContent
             ref={ref}
             className={cn(
@@ -94,7 +93,7 @@ const DialogPreset = React.forwardRef<HTMLDivElement, DialogPresetProps>(
               </DialogClose>
             )}
           </DialogContent>
-        </DialogPortal>
+        
       </Dialog>
     );
   },

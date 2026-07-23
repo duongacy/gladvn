@@ -12,10 +12,9 @@ import {
   SheetDescription,
   SheetFooter,
   SheetHeader,
-  SheetPortal,
+  
   SheetTitle,
-  SheetTrigger,
-} from "../../components/micro/sheet";
+  SheetTrigger } from "../../components/micro/sheet";
 import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsCode,
@@ -23,8 +22,7 @@ import {
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+  ShowcaseDocs } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────
@@ -47,7 +45,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
         </Button>
       }
     />
-    <SheetPortal>
+    
       <SheetContent side="right">
         <SheetHeader>
           <SheetTitle>Edit Profile</SheetTitle>
@@ -91,7 +89,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
           <Button>Lưu thay đổi</Button>
         </SheetFooter>
       </SheetContent>
-    </SheetPortal>
+    
   </Sheet>`}
       >
         <div className="grid grid-cols-2 gap-2">
@@ -109,7 +107,6 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
               top
             </SheetTrigger>
 
-            <SheetPortal>
               <SheetContent side="top">
                 <SheetHeader>
                   <SheetTitle>Edit Profile</SheetTitle>
@@ -138,7 +135,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
                   <Button size={globalSize}>Lưu thay đổi</Button>
                 </SheetFooter>
               </SheetContent>
-            </SheetPortal>
+            
           </Sheet>
 
           {/* right */}
@@ -155,7 +152,6 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
               right
             </SheetTrigger>
 
-            <SheetPortal>
               <SheetContent side="right">
                 <SheetHeader>
                   <SheetTitle>Edit Profile</SheetTitle>
@@ -194,7 +190,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
                   <Button size={globalSize}>Lưu thay đổi</Button>
                 </SheetFooter>
               </SheetContent>
-            </SheetPortal>
+            
           </Sheet>
 
           {/* bottom */}
@@ -211,7 +207,6 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
               bottom
             </SheetTrigger>
 
-            <SheetPortal>
               <SheetContent side="bottom">
                 <SheetHeader>
                   <SheetTitle>Edit Profile</SheetTitle>
@@ -240,7 +235,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
                   <Button size={globalSize}>Lưu thay đổi</Button>
                 </SheetFooter>
               </SheetContent>
-            </SheetPortal>
+            
           </Sheet>
 
           {/* left */}
@@ -257,7 +252,6 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
               left
             </SheetTrigger>
 
-            <SheetPortal>
               <SheetContent side="left">
                 <SheetHeader>
                   <SheetTitle>Edit Profile</SheetTitle>
@@ -296,7 +290,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
                   <Button size={globalSize}>Lưu thay đổi</Button>
                 </SheetFooter>
               </SheetContent>
-            </SheetPortal>
+            
           </Sheet>
         </div>
       </ExampleSection>
@@ -311,7 +305,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
       <PanelRightIcon />
       Mở Sheet
     </SheetTrigger>
-    <SheetPortal>
+    
       <SheetContent side="right">
         <SheetHeader>
           <SheetTitle>Có nút đóng</SheetTitle>
@@ -320,7 +314,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
           </SheetDescription>
         </SheetHeader>
       </SheetContent>
-    </SheetPortal>
+    
   </Sheet>`}
         >
           <Sheet>
@@ -331,14 +325,13 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
               Mở Sheet
             </SheetTrigger>
 
-            <SheetPortal>
               <SheetContent side="right">
                 <SheetHeader>
                   <SheetTitle>Có nút đóng</SheetTitle>
                   <SheetDescription>Nút X xuất hiện tự động.</SheetDescription>
                 </SheetHeader>
               </SheetContent>
-            </SheetPortal>
+            
           </Sheet>
         </ExampleSection>
 
@@ -350,7 +343,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
       <PanelRightIcon />
       Không có X
     </SheetTrigger>
-    <SheetPortal>
+    
       <SheetContent side="right" showCloseButton={false}>
         <SheetHeader>
           <SheetTitle>Ẩn nút đóng</SheetTitle>
@@ -371,7 +364,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
           </SheetClose>
         </SheetFooter>
       </SheetContent>
-    </SheetPortal>
+    
   </Sheet>`}
         >
           <Sheet>
@@ -382,7 +375,6 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
               Không có X
             </SheetTrigger>
 
-            <SheetPortal>
               <SheetContent side="right" showCloseButton={false}>
                 <SheetHeader>
                   <SheetTitle>Ẩn nút đóng</SheetTitle>
@@ -404,7 +396,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
                   </SheetClose>
                 </SheetFooter>
               </SheetContent>
-            </SheetPortal>
+            
           </Sheet>
         </ExampleSection>
       </ExampleGrid>
@@ -420,7 +412,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
         <SettingsIcon />
         Toggle Controlled
       </SheetTrigger>
-      <SheetPortal>
+      
         <SheetContent side="right">
           <SheetHeader>
             <SheetTitle>Controlled Mode</SheetTitle>
@@ -435,7 +427,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
             </Button>
           </SheetFooter>
         </SheetContent>
-      </SheetPortal>
+      
     </Sheet>
     <p className="text-sm text-muted-foreground">
       Trạng thái:{" "}
@@ -457,7 +449,6 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
               Toggle Controlled
             </SheetTrigger>
 
-            <SheetPortal>
               <SheetContent side="right">
                 <SheetHeader>
                   <SheetTitle>Controlled Mode</SheetTitle>
@@ -471,7 +462,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
                   </Button>
                 </SheetFooter>
               </SheetContent>
-            </SheetPortal>
+            
           </Sheet>
           <p className="text-sm text-muted-foreground">
             Trạng thái:{" "}
@@ -494,7 +485,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
       <FilterIcon />
       Lọc dữ liệu
     </SheetTrigger>
-    <SheetPortal>
+    
       <SheetContent side="right">
         <SheetHeader>
           <SheetTitle>Bộ lọc</SheetTitle>
@@ -530,7 +521,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
           <Button>Áp dụng</Button>
         </SheetFooter>
       </SheetContent>
-    </SheetPortal>
+    
   </Sheet>`}
       >
         <Sheet>
@@ -539,7 +530,6 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
             Lọc dữ liệu
           </SheetTrigger>
 
-          <SheetPortal>
             <SheetContent side="right">
               <SheetHeader>
                 <SheetTitle>Bộ lọc</SheetTitle>
@@ -570,7 +560,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
                 <Button size={globalSize}>Áp dụng</Button>
               </SheetFooter>
             </SheetContent>
-          </SheetPortal>
+          
         </Sheet>
       </ExampleSection>
     </div>
@@ -606,8 +596,7 @@ export default function SheetShowcase() {
       tabs={[
         {
           label: "Micro (Primitive)",
-          content: <SheetMicroShowcase globalSize={globalSize} />,
-        },
+          content: <SheetMicroShowcase globalSize={globalSize} /> },
       ]}
     />
   );

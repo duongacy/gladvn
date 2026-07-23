@@ -5,8 +5,7 @@ import {
   InfoIcon,
   TriangleAlertIcon,
   XCircleIcon,
-  XIcon,
-} from "lucide-react";
+  XIcon } from "lucide-react";
 
 import { AlertPreset } from "../../components/macro/alert-preset";
 import {
@@ -14,8 +13,7 @@ import {
   AlertAction,
   AlertDescription,
   AlertIcon,
-  AlertTitle,
-} from "../../components/micro/alert";
+  AlertTitle } from "../../components/micro/alert";
 import { Button } from "../../components/micro/button";
 import { useDevContext } from "../../dev/components/dev-context";
 import {
@@ -26,8 +24,7 @@ import {
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+  ShowcaseDocs } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────
@@ -757,12 +754,10 @@ export default function AlertShowcase() {
       tabs={[
         {
           label: "Micro (Primitive)",
-          content: <AlertMicroShowcase globalSize={globalSize} />,
-        },
+          content: <AlertMicroShowcase globalSize={globalSize} /> },
         {
           label: "Macro (Preset)",
-          content: <AlertMacroShowcase globalSize={globalSize} />,
-        },
+          content: <AlertMacroShowcase globalSize={globalSize} /> },
       ]}
     />
   );

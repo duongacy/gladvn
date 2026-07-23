@@ -4,8 +4,7 @@ import {
   Avatar,
   AvatarBadge,
   AvatarFallback,
-  AvatarImage,
-} from "../../components/micro/avatar";
+  AvatarImage } from "../../components/micro/avatar";
 
 export type AvatarPresetProps = React.ComponentProps<typeof Avatar> & {
   src?: string;
@@ -18,8 +17,7 @@ const statusColors = {
   online: "bg-success",
   away: "bg-warning",
   busy: "bg-destructive",
-  offline: "bg-muted-foreground/50",
-};
+  offline: "bg-muted-foreground/50" };
 
 function getInitials(name: string) {
   const parts = name.split(" ").filter(Boolean);

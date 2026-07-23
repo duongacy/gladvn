@@ -7,7 +7,7 @@ import {
   ContextMenuGroup,
   ContextMenuItem,
   ContextMenuLabel,
-  ContextMenuPortal,
+  
   ContextMenuRadioGroup,
   ContextMenuRadioItem,
   ContextMenuSeparator,
@@ -15,14 +15,12 @@ import {
   ContextMenuSub,
   ContextMenuSubContent,
   ContextMenuSubTrigger,
-  ContextMenuTrigger,
-} from "../../components/micro/context-menu";
+  ContextMenuTrigger } from "../../components/micro/context-menu";
 import {
   DocsP,
   ExampleSection,
   Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+  ShowcaseDocs } from "../../dev/components/showcase";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 2: Micro Content (không export)
@@ -41,7 +39,7 @@ function ContextMenuMicroShowcase() {
     <ContextMenuTrigger className="flex h-[150px] w-full max-w-[400px] items-center justify-center rounded-md border border-border border-dashed text-sm">
       Right click here
     </ContextMenuTrigger>
-    <ContextMenuPortal>
+    
       <ContextMenuContent className="w-64">
         <ContextMenuItem inset>
           Back
@@ -59,7 +57,7 @@ function ContextMenuMicroShowcase() {
           <ContextMenuSubTrigger inset>
             More Tools
           </ContextMenuSubTrigger>
-          <ContextMenuPortal>
+          
             <ContextMenuSubContent className="w-48">
               <ContextMenuItem>
                 Save Page As...
@@ -78,7 +76,7 @@ function ContextMenuMicroShowcase() {
                 Developer Tools
               </ContextMenuItem>
             </ContextMenuSubContent>
-          </ContextMenuPortal>
+          
         </ContextMenuSub>
         <ContextMenuSeparator />
         <ContextMenuCheckboxItem
@@ -111,7 +109,7 @@ function ContextMenuMicroShowcase() {
           </ContextMenuRadioGroup>
         </ContextMenuGroup>
       </ContextMenuContent>
-    </ContextMenuPortal>
+    
   </ContextMenu>`}
       >
         <ContextMenu>
@@ -119,7 +117,6 @@ function ContextMenuMicroShowcase() {
             Right click here
           </ContextMenuTrigger>
 
-          <ContextMenuPortal>
             <ContextMenuContent className="w-64">
               <ContextMenuItem inset>
                 Back
@@ -136,7 +133,6 @@ function ContextMenuMicroShowcase() {
               <ContextMenuSub>
                 <ContextMenuSubTrigger inset>More Tools</ContextMenuSubTrigger>
 
-                <ContextMenuPortal>
                   <ContextMenuSubContent className="w-48">
                     <ContextMenuItem>
                       Save Page As...
@@ -147,7 +143,7 @@ function ContextMenuMicroShowcase() {
                     <ContextMenuSeparator />
                     <ContextMenuItem>Developer Tools</ContextMenuItem>
                   </ContextMenuSubContent>
-                </ContextMenuPortal>
+                
               </ContextMenuSub>
               <ContextMenuSeparator />
               <ContextMenuCheckboxItem
@@ -177,7 +173,7 @@ function ContextMenuMicroShowcase() {
                 </ContextMenuRadioGroup>
               </ContextMenuGroup>
             </ContextMenuContent>
-          </ContextMenuPortal>
+          
         </ContextMenu>
       </ExampleSection>
 
@@ -188,7 +184,7 @@ function ContextMenuMicroShowcase() {
     <ContextMenuTrigger className="flex h-[100px] w-full max-w-[300px] items-center justify-center rounded-md border border-border border-dashed text-sm">
       Right click here
     </ContextMenuTrigger>
-    <ContextMenuPortal>
+    
       <ContextMenuContent className="w-52">
         <ContextMenuItem>
           Rename
@@ -201,7 +197,7 @@ function ContextMenuMicroShowcase() {
           <ContextMenuShortcut>⌫</ContextMenuShortcut>
         </ContextMenuItem>
       </ContextMenuContent>
-    </ContextMenuPortal>
+    
   </ContextMenu>`}
       >
         <ContextMenu>
@@ -209,7 +205,6 @@ function ContextMenuMicroShowcase() {
             Right click here
           </ContextMenuTrigger>
 
-          <ContextMenuPortal>
             <ContextMenuContent className="w-52">
               <ContextMenuItem>
                 Rename
@@ -222,7 +217,7 @@ function ContextMenuMicroShowcase() {
                 <ContextMenuShortcut>⌫</ContextMenuShortcut>
               </ContextMenuItem>
             </ContextMenuContent>
-          </ContextMenuPortal>
+          
         </ContextMenu>
       </ExampleSection>
     </div>
@@ -248,8 +243,7 @@ export default function ContextMenuShowcase() {
       tabs={[
         {
           label: "Micro (Primitive)",
-          content: <ContextMenuMicroShowcase />,
-        },
+          content: <ContextMenuMicroShowcase /> },
       ]}
     />
   );

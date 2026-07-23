@@ -10,8 +10,7 @@ import {
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+  ShowcaseDocs } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 function CalendarMicroShowcase({ globalSize }: { globalSize: Size }) {
@@ -23,8 +22,7 @@ function CalendarMicroShowcase({ globalSize }: { globalSize: Size }) {
   ]);
   const [dateRange, setDateRange] = useState<DateRange | undefined>({
     from: new Date(2026, 5, 15),
-    to: new Date(2026, 5, 25),
-  });
+    to: new Date(2026, 5, 25) });
 
   return (
     <div className="space-y-10 mt-6">
@@ -59,8 +57,7 @@ function CalendarMicroShowcase({ globalSize }: { globalSize: Size }) {
           description="Chọn một phạm vi ngày."
           codeString={`const [date, setDate] = React.useState<DateRange | undefined>({
   from: new Date(2026, 5, 15),
-  to: new Date(2026, 5, 25),
-})
+  to: new Date(2026, 5, 25) })
 
 <Calendar
   mode="range"
@@ -370,12 +367,10 @@ export default function CalendarShowcase() {
       tabs={[
         {
           label: "Micro (Primitive)",
-          content: <CalendarMicroShowcase globalSize={globalSize} />,
-        },
+          content: <CalendarMicroShowcase globalSize={globalSize} /> },
         {
           label: "Macro (DatePicker)",
-          content: <CalendarMacroShowcase globalSize={globalSize} />,
-        },
+          content: <CalendarMacroShowcase globalSize={globalSize} /> },
       ]}
     />
   );

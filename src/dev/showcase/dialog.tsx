@@ -11,10 +11,9 @@ import {
   DialogDescription,
   DialogFooter,
   DialogHeader,
-  DialogPortal,
+  
   DialogTitle,
-  DialogTrigger,
-} from "../../components/micro/dialog";
+  DialogTrigger } from "../../components/micro/dialog";
 import { Input } from "../../components/micro/input";
 import { Label } from "../../components/micro/label";
 import { useDevContext } from "../../dev/components/dev-context";
@@ -25,8 +24,7 @@ import {
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+  ShowcaseDocs } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 import { cn } from "../../lib/utils";
 
@@ -412,7 +410,6 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
       }
     />
 
-    <DialogPortal>
       <DialogContent className={contentClass}>
         <DialogHeader>
           <DialogTitle>Update Subscription</DialogTitle>
@@ -441,7 +438,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
           <span className="sr-only">Close</span>
         </DialogClose>
       </DialogContent>
-    </DialogPortal>
+    
   </Dialog>`}
         >
           <Dialog>
@@ -453,7 +450,6 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
               }
             />
 
-            <DialogPortal>
               <DialogContent className={contentClass}>
                 <DialogHeader>
                   <DialogTitle>Update Subscription</DialogTitle>
@@ -486,7 +482,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                   <span className="sr-only">Close</span>
                 </DialogClose>
               </DialogContent>
-            </DialogPortal>
+            
           </Dialog>
         </ExampleSection>
 
@@ -500,7 +496,6 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
       }
     />
 
-    <DialogPortal>
       <DialogContent className={contentClass}>
         <DialogHeader>
           <DialogTitle>Edit profile</DialogTitle>
@@ -551,7 +546,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
           <span className="sr-only">Close</span>
         </DialogClose>
       </DialogContent>
-    </DialogPortal>
+    
   </Dialog>`}
         >
           <Dialog>
@@ -563,7 +558,6 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
               }
             />
 
-            <DialogPortal>
               <DialogContent className={contentClass}>
                 <DialogHeader>
                   <DialogTitle>Edit profile</DialogTitle>
@@ -613,7 +607,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                   <span className="sr-only">Close</span>
                 </DialogClose>
               </DialogContent>
-            </DialogPortal>
+            
           </Dialog>
         </ExampleSection>
       </ExampleGrid>
@@ -627,7 +621,6 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
       render={<Button variant="outline">View Terms</Button>}
     />
 
-    <DialogPortal>
       <DialogContent className={contentClass}>
         <DialogHeader>
           <DialogTitle>Terms of Service</DialogTitle>
@@ -649,7 +642,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
           <Button>Accept</Button>
         </DialogFooter>
       </DialogContent>
-    </DialogPortal>
+    
   </Dialog>`}
         >
           <Dialog>
@@ -661,7 +654,6 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
               }
             />
 
-            <DialogPortal>
               <DialogContent className={contentClass}>
                 <DialogHeader>
                   <DialogTitle>Terms of Service</DialogTitle>
@@ -683,7 +675,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                   <Button size={globalSize}>Accept</Button>
                 </DialogFooter>
               </DialogContent>
-            </DialogPortal>
+            
           </Dialog>
         </ExampleSection>
 
@@ -697,7 +689,6 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
       }
     />
 
-    <DialogPortal>
       <DialogContent className={contentClass}>
         <DialogHeader>
           <DialogTitle>Detailed Report</DialogTitle>
@@ -727,7 +718,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
           <span className="sr-only">Close</span>
         </DialogClose>
       </DialogContent>
-    </DialogPortal>
+    
   </Dialog>`}
         >
           <Dialog>
@@ -739,7 +730,6 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
               }
             />
 
-            <DialogPortal>
               <DialogContent className={contentClass}>
                 <DialogHeader>
                   <DialogTitle>Detailed Report</DialogTitle>
@@ -769,7 +759,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                   <span className="sr-only">Close</span>
                 </DialogClose>
               </DialogContent>
-            </DialogPortal>
+            
           </Dialog>
         </ExampleSection>
       </ExampleGrid>
@@ -795,7 +785,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
       open={controlledOpen}
       onOpenChange={setControlledOpen}
     >
-      <DialogPortal>
+      
         <DialogContent className={contentClass}>
           <DialogHeader>
             <DialogTitle>Controlled Dialog</DialogTitle>
@@ -829,7 +819,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
             <span className="sr-only">Close</span>
           </DialogClose>
         </DialogContent>
-      </DialogPortal>
+      
     </Dialog>
   </div>`}
         >
@@ -848,7 +838,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
             </div>
 
             <Dialog open={controlledOpen} onOpenChange={setControlledOpen}>
-              <DialogPortal>
+              
                 <DialogContent className={contentClass}>
                   <DialogHeader>
                     <DialogTitle>Controlled Dialog</DialogTitle>
@@ -883,7 +873,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                     <span className="sr-only">Close</span>
                   </DialogClose>
                 </DialogContent>
-              </DialogPortal>
+              
             </Dialog>
           </div>
         </ExampleSection>
@@ -898,7 +888,6 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
       }
     />
 
-    <DialogPortal>
       <DialogContent
         className={cn(
           contentClass,
@@ -948,7 +937,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
           <span className="sr-only">Close</span>
         </DialogClose>
       </DialogContent>
-    </DialogPortal>
+    
   </Dialog>`}
         >
           <Dialog>
@@ -960,7 +949,6 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
               }
             />
 
-            <DialogPortal>
               <DialogContent
                 className={cn(
                   contentClass,
@@ -1011,7 +999,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                   <span className="sr-only">Close</span>
                 </DialogClose>
               </DialogContent>
-            </DialogPortal>
+            
           </Dialog>
         </ExampleSection>
 
@@ -1136,12 +1124,10 @@ export default function DialogShowcase() {
       tabs={[
         {
           label: "Micro (Primitive)",
-          content: <DialogMicroShowcase globalSize={globalSize} />,
-        },
+          content: <DialogMicroShowcase globalSize={globalSize} /> },
         {
           label: "Macro (Preset)",
-          content: <DialogMacroShowcase globalSize={globalSize} />,
-        },
+          content: <DialogMacroShowcase globalSize={globalSize} /> },
       ]}
       generalConcept={
         <ShowcaseDocs>

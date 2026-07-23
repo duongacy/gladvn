@@ -5,14 +5,12 @@ import {
   Field,
   FieldContent,
   FieldError,
-  FieldLabel,
-} from "../../components/micro/field";
+  FieldLabel } from "../../components/micro/field";
 import {
   InputOTP,
   InputOTPGroup,
   InputOTPSeparator,
-  InputOTPSlot,
-} from "../../components/micro/input-otp";
+  InputOTPSlot } from "../../components/micro/input-otp";
 import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsCode,
@@ -21,8 +19,7 @@ import {
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+  ShowcaseDocs } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────
@@ -402,12 +399,10 @@ export default function InputOTPShowcase() {
       tabs={[
         {
           label: "Micro (Primitive)",
-          content: <InputOTPMicroShowcase globalSize={globalSize} />,
-        },
+          content: <InputOTPMicroShowcase globalSize={globalSize} /> },
         {
           label: "Macro (Preset)",
-          content: <InputOTPMacroShowcase globalSize={globalSize} />,
-        },
+          content: <InputOTPMacroShowcase globalSize={globalSize} /> },
       ]}
     />
   );

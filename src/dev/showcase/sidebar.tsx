@@ -6,14 +6,12 @@ import {
   SidebarLogo,
   SidebarMenuItem,
   SidebarMenuItemList,
-  useSidebarToggle,
-} from "../../components/micro/sidebar";
+  useSidebarToggle } from "../../components/micro/sidebar";
 import {
   DocsP,
   ExampleSection,
   Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+  ShowcaseDocs } from "../../dev/components/showcase";
 
 function SidebarMicroShowcase() {
   const { sidebarRef, toggleSidebar, defaultState } =

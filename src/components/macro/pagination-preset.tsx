@@ -9,8 +9,7 @@ import {
   PaginationItem,
   PaginationLink,
   PaginationNext,
-  PaginationPrevious,
-} from "../../components/micro/pagination";
+  PaginationPrevious } from "../../components/micro/pagination";
 import type { Size } from "../../lib/types";
 import { cn } from "../../lib/utils";
 
@@ -100,8 +99,7 @@ const PaginationPreset = React.forwardRef<HTMLElement, PaginationPresetProps>(
               }}
               aria-disabled={currentPage === 1}
               className={cn({
-                "pointer-events-none opacity-50": currentPage === 1,
-              })}
+                "pointer-events-none opacity-50": currentPage === 1 })}
             />
           </PaginationItem>
 
@@ -141,8 +139,7 @@ const PaginationPreset = React.forwardRef<HTMLElement, PaginationPresetProps>(
               }}
               aria-disabled={currentPage === totalPages}
               className={cn({
-                "pointer-events-none opacity-50": currentPage === totalPages,
-              })}
+                "pointer-events-none opacity-50": currentPage === totalPages })}
             />
           </PaginationItem>
         </PaginationContent>

@@ -53,8 +53,7 @@ const RadioGroupPreset = React.forwardRef<
     const textSizeClass = cn({
       "text-xs": size === "sm",
       "text-sm": size === "md",
-      "text-base": size === "lg",
-    });
+      "text-base": size === "lg" });
 
     return (
       <FieldPreset
@@ -71,8 +70,7 @@ const RadioGroupPreset = React.forwardRef<
           id={inputId}
           className={cn("flex", {
             "flex-col gap-2": orientation === "vertical",
-            "flex-row gap-4 flex-wrap": orientation !== "vertical",
-          })}
+            "flex-row gap-4 flex-wrap": orientation !== "vertical" })}
           aria-invalid={!!errorMessage}
           {...radioGroupProps}
         >

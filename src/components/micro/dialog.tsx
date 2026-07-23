@@ -26,15 +26,7 @@ const DialogTrigger = React.forwardRef<
 ));
 DialogTrigger.displayName = "DialogTrigger";
 
-const DialogPortal = ({
-  children,
-  ...props
-}: React.ComponentProps<typeof DialogPrimitive.Portal>) => (
-  <DialogPrimitive.Portal {...props}>
-    <ThemeWrapper>{children}</ThemeWrapper>
-  </DialogPrimitive.Portal>
-);
-DialogPortal.displayName = "DialogPortal";
+
 
 const DialogClose = React.forwardRef<
   HTMLButtonElement,
@@ -62,23 +54,27 @@ DialogOverlay.displayName = "DialogOverlay";
 
 const DialogContent = React.forwardRef<
   HTMLDivElement,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Popup>
->(({ className, children, ...props }, ref) => (
-  <>
-    <DialogOverlay />
-    <DialogPrimitive.Popup
-      ref={ref}
-      data-slot="dialog-content"
-      className={cn(
-        "group/dialog-content fixed top-1/2 left-1/2 z-50 grid w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl bg-popover p-4 text-sm text-popover-foreground ring-1 ring-foreground/10 duration-100 outline-none max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] overflow-y-auto",
-        "data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
-        className,
-      )}
-      {...props}
-    >
-      {children}
-    </DialogPrimitive.Popup>
-  </>
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Popup> & {
+    container?: React.ComponentProps<typeof DialogPrimitive.Portal>["container"];
+  }
+>(({ className, children, container, ...props }, ref) => (
+  <DialogPrimitive.Portal container={container}>
+    <ThemeWrapper>
+      <DialogOverlay />
+      <DialogPrimitive.Popup
+        ref={ref}
+        data-slot="dialog-content"
+        className={cn(
+          "group/dialog-content fixed top-1/2 left-1/2 z-50 grid w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl bg-popover p-4 text-sm text-popover-foreground ring-1 ring-foreground/10 duration-100 outline-none max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] overflow-y-auto",
+          "data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
+          className,
+        )}
+        {...props}
+      >
+        {children}
+      </DialogPrimitive.Popup>
+    </ThemeWrapper>
+  </DialogPrimitive.Portal>
 ));
 DialogContent.displayName = "DialogContent";
 
@@ -147,7 +143,6 @@ export {
   DialogFooter,
   DialogHeader,
   DialogOverlay,
-  DialogPortal,
   DialogTitle,
   DialogTrigger,
 };

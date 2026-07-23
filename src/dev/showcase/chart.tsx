@@ -5,15 +5,13 @@ import {
   ChartLegend,
   ChartLegendContent,
   ChartTooltip,
-  ChartTooltipContent,
-} from "../../components/micro/chart";
+  ChartTooltipContent } from "../../components/micro/chart";
 import {
   DocsCode,
   DocsP,
   ExampleSection,
   Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+  ShowcaseDocs } from "../../dev/components/showcase";
 
 export default function ChartShowcase() {
   return (
@@ -34,8 +32,7 @@ export default function ChartShowcase() {
       tabs={[
         {
           label: "Micro (Primitive)",
-          content: <ChartMicroShowcase />,
-        },
+          content: <ChartMicroShowcase /> },
       ]}
     />
   );
@@ -59,13 +56,10 @@ function ChartMicroShowcase() {
 const chartConfig = {
   desktop: {
     label: "Desktop",
-    color: "hsl(var(--chart-1))",
-  },
+    color: "hsl(var(--chart-1))" },
   mobile: {
     label: "Mobile",
-    color: "hsl(var(--chart-2))",
-  },
-} satisfies ChartConfig
+    color: "hsl(var(--chart-2))" } } satisfies ChartConfig
 
 <ChartContainer
   config={chartConfig}
@@ -91,13 +85,10 @@ const chartConfig = {
           config={{
             desktop: {
               label: "Desktop",
-              color: "hsl(var(--chart-1))",
-            },
+              color: "hsl(var(--chart-1))" },
             mobile: {
               label: "Mobile",
-              color: "hsl(var(--chart-2))",
-            },
-          }}
+              color: "hsl(var(--chart-2))" } }}
           className="min-h-[200px] w-full max-w-lg"
         >
           <BarChart

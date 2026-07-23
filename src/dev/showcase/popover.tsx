@@ -10,18 +10,16 @@ import {
   PopoverContent,
   PopoverDescription,
   PopoverHeader,
-  PopoverPortal,
+  
   PopoverTitle,
-  PopoverTrigger,
-} from "../../components/micro/popover";
+  PopoverTrigger } from "../../components/micro/popover";
 import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsP,
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+  ShowcaseDocs } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────
@@ -44,7 +42,7 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
       </Button>
     }
   />
-  <PopoverPortal><PopoverContent className="w-80" sideOffset={8}>
+  <PopoverContent className="w-80" sideOffset={8}>
     <PopoverHeader>
       <PopoverTitle>Dimensions</PopoverTitle>
       <PopoverDescription>
@@ -69,7 +67,7 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
         />
       </div>
     </div>
-  </PopoverContent></PopoverPortal>
+  </PopoverContent>
 </Popover>
 `}
         >
@@ -82,7 +80,6 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
               }
             />
 
-            <PopoverPortal>
               <PopoverContent className="w-80" sideOffset={8}>
                 <PopoverHeader>
                   <PopoverTitle>Dimensions</PopoverTitle>
@@ -109,7 +106,7 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
                   </div>
                 </div>
               </PopoverContent>
-            </PopoverPortal>
+            
           </Popover>
         </ExampleSection>
 
@@ -130,7 +127,7 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
           </Button>
         }
       />
-      <PopoverPortal>
+      
         <PopoverContent
           className="w-64"
           sideOffset={8}
@@ -143,7 +140,7 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
             </PopoverDescription>
           </PopoverHeader>
         </PopoverContent>
-      </PopoverPortal>
+      
     </Popover>
 
     <Popover>
@@ -154,7 +151,7 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
           </Button>
         }
       />
-      <PopoverPortal>
+      
         <PopoverContent className="w-56" sideOffset={8}>
           <PopoverHeader>
             <PopoverTitle>Cài đặt nhanh</PopoverTitle>
@@ -180,7 +177,7 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
             </Button>
           </div>
         </PopoverContent>
-      </PopoverPortal>
+      
     </Popover>
   </div>`}
         >
@@ -199,7 +196,6 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
                 }
               />
 
-              <PopoverPortal>
                 <PopoverContent className="w-64" sideOffset={8} align="start">
                   <PopoverHeader>
                     <PopoverTitle>Thông báo</PopoverTitle>
@@ -208,7 +204,7 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
                     </PopoverDescription>
                   </PopoverHeader>
                 </PopoverContent>
-              </PopoverPortal>
+              
             </Popover>
 
             <Popover>
@@ -220,7 +216,6 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
                 }
               />
 
-              <PopoverPortal>
                 <PopoverContent className="w-56" sideOffset={8}>
                   <PopoverHeader>
                     <PopoverTitle>Cài đặt nhanh</PopoverTitle>
@@ -240,7 +235,7 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
                     </Button>
                   </div>
                 </PopoverContent>
-              </PopoverPortal>
+              
             </Popover>
           </div>
         </ExampleSection>
@@ -253,7 +248,7 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
     <PopoverTrigger asChild>
       <Button variant="outline">top</Button>
     </PopoverTrigger>
-    <PopoverPortal>
+    
       <PopoverContent
         side="top"
         sideOffset={8}
@@ -261,7 +256,7 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
       >
         Hiển thị ở phía <strong>top</strong>
       </PopoverContent>
-    </PopoverPortal>
+    
   </Popover>`}
       >
         <div className="flex flex-wrap items-center justify-center gap-4 py-8">
@@ -278,7 +273,7 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
                   </Button>
                 }
               />
-              <PopoverPortal>
+              
                 <PopoverContent
                   side={side}
                   sideOffset={8}
@@ -286,7 +281,7 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
                 >
                   Hiển thị ở phía <strong className="capitalize">{side}</strong>
                 </PopoverContent>
-              </PopoverPortal>
+              
             </Popover>
           ))}
         </div>
@@ -302,7 +297,7 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
         Toggle Controlled Popover
       </Button>
     </PopoverTrigger>
-    <PopoverPortal>
+    
       <PopoverContent className="w-80" sideOffset={8}>
         <PopoverHeader>
           <PopoverTitle>Controlled Mode</PopoverTitle>
@@ -321,7 +316,7 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
           </Button>
         </div>
       </PopoverContent>
-    </PopoverPortal>
+    
   </Popover>
   )`}
       >
@@ -334,7 +329,7 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
                 </Button>
               }
             />
-            <PopoverPortal>
+            
               <PopoverContent className="w-80" sideOffset={8}>
                 <PopoverHeader>
                   <PopoverTitle>Controlled Mode</PopoverTitle>
@@ -353,7 +348,7 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
                   </Button>
                 </div>
               </PopoverContent>
-            </PopoverPortal>
+            
           </Popover>
 
           <div className="text-sm text-muted-foreground">
@@ -393,8 +388,7 @@ export default function PopoverShowcase() {
       tabs={[
         {
           label: "Micro (Primitive)",
-          content: <PopoverMicroShowcase globalSize={globalSize} />,
-        },
+          content: <PopoverMicroShowcase globalSize={globalSize} /> },
       ]}
     />
   );

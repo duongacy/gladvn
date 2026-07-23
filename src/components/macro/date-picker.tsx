@@ -11,9 +11,8 @@ import { Calendar } from "../../components/micro/calendar";
 import {
   Popover,
   PopoverContent,
-  PopoverPortal,
-  PopoverTrigger,
-} from "../../components/micro/popover";
+  
+  PopoverTrigger } from "../../components/micro/popover";
 import { type Size } from "../../lib/types";
 import { cn } from "../../lib/utils";
 import { FieldPreset } from "./field-preset";
@@ -93,13 +92,9 @@ const triggerVariants = cva(
       size: {
         sm: "h-7 gap-1 px-2 py-0.5 text-xs",
         md: "h-8 gap-1.5 px-2.5 py-1 text-sm",
-        lg: "h-9 gap-2 px-3 py-1.5 text-sm",
-      },
-    },
+        lg: "h-9 gap-2 px-3 py-1.5 text-sm" } },
     defaultVariants: {
-      size: "md",
-    },
-  },
+      size: "md" } },
 );
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -170,8 +165,7 @@ const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
       disabledDates,
       startMonth,
       endMonth,
-      defaultMonth,
-    },
+      defaultMonth },
     ref,
   ) => {
     const generatedId = React.useId();
@@ -233,7 +227,7 @@ const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
               {triggerLabel}
             </span>
           </PopoverTrigger>
-          <PopoverPortal>
+          
             <PopoverContent
               side="bottom"
               align="start"
@@ -292,7 +286,7 @@ const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
                   </Button>
                 </div>
             </PopoverContent>
-          </PopoverPortal>
+          
         </Popover>
       </FieldPreset>
     );

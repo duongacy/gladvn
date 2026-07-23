@@ -5,8 +5,7 @@ import {
   DocsP,
   ExampleSection,
   Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+  ShowcaseDocs } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────
@@ -106,8 +105,7 @@ export default function LabelShowcase() {
       tabs={[
         {
           label: "Micro (Primitive)",
-          content: <LabelMicroShowcase globalSize={globalSize} />,
-        },
+          content: <LabelMicroShowcase globalSize={globalSize} /> },
       ]}
     />
   );

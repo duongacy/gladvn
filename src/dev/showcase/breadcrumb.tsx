@@ -8,22 +8,19 @@ import {
   BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "../../components/micro/breadcrumb";
+  BreadcrumbSeparator } from "../../components/micro/breadcrumb";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuPortal,
-  DropdownMenuTrigger,
-} from "../../components/micro/dropdown-menu";
+  
+  DropdownMenuTrigger } from "../../components/micro/dropdown-menu";
 import {
   DocsP,
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+  ShowcaseDocs } from "../../dev/components/showcase";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Macro Content
@@ -185,13 +182,13 @@ function BreadcrumbMicroShowcase() {
             <BreadcrumbEllipsis className="h-4 w-4" />
             <span className="sr-only">Toggle menu</span>
           </DropdownMenuTrigger>
-          <DropdownMenuPortal>
+          
             <DropdownMenuContent align="start">
               <DropdownMenuItem>Tài liệu</DropdownMenuItem>
               <DropdownMenuItem>Giao diện</DropdownMenuItem>
               <DropdownMenuItem>GitHub</DropdownMenuItem>
             </DropdownMenuContent>
-          </DropdownMenuPortal>
+          
         </DropdownMenu>
       </BreadcrumbItem>
       <BreadcrumbSeparator />
@@ -219,13 +216,13 @@ function BreadcrumbMicroShowcase() {
                     <BreadcrumbEllipsis className="h-4 w-4" />
                     <span className="sr-only">Toggle menu</span>
                   </DropdownMenuTrigger>
-                  <DropdownMenuPortal>
+                  
                     <DropdownMenuContent align="start">
                       <DropdownMenuItem>Tài liệu</DropdownMenuItem>
                       <DropdownMenuItem>Giao diện</DropdownMenuItem>
                       <DropdownMenuItem>GitHub</DropdownMenuItem>
                     </DropdownMenuContent>
-                  </DropdownMenuPortal>
+                  
                 </DropdownMenu>
               </BreadcrumbItem>
               <BreadcrumbSeparator />

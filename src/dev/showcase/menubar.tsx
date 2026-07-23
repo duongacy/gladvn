@@ -8,7 +8,7 @@ import {
   MenubarItem,
   MenubarLabel,
   MenubarMenu,
-  MenubarPortal,
+  
   MenubarRadioGroup,
   MenubarRadioItem,
   MenubarSeparator,
@@ -16,15 +16,13 @@ import {
   MenubarSub,
   MenubarSubContent,
   MenubarSubTrigger,
-  MenubarTrigger,
-} from "../../components/micro/menubar";
+  MenubarTrigger } from "../../components/micro/menubar";
 import {
   DocsP,
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+  ShowcaseDocs } from "../../dev/components/showcase";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Micro Content
@@ -125,7 +123,7 @@ function MenubarMicroShowcase() {
         <Menubar className="w-fit">
           <MenubarMenu>
             <MenubarTrigger>File</MenubarTrigger>
-            <MenubarPortal>
+            
               <MenubarContent>
                 <MenubarItem>
                   New Tab <MenubarShortcut>⌘T</MenubarShortcut>
@@ -148,11 +146,11 @@ function MenubarMicroShowcase() {
                   Print... <MenubarShortcut>⌘P</MenubarShortcut>
                 </MenubarItem>
               </MenubarContent>
-            </MenubarPortal>
+            
           </MenubarMenu>
           <MenubarMenu>
             <MenubarTrigger>View</MenubarTrigger>
-            <MenubarPortal>
+            
               <MenubarContent>
                 <MenubarCheckboxItem
                   checked={showBookmarks}
@@ -174,11 +172,11 @@ function MenubarMicroShowcase() {
                   Force Reload <MenubarShortcut>⇧⌘R</MenubarShortcut>
                 </MenubarItem>
               </MenubarContent>
-            </MenubarPortal>
+            
           </MenubarMenu>
           <MenubarMenu>
             <MenubarTrigger>Profiles</MenubarTrigger>
-            <MenubarPortal>
+            
               <MenubarContent>
                 <MenubarGroup>
                   <MenubarLabel inset>Select Profile</MenubarLabel>
@@ -194,7 +192,7 @@ function MenubarMicroShowcase() {
                 <MenubarSeparator />
                 <MenubarItem inset>Add Profile...</MenubarItem>
               </MenubarContent>
-            </MenubarPortal>
+            
           </MenubarMenu>
         </Menubar>
       </ExampleSection>
@@ -227,7 +225,7 @@ function MenubarMicroShowcase() {
           <Menubar className="w-fit">
             <MenubarMenu>
               <MenubarTrigger>View</MenubarTrigger>
-              <MenubarPortal>
+              
                 <MenubarContent>
                   <MenubarCheckboxItem
                     checked={showBookmarks}
@@ -242,7 +240,7 @@ function MenubarMicroShowcase() {
                     Show Full URLs
                   </MenubarCheckboxItem>
                 </MenubarContent>
-              </MenubarPortal>
+              
             </MenubarMenu>
           </Menubar>
         </ExampleSection>
@@ -277,7 +275,7 @@ function MenubarMicroShowcase() {
           <Menubar className="w-fit">
             <MenubarMenu>
               <MenubarTrigger>Profile</MenubarTrigger>
-              <MenubarPortal>
+              
                 <MenubarContent>
                   <MenubarLabel inset>Account</MenubarLabel>
                   <MenubarSeparator />
@@ -287,7 +285,7 @@ function MenubarMicroShowcase() {
                     <MenubarRadioItem value="andy">Andy</MenubarRadioItem>
                   </MenubarRadioGroup>
                 </MenubarContent>
-              </MenubarPortal>
+              
             </MenubarMenu>
           </Menubar>
         </ExampleSection>
@@ -320,7 +318,7 @@ function MenubarMicroShowcase() {
           <Menubar className="w-fit">
             <MenubarMenu>
               <MenubarTrigger>File</MenubarTrigger>
-              <MenubarPortal>
+              
                 <MenubarContent>
                   <MenubarSub>
                     <MenubarSubTrigger>Share</MenubarSubTrigger>
@@ -334,7 +332,7 @@ function MenubarMicroShowcase() {
                     Print... <MenubarShortcut>⌘P</MenubarShortcut>
                   </MenubarItem>
                 </MenubarContent>
-              </MenubarPortal>
+              
             </MenubarMenu>
           </Menubar>
         </ExampleSection>
@@ -366,7 +364,7 @@ function MenubarMicroShowcase() {
           <Menubar className="w-fit">
             <MenubarMenu>
               <MenubarTrigger>Edit</MenubarTrigger>
-              <MenubarPortal>
+              
                 <MenubarContent>
                   <MenubarItem>
                     Undo <MenubarShortcut>⌘Z</MenubarShortcut>
@@ -382,7 +380,7 @@ function MenubarMicroShowcase() {
                     Copy <MenubarShortcut>⌘C</MenubarShortcut>
                   </MenubarItem>
                 </MenubarContent>
-              </MenubarPortal>
+              
             </MenubarMenu>
           </Menubar>
         </ExampleSection>

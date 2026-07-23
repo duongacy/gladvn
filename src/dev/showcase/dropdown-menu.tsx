@@ -5,8 +5,7 @@ import {
   HelpCircleIcon,
   LogOutIcon,
   SettingsIcon,
-  UserIcon,
-} from "lucide-react";
+  UserIcon } from "lucide-react";
 
 import { Button } from "../../components/micro/button";
 import {
@@ -16,7 +15,7 @@ import {
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuPortal,
+  
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuSeparator,
@@ -24,16 +23,14 @@ import {
   DropdownMenuSub,
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
-  DropdownMenuTrigger,
-} from "../../components/micro/dropdown-menu";
+  DropdownMenuTrigger } from "../../components/micro/dropdown-menu";
 import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsP,
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+  ShowcaseDocs } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────
@@ -54,7 +51,6 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
       render={<Button variant="outline">Open Menu</Button>}
     />
 
-    <DropdownMenuPortal>
       <DropdownMenuContent className="w-56">
         <DropdownMenuGroup>
           <DropdownMenuLabel>My Account</DropdownMenuLabel>
@@ -88,7 +84,7 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
           <DropdownMenuShortcut>⌘⌫</DropdownMenuShortcut>
         </DropdownMenuItem>
       </DropdownMenuContent>
-    </DropdownMenuPortal>
+    
   </DropdownMenu>`}
         >
           <DropdownMenu>
@@ -100,7 +96,6 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
               }
             />
 
-            <DropdownMenuPortal>
               <DropdownMenuContent className="w-56">
                 <DropdownMenuGroup>
                   <DropdownMenuLabel>My Account</DropdownMenuLabel>
@@ -134,7 +129,7 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
                   <DropdownMenuShortcut>⌘⌫</DropdownMenuShortcut>
                 </DropdownMenuItem>
               </DropdownMenuContent>
-            </DropdownMenuPortal>
+            
           </DropdownMenu>
         </ExampleSection>
 
@@ -146,7 +141,6 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
       render={<Button variant="outline">Actions</Button>}
     />
 
-    <DropdownMenuPortal>
       <DropdownMenuContent className="w-56">
         <DropdownMenuGroup>
           <DropdownMenuLabel>Actions</DropdownMenuLabel>
@@ -170,7 +164,7 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
           <span>Log out</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
-    </DropdownMenuPortal>
+    
   </DropdownMenu>`}
         >
           <DropdownMenu>
@@ -182,7 +176,6 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
               }
             />
 
-            <DropdownMenuPortal>
               <DropdownMenuContent className="w-56">
                 <DropdownMenuGroup>
                   <DropdownMenuLabel>Actions</DropdownMenuLabel>
@@ -206,7 +199,7 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
                   <span>Log out</span>
                 </DropdownMenuItem>
               </DropdownMenuContent>
-            </DropdownMenuPortal>
+            
           </DropdownMenu>
         </ExampleSection>
         <ExampleSection
@@ -217,7 +210,6 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
       render={<Button variant="outline">Advanced</Button>}
     />
 
-    <DropdownMenuPortal>
       <DropdownMenuContent className="w-56">
         <DropdownMenuGroup>
           <DropdownMenuLabel>Appearance</DropdownMenuLabel>
@@ -243,13 +235,12 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
               Theme
             </DropdownMenuSubTrigger>
 
-            <DropdownMenuPortal>
               <DropdownMenuSubContent>
                 <DropdownMenuItem>Light</DropdownMenuItem>
                 <DropdownMenuItem>Dark</DropdownMenuItem>
                 <DropdownMenuItem>System</DropdownMenuItem>
               </DropdownMenuSubContent>
-            </DropdownMenuPortal>
+            
           </DropdownMenuSub>
           <DropdownMenuSeparator />
           <DropdownMenuRadioGroup value="bottom">
@@ -265,7 +256,7 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
           </DropdownMenuRadioGroup>
         </DropdownMenuGroup>
       </DropdownMenuContent>
-    </DropdownMenuPortal>
+    
   </DropdownMenu>`}
         >
           <DropdownMenu>
@@ -276,7 +267,7 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
                 </Button>
               }
             />
-            <DropdownMenuPortal>
+            
               <DropdownMenuContent className="w-56">
                 <DropdownMenuGroup>
                   <DropdownMenuLabel>Appearance</DropdownMenuLabel>
@@ -299,13 +290,13 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
                   <DropdownMenuSeparator />
                   <DropdownMenuSub>
                     <DropdownMenuSubTrigger>Theme</DropdownMenuSubTrigger>
-                    <DropdownMenuPortal>
+                    
                       <DropdownMenuSubContent>
                         <DropdownMenuItem>Light</DropdownMenuItem>
                         <DropdownMenuItem>Dark</DropdownMenuItem>
                         <DropdownMenuItem>System</DropdownMenuItem>
                       </DropdownMenuSubContent>
-                    </DropdownMenuPortal>
+                    
                   </DropdownMenuSub>
                   <DropdownMenuSeparator />
                   <DropdownMenuRadioGroup value="bottom">
@@ -321,7 +312,7 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
                   </DropdownMenuRadioGroup>
                 </DropdownMenuGroup>
               </DropdownMenuContent>
-            </DropdownMenuPortal>
+            
           </DropdownMenu>
         </ExampleSection>
         <ExampleSection
@@ -333,7 +324,7 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
         <Button variant="outline">View Options</Button>
       }
     />
-    <DropdownMenuPortal>
+    
       <DropdownMenuContent className="w-48">
         <DropdownMenuGroup>
           <DropdownMenuLabel inset>View</DropdownMenuLabel>
@@ -360,7 +351,7 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
           </DropdownMenuItem>
         </DropdownMenuGroup>
       </DropdownMenuContent>
-    </DropdownMenuPortal>
+    
   </DropdownMenu>`}
         >
           <DropdownMenu>
@@ -371,7 +362,7 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
                 </Button>
               }
             />
-            <DropdownMenuPortal>
+            
               <DropdownMenuContent className="w-48">
                 <DropdownMenuGroup>
                   <DropdownMenuLabel inset>View</DropdownMenuLabel>
@@ -388,7 +379,7 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
                   <DropdownMenuItem inset>Two Columns</DropdownMenuItem>
                 </DropdownMenuGroup>
               </DropdownMenuContent>
-            </DropdownMenuPortal>
+            
           </DropdownMenu>
         </ExampleSection>
       </ExampleGrid>
@@ -416,8 +407,7 @@ export default function DropdownMenuShowcase() {
       tabs={[
         {
           label: "Micro (Primitive)",
-          content: <DropdownMenuMicroShowcase globalSize={globalSize} />,
-        },
+          content: <DropdownMenuMicroShowcase globalSize={globalSize} /> },
       ]}
     />
   );

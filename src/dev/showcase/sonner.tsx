@@ -8,8 +8,7 @@ import {
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+  ShowcaseDocs } from "../../dev/components/showcase";
 
 // Simulated async operation for Promise demo
 const mockSave = () =>
@@ -39,8 +38,7 @@ function SonnerMicroShowcase() {
 // Default
 toast("Event has been created", {
   description: "Sunday, December 03, 2023 at 9:00 AM",
-  action: { label: "Undo", onClick: () => console.log("Undo") },
-});
+  action: { label: "Undo", onClick: () => console.log("Undo") } });
 
 // Typed variants
 toast.success("Successfully saved!");
@@ -54,8 +52,7 @@ toast.info("Update is available.");`}
             onClick={() =>
               toast("Event has been created", {
                 description: "Sunday, December 03, 2023 at 9:00 AM",
-                action: { label: "Undo", onClick: () => console.log("Undo") },
-              })
+                action: { label: "Undo", onClick: () => console.log("Undo") } })
             }
           >
             Default
@@ -99,13 +96,10 @@ toast.info("Update is available.");`}
   description: "draft-v2.docx has been moved to trash.",
   action: {
     label: "Undo",
-    onClick: () => console.log("Undo delete"),
-  },
+    onClick: () => console.log("Undo delete") },
   cancel: {
     label: "Dismiss",
-    onClick: () => {},
-  },
-});`}
+    onClick: () => {} } });`}
       >
         <div className="flex flex-wrap gap-2">
           <Button
@@ -115,13 +109,10 @@ toast.info("Update is available.");`}
                 description: "draft-v2.docx has been moved to trash.",
                 action: {
                   label: "Undo",
-                  onClick: () => console.log("Undo delete"),
-                },
+                  onClick: () => console.log("Undo delete") },
                 cancel: {
                   label: "Dismiss",
-                  onClick: () => {},
-                },
-              })
+                  onClick: () => {} } })
             }
           >
             File Deleted (with Action)
@@ -130,8 +121,7 @@ toast.info("Update is available.");`}
             variant="outline"
             onClick={() =>
               toast.success("Profile updated", {
-                description: "Your changes have been saved successfully.",
-              })
+                description: "Your changes have been saved successfully." })
             }
           >
             Success with Description
@@ -152,8 +142,7 @@ toast.info("Update is available.");`}
 toast.promise(saveData(), {
   loading: "Đang lưu...",
   success: (data) => \`Đã lưu \${data.name} thành công!\`,
-  error: "Lưu thất bại!",
-});`}
+  error: "Lưu thất bại!" });`}
         >
           <Button
             variant="outline"
@@ -161,8 +150,7 @@ toast.promise(saveData(), {
               toast.promise(mockSave(), {
                 loading: "Đang lưu...",
                 success: (data) => `Đã lưu ${data.name} thành công!`,
-                error: "Lưu thất bại!",
-              })
+                error: "Lưu thất bại!" })
             }
           >
             Promise (Success)
@@ -180,8 +168,7 @@ toast.promise(saveData(), {
 toast.promise(failRequest(), {
   loading: "Đang gửi yêu cầu...",
   success: "Yêu cầu thành công!",
-  error: "Yêu cầu thất bại!",
-});`}
+  error: "Yêu cầu thất bại!" });`}
         >
           <Button
             variant="outline"
@@ -190,8 +177,7 @@ toast.promise(failRequest(), {
               toast.promise(mockFail(), {
                 loading: "Đang gửi yêu cầu...",
                 success: "Yêu cầu thành công!",
-                error: "Yêu cầu thất bại!",
-              })
+                error: "Yêu cầu thất bại!" })
             }
           >
             Promise (Error)
@@ -265,8 +251,7 @@ toast.dismiss(toastId);`}
               onClick={() =>
                 toast("Toast: top-left", {
                   description: 'position="top-left"',
-                  position: "top-left",
-                })
+                  position: "top-left" })
               }
             >
               top-left
@@ -278,8 +263,7 @@ toast.dismiss(toastId);`}
               onClick={() =>
                 toast("Toast: top-center", {
                   description: 'position="top-center"',
-                  position: "top-center",
-                })
+                  position: "top-center" })
               }
             >
               top-center
@@ -291,8 +275,7 @@ toast.dismiss(toastId);`}
               onClick={() =>
                 toast("Toast: top-right", {
                   description: 'position="top-right"',
-                  position: "top-right",
-                })
+                  position: "top-right" })
               }
             >
               top-right
@@ -304,8 +287,7 @@ toast.dismiss(toastId);`}
               onClick={() =>
                 toast("Toast: bottom-left", {
                   description: 'position="bottom-left"',
-                  position: "bottom-left",
-                })
+                  position: "bottom-left" })
               }
             >
               bottom-left
@@ -317,8 +299,7 @@ toast.dismiss(toastId);`}
               onClick={() =>
                 toast("Toast: bottom-center", {
                   description: 'position="bottom-center"',
-                  position: "bottom-center",
-                })
+                  position: "bottom-center" })
               }
             >
               bottom-center
@@ -330,8 +311,7 @@ toast.dismiss(toastId);`}
               onClick={() =>
                 toast("Toast: bottom-right", {
                   description: 'position="bottom-right"',
-                  position: "bottom-right",
-                })
+                  position: "bottom-right" })
               }
             >
               bottom-right

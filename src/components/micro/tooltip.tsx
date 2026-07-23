@@ -56,23 +56,15 @@ const TooltipTrigger = React.forwardRef<
 });
 TooltipTrigger.displayName = "TooltipTrigger";
 
-const TooltipPortal = ({
-  children,
-  ...props
-}: React.ComponentProps<typeof TooltipPrimitive.Portal>) => (
-  <TooltipPrimitive.Portal {...props}>
-    <ThemeWrapper>{children}</ThemeWrapper>
-  </TooltipPrimitive.Portal>
-);
-TooltipPortal.displayName = "TooltipPortal";
-
 const TooltipContent = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Popup> &
     Pick<
       React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Positioner>,
       "align" | "alignOffset" | "side" | "sideOffset"
-    >
+    > & {
+      container?: React.ComponentProps<typeof TooltipPrimitive.Portal>["container"];
+    }
 >(
   (
     {
@@ -81,31 +73,36 @@ const TooltipContent = React.forwardRef<
       sideOffset = 4,
       align = "center",
       alignOffset = 0,
+      container,
       children,
       ...props
     },
     ref,
   ) => {
     return (
-      <TooltipPrimitive.Positioner
-        align={align}
-        alignOffset={alignOffset}
-        side={side}
-        sideOffset={sideOffset}
-        className="isolate z-50"
-      >
-        <TooltipPrimitive.Popup
-          ref={ref}
-          data-slot="tooltip-content"
-          className={cn(
-            "z-50 inline-flex w-fit max-w-xs origin-(--transform-origin) items-center gap-1.5 rounded-md bg-foreground px-3 py-1.5 text-xs text-background data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
-            className,
-          )}
-          {...props}
-        >
-          {children}
-        </TooltipPrimitive.Popup>
-      </TooltipPrimitive.Positioner>
+      <TooltipPrimitive.Portal container={container}>
+        <ThemeWrapper>
+          <TooltipPrimitive.Positioner
+            align={align}
+            alignOffset={alignOffset}
+            side={side}
+            sideOffset={sideOffset}
+            className="isolate z-50"
+          >
+            <TooltipPrimitive.Popup
+              ref={ref}
+              data-slot="tooltip-content"
+              className={cn(
+                "z-50 inline-flex w-fit max-w-xs origin-(--transform-origin) items-center gap-1.5 rounded-md bg-foreground px-3 py-1.5 text-xs text-background data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
+                className,
+              )}
+              {...props}
+            >
+              {children}
+            </TooltipPrimitive.Popup>
+          </TooltipPrimitive.Positioner>
+        </ThemeWrapper>
+      </TooltipPrimitive.Portal>
     );
   },
 );
@@ -114,7 +111,6 @@ TooltipContent.displayName = "TooltipContent";
 export {
   Tooltip,
   TooltipContent,
-  TooltipPortal,
   TooltipProvider,
   TooltipTrigger,
 };

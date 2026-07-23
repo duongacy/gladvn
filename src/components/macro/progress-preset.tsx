@@ -5,8 +5,7 @@ import {
   ProgressIndicator,
   ProgressLabel,
   ProgressTrack,
-  ProgressValue,
-} from "../../components/micro/progress";
+  ProgressValue } from "../../components/micro/progress";
 
 export type ProgressPresetProps = Omit<
   React.ComponentProps<typeof Progress>,

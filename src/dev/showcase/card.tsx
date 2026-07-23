@@ -7,8 +7,7 @@ import {
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle,
-} from "../../components/micro/card";
+  CardTitle } from "../../components/micro/card";
 import { Input } from "../../components/micro/input";
 import { Label } from "../../components/micro/label";
 import { useDevContext } from "../../dev/components/dev-context";
@@ -17,8 +16,7 @@ import {
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+  ShowcaseDocs } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────
@@ -458,12 +456,10 @@ export default function CardShowcase() {
       tabs={[
         {
           label: "Micro (Primitive)",
-          content: <CardMicroShowcase globalSize={globalSize} />,
-        },
+          content: <CardMicroShowcase globalSize={globalSize} /> },
         {
           label: "Macro (Preset)",
-          content: <CardMacroShowcase globalSize={globalSize} />,
-        },
+          content: <CardMacroShowcase globalSize={globalSize} /> },
       ]}
     />
   );

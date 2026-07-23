@@ -10,8 +10,7 @@ import {
   AlertDescription,
   AlertIcon,
   type AlertProps,
-  AlertTitle,
-} from "../../components/micro/alert";
+  AlertTitle } from "../../components/micro/alert";
 import { Button } from "../../components/micro/button";
 import { cn } from "../../lib/utils";
 

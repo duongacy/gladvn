@@ -10,8 +10,7 @@ import {
   InputGroupAddon,
   InputGroupButton,
   InputGroupInput,
-  InputGroupText,
-} from "../../components/micro/input-group";
+  InputGroupText } from "../../components/micro/input-group";
 import { FieldPreset } from "./field-preset";
 
 export type InputPresetProps = Omit<InputProps, "className"> & {

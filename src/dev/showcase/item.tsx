@@ -11,8 +11,7 @@ import {
   ItemHeader,
   ItemMedia,
   ItemSeparator,
-  ItemTitle,
-} from "../../components/micro/item";
+  ItemTitle } from "../../components/micro/item";
 import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsH3,
@@ -20,8 +19,7 @@ import {
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+  ShowcaseDocs } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 function ItemMicroShowcase({ globalSize }: { globalSize: Size }) {
@@ -290,8 +288,7 @@ export default function ItemShowcase() {
       tabs={[
         {
           label: "Micro (Primitive)",
-          content: <ItemMicroShowcase globalSize={globalSize} />,
-        },
+          content: <ItemMicroShowcase globalSize={globalSize} /> },
       ]}
     />
   );

@@ -6,8 +6,7 @@ import {
   BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "../../components/micro/breadcrumb";
+  BreadcrumbSeparator } from "../../components/micro/breadcrumb";
 
 export interface BreadcrumbPresetItem {
   label: React.ReactNode;

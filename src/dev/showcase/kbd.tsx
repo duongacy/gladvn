@@ -3,34 +3,30 @@ import {
   FileIcon,
   FilePlusIcon,
   FolderOpenIcon,
-  SaveIcon,
-} from "lucide-react";
+  SaveIcon } from "lucide-react";
 
 import { Button } from "../../components/micro/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuPortal,
+  
   DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "../../components/micro/dropdown-menu";
+  DropdownMenuTrigger } from "../../components/micro/dropdown-menu";
 import { Kbd, KbdGroup } from "../../components/micro/kbd";
 import {
   Tooltip,
   TooltipContent,
-  TooltipPortal,
+  
   TooltipProvider,
-  TooltipTrigger,
-} from "../../components/micro/tooltip";
+  TooltipTrigger } from "../../components/micro/tooltip";
 import {
   DocsCode,
   DocsP,
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+  ShowcaseDocs } from "../../dev/components/showcase";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 2: Micro Content (không export)
@@ -136,12 +132,12 @@ function KbdMicroShowcase() {
                   </Button>
                 }
               />
-              <TooltipPortal>
+              
                 <TooltipContent>
                   Lưu tài liệu <Kbd>⌘</Kbd>
                   <Kbd>S</Kbd>
                 </TooltipContent>
-              </TooltipPortal>
+              
             </Tooltip>
           </TooltipProvider>
 
@@ -154,12 +150,12 @@ function KbdMicroShowcase() {
                   </Button>
                 }
               />
-              <TooltipPortal>
+              
                 <TooltipContent>
                   Sao chép <Kbd>⌘</Kbd>
                   <Kbd>C</Kbd>
                 </TooltipContent>
-              </TooltipPortal>
+              
             </Tooltip>
           </TooltipProvider>
         </div>
@@ -191,7 +187,7 @@ function KbdMicroShowcase() {
           <DropdownMenuTrigger
             render={<Button variant="outline">File menu</Button>}
           />
-          <DropdownMenuPortal>
+          
             <DropdownMenuContent className="w-56">
               <DropdownMenuItem>
                 <FilePlusIcon aria-hidden="true" />
@@ -228,7 +224,7 @@ function KbdMicroShowcase() {
                 </KbdGroup>
               </DropdownMenuItem>
             </DropdownMenuContent>
-          </DropdownMenuPortal>
+          
         </DropdownMenu>
       </ExampleSection>
 

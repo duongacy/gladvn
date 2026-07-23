@@ -11,15 +11,13 @@ import {
   ComboboxInput,
   ComboboxItem,
   ComboboxList,
-  ComboboxPortal,
+  
   ComboboxTrigger,
-  useComboboxContext,
-} from "../../components/micro/combobox";
+  useComboboxContext } from "../../components/micro/combobox";
 import {
   InputGroup,
   InputGroupAddon,
-  InputGroupInput,
-} from "../../components/micro/input-group";
+  InputGroupInput } from "../../components/micro/input-group";
 import { type Size } from "../../lib/types";
 import { FieldPreset } from "./field-preset";
 
@@ -64,8 +62,7 @@ const ComboboxPreset = React.forwardRef<HTMLInputElement, ComboboxPresetProps>(
       errorMessage,
       showError = true,
       id,
-      size = "md",
-    },
+      size = "md" },
     ref,
   ) => {
     const generatedId = React.useId();
@@ -103,7 +100,7 @@ const ComboboxPreset = React.forwardRef<HTMLInputElement, ComboboxPresetProps>(
             aria-invalid={!!errorMessage || undefined}
             disabled={disabled}
           />
-          <ComboboxPortal>
+          
             <ComboboxContent>
                 <ComboboxEmpty>{emptyText}</ComboboxEmpty>
                 <ComboboxList>
@@ -120,7 +117,7 @@ const ComboboxPreset = React.forwardRef<HTMLInputElement, ComboboxPresetProps>(
                   </ComboboxGroup>
                 </ComboboxList>
             </ComboboxContent>
-          </ComboboxPortal>
+          
         </Combobox>
       </FieldPreset>
     );

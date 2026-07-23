@@ -3,15 +3,13 @@ import { CalendarIcon } from "lucide-react";
 import {
   Avatar,
   AvatarFallback,
-  AvatarImage,
-} from "../../components/micro/avatar";
+  AvatarImage } from "../../components/micro/avatar";
 import { Button } from "../../components/micro/button";
 import {
   HoverCard,
   HoverCardContent,
-  HoverCardPortal,
-  HoverCardTrigger,
-} from "../../components/micro/hover-card";
+  
+  HoverCardTrigger } from "../../components/micro/hover-card";
 import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsCode,
@@ -19,8 +17,7 @@ import {
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+  ShowcaseDocs } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────
@@ -67,7 +64,7 @@ function HoverCardMicroShowcase({ globalSize }: { globalSize: Size }) {
     <HoverCardTrigger render={<Button variant="link" />}>
       @nextjs
     </HoverCardTrigger>
-    <HoverCardPortal>
+    
       <HoverCardContent className="w-80">
         <div className="flex justify-between space-x-4">
           <Avatar>
@@ -98,7 +95,7 @@ function HoverCardMicroShowcase({ globalSize }: { globalSize: Size }) {
           </div>
         </div>
       </HoverCardContent>
-    </HoverCardPortal>
+    
   </HoverCard>`}
       >
         <HoverCard>
@@ -108,11 +105,10 @@ function HoverCardMicroShowcase({ globalSize }: { globalSize: Size }) {
             @nextjs
           </HoverCardTrigger>
 
-          <HoverCardPortal>
             <HoverCardContent className="w-80">
               <NextJsCard />
             </HoverCardContent>
-          </HoverCardPortal>
+          
         </HoverCard>
       </ExampleSection>
 
@@ -124,11 +120,11 @@ function HoverCardMicroShowcase({ globalSize }: { globalSize: Size }) {
     <HoverCardTrigger
       render={<Button variant="outline">Top</Button>}
     />
-    <HoverCardPortal>
+    
       <HoverCardContent side="top" className="w-80">
         ...
       </HoverCardContent>
-    </HoverCardPortal>
+    
   </HoverCard>`}
       >
         <div className="flex flex-wrap items-center justify-center gap-4 py-8">
@@ -146,11 +142,10 @@ function HoverCardMicroShowcase({ globalSize }: { globalSize: Size }) {
                 }
               />
 
-              <HoverCardPortal>
                 <HoverCardContent side={side} className="w-72">
                   <NextJsCard />
                 </HoverCardContent>
-              </HoverCardPortal>
+              
             </HoverCard>
           ))}
         </div>
@@ -163,7 +158,7 @@ function HoverCardMicroShowcase({ globalSize }: { globalSize: Size }) {
             key={align}
             label={`Align: ${align}`}
             description={`Card căn ${align} theo trục ngang.`}
-            codeString={`<HoverCardPortal><HoverCardContent align="${align}" className="w-80">...</HoverCardContent></HoverCardPortal>`}
+            codeString={`<HoverCardContent align="${align}" className="w-80">...</HoverCardContent>`}
           >
             <HoverCard>
               <HoverCardTrigger
@@ -178,11 +173,10 @@ function HoverCardMicroShowcase({ globalSize }: { globalSize: Size }) {
                 }
               />
 
-              <HoverCardPortal>
                 <HoverCardContent align={align} className="w-64">
                   <NextJsCard />
                 </HoverCardContent>
-              </HoverCardPortal>
+              
             </HoverCard>
           </ExampleSection>
         ))}
@@ -204,11 +198,10 @@ function HoverCardMicroShowcase({ globalSize }: { globalSize: Size }) {
               @nextjs
             </HoverCardTrigger>
 
-            <HoverCardPortal>
               <HoverCardContent className="w-80">
                 <NextJsCard />
               </HoverCardContent>
-            </HoverCardPortal>
+            
           </HoverCard>
         </ExampleSection>
 
@@ -238,11 +231,10 @@ function HoverCardMicroShowcase({ globalSize }: { globalSize: Size }) {
               @nextjs
             </HoverCardTrigger>
 
-            <HoverCardPortal>
               <HoverCardContent className="w-80">
                 <NextJsCard />
               </HoverCardContent>
-            </HoverCardPortal>
+            
           </HoverCard>
         </ExampleSection>
       </ExampleGrid>
@@ -256,18 +248,18 @@ function HoverCardMicroShowcase({ globalSize }: { globalSize: Size }) {
     <HoverCardTrigger delay={0} render={<Button />}>
       Tức thì
     </HoverCardTrigger>
-    <HoverCardPortal>
+    
       <HoverCardContent>...</HoverCardContent>
-    </HoverCardPortal>
+    
   </HoverCard>
 
   <HoverCard>
     <HoverCardTrigger delay={500} render={<Button />}>
       Mặc định (500ms)
     </HoverCardTrigger>
-    <HoverCardPortal>
+    
       <HoverCardContent>...</HoverCardContent>
-    </HoverCardPortal>
+    
   </HoverCard>
 
   <HoverCard>
@@ -278,9 +270,9 @@ function HoverCardMicroShowcase({ globalSize }: { globalSize: Size }) {
     >
       Chậm (1500ms)
     </HoverCardTrigger>
-    <HoverCardPortal>
+    
       <HoverCardContent>...</HoverCardContent>
-    </HoverCardPortal>
+    
   </HoverCard>`}
       >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
@@ -294,11 +286,10 @@ function HoverCardMicroShowcase({ globalSize }: { globalSize: Size }) {
               }
             />
 
-            <HoverCardPortal>
               <HoverCardContent className="w-72">
                 <NextJsCard />
               </HoverCardContent>
-            </HoverCardPortal>
+            
           </HoverCard>
 
           <HoverCard>
@@ -311,11 +302,10 @@ function HoverCardMicroShowcase({ globalSize }: { globalSize: Size }) {
               }
             />
 
-            <HoverCardPortal>
               <HoverCardContent className="w-72">
                 <NextJsCard />
               </HoverCardContent>
-            </HoverCardPortal>
+            
           </HoverCard>
 
           <HoverCard>
@@ -329,11 +319,10 @@ function HoverCardMicroShowcase({ globalSize }: { globalSize: Size }) {
               }
             />
 
-            <HoverCardPortal>
               <HoverCardContent className="w-72">
                 <NextJsCard />
               </HoverCardContent>
-            </HoverCardPortal>
+            
           </HoverCard>
         </div>
       </ExampleSection>
@@ -368,8 +357,7 @@ export default function HoverCardShowcase() {
       tabs={[
         {
           label: "Micro (Primitive)",
-          content: <HoverCardMicroShowcase globalSize={globalSize} />,
-        },
+          content: <HoverCardMicroShowcase globalSize={globalSize} /> },
       ]}
     />
   );

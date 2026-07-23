@@ -9,21 +9,19 @@ import {
   FieldContent,
   FieldDescription,
   FieldError,
-  FieldLabel,
-} from "../../components/micro/field";
+  FieldLabel } from "../../components/micro/field";
 import {
   Select,
   SelectContent,
   SelectGroup,
   SelectItem,
   SelectLabel,
-  SelectPortal,
+  
   SelectScrollDownButton,
   SelectScrollUpButton,
   SelectSeparator,
   SelectTrigger,
-  SelectValue,
-} from "../../components/micro/select";
+  SelectValue } from "../../components/micro/select";
 import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsCode,
@@ -32,23 +30,20 @@ import {
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+  ShowcaseDocs } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────
 // RHF Form Demo (Macro)
 // ──────────────────────────────────────────────────────────
 const formSchema = z.object({
-  language: z.string().min(1, "Vui lòng chọn một ngôn ngữ."),
-});
+  language: z.string().min(1, "Vui lòng chọn một ngôn ngữ.") });
 type FormValues = z.infer<typeof formSchema>;
 
 function SelectForm({ size }: { size: Size }) {
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
-    defaultValues: { language: "" },
-  });
+    defaultValues: { language: "" } });
 
   return (
     <form
@@ -87,8 +82,7 @@ const rhfCode = `const formSchema = z.object({ language: z.string().min(1, "Bắ
 function SelectForm({ size }: { size: Size }) {
   const form = useForm({
     resolver: zodResolver(formSchema),
-    defaultValues: { language: "" },
-  });
+    defaultValues: { language: "" } });
 
   return (
     <form onSubmit={form.handleSubmit(console.log)} className="space-y-6">
@@ -280,13 +274,12 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
         items={{
           next: "Next.js",
           vite: "Vite",
-          remix: "Remix",
-        }}
+          remix: "Remix" }}
       >
         <SelectTrigger>
           <SelectValue placeholder="Chọn framework..." />
         </SelectTrigger>
-        <SelectPortal>
+        
           <SelectContent>
             <SelectScrollUpButton />
             <SelectItem value="next">Next.js</SelectItem>
@@ -294,7 +287,7 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
             <SelectItem value="remix">Remix</SelectItem>
             <SelectScrollDownButton />
           </SelectContent>
-        </SelectPortal>
+        
       </Select>
     </FieldContent>
     <FieldDescription>
@@ -310,7 +303,6 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
                   <SelectValue placeholder="Chọn framework..." />
                 </SelectTrigger>
 
-                <SelectPortal>
                   <SelectContent>
                     <SelectScrollUpButton />
                     <SelectItem value="next">Next.js</SelectItem>
@@ -318,7 +310,7 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
                     <SelectItem value="remix">Remix</SelectItem>
                     <SelectScrollDownButton />
                   </SelectContent>
-                </SelectPortal>
+                
               </Select>
             </FieldContent>
             <FieldDescription>
@@ -338,13 +330,12 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
           orange: "Orange",
           lemon: "Lemon",
           strawberry: "Strawberry",
-          blueberry: "Blueberry",
-        }}
+          blueberry: "Blueberry" }}
       >
         <SelectTrigger>
           <SelectValue placeholder="Chọn loại quả..." />
         </SelectTrigger>
-        <SelectPortal>
+        
           <SelectContent>
             <SelectGroup>
               <SelectLabel>
@@ -364,7 +355,7 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
               </SelectItem>
             </SelectGroup>
           </SelectContent>
-        </SelectPortal>
+        
       </Select>
     </FieldContent>
   </Field>`}
@@ -377,13 +368,12 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
                   orange: "Orange",
                   lemon: "Lemon",
                   strawberry: "Strawberry",
-                  blueberry: "Blueberry",
-                }}
+                  blueberry: "Blueberry" }}
               >
                 <SelectTrigger size={globalSize}>
                   <SelectValue placeholder="Chọn loại quả..." />
                 </SelectTrigger>
-                <SelectPortal>
+                
                   <SelectContent>
                     <SelectGroup>
                       <SelectLabel>Họ cam chanh (Citrus)</SelectLabel>
@@ -397,7 +387,7 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
                       <SelectItem value="blueberry">Blueberry</SelectItem>
                     </SelectGroup>
                   </SelectContent>
-                </SelectPortal>
+                
               </Select>
             </FieldContent>
           </Field>
@@ -415,11 +405,11 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
         <SelectTrigger aria-invalid={true}>
           <SelectValue placeholder="Chọn dự án..." />
         </SelectTrigger>
-        <SelectPortal>
+        
           <SelectContent>
             <SelectItem value="p1">Project 1</SelectItem>
           </SelectContent>
-        </SelectPortal>
+        
       </Select>
     </FieldContent>
     <FieldError>Vui lòng chọn một dự án hợp lệ.</FieldError>
@@ -432,11 +422,11 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
                 <SelectTrigger size={globalSize} aria-invalid={true}>
                   <SelectValue placeholder="Chọn dự án..." />
                 </SelectTrigger>
-                <SelectPortal>
+                
                   <SelectContent>
                     <SelectItem value="p1">Project 1</SelectItem>
                   </SelectContent>
-                </SelectPortal>
+                
               </Select>
             </FieldContent>
             <FieldError>Vui lòng chọn một dự án hợp lệ.</FieldError>
@@ -453,13 +443,13 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
         <SelectTrigger disabled>
           <SelectValue placeholder="Chọn múi giờ..." />
         </SelectTrigger>
-        <SelectPortal>
+        
           <SelectContent>
             <SelectItem value="gmt">
               GMT+7 (Indochina Time)
             </SelectItem>
           </SelectContent>
-        </SelectPortal>
+        
       </Select>
     </FieldContent>
     <FieldDescription>
@@ -474,11 +464,11 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
                 <SelectTrigger size={globalSize} disabled>
                   <SelectValue placeholder="Chọn múi giờ..." />
                 </SelectTrigger>
-                <SelectPortal>
+                
                   <SelectContent>
                     <SelectItem value="gmt">GMT+7 (Indochina Time)</SelectItem>
                   </SelectContent>
-                </SelectPortal>
+                
               </Select>
             </FieldContent>
             <FieldDescription>
@@ -672,12 +662,10 @@ export default function SelectShowcase() {
       tabs={[
         {
           label: "Micro (Primitive)",
-          content: <SelectMicroShowcase globalSize={globalSize} />,
-        },
+          content: <SelectMicroShowcase globalSize={globalSize} /> },
         {
           label: "Macro (Preset)",
-          content: <SelectMacroShowcase globalSize={globalSize} />,
-        },
+          content: <SelectMacroShowcase globalSize={globalSize} /> },
       ]}
     />
   );

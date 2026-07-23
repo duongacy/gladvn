@@ -7,8 +7,7 @@ import {
   DocsP,
   ExampleSection,
   Showcase,
-  ShowcaseDocs,
-} from "../../dev/components/showcase";
+  ShowcaseDocs } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 function ToastMicroShowcase({ globalSize }: { globalSize: Size }) {
@@ -26,9 +25,7 @@ function ToastMicroShowcase({ globalSize }: { globalSize: Size }) {
             "Sunday, December 03, 2023 at 9:00 AM",
           action: {
             label: "Undo",
-            onClick: () => console.log("Undo"),
-          },
-        })
+            onClick: () => console.log("Undo") } })
       }}
     >
       Show Toast
@@ -62,9 +59,7 @@ function ToastMicroShowcase({ globalSize }: { globalSize: Size }) {
                 description: "Sunday, December 03, 2023 at 9:00 AM",
                 action: {
                   label: "Undo",
-                  onClick: () => console.log("Undo"),
-                },
-              });
+                  onClick: () => console.log("Undo") } });
             }}
           >
             Show Toast
@@ -110,8 +105,7 @@ export default function ToastShowcase() {
       tabs={[
         {
           label: "Micro (Primitive)",
-          content: <ToastMicroShowcase globalSize={globalSize} />,
-        },
+          content: <ToastMicroShowcase globalSize={globalSize} /> },
       ]}
     />
   );

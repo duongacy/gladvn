@@ -476,14 +476,6 @@ export const COMPONENTS = [
     hasSize: true,
   },
   {
-    id: "theme-provider",
-    category: "Data Display",
-    label: "Theme Provider",
-    hasMicro: true,
-    hasMacro: false,
-    status: "stable",
-  },
-  {
     id: "tooltip",
     category: "Feedback & Overlays",
     label: "Tooltip",

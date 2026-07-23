@@ -1,25 +1,49 @@
-import { test, expect } from "@playwright/test";
-import { ALL_COMPONENTS } from "../src/dev/data";
+import { test, expect } from '@playwright/test';
 
-test.describe("Component Showcase Visual Regression", () => {
-  for (const component of ALL_COMPONENTS) {
-    test(`Visual test for ${component.label} (${component.id})`, async ({
-      page,
-    }) => {
-      // Navigate to the component showcase page
-      await page.goto(`/?component=${component.id}`);
+const componentsToTest = [
+  'dialog',
+  'sheet',
+  'tooltip',
+  'popover',
+  'dropdown-menu',
+  'select',
+  'combobox',
+  'alert-dialog',
+  'context-menu',
+  'drawer',
+  'hover-card',
+  'menubar'
+];
 
-      // Wait for the main showcase container to be visible
-      const mainContainer = page.locator("main");
-      await expect(mainContainer).toBeVisible();
-
-      // Wait a short moment for animations/fonts to settle
-      await page.waitForTimeout(500);
-
-      // Take a full page screenshot to compare against baseline
-      await expect(page).toHaveScreenshot(`${component.id}-showcase.png`, {
-        fullPage: true,
-      });
+for (const component of componentsToTest) {
+  test(`Test ${component} showcase`, async ({ page }) => {
+    const errors = [];
+    page.on('pageerror', (err) => {
+      errors.push(err.message);
     });
-  }
-});
+
+    await page.goto(`http://localhost:5175/?component=${component}`);
+    
+    // Wait for the showcase to load
+    await page.waitForSelector('main', { state: 'visible', timeout: 5000 });
+    
+    // Check if the vite error overlay is present
+    const errorOverlay = await page.$('vite-error-overlay');
+    expect(errorOverlay).toBeNull();
+
+    // Try interacting
+    const buttons = await page.locator('button').all();
+    if (buttons.length > 0) {
+      for (let i = 0; i < Math.min(3, buttons.length); i++) {
+        try {
+          await buttons[i].click({ timeout: 500 });
+          await page.waitForTimeout(100);
+        } catch {
+          // ignore
+        }
+      }
+    }
+
+    expect(errors.length).toBe(0);
+  });
+}

@@ -78,7 +78,14 @@ export default function App() {
   const [active, setActiveState] = useState(() => {
     if (typeof window !== "undefined") {
       const params = new URLSearchParams(window.location.search);
-      return params.get("component") || "overview";
+      const queryComp = params.get("component");
+      if (queryComp) {
+        // Redirect legacy search params to new path structure automatically
+        window.history.replaceState({}, "", `/${queryComp}`);
+        return queryComp;
+      }
+      const pathComp = window.location.pathname.replace(/^\/+/, "");
+      return pathComp || "overview";
     }
     return "overview";
   });
@@ -89,7 +96,8 @@ export default function App() {
     setCmdOpen(false);
     if (typeof window !== "undefined") {
       const url = new URL(window.location.href);
-      url.searchParams.set("component", id);
+      url.searchParams.delete("component");
+      url.pathname = id === "overview" ? "/" : `/${id}`;
       window.history.pushState({}, "", url);
 
       setTimeout(() => {
@@ -102,20 +110,25 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const comp = params.get("component");
-    if (comp) {
-      setTimeout(() => {
-        const el = document.getElementById(comp);
-        if (el) el.scrollIntoView({ behavior: "smooth" });
-      }, 100);
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const queryComp = params.get("component");
+      const comp = queryComp || window.location.pathname.replace(/^\/+/, "");
+      
+      if (comp && comp !== "overview") {
+        setTimeout(() => {
+          const el = document.getElementById(comp);
+          if (el) el.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
     }
   }, []);
 
   useEffect(() => {
     const handlePopState = () => {
       const params = new URLSearchParams(window.location.search);
-      const comp = params.get("component") || "overview";
+      const queryComp = params.get("component");
+      const comp = queryComp || window.location.pathname.replace(/^\/+/, "") || "overview";
       setActiveState(comp);
       const el = document.getElementById(comp);
       if (el) el.scrollIntoView({ behavior: "smooth" });

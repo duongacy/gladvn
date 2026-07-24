@@ -3,12 +3,14 @@
 You are an AI Coding Assistant helping a developer use the `gladvn` UI library. 
 `gladvn` is a React component library built on top of Radix UI and Tailwind CSS, focusing on beautiful, accessible, and highly composable components.
 
-Follow these strict guidelines when generating or modifying code that uses `gladvn`:
+### Installation
+- Use `npx gladvn init` to scaffold components into a project.
+- **NEVER** use `npm install gladvn`. The components are copied directly into the project's source code, typically under a `@gladvn/` alias (e.g., `src/gladvn/`).
 
-## 1. Imports
-- **Always** import components directly from the package root:
-  `import { Button, Card, Dialog } from "gladvn";`
-- **Never** import from internal paths like `gladvn/dist/...` or `src/components/ui/...`.
+### Import Guidelines
+- **ALWAYS** import components using the local alias path.
+  - Correct: `import { Button } from "@/gladvn/components/micro/button"` or `import { Button } from "@gladvn/components/micro/button"` (depending on the project's setup).
+  - Incorrect: `import { Button } from "gladvn"`
 
 ## 2. Composition over Configuration
 `gladvn` heavily uses a composable architecture. When building complex UI, always use the provided sub-components rather than passing large configuration objects.

@@ -301,7 +301,42 @@ async function main() {
     const depsObj = pkg.dependencies || {};
     
     if (Object.keys(depsObj).length > 0) {
-      const depsToInstall = Object.entries(depsObj).map(([name, version]) => `${name}@"${version}"`);
+      // Scan copied files to determine which dependencies are actually used
+      function findSourceFiles(dir, fileList = []) {
+        if (!fs.existsSync(dir)) return fileList;
+        const files = fs.readdirSync(dir);
+        for (const file of files) {
+          const filePath = path.join(dir, file);
+          const stat = fs.statSync(filePath);
+          if (stat.isDirectory()) {
+            findSourceFiles(filePath, fileList);
+          } else if (file.match(/\.(tsx?|jsx?)$/)) {
+            fileList.push(filePath);
+          }
+        }
+        return fileList;
+      }
+      
+      const sourceFiles = findSourceFiles(destPath);
+      const usedDeps = new Set();
+      const importRegex = /(?:import|from)\s+['"]([^'"]+)['"]/g;
+      
+      for (const file of sourceFiles) {
+        const content = fs.readFileSync(file, 'utf-8');
+        let match;
+        while ((match = importRegex.exec(content)) !== null) {
+          const importPath = match[1];
+          // Check if the import path matches any of our dependencies
+          for (const dep of Object.keys(depsObj)) {
+            if (importPath === dep || importPath.startsWith(dep + '/')) {
+              usedDeps.add(dep);
+            }
+          }
+        }
+      }
+      
+      if (usedDeps.size > 0) {
+        const depsToInstall = Array.from(usedDeps).map(name => `${name}@"${depsObj[name]}"`);
       
       let pm = "npm";
       let installCmd = "install";
@@ -322,6 +357,7 @@ async function main() {
       console.log(`\n\x1b[36mInstalling required dependencies using ${pm}...\x1b[0m`);
       execSync(fullCmd, { stdio: "inherit", cwd: process.cwd() });
       console.log(`\x1b[32m✔ Dependencies installed successfully!\x1b[0m`);
+      }
     }
   } catch (err) {
     console.error(`\x1b[31m✖ Failed to install dependencies: ${err.message}\x1b[0m`);

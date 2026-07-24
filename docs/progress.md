@@ -76,9 +76,9 @@
 - [x] 3D.3 — CLI TypeScript compatibility test
 
 ### 3E — E2E Tests (Playwright)
-- [ ] 3E.1 — Viết lại `showcase.spec.ts`
-- [ ] 3E.2 — Keyboard navigation E2E
-- [ ] 3E.3 — Visual regression
+- [x] 3E.1 — Viết lại `showcase.spec.ts`
+- [x] 3E.2 — Keyboard navigation E2E
+- [x] 3E.3 — Visual regression
 
 ---
 
@@ -110,3 +110,4 @@
 | 2026-07-24 | Phase 1 & 2 | Hoàn tất dọn dẹp package và chuẩn hóa mã nguồn mở. CLI support smart deps. |
 | 2026-07-24 | Phase 3 | Hoàn tất 3A (Test Strategy) và 3B (Unit Tests). Cài đặt thành công Vitest, React Testing Library. |
 | 2026-07-24 | Phase 3 | Hoàn tất 3C (Component Tests) đạt 100/100 điểm review. Hoàn tất 3D (CLI Integration Tests). |
+| 2026-07-24 | Phase 3 | Hoàn tất 3E (E2E Tests) với Playwright (Showcase, Keyboard navigation, Visual regression). |

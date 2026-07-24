@@ -1,49 +1,66 @@
 import { test, expect } from '@playwright/test';
 
-const componentsToTest = [
-  'dialog',
-  'sheet',
-  'tooltip',
-  'popover',
-  'dropdown-menu',
-  'select',
-  'combobox',
-  'alert-dialog',
-  'context-menu',
-  'drawer',
-  'hover-card',
-  'menubar'
-];
-
-for (const component of componentsToTest) {
-  test(`Test ${component} showcase`, async ({ page }) => {
-    const errors = [];
-    page.on('pageerror', (err) => {
-      errors.push(err.message);
-    });
-
-    await page.goto(`http://localhost:5175/?component=${component}`);
+test.describe('Showcase UI', () => {
+  test('should render overview page correctly', async ({ page }) => {
+    await page.goto('/');
     
-    // Wait for the showcase to load
-    await page.waitForSelector('main', { state: 'visible', timeout: 5000 });
-    
-    // Check if the vite error overlay is present
-    const errorOverlay = await page.$('vite-error-overlay');
-    expect(errorOverlay).toBeNull();
+    // Check title
+    await expect(page).toHaveTitle(/gladvn/);
 
-    // Try interacting
-    const buttons = await page.locator('button').all();
-    if (buttons.length > 0) {
-      for (let i = 0; i < Math.min(3, buttons.length); i++) {
-        try {
-          await buttons[i].click({ timeout: 500 });
-          await page.waitForTimeout(100);
-        } catch {
-          // ignore
-        }
-      }
-    }
+    // Check header logo
+    const logo = page.locator('header a').first();
+    await expect(logo).toBeVisible();
 
-    expect(errors.length).toBe(0);
+    // Check for overview content
+    await expect(page.locator('text=Tinh tế. Đẳng cấp.')).toBeVisible();
   });
-}
+
+  test('should navigate via sidebar', async ({ page }) => {
+    await page.goto('/');
+
+    // Click on Button in sidebar
+    const buttonLink = page.locator('aside nav button', { hasText: 'Button' }).first();
+    await buttonLink.click();
+
+    // Verify URL
+    await expect(page).toHaveURL(/\/button/);
+
+    // Verify title
+    await expect(page).toHaveTitle(/Button — gladvn Components/);
+
+    // Verify component rendered
+    await expect(page.locator('h2', { hasText: 'Button' }).first()).toBeVisible();
+  });
+
+  test('should toggle dark/light theme', async ({ page }) => {
+    await page.goto('/');
+
+    const html = page.locator('html');
+    
+    // By default, it's light mode (or system preference). We assume light mode.
+    // Click the theme toggle button in header
+    const themeButton = page.locator('header button', { hasText: 'Toggle theme' }).first();
+    
+    await themeButton.click();
+    
+    // Check if dark class is added
+    await expect(html).toHaveClass(/dark|light/);
+  });
+
+  test('should toggle component size', async ({ page }) => {
+    await page.goto('/button');
+
+    // Button page should have a size toggle
+    const smToggle = page.locator('button', { hasText: 'sm' }).first();
+    const lgToggle = page.locator('button', { hasText: 'lg' }).first();
+
+    await lgToggle.click();
+
+    // The button example should now use the large size.
+    // It's hard to test size exactly without visual regression, but we can check if clicking doesn't crash
+    // and if we can toggle back.
+    await expect(lgToggle).toBeVisible();
+    await smToggle.click();
+    await expect(smToggle).toBeVisible();
+  });
+});

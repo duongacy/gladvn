@@ -8,6 +8,9 @@
     <a href="https://github.com/duongacy/gladvn/stargazers"><img src="https://img.shields.io/github/stars/duongacy/gladvn" alt="GitHub Stars"></a>
     <a href="https://github.com/duongacy/gladvn/blob/main/LICENSE"><img src="https://img.shields.io/github/license/duongacy/gladvn" alt="License"></a>
   </p>
+  <br/>
+  <!-- Hero Image Placeholder -->
+  <img src="https://raw.githubusercontent.com/duongacy/gladvn/main/docs/assets/hero.png" alt="gladvn Hero Image" width="100%">
 </div>
 
 <br />
@@ -68,10 +71,12 @@ Run the following command in your React/Next.js project to initialize `gladvn` a
 npx gladvn init
 ```
 
-The CLI will:
-1. Copy **ALL 55+ component files** and hooks into your project (default: `./gladvn/`). *(Note: You can safely delete any components you do not end up using).*
-2. Inject Tailwind CSS configurations.
-3. Automatically scan your copied code and only install the npm packages you actually use.
+The CLI will launch an interactive session:
+1. Ask for the path to your global CSS file.
+2. Provide a **Checkbox Menu** for you to select exactly which components you want to install. Use `<space>` to select and `<enter>` to confirm.
+3. Copy the selected source code and core utilities into your project (default: `./gladvn/`).
+4. Inject Tailwind CSS configurations.
+5. Automatically scan your copied code and only install the npm packages you actually use.
 
 ## 🆚 Comparison
 

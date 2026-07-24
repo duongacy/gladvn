@@ -121,6 +121,74 @@ async function selectOption(message, options) {
   });
 }
 
+async function selectMultipleOptions(message, options) {
+  return new Promise((resolve) => {
+    let selectedIndex = 0;
+    const selected = new Set();
+
+    const render = () => {
+      process.stdout.write('\x1B[?25l');
+      readline.cursorTo(process.stdout, 0);
+      readline.clearScreenDown(process.stdout);
+      
+      console.log(`\x1b[33m?\x1b[0m \x1b[1m${message}\x1b[0m \x1b[90m(Press <space> to select, <enter> to confirm)\x1b[0m`);
+      options.forEach((opt, index) => {
+        const isChecked = selected.has(index);
+        const checkbox = isChecked ? '\x1b[32m◉\x1b[0m' : '\x1b[90m◯\x1b[0m';
+        if (index === selectedIndex) {
+          console.log(`  \x1b[36m❯ ${checkbox} ${opt}\x1b[0m`);
+        } else {
+          console.log(`    ${checkbox} ${opt}`);
+        }
+      });
+      readline.moveCursor(process.stdout, 0, -(options.length + 1));
+    };
+
+    render();
+
+    const onKeyPress = (str, key) => {
+      if (key.name === 'up') {
+        selectedIndex = selectedIndex > 0 ? selectedIndex - 1 : options.length - 1;
+        render();
+      } else if (key.name === 'down') {
+        selectedIndex = selectedIndex < options.length - 1 ? selectedIndex + 1 : 0;
+        render();
+      } else if (key.name === 'space') {
+        if (selected.has(selectedIndex)) {
+          selected.delete(selectedIndex);
+        } else {
+          selected.add(selectedIndex);
+        }
+        render();
+      } else if (key.name === 'return' || key.name === 'enter') {
+        cleanup();
+        const results = Array.from(selected).map(idx => options[idx]);
+        console.log(`\x1b[32m✔\x1b[0m \x1b[1m${message}\x1b[0m \x1b[90m…\x1b[0m \x1b[36m${results.length} selected\x1b[0m`);
+        resolve(results);
+      } else if (key.name === 'c' && key.ctrl) {
+        cleanup();
+        console.log('\n\x1b[31m✖ Cancelled.\x1b[0m');
+        process.exit(1);
+      }
+    };
+
+    const cleanup = () => {
+      process.stdin.removeListener('keypress', onKeyPress);
+      if (process.stdin.isTTY) process.stdin.setRawMode(false);
+      process.stdin.pause();
+      readline.moveCursor(process.stdout, 0, options.length + 1);
+      process.stdout.write('\x1B[?25h');
+      readline.moveCursor(process.stdout, 0, -(options.length + 1));
+      readline.clearScreenDown(process.stdout);
+    };
+
+    readline.emitKeypressEvents(process.stdin);
+    if (process.stdin.isTTY) process.stdin.setRawMode(true);
+    process.stdin.resume();
+    process.stdin.on('keypress', onKeyPress);
+  });
+}
+
 async function main() {
   console.log(`\n${cyan}╔══════════════════════════════════════════════════════════════════╗${reset}`);
   console.log(`${cyan}║  ${bold}gladvn${reset}${cyan} — Initialization                                     ║${reset}`);
@@ -178,12 +246,6 @@ async function main() {
   }
 
   // 1. Copy files
-  let dirsToCopy = [];
-  if (fs.existsSync(srcDir)) {
-    const excludeList = ['dev', 'test', 'vite-env.d.ts'];
-    dirsToCopy = fs.readdirSync(srcDir).filter(item => !excludeList.includes(item));
-  }
-
   console.log(`\n\x1b[36mInitializing gladvn components into ${userDest}...\x1b[0m`);
 
   if (!fs.existsSync(destPath)) {
@@ -192,21 +254,64 @@ async function main() {
 
   let hasErrors = false;
 
-  for (const dir of dirsToCopy) {
+  // Always copy core directories
+  const coreDirs = ['hooks', 'lib', 'styles'];
+  for (const dir of coreDirs) {
     const sourcePath = path.join(srcDir, dir);
     const targetPath = path.join(destPath, dir);
-
     if (fs.existsSync(sourcePath)) {
       try {
         fs.cpSync(sourcePath, targetPath, { recursive: true, force: true });
-        console.log(`\x1b[32m✔ Copied ${dir}\x1b[0m`);
       } catch (err) {
-        console.error(`\x1b[31m✖ Failed to copy ${dir}/: ${err.message}\x1b[0m`);
+        console.error(`\x1b[31m✖ Failed to copy core ${dir}/: ${err.message}\x1b[0m`);
         hasErrors = true;
       }
-    } else {
-      console.warn(`\x1b[33m⚠ Source directory src/${dir} not found in package.\x1b[0m`);
     }
+  }
+  console.log(`\x1b[32m✔ Copied core files (lib, hooks, styles)\x1b[0m`);
+
+  // Component Selection
+  const componentsDir = path.join(srcDir, 'components');
+  let availableComponents = [];
+  
+  if (fs.existsSync(componentsDir)) {
+    const subDirs = ['micro', 'macro'];
+    for (const sub of subDirs) {
+      const subPath = path.join(componentsDir, sub);
+      if (fs.existsSync(subPath)) {
+        const files = fs.readdirSync(subPath);
+        for (const file of files) {
+          if (file.endsWith('.tsx') || file.endsWith('.ts')) {
+            availableComponents.push(`${sub}/${file}`);
+          }
+        }
+      }
+    }
+  }
+
+  if (availableComponents.length > 0 && isTTY) {
+    console.log(); // empty line for spacing
+    const selectedComponents = await selectMultipleOptions("Which components would you like to install?", availableComponents);
+    
+    for (const comp of selectedComponents) {
+      const sourcePath = path.join(componentsDir, comp);
+      const targetPath = path.join(destPath, 'components', comp);
+      
+      const targetDir = path.dirname(targetPath);
+      if (!fs.existsSync(targetDir)) {
+        fs.mkdirSync(targetDir, { recursive: true });
+      }
+
+      try {
+        fs.cpSync(sourcePath, targetPath, { force: true });
+        console.log(`\x1b[32m✔ Copied ${comp}\x1b[0m`);
+      } catch (err) {
+        console.error(`\x1b[31m✖ Failed to copy ${comp}: ${err.message}\x1b[0m`);
+        hasErrors = true;
+      }
+    }
+  } else if (!isTTY) {
+     console.log(`\x1b[33m⚠ Non-TTY environment detected. Skipping component selection.\x1b[0m`);
   }
 
   // 2. Inject CSS import

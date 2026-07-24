@@ -82,13 +82,13 @@
 
 ---
 
-## Phase 4: CI/CD Pipeline 🟡 MEDIUM — Chưa bắt đầu
+## Phase 4: CI/CD Pipeline 🟡 MEDIUM — ✅ HOÀN TẤT
 
-- [ ] 4.1 — Cập nhật `.github/workflows/ci.yml` (pnpm)
-- [ ] 4.2 — Thêm CLI smoke test job vào CI
-- [ ] 4.3 — Thêm E2E test job vào CI
-- [ ] 4.4 — Vercel Preview Deployments
-- [ ] 4.5 — Automated npm publish workflow
+- [x] 4.1 — Cập nhật `.github/workflows/ci.yml` (pnpm)
+- [x] 4.2 — Thêm CLI smoke test job vào CI
+- [x] 4.3 — Thêm E2E test job vào CI
+- [x] 4.4 — Vercel Preview Deployments
+- [x] 4.5 — Automated npm publish workflow
 
 ---
 
@@ -111,3 +111,4 @@
 | 2026-07-24 | Phase 3 | Hoàn tất 3A (Test Strategy) và 3B (Unit Tests). Cài đặt thành công Vitest, React Testing Library. |
 | 2026-07-24 | Phase 3 | Hoàn tất 3C (Component Tests) đạt 100/100 điểm review. Hoàn tất 3D (CLI Integration Tests). |
 | 2026-07-24 | Phase 3 | Hoàn tất 3E (E2E Tests) với Playwright (Showcase, Keyboard navigation, Visual regression). |
+| 2026-07-24 | Phase 4 | Hoàn tất thiết lập CI/CD (GitHub Actions) cho luồng test tự động và tự động publish NPM. Vercel tự động handle Preview URLs. |

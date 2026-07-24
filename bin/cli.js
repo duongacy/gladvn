@@ -359,13 +359,23 @@ async function main() {
           let pm = "npm";
           let installCmd = "install";
           
-          if (fs.existsSync(path.resolve(process.cwd(), "pnpm-lock.yaml"))) {
+          function hasLockfile(name) {
+            let dir = process.cwd();
+            while (true) {
+              if (fs.existsSync(path.join(dir, name))) return true;
+              const parent = path.dirname(dir);
+              if (parent === dir) return false;
+              dir = parent;
+            }
+          }
+          
+          if (hasLockfile("pnpm-lock.yaml")) {
             pm = "pnpm";
             installCmd = "add";
-          } else if (fs.existsSync(path.resolve(process.cwd(), "yarn.lock"))) {
+          } else if (hasLockfile("yarn.lock")) {
             pm = "yarn";
             installCmd = "add";
-          } else if (fs.existsSync(path.resolve(process.cwd(), "bun.lockb"))) {
+          } else if (hasLockfile("bun.lockb")) {
             pm = "bun";
             installCmd = "add";
           }

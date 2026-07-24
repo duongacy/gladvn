@@ -42,34 +42,33 @@
 
 ---
 
-## Phase 3: Testing Architecture 🟠 HIGH — Chưa bắt đầu
-
+## Phase 3: Testing Architecture 🟠 HIGH — Đang thực hiện
 ### 3A — Test Strategy
-- [ ] 3A.1 — Risk-based analysis (55 micro + 17 macro)
-- [ ] 3A.2 — Test strategy document
-- [ ] 3A.3 — Coverage targets
+- [x] 3A.1 — Risk-based analysis (55 micro + 17 macro)
+- [x] 3A.2 — Test strategy document
+- [x] 3A.3 — Coverage targets
 
 ### 3B — Unit Tests
-- [ ] 3B.1 — `src/lib/utils.test.ts`
-- [ ] 3B.2 — `src/hooks/use-mobile.test.ts`
-- [ ] 3B.3 — Mở rộng `button.test.tsx`
+- [x] 3B.1 — `src/lib/utils.test.ts`
+- [x] 3B.2 — `src/hooks/use-mobile.test.ts`
+- [x] 3B.3 — Mở rộng `button.test.tsx`
 
 ### 3C — Component Tests (Top 15)
-- [ ] 3C.1 — Button (mở rộng)
-- [ ] 3C.2 — Input
-- [ ] 3C.3 — Select
-- [ ] 3C.4 — Dialog
-- [ ] 3C.5 — Dropdown Menu
-- [ ] 3C.6 — Checkbox
-- [ ] 3C.7 — Switch
-- [ ] 3C.8 — Tabs
-- [ ] 3C.9 — Tooltip
-- [ ] 3C.10 — Badge
-- [ ] 3C.11 — Card
-- [ ] 3C.12 — Alert
-- [ ] 3C.13 — Accordion
-- [ ] 3C.14 — Popover
-- [ ] 3C.15 — Sheet
+- [x] 3C.1 — Button (mở rộng)
+- [x] 3C.2 — Input
+- [x] 3C.3 — Select
+- [x] 3C.4 — Dialog
+- [x] 3C.5 — Dropdown Menu
+- [x] 3C.6 — Checkbox
+- [x] 3C.7 — Switch
+- [x] 3C.8 — Tabs
+- [x] 3C.9 — Tooltip
+- [x] 3C.10 — Badge
+- [x] 3C.11 — Card
+- [x] 3C.12 — Alert
+- [x] 3C.13 — Accordion
+- [x] 3C.14 — Popover
+- [x] 3C.15 — Sheet
 
 ### 3D — CLI Integration Tests
 - [ ] 3D.1 — CLI smoke test
@@ -108,3 +107,5 @@
 | Ngày | Phase | Cập nhật |
 |------|-------|----------|
 | 2026-07-24 | Phase 0 | Hoàn tất toàn bộ 4 tasks. Tagline E + USP #3 được chọn. |
+| 2026-07-24 | Phase 1 & 2 | Hoàn tất dọn dẹp package và chuẩn hóa mã nguồn mở. CLI support smart deps. |
+| 2026-07-24 | Phase 3 | Hoàn tất 3A (Test Strategy) và 3B (Unit Tests). Cài đặt thành công Vitest, React Testing Library. |

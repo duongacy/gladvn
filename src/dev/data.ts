@@ -484,4 +484,12 @@ export const COMPONENTS = [
     status: "stable",
     hasSize: true,
   },
+  {
+    id: "why",
+    category: "Other",
+    label: "Why gladvn?",
+    hasMicro: false,
+    hasMacro: false,
+    status: "stable",
+  },
 ];

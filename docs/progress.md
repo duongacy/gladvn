@@ -92,13 +92,13 @@
 
 ---
 
-## Phase 5: Developer Experience Polish 🟢 NICE-TO-HAVE — Chưa bắt đầu
+## Phase 5: Developer Experience Polish 🟢 NICE-TO-HAVE — ✅ HOÀN TẤT
 
-- [ ] 5.1 — JSDoc cho Top 15 components
-- [ ] 5.2 — Dọn file rác ở root
-- [ ] 5.3 — Dọn thư mục `scripts/`
-- [ ] 5.4 — CLI `add` command (`npx gladvn add button`)
-- [ ] 5.5 — Trang "Why gladvn?" trên Showcase
+- [x] 5.1 — JSDoc cho Top 15 components
+- [x] 5.2 — Dọn file rác ở root
+- [x] 5.3 — Dọn thư mục `scripts/`
+- [x] 5.4 — CLI `add` command (`npx gladvn add button`)
+- [x] 5.5 — Trang "Why gladvn?" trên Showcase
 
 ---
 
@@ -112,3 +112,4 @@
 | 2026-07-24 | Phase 3 | Hoàn tất 3C (Component Tests) đạt 100/100 điểm review. Hoàn tất 3D (CLI Integration Tests). |
 | 2026-07-24 | Phase 3 | Hoàn tất 3E (E2E Tests) với Playwright (Showcase, Keyboard navigation, Visual regression). |
 | 2026-07-24 | Phase 4 | Hoàn tất thiết lập CI/CD (GitHub Actions) cho luồng test tự động và tự động publish NPM. Vercel tự động handle Preview URLs. |
+| 2026-07-24 | Phase 5 | Hoàn tất làm sạch dự án, bổ sung lệnh `add` cho CLI, xác minh JSDoc và thêm trang "Why gladvn?" trên Showcase. |

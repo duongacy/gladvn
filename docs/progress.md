@@ -71,9 +71,9 @@
 - [x] 3C.15 — Sheet
 
 ### 3D — CLI Integration Tests
-- [ ] 3D.1 — CLI smoke test
-- [ ] 3D.2 — CLI dependency test
-- [ ] 3D.3 — CLI TypeScript compatibility test
+- [x] 3D.1 — CLI smoke test
+- [x] 3D.2 — CLI dependency test
+- [x] 3D.3 — CLI TypeScript compatibility test
 
 ### 3E — E2E Tests (Playwright)
 - [ ] 3E.1 — Viết lại `showcase.spec.ts`
@@ -109,3 +109,4 @@
 | 2026-07-24 | Phase 0 | Hoàn tất toàn bộ 4 tasks. Tagline E + USP #3 được chọn. |
 | 2026-07-24 | Phase 1 & 2 | Hoàn tất dọn dẹp package và chuẩn hóa mã nguồn mở. CLI support smart deps. |
 | 2026-07-24 | Phase 3 | Hoàn tất 3A (Test Strategy) và 3B (Unit Tests). Cài đặt thành công Vitest, React Testing Library. |
+| 2026-07-24 | Phase 3 | Hoàn tất 3C (Component Tests) đạt 100/100 điểm review. Hoàn tất 3D (CLI Integration Tests). |

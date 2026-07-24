@@ -1,0 +1,47 @@
+name: Feature Request
+description: Suggest an idea for a new component or preset
+title: "[Feature]: "
+labels: ["enhancement", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a new feature for gladvn!
+  - type: dropdown
+    id: feature_type
+    attributes:
+      label: Feature Type
+      description: What kind of feature are you requesting?
+      options:
+        - New Micro Component (Primitive building block)
+        - New Macro Preset (Opinionated composition)
+        - CLI Enhancement
+        - Documentation Improvement
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Feature Description
+      description: Please describe the feature you'd like to see added.
+    validations:
+      required: true
+  - type: textarea
+    id: use_case
+    attributes:
+      label: Use Case
+      description: Describe a specific use case where this feature would be helpful.
+    validations:
+      required: true
+  - type: textarea
+    id: proposed_api
+    attributes:
+      label: Proposed API (Optional)
+      description: If you have a specific API or component signature in mind, please share it.
+      value: |
+        ```tsx
+        // Example:
+        <MyNewComponent variant="solid" color="primary">
+          Content
+        </MyNewComponent>
+        ```

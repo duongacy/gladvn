@@ -1,89 +1,96 @@
-# 🌊 gladvn
+<div align="center">
+  <h1 align="center">gladvn</h1>
+  <p align="center">
+    <strong>Composable React components. From primitive to preset — you choose.</strong>
+  </p>
+  <p align="center">
+    <a href="https://github.com/duongacy/gladvn/actions"><img src="https://img.shields.io/github/actions/workflow/status/duongacy/gladvn/ci.yml?branch=main" alt="Build Status"></a>
+    <a href="https://github.com/duongacy/gladvn/stargazers"><img src="https://img.shields.io/github/stars/duongacy/gladvn" alt="GitHub Stars"></a>
+    <a href="https://github.com/duongacy/gladvn/blob/main/LICENSE"><img src="https://img.shields.io/github/license/duongacy/gladvn" alt="License"></a>
+  </p>
+</div>
 
-> **✨ [Explore the Interactive Showcase & Documentation](https://gladvn.vercel.app/)**
+<br />
 
-A highly composable, accessible, and beautifully designed React component library. Built on top of [shadcn/ui](https://ui.shadcn.com/), [Base UI](https://base-ui.com/), and powered by **Tailwind CSS v4+**, `gladvn` provides a robust, zero-magic foundation for your next web application. 
+`gladvn` is a CLI-first React component library built on top of **Base UI** and **Tailwind CSS v4**. We do not distribute components via npm for you to import blindly. Instead, you run a command to scaffold the source code directly into your project.
 
-Designed with strict architectural principles, `gladvn` is optimized not just for human developers, but specifically for **AI coding assistants**, ensuring predictable styling and maintenance.
+You own the code. You own the abstractions.
 
----
+## ✨ The Problem We Solve: Micro/Macro Architecture
 
-## ✨ Key Features
+Most UI libraries force a choice:
+- **Too primitive:** You have to build everything yourself from scratch.
+- **Too opinionated:** You get locked into their design choices and fight the defaults.
 
-- **Micro & Macro Architecture**: Cleanly separates primitive UI elements (Micro) from complex, stateful, composite components (Macro).
-- **Zero-Portal API**: Say goodbye to manual `ThemeWrapper` and `*Portal` imports. Overlays (Dialog, Tooltip, Select) automatically tunnel the theme and manage portals out of the box.
-- **Zero "Magic CSS"**: No arbitrary deep descendant overrides (`[&_p]`, `has-[>div]`). Styling is predictable, slot-based, and relies on strict data-attributes (e.g., `data-active`, `data-disabled`).
-- **Tailwind CSS v4 Ready**: Fully compatible with the modern `@tailwindcss/postcss` and `@tailwindcss/vite` ecosystem.
-- **Copy-Paste or Install**: Choose between cloning the source code directly into your repo (the shadcn way) or installing it as a standard npm dependency.
-- **55+ Components**: From basic buttons to complex comboboxes and date pickers.
-- **Comprehensive Showcase**: Comes with an interactive, beautifully designed showcase featuring bilingual documentation (Vietnamese/English).
+**`gladvn` solves this with a strict Micro/Macro architecture.**
 
----
+- **Micro Components (Primitives):** Dumb, stateless building blocks. You control 100% of the assembly.
+- **Macro Components (Presets):** Smart, pre-configured compositions of micro components. Drop them in and move fast.
 
-## 🚀 Installation
+Both use the exact same design system.
 
-> [!WARNING]  
-> **Please use `npx` to clone the components into your project.** Installing via `npm` is no longer supported. Using `npx` gives you full control over the source code and styling, which is the core philosophy and intended way to use this library.
+```tsx
+// Micro — Lắp ráp theo ý bạn
+import { Button } from "@gladvn/components/micro/button";
 
-We highly recommend using the CLI to initialize components for maximum flexibility.
+<Button variant="solid" color="primary">Submit</Button>
 
-### Installation
 
-This approach automatically copies all component source code, hooks, and styles directly into your project. You own the code, you can freely modify it, and the CLI will automatically install necessary peer dependencies for you!
+// Macro — Preset làm sẵn tiện lợi
+import { InputPreset } from "@gladvn/components/macro/input-preset";
+
+<InputPreset label="Email" error={errors.email} />
+```
+
+## 🚀 Features
+
+- **45 Color/Variant Combinations:** 9 semantic colors × 5 variants (`solid`, `outline`, `ghost`, `soft`, `link`) out of the box.
+- **Zero-Portal Theming:** Modals and Popovers automatically inherit your theme without manual `ThemeWrapper` headaches.
+- **Base UI Powered:** Built on MUI's next-generation headless UI library.
+- **AI-First Design:** Includes `llms.txt` and semantic data-attributes designed specifically for AI coding agents (Cursor, Copilot, Claude).
+- **Smart Dependency Install:** The CLI scans your copied code and only installs the npm packages you actually use.
+
+## 📦 Installation
+
+**Do NOT run `npm install gladvn`.** This is a CLI tool designed to copy source code directly into your project.
+
+### Prerequisites
+Before running the CLI, ensure your project meets the following requirements:
+- React 19 / Next.js (App Router or Vite)
+- Tailwind CSS v4 installed and configured
+- `pnpm` (recommended), `npm`, or `yarn`
+
+### Setup
+
+Run the following command in your React/Next.js project to initialize `gladvn` and copy the components to your local repository:
 
 ```bash
 npx gladvn init
 ```
 
-*By default, this will create a `gladvn` folder at your project root. If you prefer to place it elsewhere, specify the path:*
-```bash
-npx gladvn init components/ui
-```
+The CLI will:
+1. Copy **ALL 55+ component files** and hooks into your project (default: `./gladvn/`). *(Note: You can safely delete any components you do not end up using).*
+2. Inject Tailwind CSS configurations.
+3. Automatically scan your copied code and only install the npm packages you actually use.
 
-**Usage:**
-```tsx
-// Import directly from your local folder
-import { Button } from "@/gladvn/components/micro/button";
-```
+## 🆚 Comparison
 
+| Feature | **gladvn** | shadcn/ui | MUI |
+|---------|-----------|-----------|-----|
+| Installation | `npx gladvn init` | `npx shadcn@latest init` | `npm install @mui/material` |
+| Own your code | ✅ Yes | ✅ Yes | ❌ npm dependency |
+| **Micro/Macro Architecture** | **✅ Yes** | ❌ No | ⚠️ Partial |
+| Semantic colors | ✅ 9 colors | ⚠️ 2 colors | ✅ Extensive |
+| Zero-portal theming | ✅ Automatic | ❌ Manual | ✅ ThemeProvider |
+| Headless UI | Base UI | Radix UI | Own |
+| AI coding guidelines | ✅ `llms.txt` | ❌ No | ❌ No |
 
+## 🤝 Contributing
 
----
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details on how to set up your environment, write components, and submit Pull Requests.
 
-## 🏗️ Architecture: Micro vs. Macro
-
-Most component libraries fail in their second year because developers become afraid to modify the core files. `gladvn` solves this with explicit architectural boundaries:
-
-- **Micro Components** (`components/micro/`): "Dumb" presentational primitives (e.g., `Button`, `Badge`, `Input`). They do not contain internal React state (`useState`) or business logic. They strictly rely on props for rendering and avoid dictating layout boundaries (like `w-full`).
-- **Macro Components** (`components/macro/`): "Smart" presets and compositions (e.g., `DatePicker`, `SelectPreset`, `PaginationPreset`). These components combine multiple Micro components and manage complex state, accessibility (a11y), and interactions. Macro components strictly reuse Micro components via pure composition.
-
-## 🎨 Theming & Customization
-
-`gladvn` uses standard CSS variables for theming, ensuring zero runtime parsing overhead. You can easily override these variables in your own CSS file.
-
-```css
-:root {
-  --primary: oklch(0.6 0.25 260);
-  --primary-foreground: oklch(0.98 0 0);
-  --radius: 0.5rem;
-}
-```
-
-If you cloned the components via `npx` (Option 1), you can modify the CSS directly inside the `gladvn/styles/` directory.
-
----
-
-## 📦 Included Components
-
-| Basic | Forms & Inputs | Overlays & Feedback | Navigation & Data |
-| --- | --- | --- | --- |
-| Button, Badge, Avatar | Input, Textarea, Checkbox | Dialog, Alert Dialog | Breadcrumb, Menubar |
-| Card, Separator | Select, Combobox, Slider | Popover, Tooltip | Tabs, Pagination |
-| Skeleton, Spinner | Switch, Radio Group | Sheet, Drawer | Table, Accordion |
-| Aspect Ratio | Input OTP, Command | Sonner (Toasts) | Carousel, Chart |
-
----
+Please adhere to our [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## 📄 License
 
-MIT © Duongy96
+This project is licensed under the [MIT License](LICENSE).

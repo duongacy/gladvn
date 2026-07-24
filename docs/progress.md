@@ -29,16 +29,16 @@
 
 ---
 
-## Phase 2: Open Source Standards 🟠 HIGH — Chưa bắt đầu
+## Phase 2: Open Source Standards 🟠 HIGH — ✅ HOÀN TẤT
 
-- [ ] 2.1 — Tạo `LICENSE` (MIT)
-- [ ] 2.2 — Tạo `CONTRIBUTING.md`
-- [ ] 2.3 — Tạo `CHANGELOG.md`
-- [ ] 2.4 — Tạo `CODE_OF_CONDUCT.md`
-- [ ] 2.5 — Tạo `.github/ISSUE_TEMPLATE/bug_report.md`
-- [ ] 2.6 — Tạo `.github/ISSUE_TEMPLATE/feature_request.md`
-- [ ] 2.7 — Tạo `.github/PULL_REQUEST_TEMPLATE.md`
-- [ ] 2.8 — Viết lại `README.md` (dùng brand.md làm nguồn)
+- [x] 2.1 — Tạo `LICENSE` (MIT)
+- [x] 2.2 — Tạo `CONTRIBUTING.md`
+- [x] 2.3 — Tạo `CHANGELOG.md`
+- [x] 2.4 — Tạo `CODE_OF_CONDUCT.md`
+- [x] 2.5 — Tạo `.github/ISSUE_TEMPLATE/bug_report.yml`
+- [x] 2.6 — Tạo `.github/ISSUE_TEMPLATE/feature_request.yml`
+- [x] 2.7 — Tạo `.github/PULL_REQUEST_TEMPLATE.md`
+- [x] 2.8 — Viết lại `README.md` (dùng brand.md làm nguồn)
 
 ---
 

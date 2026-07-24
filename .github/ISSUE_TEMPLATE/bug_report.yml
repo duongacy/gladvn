@@ -1,0 +1,82 @@
+name: Bug Report
+description: Create a report to help us improve a component or the CLI
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Prerequisites
+      description: Please ensure you have completed the following before submitting.
+      options:
+        - label: I have searched the existing issues to ensure this bug has not already been reported.
+          required: true
+        - label: I am using the latest version of the gladvn CLI.
+          required: true
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Bug Scope
+      description: Is this an issue with the CLI or a specific component?
+      options:
+        - CLI Tool (`npx gladvn init`)
+        - Micro Component (e.g. Button, Badge)
+        - Macro Preset (e.g. Card, Data Table)
+    validations:
+      required: true
+  - type: input
+    id: component_name
+    attributes:
+      label: Component Name (if applicable)
+      description: E.g., Button, Select, Dialog
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is.
+    validations:
+      required: true
+  - type: input
+    id: reproduction
+    attributes:
+      label: Reproduction URL (Mandatory for component bugs)
+      description: Please provide a CodeSandbox, StackBlitz, or GitHub repo link where the issue can be reproduced.
+      placeholder: https://codesandbox.io/s/...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: A clear and concise description of what you expected to happen.
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating System
+      description: What operating system are you using? (e.g., macOS Sonoma, Windows 11, Ubuntu 22.04)
+    validations:
+      required: true
+  - type: input
+    id: node_version
+    attributes:
+      label: Node.js Version
+      description: What version of Node.js are you using? (e.g., v20.11.0)
+    validations:
+      required: true
+  - type: dropdown
+    id: package_manager
+    attributes:
+      label: Package Manager
+      options:
+        - pnpm
+        - npm
+        - yarn
+        - bun
+    validations:
+      required: true

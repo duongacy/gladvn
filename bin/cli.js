@@ -322,7 +322,9 @@ async function main() {
       const importRegex = /(?:import|from)\s+['"]([^'"]+)['"]/g;
       
       for (const file of sourceFiles) {
-        const content = fs.readFileSync(file, 'utf-8');
+        let content = fs.readFileSync(file, 'utf-8');
+        // Naively strip out comments to prevent false positive imports
+        content = content.replace(/\/\*[\s\S]*?\*\/|\/\/.*/g, '');
         let match;
         while ((match = importRegex.exec(content)) !== null) {
           const importPath = match[1];
@@ -336,27 +338,46 @@ async function main() {
       }
       
       if (usedDeps.size > 0) {
-        const depsToInstall = Array.from(usedDeps).map(name => `${name}@"${depsObj[name]}"`);
-      
-      let pm = "npm";
-      let installCmd = "install";
-      
-      if (fs.existsSync(path.resolve(process.cwd(), "pnpm-lock.yaml"))) {
-        pm = "pnpm";
-        installCmd = "add";
-      } else if (fs.existsSync(path.resolve(process.cwd(), "yarn.lock"))) {
-        pm = "yarn";
-        installCmd = "add";
-      } else if (fs.existsSync(path.resolve(process.cwd(), "bun.lockb"))) {
-        pm = "bun";
-        installCmd = "add";
-      }
+        // Check user's package.json to see what is already installed
+        const userPkgPath = path.resolve(process.cwd(), 'package.json');
+        let userDeps = {};
+        if (fs.existsSync(userPkgPath)) {
+          try {
+            const userPkg = JSON.parse(fs.readFileSync(userPkgPath, 'utf8'));
+            userDeps = { ...(userPkg.dependencies || {}), ...(userPkg.devDependencies || {}) };
+          } catch (e) {}
+        }
 
-      const fullCmd = `${pm} ${installCmd} ${depsToInstall.join(" ")}`;
+        const depsToInstall = [];
+        for (const dep of usedDeps) {
+          if (!userDeps[dep]) {
+            depsToInstall.push(`${dep}@"${depsObj[dep]}"`);
+          }
+        }
       
-      console.log(`\n\x1b[36mInstalling required dependencies using ${pm}...\x1b[0m`);
-      execSync(fullCmd, { stdio: "inherit", cwd: process.cwd() });
-      console.log(`\x1b[32m✔ Dependencies installed successfully!\x1b[0m`);
+        if (depsToInstall.length > 0) {
+          let pm = "npm";
+          let installCmd = "install";
+          
+          if (fs.existsSync(path.resolve(process.cwd(), "pnpm-lock.yaml"))) {
+            pm = "pnpm";
+            installCmd = "add";
+          } else if (fs.existsSync(path.resolve(process.cwd(), "yarn.lock"))) {
+            pm = "yarn";
+            installCmd = "add";
+          } else if (fs.existsSync(path.resolve(process.cwd(), "bun.lockb"))) {
+            pm = "bun";
+            installCmd = "add";
+          }
+
+          const fullCmd = `${pm} ${installCmd} ${depsToInstall.join(" ")}`;
+          
+          console.log(`\n\x1b[36mInstalling missing dependencies using ${pm}...\x1b[0m`);
+          execSync(fullCmd, { stdio: "inherit", cwd: process.cwd() });
+          console.log(`\x1b[32m✔ Dependencies installed successfully!\x1b[0m`);
+        } else {
+          console.log(`\n\x1b[90m⏭  All required dependencies are already installed.\x1b[0m`);
+        }
       }
     }
   } catch (err) {

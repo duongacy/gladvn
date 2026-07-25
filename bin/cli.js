@@ -16,7 +16,7 @@ if (process.argv.includes('--help') || process.argv.includes('-h')) {
   console.log(`
 Usage:
   npx gladvn init [destination]
-  npx gladvn add <component> [destination]
+  npx gladvn add <component | --all> [destination]
   npx gladvn add-block <block> [destination]
 
 Options:
@@ -254,29 +254,52 @@ async function main() {
   }
 
   if (command === "add") {
-    console.log(`\x1b[36mAdding ${componentToAdd} to ${userDest}...\x1b[0m`);
-    const compMatches = availableComponents.filter(c => c.endsWith(`/${componentToAdd}.tsx`) || c.endsWith(`/${componentToAdd}.ts`));
-    if (compMatches.length === 0) {
-       console.error(`\x1b[31m✖ Component "${componentToAdd}" not found.\x1b[0m`);
-       process.exit(1);
-    }
-    
     if (!fs.existsSync(destPath)) {
       fs.mkdirSync(destPath, { recursive: true });
     }
-    const comp = compMatches[0];
-    const sourcePath = path.join(componentsDir, comp);
-    const targetPath = path.join(destPath, 'components', comp);
-    const targetDir = path.dirname(targetPath);
-    if (!fs.existsSync(targetDir)) {
-      fs.mkdirSync(targetDir, { recursive: true });
-    }
-    try {
-      fs.cpSync(sourcePath, targetPath, { force: true });
-      console.log(`\x1b[32m✔ Added ${comp}\x1b[0m`);
-    } catch (err) {
-      console.error(`\x1b[31m✖ Failed to add ${comp}: ${err.message}\x1b[0m`);
-      hasErrors = true;
+
+    if (componentToAdd === "--all") {
+      console.log(`\x1b[36mAdding all components to ${userDest}...\x1b[0m`);
+      let addedCount = 0;
+      for (const comp of availableComponents) {
+        const sourcePath = path.join(componentsDir, comp);
+        const targetPath = path.join(destPath, 'components', comp);
+        const targetDir = path.dirname(targetPath);
+        if (!fs.existsSync(targetDir)) {
+          fs.mkdirSync(targetDir, { recursive: true });
+        }
+        try {
+          fs.cpSync(sourcePath, targetPath, { force: true });
+          console.log(`\x1b[32m✔ Added ${comp}\x1b[0m`);
+          addedCount++;
+        } catch (err) {
+          console.error(`\x1b[31m✖ Failed to add ${comp}: ${err.message}\x1b[0m`);
+          hasErrors = true;
+        }
+      }
+      console.log(`\x1b[32m✔ Successfully added ${addedCount} components!\x1b[0m`);
+    } else {
+      console.log(`\x1b[36mAdding ${componentToAdd} to ${userDest}...\x1b[0m`);
+      const compMatches = availableComponents.filter(c => c.endsWith(`/${componentToAdd}.tsx`) || c.endsWith(`/${componentToAdd}.ts`));
+      if (compMatches.length === 0) {
+         console.error(`\x1b[31m✖ Component "${componentToAdd}" not found.\x1b[0m`);
+         process.exit(1);
+      }
+      
+      const comp = compMatches[0];
+      const sourcePath = path.join(componentsDir, comp);
+      const targetPath = path.join(destPath, 'components', comp);
+      const targetDir = path.dirname(targetPath);
+      if (!fs.existsSync(targetDir)) {
+        fs.mkdirSync(targetDir, { recursive: true });
+      }
+      try {
+        fs.cpSync(sourcePath, targetPath, { force: true });
+        console.log(`\x1b[32m✔ Added ${comp}\x1b[0m`);
+      } catch (err) {
+        console.error(`\x1b[31m✖ Failed to add ${comp}: ${err.message}\x1b[0m`);
+        hasErrors = true;
+      }
     }
   } else if (command === "add-block") {
     console.log(`\x1b[36mAdding block ${componentToAdd} to ${userDest}...\x1b[0m`);

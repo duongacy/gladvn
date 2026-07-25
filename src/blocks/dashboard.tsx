@@ -82,7 +82,7 @@ export default function DashboardBlock() {
               <DropdownMenuItem>Team</DropdownMenuItem>
               <DropdownMenuItem>Subscription</DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem color="destructive">Log out</DropdownMenuItem>
+              <DropdownMenuItem variant="destructive">Log out</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </header>

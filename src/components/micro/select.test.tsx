@@ -44,7 +44,7 @@ describe("Select", () => {
     const user = userEvent.setup();
 
     const ControlledSelect = () => {
-      const [val, setVal] = React.useState("apple");
+      const [val, setVal] = React.useState<string | null>("apple");
       return (
         <Select value={val} onValueChange={setVal}>
           <SelectTrigger aria-label="Food">

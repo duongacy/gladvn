@@ -7,7 +7,7 @@ import { Label } from "../components/micro/label";
 import { Checkbox } from "../components/micro/checkbox";
 import { Separator } from "../components/micro/separator";
 
-export default function AuthBlock() {
+export default function AuthCardBlock() {
   const [isLoading, setIsLoading] = useState(false);
   const [mode, setMode] = useState<"login" | "register">("login");
 

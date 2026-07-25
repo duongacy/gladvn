@@ -385,7 +385,7 @@ async function main() {
 
     // Always copy core directories
 
-  const coreDirs = ['hooks', 'lib', 'styles'];
+  const coreDirs = ['hooks', 'lib', 'styles', 'components', 'blocks'];
   for (const dir of coreDirs) {
     const sourcePath = path.join(srcDir, dir);
     const targetPath = path.join(destPath, dir);
@@ -398,7 +398,7 @@ async function main() {
       }
     }
   }
-  console.log(`\x1b[32m✔ Copied core files (lib, hooks, styles)\x1b[0m`);
+  console.log(`\x1b[32m✔ Copied core files and all components (lib, hooks, styles, components, blocks)\x1b[0m`);
 
   // 2. Inject CSS
   if (cssFilePath && fs.existsSync(cssFilePath)) {

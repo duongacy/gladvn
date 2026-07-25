@@ -86,11 +86,10 @@ describe('CLI Integration', () => {
     // Then
     const cleanOutput = output.replace(/\x1b\[[0-9;]*m/g, '');
     expect(cleanOutput).toContain('Path to your main CSS file?');
-    expect(cleanOutput).toContain('Injected CSS imports into styles/main.css');
+    expect(cleanOutput).toContain('Injected gladvn CSS into main.css');
 
     // Verify CSS file was correctly injected
     const cssContent = fs.readFileSync(path.join(cssPath, 'main.css'), 'utf-8');
-    expect(cssContent).toContain('@import "../gladvn/styles/tokens.css";');
     expect(cssContent).toContain('@import "../gladvn/styles/gladvn.css";');
     expect(cssContent).toContain('body { background: white; }'); // Original content preserved
   });

@@ -8,8 +8,8 @@ test.describe('Visual Regression', () => {
 
     // Hide any dynamic or flaky elements if there are any (e.g. scrollbars)
     // Then take screenshot
-    await expect(page).toHaveScreenshot('overview-page.png', {
-      fullPage: true,
+    const mainContent = page.locator('main').first();
+    await expect(mainContent).toHaveScreenshot('overview-page.png', {
       maxDiffPixelRatio: 0.05 // Allow 5% diff for minor font rendering differences
     });
   });

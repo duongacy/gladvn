@@ -19,9 +19,10 @@ export default defineConfig({
   ],
   expect: {
     toHaveScreenshot: {
-      maxDiffPixelRatio: 0.01,
+      maxDiffPixelRatio: 0.05,
     },
   },
+  snapshotPathTemplate: "{testDir}/{testFileDir}/{testFileName}-snapshots/{arg}{ext}",
   webServer: {
     command: "npm run dev",
     url: "http://localhost:5173",

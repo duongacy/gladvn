@@ -6,13 +6,15 @@ import {
   FieldContent,
   FieldDescription,
   FieldError,
-  FieldLabel } from "../../components/micro/field";
+  FieldLabel
+} from "../../components/micro/field";
 import {
   Slider as CompositionalSlider,
   SliderControl,
   SliderIndicator,
   SliderThumb,
-  SliderTrack } from "../../components/micro/slider";
+  SliderTrack
+} from "../../components/micro/slider";
 import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsCode,
@@ -21,7 +23,8 @@ import {
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs } from "../../dev/components/showcase";
+  ShowcaseDocs
+} from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────

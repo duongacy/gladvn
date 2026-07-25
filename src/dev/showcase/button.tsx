@@ -10,7 +10,8 @@ import {
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs } from "../../dev/components/showcase";
+  ShowcaseDocs
+} from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 function ButtonMicroShowcase({ globalSize }: { globalSize: Size }) {

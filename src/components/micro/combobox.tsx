@@ -369,5 +369,5 @@ export {
   ComboboxSeparator,
   ComboboxTrigger,
   ComboboxValue,
-  useComboboxContext,
+  useComboboxContext
 };

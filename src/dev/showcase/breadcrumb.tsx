@@ -8,19 +8,22 @@ import {
   BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbPage,
-  BreadcrumbSeparator } from "../../components/micro/breadcrumb";
+  BreadcrumbSeparator
+} from "../../components/micro/breadcrumb";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  
-  DropdownMenuTrigger } from "../../components/micro/dropdown-menu";
+
+  DropdownMenuTrigger
+} from "../../components/micro/dropdown-menu";
 import {
   DocsP,
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs } from "../../dev/components/showcase";
+  ShowcaseDocs
+} from "../../dev/components/showcase";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Macro Content

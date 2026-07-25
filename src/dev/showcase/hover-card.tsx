@@ -3,13 +3,15 @@ import { CalendarIcon } from "lucide-react";
 import {
   Avatar,
   AvatarFallback,
-  AvatarImage } from "../../components/micro/avatar";
+  AvatarImage
+} from "../../components/micro/avatar";
 import { Button } from "../../components/micro/button";
 import {
   HoverCard,
   HoverCardContent,
-  
-  HoverCardTrigger } from "../../components/micro/hover-card";
+
+  HoverCardTrigger
+} from "../../components/micro/hover-card";
 import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsCode,
@@ -17,7 +19,8 @@ import {
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs } from "../../dev/components/showcase";
+  ShowcaseDocs
+} from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────

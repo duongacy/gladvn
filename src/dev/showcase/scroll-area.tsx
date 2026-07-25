@@ -6,7 +6,8 @@ import {
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs } from "../../dev/components/showcase";
+  ShowcaseDocs
+} from "../../dev/components/showcase";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Explicit Sub-components for Demo

@@ -237,5 +237,5 @@ export {
   SidebarLabel,
   SidebarLogo,
   SidebarMenuItem,
-  SidebarMenuItemList,
+  SidebarMenuItemList
 };

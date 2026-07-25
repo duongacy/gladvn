@@ -1,9 +1,9 @@
 import * as React from "react";
 import { useState } from "react";
 import { Button } from "../components/micro/button";
+import { Checkbox } from "../components/micro/checkbox";
 import { Input } from "../components/micro/input";
 import { Label } from "../components/micro/label";
-import { Checkbox } from "../components/micro/checkbox";
 import { Separator } from "../components/micro/separator";
 
 export default function AuthSplitBlock() {

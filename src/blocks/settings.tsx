@@ -1,12 +1,9 @@
-import * as React from "react";
 import { Button } from "../components/micro/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../components/micro/card";
 import { Input } from "../components/micro/input";
 import { Label } from "../components/micro/label";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/micro/tabs";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../components/micro/select";
 import { Separator } from "../components/micro/separator";
 import { Switch } from "../components/micro/switch";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../components/micro/select";
 
 export default function SettingsBlock() {
   return (

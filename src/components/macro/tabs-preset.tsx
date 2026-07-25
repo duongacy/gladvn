@@ -7,7 +7,8 @@ import {
   TabsContent,
   TabsList,
   TabsTrigger,
-  type tabsListVariants } from "../../components/micro/tabs";
+  type tabsListVariants
+} from "../../components/micro/tabs";
 
 export interface TabsPresetItem {
   value: string;

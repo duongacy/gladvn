@@ -8,7 +8,8 @@ import {
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs } from "../../dev/components/showcase";
+  ShowcaseDocs
+} from "../../dev/components/showcase";
 
 // Simulated async operation for Promise demo
 const mockSave = () =>

@@ -144,5 +144,5 @@ export {
   DialogHeader,
   DialogOverlay,
   DialogTitle,
-  DialogTrigger,
+  DialogTrigger
 };

@@ -11,9 +11,10 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogMedia,
-  
+
   AlertDialogTitle,
-  AlertDialogTrigger } from "../../components/micro/alert-dialog";
+  AlertDialogTrigger
+} from "../../components/micro/alert-dialog";
 import { type Color, type Size, type Variant } from "../../lib/types";
 import { cn } from "../../lib/utils";
 

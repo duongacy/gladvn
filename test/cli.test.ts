@@ -1,8 +1,8 @@
-import { describe, it, expect, beforeAll, afterAll, afterEach } from 'vitest';
 import { execSync } from 'child_process';
 import fs from 'fs';
-import path from 'path';
 import os from 'os';
+import path from 'path';
+import { afterAll, afterEach, beforeAll, describe, expect, it } from 'vitest';
 
 describe('CLI Integration', () => {
   let tempDir: string;

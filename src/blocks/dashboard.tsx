@@ -1,26 +1,25 @@
-import * as React from "react";
-import { 
-  BarChart3Icon, 
-  HomeIcon, 
-  LayoutDashboardIcon, 
-  SettingsIcon, 
-  UsersIcon, 
-  BellIcon, 
+import {
+  BarChart3Icon,
+  BellIcon,
+  HomeIcon,
+  LayoutDashboardIcon,
+  MenuIcon,
   SearchIcon,
-  MenuIcon
+  SettingsIcon,
+  UsersIcon
 } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "../components/micro/avatar";
 import { Button } from "../components/micro/button";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "../components/micro/card";
-import { Input } from "../components/micro/input";
-import { 
-  DropdownMenu, 
-  DropdownMenuContent, 
-  DropdownMenuItem, 
-  DropdownMenuLabel, 
-  DropdownMenuSeparator, 
-  DropdownMenuTrigger 
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/micro/card";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger
 } from "../components/micro/dropdown-menu";
+import { Input } from "../components/micro/input";
 
 export default function DashboardBlock() {
   return (

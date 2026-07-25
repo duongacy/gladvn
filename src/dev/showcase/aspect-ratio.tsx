@@ -5,7 +5,8 @@ import {
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs } from "../../dev/components/showcase";
+  ShowcaseDocs
+} from "../../dev/components/showcase";
 
 const commonRatios = [
   { label: "16:9", ratio: 16 / 9, desc: "Widescreen — video, hero banners" },

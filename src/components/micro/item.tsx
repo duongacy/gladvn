@@ -203,5 +203,5 @@ export {
   ItemHeader,
   ItemMedia,
   ItemSeparator,
-  ItemTitle,
+  ItemTitle
 };

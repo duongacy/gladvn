@@ -5,12 +5,14 @@ import {
   Field,
   FieldContent,
   FieldError,
-  FieldLabel } from "../../components/micro/field";
+  FieldLabel
+} from "../../components/micro/field";
 import {
   InputOTP,
   InputOTPGroup,
   InputOTPSeparator,
-  InputOTPSlot } from "../../components/micro/input-otp";
+  InputOTPSlot
+} from "../../components/micro/input-otp";
 import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsCode,
@@ -19,7 +21,8 @@ import {
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs } from "../../dev/components/showcase";
+  ShowcaseDocs
+} from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────

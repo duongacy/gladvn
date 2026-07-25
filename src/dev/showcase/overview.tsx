@@ -15,28 +15,32 @@ import {
   PaletteIcon,
   ShieldCheckIcon,
   SlidersHorizontalIcon,
-  SparklesIcon } from "lucide-react";
+  SparklesIcon
+} from "lucide-react";
 import { toast } from "sonner";
 
 import { ProgressPreset as Progress } from "../../components/macro/progress-preset";
 import {
   Avatar,
   AvatarFallback,
-  AvatarImage } from "../../components/micro/avatar";
+  AvatarImage
+} from "../../components/micro/avatar";
 import { Button } from "../../components/micro/button";
 import {
   Card,
   CardContent,
   CardHeader,
-  CardTitle } from "../../components/micro/card";
+  CardTitle
+} from "../../components/micro/card";
 import { Label } from "../../components/micro/label";
 import {
   Select,
   SelectContent,
   SelectItem,
-  
+
   SelectTrigger,
-  SelectValue } from "../../components/micro/select";
+  SelectValue
+} from "../../components/micro/select";
 import { Switch } from "../../components/micro/switch";
 import { ColorSwatch } from "../../dev/components/showcase";
 import { COLORS, STATS } from "../../dev/data";

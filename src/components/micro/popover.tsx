@@ -134,5 +134,5 @@ export {
   PopoverDescription,
   PopoverHeader,
   PopoverTitle,
-  PopoverTrigger,
+  PopoverTrigger
 };

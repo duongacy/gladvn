@@ -5,13 +5,15 @@ import {
   ChartLegend,
   ChartLegendContent,
   ChartTooltip,
-  ChartTooltipContent } from "../../components/micro/chart";
+  ChartTooltipContent
+} from "../../components/micro/chart";
 import {
   DocsCode,
   DocsP,
   ExampleSection,
   Showcase,
-  ShowcaseDocs } from "../../dev/components/showcase";
+  ShowcaseDocs
+} from "../../dev/components/showcase";
 
 export default function ChartShowcase() {
   return (

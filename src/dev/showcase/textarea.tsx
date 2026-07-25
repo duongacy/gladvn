@@ -5,12 +5,14 @@ import {
   Field,
   FieldContent,
   FieldError,
-  FieldLabel } from "../../components/micro/field";
+  FieldLabel
+} from "../../components/micro/field";
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupText,
-  InputGroupTextarea } from "../../components/micro/input-group";
+  InputGroupTextarea
+} from "../../components/micro/input-group";
 import { Textarea } from "../../components/micro/textarea";
 import { useDevContext } from "../../dev/components/dev-context";
 import {
@@ -20,7 +22,8 @@ import {
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs } from "../../dev/components/showcase";
+  ShowcaseDocs
+} from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────

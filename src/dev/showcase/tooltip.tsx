@@ -4,9 +4,10 @@ import { Button } from "../../components/micro/button";
 import {
   Tooltip,
   TooltipContent,
-  
+
   TooltipProvider,
-  TooltipTrigger } from "../../components/micro/tooltip";
+  TooltipTrigger
+} from "../../components/micro/tooltip";
 import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsCode,
@@ -15,7 +16,8 @@ import {
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs } from "../../dev/components/showcase";
+  ShowcaseDocs
+} from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────

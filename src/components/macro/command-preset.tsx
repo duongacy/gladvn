@@ -10,14 +10,16 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-  CommandShortcut } from "../../components/micro/command";
+  CommandShortcut
+} from "../../components/micro/command";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
-  
-  DialogTitle } from "../../components/micro/dialog";
+
+  DialogTitle
+} from "../../components/micro/dialog";
 import { cn } from "../../lib/utils";
 
 type CommandDialogProps = Omit<
@@ -68,5 +70,6 @@ export {
   CommandItem,
   CommandList,
   CommandSeparator,
-  CommandShortcut };
+  CommandShortcut
+};
 export type { CommandDialogProps };

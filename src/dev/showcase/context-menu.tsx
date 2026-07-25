@@ -7,7 +7,7 @@ import {
   ContextMenuGroup,
   ContextMenuItem,
   ContextMenuLabel,
-  
+
   ContextMenuRadioGroup,
   ContextMenuRadioItem,
   ContextMenuSeparator,
@@ -15,12 +15,14 @@ import {
   ContextMenuSub,
   ContextMenuSubContent,
   ContextMenuSubTrigger,
-  ContextMenuTrigger } from "../../components/micro/context-menu";
+  ContextMenuTrigger
+} from "../../components/micro/context-menu";
 import {
   DocsP,
   ExampleSection,
   Showcase,
-  ShowcaseDocs } from "../../dev/components/showcase";
+  ShowcaseDocs
+} from "../../dev/components/showcase";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 2: Micro Content (không export)

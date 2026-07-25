@@ -12,9 +12,10 @@ import {
   SheetDescription,
   SheetFooter,
   SheetHeader,
-  
+
   SheetTitle,
-  SheetTrigger } from "../../components/micro/sheet";
+  SheetTrigger
+} from "../../components/micro/sheet";
 import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsCode,
@@ -22,7 +23,8 @@ import {
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs } from "../../dev/components/showcase";
+  ShowcaseDocs
+} from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────

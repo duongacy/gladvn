@@ -7,7 +7,8 @@ import {
   EmptyDescription,
   EmptyHeader,
   EmptyMedia,
-  EmptyTitle } from "../../components/micro/empty";
+  EmptyTitle
+} from "../../components/micro/empty";
 import { cn } from "../../lib/utils";
 
 type EmptyPresetProps = {

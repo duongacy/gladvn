@@ -6,7 +6,8 @@ import {
   CreditCardIcon,
   SettingsIcon,
   SmileIcon,
-  UserIcon } from "lucide-react";
+  UserIcon
+} from "lucide-react";
 
 import { CommandDialog } from "../../components/macro/command-preset";
 import { Button } from "../../components/micro/button";
@@ -18,13 +19,15 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-  CommandShortcut } from "../../components/micro/command";
+  CommandShortcut
+} from "../../components/micro/command";
 import {
   DocsP,
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs } from "../../dev/components/showcase";
+  ShowcaseDocs
+} from "../../dev/components/showcase";
 
 function CommandMicroShowcase() {
   const [open, setOpen] = useState(false);

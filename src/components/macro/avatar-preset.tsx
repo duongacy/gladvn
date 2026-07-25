@@ -4,7 +4,8 @@ import {
   Avatar,
   AvatarBadge,
   AvatarFallback,
-  AvatarImage } from "../../components/micro/avatar";
+  AvatarImage
+} from "../../components/micro/avatar";
 
 export type AvatarPresetProps = React.ComponentProps<typeof Avatar> & {
   src?: string;

@@ -12,9 +12,10 @@ import {
   DialogDescription,
   DialogFooter,
   DialogHeader,
-  
+
   DialogTitle,
-  DialogTrigger } from "../../components/micro/dialog";
+  DialogTrigger
+} from "../../components/micro/dialog";
 import { type Size } from "../../lib/types";
 import { cn } from "../../lib/utils";
 

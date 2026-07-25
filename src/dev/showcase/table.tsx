@@ -8,13 +8,15 @@ import {
   TableFooter,
   TableHead,
   TableHeader,
-  TableRow } from "../../components/micro/table";
+  TableRow
+} from "../../components/micro/table";
 import {
   DocsH3,
   DocsP,
   ExampleSection,
   Showcase,
-  ShowcaseDocs } from "../../dev/components/showcase";
+  ShowcaseDocs
+} from "../../dev/components/showcase";
 
 type SortDirection = "asc" | "desc" | "none";
 

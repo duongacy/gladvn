@@ -140,5 +140,5 @@ export {
   AvatarFallback,
   AvatarGroup,
   AvatarGroupCount,
-  AvatarImage,
+  AvatarImage
 };

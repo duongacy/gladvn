@@ -5,7 +5,8 @@ import {
   Tabs,
   TabsContent,
   TabsList,
-  TabsTrigger } from "../../components/micro/tabs";
+  TabsTrigger
+} from "../../components/micro/tabs";
 import {
   DocsCode,
   DocsH3,
@@ -13,7 +14,8 @@ import {
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs } from "../../dev/components/showcase";
+  ShowcaseDocs
+} from "../../dev/components/showcase";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Macro Content

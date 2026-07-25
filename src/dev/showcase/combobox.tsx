@@ -18,20 +18,23 @@ import {
   ComboboxItem,
   ComboboxLabel,
   ComboboxList,
-  
+
   ComboboxSeparator,
   ComboboxTrigger,
-  ComboboxValue } from "../../components/micro/combobox";
+  ComboboxValue
+} from "../../components/micro/combobox";
 import {
   Field,
   FieldContent,
   FieldDescription,
   FieldError,
-  FieldLabel } from "../../components/micro/field";
+  FieldLabel
+} from "../../components/micro/field";
 import {
   InputGroup,
   InputGroupAddon,
-  InputGroupInput } from "../../components/micro/input-group";
+  InputGroupInput
+} from "../../components/micro/input-group";
 import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsCode,
@@ -39,7 +42,8 @@ import {
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs } from "../../dev/components/showcase";
+  ShowcaseDocs
+} from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 const frontendFrameworks = ["react", "vue", "svelte"];

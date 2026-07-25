@@ -4,7 +4,8 @@ import {
   Accordion,
   AccordionContent,
   AccordionItem,
-  AccordionTrigger } from "../../components/micro/accordion";
+  AccordionTrigger
+} from "../../components/micro/accordion";
 
 export interface AccordionPresetItem {
   value: string;

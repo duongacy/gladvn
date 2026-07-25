@@ -212,5 +212,5 @@ export {
   AlertDialogMedia,
   AlertDialogOverlay,
   AlertDialogTitle,
-  AlertDialogTrigger,
+  AlertDialogTrigger
 };

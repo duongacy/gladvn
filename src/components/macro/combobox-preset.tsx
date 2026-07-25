@@ -11,13 +11,15 @@ import {
   ComboboxInput,
   ComboboxItem,
   ComboboxList,
-  
+
   ComboboxTrigger,
-  useComboboxContext } from "../../components/micro/combobox";
+  useComboboxContext
+} from "../../components/micro/combobox";
 import {
   InputGroup,
   InputGroupAddon,
-  InputGroupInput } from "../../components/micro/input-group";
+  InputGroupInput
+} from "../../components/micro/input-group";
 import { type Size } from "../../lib/types";
 import { FieldPreset } from "./field-preset";
 

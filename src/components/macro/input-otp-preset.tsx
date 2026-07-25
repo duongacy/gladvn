@@ -14,7 +14,8 @@ import {
   InputOTP,
   InputOTPGroup,
   InputOTPSeparator,
-  InputOTPSlot } from "../../components/micro/input-otp";
+  InputOTPSlot
+} from "../../components/micro/input-otp";
 import { FieldPreset } from "./field-preset";
 
 export type InputOTPPresetProps = Omit<

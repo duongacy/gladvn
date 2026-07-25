@@ -4,11 +4,13 @@ import {
   AlignRightIcon,
   BoldIcon,
   ItalicIcon,
-  UnderlineIcon } from "lucide-react";
+  UnderlineIcon
+} from "lucide-react";
 
 import {
   ToggleGroup,
-  ToggleGroupItem } from "../../components/micro/toggle-group";
+  ToggleGroupItem
+} from "../../components/micro/toggle-group";
 import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsCode,
@@ -17,7 +19,8 @@ import {
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs } from "../../dev/components/showcase";
+  ShowcaseDocs
+} from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────

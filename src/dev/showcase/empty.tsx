@@ -5,7 +5,8 @@ import {
   InboxIcon,
   LayersIcon,
   PlusIcon,
-  SearchIcon } from "lucide-react";
+  SearchIcon
+} from "lucide-react";
 
 import { EmptyPreset } from "../../components/macro/empty-preset";
 import { Button } from "../../components/micro/button";
@@ -16,13 +17,15 @@ import {
   EmptyDescription,
   EmptyHeader,
   EmptyMedia,
-  EmptyTitle } from "../../components/micro/empty";
+  EmptyTitle
+} from "../../components/micro/empty";
 import {
   DocsP,
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs } from "../../dev/components/showcase";
+  ShowcaseDocs
+} from "../../dev/components/showcase";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Macro Content

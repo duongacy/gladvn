@@ -7,7 +7,8 @@ import {
   MessageSquareWarningIcon,
   ShieldAlertIcon,
   TrashIcon,
-  XIcon } from "lucide-react";
+  XIcon
+} from "lucide-react";
 
 import { AlertDialogPreset } from "../../components/macro/alert-dialog-preset";
 import {
@@ -20,9 +21,10 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogMedia,
-  
+
   AlertDialogTitle,
-  AlertDialogTrigger } from "../../components/micro/alert-dialog";
+  AlertDialogTrigger
+} from "../../components/micro/alert-dialog";
 import { Button } from "../../components/micro/button";
 import { useDevContext } from "../../dev/components/dev-context";
 import {
@@ -30,7 +32,8 @@ import {
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs } from "../../dev/components/showcase";
+  ShowcaseDocs
+} from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────

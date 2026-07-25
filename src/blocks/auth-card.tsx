@@ -1,10 +1,10 @@
 import * as React from "react";
 import { useState } from "react";
 import { Button } from "../components/micro/button";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "../components/micro/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/micro/card";
+import { Checkbox } from "../components/micro/checkbox";
 import { Input } from "../components/micro/input";
 import { Label } from "../components/micro/label";
-import { Checkbox } from "../components/micro/checkbox";
 import { Separator } from "../components/micro/separator";
 
 export default function AuthCardBlock() {

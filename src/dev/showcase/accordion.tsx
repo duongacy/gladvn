@@ -7,13 +7,15 @@ import {
   Accordion,
   AccordionContent,
   AccordionItem,
-  AccordionTrigger } from "../../components/micro/accordion";
+  AccordionTrigger
+} from "../../components/micro/accordion";
 import {
   DocsP,
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs } from "../../dev/components/showcase";
+  ShowcaseDocs
+} from "../../dev/components/showcase";
 
 // ──────────────────────────────────────────────────────────
 // Shared Data

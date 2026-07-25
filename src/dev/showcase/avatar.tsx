@@ -2,7 +2,8 @@ import {
   CheckCircle2Icon,
   CheckIcon,
   LayersIcon,
-  UserIcon } from "lucide-react";
+  UserIcon
+} from "lucide-react";
 
 import { AvatarPreset } from "../../components/macro/avatar-preset";
 import {
@@ -11,14 +12,16 @@ import {
   AvatarFallback,
   AvatarGroup,
   AvatarGroupCount,
-  AvatarImage } from "../../components/micro/avatar";
+  AvatarImage
+} from "../../components/micro/avatar";
 import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsP,
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs } from "../../dev/components/showcase";
+  ShowcaseDocs
+} from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────

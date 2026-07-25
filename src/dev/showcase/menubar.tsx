@@ -8,7 +8,7 @@ import {
   MenubarItem,
   MenubarLabel,
   MenubarMenu,
-  
+
   MenubarRadioGroup,
   MenubarRadioItem,
   MenubarSeparator,
@@ -16,13 +16,15 @@ import {
   MenubarSub,
   MenubarSubContent,
   MenubarSubTrigger,
-  MenubarTrigger } from "../../components/micro/menubar";
+  MenubarTrigger
+} from "../../components/micro/menubar";
 import {
   DocsP,
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs } from "../../dev/components/showcase";
+  ShowcaseDocs
+} from "../../dev/components/showcase";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 1: Micro Content

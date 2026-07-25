@@ -4,7 +4,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 
-import { Checkbox, CheckboxIndicator } from "./checkbox";
+import { Checkbox } from "./checkbox";
 
 describe("Checkbox", () => {
   it("[3C.6-01] [P1] renders correctly", () => {

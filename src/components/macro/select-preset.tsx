@@ -8,9 +8,10 @@ import {
   SelectGroup,
   SelectItem,
   SelectLabel,
-  
+
   SelectTrigger,
-  SelectValue } from "../../components/micro/select";
+  SelectValue
+} from "../../components/micro/select";
 import { type Size } from "../../lib/types";
 import { FieldPreset } from "./field-preset";
 

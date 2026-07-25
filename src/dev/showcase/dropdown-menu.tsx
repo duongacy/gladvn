@@ -5,7 +5,8 @@ import {
   HelpCircleIcon,
   LogOutIcon,
   SettingsIcon,
-  UserIcon } from "lucide-react";
+  UserIcon
+} from "lucide-react";
 
 import { Button } from "../../components/micro/button";
 import {
@@ -15,7 +16,7 @@ import {
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
-  
+
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuSeparator,
@@ -23,14 +24,16 @@ import {
   DropdownMenuSub,
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
-  DropdownMenuTrigger } from "../../components/micro/dropdown-menu";
+  DropdownMenuTrigger
+} from "../../components/micro/dropdown-menu";
 import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsP,
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs } from "../../dev/components/showcase";
+  ShowcaseDocs
+} from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────

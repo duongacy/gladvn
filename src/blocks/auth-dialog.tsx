@@ -1,18 +1,18 @@
 import * as React from "react";
 import { useState } from "react";
 import { Button } from "../components/micro/button";
-import { Input } from "../components/micro/input";
-import { Label } from "../components/micro/label";
 import { Checkbox } from "../components/micro/checkbox";
-import { Separator } from "../components/micro/separator";
 import {
   Dialog,
-  DialogTrigger,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogDescription,
+  DialogTrigger,
 } from "../components/micro/dialog";
+import { Input } from "../components/micro/input";
+import { Label } from "../components/micro/label";
+import { Separator } from "../components/micro/separator";
 
 export default function AuthDialogBlock() {
   const [isLoading, setIsLoading] = useState(false);

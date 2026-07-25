@@ -9,7 +9,8 @@ import {
   CarouselDots,
   CarouselItem,
   CarouselNext,
-  CarouselPrevious } from "../../components/micro/carousel";
+  CarouselPrevious
+} from "../../components/micro/carousel";
 import { cn } from "../../lib/utils";
 
 export type CarouselPresetProps = Omit<

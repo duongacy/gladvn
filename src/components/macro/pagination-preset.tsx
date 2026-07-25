@@ -9,7 +9,8 @@ import {
   PaginationItem,
   PaginationLink,
   PaginationNext,
-  PaginationPrevious } from "../../components/micro/pagination";
+  PaginationPrevious
+} from "../../components/micro/pagination";
 import type { Size } from "../../lib/types";
 import { cn } from "../../lib/utils";
 

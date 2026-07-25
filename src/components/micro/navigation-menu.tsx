@@ -201,5 +201,5 @@ export {
   NavigationMenuPositioner,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-  NavigationMenuViewport,
+  NavigationMenuViewport
 };

@@ -141,5 +141,5 @@ export {
   ProgressIndicator,
   ProgressLabel,
   ProgressTrack,
-  ProgressValue,
+  ProgressValue
 };

@@ -473,7 +473,7 @@ async function main() {
         if (fs.existsSync(userPkgPath)) {
           try {
             const userPkg = JSON.parse(fs.readFileSync(userPkgPath, 'utf8'));
-            userDeps = { ...(userPkg.dependencies || {}), ...(userPkg.devDependencies || {}) };
+            userDeps = { ...userPkg.dependencies, ...userPkg.devDependencies };
           } catch (e) {}
         }
 

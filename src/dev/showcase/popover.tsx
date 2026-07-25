@@ -10,16 +10,18 @@ import {
   PopoverContent,
   PopoverDescription,
   PopoverHeader,
-  
+
   PopoverTitle,
-  PopoverTrigger } from "../../components/micro/popover";
+  PopoverTrigger
+} from "../../components/micro/popover";
 import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsP,
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs } from "../../dev/components/showcase";
+  ShowcaseDocs
+} from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 // ──────────────────────────────────────────────────────────

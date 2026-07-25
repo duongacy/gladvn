@@ -146,5 +146,5 @@ export {
   SheetHeader,
   SheetOverlay,
   SheetTitle,
-  SheetTrigger,
+  SheetTrigger
 };

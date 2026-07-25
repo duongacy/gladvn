@@ -11,9 +11,10 @@ import {
   DialogDescription,
   DialogFooter,
   DialogHeader,
-  
+
   DialogTitle,
-  DialogTrigger } from "../../components/micro/dialog";
+  DialogTrigger
+} from "../../components/micro/dialog";
 import { Input } from "../../components/micro/input";
 import { Label } from "../../components/micro/label";
 import { useDevContext } from "../../dev/components/dev-context";
@@ -24,7 +25,8 @@ import {
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs } from "../../dev/components/showcase";
+  ShowcaseDocs
+} from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 import { cn } from "../../lib/utils";
 

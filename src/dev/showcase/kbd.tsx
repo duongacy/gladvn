@@ -3,30 +3,34 @@ import {
   FileIcon,
   FilePlusIcon,
   FolderOpenIcon,
-  SaveIcon } from "lucide-react";
+  SaveIcon
+} from "lucide-react";
 
 import { Button } from "../../components/micro/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  
+
   DropdownMenuSeparator,
-  DropdownMenuTrigger } from "../../components/micro/dropdown-menu";
+  DropdownMenuTrigger
+} from "../../components/micro/dropdown-menu";
 import { Kbd, KbdGroup } from "../../components/micro/kbd";
 import {
   Tooltip,
   TooltipContent,
-  
+
   TooltipProvider,
-  TooltipTrigger } from "../../components/micro/tooltip";
+  TooltipTrigger
+} from "../../components/micro/tooltip";
 import {
   DocsCode,
   DocsP,
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs } from "../../dev/components/showcase";
+  ShowcaseDocs
+} from "../../dev/components/showcase";
 
 // ──────────────────────────────────────────────────────────
 // SECTION 2: Micro Content (không export)

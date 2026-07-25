@@ -8,13 +8,15 @@ import {
   CarouselDots,
   CarouselItem,
   CarouselNext,
-  CarouselPrevious } from "../../components/micro/carousel";
+  CarouselPrevious
+} from "../../components/micro/carousel";
 import {
   DocsP,
   ExampleGrid,
   ExampleSection,
   Showcase,
-  ShowcaseDocs } from "../../dev/components/showcase";
+  ShowcaseDocs
+} from "../../dev/components/showcase";
 import { cn } from "../../lib/utils";
 
 const SLIDES = [

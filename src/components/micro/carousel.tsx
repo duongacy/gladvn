@@ -338,5 +338,5 @@ export {
   CarouselNext,
   CarouselPrevious,
   useCarousel,
-  type CarouselApi,
+  type CarouselApi
 };

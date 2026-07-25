@@ -17,6 +17,7 @@ if (process.argv.includes('--help') || process.argv.includes('-h')) {
 Usage:
   npx gladvn init [destination]
   npx gladvn add <component> [destination]
+  npx gladvn add-block <block> [destination]
 
 Options:
   [destination]   The folder where components will be copied. Defaults to "gladvn".
@@ -37,6 +38,14 @@ if (args[0] === "init") {
   command = "add";
   if (!args[1]) {
     console.error(`\x1b[31m✖ Please specify a component to add (e.g. npx gladvn add button)\x1b[0m`);
+    process.exit(1);
+  }
+  componentToAdd = args[1];
+  if (args[2]) userDest = args[2];
+} else if (args[0] === "add-block") {
+  command = "add-block";
+  if (!args[1]) {
+    console.error(`\x1b[31m✖ Please specify a block to add (e.g. npx gladvn add-block auth)\x1b[0m`);
     process.exit(1);
   }
   componentToAdd = args[1];
@@ -204,6 +213,8 @@ async function main() {
   console.log(`\n${cyan}╔══════════════════════════════════════════════════════════════════╗${reset}`);
   if (command === "add") {
     console.log(`${cyan}║  ${bold}gladvn${reset}${cyan} — Add Component                                      ║${reset}`);
+  } else if (command === "add-block") {
+    console.log(`${cyan}║  ${bold}gladvn${reset}${cyan} — Add Block                                          ║${reset}`);
   } else {
     console.log(`${cyan}║  ${bold}gladvn${reset}${cyan} — Initialization                                     ║${reset}`);
   }
@@ -226,6 +237,18 @@ async function main() {
             availableComponents.push(`${sub}/${file}`);
           }
         }
+      }
+    }
+  }
+
+  const blocksDir = path.join(srcDir, 'blocks');
+  let availableBlocks = [];
+  
+  if (fs.existsSync(blocksDir)) {
+    const files = fs.readdirSync(blocksDir);
+    for (const file of files) {
+      if (file.endsWith('.tsx') || file.endsWith('.ts')) {
+        availableBlocks.push(file);
       }
     }
   }
@@ -253,6 +276,31 @@ async function main() {
       console.log(`\x1b[32m✔ Added ${comp}\x1b[0m`);
     } catch (err) {
       console.error(`\x1b[31m✖ Failed to add ${comp}: ${err.message}\x1b[0m`);
+      hasErrors = true;
+    }
+  } else if (command === "add-block") {
+    console.log(`\x1b[36mAdding block ${componentToAdd} to ${userDest}...\x1b[0m`);
+    const blockMatches = availableBlocks.filter(b => b === `${componentToAdd}.tsx` || b === `${componentToAdd}.ts`);
+    if (blockMatches.length === 0) {
+       console.error(`\x1b[31m✖ Block "${componentToAdd}" not found.\x1b[0m`);
+       process.exit(1);
+    }
+    
+    if (!fs.existsSync(destPath)) {
+      fs.mkdirSync(destPath, { recursive: true });
+    }
+    const block = blockMatches[0];
+    const sourcePath = path.join(blocksDir, block);
+    const targetPath = path.join(destPath, 'blocks', block);
+    const targetDir = path.dirname(targetPath);
+    if (!fs.existsSync(targetDir)) {
+      fs.mkdirSync(targetDir, { recursive: true });
+    }
+    try {
+      fs.cpSync(sourcePath, targetPath, { force: true });
+      console.log(`\x1b[32m✔ Added block ${block}\x1b[0m`);
+    } catch (err) {
+      console.error(`\x1b[31m✖ Failed to add block ${block}: ${err.message}\x1b[0m`);
       hasErrors = true;
     }
   } else {
@@ -329,12 +377,50 @@ async function main() {
   }
   console.log(`\x1b[32m✔ Copied core files (lib, hooks, styles)\x1b[0m`);
 
+  // 2. Inject CSS
+  if (cssFilePath && fs.existsSync(cssFilePath)) {
+    const cssContent = fs.readFileSync(cssFilePath, 'utf8');
+    const cssTarget = path.join(destPath, 'styles', 'gladvn.css');
+    let relPath = path.relative(path.dirname(cssFilePath), cssTarget).replace(/\\/g, '/');
+    if (!relPath.startsWith('.')) relPath = './' + relPath;
+    const importStmt = `@import "${relPath}";`;
+    if (!cssContent.includes(importStmt) && !cssContent.includes('gladvn.css')) {
+      if (cssContent.includes('@import "tailwindcss";')) {
+        fs.writeFileSync(cssFilePath, cssContent.replace('@import "tailwindcss";', `@import "tailwindcss";\n${importStmt}`));
+      } else if (cssContent.includes('@tailwind base;')) {
+        fs.writeFileSync(cssFilePath, cssContent.replace('@tailwind base;', `@tailwind base;\n${importStmt}`));
       } else {
-        console.log(`\x1b[33m⚠ tsconfig.json not found. Please configure alias manually if desired.\x1b[0m`);
+        fs.writeFileSync(cssFilePath, `${importStmt}\n${cssContent}`);
       }
+      console.log(`\x1b[32m✔ Injected gladvn CSS into ${path.basename(cssFilePath)}\x1b[0m`);
     }
+  }
+
+  // 3. Configure Path Alias
+  let tsconfigPath = path.join(process.cwd(), 'tsconfig.json');
+  if (!fs.existsSync(tsconfigPath)) tsconfigPath = path.join(process.cwd(), 'jsconfig.json');
+  
+  if (fs.existsSync(tsconfigPath)) {
+    let content = fs.readFileSync(tsconfigPath, 'utf8');
+    if (!content.includes('@gladvn/*')) {
+      const pathsEmptyRegex = /"paths"\s*:\s*\{\s*\}/;
+      const compilerOptionsEmptyRegex = /"compilerOptions"\s*:\s*\{\s*\}/;
+
+      if (pathsEmptyRegex.test(content)) {
+        content = content.replace(pathsEmptyRegex, `"paths": {\n      "@gladvn/*": ["./${userDest}/*"]\n    }`);
+      } else if (content.match(/"paths"\s*:\s*\{/)) {
+        content = content.replace(/"paths"\s*:\s*\{/, `"paths": {\n      "@gladvn/*": ["./${userDest}/*"],`);
+      } else if (compilerOptionsEmptyRegex.test(content)) {
+        content = content.replace(compilerOptionsEmptyRegex, `"compilerOptions": {\n    "paths": {\n      "@gladvn/*": ["./${userDest}/*"]\n    }\n  }`);
+      } else if (content.match(/"compilerOptions"\s*:\s*\{/)) {
+        content = content.replace(/"compilerOptions"\s*:\s*\{/, `"compilerOptions": {\n    "paths": {\n      "@gladvn/*": ["./${userDest}/*"]\n    },`);
+      }
+      fs.writeFileSync(tsconfigPath, content);
+      console.log(`\x1b[32m✔ Configured path alias @gladvn/* in ${path.basename(tsconfigPath)}\x1b[0m`);
+    }
+  }
+
   } // END OF INIT COMMAND
-}
 
   // 3. Install dependencies
   try {
@@ -362,7 +448,7 @@ async function main() {
       
       const sourceFiles = findSourceFiles(destPath);
       const usedDeps = new Set();
-      const importRegex = /(?:import|from)\s+['"]([^'"]+)['"]/g;
+      const importRegex = /(?:import(?: type)?|from|require)\s*\(?\s*['"]([^'"]+)['"]/g;
       
       for (const file of sourceFiles) {
         let content = fs.readFileSync(file, 'utf-8');
@@ -441,6 +527,8 @@ async function main() {
   if (!hasErrors) {
     if (command === "add") {
       console.log(`\n\x1b[32m✨ Successfully added ${componentToAdd}!\x1b[0m`);
+    } else if (command === "add-block") {
+      console.log(`\n\x1b[32m✨ Successfully added block ${componentToAdd}!\x1b[0m`);
     } else {
       console.log(`\n\x1b[32m✨ Successfully initialized gladvn files in ${userDest}!\x1b[0m`);
     }

@@ -102,6 +102,14 @@
 
 ---
 
+## Phase 6: Vươn tầm quốc tế 🌐 (Docs & Blocks) — Đang thực hiện
+
+- [x] 6.1 — Khởi tạo trang Docs tĩnh (`website/`) bằng Fumadocs
+- [x] 6.2 — Xây dựng Gladvn Blocks (`src/blocks/auth`, `dashboard`, `settings`)
+- [x] 6.3 — Cập nhật CLI lệnh `add-block`
+
+---
+
 ## Lịch sử cập nhật
 
 | Ngày | Phase | Cập nhật |
@@ -113,3 +121,4 @@
 | 2026-07-24 | Phase 3 | Hoàn tất 3E (E2E Tests) với Playwright (Showcase, Keyboard navigation, Visual regression). |
 | 2026-07-24 | Phase 4 | Hoàn tất thiết lập CI/CD (GitHub Actions) cho luồng test tự động và tự động publish NPM. Vercel tự động handle Preview URLs. |
 | 2026-07-24 | Phase 5 | Hoàn tất làm sạch dự án, bổ sung lệnh `add` cho CLI, xác minh JSDoc và thêm trang "Why gladvn?" trên Showcase. |
+| 2026-07-24 | Phase 6 | Hoàn tất khởi tạo trang Docs (`website/`), xây dựng hệ thống Blocks/Templates, và bổ sung lệnh `add-block` vào CLI. |

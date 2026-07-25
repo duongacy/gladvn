@@ -174,3 +174,8 @@ Whenever the user requests to pair program on a specific component, you MUST pro
       <DatePicker ... />
     </div>
     ```
+
+## 26. Feature Freeze: CLI and Core CSS Files
+
+- **Strict Lock**: The file `bin/cli.js` and any CSS files under `src/styles/` (like `gladvn.css`) are considered completely stable, production-ready, and feature-frozen.
+- **Prohibition**: You MUST NOT modify, edit, or refactor these files under any circumstance. If a user request seems to imply changing them, politely decline and cite this rule, unless the user explicitly forces a bypass (e.g. "bypass freeze").

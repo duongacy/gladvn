@@ -151,6 +151,13 @@ export default function OverviewSection() {
               Đọc được, sửa được, xóa được.
             </strong>
           </p>
+
+          <div 
+            className="max-w-2xl text-lg md:text-xl font-medium text-foreground/90 italic mt-2 p-5 border-l-4 border-primary bg-primary/5 rounded-r-xl shadow-sm animate-fade-up"
+            style={{ animationDelay: "300ms", animationFillMode: "both" }}
+          >
+            "Thư viện này sinh ra để giúp bạn code nhanh hơn, sống nhàn hơn, đừng tự làm khó mình."
+          </div>
         </div>
 
         {/* 3D Floating Showcase Dashboard */}

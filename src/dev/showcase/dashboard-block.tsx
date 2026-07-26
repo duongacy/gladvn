@@ -64,6 +64,14 @@ export default function DashboardBlockShowcase() {
           </div>
         </div>
       </div>
+      
+      <div className="text-center pb-8 pt-4">
+        <p className="text-sm text-muted-foreground italic max-w-2xl mx-auto">
+          *P/S: Tại sao triết lý này lại được viết ở trang Dashboard mà không phải các Block khác? 
+          Thực ra thì triết lý này áp dụng cho <strong>tất cả mọi Block</strong>, tôi chỉ tình cờ chọn Dashboard làm chỗ để tâm sự mỏng thôi. 
+          Đời mà, đâu cần cái gì cũng phải phân chia hoàn hảo, thong thả đi! ☕️
+        </p>
+      </div>
     </div>
   );
 }

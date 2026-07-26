@@ -1,16 +1,15 @@
 import { InfoIcon, TrashIcon } from "lucide-react";
+import { InputPreset } from "../components/macro/input-preset";
+import { RadioGroupPreset } from "../components/macro/radio-group-preset";
+import { SelectPreset } from "../components/macro/select-preset";
+import { SliderPreset } from "../components/macro/slider-preset";
+import { SwitchPreset } from "../components/macro/switch-preset";
+import { TextareaPreset } from "../components/macro/textarea-preset";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/micro/accordion";
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "../components/micro/alert-dialog";
 import { Button } from "../components/micro/button";
-import { Input } from "../components/micro/input";
-import { Label } from "../components/micro/label";
-import { RadioGroup, RadioGroupItem } from "../components/micro/radio-group";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../components/micro/select";
 import { Separator } from "../components/micro/separator";
-import { Slider, SliderControl, SliderIndicator, SliderThumb, SliderTrack } from "../components/micro/slider";
-import { Switch, SwitchThumb } from "../components/micro/switch";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/micro/tabs";
-import { Textarea } from "../components/micro/textarea";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "../components/micro/tooltip";
 
 export default function SettingsBlock() {
@@ -44,43 +43,35 @@ export default function SettingsBlock() {
             <Separator className="my-6" />
 
             <div className="flex flex-col gap-8">
-              <div className="flex flex-col gap-2">
-                <Label htmlFor="username">Username</Label>
-                <Input id="username" placeholder="gladvn" defaultValue="johndoe" />
-                <p className="text-[13px] text-muted-foreground">
-                  This is your public display name. It can be your real name or a pseudonym.
-                </p>
-              </div>
+              <InputPreset
+                id="username"
+                label="Username"
+                placeholder="gladvn"
+                defaultValue="johndoe"
+                description="This is your public display name. It can be your real name or a pseudonym."
+              />
 
-              <div className="flex flex-col gap-2">
-                <Label htmlFor="email">Email</Label>
-                <Select defaultValue="m@example.com">
-                  <SelectTrigger id="email">
-                    <SelectValue placeholder="Select a verified email to display" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="m@example.com">m@example.com</SelectItem>
-                    <SelectItem value="m@google.com">m@google.com</SelectItem>
-                    <SelectItem value="m@support.com">m@support.com</SelectItem>
-                  </SelectContent>
-                </Select>
-                <p className="text-[13px] text-muted-foreground">
-                  You can manage verified email addresses in your email settings.
-                </p>
-              </div>
+              <SelectPreset
+                id="email"
+                label="Email"
+                defaultValue="m@example.com"
+                placeholder="Select a verified email to display"
+                description="You can manage verified email addresses in your email settings."
+                options={[
+                  { value: "m@example.com", label: "m@example.com" },
+                  { value: "m@google.com", label: "m@google.com" },
+                  { value: "m@support.com", label: "m@support.com" },
+                ]}
+              />
 
-              <div className="flex flex-col gap-2">
-                <Label htmlFor="bio">Bio</Label>
-                <Textarea
-                  id="bio"
-                  placeholder="Tell us a little bit about yourself"
-                  defaultValue="I own a computer."
-                  className="min-h-[100px]"
-                />
-                <p className="text-[13px] text-muted-foreground">
-                  You can @mention other users and organizations to link to them.
-                </p>
-              </div>
+              <TextareaPreset
+                id="bio"
+                label="Bio"
+                placeholder="Tell us a little bit about yourself"
+                defaultValue="I own a computer."
+                className="min-h-[100px]"
+                description="You can @mention other users and organizations to link to them."
+              />
 
               <Button className="w-fit">Update profile</Button>
             </div>
@@ -95,46 +86,31 @@ export default function SettingsBlock() {
             <Separator className="my-6" />
 
             <div className="flex flex-col gap-8">
-              <div className="flex flex-col gap-4">
-                <Label>Theme Preference</Label>
-                <RadioGroup defaultValue="light" className="flex flex-col gap-3">
-                  <div className="flex items-center gap-2">
-                    <RadioGroupItem value="light" id="theme-light" />
-                    <Label htmlFor="theme-light" className="font-normal cursor-pointer">Light Theme</Label>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <RadioGroupItem value="dark" id="theme-dark" />
-                    <Label htmlFor="theme-dark" className="font-normal cursor-pointer">Dark Theme</Label>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <RadioGroupItem value="system" id="theme-system" />
-                    <Label htmlFor="theme-system" className="font-normal cursor-pointer">System Default</Label>
-                  </div>
-                </RadioGroup>
-              </div>
+              <RadioGroupPreset
+                label="Theme Preference"
+                defaultValue="light"
+                options={[
+                  { value: "light", label: "Light Theme" },
+                  { value: "dark", label: "Dark Theme" },
+                  { value: "system", label: "System Default" },
+                ]}
+              />
 
-              <div className="flex flex-col gap-4">
-                <div className="flex items-center gap-2">
-                  <Label>Interface Scale</Label>
-                  <TooltipProvider>
-                    <Tooltip>
-                      <TooltipTrigger render={<InfoIcon className="size-4 text-muted-foreground" />} />
-                      <TooltipContent>Adjusts the overall size of UI elements</TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </div>
-                <div className="py-2 px-1">
-                  <Slider defaultValue={50}>
-                    <SliderControl>
-                      <SliderTrack>
-                        <SliderIndicator />
-                      </SliderTrack>
-                      <SliderThumb />
-                    </SliderControl>
-                  </Slider>
-                </div>
-                <p className="text-[13px] text-muted-foreground text-right">Medium (100%)</p>
-              </div>
+              <SliderPreset
+                defaultValue={[50]}
+                label={
+                  <div className="flex items-center gap-2">
+                    <span>Interface Scale</span>
+                    <TooltipProvider>
+                      <Tooltip>
+                        <TooltipTrigger render={<InfoIcon className="size-4 text-muted-foreground" />} />
+                        <TooltipContent>Adjusts the overall size of UI elements</TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </div>
+                }
+                description={<div className="text-right">Medium (100%)</div>}
+              />
 
               <Button className="w-fit">Save preferences</Button>
             </div>
@@ -149,24 +125,19 @@ export default function SettingsBlock() {
             <Separator className="my-6" />
 
             <div className="flex flex-col gap-4">
-              <div className="flex items-center justify-between rounded-xl border border-border p-4">
-                <div className="flex flex-col gap-0.5">
-                  <Label htmlFor="marketing-emails" className="text-base cursor-pointer">Marketing emails</Label>
-                  <p className="text-[13px] text-muted-foreground">Receive emails about new products, features, and more.</p>
-                </div>
-                <Switch id="marketing-emails">
-                  <SwitchThumb />
-                </Switch>
-              </div>
-              <div className="flex items-center justify-between rounded-xl border border-border p-4">
-                <div className="flex flex-col gap-0.5">
-                  <Label htmlFor="security-emails" className="text-base cursor-pointer">Security emails</Label>
-                  <p className="text-[13px] text-muted-foreground">Receive emails about your account activity and security.</p>
-                </div>
-                <Switch id="security-emails" defaultChecked>
-                  <SwitchThumb />
-                </Switch>
-              </div>
+              <SwitchPreset
+                id="marketing-emails"
+                label={<span className="text-base cursor-pointer">Marketing emails</span>}
+                description="Receive emails about new products, features, and more."
+                className="items-center justify-between rounded-xl border border-border p-4"
+              />
+              <SwitchPreset
+                id="security-emails"
+                defaultChecked
+                label={<span className="text-base cursor-pointer">Security emails</span>}
+                description="Receive emails about your account activity and security."
+                className="items-center justify-between rounded-xl border border-border p-4"
+              />
             </div>
           </TabsContent>
 

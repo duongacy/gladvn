@@ -1,10 +1,9 @@
 import * as React from "react";
 import { useState } from "react";
+import { CheckboxPreset } from "../components/macro/checkbox-preset";
+import { InputPreset } from "../components/macro/input-preset";
 import { Button } from "../components/micro/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/micro/card";
-import { Checkbox } from "../components/micro/checkbox";
-import { Input } from "../components/micro/input";
-import { Label } from "../components/micro/label";
 
 export default function AuthCardBlock() {
   const [isLoading, setIsLoading] = useState(false);
@@ -32,34 +31,39 @@ export default function AuthCardBlock() {
         <CardContent className="flex flex-col gap-6 px-0 pb-0">
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             {mode === "register" && (
-              <div className="flex flex-col gap-2">
-                <Label htmlFor="name">Full Name</Label>
-                <Input id="name" name="name" placeholder="John Doe" className="w-full" required />
-              </div>
+              <InputPreset id="name" name="name" label="Full Name" placeholder="John Doe" required />
             )}
-            <div className="flex flex-col gap-2">
-              <Label htmlFor="email">Email</Label>
-              <Input id="email" name="email" type="email" placeholder="m@example.com" className="w-full" required />
-            </div>
-            <div className="flex flex-col gap-2">
-              <div className="flex items-center justify-between">
-                <Label htmlFor="password">Password</Label>
-                {mode === "login" && (
-                  <Button variant="link" color="primary" className="h-auto p-0 text-xs">
-                    Forgot password?
-                  </Button>
-                )}
-              </div>
-              <Input id="password" name="password" type="password" className="w-full" required />
-            </div>
+
+            <InputPreset id="email" name="email" type="email" label="Email" placeholder="m@example.com" required />
+
+            <InputPreset
+              id="password"
+              name="password"
+              type="password"
+              label={
+                <div className="flex items-center justify-between w-full">
+                  <span>Password</span>
+                  {mode === "login" && (
+                    <Button variant="link" color="primary" className="h-auto p-0 text-xs">
+                      Forgot password?
+                    </Button>
+                  )}
+                </div>
+              }
+              required
+            />
 
             {mode === "register" && (
-              <div className="flex items-center gap-2">
-                <Checkbox id="terms" name="terms" required />
-                <Label htmlFor="terms" className="text-sm font-normal text-muted-foreground leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                  I agree to the <a href="#" className="text-primary hover:underline">terms and conditions</a>
-                </Label>
-              </div>
+              <CheckboxPreset
+                id="terms"
+                name="terms"
+                required
+                label={
+                  <span className="text-sm font-normal text-muted-foreground">
+                    I agree to the <a href="#" className="text-primary hover:underline">terms and conditions</a>
+                  </span>
+                }
+              />
             )}
 
             <Button type="submit" className="w-full" disabled={isLoading} aria-busy={isLoading}>

@@ -179,3 +179,10 @@ Whenever the user requests to pair program on a specific component, you MUST pro
 
 - **Strict Lock**: The file `bin/cli.js` and any CSS files under `src/styles/` (like `gladvn.css`) are considered completely stable, production-ready, and feature-frozen.
 - **Prohibition**: You MUST NOT modify, edit, or refactor these files under any circumstance. If a user request seems to imply changing them, politely decline and cite this rule, unless the user explicitly forces a bypass (e.g. "bypass freeze").
+
+## 27. Component Selection Hierarchy in Blocks
+
+When creating or modifying components within the `src/blocks` directory (e.g., page sections, examples, full page layouts), you MUST strictly follow this component selection hierarchy:
+1. **Macro First**: Always attempt to use a Macro component (Preset) first (e.g., `InputPreset`, `FieldPreset`, `ButtonPreset`, `AccordionPreset`). These encapsulate common UX patterns and state.
+2. **Micro Second**: If a Macro component does not exist for the specific use case or cannot be reasonably adapted, then construct the UI using Micro primitives (e.g., `Input`, `Label`, `Button`).
+3. **Manual HTML/Tailwind Last**: Only as a last resort, if neither Macro nor Micro components are available or suitable, should you manually create elements using raw HTML tags and Tailwind classes (e.g., `<input className="...">`).

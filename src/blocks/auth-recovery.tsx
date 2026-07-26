@@ -1,9 +1,8 @@
 import * as React from "react";
 import { useState } from "react";
+import { InputPreset } from "../components/macro/input-preset";
 import { Button } from "../components/micro/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../components/micro/card";
-import { Input } from "../components/micro/input";
-import { Label } from "../components/micro/label";
 
 export default function AuthRecoveryBlock() {
   const [isLoading, setIsLoading] = useState(false);
@@ -34,10 +33,7 @@ export default function AuthRecoveryBlock() {
         <CardContent>
           {!isSent ? (
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-              <div className="flex flex-col gap-1.5">
-                <Label htmlFor="recovery-email">Email</Label>
-                <Input id="recovery-email" type="email" placeholder="m@example.com" className="w-full" required />
-              </div>
+              <InputPreset id="recovery-email" type="email" label="Email" placeholder="m@example.com" required />
               <Button type="submit" className="w-full" disabled={isLoading}>
                 {isLoading ? "Sending link..." : "Send Reset Link"}
               </Button>

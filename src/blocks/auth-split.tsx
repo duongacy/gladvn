@@ -1,9 +1,8 @@
 import * as React from "react";
 import { useState } from "react";
+import { CheckboxPreset } from "../components/macro/checkbox-preset";
+import { InputPreset } from "../components/macro/input-preset";
 import { Button } from "../components/micro/button";
-import { Checkbox } from "../components/micro/checkbox";
-import { Input } from "../components/micro/input";
-import { Label } from "../components/micro/label";
 import { Separator } from "../components/micro/separator";
 
 export default function AuthSplitBlock() {
@@ -62,34 +61,48 @@ export default function AuthSplitBlock() {
 
           <form onSubmit={handleSubmit} className="space-y-4">
             {mode === "register" && (
-              <div className="flex flex-col gap-2">
-                <Label htmlFor="name">Full Name</Label>
-                <Input id="name" placeholder="John Doe" className="w-full" required />
-              </div>
+              <InputPreset
+                id="name"
+                label="Full Name"
+                placeholder="John Doe"
+                required
+              />
             )}
-            <div className="flex flex-col gap-2">
-              <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" placeholder="m@example.com" className="w-full" required />
-            </div>
-            <div className="flex flex-col gap-2">
-              <div className="flex items-center justify-between">
-                <Label htmlFor="password">Password</Label>
-                {mode === "login" && (
-                  <Button type="button" variant="link" color="primary" className="h-auto p-0 text-xs">
-                    Forgot password?
-                  </Button>
-                )}
-              </div>
-              <Input id="password" type="password" className="w-full" required />
-            </div>
+
+            <InputPreset
+              id="email"
+              type="email"
+              label="Email"
+              placeholder="m@example.com"
+              required
+            />
+
+            <InputPreset
+              id="password"
+              type="password"
+              label={
+                <div className="flex items-center justify-between w-full">
+                  <span>Password</span>
+                  {mode === "login" && (
+                    <Button type="button" variant="link" color="primary" className="h-auto p-0 text-xs">
+                      Forgot password?
+                    </Button>
+                  )}
+                </div>
+              }
+              required
+            />
 
             {mode === "register" && (
-              <div className="flex items-center gap-2">
-                <Checkbox id="terms" required />
-                <Label htmlFor="terms" className="text-sm font-normal text-muted-foreground">
-                  I agree to the <a href="#" className="text-primary hover:underline">terms and conditions</a>
-                </Label>
-              </div>
+              <CheckboxPreset
+                id="terms"
+                required
+                label={
+                  <span className="text-sm font-normal text-muted-foreground">
+                    I agree to the <a href="#" className="text-primary hover:underline">terms and conditions</a>
+                  </span>
+                }
+              />
             )}
 
             <Button type="submit" className="w-full" disabled={isLoading}>

@@ -2,7 +2,7 @@
 
 import React from "react";
 
-import { Textarea, TextareaProps } from "../../components/micro/textarea";
+import { Textarea, type TextareaProps } from "../../components/micro/textarea";
 import { FieldPreset } from "./field-preset";
 
 export type TextareaPresetProps = Omit<TextareaProps, "className"> & {

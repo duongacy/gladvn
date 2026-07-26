@@ -22,7 +22,7 @@ export default function AuthSplitBlock() {
       <div className="hidden lg:flex w-1/2 flex-col justify-between bg-primary p-12 text-primary-foreground relative overflow-hidden">
         {/* Subtle background pattern */}
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent pointer-events-none" />
-        
+
         <div className="relative z-10">
           <h1 className="text-2xl font-bold tracking-tight">gladvn.</h1>
         </div>
@@ -62,16 +62,16 @@ export default function AuthSplitBlock() {
 
           <form onSubmit={handleSubmit} className="space-y-4">
             {mode === "register" && (
-              <div className="space-y-2">
+              <div className="flex flex-col gap-2">
                 <Label htmlFor="name">Full Name</Label>
-                <Input id="name" placeholder="John Doe" required />
+                <Input id="name" placeholder="John Doe" className="w-full" required />
               </div>
             )}
-            <div className="space-y-2">
+            <div className="flex flex-col gap-2">
               <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" placeholder="m@example.com" required />
+              <Input id="email" type="email" placeholder="m@example.com" className="w-full" required />
             </div>
-            <div className="space-y-2">
+            <div className="flex flex-col gap-2">
               <div className="flex items-center justify-between">
                 <Label htmlFor="password">Password</Label>
                 {mode === "login" && (
@@ -80,9 +80,9 @@ export default function AuthSplitBlock() {
                   </Button>
                 )}
               </div>
-              <Input id="password" type="password" required />
+              <Input id="password" type="password" className="w-full" required />
             </div>
-            
+
             {mode === "register" && (
               <div className="flex items-center gap-2">
                 <Checkbox id="terms" required />

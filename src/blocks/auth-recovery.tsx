@@ -21,7 +21,7 @@ export default function AuthRecoveryBlock() {
   return (
     <div className="flex min-h-[50vh] w-full items-center justify-center p-4 bg-muted/20">
       <Card className="w-full max-w-sm">
-        <CardHeader className="text-center space-y-2">
+        <CardHeader className="text-center">
           <CardTitle className="text-2xl font-bold">
             {isSent ? "Check your email" : "Forgot Password"}
           </CardTitle>
@@ -33,17 +33,17 @@ export default function AuthRecoveryBlock() {
         </CardHeader>
         <CardContent>
           {!isSent ? (
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="space-y-2">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+              <div className="flex flex-col gap-1.5">
                 <Label htmlFor="recovery-email">Email</Label>
-                <Input id="recovery-email" type="email" placeholder="m@example.com" required />
+                <Input id="recovery-email" type="email" placeholder="m@example.com" className="w-full" required />
               </div>
               <Button type="submit" className="w-full" disabled={isLoading}>
                 {isLoading ? "Sending link..." : "Send Reset Link"}
               </Button>
             </form>
           ) : (
-            <div className="flex flex-col space-y-4">
+            <div className="flex flex-col gap-4">
               <Button type="button" variant="outline" className="w-full" onClick={() => setIsSent(false)}>
                 Try another email
               </Button>

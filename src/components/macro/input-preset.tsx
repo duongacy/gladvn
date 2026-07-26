@@ -4,7 +4,7 @@ import React, { useState } from "react";
 
 import { EyeIcon, EyeOffIcon } from "lucide-react";
 
-import { Input, InputProps } from "../../components/micro/input";
+import { Input, type InputProps } from "../../components/micro/input";
 import {
   InputGroup,
   InputGroupAddon,

@@ -41,23 +41,20 @@ const FieldPreset = React.forwardRef<
     ref,
   ) => {
     return (
-      <div className={className} ref={ref}>
-        <div className="@container/field size-full">
-          <Field
-            className="size-full"
-            error={!!errorMessage}
-            size={size}
-            {...fieldProps}
-          >
-            {label && <FieldLabel htmlFor={htmlFor}>{label}</FieldLabel>}
-            <FieldContent>{children}</FieldContent>
-            {description && <FieldDescription>{description}</FieldDescription>}
-            {showError && errorMessage && (
-              <FieldError>{errorMessage}</FieldError>
-            )}
-          </Field>
-        </div>
-      </div>
+      <Field
+        ref={ref}
+        className={className}
+        error={!!errorMessage}
+        size={size}
+        {...fieldProps}
+      >
+        {label && <FieldLabel htmlFor={htmlFor}>{label}</FieldLabel>}
+        <FieldContent>{children}</FieldContent>
+        {description && <FieldDescription>{description}</FieldDescription>}
+        {showError && errorMessage && (
+          <FieldError>{errorMessage}</FieldError>
+        )}
+      </Field>
     );
   },
 );

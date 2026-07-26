@@ -315,13 +315,12 @@ export default function OverviewSection() {
       <section className="container max-w-6xl mx-auto space-y-12 px-4">
         <div className="text-center max-w-2xl mx-auto space-y-4">
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">
-            Kiến trúc rõ ràng. Sửa không lo vỡ.
+            Kiến trúc rành mạch. Sửa code không "đổ mồ hôi".
           </h2>
           <p className="text-muted-foreground text-lg">
-            Nhiều dự án bắt đầu gãy ở năm thứ hai — muốn sửa mà không dám, vì
-            không biết gì sẽ vỡ theo. gladvn chia code thành{" "}
-            <strong className="text-foreground">các tầng rõ ràng</strong>
-            {", "}nên bạn luôn biết mình đang sửa ở đâu và ảnh hưởng đến đâu.
+            Nhiều dự án thường bắt đầu "bốc mùi" ở năm thứ hai — đụng vào đâu cũng sợ gãy, muốn sửa mà rén. gladvn chia code thành{" "}
+            <strong className="text-foreground">các tầng rạch ròi</strong>
+            {", "}giúp bạn luôn biết chính xác mình đang sửa cái gì, ảnh hưởng tới đâu. Tâm an, code mới nhàn!
           </p>
         </div>
 
@@ -430,16 +429,14 @@ export default function OverviewSection() {
                   src/components/macro/
                 </div>
                 <h4 className="font-bold text-foreground text-base">
-                  Macro — Sửa an toàn
+                  Macro — Khu vực an toàn
                 </h4>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Bắt đầu ở đây. Mỗi Macro là một preset độc lập — thêm footer
-                  cho DatePicker, bỏ nút đóng của Dialog, chỉnh placeholder
-                  Combobox.{" "}
+                  Muốn tuỳ chỉnh? Bắt đầu từ đây nhé. Mỗi Macro là một khối độc lập — thêm footer cho DatePicker, giấu nút đóng của Dialog, v.v.{" "}
                   <strong className="text-foreground">
-                    Sửa cái nào chỉ ảnh hưởng cái đó
+                    Cứ thoải mái vọc vạch
                   </strong>
-                  , không lan sang đâu cả.
+                  , sửa cái nào thì chỉ ảnh hưởng cái đó thôi, chả lo "cháy nhà" hàng xóm.
                 </p>
               </div>
 
@@ -452,15 +449,14 @@ export default function OverviewSection() {
                   src/components/micro/
                 </div>
                 <h4 className="font-bold text-foreground text-base">
-                  Micro — Sửa cẩn thận
+                  Micro — Lãnh địa cốt lõi
                 </h4>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Micro là nền — mọi Macro đều xây trên nó. Sửa variant của
-                  Button hay animation của Tooltip thì{" "}
+                  Mọi thứ đều xây từ đây. Sửa cái padding của Button hay animation của Tooltip thì{" "}
                   <strong className="text-foreground">
-                    tất cả nơi dùng component đó đều thay đổi theo
+                    nguyên dàn app sẽ ăn theo
                   </strong>
-                  . Chỉ sửa khi bạn rõ mình đang làm gì.
+                  . Cân nhắc kỹ chút trước khi gõ phím nhé, "sai một ly đi một dặm" đấy!
                 </p>
               </div>
 
@@ -473,15 +469,14 @@ export default function OverviewSection() {
                   src/index.css
                 </div>
                 <h4 className="font-bold text-foreground text-base">
-                  CSS Token
+                  CSS Token — Nút bấm hạt nhân
                 </h4>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  CSS token quyết định màu, font, border-radius cho tất cả. Đổi
-                  một token ở đây thì{" "}
+                  Nơi nắm trùm về màu sắc, font, độ bo góc. Đổi một biến ở đây là{" "}
                   <strong className="text-foreground">
-                    toàn bộ giao diện cập nhật ngay
+                    giao diện lột xác toàn tập
                   </strong>
-                  . Dùng khi muốn rebrand, không phải để vá lỗi lẻ tẻ.
+                  . Rất đã khi cần thay áo mới (rebrand), nhưng tuyệt đối đừng dùng để vá lỗi vặt.
                 </p>
               </div>
 
@@ -494,13 +489,13 @@ export default function OverviewSection() {
                   src/blocks/
                 </div>
                 <h4 className="font-bold text-foreground text-base">
-                  Blocks — Dùng kết hợp
+                  Blocks — Sân chơi tự do
                 </h4>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Không có luật bắt buộc phải dùng toàn Micro hay toàn Macro ở đây. 
-                  Khi cần layout nhanh chuẩn, <strong className="text-foreground">dùng sẵn preset của Macro</strong>. 
-                  Khi cần layout dị biệt tự do, <strong className="text-foreground">lắp ghép thủ công từ Micro</strong>. 
-                  Kết hợp cả hai để có tốc độ và sự linh hoạt tối đa.
+                  Chẳng có quy tắc nào ép bạn phải dùng 100% Micro hay Macro. 
+                  Layout quen thuộc thì <strong className="text-foreground">lấy Macro ra xài cho lẹ</strong>. 
+                  Gặp thiết kế dị biệt thì <strong className="text-foreground">mở Micro ra tự xếp hình</strong>. 
+                  Linh hoạt lên, code sao cho bản thân thấy sướng là được!
                 </p>
               </div>
             </div>
@@ -515,13 +510,12 @@ export default function OverviewSection() {
             </div>
             <div className="relative z-10 space-y-4 mb-10">
               <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">
-                Micro & Macro
+                Luật chơi Micro/Macro
               </h3>
               <p className="text-muted-foreground max-w-lg text-lg leading-relaxed">
-                Micro là component thuần — chỉ lo style, không ép layout. Macro
-                là preset — lắp ghép Micro thành giao diện hoàn chỉnh.
+                Micro chỉ là những mảnh lego thuần túy — đẹp nhưng vô tri. Macro mới là người chỉ huy — sắp xếp các mảnh lego thành giao diện hoàn chỉnh.
                 <strong className="text-foreground block mt-2">
-                  Micro không bao giờ tự quyết layout. Việc đó thuộc về Macro.
+                  Micro không bao giờ được phép tự tiện lo chuyện layout (margin, width). Việc đó là của Macro!
                 </strong>
               </p>
             </div>
@@ -1127,14 +1121,14 @@ export default function OverviewSection() {
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_0%,rgba(var(--primary-rgb),0.15),transparent)] pointer-events-none" />
           <div className="relative z-10 space-y-6 max-w-2xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight">
-              30 giây. Xong.
+              30 giây là có đồ chơi.
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed">
-              Toàn bộ code nằm trong{" "}
+              Quẳng hết code vào{" "}
               <code className="text-sm bg-primary/20 text-primary px-1.5 py-0.5 rounded">
                 src/
               </code>{" "}
-              của bạn. Không config rườm rà. Chạy là dùng.
+              rồi xài thôi. Không config rườm rà nhức đầu làm gì.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
               <button

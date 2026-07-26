@@ -35,6 +35,7 @@
   ],
   "scripts": {
     "dev": "vite",
+    "build": "npm run build:app",
     "build:app": "vite build -c vite.config.app.ts",
     "lint": "oxlint",
     "preview": "vite preview",

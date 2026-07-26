@@ -413,7 +413,7 @@ export default function OverviewSection() {
             <p className="text-sm font-bold uppercase tracking-wider text-primary mb-5">
               Tuỳ chỉnh theo từng tầng kiến trúc
             </p>
-            <div className="grid sm:grid-cols-3 gap-4">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {/* MACRO — RECOMMENDED */}
               <div className="p-5 rounded-2xl border-2 border-primary/40 bg-primary/5 space-y-3 relative">
                 <div className="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/10 px-2 py-0.5 rounded-full">
@@ -466,7 +466,7 @@ export default function OverviewSection() {
                   src/index.css
                 </div>
                 <h4 className="font-bold text-foreground text-base">
-                  CSS Token — Đổi một chỗ, cả app thay đổi
+                  CSS Token
                 </h4>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   CSS token quyết định màu, font, border-radius cho tất cả. Đổi
@@ -475,6 +475,25 @@ export default function OverviewSection() {
                     toàn bộ giao diện cập nhật ngay
                   </strong>
                   . Dùng khi muốn rebrand, không phải để vá lỗi lẻ tẻ.
+                </p>
+              </div>
+
+              {/* BLOCKS — FLEXIBLE COMPOSITION */}
+              <div className="p-5 rounded-2xl border border-info/40 bg-info/5 space-y-3 relative">
+                <div className="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider text-info bg-info/10 px-2 py-0.5 rounded-full">
+                  Lắp ghép linh hoạt
+                </div>
+                <div className="font-mono text-xs text-info/70">
+                  src/blocks/
+                </div>
+                <h4 className="font-bold text-foreground text-base">
+                  Blocks — Dùng kết hợp
+                </h4>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Không có luật bắt buộc phải dùng toàn Micro hay toàn Macro ở đây. 
+                  Khi cần layout nhanh chuẩn, <strong className="text-foreground">dùng sẵn preset của Macro</strong>. 
+                  Khi cần layout dị biệt tự do, <strong className="text-foreground">lắp ghép thủ công từ Micro</strong>. 
+                  Kết hợp cả hai để có tốc độ và sự linh hoạt tối đa.
                 </p>
               </div>
             </div>

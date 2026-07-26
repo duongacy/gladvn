@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { cn } from "../../lib/utils";
 
 import { type Highlighter, createHighlighter } from "shiki";
 
@@ -17,9 +18,11 @@ function getHighlighter() {
 export function CodeHighlighter({
   code,
   language = "tsx",
+  className,
 }: {
   code: string;
   language?: "tsx" | "ts" | "css";
+  className?: string;
 }) {
   const [html, setHtml] = useState<string | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -49,7 +52,7 @@ export function CodeHighlighter({
 
   if (!html) {
     return (
-      <div className="overflow-x-auto text-[13px] leading-relaxed font-mono">
+      <div className={cn("overflow-x-auto text-[13px] leading-relaxed font-mono", className)}>
         <pre className="!bg-transparent !p-0 !m-0 whitespace-pre-wrap break-words">
           <code className="text-muted-foreground">Loading...</code>
         </pre>
@@ -71,7 +74,7 @@ export function CodeHighlighter({
       `}</style>
       <div
         ref={containerRef}
-        className="code-highlighter overflow-x-auto text-[13px] leading-relaxed"
+        className={cn("code-highlighter overflow-x-auto text-[13px] leading-relaxed", className)}
         dangerouslySetInnerHTML={{ __html: html }}
       />
     </>

@@ -19,7 +19,7 @@ import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsP,
   ExampleGrid,
-  ExampleSection,
+  ShowcaseExample,
   Showcase,
   ShowcaseDocs
 } from "../../dev/components/showcase";
@@ -96,50 +96,43 @@ function CheckboxMacroShowcase({ globalSize }: { globalSize: Size }) {
   const [checked, setChecked] = useState(false);
 
   return (
-    <div className="space-y-10 mt-6">
+    <div className="space-y-10">
       <ExampleGrid>
-        <ExampleSection
-          label="Tiêu chuẩn"
-          description="Checkbox cơ bản kèm nhãn và mô tả."
-          codeString={`<CheckboxPreset
+        <ShowcaseExample title="Tiêu chuẩn" description="Checkbox cơ bản kèm nhãn và mô tả." code={`<CheckboxPreset
     label="Đồng ý với điều khoản"
     description="Bạn phải đồng ý với các điều khoản và điều kiện sử dụng."
     className="w-full"
-  />`}
-        >
-          <CheckboxPreset
-            size={globalSize}
-            label="Đồng ý với điều khoản"
-            description="Bạn phải đồng ý với các điều khoản và điều kiện sử dụng."
-            className="w-full"
-          />
-        </ExampleSection>
+  />`} preview={
+                      <>
+              <CheckboxPreset
+                          size={globalSize}
+                          label="Đồng ý với điều khoản"
+                          description="Bạn phải đồng ý với các điều khoản và điều kiện sử dụng."
+                          className="w-full"
+                        />
+                      </>
+                    } />
 
-        <ExampleSection
-          label="Trạng thái Lỗi (Error)"
-          description="Báo lỗi khi chưa check vào ô (thường dùng trong form)."
-          codeString={`<div className="w-full flex flex-col gap-6">
+        <ShowcaseExample title="Trạng thái Lỗi (Error)" description="Báo lỗi khi chưa check vào ô (thường dùng trong form)." code={`<div className="w-full flex flex-col gap-6">
     <CheckboxPreset
       label="Xác nhận đủ 18 tuổi"
       errorMessage="Bạn phải xác nhận đủ tuổi để tiếp tục."
     />
-  </div>`}
-        >
-          <div className="w-full flex flex-col gap-6">
-            <CheckboxPreset
-              size={globalSize}
-              label="Xác nhận đủ 18 tuổi"
-              errorMessage="Bạn phải xác nhận đủ tuổi để tiếp tục."
-            />
-          </div>
-        </ExampleSection>
+  </div>`} preview={
+                      <>
+              <div className="w-full flex flex-col gap-6">
+                          <CheckboxPreset
+                            size={globalSize}
+                            label="Xác nhận đủ 18 tuổi"
+                            errorMessage="Bạn phải xác nhận đủ tuổi để tiếp tục."
+                          />
+                        </div>
+                      </>
+                    } />
       </ExampleGrid>
 
       <ExampleGrid>
-        <ExampleSection
-          label="Trạng thái Khóa (Disabled)"
-          description="Checkbox bị vô hiệu hóa, không thể click."
-          codeString={`<div className="w-full flex flex-col gap-6">
+        <ShowcaseExample title="Trạng thái Khóa (Disabled)" description="Checkbox bị vô hiệu hóa, không thể click." code={`<div className="w-full flex flex-col gap-6">
     <CheckboxPreset
       label="Đăng ký nhận bản tin"
       description="Tính năng này đang được bảo trì."
@@ -151,29 +144,27 @@ function CheckboxMacroShowcase({ globalSize }: { globalSize: Size }) {
       defaultChecked
       disabled
     />
-  </div>`}
-        >
-          <div className="w-full flex flex-col gap-6">
-            <CheckboxPreset
-              size={globalSize}
-              label="Đăng ký nhận bản tin"
-              description="Tính năng này đang được bảo trì."
-              disabled
-            />
-            <CheckboxPreset
-              size={globalSize}
-              label="Cho phép thu thập log"
-              description="Hệ thống mặc định thu thập log bảo mật."
-              defaultChecked
-              disabled
-            />
-          </div>
-        </ExampleSection>
+  </div>`} preview={
+                      <>
+              <div className="w-full flex flex-col gap-6">
+                          <CheckboxPreset
+                            size={globalSize}
+                            label="Đăng ký nhận bản tin"
+                            description="Tính năng này đang được bảo trì."
+                            disabled
+                          />
+                          <CheckboxPreset
+                            size={globalSize}
+                            label="Cho phép thu thập log"
+                            description="Hệ thống mặc định thu thập log bảo mật."
+                            defaultChecked
+                            disabled
+                          />
+                        </div>
+                      </>
+                    } />
 
-        <ExampleSection
-          label="React Node Label (Custom Content)"
-          description="Label có thể chứa các component React phức tạp như Badge."
-          codeString={`<CheckboxPreset
+        <ShowcaseExample title="React Node Label (Custom Content)" description="Label có thể chứa các component React phức tạp như Badge." code={`<CheckboxPreset
     label={
       <span className="flex items-center gap-2">
         Tham gia chương trình BETA{" "}
@@ -184,61 +175,58 @@ function CheckboxMacroShowcase({ globalSize }: { globalSize: Size }) {
     }
     description="Được trải nghiệm sớm các tính năng mới trước khi phát hành chính thức. Có thể xảy ra lỗi."
     className="w-full"
-  />`}
-        >
-          <CheckboxPreset
-            size={globalSize}
-            label={
-              <span className="flex items-center gap-2">
-                Tham gia chương trình BETA{" "}
-                <span className="rounded bg-primary/20 px-1.5 py-0.5 text-[10px] font-semibold text-primary">
-                  NEW
-                </span>
-              </span>
-            }
-            description="Được trải nghiệm sớm các tính năng mới trước khi phát hành chính thức. Có thể xảy ra lỗi."
-            className="w-full"
-          />
-        </ExampleSection>
+  />`} preview={
+                      <>
+              <CheckboxPreset
+                          size={globalSize}
+                          label={
+                            <span className="flex items-center gap-2">
+                              Tham gia chương trình BETA{" "}
+                              <span className="rounded bg-primary/20 px-1.5 py-0.5 text-[10px] font-semibold text-primary">
+                                NEW
+                              </span>
+                            </span>
+                          }
+                          description="Được trải nghiệm sớm các tính năng mới trước khi phát hành chính thức. Có thể xảy ra lỗi."
+                          className="w-full"
+                        />
+                      </>
+                    } />
       </ExampleGrid>
 
       <ExampleGrid>
-        <ExampleSection
-          label="React State (Controlled Mode)"
-          description="Sử dụng biến state của React để điều khiển."
-          codeString={`const [checked, setChecked] = useState(false); return (
+        <ShowcaseExample title="React State (Controlled Mode)" description="Sử dụng biến state của React để điều khiển." code={`const [checked, setChecked] = useState(false); return (
   <CheckboxPreset
     checked={checked}
     onCheckedChange={(c) => setChecked(!!c)}
     label="Checkbox có kiểm soát"
     description="React quản lý trạng thái của checkbox này."
   />
-  );`}
-        >
-          <div className="w-full flex flex-col gap-4">
-            <CheckboxPreset
-              size={globalSize}
-              checked={checked}
-              onCheckedChange={(c) => setChecked(!!c)}
-              label="Checkbox có kiểm soát"
-              description="React quản lý trạng thái của checkbox này."
-            />
-            <p className="text-sm text-muted-foreground">
-              Giá trị hiện tại:{" "}
-              <span className="font-mono font-bold text-foreground">
-                {checked ? "TRUE" : "FALSE"}
-              </span>
-            </p>
-          </div>
-        </ExampleSection>
+  );`} preview={
+                      <>
+              <div className="w-full flex flex-col gap-4">
+                          <CheckboxPreset
+                            size={globalSize}
+                            checked={checked}
+                            onCheckedChange={(c) => setChecked(!!c)}
+                            label="Checkbox có kiểm soát"
+                            description="React quản lý trạng thái của checkbox này."
+                          />
+                          <p className="text-sm text-muted-foreground">
+                            Giá trị hiện tại:{" "}
+                            <span className="font-mono font-bold text-foreground">
+                              {checked ? "TRUE" : "FALSE"}
+                            </span>
+                          </p>
+                        </div>
+                      </>
+                    } />
 
-        <ExampleSection
-          label="Tích hợp React Hook Form"
-          description="Dùng Controller của RHF để bọc CheckboxPreset."
-          codeString={rhfCode}
-        >
-          <CheckboxForm size={globalSize} />
-        </ExampleSection>
+        <ShowcaseExample title="Tích hợp React Hook Form" description="Dùng Controller của RHF để bọc CheckboxPreset." code={rhfCode} preview={
+                      <>
+              <CheckboxForm size={globalSize} />
+                      </>
+                    } />
       </ExampleGrid>
     </div>
   );
@@ -248,12 +236,9 @@ function CheckboxMicroShowcase({ globalSize }: { globalSize: Size }) {
   const [checked, setChecked] = useState(false);
 
   return (
-    <div className="space-y-10 mt-6">
+    <div className="space-y-10">
       <ExampleGrid>
-        <ExampleSection
-          label="Cơ bản (Primitive)"
-          description="Kết nối thủ công Checkbox với thẻ Label html."
-          codeString={`<div className="flex items-center gap-3">
+        <ShowcaseExample title="Cơ bản (Primitive)" description="Kết nối thủ công Checkbox với thẻ Label html." code={`<div className="flex items-center gap-3">
     <Checkbox id="cb-micro-default">
       <CheckboxIndicator>
         <CheckIcon />
@@ -265,27 +250,25 @@ function CheckboxMicroShowcase({ globalSize }: { globalSize: Size }) {
     >
       Đồng ý với điều khoản
     </Label>
-  </div>`}
-        >
-          <div className="flex items-center gap-3">
-            <Checkbox id="cb-micro-default" size={globalSize}>
-              <CheckboxIndicator>
-                <CheckIcon />
-              </CheckboxIndicator>
-            </Checkbox>
-            <Label
-              htmlFor="cb-micro-default"
-              className="font-normal cursor-pointer"
-            >
-              Đồng ý với điều khoản
-            </Label>
-          </div>
-        </ExampleSection>
+  </div>`} preview={
+                      <>
+              <div className="flex items-center gap-3">
+                          <Checkbox id="cb-micro-default" size={globalSize}>
+                            <CheckboxIndicator>
+                              <CheckIcon />
+                            </CheckboxIndicator>
+                          </Checkbox>
+                          <Label
+                            htmlFor="cb-micro-default"
+                            className="font-normal cursor-pointer"
+                          >
+                            Đồng ý với điều khoản
+                          </Label>
+                        </div>
+                      </>
+                    } />
 
-        <ExampleSection
-          label="Icon Tuỳ Biến (Custom Icon)"
-          description="Vì dùng Composition, bạn có thể truyền bất kỳ icon nào (VD: MinusIcon) vào Indicator."
-          codeString={`<div className="flex items-center gap-3">
+        <ShowcaseExample title="Icon Tuỳ Biến (Custom Icon)" description="Vì dùng Composition, bạn có thể truyền bất kỳ icon nào (VD: MinusIcon) vào Indicator." code={`<div className="flex items-center gap-3">
     <Checkbox id="cb-custom-icon">
       <CheckboxIndicator>
         <MinusIcon />
@@ -297,29 +280,27 @@ function CheckboxMicroShowcase({ globalSize }: { globalSize: Size }) {
     >
       Trạng thái vô định (Indeterminate)
     </Label>
-  </div>`}
-        >
-          <div className="flex items-center gap-3">
-            <Checkbox id="cb-custom-icon" size={globalSize}>
-              <CheckboxIndicator>
-                <MinusIcon />
-              </CheckboxIndicator>
-            </Checkbox>
-            <Label
-              htmlFor="cb-custom-icon"
-              className="font-normal cursor-pointer"
-            >
-              Trạng thái vô định (Indeterminate)
-            </Label>
-          </div>
-        </ExampleSection>
+  </div>`} preview={
+                      <>
+              <div className="flex items-center gap-3">
+                          <Checkbox id="cb-custom-icon" size={globalSize}>
+                            <CheckboxIndicator>
+                              <MinusIcon />
+                            </CheckboxIndicator>
+                          </Checkbox>
+                          <Label
+                            htmlFor="cb-custom-icon"
+                            className="font-normal cursor-pointer"
+                          >
+                            Trạng thái vô định (Indeterminate)
+                          </Label>
+                        </div>
+                      </>
+                    } />
       </ExampleGrid>
 
       <ExampleGrid>
-        <ExampleSection
-          label="Ghép nối với Field"
-          description="Lắp ráp thủ công các thành phần Field khi cần layout phức tạp."
-          codeString={`<Field className="flex items-start gap-3">
+        <ShowcaseExample title="Ghép nối với Field" description="Lắp ráp thủ công các thành phần Field khi cần layout phức tạp." code={`<Field className="flex items-start gap-3">
     {/* 1 khoảng trắng vô hình để căn chỉnh cho Label và Checkbox thẳng hàng với nhau theo dòng chữ đầu tiên */}
     <div className="flex items-center text-sm leading-snug group-data-[size=sm]/field:text-xs">
       &#8203;
@@ -340,36 +321,33 @@ function CheckboxMicroShowcase({ globalSize }: { globalSize: Size }) {
         Tự động đăng nhập vào lần sau.
       </FieldDescription>
     </div>
-  </Field>`}
-        >
-          <Field className="flex items-start gap-3" data-size={globalSize}>
-            {}
-            <div className="flex items-center text-sm leading-snug group-data-[size=sm]/field:text-xs">
-              &#8203;
-              <Checkbox id="cb-field-micro" size={globalSize}>
-                <CheckboxIndicator>
-                  <CheckIcon />
-                </CheckboxIndicator>
-              </Checkbox>
-            </div>
-            <div className="grid gap-1.5 leading-none">
-              <FieldLabel
-                htmlFor="cb-field-micro"
-                className="font-medium cursor-pointer"
-              >
-                Lưu mật khẩu
-              </FieldLabel>
-              <FieldDescription>
-                Tự động đăng nhập vào lần sau.
-              </FieldDescription>
-            </div>
-          </Field>
-        </ExampleSection>
+  </Field>`} preview={
+                      <>
+              <Field className="flex items-start gap-3" data-size={globalSize}>
+                          <div className="flex items-center text-sm leading-snug group-data-[size=sm]/field:text-xs">
+                            &#8203;
+                            <Checkbox id="cb-field-micro" size={globalSize}>
+                              <CheckboxIndicator>
+                                <CheckIcon />
+                              </CheckboxIndicator>
+                            </Checkbox>
+                          </div>
+                          <div className="grid gap-1.5 leading-none">
+                            <FieldLabel
+                              htmlFor="cb-field-micro"
+                              className="font-medium cursor-pointer"
+                            >
+                              Lưu mật khẩu
+                            </FieldLabel>
+                            <FieldDescription>
+                              Tự động đăng nhập vào lần sau.
+                            </FieldDescription>
+                          </div>
+                        </Field>
+                      </>
+                    } />
 
-        <ExampleSection
-          label="Trạng thái Lỗi thủ công"
-          description="Tự gắn aria-invalid vào Checkbox và dùng FieldError."
-          codeString={`<Field
+        <ShowcaseExample title="Trạng thái Lỗi thủ công" description="Tự gắn aria-invalid vào Checkbox và dùng FieldError." code={`<Field
     className="flex flex-row items-start gap-3"
     data-invalid={true}
   >
@@ -390,39 +368,36 @@ function CheckboxMicroShowcase({ globalSize }: { globalSize: Size }) {
       </FieldLabel>
       <FieldError>Bắt buộc phải chọn ô này.</FieldError>
     </div>
-  </Field>`}
-        >
-          <Field
-            className="flex flex-row items-start gap-3"
-            data-invalid={true}
-            data-size={globalSize}
-          >
-            <div className="flex items-center text-sm leading-snug group-data-[size=sm]/field:text-xs">
-              &#8203;
-              <Checkbox id="cb-err-micro" size={globalSize} aria-invalid={true}>
-                <CheckboxIndicator>
-                  <CheckIcon />
-                </CheckboxIndicator>
-              </Checkbox>
-            </div>
-            <div className="grid gap-1.5 leading-none">
-              <FieldLabel
-                htmlFor="cb-err-micro"
-                className="font-medium cursor-pointer"
-              >
-                Đồng ý quy định
-              </FieldLabel>
-              <FieldError>Bắt buộc phải chọn ô này.</FieldError>
-            </div>
-          </Field>
-        </ExampleSection>
+  </Field>`} preview={
+                      <>
+              <Field
+                          className="flex flex-row items-start gap-3"
+                          data-invalid={true}
+                          data-size={globalSize}
+                        >
+                          <div className="flex items-center text-sm leading-snug group-data-[size=sm]/field:text-xs">
+                            &#8203;
+                            <Checkbox id="cb-err-micro" size={globalSize} aria-invalid={true}>
+                              <CheckboxIndicator>
+                                <CheckIcon />
+                              </CheckboxIndicator>
+                            </Checkbox>
+                          </div>
+                          <div className="grid gap-1.5 leading-none">
+                            <FieldLabel
+                              htmlFor="cb-err-micro"
+                              className="font-medium cursor-pointer"
+                            >
+                              Đồng ý quy định
+                            </FieldLabel>
+                            <FieldError>Bắt buộc phải chọn ô này.</FieldError>
+                          </div>
+                        </Field>
+                      </>
+                    } />
       </ExampleGrid>
 
-      <ExampleSection
-        label="🧭 So sánh Use Case"
-        description="So sánh nhanh khi nào dùng Micro và Macro."
-        fullWidth
-        codeString={`<div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+      <ShowcaseExample title="🧭 So sánh Use Case" description="So sánh nhanh khi nào dùng Micro và Macro." code={`<div className="grid grid-cols-1 gap-6 md:grid-cols-2">
     {/* Story 1: Macro wins */}
     <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
       <div className="flex items-start gap-3">
@@ -524,110 +499,109 @@ function CheckboxMicroShowcase({ globalSize }: { globalSize: Size }) {
         </div>
       </div>
     </div>
-  </div>`}
-      >
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          {}
-          <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
-            <div className="flex items-start gap-3">
-              <span className="mt-0.5 shrink-0 rounded-full bg-green-500/10 p-1.5 text-green-600">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="size-4"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                </svg>
-              </span>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                  Story 1 · Dùng Macro
-                </p>
-                <h3 className="mt-0.5 text-sm font-semibold text-foreground">
-                  Checkbox trong trang Cài đặt
-                </h3>
-              </div>
-            </div>
-            <p className="text-xs text-muted-foreground leading-relaxed">
-              Form cài đặt có rất nhiều tuỳ chọn dạng "Bật / Tắt" với mô tả dài.
-              Code sẽ rất sạch và ngắn.
-            </p>
-            <div className="rounded-lg bg-muted/50 p-3 flex flex-col gap-4">
-              <CheckboxPreset
-                size="sm"
-                label="Nhận Email Marketing"
-                description="Gửi email cho bạn về các chương trình khuyến mãi hàng tuần."
-              />
-              <CheckboxPreset
-                size="sm"
-                label="Thông báo bảo mật"
-                description="Cảnh báo khi có thiết bị lạ đăng nhập."
-                defaultChecked
-              />
-            </div>
-          </div>
+  </div>`} preview={
+                  <>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                    <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
+                      <div className="flex items-start gap-3">
+                        <span className="mt-0.5 shrink-0 rounded-full bg-green-500/10 p-1.5 text-green-600">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="size-4"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            aria-hidden="true"
+                          >
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                          </svg>
+                        </span>
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                            Story 1 · Dùng Macro
+                          </p>
+                          <h3 className="mt-0.5 text-sm font-semibold text-foreground">
+                            Checkbox trong trang Cài đặt
+                          </h3>
+                        </div>
+                      </div>
+                      <p className="text-xs text-muted-foreground leading-relaxed">
+                        Form cài đặt có rất nhiều tuỳ chọn dạng "Bật / Tắt" với mô tả dài.
+                        Code sẽ rất sạch và ngắn.
+                      </p>
+                      <div className="rounded-lg bg-muted/50 p-3 flex flex-col gap-4">
+                        <CheckboxPreset
+                          size="sm"
+                          label="Nhận Email Marketing"
+                          description="Gửi email cho bạn về các chương trình khuyến mãi hàng tuần."
+                        />
+                        <CheckboxPreset
+                          size="sm"
+                          label="Thông báo bảo mật"
+                          description="Cảnh báo khi có thiết bị lạ đăng nhập."
+                          defaultChecked
+                        />
+                      </div>
+                    </div>
 
-          {}
-          <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
-            <div className="flex items-start gap-3">
-              <span className="mt-0.5 shrink-0 rounded-full bg-blue-500/10 p-1.5 text-blue-600">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="size-4"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-                </svg>
-              </span>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                  Story 2 · Dùng Micro
-                </p>
-                <h3 className="mt-0.5 text-sm font-semibold text-foreground">
-                  Table Row Selection
-                </h3>
-              </div>
-            </div>
-            <p className="text-xs text-muted-foreground leading-relaxed">
-              Bạn cần ô Checkbox ở đầu mỗi dòng trong bảng để chọn nhiều hàng. Ở
-              đây Checkbox đứng độc lập, hoàn toàn không cần Label hay
-              Description đi kèm.
-            </p>
-            <div className="rounded-lg bg-muted/50 p-3">
-              <div className="border border-border rounded-md divide-y overflow-hidden">
-                <div className="flex items-center gap-3 p-2 bg-muted">
-                  <Checkbox size="sm">
-                    <CheckboxIndicator>
-                      <MinusIcon />
-                    </CheckboxIndicator>
-                  </Checkbox>
-                  <span className="text-xs font-semibold">Tên nhân viên</span>
-                </div>
-                <div className="flex items-center gap-3 p-2 bg-background hover:bg-muted/50">
-                  <Checkbox size="sm" defaultChecked>
-                    <CheckboxIndicator>
-                      <CheckIcon />
-                    </CheckboxIndicator>
-                  </Checkbox>
-                  <span className="text-xs">John Doe</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </ExampleSection>
+                    <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
+                      <div className="flex items-start gap-3">
+                        <span className="mt-0.5 shrink-0 rounded-full bg-blue-500/10 p-1.5 text-blue-600">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="size-4"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            aria-hidden="true"
+                          >
+                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                          </svg>
+                        </span>
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                            Story 2 · Dùng Micro
+                          </p>
+                          <h3 className="mt-0.5 text-sm font-semibold text-foreground">
+                            Table Row Selection
+                          </h3>
+                        </div>
+                      </div>
+                      <p className="text-xs text-muted-foreground leading-relaxed">
+                        Bạn cần ô Checkbox ở đầu mỗi dòng trong bảng để chọn nhiều hàng. Ở
+                        đây Checkbox đứng độc lập, hoàn toàn không cần Label hay
+                        Description đi kèm.
+                      </p>
+                      <div className="rounded-lg bg-muted/50 p-3">
+                        <div className="border border-border rounded-md divide-y overflow-hidden">
+                          <div className="flex items-center gap-3 p-2 bg-muted">
+                            <Checkbox size="sm">
+                              <CheckboxIndicator>
+                                <MinusIcon />
+                              </CheckboxIndicator>
+                            </Checkbox>
+                            <span className="text-xs font-semibold">Tên nhân viên</span>
+                          </div>
+                          <div className="flex items-center gap-3 p-2 bg-background hover:bg-muted/50">
+                            <Checkbox size="sm" defaultChecked>
+                              <CheckboxIndicator>
+                                <CheckIcon />
+                              </CheckboxIndicator>
+                            </Checkbox>
+                            <span className="text-xs">John Doe</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </>
+                } />
     </div>
   );
 }
@@ -638,7 +612,7 @@ export default function CheckboxShowcase() {
     <Showcase
       title="Checkbox"
       description="Thành phần cho phép người dùng chọn hoặc bỏ chọn một tuỳ chọn độc lập."
-      generalConcept={
+      guideline={
         <ShowcaseDocs>
           <DocsP>
             Dùng để thu thập đầu vào dạng đúng/sai hoặc nhiều lựa chọn độc lập
@@ -647,14 +621,8 @@ export default function CheckboxShowcase() {
           </DocsP>
         </ShowcaseDocs>
       }
-      tabs={[
-        {
-          label: "Micro (Primitive)",
-          content: <CheckboxMicroShowcase globalSize={globalSize} /> },
-        {
-          label: "Macro (Preset)",
-          content: <CheckboxMacroShowcase globalSize={globalSize} /> },
-      ]}
+      micro={{ content: <CheckboxMicroShowcase globalSize={globalSize} /> }}
+      macro={{ content: <CheckboxMacroShowcase globalSize={globalSize} /> }}
     />
   );
 }

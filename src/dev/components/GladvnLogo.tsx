@@ -2,15 +2,12 @@ import { cn } from "../../lib/utils";
 
 interface GladvnLogoProps {
   className?: string;
-  /** Size of the icon SVG */
-  iconSize?: string;
   /** Show icon only (default) or icon + wordmark */
   variant?: "icon" | "wordmark";
 }
 
 export function GladvnLogo({
   className,
-  iconSize = "size-7",
   variant = "icon",
 }: GladvnLogoProps) {
   const icon = (
@@ -18,10 +15,11 @@ export function GladvnLogo({
       viewBox="0 0 32 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={cn(iconSize, variant === "icon" && className)}
+      className={cn("size-7", {
+        [`${className}`]: variant === "icon" && !!className
+      })}
       aria-hidden="true"
     >
-      {}
       <rect
         x="1"
         y="1"
@@ -30,7 +28,6 @@ export function GladvnLogo({
         rx="7"
         className="fill-primary"
       />
-      {}
       <rect
         x="11"
         y="5"
@@ -40,7 +37,6 @@ export function GladvnLogo({
         fill="white"
         fillOpacity="0.25"
       />
-      {}
       <rect
         x="15"
         y="5"
@@ -50,9 +46,7 @@ export function GladvnLogo({
         fill="white"
         fillOpacity="0.2"
       />
-      {}
       <circle cx="8" cy="24" r="3" fill="white" fillOpacity="0.7" />
-      {}
       <rect
         x="6"
         y="17"

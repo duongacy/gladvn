@@ -51,9 +51,7 @@ export default function OverviewSection() {
 
   return (
     <div className="space-y-6 overflow-hidden">
-      {}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-        {}
         <div
           className="md:col-span-2 row-span-2 relative overflow-hidden rounded-2xl border border-border bg-card/40 p-6 md:p-8 shadow-sm transition-all hover:shadow-md hover:bg-card/60 group opacity-0 animate-fade-up"
           style={{ animationDelay: "0ms" }}
@@ -82,9 +80,7 @@ export default function OverviewSection() {
               </p>
             </div>
 
-            {}
             <div className="relative h-[240px] mt-8 w-full">
-              {}
               <div className="absolute top-0 right-4 lg:right-12 hover:-translate-y-1 transition-transform duration-300 animate-float-slow">
                 <Card className="w-[220px] shadow-xl bg-background/80 backdrop-blur-md border-primary/20">
                   <CardHeader className="p-4 pb-2">
@@ -131,7 +127,6 @@ export default function OverviewSection() {
           </div>
         </div>
 
-        {}
         <div
           className="md:col-span-1 rounded-2xl border border-border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md hover:-translate-y-1 group flex flex-col justify-between opacity-0 animate-fade-up"
           style={{ animationDelay: "100ms" }}
@@ -170,7 +165,6 @@ export default function OverviewSection() {
           </Button>
         </div>
 
-        {}
         <div
           className="md:col-span-1 grid grid-cols-2 gap-4 opacity-0 animate-fade-up"
           style={{ animationDelay: "200ms" }}
@@ -201,7 +195,6 @@ export default function OverviewSection() {
           })}
         </div>
 
-        {}
         <div
           className="md:col-span-3 rounded-2xl border border-border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md group opacity-0 animate-fade-up"
           style={{ animationDelay: "300ms" }}
@@ -229,7 +222,6 @@ export default function OverviewSection() {
           </div>
         </div>
 
-        {}
         <div
           className="md:col-span-3 rounded-2xl border border-border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md group opacity-0 animate-fade-up"
           style={{ animationDelay: "400ms" }}

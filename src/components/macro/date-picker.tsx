@@ -206,10 +206,9 @@ const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
             id={triggerId}
             disabled={disabled}
             aria-invalid={isInvalid || undefined}
-            className={cn(
-              triggerVariants({ size }),
-              !hasValue && "text-muted-foreground",
-            )}
+            className={cn(triggerVariants({ size }), {
+              "text-muted-foreground": !hasValue,
+            })}
           >
             <CalendarIcon />
             <span className="flex-1 truncate text-left min-w-0">

@@ -57,7 +57,9 @@ const AlertPreset = React.forwardRef<HTMLDivElement, AlertPresetProps>(
         color={color}
         className={cn(
           "flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start",
-          dismissible && "pr-8 data-[size=sm]:pr-7 data-[size=lg]:pr-10",
+          {
+            "pr-8 data-[size=sm]:pr-7 data-[size=lg]:pr-10": dismissible,
+          },
           className,
         )}
         {...props}

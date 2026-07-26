@@ -17,7 +17,7 @@ import {
   DocsCode,
   DocsP,
   ExampleGrid,
-  ExampleSection,
+  ShowcaseExample,
   Showcase,
   ShowcaseDocs
 } from "../../dev/components/showcase";
@@ -52,12 +52,8 @@ function NextJsCard() {
 
 function HoverCardMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
-    <div className="space-y-10 mt-6">
-      {}
-      <ExampleSection
-        label="Default"
-        description="Di chuột qua liên kết để xem bản xem trước. Trigger render dưới dạng Button với variant link."
-        codeString={`<HoverCard>
+    <div className="space-y-10">
+      <ShowcaseExample title="Default" description="Di chuột qua liên kết để xem bản xem trước. Trigger render dưới dạng Button với variant link." code={`<HoverCard>
     <HoverCardTrigger render={<Button variant="link" />}>
       @nextjs
     </HoverCardTrigger>
@@ -93,27 +89,24 @@ function HoverCardMicroShowcase({ globalSize }: { globalSize: Size }) {
         </div>
       </HoverCardContent>
     
-  </HoverCard>`}
-      >
-        <HoverCard>
-          <HoverCardTrigger
-            render={<Button variant="link" size={globalSize} />}
-          >
-            @nextjs
-          </HoverCardTrigger>
+  </HoverCard>`} preview={
+                  <>
+          <HoverCard>
+                    <HoverCardTrigger
+                      render={<Button variant="link" size={globalSize} />}
+                    >
+                      @nextjs
+                    </HoverCardTrigger>
 
-            <HoverCardContent className="w-80">
-              <NextJsCard />
-            </HoverCardContent>
-          
-        </HoverCard>
-      </ExampleSection>
+                      <HoverCardContent className="w-80">
+                        <NextJsCard />
+                      </HoverCardContent>
+                    
+                  </HoverCard>
+                  </>
+                } />
 
-      {}
-      <ExampleSection
-        label="Vị trí (Side)"
-        description="HoverCard có thể xuất hiện ở bốn phía của trigger thông qua prop side."
-        codeString={`<HoverCard>
+      <ShowcaseExample title="Vị trí (Side)" description="HoverCard có thể xuất hiện ở bốn phía của trigger thông qua prop side." code={`<HoverCard>
     <HoverCardTrigger
       render={<Button variant="outline">Top</Button>}
     />
@@ -122,90 +115,82 @@ function HoverCardMicroShowcase({ globalSize }: { globalSize: Size }) {
         ...
       </HoverCardContent>
     
-  </HoverCard>`}
-      >
-        <div className="flex flex-wrap items-center justify-center gap-4 py-8">
-          {(["top", "right", "bottom", "left"] as const).map((side) => (
-            <HoverCard key={side}>
-              <HoverCardTrigger
-                render={
-                  <Button
-                    variant="outline"
-                    size={globalSize}
-                    className="capitalize"
-                  >
-                    {side}
-                  </Button>
-                }
-              />
+  </HoverCard>`} preview={
+                  <>
+          <div className="flex flex-wrap items-center justify-center gap-4 py-8">
+                    {(["top", "right", "bottom", "left"] as const).map((side) => (
+                      <HoverCard key={side}>
+                        <HoverCardTrigger
+                          render={
+                            <Button
+                              variant="outline"
+                              size={globalSize}
+                              className="capitalize"
+                            >
+                              {side}
+                            </Button>
+                          }
+                        />
 
-                <HoverCardContent side={side} className="w-72">
-                  <NextJsCard />
-                </HoverCardContent>
-              
-            </HoverCard>
-          ))}
-        </div>
-      </ExampleSection>
+                          <HoverCardContent side={side} className="w-72">
+                            <NextJsCard />
+                          </HoverCardContent>
+                        
+                      </HoverCard>
+                    ))}
+                  </div>
+                  </>
+                } />
 
-      {}
       <ExampleGrid>
         {(["start", "center", "end"] as const).map((align) => (
-          <ExampleSection
-            key={align}
-            label={`Align: ${align}`}
-            description={`Card căn ${align} theo trục ngang.`}
-            codeString={`<HoverCardContent align="${align}" className="w-80">...</HoverCardContent>`}
-          >
+          <ShowcaseExample key={align} title={`Align: ${align}`} description={`Card căn ${align} theo trục ngang.`} code={`<HoverCardContent align="${align}" className="w-80">...</HoverCardContent>`} preview={
+                    <>
             <HoverCard>
-              <HoverCardTrigger
-                render={
-                  <Button
-                    variant="outline"
-                    size={globalSize}
-                    className="capitalize"
-                  >
-                    {align}
-                  </Button>
-                }
-              />
+                          <HoverCardTrigger
+                            render={
+                              <Button
+                                variant="outline"
+                                size={globalSize}
+                                className="capitalize"
+                              >
+                                {align}
+                              </Button>
+                            }
+                          />
 
-                <HoverCardContent align={align} className="w-64">
-                  <NextJsCard />
-                </HoverCardContent>
-              
-            </HoverCard>
-          </ExampleSection>
+                            <HoverCardContent align={align} className="w-64">
+                              <NextJsCard />
+                            </HoverCardContent>
+                          
+                        </HoverCard>
+                    </>
+                  } />
         ))}
       </ExampleGrid>
 
       {/* ── Trigger types ── */}
       <ExampleGrid>
-        <ExampleSection
-          label="Trigger: Button Link"
-          description="Trigger render như Button variant link — phù hợp cho text nội tuyến."
-          codeString={`<HoverCardTrigger render={<Button variant="link" />}>
+        <ShowcaseExample title="Trigger: Button Link" description="Trigger render như Button variant link — phù hợp cho text nội tuyến." code={`<HoverCardTrigger render={<Button variant="link" />}>
     @nextjs
-  </HoverCardTrigger>`}
-        >
-          <HoverCard>
-            <HoverCardTrigger
-              render={<Button variant="link" size={globalSize} />}
-            >
-              @nextjs
-            </HoverCardTrigger>
+  </HoverCardTrigger>`} preview={
+                      <>
+              <HoverCard>
+                          <HoverCardTrigger
+                            render={<Button variant="link" size={globalSize} />}
+                          >
+                            @nextjs
+                          </HoverCardTrigger>
 
-              <HoverCardContent className="w-80">
-                <NextJsCard />
-              </HoverCardContent>
-            
-          </HoverCard>
-        </ExampleSection>
+                            <HoverCardContent className="w-80">
+                              <NextJsCard />
+                            </HoverCardContent>
+                          
+                        </HoverCard>
+                      </>
+                    } />
 
-        <ExampleSection
-          label="Trigger: Thẻ anchor thuần"
-          description="Trigger render như thẻ <a> HTML thuần — phù hợp cho liên kết tự nhiên trong văn bản."
-          codeString={`<HoverCardTrigger
+        <ShowcaseExample title="Trigger: Thẻ anchor thuần" description="Trigger render như thẻ <a> HTML thuần — phù hợp cho liên kết tự nhiên trong văn bản." code={`<HoverCardTrigger
     render={
       <a
         href="#"
@@ -214,34 +199,31 @@ function HoverCardMicroShowcase({ globalSize }: { globalSize: Size }) {
     }
   >
     @nextjs
-  </HoverCardTrigger>`}
-        >
-          <HoverCard>
-            <HoverCardTrigger
-              render={
-                <a
-                  href="#"
-                  className="text-sm text-primary underline underline-offset-4 hover:opacity-80 transition-opacity"
-                />
-              }
-            >
-              @nextjs
-            </HoverCardTrigger>
+  </HoverCardTrigger>`} preview={
+                      <>
+              <HoverCard>
+                          <HoverCardTrigger
+                            render={
+                              <a
+                                href="#"
+                                className="text-sm text-primary underline underline-offset-4 hover:opacity-80 transition-opacity"
+                              />
+                            }
+                          >
+                            @nextjs
+                          </HoverCardTrigger>
 
-              <HoverCardContent className="w-80">
-                <NextJsCard />
-              </HoverCardContent>
-            
-          </HoverCard>
-        </ExampleSection>
+                            <HoverCardContent className="w-80">
+                              <NextJsCard />
+                            </HoverCardContent>
+                          
+                        </HoverCard>
+                      </>
+                    } />
       </ExampleGrid>
 
       {/* ── Độ trễ (delay / closeDelay) ── */}
-      <ExampleSection
-        label="Độ trễ (delay / closeDelay)"
-        description="Tuỳ chỉnh thời gian trễ trước khi card xuất hiện hoặc biến mất. Props delay và closeDelay đặt trên HoverCardTrigger."
-        fullWidth
-        codeString={`<HoverCard>
+      <ShowcaseExample title="Độ trễ (delay / closeDelay)" description="Tuỳ chỉnh thời gian trễ trước khi card xuất hiện hoặc biến mất. Props delay và closeDelay đặt trên HoverCardTrigger." code={`<HoverCard>
     <HoverCardTrigger delay={0} render={<Button />}>
       Tức thì
     </HoverCardTrigger>
@@ -270,59 +252,60 @@ function HoverCardMicroShowcase({ globalSize }: { globalSize: Size }) {
     
       <HoverCardContent>...</HoverCardContent>
     
-  </HoverCard>`}
-      >
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
-          <HoverCard>
-            <HoverCardTrigger
-              delay={0}
-              render={
-                <Button variant="outline" size={globalSize} className="w-full">
-                  Tức thì (0ms)
-                </Button>
-              }
-            />
+  </HoverCard>`} preview={
+                  <>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
+                    <HoverCard>
+                      <HoverCardTrigger
+                        delay={0}
+                        render={
+                          <Button variant="outline" size={globalSize} className="w-full">
+                            Tức thì (0ms)
+                          </Button>
+                        }
+                      />
 
-              <HoverCardContent className="w-72">
-                <NextJsCard />
-              </HoverCardContent>
-            
-          </HoverCard>
+                        <HoverCardContent className="w-72">
+                          <NextJsCard />
+                        </HoverCardContent>
+                      
+                    </HoverCard>
 
-          <HoverCard>
-            <HoverCardTrigger
-              delay={500}
-              render={
-                <Button variant="outline" size={globalSize} className="w-full">
-                  Mặc định (500ms)
-                </Button>
-              }
-            />
+                    <HoverCard>
+                      <HoverCardTrigger
+                        delay={500}
+                        render={
+                          <Button variant="outline" size={globalSize} className="w-full">
+                            Mặc định (500ms)
+                          </Button>
+                        }
+                      />
 
-              <HoverCardContent className="w-72">
-                <NextJsCard />
-              </HoverCardContent>
-            
-          </HoverCard>
+                        <HoverCardContent className="w-72">
+                          <NextJsCard />
+                        </HoverCardContent>
+                      
+                    </HoverCard>
 
-          <HoverCard>
-            <HoverCardTrigger
-              delay={1500}
-              closeDelay={500}
-              render={
-                <Button variant="outline" size={globalSize} className="w-full">
-                  Chậm (1500ms)
-                </Button>
-              }
-            />
+                    <HoverCard>
+                      <HoverCardTrigger
+                        delay={1500}
+                        closeDelay={500}
+                        render={
+                          <Button variant="outline" size={globalSize} className="w-full">
+                            Chậm (1500ms)
+                          </Button>
+                        }
+                      />
 
-              <HoverCardContent className="w-72">
-                <NextJsCard />
-              </HoverCardContent>
-            
-          </HoverCard>
-        </div>
-      </ExampleSection>
+                        <HoverCardContent className="w-72">
+                          <NextJsCard />
+                        </HoverCardContent>
+                      
+                    </HoverCard>
+                  </div>
+                  </>
+                } />
     </div>
   );
 }
@@ -336,7 +319,7 @@ export default function HoverCardShowcase() {
     <Showcase
       title="Hover Card"
       description="Xem trước nội dung đằng sau một liên kết khi hover."
-      generalConcept={
+      guideline={
         <ShowcaseDocs>
           <DocsP>
             <DocsCode>HoverCard</DocsCode> hiển thị một khung xem trước thông
@@ -351,11 +334,7 @@ export default function HoverCardShowcase() {
           </DocsP>
         </ShowcaseDocs>
       }
-      tabs={[
-        {
-          label: "Micro (Primitive)",
-          content: <HoverCardMicroShowcase globalSize={globalSize} /> },
-      ]}
+      micro={{ content: <HoverCardMicroShowcase globalSize={globalSize} /> }}
     />
   );
 }

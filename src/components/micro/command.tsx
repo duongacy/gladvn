@@ -68,17 +68,21 @@ const CommandInput = React.forwardRef<
       data-slot="command-input-wrapper"
       className={cn(
         "pb-0",
-        size === "sm" && "p-1",
-        size === "md" && "p-2",
-        size === "lg" && "p-3",
+        {
+          "p-1": size === "sm",
+          "p-2": size === "md",
+          "p-3": size === "lg",
+        }
       )}
     >
       <InputGroup
         className={cn(
           "rounded-lg border-input/30 bg-input/30 shadow-none",
-          size === "sm" && "h-8",
-          size === "md" && "h-10",
-          size === "lg" && "h-11",
+          {
+            "h-8": size === "sm",
+            "h-10": size === "md",
+            "h-11": size === "lg",
+          }
         )}
       >
         <CommandPrimitive.Input
@@ -88,10 +92,16 @@ const CommandInput = React.forwardRef<
           {...props}
         />
         <InputGroupAddon
-          className={cn("shrink-0", size === "lg" ? "pl-3" : "pl-2")}
+          className={cn("shrink-0", {
+            "pl-3": size === "lg",
+            "pl-2": size !== "lg",
+          })}
         >
           <SearchIcon
-            className={cn("opacity-50", size === "lg" ? "size-5" : "size-4")}
+            className={cn("opacity-50", {
+              "size-5": size === "lg",
+              "size-4": size !== "lg",
+            })}
           />
         </InputGroupAddon>
       </InputGroup>
@@ -127,9 +137,11 @@ const CommandEmpty = React.forwardRef<
       data-slot="command-empty"
       className={cn(
         "text-center",
-        size === "sm" && "py-4 text-xs",
-        size === "md" && "py-6 text-sm",
-        size === "lg" && "py-8 text-base",
+        {
+          "py-4 text-xs": size === "sm",
+          "py-6 text-sm": size === "md",
+          "py-8 text-base": size === "lg",
+        },
         className,
       )}
       {...props}

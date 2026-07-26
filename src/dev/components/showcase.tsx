@@ -18,13 +18,15 @@ export function SectionHeader({
   title,
   description,
   children,
+  className,
 }: {
   title: string;
   description?: string;
   children?: React.ReactNode;
+  className?: string;
 }) {
   return (
-    <div className="mb-8 flex flex-col gap-1">
+    <div className={cn("flex flex-col gap-1", className)}>
       <div className="flex items-end justify-between gap-4">
         <h2 className="text-3xl font-bold tracking-tight bg-gradient-to-br from-foreground to-foreground/60 bg-clip-text text-transparent">
           {title}
@@ -38,9 +40,9 @@ export function SectionHeader({
   );
 }
 
-export function ShowcaseDocs({ children }: { children: React.ReactNode }) {
+export function ShowcaseDocs({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
-    <div className="mb-12 overflow-hidden rounded-2xl border border-border border-amber-500/20 bg-amber-500/5 shadow-sm">
+    <div className={cn("overflow-hidden rounded-2xl border border-amber-500/20 bg-amber-500/5 shadow-sm", className)}>
       <div className="flex items-center gap-2 border-b border-b-border border-amber-500/20 bg-amber-500/10 px-6 py-3.5">
         <BookOpenIcon className="size-4 text-amber-700 dark:text-amber-500" />
         <h3 className="text-sm font-semibold text-amber-900 dark:text-amber-200">
@@ -54,63 +56,59 @@ export function ShowcaseDocs({ children }: { children: React.ReactNode }) {
   );
 }
 
-export function DocsH3({ children }: { children: React.ReactNode }) {
+export function DocsH3({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
-    <h3 className="mt-8 first:mt-1 mb-3 text-base font-semibold text-foreground">
+    <h3 className={cn("mt-8 first:mt-1 mb-3 text-base font-semibold text-foreground", className)}>
       {children}
     </h3>
   );
 }
 
-export function DocsP({ children }: { children: React.ReactNode }) {
-  return <p className="mb-6 last:mb-1">{children}</p>;
+export function DocsP({ children, className }: { children: React.ReactNode; className?: string }) {
+  return <p className={cn(className)}>{children}</p>;
 }
 
-export function DocsUl({ children }: { children: React.ReactNode }) {
-  return <ul className="mb-6 list-inside list-disc space-y-2">{children}</ul>;
+export function DocsUl({ children, className }: { children: React.ReactNode; className?: string }) {
+  return <ul className={cn("mb-6 list-inside list-disc space-y-2", className)}>{children}</ul>;
 }
 
-export function DocsLi({ children }: { children: React.ReactNode }) {
-  return <li>{children}</li>;
+export function DocsLi({ children, className }: { children: React.ReactNode; className?: string }) {
+  return <li className={className}>{children}</li>;
 }
 
-export function DocsCode({ children }: { children: React.ReactNode }) {
+export function DocsCode({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
-    <code className="rounded-md border border-border border-amber-500/20 bg-amber-500/10 px-1.5 py-0.5 font-mono text-[13px] text-amber-900 dark:text-amber-200">
+    <code className={cn("rounded-md border border-amber-500/20 bg-amber-500/10 px-1.5 py-0.5 font-mono text-[13px] text-amber-900 dark:text-amber-200", className)}>
       {children}
     </code>
   );
 }
 
-export function ExampleSection({
-  label,
+export function ShowcaseExample({
+  title,
   description,
-  children,
+  preview,
   className,
-  codeString: customCodeString,
-  hideCode = false,
+  code,
 }: {
-  label?: string;
+  title?: string;
   description?: string;
-  children: React.ReactNode;
+  preview: React.ReactNode;
   className?: string;
-  fullWidth?: boolean;
-  codeString?: string;
-  hideCode?: boolean;
+  code?: string;
 }) {
   const [copied, setCopied] = useState(false);
   const [activeTab, setActiveTab] = useState("preview");
 
-  const shouldHideCode = hideCode || label?.includes("Use Case Comparison");
-  const codeString = customCodeString || "// Please provide a codeString prop";
+  const hasCode = code !== undefined;
 
   const handleTabChange = (value: string) => {
     setActiveTab(value);
   };
 
   const copyToClipboard = () => {
-    if (codeString) {
-      navigator.clipboard.writeText(codeString);
+    if (code) {
+      navigator.clipboard.writeText(code);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     }
@@ -124,8 +122,8 @@ export function ExampleSection({
     >
       <div className="flex items-start justify-between gap-4">
         <div className="flex flex-col gap-0.5">
-          {label && (
-            <h3 className="text-sm font-semibold text-foreground">{label}</h3>
+          {title && (
+            <h3 className="text-sm font-semibold text-foreground">{title}</h3>
           )}
           {description && (
             <p className="text-[13px] text-muted-foreground leading-relaxed pr-4">
@@ -133,7 +131,7 @@ export function ExampleSection({
             </p>
           )}
         </div>
-        {!shouldHideCode && (
+        {hasCode && (
           <TabsList className="h-8 shrink-0">
             <TabsTrigger value="preview" className="text-xs px-3 py-1">
               Preview
@@ -149,20 +147,19 @@ export function ExampleSection({
         <TabsContent value="preview" className="mt-0 outline-none">
           <div
             className={cn(
-              "relative rounded-2xl border border-border/80 bg-background/50 backdrop-blur-sm p-8 shadow-sm transition-all duration-300 hover:shadow-md hover:border-ring/30",
-              "min-h-[120px]",
+              "relative min-h-[120px] w-full rounded-2xl bg-muted/30 dark:bg-muted/20 p-4 sm:p-6",
               className,
             )}
           >
-            <div className="absolute inset-0 -z-10 opacity-[0.03] dark:opacity-[0.05] [background-size:24px_24px] [background-image:radial-gradient(circle_at_center,var(--color-foreground)_1.5px,transparent_1.5px)]" />
-            <div className="relative z-10 w-full">{children}</div>
+
+            <div className="relative z-10 w-full">{preview}</div>
           </div>
         </TabsContent>
 
-        {!shouldHideCode && (
+        {hasCode && (
           <TabsContent value="code" className="mt-0 outline-none">
-            <div className="relative rounded-2xl border border-border/80 bg-muted/50 p-4 text-foreground shadow-sm overflow-clip group/code">
-              <CodeHighlighter code={codeString || "// Loading..."} />
+            <div className="relative rounded-2xl bg-muted/30 dark:bg-muted/20 p-4 text-foreground overflow-clip group/code">
+              <CodeHighlighter code={code} />
               <Button
                 size="sm"
                 iconOnly
@@ -196,40 +193,6 @@ export function ExampleGrid({
   );
 }
 
-export const ComponentGrid = ExampleGrid;
-export function ComponentPreview({
-  title,
-  description,
-  children,
-  className,
-}: {
-  title?: string;
-  description?: string;
-  icon?: React.ElementType;
-  color?: string;
-  children: React.ReactNode;
-  className?: string;
-}) {
-  return (
-    <ExampleSection
-      label={title}
-      description={description}
-      className={className}
-    >
-      {children}
-    </ExampleSection>
-  );
-}
-
-export function ShowcaseBlock({
-  title,
-  children,
-}: {
-  title: string;
-  children: React.ReactNode;
-}) {
-  return <ExampleSection label={title}>{children}</ExampleSection>;
-}
 
 const bgColorMap: Record<(typeof COLORS)[number], string> = {
   primary: "bg-primary",
@@ -241,10 +204,10 @@ const bgColorMap: Record<(typeof COLORS)[number], string> = {
   tertiary: "bg-tertiary",
 };
 
-export function ColorSwatch({ color }: { color: (typeof COLORS)[number] }) {
+export function ColorSwatch({ color, className }: { color: (typeof COLORS)[number]; className?: string }) {
   const info = COLOR_INFO[color];
   return (
-    <div className="flex flex-col items-center gap-3 p-3.5 sm:p-5 rounded-[2rem] bg-background/40 border border-border/50 shadow-sm backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/30 group">
+    <div className={cn("flex flex-col items-center gap-3 p-3.5 sm:p-5 rounded-[2rem] bg-background/40 border border-border/50 shadow-sm backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/30 group", className)}>
       <div
         className={cn(
           "h-12 w-12 sm:h-16 sm:w-16 rounded-2xl border border-border shadow-inner transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 group-hover:rounded-[2rem]",
@@ -260,32 +223,50 @@ export function ColorSwatch({ color }: { color: (typeof COLORS)[number] }) {
   );
 }
 
-export interface ShowcaseTab {
-  label: string;
-  content: React.ReactNode;
-}
-
 export interface ShowcaseProps {
   title: React.ReactNode;
   description?: React.ReactNode;
-  generalConcept?: React.ReactNode;
+  guideline?: React.ReactNode;
   actions?: React.ReactNode;
-  tabs: ShowcaseTab[];
+  micro?: {
+    content: React.ReactNode;
+    useCaseComparison?: React.ReactNode;
+  };
+  macro?: {
+    content: React.ReactNode;
+    useCaseComparison?: React.ReactNode;
+  };
+  className?: string;
 }
 
 export function Showcase({
   title,
   description,
-  generalConcept,
+  guideline,
   actions,
-  tabs,
+  micro,
+  macro,
+  className,
 }: ShowcaseProps) {
-  const hasTabs = tabs.length >= 2;
+  const hasTabs = !!micro && !!macro;
+
+  const renderTabContent = (tab?: { content: React.ReactNode; useCaseComparison?: React.ReactNode }) => {
+    if (!tab) return null;
+    return (
+      <div className="space-y-10">
+        {tab.content}
+        {tab.useCaseComparison && (
+          <div className="mt-16">
+            {tab.useCaseComparison}
+          </div>
+        )}
+      </div>
+    );
+  };
 
   const content = (
-    <>
-      {}
-      <div className="flex flex-col gap-2 mb-6">
+    <div className={cn("flex flex-col gap-8", className)}>
+      <div className="flex flex-col gap-2">
         <div className="flex items-center gap-4">
           <h2 className="text-3xl font-bold tracking-tight bg-gradient-to-br from-foreground to-foreground/60 bg-clip-text text-transparent">
             {title}
@@ -297,73 +278,78 @@ export function Showcase({
         )}
       </div>
 
-      {}
-      {generalConcept && <div className="mb-8">{generalConcept}</div>}
+      {guideline}
 
-      {}
-      <div className="mt-2">
+      <div className="flex flex-col gap-6">
         {hasTabs && (
-          <div className="mb-6 flex">
-            <TabsList>
-              {tabs.map((tab) => (
-                <TabsTrigger
-                  key={tab.label}
-                  value={tab.label}
-                  className="px-4 py-1.5"
-                >
-                  {tab.label}
-                </TabsTrigger>
-              ))}
-            </TabsList>
-          </div>
+          <TabsList>
+            {micro && (
+              <TabsTrigger value="Micro (Primitive)" className="px-4 py-1.5">
+                Micro (Primitive)
+              </TabsTrigger>
+            )}
+            {macro && (
+              <TabsTrigger value="Macro (Preset)" className="px-4 py-1.5">
+                Macro (Preset)
+              </TabsTrigger>
+            )}
+          </TabsList>
         )}
-        {hasTabs
-          ? tabs.map((tab) => (
-              <TabsContent
-                key={tab.label}
-                value={tab.label}
-                className="mt-0 focus-visible:outline-none"
-              >
-                {tab.content}
-              </TabsContent>
-            ))
-          : tabs[0]?.content}
+
+        {micro && (
+          hasTabs ? (
+            <TabsContent value="Micro (Primitive)" className="mt-0 focus-visible:outline-none">
+              {renderTabContent(micro)}
+            </TabsContent>
+          ) : (
+            renderTabContent(micro)
+          )
+        )}
+
+        {macro && (
+          hasTabs ? (
+            <TabsContent value="Macro (Preset)" className="mt-0 focus-visible:outline-none">
+              {renderTabContent(macro)}
+            </TabsContent>
+          ) : (
+            !micro ? renderTabContent(macro) : null
+          )
+        )}
       </div>
-    </>
+    </div>
   );
 
-  return (
-    <div className="w-full flex flex-col gap-8">
-      {hasTabs ? (
-        <Tabs defaultValue={tabs[0]!.label} className="w-full">
-          {content}
-        </Tabs>
-      ) : (
-        content
-      )}
-    </div>
+  return hasTabs ? (
+    <Tabs defaultValue="Micro (Primitive)" className="w-full">
+      {content}
+    </Tabs>
+  ) : (
+    content
   );
 }
 
 export function SizeToggle({
   value,
   onValueChange,
+  className,
 }: {
   value: Size;
   onValueChange: (size: Size) => void;
+  className?: string;
 }) {
   const sizes: Size[] = ["sm", "md", "lg"];
   return (
-    <div className="flex h-8 items-center rounded-md border border-border bg-muted/50 p-1">
+    <div className={cn("flex h-8 items-center rounded-md border border-border bg-muted/50 p-1", className)}>
       {sizes.map((size) => (
         <button
           key={size}
           onClick={() => onValueChange(size)}
           className={cn(
             "flex items-center justify-center rounded-sm px-2.5 text-xs font-mono font-medium transition-all",
-            value === size
-              ? "bg-background text-foreground shadow-sm"
-              : "text-muted-foreground hover:bg-muted hover:text-foreground",
+            {
+              "bg-background text-foreground shadow-sm": value === size,
+              "text-muted-foreground hover:bg-muted hover:text-foreground": value !== size,
+            }
           )}
         >
           {size}

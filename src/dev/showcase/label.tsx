@@ -3,7 +3,7 @@ import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsCode,
   DocsP,
-  ExampleSection,
+  ShowcaseExample,
   Showcase,
   ShowcaseDocs
 } from "../../dev/components/showcase";
@@ -11,49 +11,40 @@ import { type Size } from "../../lib/types";
 
 function LabelMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
-    <div className="space-y-10 mt-6">
-      <ExampleSection
-        label="Default"
-        description="Cách sử dụng nhãn tiêu chuẩn."
-        codeString={`<Label htmlFor="terms">Chấp nhận điều khoản và điều kiện</Label>`}
-      >
-        <Label htmlFor="terms" size={globalSize}>
-          Chấp nhận điều khoản và điều kiện
-        </Label>
-      </ExampleSection>
+    <div className="space-y-10">
+      <ShowcaseExample title="Default" description="Cách sử dụng nhãn tiêu chuẩn." code={`<Label htmlFor="terms">Chấp nhận điều khoản và điều kiện</Label>`} preview={
+                  <>
+          <Label htmlFor="terms" size={globalSize}>
+                    Chấp nhận điều khoản và điều kiện
+                  </Label>
+                  </>
+                } />
 
-      <ExampleSection
-        label="Disabled"
-        description="Trạng thái bị vô hiệu hóa khi nằm trong group bị vô hiệu."
-        codeString={`<div data-disabled="true" className="group">
+      <ShowcaseExample title="Disabled" description="Trạng thái bị vô hiệu hóa khi nằm trong group bị vô hiệu." code={`<div data-disabled="true" className="group">
     <Label htmlFor="disabled">Nhãn này đã bị khóa</Label>
-  </div>`}
-      >
-        <div data-disabled="true" className="group">
-          <Label htmlFor="disabled" size={globalSize}>
-            Nhãn này đã bị khóa
-          </Label>
-        </div>
-      </ExampleSection>
+  </div>`} preview={
+                  <>
+          <div data-disabled="true" className="group">
+                    <Label htmlFor="disabled" size={globalSize}>
+                      Nhãn này đã bị khóa
+                    </Label>
+                  </div>
+                  </>
+                } />
 
-      <ExampleSection
-        label="Error State"
-        description="Hiển thị màu đỏ khi nằm trong group bị lỗi (data-invalid)."
-        codeString={`<div data-invalid="true" className="group">
+      <ShowcaseExample title="Error State" description="Hiển thị màu đỏ khi nằm trong group bị lỗi (data-invalid)." code={`<div data-invalid="true" className="group">
     <Label htmlFor="error">Email là bắt buộc</Label>
-  </div>`}
-      >
-        <div data-invalid="true" className="group">
-          <Label htmlFor="error" size={globalSize}>
-            Email là bắt buộc
-          </Label>
-        </div>
-      </ExampleSection>
+  </div>`} preview={
+                  <>
+          <div data-invalid="true" className="group">
+                    <Label htmlFor="error" size={globalSize}>
+                      Email là bắt buộc
+                    </Label>
+                  </div>
+                  </>
+                } />
 
-      <ExampleSection
-        label="With Peer Input"
-        description="Phản hồi trạng thái disabled của input liền kề (dùng class peer)."
-        codeString={`<div className="flex items-center gap-2">
+      <ShowcaseExample title="With Peer Input" description="Phản hồi trạng thái disabled của input liền kề (dùng class peer)." code={`<div className="flex items-center gap-2">
     <input
       type="checkbox"
       disabled
@@ -63,20 +54,21 @@ function LabelMicroShowcase({ globalSize }: { globalSize: Size }) {
     <Label htmlFor="peer-disabled">
       Bị khóa bởi peer checkbox
     </Label>
-  </div>`}
-      >
-        <div className="flex items-center gap-2">
-          <input
-            type="checkbox"
-            disabled
-            id="peer-disabled"
-            className="peer w-4 h-4"
-          />
-          <Label htmlFor="peer-disabled" size={globalSize}>
-            Bị khóa bởi peer checkbox
-          </Label>
-        </div>
-      </ExampleSection>
+  </div>`} preview={
+                  <>
+          <div className="flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      disabled
+                      id="peer-disabled"
+                      className="peer w-4 h-4"
+                    />
+                    <Label htmlFor="peer-disabled" size={globalSize}>
+                      Bị khóa bởi peer checkbox
+                    </Label>
+                  </div>
+                  </>
+                } />
     </div>
   );
 }
@@ -87,7 +79,7 @@ export default function LabelShowcase() {
     <Showcase
       title="Label"
       description="Nhãn gắn với form control, cải thiện accessibility."
-      generalConcept={
+      guideline={
         <ShowcaseDocs>
           <DocsP>
             Label được sử dụng để gắn nhãn cho các trường nhập liệu form. Nó cải
@@ -97,11 +89,7 @@ export default function LabelShowcase() {
           </DocsP>
         </ShowcaseDocs>
       }
-      tabs={[
-        {
-          label: "Micro (Primitive)",
-          content: <LabelMicroShowcase globalSize={globalSize} /> },
-      ]}
+      micro={{ content: <LabelMicroShowcase globalSize={globalSize} /> }}
     />
   );
 }

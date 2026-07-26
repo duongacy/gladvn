@@ -13,7 +13,7 @@ import {
 import {
   DocsH3,
   DocsP,
-  ExampleSection,
+  ShowcaseExample,
   Showcase,
   ShowcaseDocs
 } from "../../dev/components/showcase";
@@ -40,11 +40,8 @@ function TableMicroShowcase() {
   });
 
   return (
-    <div className="space-y-10 mt-6">
-      <ExampleSection
-        label="Default"
-        description="Bảng tiêu chuẩn có chú thích."
-        codeString={`<Table>
+    <div className="space-y-10">
+      <ShowcaseExample title="Default" description="Bảng tiêu chuẩn có chú thích." code={`<Table>
     <TableCaption>
       A list of your recent invoices.
     </TableCaption>
@@ -86,45 +83,43 @@ function TableMicroShowcase() {
         </TableCell>
       </TableRow>
     </TableFooter>
-  </Table>`}
-      >
-        <Table>
-          <TableCaption>A list of your recent invoices.</TableCaption>
-          <TableHeader>
-            <TableRow>
-              <TableHead className="w-[100px]">Invoice</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead>Method</TableHead>
-              <TableHead className="text-right">Amount</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            <TableRow>
-              <TableCell className="font-medium">INV001</TableCell>
-              <TableCell>Paid</TableCell>
-              <TableCell>Credit Card</TableCell>
-              <TableCell className="text-right">$250.00</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell className="font-medium">INV002</TableCell>
-              <TableCell>Pending</TableCell>
-              <TableCell>PayPal</TableCell>
-              <TableCell className="text-right">$150.00</TableCell>
-            </TableRow>
-          </TableBody>
-          <TableFooter>
-            <TableRow>
-              <TableCell colSpan={3}>Total</TableCell>
-              <TableCell className="text-right">$2,500.00</TableCell>
-            </TableRow>
-          </TableFooter>
-        </Table>
-      </ExampleSection>
+  </Table>`} preview={
+                  <>
+          <Table>
+                    <TableCaption>A list of your recent invoices.</TableCaption>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead className="w-[100px]">Invoice</TableHead>
+                        <TableHead>Status</TableHead>
+                        <TableHead>Method</TableHead>
+                        <TableHead className="text-right">Amount</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      <TableRow>
+                        <TableCell className="font-medium">INV001</TableCell>
+                        <TableCell>Paid</TableCell>
+                        <TableCell>Credit Card</TableCell>
+                        <TableCell className="text-right">$250.00</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell className="font-medium">INV002</TableCell>
+                        <TableCell>Pending</TableCell>
+                        <TableCell>PayPal</TableCell>
+                        <TableCell className="text-right">$150.00</TableCell>
+                      </TableRow>
+                    </TableBody>
+                    <TableFooter>
+                      <TableRow>
+                        <TableCell colSpan={3}>Total</TableCell>
+                        <TableCell className="text-right">$2,500.00</TableCell>
+                      </TableRow>
+                    </TableFooter>
+                  </Table>
+                  </>
+                } />
 
-      <ExampleSection
-        label="Sortable"
-        description="Bảng có tính năng sắp xếp dữ liệu (strictly controlled). Thử click vào cột Invoice!"
-        codeString={`const [invoiceSort, setInvoiceSort] = React.useState<"asc" | "desc" | "none">("asc")
+      <ShowcaseExample title="Sortable" description="Bảng có tính năng sắp xếp dữ liệu (strictly controlled). Thử click vào cột Invoice!" code={`const [invoiceSort, setInvoiceSort] = React.useState<"asc" | "desc" | "none">("asc")
 
 // Tính toán sortedData dựa trên invoiceSort ở đây...
 
@@ -156,36 +151,37 @@ return (
       ))}
     </TableBody>
   </Table>
-)`}
-      >
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead
-                className="w-[100px]"
-                sortDirection={invoiceSort}
-                sortOptions={["asc", "desc"]}
-                onSort={(dir) => setInvoiceSort(dir as SortDirection)}
-              >
-                Invoice
-              </TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead>Method</TableHead>
-              <TableHead className="text-right">Amount</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {sortedData.map((item) => (
-              <TableRow key={item.id}>
-                <TableCell className="font-medium">{item.id}</TableCell>
-                <TableCell>{item.status}</TableCell>
-                <TableCell>{item.method}</TableCell>
-                <TableCell className="text-right">{item.amount}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </ExampleSection>
+)`} preview={
+                  <>
+          <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead
+                          className="w-[100px]"
+                          sortDirection={invoiceSort}
+                          sortOptions={["asc", "desc"]}
+                          onSort={(dir) => setInvoiceSort(dir as SortDirection)}
+                        >
+                          Invoice
+                        </TableHead>
+                        <TableHead>Status</TableHead>
+                        <TableHead>Method</TableHead>
+                        <TableHead className="text-right">Amount</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {sortedData.map((item) => (
+                        <TableRow key={item.id}>
+                          <TableCell className="font-medium">{item.id}</TableCell>
+                          <TableCell>{item.status}</TableCell>
+                          <TableCell>{item.method}</TableCell>
+                          <TableCell className="text-right">{item.amount}</TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                  </>
+                } />
     </div>
   );
 }
@@ -195,13 +191,13 @@ export default function TableShowcase() {
     <Showcase
       title="Table"
       description="Bảng dữ liệu responsive."
-      generalConcept={
+      guideline={
         <ShowcaseDocs>
           <DocsH3>Table</DocsH3>
           <DocsP>Sử dụng để hiển thị dữ liệu dạng bảng.</DocsP>
         </ShowcaseDocs>
       }
-      tabs={[{ label: "Micro (Primitive)", content: <TableMicroShowcase /> }]}
+      micro={{ content: <TableMicroShowcase /> }}
     />
   );
 }

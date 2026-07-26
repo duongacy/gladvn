@@ -53,10 +53,12 @@ const DialogPreset = React.forwardRef<HTMLDivElement, DialogPresetProps>(
           <DialogContent
             ref={ref}
             className={cn(
-              size === "sm" && "sm:max-w-md",
-              size === "md" && "sm:max-w-lg",
-              size === "lg" && "sm:max-w-xl",
               "flex flex-col gap-0 p-0 overflow-hidden",
+              {
+                "sm:max-w-md": size === "sm",
+                "sm:max-w-lg": size === "md",
+                "sm:max-w-xl": size === "lg",
+              }
             )}
           >
             {(title || description) && (

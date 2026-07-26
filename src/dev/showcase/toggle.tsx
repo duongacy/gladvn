@@ -7,7 +7,7 @@ import {
   DocsH3,
   DocsP,
   ExampleGrid,
-  ExampleSection,
+  ShowcaseExample,
   Showcase,
   ShowcaseDocs
 } from "../../dev/components/showcase";
@@ -15,72 +15,63 @@ import { type Size } from "../../lib/types";
 
 function ToggleMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
-    <div className="space-y-10 mt-6">
-      {}
+    <div className="space-y-10">
       <ExampleGrid>
-        <ExampleSection
-          label="Default (Ghost)"
-          description="Variant mặc định — không viền, chỉ đổi nền khi pressed."
-          codeString={`<Toggle aria-label="Toggle italic">
+        <ShowcaseExample title="Default (Ghost)" description="Variant mặc định — không viền, chỉ đổi nền khi pressed." code={`<Toggle aria-label="Toggle italic">
     <ItalicIcon />
     Italic
   </Toggle>
   <Toggle aria-label="Toggle bold">
     <BoldIcon />
     Bold
-  </Toggle>`}
-        >
-          <div className="flex gap-2">
-            <Toggle aria-label="Toggle italic" size={globalSize}>
-              <ItalicIcon />
-              Italic
-            </Toggle>
-            <Toggle aria-label="Toggle bold" size={globalSize}>
-              <BoldIcon />
-              Bold
-            </Toggle>
-          </div>
-        </ExampleSection>
+  </Toggle>`} preview={
+                      <>
+              <div className="flex gap-2">
+                          <Toggle aria-label="Toggle italic" size={globalSize}>
+                            <ItalicIcon />
+                            Italic
+                          </Toggle>
+                          <Toggle aria-label="Toggle bold" size={globalSize}>
+                            <BoldIcon />
+                            Bold
+                          </Toggle>
+                        </div>
+                      </>
+                    } />
 
-        <ExampleSection
-          label="Outline"
-          description='variant="outline" thêm viền border-input xung quanh toggle.'
-          codeString={`<Toggle variant="outline" aria-label="Toggle italic">
+        <ShowcaseExample title="Outline" description='variant="outline" thêm viền border-input xung quanh toggle.' code={`<Toggle variant="outline" aria-label="Toggle italic">
     <ItalicIcon />
     Italic
   </Toggle>
   <Toggle variant="outline" aria-label="Toggle underline">
     <UnderlineIcon />
     Underline
-  </Toggle>`}
-        >
-          <div className="flex gap-2">
-            <Toggle
-              variant="outline"
-              aria-label="Toggle italic"
-              size={globalSize}
-            >
-              <ItalicIcon />
-              Italic
-            </Toggle>
-            <Toggle
-              variant="outline"
-              aria-label="Toggle underline"
-              size={globalSize}
-            >
-              <UnderlineIcon />
-              Underline
-            </Toggle>
-          </div>
-        </ExampleSection>
+  </Toggle>`} preview={
+                      <>
+              <div className="flex gap-2">
+                          <Toggle
+                            variant="outline"
+                            aria-label="Toggle italic"
+                            size={globalSize}
+                          >
+                            <ItalicIcon />
+                            Italic
+                          </Toggle>
+                          <Toggle
+                            variant="outline"
+                            aria-label="Toggle underline"
+                            size={globalSize}
+                          >
+                            <UnderlineIcon />
+                            Underline
+                          </Toggle>
+                        </div>
+                      </>
+                    } />
       </ExampleGrid>
 
-      {}
       <ExampleGrid>
-        <ExampleSection
-          label="Icon Only"
-          description="Toggle chỉ có icon — luôn truyền aria-label để đảm bảo a11y."
-          codeString={`<Toggle aria-label="Toggle italic">
+        <ShowcaseExample title="Icon Only" description="Toggle chỉ có icon — luôn truyền aria-label để đảm bảo a11y." code={`<Toggle aria-label="Toggle italic">
     <ItalicIcon />
   </Toggle>
   <Toggle aria-label="Toggle bold">
@@ -88,29 +79,27 @@ function ToggleMicroShowcase({ globalSize }: { globalSize: Size }) {
   </Toggle>
   <Toggle variant="outline" aria-label="Toggle underline">
     <UnderlineIcon />
-  </Toggle>`}
-        >
-          <div className="flex gap-2">
-            <Toggle aria-label="Toggle italic" size={globalSize}>
-              <ItalicIcon />
-            </Toggle>
-            <Toggle aria-label="Toggle bold" size={globalSize}>
-              <BoldIcon />
-            </Toggle>
-            <Toggle
-              variant="outline"
-              aria-label="Toggle underline"
-              size={globalSize}
-            >
-              <UnderlineIcon />
-            </Toggle>
-          </div>
-        </ExampleSection>
+  </Toggle>`} preview={
+                      <>
+              <div className="flex gap-2">
+                          <Toggle aria-label="Toggle italic" size={globalSize}>
+                            <ItalicIcon />
+                          </Toggle>
+                          <Toggle aria-label="Toggle bold" size={globalSize}>
+                            <BoldIcon />
+                          </Toggle>
+                          <Toggle
+                            variant="outline"
+                            aria-label="Toggle underline"
+                            size={globalSize}
+                          >
+                            <UnderlineIcon />
+                          </Toggle>
+                        </div>
+                      </>
+                    } />
 
-        <ExampleSection
-          label="Disabled"
-          description="Toggle bị vô hiệu hóa — không thể tương tác, hiển thị mờ."
-          codeString={`<Toggle disabled aria-label="Toggle italic">
+        <ShowcaseExample title="Disabled" description="Toggle bị vô hiệu hóa — không thể tương tác, hiển thị mờ." code={`<Toggle disabled aria-label="Toggle italic">
     <ItalicIcon />
     Italic
   </Toggle>
@@ -121,24 +110,25 @@ function ToggleMicroShowcase({ globalSize }: { globalSize: Size }) {
   >
     <BoldIcon />
     Bold
-  </Toggle>`}
-        >
-          <div className="flex gap-2">
-            <Toggle disabled aria-label="Toggle italic" size={globalSize}>
-              <ItalicIcon />
-              Italic
-            </Toggle>
-            <Toggle
-              variant="outline"
-              disabled
-              aria-label="Toggle bold"
-              size={globalSize}
-            >
-              <BoldIcon />
-              Bold
-            </Toggle>
-          </div>
-        </ExampleSection>
+  </Toggle>`} preview={
+                      <>
+              <div className="flex gap-2">
+                          <Toggle disabled aria-label="Toggle italic" size={globalSize}>
+                            <ItalicIcon />
+                            Italic
+                          </Toggle>
+                          <Toggle
+                            variant="outline"
+                            disabled
+                            aria-label="Toggle bold"
+                            size={globalSize}
+                          >
+                            <BoldIcon />
+                            Bold
+                          </Toggle>
+                        </div>
+                      </>
+                    } />
       </ExampleGrid>
     </div>
   );
@@ -150,7 +140,7 @@ export default function ToggleShowcase() {
     <Showcase
       title="Toggle"
       description="Nút hai trạng thái có thể bật hoặc tắt, hỗ trợ icon, text, variants và sizes."
-      generalConcept={
+      guideline={
         <ShowcaseDocs>
           <DocsH3>Toggle</DocsH3>
           <DocsP>
@@ -163,11 +153,7 @@ export default function ToggleShowcase() {
           </DocsP>
         </ShowcaseDocs>
       }
-      tabs={[
-        {
-          label: "Micro (Primitive)",
-          content: <ToggleMicroShowcase globalSize={globalSize} /> },
-      ]}
+      micro={{ content: <ToggleMicroShowcase globalSize={globalSize} /> }}
     />
   );
 }

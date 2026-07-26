@@ -30,7 +30,7 @@ import {
   CardHeader,
   CardTitle,
 } from "../../components/micro/card";
-import { SectionHeader, ShowcaseBlock } from "../../dev/components/showcase";
+import { SectionHeader, ShowcaseExample } from "../../dev/components/showcase";
 
 export default function DisplaySection() {
   return (
@@ -40,7 +40,6 @@ export default function DisplaySection() {
         description="Avatars, Cards, Accordion, and more"
       />
 
-      {}
       <div className="rounded-2xl border border-border bg-card/40 p-6 shadow-sm">
         <div className="flex items-center justify-between mb-6">
           <div>
@@ -56,7 +55,6 @@ export default function DisplaySection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {}
           <div className="rounded-xl border border-border bg-card p-5 shadow-sm flex flex-col gap-4">
             <h4 className="text-sm font-medium text-muted-foreground">
               Sizes & Fallbacks
@@ -79,7 +77,6 @@ export default function DisplaySection() {
             </div>
           </div>
 
-          {}
           <div className="rounded-xl border border-border bg-card p-5 shadow-sm flex flex-col gap-4">
             <h4 className="text-sm font-medium text-muted-foreground">
               Groups & Status Badges
@@ -122,7 +119,6 @@ export default function DisplaySection() {
         </div>
       </div>
 
-      {}
       <div className="rounded-2xl border border-border bg-card/40 overflow-hidden shadow-sm">
         <div className="border-b border-b-border bg-muted/30 px-6 py-4">
           <h3 className="font-semibold text-lg flex items-center gap-2">
@@ -197,74 +193,74 @@ export default function DisplaySection() {
         </div>
       </div>
 
-      <ShowcaseBlock title="Cards">
-        <div className="grid gap-3 sm:grid-cols-2">
-          <Card>
-            <CardHeader>
-              <div className="flex items-center gap-2">
-                <div className="size-8 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <ZapIcon className="size-4 text-primary" />
-                </div>
-                <CardTitle className="text-base">Tốc độ</CardTitle>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-muted-foreground">
-                Nhẹ, nhanh và support tree-shaking tới bến.
-              </p>
-            </CardContent>
-            <CardFooter>
-              <Button variant="ghost" size="sm" color="primary">
-                Learn more →
-              </Button>
-            </CardFooter>
-          </Card>
-          <Card>
-            <CardHeader>
-              <div className="flex items-center gap-2">
-                <div className="size-8 rounded-lg bg-success/10 flex items-center justify-center">
-                  <ShieldCheckIcon className="size-4 text-success" />
-                </div>
-                <CardTitle className="text-base">Chuẩn Type</CardTitle>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-muted-foreground">
-                Viết bằng TypeScript 100%, gõ tới đâu VSCode nhắc tới đó.
-              </p>
-            </CardContent>
-            <CardFooter>
-              <Button variant="ghost" size="sm" color="success">
-                Learn more →
-              </Button>
-            </CardFooter>
-          </Card>
-        </div>
-      </ShowcaseBlock>
+      <ShowcaseExample title="Cards" preview={<>
+          <div className="grid gap-3 sm:grid-cols-2">
+                    <Card>
+                      <CardHeader>
+                        <div className="flex items-center gap-2">
+                          <div className="size-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                            <ZapIcon className="size-4 text-primary" />
+                          </div>
+                          <CardTitle className="text-base">Tốc độ</CardTitle>
+                        </div>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-sm text-muted-foreground">
+                          Nhẹ, nhanh và support tree-shaking tới bến.
+                        </p>
+                      </CardContent>
+                      <CardFooter>
+                        <Button variant="ghost" size="sm" color="primary">
+                          Learn more →
+                        </Button>
+                      </CardFooter>
+                    </Card>
+                    <Card>
+                      <CardHeader>
+                        <div className="flex items-center gap-2">
+                          <div className="size-8 rounded-lg bg-success/10 flex items-center justify-center">
+                            <ShieldCheckIcon className="size-4 text-success" />
+                          </div>
+                          <CardTitle className="text-base">Chuẩn Type</CardTitle>
+                        </div>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-sm text-muted-foreground">
+                          Viết bằng TypeScript 100%, gõ tới đâu VSCode nhắc tới đó.
+                        </p>
+                      </CardContent>
+                      <CardFooter>
+                        <Button variant="ghost" size="sm" color="success">
+                          Learn more →
+                        </Button>
+                      </CardFooter>
+                    </Card>
+                  </div>
+          </>} />
 
-      <ShowcaseBlock title="Accordion">
-        <Accordion>
-          {[
-            {
-              q: "Cài đặt như thế nào?",
-              a: "Chạy lệnh npm install gladvn trong project của bạn nha.",
-            },
-            {
-              q: "Có đổi màu được không?",
-              a: "Được luôn! Chỉ cần copy file tokens.css và override lại CSS variable tuỳ ý.",
-            },
-            {
-              q: "Có hỗ trợ Dark Mode không?",
-              a: "Chắc chắn rồi — bạn chỉ cần thêm class .dark vào thẻ <html> là xong.",
-            },
-          ].map(({ q, a }) => (
-            <AccordionItem key={q} value={q}>
-              <AccordionTrigger>{q}</AccordionTrigger>
-              <AccordionContent>{a}</AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
-      </ShowcaseBlock>
+      <ShowcaseExample title="Accordion" preview={<>
+          <Accordion>
+                    {[
+                      {
+                        q: "Cài đặt như thế nào?",
+                        a: "Chạy lệnh npm install gladvn trong project của bạn nha.",
+                      },
+                      {
+                        q: "Có đổi màu được không?",
+                        a: "Được luôn! Chỉ cần copy file tokens.css và override lại CSS variable tuỳ ý.",
+                      },
+                      {
+                        q: "Có hỗ trợ Dark Mode không?",
+                        a: "Chắc chắn rồi — bạn chỉ cần thêm class .dark vào thẻ <html> là xong.",
+                      },
+                    ].map(({ q, a }) => (
+                      <AccordionItem key={q} value={q}>
+                        <AccordionTrigger>{q}</AccordionTrigger>
+                        <AccordionContent>{a}</AccordionContent>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
+          </>} />
     </div>
   );
 }

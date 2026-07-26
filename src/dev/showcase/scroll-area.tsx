@@ -4,7 +4,7 @@ import {
   DocsH3,
   DocsP,
   ExampleGrid,
-  ExampleSection,
+  ShowcaseExample,
   Showcase,
   ShowcaseDocs
 } from "../../dev/components/showcase";
@@ -74,12 +74,9 @@ function HorizontalList() {
 
 function ScrollAreaMicroShowcase() {
   return (
-    <div className="space-y-10 mt-6">
+    <div className="space-y-10">
       <ExampleGrid>
-        <ExampleSection
-          label="Cuộn dọc (Vertical)"
-          description="Danh sách các mục có thể cuộn từ trên xuống dưới."
-          codeString={`<ScrollArea className="h-72 w-full max-w-sm rounded-xl border border-border bg-card">
+        <ShowcaseExample title="Cuộn dọc (Vertical)" description="Danh sách các mục có thể cuộn từ trên xuống dưới." code={`<ScrollArea className="h-72 w-full max-w-sm rounded-xl border border-border bg-card">
     <div className="p-4">
       <h4 className="mb-4 text-sm font-medium leading-none">
         Cài đặt hệ thống
@@ -95,17 +92,15 @@ function ScrollAreaMicroShowcase() {
       </div>
       {/* ... */}
     </div>
-  </ScrollArea>`}
-        >
-          <ScrollArea className="h-72 w-full max-w-sm rounded-xl border border-border bg-card">
-            <VerticalList />
-          </ScrollArea>
-        </ExampleSection>
+  </ScrollArea>`} preview={
+                      <>
+              <ScrollArea className="h-72 w-full max-w-sm rounded-xl border border-border bg-card">
+                          <VerticalList />
+                        </ScrollArea>
+                      </>
+                    } />
 
-        <ExampleSection
-          label="Cuộn ngang (Horizontal)"
-          description="Trình bày danh sách phần tử nằm ngang (thường dùng cho ảnh, card)."
-          codeString={`<ScrollArea className="w-full max-w-sm whitespace-nowrap rounded-xl border border-border bg-card p-4">
+        <ShowcaseExample title="Cuộn ngang (Horizontal)" description="Trình bày danh sách phần tử nằm ngang (thường dùng cho ảnh, card)." code={`<ScrollArea className="w-full max-w-sm whitespace-nowrap rounded-xl border border-border bg-card p-4">
     <div className="flex w-max space-x-4">
       <div className="w-[150px] shrink-0">
         <div className="aspect-[3/4] rounded-md bg-muted" />
@@ -122,13 +117,14 @@ function ScrollAreaMicroShowcase() {
       {/* ... */}
     </div>
     <ScrollBar orientation="horizontal" />
-  </ScrollArea>`}
-        >
-          <ScrollArea className="w-full max-w-sm whitespace-nowrap rounded-xl border border-border bg-card">
-            <HorizontalList />
-            <ScrollBar orientation="horizontal" />
-          </ScrollArea>
-        </ExampleSection>
+  </ScrollArea>`} preview={
+                      <>
+              <ScrollArea className="w-full max-w-sm whitespace-nowrap rounded-xl border border-border bg-card">
+                          <HorizontalList />
+                          <ScrollBar orientation="horizontal" />
+                        </ScrollArea>
+                      </>
+                    } />
       </ExampleGrid>
     </div>
   );
@@ -139,7 +135,7 @@ export default function ScrollAreaShowcase() {
     <Showcase
       title="Scroll Area"
       description="Khu vực nội dung có thanh cuộn tuỳ biến giao diện, đồng bộ trên mọi trình duyệt thay cho thanh cuộn mặc định."
-      generalConcept={
+      guideline={
         <ShowcaseDocs>
           <DocsH3>Scroll Area (Khu vực cuộn)</DocsH3>
           <DocsP>
@@ -150,9 +146,7 @@ export default function ScrollAreaShowcase() {
           </DocsP>
         </ShowcaseDocs>
       }
-      tabs={[
-        { label: "Micro (Primitive)", content: <ScrollAreaMicroShowcase /> },
-      ]}
+      micro={{ content: <ScrollAreaMicroShowcase /> }}
     />
   );
 }

@@ -57,9 +57,7 @@ export default function ButtonsSection() {
         />
       </SectionHeader>
 
-      {}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-        {}
         <div className="rounded-2xl border border-border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md">
           <div className="flex items-center gap-3 mb-4">
             <div className="flex size-10 items-center justify-center rounded-xl bg-destructive/10 text-destructive">
@@ -103,7 +101,6 @@ export default function ButtonsSection() {
           </div>
         </div>
 
-        {}
         <div className="rounded-2xl border border-border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md">
           <div className="flex items-center gap-3 mb-4">
             <div className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
@@ -151,7 +148,6 @@ export default function ButtonsSection() {
           </div>
         </div>
 
-        {}
         <div className="rounded-2xl border border-border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md">
           <div className="flex items-center gap-3 mb-4">
             <div className="flex size-10 items-center justify-center rounded-xl bg-info/10 text-info">
@@ -181,7 +177,6 @@ export default function ButtonsSection() {
         </div>
       </div>
 
-      {}
       <div className="rounded-2xl border border-border bg-card/40 overflow-hidden shadow-sm">
         <div className="border-b border-b-border bg-muted/30 px-6 py-4">
           <h3 className="font-semibold text-lg flex items-center gap-2">

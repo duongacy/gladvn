@@ -12,16 +12,18 @@ export function BlockViewer({
   title,
   description,
   codeString,
+  className,
 }: {
   blockId: string;
   title: string;
   description?: string;
   codeString: string;
+  className?: string;
 }) {
   const [width, setWidth] = useState<"100%" | "768px" | "375px">("100%");
   
   return (
-    <div className="mb-12">
+    <div className={className}>
       <SectionHeader title={title} description={description} />
       
       <Tabs defaultValue="preview" className="w-full relative group">
@@ -37,7 +39,10 @@ export function BlockViewer({
               size="sm"
               iconOnly
               onClick={() => setWidth("100%")}
-              className={cn("size-7", width === "100%" ? "bg-muted text-foreground" : "text-muted-foreground")}
+              className={cn("size-7", {
+                "bg-muted text-foreground": width === "100%",
+                "text-muted-foreground": width !== "100%",
+              })}
               aria-label="Desktop view"
             >
               <MonitorIcon className="size-3.5" />
@@ -47,7 +52,10 @@ export function BlockViewer({
               size="sm"
               iconOnly
               onClick={() => setWidth("768px")}
-              className={cn("size-7 hidden sm:flex", width === "768px" ? "bg-muted text-foreground" : "text-muted-foreground")}
+              className={cn("size-7 hidden sm:flex", {
+                "bg-muted text-foreground": width === "768px",
+                "text-muted-foreground": width !== "768px",
+              })}
               aria-label="Tablet view"
             >
               <TabletIcon className="size-3.5" />
@@ -57,7 +65,10 @@ export function BlockViewer({
               size="sm"
               iconOnly
               onClick={() => setWidth("375px")}
-              className={cn("size-7", width === "375px" ? "bg-muted text-foreground" : "text-muted-foreground")}
+              className={cn("size-7", {
+                "bg-muted text-foreground": width === "375px",
+                "text-muted-foreground": width !== "375px",
+              })}
               aria-label="Mobile view"
             >
               <SmartphoneIcon className="size-3.5" />

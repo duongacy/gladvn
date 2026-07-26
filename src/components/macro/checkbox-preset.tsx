@@ -52,7 +52,6 @@ const CheckboxPreset = React.forwardRef<
         className={cn("flex flex-row items-start gap-3", className)}
         data-size={size}
       >
-        {}
         <div className="flex items-center text-sm leading-snug group-data-[size=sm]/field:text-xs group-data-[size=lg]/field:text-base">
           &#8203;
           <Checkbox

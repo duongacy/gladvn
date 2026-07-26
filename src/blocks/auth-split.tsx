@@ -17,9 +17,7 @@ export default function AuthSplitBlock() {
 
   return (
     <div className="flex min-h-screen w-full">
-      {}
       <div className="hidden lg:flex w-1/2 flex-col justify-between bg-primary p-12 text-primary-foreground relative overflow-hidden">
-        {}
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent pointer-events-none" />
 
         <div className="relative z-10">
@@ -45,7 +43,6 @@ export default function AuthSplitBlock() {
         </div>
       </div>
 
-      {}
       <div className="flex w-full lg:w-1/2 items-center justify-center p-8 sm:p-12">
         <div className="mx-auto flex w-full max-w-sm flex-col justify-center space-y-6">
           <div className="flex flex-col space-y-2 text-center lg:text-left">

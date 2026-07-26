@@ -34,7 +34,6 @@ export default function SettingsBlock() {
         </aside>
 
         <div className="flex-1">
-          {}
           <TabsContent value="profile" className="mt-0">
             <div className="space-y-4">
               <h3 className="text-xl font-medium">Hồ sơ cá nhân</h3>
@@ -77,7 +76,6 @@ export default function SettingsBlock() {
             </div>
           </TabsContent>
 
-          {}
           <TabsContent value="appearance" className="mt-0">
             <div className="space-y-4">
               <h3 className="text-xl font-medium">Giao diện</h3>
@@ -116,7 +114,6 @@ export default function SettingsBlock() {
             </div>
           </TabsContent>
 
-          {}
           <TabsContent value="notifications" className="mt-0">
             <div className="space-y-4">
               <h3 className="text-xl font-medium">Notifications</h3>
@@ -141,7 +138,6 @@ export default function SettingsBlock() {
             </div>
           </TabsContent>
 
-          {}
           <TabsContent value="advanced" className="mt-0">
             <div className="space-y-4">
               <h3 className="text-xl font-medium text-destructive">Advanced</h3>

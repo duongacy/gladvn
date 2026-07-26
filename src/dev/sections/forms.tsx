@@ -78,9 +78,7 @@ export default function FormsSection() {
         />
       </SectionHeader>
 
-      {}
       <div className="columns-1 md:columns-2 gap-6 space-y-6 [&>div]:break-inside-avoid">
-        {}
         <div className="rounded-2xl border border-border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md flex flex-col gap-5">
           <div className="flex items-center gap-3 mb-2">
             <div className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
@@ -169,7 +167,6 @@ export default function FormsSection() {
           </div>
         </div>
 
-        {}
         <div className="rounded-2xl border border-border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md flex flex-col gap-5">
           <div className="flex items-center gap-3 mb-2">
             <div className="flex size-10 items-center justify-center rounded-xl bg-success/10 text-success">
@@ -289,7 +286,6 @@ export default function FormsSection() {
           </div>
         </div>
 
-        {}
         <div className="rounded-2xl border border-border bg-card/40 p-6 shadow-sm transition-all hover:shadow-md flex flex-col gap-5">
           <div className="flex items-center gap-3 mb-2">
             <div className="flex size-10 items-center justify-center rounded-xl bg-info/10 text-info">

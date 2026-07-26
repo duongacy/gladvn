@@ -24,7 +24,7 @@ import {
 import {
   DocsP,
   ExampleGrid,
-  ExampleSection,
+  ShowcaseExample,
   Showcase,
   ShowcaseDocs
 } from "../../dev/components/showcase";
@@ -33,12 +33,9 @@ function CommandMicroShowcase() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="space-y-10 mt-6">
+    <div className="space-y-10">
       <ExampleGrid>
-        <ExampleSection
-          label="Default"
-          description="Bảng lệnh có thể tìm kiếm với các mục được nhóm."
-          codeString={`<Command className="border border-border rounded-xl shadow-sm overflow-hidden bg-background w-full">
+        <ShowcaseExample title="Default" description="Bảng lệnh có thể tìm kiếm với các mục được nhóm." code={`<Command className="border border-border rounded-xl shadow-sm overflow-hidden bg-background w-full">
     <CommandInput placeholder="Type a command or search..." />
     <CommandList>
       <CommandEmpty>Không tìm thấy kết quả.</CommandEmpty>
@@ -76,52 +73,50 @@ function CommandMicroShowcase() {
       </CommandGroup>
     </CommandList>
   </Command>
-`}
-        >
-          <Command className="border border-border rounded-xl shadow-sm overflow-hidden bg-background w-full">
-            <CommandInput placeholder="Type a command or search..." />
-            <CommandList>
-              <CommandEmpty>Không tìm thấy kết quả.</CommandEmpty>
-              <CommandGroup heading="Suggestions">
-                <CommandItem>
-                  <CalendarIcon className="mr-2 h-4 w-4" />
-                  <span>Calendar</span>
-                </CommandItem>
-                <CommandItem>
-                  <SmileIcon className="mr-2 h-4 w-4" />
-                  <span>Tìm kiếm Emoji</span>
-                </CommandItem>
-                <CommandItem disabled>
-                  <CalculatorIcon className="mr-2 h-4 w-4" />
-                  <span>Calculator</span>
-                </CommandItem>
-              </CommandGroup>
-              <CommandSeparator />
-              <CommandGroup heading="Settings">
-                <CommandItem>
-                  <UserIcon className="mr-2 h-4 w-4" />
-                  <span>Hồ sơ</span>
-                  <CommandShortcut>⌘P</CommandShortcut>
-                </CommandItem>
-                <CommandItem>
-                  <CreditCardIcon className="mr-2 h-4 w-4" />
-                  <span>Billing</span>
-                  <CommandShortcut>⌘B</CommandShortcut>
-                </CommandItem>
-                <CommandItem>
-                  <SettingsIcon className="mr-2 h-4 w-4" />
-                  <span>Cài đặt</span>
-                  <CommandShortcut>⌘S</CommandShortcut>
-                </CommandItem>
-              </CommandGroup>
-            </CommandList>
-          </Command>
-        </ExampleSection>
+`} preview={
+                      <>
+              <Command className="border border-border rounded-xl shadow-sm overflow-hidden bg-background w-full">
+                          <CommandInput placeholder="Type a command or search..." />
+                          <CommandList>
+                            <CommandEmpty>Không tìm thấy kết quả.</CommandEmpty>
+                            <CommandGroup heading="Suggestions">
+                              <CommandItem>
+                                <CalendarIcon className="mr-2 h-4 w-4" />
+                                <span>Calendar</span>
+                              </CommandItem>
+                              <CommandItem>
+                                <SmileIcon className="mr-2 h-4 w-4" />
+                                <span>Tìm kiếm Emoji</span>
+                              </CommandItem>
+                              <CommandItem disabled>
+                                <CalculatorIcon className="mr-2 h-4 w-4" />
+                                <span>Calculator</span>
+                              </CommandItem>
+                            </CommandGroup>
+                            <CommandSeparator />
+                            <CommandGroup heading="Settings">
+                              <CommandItem>
+                                <UserIcon className="mr-2 h-4 w-4" />
+                                <span>Hồ sơ</span>
+                                <CommandShortcut>⌘P</CommandShortcut>
+                              </CommandItem>
+                              <CommandItem>
+                                <CreditCardIcon className="mr-2 h-4 w-4" />
+                                <span>Billing</span>
+                                <CommandShortcut>⌘B</CommandShortcut>
+                              </CommandItem>
+                              <CommandItem>
+                                <SettingsIcon className="mr-2 h-4 w-4" />
+                                <span>Cài đặt</span>
+                                <CommandShortcut>⌘S</CommandShortcut>
+                              </CommandItem>
+                            </CommandGroup>
+                          </CommandList>
+                        </Command>
+                      </>
+                    } />
 
-        <ExampleSection
-          label="Flat List"
-          description="Nhóm duy nhất không có tiêu đề."
-          codeString={`<Command className="border border-border rounded-xl shadow-sm overflow-hidden bg-background w-full">
+        <ShowcaseExample title="Flat List" description="Nhóm duy nhất không có tiêu đề." code={`<Command className="border border-border rounded-xl shadow-sm overflow-hidden bg-background w-full">
     <CommandInput placeholder="Tìm kiếm hành động..." />
     <CommandList>
       <CommandEmpty>No actions found.</CommandEmpty>
@@ -145,39 +140,37 @@ function CommandMicroShowcase() {
       </CommandGroup>
     </CommandList>
   </Command>
-`}
-        >
-          <Command className="border border-border rounded-xl shadow-sm overflow-hidden bg-background w-full">
-            <CommandInput placeholder="Tìm kiếm hành động..." />
-            <CommandList>
-              <CommandEmpty>No actions found.</CommandEmpty>
-              <CommandGroup>
-                <CommandItem>
-                  <UserIcon className="mr-2 h-4 w-4" />
-                  <span>Xem hồ sơ</span>
-                </CommandItem>
-                <CommandItem>
-                  <SettingsIcon className="mr-2 h-4 w-4" />
-                  <span>Mở cài đặt</span>
-                </CommandItem>
-                <CommandItem>
-                  <CalendarIcon className="mr-2 h-4 w-4" />
-                  <span>Schedule Meeting</span>
-                </CommandItem>
-                <CommandItem>
-                  <CreditCardIcon className="mr-2 h-4 w-4" />
-                  <span>Manage Billing</span>
-                </CommandItem>
-              </CommandGroup>
-            </CommandList>
-          </Command>
-        </ExampleSection>
+`} preview={
+                      <>
+              <Command className="border border-border rounded-xl shadow-sm overflow-hidden bg-background w-full">
+                          <CommandInput placeholder="Tìm kiếm hành động..." />
+                          <CommandList>
+                            <CommandEmpty>No actions found.</CommandEmpty>
+                            <CommandGroup>
+                              <CommandItem>
+                                <UserIcon className="mr-2 h-4 w-4" />
+                                <span>Xem hồ sơ</span>
+                              </CommandItem>
+                              <CommandItem>
+                                <SettingsIcon className="mr-2 h-4 w-4" />
+                                <span>Mở cài đặt</span>
+                              </CommandItem>
+                              <CommandItem>
+                                <CalendarIcon className="mr-2 h-4 w-4" />
+                                <span>Schedule Meeting</span>
+                              </CommandItem>
+                              <CommandItem>
+                                <CreditCardIcon className="mr-2 h-4 w-4" />
+                                <span>Manage Billing</span>
+                              </CommandItem>
+                            </CommandGroup>
+                          </CommandList>
+                        </Command>
+                      </>
+                    } />
       </ExampleGrid>
 
-      <ExampleSection
-        label="Dialog Menu"
-        description="Menu lệnh được hiển thị bên trong dialog."
-        codeString={`<Button onClick={() => setOpen(true)}>
+      <ShowcaseExample title="Dialog Menu" description="Menu lệnh được hiển thị bên trong dialog." code={`<Button onClick={() => setOpen(true)}>
     Open Command Palette
   </Button>
   <CommandDialog open={open} onOpenChange={setOpen}>
@@ -195,26 +188,26 @@ function CommandMicroShowcase() {
         </CommandItem>
       </CommandGroup>
     </CommandList>
-  </CommandDialog>`}
-      >
-        <Button onClick={() => setOpen(true)}>Mở Command Palette</Button>
-        <CommandDialog open={open} onOpenChange={setOpen}>
-          <CommandInput placeholder="Type a command or search..." />
-          <CommandList>
-            <CommandEmpty>Không tìm thấy kết quả.</CommandEmpty>
-            <CommandGroup heading="Suggestions">
-              <CommandItem>
-                <CalendarIcon className="mr-2 h-4 w-4" />
-                <span>Calendar</span>
-              </CommandItem>
-              <CommandItem>
-                <SmileIcon className="mr-2 h-4 w-4" />
-                <span>Tìm kiếm Emoji</span>
-              </CommandItem>
-            </CommandGroup>
-          </CommandList>
-        </CommandDialog>
-      </ExampleSection>
+  </CommandDialog>`} preview={
+                  <>
+          <Button onClick={() => setOpen(true)}>Mở Command Palette</Button><CommandDialog open={open} onOpenChange={setOpen}>
+                    <CommandInput placeholder="Type a command or search..." />
+                    <CommandList>
+                      <CommandEmpty>Không tìm thấy kết quả.</CommandEmpty>
+                      <CommandGroup heading="Suggestions">
+                        <CommandItem>
+                          <CalendarIcon className="mr-2 h-4 w-4" />
+                          <span>Calendar</span>
+                        </CommandItem>
+                        <CommandItem>
+                          <SmileIcon className="mr-2 h-4 w-4" />
+                          <span>Tìm kiếm Emoji</span>
+                        </CommandItem>
+                      </CommandGroup>
+                    </CommandList>
+                  </CommandDialog>
+                  </>
+                } />
     </div>
   );
 }
@@ -224,7 +217,7 @@ export default function CommandShowcase() {
     <Showcase
       title="Command"
       description="Command palette có tìm kiếm, kích hoạt bằng phím tắt (⌘K)."
-      generalConcept={
+      guideline={
         <ShowcaseDocs>
           <DocsP>
             Dùng để tạo các bảng lệnh (command palette) hoặc menu chọn có khả
@@ -234,11 +227,7 @@ export default function CommandShowcase() {
           </DocsP>
         </ShowcaseDocs>
       }
-      tabs={[
-        {
-          label: "Micro (Primitive)",
-          content: <CommandMicroShowcase /> },
-      ]}
+      micro={{ content: <CommandMicroShowcase /> }}
     />
   );
 }

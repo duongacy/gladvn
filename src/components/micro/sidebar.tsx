@@ -52,7 +52,9 @@ const Sidebar = React.forwardRef<
           "transition-[width,border-width] duration-[400ms]",
           "data-[state=expanded]:w-[var(--sb-expanded)]",
           "data-[state=collapsed]:w-[var(--sb-collapsed)]",
-          collapsedWidth === 0 && "data-[state=collapsed]:border-r-0",
+          {
+            "data-[state=collapsed]:border-r-0": collapsedWidth === 0
+          },
           className,
         )}
         data-state={defaultState}

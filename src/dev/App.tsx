@@ -387,7 +387,7 @@ export default function App() {
                 }
               )}
             >
-              Lắp ghép
+              Blocks
             </button>
             <div className="h-px bg-border/50 my-2 mx-1"></div>
           </nav>

@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useCallback, useEffect, useState } from "react";
+import React, { Suspense, lazy, useCallback, useEffect, useState, useMemo } from "react";
 
 import {
   LayersIcon,
@@ -76,19 +76,22 @@ function ComponentViewer({ id }: { id: string }) {
   );
 }
 
+function PreviewViewer({ blockId }: { blockId: string }) {
+  const Block = useMemo(() => lazy(() => import(`../blocks/${blockId}.tsx`)), [blockId]);
+  
+  return (
+    <Suspense fallback={<div className="p-12 text-center text-muted-foreground animate-pulse">Loading preview...</div>}>
+      <div className="w-full min-h-screen bg-background antialiased">
+        <Block />
+      </div>
+    </Suspense>
+  );
+}
+
 export default function App() {
   if (typeof window !== "undefined" && window.location.pathname.startsWith("/preview/")) {
     const blockId = window.location.pathname.replace(/^\/preview\//, "");
-    // Dynamically load the block component
-    const Block = lazy(() => import(`../blocks/${blockId}.tsx`));
-    
-    return (
-      <Suspense fallback={<div className="p-12 text-center text-muted-foreground animate-pulse">Loading preview...</div>}>
-        <div className="w-full min-h-screen bg-background antialiased">
-          <Block />
-        </div>
-      </Suspense>
-    );
+    return <PreviewViewer blockId={blockId} />;
   }
 
   const theme = useTheme();
@@ -110,6 +113,8 @@ export default function App() {
     return "overview";
   });
 
+  const activeComponent = useMemo(() => COMPONENTS.find((c) => c.id === active), [active]);
+
   const setActive = useCallback((id: string) => {
     setActiveState(id);
     setIsMobileMenuOpen(false);
@@ -119,13 +124,7 @@ export default function App() {
       url.searchParams.delete("component");
       url.pathname = id === "overview" ? "/" : `/${id}`;
       window.history.pushState({}, "", url);
-
-      setTimeout(() => {
-        const el = document.getElementById(id);
-        if (el) {
-          el.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 50);
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }, []);
 
@@ -136,10 +135,7 @@ export default function App() {
       const comp = queryComp || window.location.pathname.replace(/^\/+/, "");
       
       if (comp && comp !== "overview") {
-        setTimeout(() => {
-          const el = document.getElementById(comp);
-          if (el) el.scrollIntoView({ behavior: "smooth" });
-        }, 100);
+        window.scrollTo({ top: 0, behavior: "smooth" });
       }
     }
   }, []);
@@ -150,8 +146,7 @@ export default function App() {
       const queryComp = params.get("component");
       const comp = queryComp || window.location.pathname.replace(/^\/+/, "") || "overview";
       setActiveState(comp);
-      const el = document.getElementById(comp);
-      if (el) el.scrollIntoView({ behavior: "smooth" });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     };
     window.addEventListener("popstate", handlePopState);
     return () => window.removeEventListener("popstate", handlePopState);
@@ -186,9 +181,8 @@ export default function App() {
       if (active === "overview") {
         document.title = "gladvn — Tailwind CSS React Components";
       } else {
-        const compDef = COMPONENTS.find((c) => c.id === active);
-        if (compDef) {
-          document.title = `${compDef.label} — gladvn Components`;
+        if (activeComponent) {
+          document.title = `${activeComponent.label} — gladvn Components`;
         }
       }
     }
@@ -234,12 +228,12 @@ export default function App() {
             </button>
             <button
               onClick={() => {
-                if (active === "overview" || blockCategories.includes(COMPONENTS.find(c => c.id === active)?.category || "")) {
+                if (active === "overview" || blockCategories.includes(activeComponent?.category || "")) {
                   setActive("accordion");
                 }
               }}
               className={`text-[14px] font-medium transition-colors ${
-                active !== "overview" && !blockCategories.includes(COMPONENTS.find(c => c.id === active)?.category || "")
+                active !== "overview" && !blockCategories.includes(activeComponent?.category || "")
                   ? "text-foreground"
                   : "text-muted-foreground hover:text-foreground"
               }`}
@@ -248,12 +242,12 @@ export default function App() {
             </button>
             <button
               onClick={() => {
-                if (!blockCategories.includes(COMPONENTS.find(c => c.id === active)?.category || "")) {
+                if (!blockCategories.includes(activeComponent?.category || "")) {
                   setActive("dashboard-block");
                 }
               }}
               className={`text-[14px] font-medium transition-colors ${
-                blockCategories.includes(COMPONENTS.find(c => c.id === active)?.category || "")
+                blockCategories.includes(activeComponent?.category || "")
                   ? "text-foreground"
                   : "text-muted-foreground hover:text-foreground"
               }`}
@@ -359,7 +353,7 @@ export default function App() {
             <button
               onClick={() => setActive("accordion")}
               className={`w-full flex items-center gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors text-left ${
-                active !== "overview" && !blockCategories.includes(COMPONENTS.find(c => c.id === active)?.category || "")
+                active !== "overview" && !blockCategories.includes(activeComponent?.category || "")
                   ? "bg-accent text-accent-foreground font-medium"
                   : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
               }`}
@@ -369,7 +363,7 @@ export default function App() {
             <button
               onClick={() => setActive("dashboard-block")}
               className={`w-full flex items-center gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors text-left mb-2 ${
-                blockCategories.includes(COMPONENTS.find(c => c.id === active)?.category || "")
+                blockCategories.includes(activeComponent?.category || "")
                   ? "bg-accent text-accent-foreground font-medium"
                   : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
               }`}
@@ -380,7 +374,7 @@ export default function App() {
           </nav>
 
           <div className="mt-6">
-            {blockCategories.includes(COMPONENTS.find(c => c.id === active)?.category || "") ? (
+            {blockCategories.includes(activeComponent?.category || "") ? (
               <nav className="space-y-0.5">
                 {COMPONENTS.filter(c => blockCategories.includes(c.category)).map(({ id, label }) => (
                   <button
@@ -437,7 +431,7 @@ export default function App() {
       </div>
 
       {/* Floating Size Toggle */}
-      {COMPONENTS.find((c) => c.id === active)?.hasSize && (
+      {activeComponent?.hasSize && (
         <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-1.5 items-end animate-in fade-in slide-in-from-bottom-4 duration-300">
           <div className="rounded-xl border border-border/50 bg-background/80 p-1 shadow-2xl backdrop-blur-xl">
             <SizeToggle value={size} onValueChange={setSize} />

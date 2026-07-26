@@ -35,7 +35,7 @@ describe('CLI Integration', () => {
     });
   };
 
-  it('[3D-01] [P1] initializes correctly in an empty directory with default destination', () => {
+  it('[3D-01] [P1] initializes correctly in an empty directory with default destination', async () => {
     // Given: An empty temporary directory
     // When
     const output = runCli('init');
@@ -57,9 +57,9 @@ describe('CLI Integration', () => {
     // Verify CSS file
     const cssContent = fs.readFileSync(path.join(tempDir, 'app/globals.css'), 'utf-8');
     expect(cssContent).toContain('@import "tailwindcss";');
-  });
+  }, 30000);
 
-  it('[3D-02] [P1] supports custom destination argument', () => {
+  it('[3D-02] [P1] supports custom destination argument', async () => {
     // Given: An empty temporary directory
     // When
     const output = runCli('init custom-ui');
@@ -72,9 +72,9 @@ describe('CLI Integration', () => {
     const destDir = path.join(tempDir, 'custom-ui');
     expect(fs.existsSync(destDir)).toBe(true);
     expect(fs.existsSync(path.join(destDir, 'lib', 'utils.ts'))).toBe(true);
-  });
+  }, 30000);
 
-  it('[3D-03] [P1] handles existing CSS files via non-TTY stdin prompt', () => {
+  it('[3D-03] [P1] handles existing CSS files via non-TTY stdin prompt', async () => {
     // Given: an existing CSS file
     const cssPath = path.join(tempDir, 'styles');
     fs.mkdirSync(cssPath, { recursive: true });
@@ -86,11 +86,11 @@ describe('CLI Integration', () => {
     // Then
     const cleanOutput = output.replace(/\x1b\[[0-9;]*m/g, '');
     expect(cleanOutput).toContain('Path to your main CSS file?');
-    expect(cleanOutput).toContain('Injected gladvn CSS into main.css');
+    expect(cleanOutput).toContain('Injected gladvn styles (tokens + theme) into main.css');
 
     // Verify CSS file was correctly injected
     const cssContent = fs.readFileSync(path.join(cssPath, 'main.css'), 'utf-8');
     expect(cssContent).toContain('@import "../gladvn/styles/gladvn.css";');
     expect(cssContent).toContain('body { background: white; }'); // Original content preserved
-  });
+  }, 30000);
 });

@@ -46,6 +46,7 @@ Options:
 let userDest = "gladvn";
 let command = "init";
 let componentToAdd = null;
+let viteConfigPath = null;
 const args = process.argv.slice(2);
 
 if (args[0] === "init") {
@@ -500,7 +501,7 @@ async function main() {
 
     // Step 4. Configure Vite Alias
     const viteConfigFiles = ['vite.config.ts', 'vite.config.js', 'vite.config.mts', 'vite.config.mjs'];
-    let viteConfigPath = null;
+    viteConfigPath = null;
     for (const file of viteConfigFiles) {
       const p = path.join(process.cwd(), file);
       if (fs.existsSync(p)) {

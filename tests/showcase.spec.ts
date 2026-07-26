@@ -16,7 +16,7 @@ test.describe('Showcase UI', () => {
   });
 
   test('should navigate via sidebar', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/accordion');
 
     // Click on Button in sidebar
     const buttonLink = page.locator('aside nav button', { hasText: 'Button' }).first();

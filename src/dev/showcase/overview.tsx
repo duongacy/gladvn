@@ -133,7 +133,7 @@ export default function OverviewSection() {
               Tinh tế. Đẳng cấp.
             </span>
             <span className="block mt-2 bg-gradient-to-r leading-[1.2] from-primary via-info to-primary bg-[length:200%_auto] bg-clip-text text-transparent animate-[spin_8s_linear_infinite] [animation-name:gradient] [animation-duration:8s] [animation-timing-function:linear] [animation-iteration-count:infinite]">
-              Của bạn.
+              Không giới hạn.
             </span>
           </h1>
 
@@ -318,7 +318,7 @@ export default function OverviewSection() {
             Kiến trúc rành mạch. Sửa code không "đổ mồ hôi".
           </h2>
           <p className="text-muted-foreground text-lg">
-            Nhiều dự án thường bắt đầu "bốc mùi" ở năm thứ hai — đụng vào đâu cũng sợ gãy, muốn sửa mà rén. gladvn chia code thành{" "}
+            Nhiều dự án thường bắt đầu "bốc mùi" sau một thời gian — đụng vào đâu cũng sợ gãy, muốn sửa mà rén. gladvn chia code thành{" "}
             <strong className="text-foreground">các tầng rạch ròi</strong>
             {", "}giúp bạn luôn biết chính xác mình đang sửa cái gì, ảnh hưởng tới đâu. Tâm an, code mới nhàn!
           </p>

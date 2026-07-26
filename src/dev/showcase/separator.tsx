@@ -3,6 +3,8 @@ import {
   DocsCode,
   DocsH3,
   DocsP,
+  DocsUl,
+  DocsLi,
   ShowcaseExample,
   Showcase,
   ShowcaseDocs
@@ -45,11 +47,11 @@ function SeparatorMicroShowcase() {
     <div className="font-medium hover:underline cursor-pointer">
       Blog
     </div>
-    <Separator orientation="vertical" />
+    <Separator orientation="vertical" className="h-5" />
     <div className="font-medium hover:underline cursor-pointer">
       Tài liệu
     </div>
-    <Separator orientation="vertical" />
+    <Separator orientation="vertical" className="h-5" />
     <div className="font-medium hover:underline cursor-pointer">
       Mã nguồn
     </div>
@@ -57,11 +59,11 @@ function SeparatorMicroShowcase() {
                   <>
           <div className="flex h-5 items-center space-x-4 text-sm">
                     <div className="font-medium hover:underline cursor-pointer">Blog</div>
-                    <Separator orientation="vertical" />
+                    <Separator orientation="vertical" className="h-5" />
                     <div className="font-medium hover:underline cursor-pointer">
                       Tài liệu
                     </div>
-                    <Separator orientation="vertical" />
+                    <Separator orientation="vertical" className="h-5" />
                     <div className="font-medium hover:underline cursor-pointer">
                       Mã nguồn
                     </div>
@@ -107,6 +109,21 @@ export default function SeparatorShowcase() {
             nó chỉ là một đường kẻ phân tách giao diện. Mặc định là đường kẻ
             ngang (<DocsCode>orientation="horizontal"</DocsCode>).
           </DocsP>
+
+          <div className="mt-6 rounded-lg border border-amber-500/20 bg-amber-500/10 p-4">
+            <h4 className="mb-2 text-sm font-semibold text-amber-900 dark:text-amber-400">⚠️ Lưu ý quan trọng về Layout (Auto Layout/Flexbox)</h4>
+            <p className="mb-3 text-sm text-amber-900/90 dark:text-amber-200/90">
+              Separator rất "nhạy cảm" với cấu trúc flex bên ngoài. Nếu bạn thấy đường kẻ "biến mất" (kích thước bị bóp về 0px), hãy chú ý:
+            </p>
+            <DocsUl className="mb-0 text-sm text-amber-900/90 dark:text-amber-200/90">
+              <DocsLi>
+                <strong>Horizontal (Kẻ ngang):</strong> Component này mặc định chỉ cấp `h-px`. Vì là thẻ block nên nó tự giãn full ngang, tuy nhiên nếu ném vào <DocsCode className="bg-transparent border-amber-500/30">flex-row</DocsCode> tự do mà không set flex basis, width sẽ bị ép thành <DocsCode className="bg-transparent border-amber-500/30">0px</DocsCode>. Hãy bổ sung <DocsCode className="bg-transparent border-amber-500/30">w-full</DocsCode> hoặc <DocsCode className="bg-transparent border-amber-500/30">flex-1</DocsCode> nếu cần thiết.
+              </DocsLi>
+              <DocsLi>
+                <strong>Vertical (Kẻ dọc):</strong> Component chỉ cung cấp `w-px`. Nó hoàn toàn <strong>KHÔNG</strong> tự nội suy chiều cao (no self-stretch, no h-full). Do đó, bạn <strong>BẮT BUỘC</strong> phải truyền chiều cao rõ ràng từ bên ngoài thông qua <DocsCode className="bg-transparent border-amber-500/30">className</DocsCode> (Ví dụ: <DocsCode className="bg-transparent border-amber-500/30">h-5</DocsCode>, <DocsCode className="bg-transparent border-amber-500/30">h-full</DocsCode>, hoặc <DocsCode className="bg-transparent border-amber-500/30">self-stretch</DocsCode>).
+              </DocsLi>
+            </DocsUl>
+          </div>
         </ShowcaseDocs>
       }
       micro={{ content: <SeparatorMicroShowcase /> }}

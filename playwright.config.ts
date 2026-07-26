@@ -22,7 +22,7 @@ export default defineConfig({
       maxDiffPixelRatio: 0.05,
     },
   },
-  snapshotPathTemplate: "{testDir}/{testFileDir}/{testFileName}-snapshots/{arg}{ext}",
+  snapshotPathTemplate: "{testDir}/{testFileDir}/{testFileName}-snapshots/{projectName}-{platform}-{arg}{ext}",
   webServer: {
     command: "npm run dev",
     url: "http://localhost:5173",

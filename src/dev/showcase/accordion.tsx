@@ -64,19 +64,19 @@ function AccordionMacroShowcase() {
     items={[
       {
         value: "item-1",
-        title: "Is it accessible?",
+        title: "Hỗ trợ Accessible (a11y) không?",
         content:
-          "Yes. It adheres to the WAI-ARIA design pattern. Keyboard navigation and screen readers are fully supported." },
+          "Có chứ. Component tuân thủ chuẩn WAI-ARIA. Bàn phím hay screen reader cân hết." },
       {
         value: "item-2",
-        title: "Is it styled?",
+        title: "Có CSS sẵn không?",
         content:
-          "Yes. It comes with default styles that match the other components' aesthetic." },
+          "Có nha. Style mặc định bao đẹp, match với các component khác." },
       {
         value: "item-3",
-        title: "Is it animated?",
+        title: "Có animation không?",
         content:
-          "Yes. It's animated by default with smooth transitions." },
+          "Đầy đủ. Mở ra đóng lại mượt mà." },
     ]}
   />`}
         >
@@ -86,19 +86,19 @@ function AccordionMacroShowcase() {
             items={[
               {
                 value: "item-1",
-                title: "Is it accessible?",
+                title: "Hỗ trợ Accessible (a11y) không?",
                 content:
-                  "Yes. It adheres to the WAI-ARIA design pattern. Keyboard navigation and screen readers are fully supported." },
+                  "Có chứ. Component tuân thủ chuẩn WAI-ARIA. Bàn phím hay screen reader cân hết." },
               {
                 value: "item-2",
-                title: "Is it styled?",
+                title: "Có CSS sẵn không?",
                 content:
-                  "Yes. It comes with default styles that match the other components' aesthetic." },
+                  "Có nha. Style mặc định bao đẹp, match với các component khác." },
               {
                 value: "item-3",
-                title: "Is it animated?",
+                title: "Có animation không?",
                 content:
-                  "Yes. It's animated by default with smooth transitions." },
+                  "Đầy đủ. Mở ra đóng lại mượt mà." },
             ]}
           />
         </ExampleSection>
@@ -113,19 +113,19 @@ function AccordionMacroShowcase() {
     items={[
       {
         value: "item-1",
-        title: "Is it accessible?",
+        title: "Hỗ trợ Accessible (a11y) không?",
         content:
-          "Yes. It adheres to the WAI-ARIA design pattern. Keyboard navigation and screen readers are fully supported." },
+          "Có chứ. Component tuân thủ chuẩn WAI-ARIA. Bàn phím hay screen reader cân hết." },
       {
         value: "item-2",
-        title: "Is it styled?",
+        title: "Có CSS sẵn không?",
         content:
-          "Yes. It comes with default styles that match the other components' aesthetic." },
+          "Có nha. Style mặc định bao đẹp, match với các component khác." },
       {
         value: "item-3",
-        title: "Is it animated?",
+        title: "Có animation không?",
         content:
-          "Yes. It's animated by default with smooth transitions." },
+          "Đầy đủ. Mở ra đóng lại mượt mà." },
     ]}
   />`}
         >
@@ -136,19 +136,19 @@ function AccordionMacroShowcase() {
             items={[
               {
                 value: "item-1",
-                title: "Is it accessible?",
+                title: "Hỗ trợ Accessible (a11y) không?",
                 content:
-                  "Yes. It adheres to the WAI-ARIA design pattern. Keyboard navigation and screen readers are fully supported." },
+                  "Có chứ. Component tuân thủ chuẩn WAI-ARIA. Bàn phím hay screen reader cân hết." },
               {
                 value: "item-2",
-                title: "Is it styled?",
+                title: "Có CSS sẵn không?",
                 content:
-                  "Yes. It comes with default styles that match the other components' aesthetic." },
+                  "Có nha. Style mặc định bao đẹp, match với các component khác." },
               {
                 value: "item-3",
-                title: "Is it animated?",
+                title: "Có animation không?",
                 content:
-                  "Yes. It's animated by default with smooth transitions." },
+                  "Đầy đủ. Mở ra đóng lại mượt mà." },
             ]}
           />
         </ExampleSection>
@@ -168,16 +168,16 @@ return (
     items={[
               {
                 value: "item-1",
-                title: "Is it accessible?",
-                content: "Yes. It adheres to the WAI-ARIA design pattern. Keyboard navigation and screen readers are fully supported." },
+                title: "Hỗ trợ Accessible (a11y) không?",
+                content: "Có chứ. Component tuân thủ chuẩn WAI-ARIA. Bàn phím hay screen reader cân hết." },
               {
                 value: "item-2",
-                title: "Is it styled?",
-                content: "Yes. It comes with default styles that match the other components' aesthetic." },
+                title: "Có CSS sẵn không?",
+                content: "Có nha. Style mặc định bao đẹp, match với các component khác." },
               {
                 value: "item-3",
-                title: "Is it animated?",
-                content: "Yes. It's animated by default with smooth transitions." },
+                title: "Có animation không?",
+                content: "Đầy đủ. Mở ra đóng lại mượt mà." },
             ]}
   />
 );`}
@@ -199,19 +199,19 @@ return (
               items={[
                 {
                   value: "item-1",
-                  title: "Is it accessible?",
+                  title: "Hỗ trợ Accessible (a11y) không?",
                   content:
-                    "Yes. It adheres to the WAI-ARIA design pattern. Keyboard navigation and screen readers are fully supported." },
+                    "Có chứ. Component tuân thủ chuẩn WAI-ARIA. Bàn phím hay screen reader cân hết." },
                 {
                   value: "item-2",
-                  title: "Is it styled?",
+                  title: "Có CSS sẵn không?",
                   content:
-                    "Yes. It comes with default styles that match the other components' aesthetic." },
+                    "Có nha. Style mặc định bao đẹp, match với các component khác." },
                 {
                   value: "item-3",
-                  title: "Is it animated?",
+                  title: "Có animation không?",
                   content:
-                    "Yes. It's animated by default with smooth transitions." },
+                    "Đầy đủ. Mở ra đóng lại mượt mà." },
               ]}
             />
           </div>
@@ -225,18 +225,18 @@ return (
     items={[
       {
         value: "enabled-1",
-        title: "Available Feature",
+        title: "Tính năng có sẵn",
         content:
           "This feature is available and can be expanded normally." },
       {
         value: "disabled-1",
-        title: "Premium Feature (Locked)",
+        title: "Tính năng Premium (Đã khoá)",
         content:
-          "This content is hidden behind a premium plan.",
+          "Nội dung này yêu cầu gói tài khoản Premium.",
         disabled: true },
       {
         value: "enabled-2",
-        title: "Another Feature",
+        title: "Tính năng khác",
         content:
           "This is another available feature you can interact with freely." },
     ]}
@@ -247,17 +247,17 @@ return (
             items={[
               {
                 value: "enabled-1",
-                title: "Available Feature",
+                title: "Tính năng có sẵn",
                 content:
                   "This feature is available and can be expanded normally." },
               {
                 value: "disabled-1",
-                title: "Premium Feature (Locked)",
-                content: "This content is hidden behind a premium plan.",
+                title: "Tính năng Premium (Đã khoá)",
+                content: "Nội dung này yêu cầu gói tài khoản Premium.",
                 disabled: true },
               {
                 value: "enabled-2",
-                title: "Another Feature",
+                title: "Tính năng khác",
                 content:
                   "This is another available feature you can interact with freely." },
             ]}
@@ -274,7 +274,7 @@ return (
     items={[
       {
         value: "profile",
-        title: "User Profile Settings",
+        title: "Cài đặt Hồ sơ Người dùng",
         content: (
           <div className="flex flex-col items-start gap-3">
             <p className="text-sm">
@@ -294,7 +294,7 @@ return (
             items={[
               {
                 value: "profile",
-                title: "User Profile Settings",
+                title: "Cài đặt Hồ sơ Người dùng",
                 content: (
                   <div className="flex flex-col items-start gap-3">
                     <p className="text-sm">
@@ -317,14 +317,14 @@ return (
     items={[
       {
         value: "getting-started",
-        title: "Getting Started",
+        title: "Bắt đầu nhanh",
         content: (
           <AccordionPreset
             className="w-full"
             items={[
               {
                 value: "installation",
-                title: "Installation",
+                title: "Cài đặt",
                 content:
                   "Run npm install to add the component to your project." },
             ]}
@@ -332,16 +332,16 @@ return (
         ) },
       {
         value: "advanced",
-        title: "Advanced Usage",
+        title: "Sử dụng nâng cao",
         content: (
           <AccordionPreset
             className="w-full"
             items={[
               {
                 value: "controlled",
-                title: "Controlled Mode",
+                title: "Chế độ Controlled",
                 content:
-                  "Use the value and onValueChange props to control which items are open." },
+                  "Sử dụng props value và onValueChange để kiểm soát các mục đang mở." },
             ]}
           />
         ) },
@@ -353,14 +353,14 @@ return (
             items={[
               {
                 value: "getting-started",
-                title: "Getting Started",
+                title: "Bắt đầu nhanh",
                 content: (
                   <AccordionPreset
                     className="w-full"
                     items={[
                       {
                         value: "installation",
-                        title: "Installation",
+                        title: "Cài đặt",
                         content:
                           "Run npm install to add the component to your project." },
                     ]}
@@ -368,16 +368,16 @@ return (
                 ) },
               {
                 value: "advanced",
-                title: "Advanced Usage",
+                title: "Sử dụng nâng cao",
                 content: (
                   <AccordionPreset
                     className="w-full"
                     items={[
                       {
                         value: "controlled",
-                        title: "Controlled Mode",
+                        title: "Chế độ Controlled",
                         content:
-                          "Use the value and onValueChange props to control which items are open." },
+                          "Sử dụng props value và onValueChange để kiểm soát các mục đang mở." },
                     ]}
                   />
                 ) },
@@ -398,12 +398,12 @@ function AccordionMicroShowcase() {
           description="Chỉ một mục được phép mở tại một thời điểm (mặc định)."
           codeString={`<Accordion
     className="w-full"
-    defaultValue={["Is it accessible?"]}
+    defaultValue={["Hỗ trợ Accessible (a11y) không?"]}
   >
-    <AccordionItem value="Is it accessible?">
+    <AccordionItem value="Hỗ trợ Accessible (a11y) không?">
       <AccordionTrigger>Is it accessible?</AccordionTrigger>
       <AccordionContent>
-        Yes. It adheres to the WAI-ARIA design pattern.
+        Có chứ. Component tuân thủ chuẩn WAI-ARIA.
         Keyboard navigation and screen readers are fully
         supported.
       </AccordionContent>
@@ -426,11 +426,11 @@ function AccordionMicroShowcase() {
     </AccordionItem>
   </Accordion>`}
         >
-          <Accordion className="w-full" defaultValue={["Is it accessible?"]}>
-            <AccordionItem value="Is it accessible?">
+          <Accordion className="w-full" defaultValue={["Hỗ trợ Accessible (a11y) không?"]}>
+            <AccordionItem value="Hỗ trợ Accessible (a11y) không?">
               <AccordionTrigger>Is it accessible?</AccordionTrigger>
               <AccordionContent>
-                Yes. It adheres to the WAI-ARIA design pattern.
+                Có chứ. Component tuân thủ chuẩn WAI-ARIA.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="Is it styled?">
@@ -443,7 +443,7 @@ function AccordionMicroShowcase() {
             <AccordionItem value="Is it animated?">
               <AccordionTrigger>Is it animated?</AccordionTrigger>
               <AccordionContent>
-                Yes. It's animated by default with smooth transitions.
+                Đầy đủ. Mở ra đóng lại mượt mà.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
@@ -455,12 +455,12 @@ function AccordionMicroShowcase() {
           codeString={`<Accordion
     className="w-full"
     multiple
-    defaultValue={["Is it accessible?", "Is it styled?"]}
+    defaultValue={["Hỗ trợ Accessible (a11y) không?", "Is it styled?"]}
   >
-    <AccordionItem value="Is it accessible?">
+    <AccordionItem value="Hỗ trợ Accessible (a11y) không?">
       <AccordionTrigger>Is it accessible?</AccordionTrigger>
       <AccordionContent>
-        Yes. It adheres to the WAI-ARIA design pattern.
+        Có chứ. Component tuân thủ chuẩn WAI-ARIA.
         Keyboard navigation and screen readers are fully
         supported.
       </AccordionContent>
@@ -486,12 +486,12 @@ function AccordionMicroShowcase() {
           <Accordion
             className="w-full"
             multiple
-            defaultValue={["Is it accessible?", "Is it styled?"]}
+            defaultValue={["Hỗ trợ Accessible (a11y) không?", "Is it styled?"]}
           >
-            <AccordionItem value="Is it accessible?">
+            <AccordionItem value="Hỗ trợ Accessible (a11y) không?">
               <AccordionTrigger>Is it accessible?</AccordionTrigger>
               <AccordionContent>
-                Yes. It adheres to the WAI-ARIA design pattern.
+                Có chứ. Component tuân thủ chuẩn WAI-ARIA.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="Is it styled?">
@@ -504,7 +504,7 @@ function AccordionMicroShowcase() {
             <AccordionItem value="Is it animated?">
               <AccordionTrigger>Is it animated?</AccordionTrigger>
               <AccordionContent>
-                Yes. It's animated by default with smooth transitions.
+                Đầy đủ. Mở ra đóng lại mượt mà.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
@@ -593,21 +593,21 @@ function AccordionMicroShowcase() {
       </AccordionContent>
     </AccordionItem>
     <AccordionItem value="advanced">
-      <AccordionTrigger>Advanced Usage</AccordionTrigger>
+      <AccordionTrigger>Sử dụng nâng cao</AccordionTrigger>
       <AccordionContent>
         <Accordion>
           <AccordionItem value="controlled">
             <AccordionTrigger>
-              Controlled Mode
+              Chế độ Controlled
             </AccordionTrigger>
             <AccordionContent>
               Use the value and onValueChange props to
-              control which items are open.
+              control which các mục đang mở.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="animation">
             <AccordionTrigger>
-              Custom Animation
+              Tuỳ chỉnh Animation
             </AccordionTrigger>
             <AccordionContent>
               Override transition duration and easing via
@@ -640,20 +640,20 @@ function AccordionMicroShowcase() {
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="advanced">
-              <AccordionTrigger>Advanced Usage</AccordionTrigger>
+              <AccordionTrigger>Sử dụng nâng cao</AccordionTrigger>
               <AccordionContent>
                 <Accordion>
                   <AccordionItem value="controlled">
-                    <AccordionTrigger>Controlled Mode</AccordionTrigger>
+                    <AccordionTrigger>Chế độ Controlled</AccordionTrigger>
                     <AccordionContent>
-                      Use the value and onValueChange props to control which
-                      items are open.
+                      Sử dụng props value và onValueChange để kiểm soát
+                      các mục đang mở.
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem value="animation">
-                    <AccordionTrigger>Custom Animation</AccordionTrigger>
+                    <AccordionTrigger>Tuỳ chỉnh Animation</AccordionTrigger>
                     <AccordionContent>
-                      Override transition duration and easing via className.
+                      Thay đổi thời gian chuyển đổi và easing thông qua className.
                     </AccordionContent>
                   </AccordionItem>
                 </Accordion>
@@ -667,10 +667,10 @@ function AccordionMicroShowcase() {
         label="FAQ Hoàn Chỉnh"
         description="Ví dụ một phần hỏi đáp FAQ hoàn chỉnh."
         codeString={`<Accordion className="w-full max-w-lg">
-    <AccordionItem value="Is it accessible?">
+    <AccordionItem value="Hỗ trợ Accessible (a11y) không?">
       <AccordionTrigger>Is it accessible?</AccordionTrigger>
       <AccordionContent>
-        Yes. It adheres to the WAI-ARIA design pattern.
+        Có chứ. Component tuân thủ chuẩn WAI-ARIA.
         Keyboard navigation and screen readers are fully
         supported.
       </AccordionContent>
@@ -703,10 +703,10 @@ function AccordionMicroShowcase() {
   </Accordion>`}
       >
         <Accordion className="w-full max-w-lg">
-          <AccordionItem value="Is it accessible?">
+          <AccordionItem value="Hỗ trợ Accessible (a11y) không?">
             <AccordionTrigger>Is it accessible?</AccordionTrigger>
             <AccordionContent>
-              Yes. It adheres to the WAI-ARIA design pattern.
+              Có chứ. Component tuân thủ chuẩn WAI-ARIA.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="Is it styled?">
@@ -719,7 +719,7 @@ function AccordionMicroShowcase() {
           <AccordionItem value="Is it animated?">
             <AccordionTrigger>Is it animated?</AccordionTrigger>
             <AccordionContent>
-              Yes. It's animated by default with smooth transitions.
+              Đầy đủ. Mở ra đóng lại mượt mà.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="Can I nest accordions?">
@@ -768,15 +768,15 @@ function AccordionMicroShowcase() {
           className="w-full"
           items={[
             {
-              value: "Is it accessible?",
-              title: "Is it accessible?",
+              value: "Hỗ trợ Accessible (a11y) không?",
+              title: "Hỗ trợ Accessible (a11y) không?",
               content:
-                "Yes. It adheres to the WAI-ARIA design pattern." },
+                "Có chứ. Component tuân thủ chuẩn WAI-ARIA." },
             {
               value: "Is it styled?",
-              title: "Is it styled?",
+              title: "Có CSS sẵn không?",
               content:
-                "Yes. It comes with default styles that match the other components' aesthetic." },
+                "Có nha. Style mặc định bao đẹp, match với các component khác." },
           ]}
         />
       </div>
@@ -819,7 +819,7 @@ function AccordionMicroShowcase() {
             <AccordionTrigger className="gap-3">
               <SlidersHorizontalIcon className="size-4 text-primary" />
               <span className="flex-1 text-left">
-                Advanced Settings
+                Cài đặt nâng cao
               </span>
               <span className="mr-2 rounded bg-primary/10 px-2 py-0.5 text-[10px] uppercase tracking-wider text-primary">
                 New
@@ -875,14 +875,14 @@ function AccordionMicroShowcase() {
                 className="w-full"
                 items={[
                   {
-                    value: "Is it accessible?",
-                    title: "Is it accessible?",
-                    content: "Yes. It adheres to the WAI-ARIA design pattern." },
+                    value: "Hỗ trợ Accessible (a11y) không?",
+                    title: "Hỗ trợ Accessible (a11y) không?",
+                    content: "Có chứ. Component tuân thủ chuẩn WAI-ARIA." },
                   {
                     value: "Is it styled?",
-                    title: "Is it styled?",
+                    title: "Có CSS sẵn không?",
                     content:
-                      "Yes. It comes with default styles that match the other components' aesthetic." },
+                      "Có nha. Style mặc định bao đẹp, match với các component khác." },
                 ]}
               />
             </div>
@@ -922,7 +922,7 @@ function AccordionMicroShowcase() {
                 <AccordionItem value="settings">
                   <AccordionTrigger className="gap-3">
                     <SlidersHorizontalIcon className="size-4 text-primary" />
-                    <span className="flex-1 text-left">Advanced Settings</span>
+                    <span className="flex-1 text-left">Cài đặt nâng cao</span>
                     <span className="mr-2 rounded bg-primary/10 px-2 py-0.5 text-[10px] uppercase tracking-wider text-primary">
                       New
                     </span>
@@ -960,7 +960,7 @@ export default function AccordionShowcase() {
         <ShowcaseDocs>
           <DocsP>
             Dùng để gom nhóm các khối nội dung lớn nhằm tiết kiệm không gian
-            hiển thị (ví dụ: FAQ, Advanced Settings). Không nên dùng Accordion
+            hiển thị (ví dụ: FAQ, Cài đặt nâng cao). Không nên dùng Accordion
             nếu nội dung bên trong quá quan trọng và cần user phải nhìn thấy
             ngay lập tức.
           </DocsP>

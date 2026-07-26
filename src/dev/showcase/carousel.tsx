@@ -22,27 +22,27 @@ import { cn } from "../../lib/utils";
 const SLIDES = [
   {
     id: 1,
-    title: "Modern Aesthetics",
+    title: "Giao diện Hiện đại",
     desc: "Crafting beautiful interfaces with tailwind.",
     bg: "bg-gradient-to-tr from-violet-500 to-purple-500" },
   {
     id: 2,
-    title: "Smooth Interactions",
+    title: "Tương tác Mượt mà",
     desc: "Fluid animations and micro-interactions.",
     bg: "bg-gradient-to-tr from-pink-500 to-rose-500" },
   {
     id: 3,
-    title: "Highly Customizable",
+    title: "Dễ tuỳ chỉnh",
     desc: "Easily adapt to your brand.",
     bg: "bg-gradient-to-tr from-blue-500 to-cyan-500" },
   {
     id: 4,
-    title: "Accessible by Default",
+    title: "Mặc định Accessible",
     desc: "Keyboard navigation out of the box.",
     bg: "bg-gradient-to-tr from-emerald-500 to-teal-500" },
   {
     id: 5,
-    title: "Dark Mode Ready",
+    title: "Hỗ trợ Dark Mode",
     desc: "Looks stunning on dark and light mode.",
     bg: "bg-gradient-to-tr from-amber-500 to-orange-500" },
 ];

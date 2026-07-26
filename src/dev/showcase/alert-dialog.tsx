@@ -56,7 +56,7 @@ function AlertDialogMacroShowcase({ globalSize }: { globalSize: Size }) {
     cancelLabel="Huỷ"
     actionLabel="Xoá"
     actionColor="destructive"
-    onAction={() => console.log("Deleted!")}
+    onAction={() => console.log("Đã xoá!")}
   />`}
         >
           <AlertDialogPreset
@@ -71,7 +71,7 @@ function AlertDialogMacroShowcase({ globalSize }: { globalSize: Size }) {
             cancelLabel="Huỷ"
             actionLabel="Xoá"
             actionColor="destructive"
-            onAction={() => console.log("Deleted!")}
+            onAction={() => console.log("Đã xoá!")}
           />
         </ExampleSection>
 

@@ -291,7 +291,7 @@ function CalendarMacroShowcase({ globalSize }: { globalSize: Size }) {
     className="w-64"
     label="Start Date"
     description="Chọn ngày bắt đầu dự án."
-    placeholder="Pick a date"
+    placeholder="Chọn ngày"
   />`}
       >
         <DatePicker
@@ -299,7 +299,7 @@ function CalendarMacroShowcase({ globalSize }: { globalSize: Size }) {
           size={globalSize}
           label="Start Date"
           description="Chọn ngày bắt đầu dự án."
-          placeholder="Pick a date"
+          placeholder="Chọn ngày"
           value={descDate}
           onValueChange={setDescDate}
         />

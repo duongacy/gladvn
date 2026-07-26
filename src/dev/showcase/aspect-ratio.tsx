@@ -9,12 +9,12 @@ import {
 } from "../../dev/components/showcase";
 
 const commonRatios = [
-  { label: "16:9", ratio: 16 / 9, desc: "Widescreen — video, hero banners" },
-  { label: "4:3", ratio: 4 / 3, desc: "Classic — presentations, old TV" },
-  { label: "1:1", ratio: 1, desc: "Square — avatars, social media" },
-  { label: "21:9", ratio: 21 / 9, desc: "Ultrawide — cinematic, panoramas" },
-  { label: "3:2", ratio: 3 / 2, desc: "Photography — DSLR standard" },
-  { label: "9:16", ratio: 9 / 16, desc: "Portrait — mobile, stories" },
+  { label: "16:9", ratio: 16 / 9, desc: "Màn hình rộng — video, hero banner" },
+  { label: "4:3", ratio: 4 / 3, desc: "Cổ điển — bài thuyết trình, TV cũ" },
+  { label: "1:1", ratio: 1, desc: "Vuông — avatar, mạng xã hội" },
+  { label: "21:9", ratio: 21 / 9, desc: "Siêu rộng — điện ảnh, toàn cảnh" },
+  { label: "3:2", ratio: 3 / 2, desc: "Nhiếp ảnh — chuẩn DSLR" },
+  { label: "9:16", ratio: 9 / 16, desc: "Chân dung — di động, story" },
 ];
 
 function AspectRatioMicroShowcase() {

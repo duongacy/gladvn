@@ -157,7 +157,7 @@ function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
       id="search-input"
       value={value}
       onChange={(e) => setValue(e.target.value)}
-      placeholder="Search..."
+      placeholder="Tìm kiếm..."
     />
     {value && (
       <InputGroupButton
@@ -180,7 +180,7 @@ function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
               id="ig-search"
               value={clearValue}
               onChange={(e) => setClearValue(e.target.value)}
-              placeholder="Search..."
+              placeholder="Tìm kiếm..."
             />
             {clearValue && (
               <InputGroupButton
@@ -203,7 +203,7 @@ function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
           codeString={`<InputGroup size="md">
     <InputGroupInput
       id="find-input"
-      placeholder="Search..."
+      placeholder="Tìm kiếm..."
     />
     <InputGroupButton variant="solid">
       <SearchIcon aria-hidden="true" /> Find
@@ -211,7 +211,7 @@ function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
   </InputGroup>`}
         >
           <InputGroup size={globalSize} className="w-full">
-            <InputGroupInput id="ig-find" placeholder="Search..." />
+            <InputGroupInput id="ig-find" placeholder="Tìm kiếm..." />
             <InputGroupButton variant="solid">
               <SearchIcon aria-hidden="true" /> Find
             </InputGroupButton>

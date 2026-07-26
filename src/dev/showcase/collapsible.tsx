@@ -89,7 +89,7 @@ function CollapsibleMicroShowcase() {
         </ExampleSection>
 
         <ExampleSection
-          label="Default Open"
+          label="Mở mặc định"
           description="Bắt đầu ở trạng thái mở rộng."
           codeString={`<Collapsible defaultOpen className="w-full space-y-2">
     <div className="flex items-center justify-between space-x-4 px-4">

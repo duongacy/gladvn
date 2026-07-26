@@ -126,7 +126,7 @@ function CardMacroShowcase({ globalSize }: { globalSize: Size }) {
     description="Thay đổi tên hiển thị và email của bạn."
     footer={
       <div className="flex justify-between w-full">
-        <Button variant="ghost">Cancel</Button>
+        <Button variant="ghost">Huỷ</Button>
         <Button>Save</Button>
       </div>
     }
@@ -213,8 +213,8 @@ function CardMicroShowcase({ globalSize }: { globalSize: Size }) {
       </form>
     </CardContent>
     <CardFooter className="flex justify-between">
-      <Button variant="outline">Cancel</Button>
-      <Button>Deploy</Button>
+      <Button variant="outline">Huỷ</Button>
+      <Button>Triển khai</Button>
     </CardFooter>
   </Card>`}
       >
@@ -239,7 +239,7 @@ function CardMicroShowcase({ globalSize }: { globalSize: Size }) {
             <Button variant="outline" size={globalSize}>
               Cancel
             </Button>
-            <Button size={globalSize}>Deploy</Button>
+            <Button size={globalSize}>Triển khai</Button>
           </CardFooter>
         </Card>
       </ExampleSection>
@@ -276,11 +276,11 @@ function CardMicroShowcase({ globalSize }: { globalSize: Size }) {
       <div className="flex items-center justify-between">
         <div className="flex flex-col gap-1.5">
           <div className="flex items-center gap-2">
-            <CardTitle>Notifications</CardTitle>
+            <CardTitle>Thông báo</CardTitle>
             <Badge color="secondary">3 new</Badge>
           </div>
           <CardDescription>
-            You have 3 unread messages.
+            Bạn có 3 tin nhắn chưa đọc.
           </CardDescription>
         </div>
         <Button
@@ -315,10 +315,10 @@ function CardMicroShowcase({ globalSize }: { globalSize: Size }) {
               <div className="flex items-center justify-between">
                 <div className="flex flex-col gap-1.5">
                   <div className="flex items-center gap-2">
-                    <CardTitle>Notifications</CardTitle>
+                    <CardTitle>Thông báo</CardTitle>
                     <Badge color="secondary">3 new</Badge>
                   </div>
-                  <CardDescription>You have 3 unread messages.</CardDescription>
+                  <CardDescription>Bạn có 3 tin nhắn chưa đọc.</CardDescription>
                 </div>
                 <Button
                   variant="ghost"
@@ -356,7 +356,7 @@ function CardMicroShowcase({ globalSize }: { globalSize: Size }) {
         codeString={`<div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
     <Card>
       <CardHeader className="pb-2">
-        <CardDescription>Total Revenue</CardDescription>
+        <CardDescription>Tổng doanh thu</CardDescription>
         <CardTitle className="text-3xl">
           $45,231.89
         </CardTitle>
@@ -369,7 +369,7 @@ function CardMicroShowcase({ globalSize }: { globalSize: Size }) {
     </Card>
     <Card>
       <CardHeader className="pb-2">
-        <CardDescription>Subscriptions</CardDescription>
+        <CardDescription>Lượt đăng ký</CardDescription>
         <CardTitle className="text-3xl">+2,350</CardTitle>
       </CardHeader>
       <CardContent>
@@ -380,7 +380,7 @@ function CardMicroShowcase({ globalSize }: { globalSize: Size }) {
     </Card>
     <Card>
       <CardHeader className="pb-2">
-        <CardDescription>Active Now</CardDescription>
+        <CardDescription>Đang hoạt động</CardDescription>
         <CardTitle className="text-3xl">+573</CardTitle>
       </CardHeader>
       <CardContent>
@@ -394,7 +394,7 @@ function CardMicroShowcase({ globalSize }: { globalSize: Size }) {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
           <Card size={globalSize}>
             <CardHeader className="pb-2">
-              <CardDescription>Total Revenue</CardDescription>
+              <CardDescription>Tổng doanh thu</CardDescription>
               <CardTitle className="text-3xl">$45,231.89</CardTitle>
             </CardHeader>
             <CardContent>
@@ -405,7 +405,7 @@ function CardMicroShowcase({ globalSize }: { globalSize: Size }) {
           </Card>
           <Card size={globalSize}>
             <CardHeader className="pb-2">
-              <CardDescription>Subscriptions</CardDescription>
+              <CardDescription>Lượt đăng ký</CardDescription>
               <CardTitle className="text-3xl">+2,350</CardTitle>
             </CardHeader>
             <CardContent>
@@ -416,7 +416,7 @@ function CardMicroShowcase({ globalSize }: { globalSize: Size }) {
           </Card>
           <Card size={globalSize}>
             <CardHeader className="pb-2">
-              <CardDescription>Active Now</CardDescription>
+              <CardDescription>Đang hoạt động</CardDescription>
               <CardTitle className="text-3xl">+573</CardTitle>
             </CardHeader>
             <CardContent>

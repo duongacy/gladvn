@@ -41,7 +41,7 @@ function CommandMicroShowcase() {
           codeString={`<Command className="border border-border rounded-xl shadow-sm overflow-hidden bg-background w-full">
     <CommandInput placeholder="Type a command or search..." />
     <CommandList>
-      <CommandEmpty>No results found.</CommandEmpty>
+      <CommandEmpty>Không tìm thấy kết quả.</CommandEmpty>
       <CommandGroup heading="Suggestions">
         <CommandItem>
           <CalendarIcon className="mr-2 h-4 w-4" />
@@ -49,7 +49,7 @@ function CommandMicroShowcase() {
         </CommandItem>
         <CommandItem>
           <SmileIcon className="mr-2 h-4 w-4" />
-          <span>Search Emoji</span>
+          <span>Tìm kiếm Emoji</span>
         </CommandItem>
         <CommandItem disabled>
           <CalculatorIcon className="mr-2 h-4 w-4" />
@@ -60,7 +60,7 @@ function CommandMicroShowcase() {
       <CommandGroup heading="Settings">
         <CommandItem>
           <UserIcon className="mr-2 h-4 w-4" />
-          <span>Profile</span>
+          <span>Hồ sơ</span>
           <CommandShortcut>⌘P</CommandShortcut>
         </CommandItem>
         <CommandItem>
@@ -70,7 +70,7 @@ function CommandMicroShowcase() {
         </CommandItem>
         <CommandItem>
           <SettingsIcon className="mr-2 h-4 w-4" />
-          <span>Settings</span>
+          <span>Cài đặt</span>
           <CommandShortcut>⌘S</CommandShortcut>
         </CommandItem>
       </CommandGroup>
@@ -81,7 +81,7 @@ function CommandMicroShowcase() {
           <Command className="border border-border rounded-xl shadow-sm overflow-hidden bg-background w-full">
             <CommandInput placeholder="Type a command or search..." />
             <CommandList>
-              <CommandEmpty>No results found.</CommandEmpty>
+              <CommandEmpty>Không tìm thấy kết quả.</CommandEmpty>
               <CommandGroup heading="Suggestions">
                 <CommandItem>
                   <CalendarIcon className="mr-2 h-4 w-4" />
@@ -89,7 +89,7 @@ function CommandMicroShowcase() {
                 </CommandItem>
                 <CommandItem>
                   <SmileIcon className="mr-2 h-4 w-4" />
-                  <span>Search Emoji</span>
+                  <span>Tìm kiếm Emoji</span>
                 </CommandItem>
                 <CommandItem disabled>
                   <CalculatorIcon className="mr-2 h-4 w-4" />
@@ -100,7 +100,7 @@ function CommandMicroShowcase() {
               <CommandGroup heading="Settings">
                 <CommandItem>
                   <UserIcon className="mr-2 h-4 w-4" />
-                  <span>Profile</span>
+                  <span>Hồ sơ</span>
                   <CommandShortcut>⌘P</CommandShortcut>
                 </CommandItem>
                 <CommandItem>
@@ -110,7 +110,7 @@ function CommandMicroShowcase() {
                 </CommandItem>
                 <CommandItem>
                   <SettingsIcon className="mr-2 h-4 w-4" />
-                  <span>Settings</span>
+                  <span>Cài đặt</span>
                   <CommandShortcut>⌘S</CommandShortcut>
                 </CommandItem>
               </CommandGroup>
@@ -122,17 +122,17 @@ function CommandMicroShowcase() {
           label="Flat List"
           description="Nhóm duy nhất không có tiêu đề."
           codeString={`<Command className="border border-border rounded-xl shadow-sm overflow-hidden bg-background w-full">
-    <CommandInput placeholder="Search actions..." />
+    <CommandInput placeholder="Tìm kiếm hành động..." />
     <CommandList>
       <CommandEmpty>No actions found.</CommandEmpty>
       <CommandGroup>
         <CommandItem>
           <UserIcon className="mr-2 h-4 w-4" />
-          <span>View Profile</span>
+          <span>Xem hồ sơ</span>
         </CommandItem>
         <CommandItem>
           <SettingsIcon className="mr-2 h-4 w-4" />
-          <span>Open Settings</span>
+          <span>Mở cài đặt</span>
         </CommandItem>
         <CommandItem>
           <CalendarIcon className="mr-2 h-4 w-4" />
@@ -148,17 +148,17 @@ function CommandMicroShowcase() {
 `}
         >
           <Command className="border border-border rounded-xl shadow-sm overflow-hidden bg-background w-full">
-            <CommandInput placeholder="Search actions..." />
+            <CommandInput placeholder="Tìm kiếm hành động..." />
             <CommandList>
               <CommandEmpty>No actions found.</CommandEmpty>
               <CommandGroup>
                 <CommandItem>
                   <UserIcon className="mr-2 h-4 w-4" />
-                  <span>View Profile</span>
+                  <span>Xem hồ sơ</span>
                 </CommandItem>
                 <CommandItem>
                   <SettingsIcon className="mr-2 h-4 w-4" />
-                  <span>Open Settings</span>
+                  <span>Mở cài đặt</span>
                 </CommandItem>
                 <CommandItem>
                   <CalendarIcon className="mr-2 h-4 w-4" />
@@ -183,7 +183,7 @@ function CommandMicroShowcase() {
   <CommandDialog open={open} onOpenChange={setOpen}>
     <CommandInput placeholder="Type a command or search..." />
     <CommandList>
-      <CommandEmpty>No results found.</CommandEmpty>
+      <CommandEmpty>Không tìm thấy kết quả.</CommandEmpty>
       <CommandGroup heading="Suggestions">
         <CommandItem>
           <CalendarIcon className="mr-2 h-4 w-4" />
@@ -191,17 +191,17 @@ function CommandMicroShowcase() {
         </CommandItem>
         <CommandItem>
           <SmileIcon className="mr-2 h-4 w-4" />
-          <span>Search Emoji</span>
+          <span>Tìm kiếm Emoji</span>
         </CommandItem>
       </CommandGroup>
     </CommandList>
   </CommandDialog>`}
       >
-        <Button onClick={() => setOpen(true)}>Open Command Palette</Button>
+        <Button onClick={() => setOpen(true)}>Mở Command Palette</Button>
         <CommandDialog open={open} onOpenChange={setOpen}>
           <CommandInput placeholder="Type a command or search..." />
           <CommandList>
-            <CommandEmpty>No results found.</CommandEmpty>
+            <CommandEmpty>Không tìm thấy kết quả.</CommandEmpty>
             <CommandGroup heading="Suggestions">
               <CommandItem>
                 <CalendarIcon className="mr-2 h-4 w-4" />
@@ -209,7 +209,7 @@ function CommandMicroShowcase() {
               </CommandItem>
               <CommandItem>
                 <SmileIcon className="mr-2 h-4 w-4" />
-                <span>Search Emoji</span>
+                <span>Tìm kiếm Emoji</span>
               </CommandItem>
             </CommandGroup>
           </CommandList>

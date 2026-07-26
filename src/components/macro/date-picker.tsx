@@ -176,7 +176,7 @@ const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
     }, [open, value, rangeValue]);
 
     const defaultPlaceholder =
-      placeholder ?? (mode === "range" ? "Pick a date range" : "Pick a date");
+      placeholder ?? (mode === "range" ? "Chọn khoảng thời gian" : "Chọn một ngày");
 
     const triggerLabel = formatTriggerLabel(
       mode,

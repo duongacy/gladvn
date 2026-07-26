@@ -198,7 +198,7 @@ export default function App() {
     <div className="min-h-screen bg-background text-foreground">
       {/* Top nav */}
       <header className="sticky top-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-md">
-        <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between px-6">
+        <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between px-4 md:px-6">
           {/* Left — Logo + version */}
           <div className="flex items-center gap-3">
             <button
@@ -428,7 +428,7 @@ export default function App() {
         </aside>
 
         {/* Main */}
-        <main className="flex-1 min-w-0 px-6 py-8">
+        <main className="flex-1 min-w-0 px-3 md:px-6 py-6 md:py-8">
           <div className="pb-24">
             {active === "overview" && <OverviewSection />}
             {active !== "overview" && <ComponentViewer id={active} />}

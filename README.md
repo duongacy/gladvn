@@ -6,7 +6,7 @@
   <p align="center">
     <a href="https://github.com/duongacy/gladvn/actions"><img src="https://img.shields.io/github/actions/workflow/status/duongacy/gladvn/ci.yml?branch=main" alt="Build Status"></a>
     <a href="https://github.com/duongacy/gladvn/stargazers"><img src="https://img.shields.io/github/stars/duongacy/gladvn" alt="GitHub Stars"></a>
-    <a href="https://github.com/duongacy/gladvn/blob/main/LICENSE"><img src="https://img.shields.io/github/license/duongacy/gladvn" alt="License"></a>
+    <a href="https://github.com/duongacy/gladvn/blob/main/LICENSE"><img src="https://img.shields.io/github/license/duongacy/gladvn?t=1" alt="License"></a>
   </p>
   <br/>
   <!-- Hero Image Placeholder -->

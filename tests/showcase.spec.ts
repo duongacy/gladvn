@@ -39,7 +39,7 @@ test.describe('Showcase UI', () => {
     
     // By default, it's light mode (or system preference). We assume light mode.
     // Click the theme toggle button in header
-    const themeButton = page.locator('header button', { hasText: 'Toggle theme' }).first();
+    const themeButton = page.locator('header button', { hasText: 'Đổi giao diện' }).first();
     
     await themeButton.click();
     

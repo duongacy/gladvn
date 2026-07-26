@@ -58,7 +58,7 @@ export function ShowcaseDocs({ children, className }: { children: React.ReactNod
 
 export function DocsH3({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
-    <h3 className={cn("mt-8 first:mt-1 mb-3 text-base font-semibold text-foreground", className)}>
+    <h3 className={cn("text-base font-semibold text-foreground", className)}>
       {children}
     </h3>
   );
@@ -69,7 +69,7 @@ export function DocsP({ children, className }: { children: React.ReactNode; clas
 }
 
 export function DocsUl({ children, className }: { children: React.ReactNode; className?: string }) {
-  return <ul className={cn("mb-6 list-inside list-disc space-y-2", className)}>{children}</ul>;
+  return <ul className={cn("list-inside list-disc space-y-2", className)}>{children}</ul>;
 }
 
 export function DocsLi({ children, className }: { children: React.ReactNode; className?: string }) {

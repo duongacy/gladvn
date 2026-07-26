@@ -23,11 +23,11 @@ export default function InteractiveSection() {
             <TabsTrigger value="props">Props</TabsTrigger>
           </TabsList>
           <TabsContent value="preview" className="pt-4">
-            <Button color="success">Save changes</Button>
+            <Button color="success">Lưu thay đổi</Button>
           </TabsContent>
           <TabsContent value="code" className="pt-4">
             <pre className="text-xs bg-muted rounded-md p-3 overflow-x-auto">
-              {`<Button color="success">Save changes</Button>`}
+              {`<Button color="success">Lưu thay đổi</Button>`}
             </pre>
           </TabsContent>
           <TabsContent value="props" className="pt-4">

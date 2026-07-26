@@ -104,7 +104,7 @@ export default function FormsSection() {
                 <Input
                   id="tf-input"
                   size={globalSize}
-                  placeholder="Enter value..."
+                  placeholder="Nhập giá trị..."
                 />
               </FieldContent>
             </Field>
@@ -121,7 +121,7 @@ export default function FormsSection() {
                   id="tf-textarea"
                   size={globalSize}
                   rows={3}
-                  placeholder="Write something..."
+                  placeholder="Viết gì đó..."
                 />
               </FieldContent>
             </Field>
@@ -189,7 +189,7 @@ export default function FormsSection() {
               <FieldContent>
                 <Select>
                   <SelectTrigger size={globalSize}>
-                    <SelectValue placeholder="Pick a framework..." />
+                    <SelectValue placeholder="Chọn framework..." />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="next">Next.js</SelectItem>
@@ -209,7 +209,7 @@ export default function FormsSection() {
               <FieldContent>
                 <Select>
                   <SelectTrigger size={globalSize}>
-                    <SelectValue placeholder="Pick a fruit..." />
+                    <SelectValue placeholder="Chọn trái cây..." />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
@@ -233,7 +233,7 @@ export default function FormsSection() {
               <FieldContent>
                 <SelectPreset
                   size={globalSize}
-                  placeholder="Flat list..."
+                  placeholder="Danh sách..."
                   options={[
                     { value: "1", label: "Option 1" },
                     { value: "2", label: "Option 2" },
@@ -275,7 +275,7 @@ export default function FormsSection() {
               </FieldDescription>
               <FieldContent>
                 <Combobox>
-                  <ComboboxInput placeholder="Search framework..." />
+                  <ComboboxInput placeholder="Tìm framework..." />
                   <ComboboxContent>
                     <ComboboxList>
                       <ComboboxItem value="react">React</ComboboxItem>
@@ -504,7 +504,7 @@ export default function FormsSection() {
                     id="err-input-username"
                     size={globalSize}
                     aria-invalid
-                    placeholder="e.g. john_doe"
+                    placeholder="VD: john_doe"
                   />
                 </FieldContent>
                 <FieldError
@@ -524,7 +524,7 @@ export default function FormsSection() {
                     <InputGroupInput
                       id="err-group"
                       aria-invalid
-                      placeholder="username"
+                      placeholder="tên người dùng"
                     />
                   </InputGroup>
                 </FieldContent>
@@ -538,7 +538,7 @@ export default function FormsSection() {
                 <FieldContent>
                   <Select>
                     <SelectTrigger size={globalSize} aria-invalid>
-                      <SelectValue placeholder="Invalid selection..." />
+                      <SelectValue placeholder="Lựa chọn không hợp lệ..." />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="1">Pro Plan</SelectItem>
@@ -564,7 +564,7 @@ export default function FormsSection() {
                       size={globalSize}
                       aria-invalid
                     >
-                      <SelectValue placeholder="Select option..." />
+                      <SelectValue placeholder="Chọn tuỳ chọn..." />
                     </SelectTrigger>
                     <SelectContent></SelectContent>
                   </Select>

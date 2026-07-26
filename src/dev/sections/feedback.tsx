@@ -53,28 +53,28 @@ export default function FeedbackSection() {
             <InfoIcon />
             <AlertTitle>Info</AlertTitle>
             <AlertDescription>
-              Your session will expire in 10 minutes.
+              Phiên đăng nhập của bạn sẽ hết hạn sau 10 phút.
             </AlertDescription>
           </Alert>
           <Alert color="success">
             <CheckCircle2Icon />
             <AlertTitle>Success</AlertTitle>
             <AlertDescription>
-              Your changes have been saved successfully.
+              Các thay đổi đã được lưu thành công.
             </AlertDescription>
           </Alert>
           <Alert color="warning">
             <TriangleAlertIcon />
             <AlertTitle>Warning</AlertTitle>
             <AlertDescription>
-              This action cannot be undone easily.
+              Hành động này không thể hoàn tác đâu nhé.
             </AlertDescription>
           </Alert>
           <Alert color="destructive">
             <XCircleIcon />
             <AlertTitle>Error</AlertTitle>
             <AlertDescription>
-              Failed to connect to the server.
+              Lỗi kết nối đến máy chủ.
             </AlertDescription>
           </Alert>
         </div>
@@ -181,14 +181,14 @@ export default function FeedbackSection() {
               <div>
                 <h4 className="text-sm font-medium">States</h4>
                 <p className="text-xs text-muted-foreground">
-                  Basic toast variations for different intents.
+                  Các loại toast cơ bản.
                 </p>
               </div>
               <div className="flex flex-wrap gap-2">
                 <Button
                   size="sm"
                   variant="outline"
-                  onClick={() => toast("Event has been created")}
+                  onClick={() => toast("Sự kiện đã được tạo")}
                 >
                   Default
                 </Button>
@@ -196,7 +196,7 @@ export default function FeedbackSection() {
                   size="sm"
                   variant="outline"
                   color="success"
-                  onClick={() => toast.success("Changes saved successfully")}
+                  onClick={() => toast.success("Lưu thay đổi thành công")}
                 >
                   Success
                 </Button>
@@ -204,7 +204,7 @@ export default function FeedbackSection() {
                   size="sm"
                   variant="outline"
                   color="info"
-                  onClick={() => toast.info("Session expires in 10 minutes")}
+                  onClick={() => toast.info("Hết hạn phiên sau 10 phút")}
                 >
                   Info
                 </Button>
@@ -212,7 +212,7 @@ export default function FeedbackSection() {
                   size="sm"
                   variant="outline"
                   color="warning"
-                  onClick={() => toast.warning("Disk space running low")}
+                  onClick={() => toast.warning("Sắp hết dung lượng lưu trữ")}
                 >
                   Warning
                 </Button>
@@ -220,7 +220,7 @@ export default function FeedbackSection() {
                   size="sm"
                   variant="outline"
                   color="destructive"
-                  onClick={() => toast.error("Failed to save changes")}
+                  onClick={() => toast.error("Lưu thay đổi thất bại")}
                 >
                   Error
                 </Button>
@@ -241,7 +241,7 @@ export default function FeedbackSection() {
                   size="sm"
                   variant="outline"
                   onClick={() =>
-                    toast("You can close this toast manually", {
+                    toast("Bạn có thể tự đóng toast này", {
                       closeButton: true,
                     })
                   }
@@ -252,7 +252,7 @@ export default function FeedbackSection() {
                   size="sm"
                   variant="outline"
                   onClick={() =>
-                    toast("File uploaded", {
+                    toast("Đã tải file lên", {
                       description:
                         "image.png has been uploaded to your gallery.",
                       action: { label: "View", onClick: () => {} },
@@ -265,15 +265,15 @@ export default function FeedbackSection() {
                   size="sm"
                   variant="outline"
                   onClick={() =>
-                    toast("Confirm deletion", {
+                    toast("Xác nhận xoá", {
                       description: "Are you sure you want to delete this file?",
                       action: {
                         label: "Delete",
-                        onClick: () => toast.error("File deleted"),
+                        onClick: () => toast.error("Đã xoá file"),
                       },
                       cancel: {
                         label: "Cancel",
-                        onClick: () => toast.info("Action cancelled"),
+                        onClick: () => toast.info("Đã huỷ hành động"),
                       },
                     })
                   }
@@ -312,7 +312,7 @@ export default function FeedbackSection() {
                   size="sm"
                   variant="outline"
                   onClick={() =>
-                    toast("Top Center Toast", { position: "top-center" })
+                    toast("Toast ở giữa phía trên", { position: "top-center" })
                   }
                 >
                   Top Center Position

@@ -91,8 +91,8 @@ export default function ButtonsSection() {
                       >
                         {isDeleting && <Spinner />}
                         {!isDeleting && <Trash2Icon />}
-                        {isDeleting && "Deleting..."}
-                        {!isDeleting && "Delete Permanently"}
+                        {isDeleting && "Đang xoá..."}
+                        {!isDeleting && "Xoá vĩnh viễn"}
                       </Button>
                     }
                   />
@@ -144,8 +144,8 @@ export default function ButtonsSection() {
               >
                 {isSending && <Spinner />}
                 {!isSending && <CheckCircle2Icon />}
-                {isSending && "Saving"}
-                {!isSending && "Save Changes"}
+                {isSending && "Đang lưu..."}
+                {!isSending && "Lưu thay đổi"}
               </Button>
             </div>
           </div>

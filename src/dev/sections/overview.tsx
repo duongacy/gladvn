@@ -45,7 +45,7 @@ export default function OverviewSection() {
   const handleCopy = () => {
     navigator.clipboard.writeText("npm i gladvn");
     setCopied(true);
-    toast.success("Command copied to clipboard");
+    toast.success("Đã copy lệnh vào clipboard");
     setTimeout(() => setCopied(false), 2000);
   };
 
@@ -110,7 +110,7 @@ export default function OverviewSection() {
                   </div>
                   <Select defaultValue="system">
                     <SelectTrigger size="sm">
-                      <SelectValue placeholder="Theme" />
+                      <SelectValue placeholder="Giao diện" />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="light">Light</SelectItem>

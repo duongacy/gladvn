@@ -199,7 +199,7 @@ export default function App() {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="md:hidden -ml-2 p-1.5 rounded-md hover:bg-muted text-muted-foreground transition-colors"
-              aria-label="Toggle Menu"
+              aria-label="Bật/tắt menu"
             >
               {isMobileMenuOpen ? (
                 <XIcon className="size-5" />
@@ -227,7 +227,7 @@ export default function App() {
                 }
               )}
             >
-              Overview
+              Tổng quan
             </button>
             <button
               onClick={() => {
@@ -272,7 +272,7 @@ export default function App() {
             >
               <SearchIcon className="size-3.5 shrink-0" />
               <span className="flex-1 text-left">
-                Search...
+                Tìm kiếm...
               </span>
               <kbd className="text-[10px] bg-background border border-border/80 rounded px-1.5 py-0.5 font-sans leading-none">
                 ⌘K
@@ -322,7 +322,7 @@ export default function App() {
             >
               <SunIcon className="size-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
               <MoonIcon className="absolute size-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-              <span className="sr-only">Toggle theme</span>
+              <span className="sr-only">Đổi giao diện</span>
             </Button>
           </div>
         </div>
@@ -362,7 +362,7 @@ export default function App() {
               )}
             >
               <LayersIcon className="size-3.5" />
-              Overview
+              Tổng quan
             </button>
             <div className="h-px bg-border/50 my-2 mx-1"></div>
             <button
@@ -387,7 +387,7 @@ export default function App() {
                 }
               )}
             >
-              Blocks
+              Lắp ghép
             </button>
             <div className="h-px bg-border/50 my-2 mx-1"></div>
           </nav>

@@ -205,12 +205,12 @@ export default function DisplaySection() {
                 <div className="size-8 rounded-lg bg-primary/10 flex items-center justify-center">
                   <ZapIcon className="size-4 text-primary" />
                 </div>
-                <CardTitle className="text-base">Performance</CardTitle>
+                <CardTitle className="text-base">Tốc độ</CardTitle>
               </div>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
-                Optimized bundle with tree-shaking support.
+                Nhẹ, nhanh và support tree-shaking tới bến.
               </p>
             </CardContent>
             <CardFooter>
@@ -225,12 +225,12 @@ export default function DisplaySection() {
                 <div className="size-8 rounded-lg bg-success/10 flex items-center justify-center">
                   <ShieldCheckIcon className="size-4 text-success" />
                 </div>
-                <CardTitle className="text-base">Type Safe</CardTitle>
+                <CardTitle className="text-base">Chuẩn Type</CardTitle>
               </div>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
-                Full TypeScript support with auto-complete.
+                Viết bằng TypeScript 100%, gõ tới đâu VSCode nhắc tới đó.
               </p>
             </CardContent>
             <CardFooter>
@@ -246,16 +246,16 @@ export default function DisplaySection() {
         <Accordion>
           {[
             {
-              q: "How do I install?",
-              a: "Run npm install gladvn in your project.",
+              q: "Cài đặt như thế nào?",
+              a: "Chạy lệnh npm install gladvn trong project của bạn nha.",
             },
             {
-              q: "Can I customize colors?",
-              a: "Yes — copy tokens.css and override any CSS variable.",
+              q: "Có đổi màu được không?",
+              a: "Được luôn! Chỉ cần copy file tokens.css và override lại CSS variable tuỳ ý.",
             },
             {
-              q: "Does it support dark mode?",
-              a: "Yes — add the .dark class to your <html> element.",
+              q: "Có hỗ trợ Dark Mode không?",
+              a: "Chắc chắn rồi — bạn chỉ cần thêm class .dark vào thẻ <html> là xong.",
             },
           ].map(({ q, a }) => (
             <AccordionItem key={q} value={q}>

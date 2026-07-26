@@ -29,9 +29,9 @@ function CardMacroShowcase({ globalSize }: { globalSize: Size }) {
           label="Tiêu chuẩn (Standard)"
           description="Card cài sẵn với đầy đủ tiêu đề, nội dung và chân trang."
           codeString={`<CardPreset
-    title="Account Settings"
+    title="Cài đặt tài khoản"
     description="Quản lý các cài đặt và tùy chọn cho tài khoản của bạn."
-    footer={<Button>Save Changes</Button>}
+    footer={<Button>Lưu thay đổi</Button>}
     className="w-full"
   >
     <div className="text-sm text-muted-foreground bg-muted/30 p-4 rounded-lg border border-dashed border-border/50">
@@ -41,9 +41,9 @@ function CardMacroShowcase({ globalSize }: { globalSize: Size }) {
         >
           <CardPreset
             size={globalSize}
-            title="Account Settings"
+            title="Cài đặt tài khoản"
             description="Quản lý các cài đặt và tùy chọn cho tài khoản của bạn."
-            footer={<Button size={globalSize}>Save Changes</Button>}
+            footer={<Button size={globalSize}>Lưu thay đổi</Button>}
             className="w-full"
           >
             <div className="text-sm text-muted-foreground bg-muted/30 p-4 rounded-lg border border-dashed border-border/50">
@@ -56,7 +56,7 @@ function CardMacroShowcase({ globalSize }: { globalSize: Size }) {
           label="Không có Footer"
           description="Bỏ qua prop footer để ẩn hoàn toàn phần chân trang."
           codeString={`<CardPreset
-    title="Notification Preferences"
+    title="Tùy chọn thông báo"
     description="Chọn những thông tin mà bạn muốn nhận thông báo."
     className="w-full"
   >
@@ -67,7 +67,7 @@ function CardMacroShowcase({ globalSize }: { globalSize: Size }) {
         >
           <CardPreset
             size={globalSize}
-            title="Notification Preferences"
+            title="Tùy chọn thông báo"
             description="Chọn những thông tin mà bạn muốn nhận thông báo."
             className="w-full"
           >
@@ -122,7 +122,7 @@ function CardMacroShowcase({ globalSize }: { globalSize: Size }) {
           label="Với Form Controls"
           description="Sử dụng children để đặt input form bên trong nội dung."
           codeString={`<CardPreset
-    title="Update Profile"
+    title="Cập nhật hồ sơ"
     description="Thay đổi tên hiển thị và email của bạn."
     footer={
       <div className="flex justify-between w-full">
@@ -153,7 +153,7 @@ function CardMacroShowcase({ globalSize }: { globalSize: Size }) {
         >
           <CardPreset
             size={globalSize}
-            title="Update Profile"
+            title="Cập nhật hồ sơ"
             description="Thay đổi tên hiển thị và email của bạn."
             footer={
               <div className="flex justify-between w-full">

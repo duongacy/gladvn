@@ -133,7 +133,7 @@ export default function WhyGladvn() {
               <span className="text-info">variant=</span><span className="text-success">"solid"</span>
               <span className="text-info"> color=</span><span className="text-success">"primary"</span>
               <span className="text-primary">{">"}</span>
-              <span className="text-foreground">Submit</span>
+              <span className="text-foreground">Xác nhận</span>
               <span className="text-primary">{"</Button>"}</span>
             </div>
           </div>

@@ -67,7 +67,7 @@ function DrawerMicroShowcase() {
             </div>
           </div>
           <DrawerFooter>
-            <Button>Submit</Button>
+            <Button>Xác nhận</Button>
             <DrawerClose asChild>
               <Button variant="outline">Cancel</Button>
             </DrawerClose>
@@ -119,7 +119,7 @@ function DrawerMicroShowcase() {
                     </div>
                   </div>
                   <DrawerFooter>
-                    <Button>Submit</Button>
+                    <Button>Xác nhận</Button>
                     <DrawerClose asChild>
                       <Button variant="outline">Cancel</Button>
                     </DrawerClose>

@@ -84,7 +84,7 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
     trigger={
       <Button variant="outline">Edit Profile</Button>
     }
-    footer={<Button type="submit">Save changes</Button>}
+    footer={<Button type="submit">Lưu thay đổi</Button>}
   >
     <div className="grid gap-4 py-4">
       <div className="grid grid-cols-4 items-center gap-4">
@@ -168,8 +168,8 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
     }
   >
     <p className="text-sm text-muted-foreground">
-      By clicking accept, you agree to our updated Terms of
-      Service and Privacy Policy.
+      Bằng cách chọn chấp nhận, bạn đồng ý với Điều khoản của
+      Dịch vụ và Chính sách bảo mật.
     </p>
   </DialogPreset>`}
         >
@@ -193,7 +193,7 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
             }
           >
             <p className="text-sm text-muted-foreground">
-              By clicking accept, you agree to our updated Terms of Service and
+              Bằng cách chọn chấp nhận, bạn đồng ý với Điều khoản của Service and
               Privacy Policy.
             </p>
           </DialogPreset>
@@ -323,7 +323,7 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
         <DialogClose render={<Button variant="ghost" />}>
           Cancel
         </DialogClose>
-        <Button>I Agree</Button>
+        <Button>Tôi đồng ý</Button>
       </div>
     }
   >
@@ -359,7 +359,7 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
                 >
                   Cancel
                 </DialogClose>
-                <Button size={globalSize}>I Agree</Button>
+                <Button size={globalSize}>Tôi đồng ý</Button>
               </div>
             }
           >
@@ -526,7 +526,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
           </div>
         </div>
         <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
-          <Button type="submit">Save changes</Button>
+          <Button type="submit">Lưu thay đổi</Button>
         </DialogFooter>
         <DialogClose
           render={
@@ -626,8 +626,8 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
           </DialogDescription>
         </DialogHeader>
         <p className="text-sm text-muted-foreground">
-          By clicking accept, you agree to our updated Terms
-          of Service and Privacy Policy.
+          Bằng cách chọn chấp nhận, bạn đồng ý với Điều khoản
+          of Dịch vụ và Chính sách bảo mật.
         </p>
         <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
           <DialogClose
@@ -659,7 +659,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                   </DialogDescription>
                 </DialogHeader>
                 <p className="text-sm text-muted-foreground">
-                  By clicking accept, you agree to our updated Terms of Service
+                  Bằng cách chọn chấp nhận, bạn đồng ý với Điều khoản của Service
                   and Privacy Policy.
                 </p>
                 <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
@@ -917,7 +917,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
           <DialogClose render={<Button variant="ghost" />}>
             Cancel
           </DialogClose>
-          <Button>I Agree</Button>
+          <Button>Tôi đồng ý</Button>
         </DialogFooter>
         <DialogClose
           render={
@@ -979,7 +979,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                   >
                     Cancel
                   </DialogClose>
-                  <Button size={globalSize}>I Agree</Button>
+                  <Button size={globalSize}>Tôi đồng ý</Button>
                 </DialogFooter>
                 <DialogClose
                   render={

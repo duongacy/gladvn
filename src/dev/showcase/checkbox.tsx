@@ -87,7 +87,7 @@ function CheckboxForm({ size }: { size: Size }) {
           />
         )}
       />
-      <Button type="submit" size={size}>Submit</Button>
+      <Button type="submit" size={size}>Xác nhận</Button>
     </form>
   );
 }`;

@@ -19,34 +19,34 @@ import {
 
 const faqItems = [
   {
-    q: "Is it accessible?",
-    a: "Yes. It adheres to the WAI-ARIA design pattern. Keyboard navigation and screen readers are fully supported." },
+    q: "Hỗ trợ Accessible (a11y) không?",
+    a: "Có chứ. Component tuân thủ chuẩn WAI-ARIA. Bàn phím hay screen reader cân hết." },
   {
-    q: "Is it styled?",
-    a: "Yes. It comes with default styles that match the other components' aesthetic. You can override every token via CSS variables." },
+    q: "Có CSS sẵn không?",
+    a: "Có nha. Style mặc định bao đẹp, match với các component khác. Override vô tư qua CSS variable." },
   {
-    q: "Is it animated?",
-    a: "Yes. It's animated by default with smooth expand/collapse transitions, but you can disable animation if you prefer." },
+    q: "Có animation không?",
+    a: "Đầy đủ. Mở ra đóng lại mượt mà, nhưng nếu không thích thì tắt cũng dễ òm." },
   {
-    q: "Can I nest accordions?",
-    a: "Yes. You can nest accordion components inside each other to create multi-level collapsible sections." },
+    q: "Có lồng nhau (nest) được không?",
+    a: "Thoải mái luôn. Bro lồng bao nhiêu cái accordion vào nhau tuỳ thích." },
 ];
 
 const presetItems = [
   {
     value: "item-1",
-    title: "Is it accessible?",
+    title: "Hỗ trợ Accessible (a11y) không?",
     content:
-      "Yes. It adheres to the WAI-ARIA design pattern. Keyboard navigation and screen readers are fully supported." },
+      "Có chứ. Component tuân thủ chuẩn WAI-ARIA. Bàn phím hay screen reader cân hết." },
   {
     value: "item-2",
-    title: "Is it styled?",
+    title: "Có CSS sẵn không?",
     content:
-      "Yes. It comes with default styles that match the other components' aesthetic." },
+      "Có nha. Style mặc định bao đẹp, match với các component khác. Override vô tư qua CSS variable." },
   {
     value: "item-3",
-    title: "Is it animated?",
-    content: "Yes. It's animated by default with smooth transitions." },
+    title: "Có animation không?",
+    content: "Đầy đủ. Mở ra đóng lại mượt mà, nhưng nếu không thích thì tắt cũng dễ òm." },
 ];
 
 function AccordionMacroShowcase() {

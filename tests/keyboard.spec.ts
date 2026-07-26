@@ -26,7 +26,7 @@ test.describe('Keyboard Navigation', () => {
     await page.goto('/dialog');
 
     // Open a dialog
-    const openButton = page.locator('button', { hasText: 'Edit Profile' }).first();
+    const openButton = page.locator('button', { hasText: 'Chỉnh sửa hồ sơ' }).first();
     await openButton.click();
 
     // The dialog should be visible
@@ -42,7 +42,7 @@ test.describe('Keyboard Navigation', () => {
     
     // Wait for the dialog content to be active
     const innerHtml = await dialog.innerHTML();
-    expect(innerHtml).toContain('Save changes');
+    expect(innerHtml).toContain('Lưu thay đổi');
 
     // Close the dialog with Escape
     await page.keyboard.press('Escape');

@@ -121,7 +121,7 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
             }
             footer={
               <Button type="submit" size={globalSize}>
-                Save changes
+                Lưu thay đổi
               </Button>
             }
           >
@@ -586,7 +586,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                 </div>
                 <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
                   <Button type="submit" size={globalSize}>
-                    Save changes
+                    Lưu thay đổi
                   </Button>
                 </DialogFooter>
                 <DialogClose

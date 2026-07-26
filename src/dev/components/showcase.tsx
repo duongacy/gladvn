@@ -44,7 +44,7 @@ export function ShowcaseDocs({ children }: { children: React.ReactNode }) {
       <div className="flex items-center gap-2 border-b border-b-border border-amber-500/20 bg-amber-500/10 px-6 py-3.5">
         <BookOpenIcon className="size-4 text-amber-700 dark:text-amber-500" />
         <h3 className="text-sm font-semibold text-amber-900 dark:text-amber-200">
-          Usage Guidelines
+          Hướng dẫn sử dụng
         </h3>
       </div>
       <div className="px-6 py-5 text-[15px] leading-relaxed text-muted-foreground">

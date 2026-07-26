@@ -21,12 +21,12 @@ function ToastMicroShowcase({ globalSize }: { globalSize: Size }) {
     <Button
       variant="outline"
       onClick={() => {
-        toast("Event has been created", {
+        toast("Sự kiện đã được tạo", {
           description:
-            "Sunday, December 03, 2023 at 9:00 AM",
+            "Chủ nhật, ngày 03 tháng 12 năm 2023 lúc 9:00 sáng",
           action: {
-            label: "Undo",
-            onClick: () => console.log("Undo") } })
+            label: "Hoàn tác",
+            onClick: () => console.log("Hoàn tác") } })
       }}
     >
       Show Toast
@@ -56,11 +56,11 @@ function ToastMicroShowcase({ globalSize }: { globalSize: Size }) {
             variant="outline"
             size={globalSize}
             onClick={() => {
-              toast("Event has been created", {
-                description: "Sunday, December 03, 2023 at 9:00 AM",
+              toast("Sự kiện đã được tạo", {
+                description: "Chủ nhật, ngày 03 tháng 12 năm 2023 lúc 9:00 sáng",
                 action: {
-                  label: "Undo",
-                  onClick: () => console.log("Undo") } });
+                  label: "Hoàn tác",
+                  onClick: () => console.log("Hoàn tác") } });
             }}
           >
             Show Toast

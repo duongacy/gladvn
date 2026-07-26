@@ -315,7 +315,7 @@ function TextareaMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleGrid>
 
       <ExampleSection
-        label="🧭 Use Case Comparison"
+        label="🧭 So sánh Use Case"
         description="So sánh nhanh khi nào dùng Micro và Macro."
         fullWidth
         codeString={`<div className="grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -504,27 +504,7 @@ export default function TextareaShowcase() {
     <Showcase
       title="Textarea"
       description="Trường văn bản nhiều dòng dành cho nội dung dài, phản hồi hoặc mô tả."
-      generalConcept={
-        <div className="space-y-4">
-          <ShowcaseDocs>
-            <DocsH3>Khi nào nên dùng Macro</DocsH3>
-            <DocsP>
-              <DocsCode>TextareaPreset</DocsCode> là một component hoàn chỉnh,
-              tích hợp sẵn Label, Description và Error Message. Sử dụng nó cho
-              đa số các trường hợp để giữ code ngắn gọn và đảm bảo tính nhất
-              quán (Accessibility).
-            </DocsP>
-          </ShowcaseDocs>
-          <ShowcaseDocs>
-            <DocsH3>Khi nào nên dùng Micro</DocsH3>
-            <DocsP>
-              <DocsCode>Textarea</DocsCode> chỉ là một ô nhập liệu độc lập. Dùng
-              nó khi bạn tự quản lý <DocsCode>Field</DocsCode> thủ công hoặc khi
-              chèn Textarea vào bên trong một <DocsCode>InputGroup</DocsCode>.
-            </DocsP>
-          </ShowcaseDocs>
-        </div>
-      }
+      
 
       tabs={[
         {

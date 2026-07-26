@@ -485,7 +485,7 @@ function RadioGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleGrid>
 
       <ExampleSection
-        label="🧭 Use Case Comparison"
+        label="🧭 So sánh Use Case"
         description="So sánh nhanh khi nào dùng Micro và Macro."
         fullWidth
         codeString={`<div className="grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -643,26 +643,7 @@ export default function RadioGroupShowcase() {
     <Showcase
       title="Radio Group"
       description="Tập hợp các nút chọn một tuỳ chọn duy nhất trong danh sách (Radio Buttons)."
-      generalConcept={
-        <ShowcaseDocs>
-          <DocsH3>Khi nào nên dùng Macro</DocsH3>
-          <DocsP>
-            <DocsCode>RadioGroupPreset</DocsCode> đóng gói sẵn cấu trúc form
-            tiêu chuẩn: Label tổng, Description tổng, Error Message tổng và tự
-            động render danh sách các <DocsCode>options</DocsCode> thành các
-            RadioGroupItem. Dùng Macro cho 95% trường hợp làm form trắc nghiệm,
-            chọn 1 trong nhiều tuỳ chọn.
-          </DocsP>
-          <DocsH3>Khi nào nên dùng Micro</DocsH3>
-          <DocsP>
-            Dùng <DocsCode>RadioGroup</DocsCode> và{" "}
-            <DocsCode>RadioGroupItem</DocsCode> nguyên thuỷ khi bạn cần một
-            layout dị biệt (như hiển thị các radio nằm ngang thay vì dọc) hoặc
-            khi mỗi option không đơn thuần là text mà chứa layout hình ảnh phức
-            tạp (như chọn Card hình ảnh thay vì text).
-          </DocsP>
-        </ShowcaseDocs>
-      }
+      
       tabs={[
         {
           label: "Micro (Primitive)",

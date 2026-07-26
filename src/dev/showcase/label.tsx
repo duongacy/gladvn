@@ -15,10 +15,10 @@ function LabelMicroShowcase({ globalSize }: { globalSize: Size }) {
       <ExampleSection
         label="Default"
         description="Cách sử dụng nhãn tiêu chuẩn."
-        codeString={`<Label htmlFor="terms">Accept terms and conditions</Label>`}
+        codeString={`<Label htmlFor="terms">Chấp nhận điều khoản và điều kiện</Label>`}
       >
         <Label htmlFor="terms" size={globalSize}>
-          Accept terms and conditions
+          Chấp nhận điều khoản và điều kiện
         </Label>
       </ExampleSection>
 
@@ -26,12 +26,12 @@ function LabelMicroShowcase({ globalSize }: { globalSize: Size }) {
         label="Disabled"
         description="Trạng thái bị vô hiệu hóa khi nằm trong group bị vô hiệu."
         codeString={`<div data-disabled="true" className="group">
-    <Label htmlFor="disabled">This label is disabled</Label>
+    <Label htmlFor="disabled">Nhãn này đã bị khóa</Label>
   </div>`}
       >
         <div data-disabled="true" className="group">
           <Label htmlFor="disabled" size={globalSize}>
-            This label is disabled
+            Nhãn này đã bị khóa
           </Label>
         </div>
       </ExampleSection>
@@ -40,12 +40,12 @@ function LabelMicroShowcase({ globalSize }: { globalSize: Size }) {
         label="Error State"
         description="Hiển thị màu đỏ khi nằm trong group bị lỗi (data-invalid)."
         codeString={`<div data-invalid="true" className="group">
-    <Label htmlFor="error">Email is required</Label>
+    <Label htmlFor="error">Email là bắt buộc</Label>
   </div>`}
       >
         <div data-invalid="true" className="group">
           <Label htmlFor="error" size={globalSize}>
-            Email is required
+            Email là bắt buộc
           </Label>
         </div>
       </ExampleSection>
@@ -61,7 +61,7 @@ function LabelMicroShowcase({ globalSize }: { globalSize: Size }) {
       className="peer w-4 h-4"
     />
     <Label htmlFor="peer-disabled">
-      Disabled by peer checkbox
+      Bị khóa bởi peer checkbox
     </Label>
   </div>`}
       >
@@ -73,7 +73,7 @@ function LabelMicroShowcase({ globalSize }: { globalSize: Size }) {
             className="peer w-4 h-4"
           />
           <Label htmlFor="peer-disabled" size={globalSize}>
-            Disabled by peer checkbox
+            Bị khóa bởi peer checkbox
           </Label>
         </div>
       </ExampleSection>

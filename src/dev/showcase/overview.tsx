@@ -974,15 +974,10 @@ export default function OverviewSection() {
               Scoped Theme Tunnel
             </h3>
             <p className="text-muted-foreground text-xl leading-relaxed">
-              Dark section bên trong Light app? Dễ. Nhưng khi Tooltip hay Dialog
-              render nổi qua cơ chế Portaling — chúng thoát khỏi DOM tree hiện tại và{" "}
-              <strong className="text-foreground">mất theme</strong>. Hầu hết
-              thư viện bỏ cuộc ở đây.
+              Tooltip hay Dialog thường bị <strong className="text-foreground">mất theme (Dark/Light cục bộ)</strong> khi nhảy ra ngoài DOM tree qua cơ chế Portaling.
             </p>
             <p className="text-muted-foreground text-xl leading-relaxed">
-              Nhưng hiện tại thư viện đã áp dụng <strong>Zero-Portal API</strong> (kể từ v0.2.20).
-              Bạn không cần phải import <code className="text-sm bg-warning/20 text-warning px-1.5 py-0.5 rounded">ThemeWrapper</code> hay <code className="text-sm bg-warning/20 text-warning px-1.5 py-0.5 rounded">*Portal</code> nữa.
-              Toàn bộ logic portaling và ThemeWrapper đã được nhúng sẵn vào trong các <code className="text-sm bg-warning/20 text-warning px-1.5 py-0.5 rounded">*Content</code> components (VD: <code className="text-sm bg-warning/20 text-warning px-1.5 py-0.5 rounded">DialogContent</code>, <code className="text-sm bg-warning/20 text-warning px-1.5 py-0.5 rounded">TooltipContent</code>).
+              Nhờ <strong>Zero-Portal API</strong>, khả năng giữ theme đã được nhúng sẵn vào các <code className="text-sm bg-warning/20 text-warning px-1.5 py-0.5 rounded">*Content</code> (VD: <code className="text-sm bg-warning/20 text-warning px-1.5 py-0.5 rounded">DialogContent</code>). Mọi thứ hoạt động trơn tru tự động, bạn không cần phải import hay bọc <code className="text-sm bg-warning/20 text-warning px-1.5 py-0.5 rounded">ThemeWrapper</code> thủ công nữa!
             </p>
           </div>
 

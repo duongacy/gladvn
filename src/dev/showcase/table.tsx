@@ -21,12 +21,12 @@ import {
 type SortDirection = "asc" | "desc" | "none";
 
 const DUMMY_DATA = [
-  { id: "INV001", status: "Paid", method: "Credit Card", amount: "$250.00" },
-  { id: "INV002", status: "Pending", method: "PayPal", amount: "$150.00" },
+  { id: "INV001", status: "Đã thanh toán", method: "Thẻ tín dụng", amount: "$250.00" },
+  { id: "INV002", status: "Chờ xử lý", method: "PayPal", amount: "$150.00" },
   {
     id: "INV003",
-    status: "Unpaid",
-    method: "Bank Transfer",
+    status: "Chưa thanh toán",
+    method: "Chuyển khoản",
     amount: "$350.00" },
 ];
 

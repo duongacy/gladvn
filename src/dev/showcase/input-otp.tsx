@@ -283,7 +283,7 @@ function InputOTPMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleGrid>
 
       <ExampleSection
-        label="🧭 Use Case Comparison"
+        label="🧭 So sánh Use Case"
         description="So sánh nhanh khi nào dùng Micro và Macro."
         fullWidth
         codeString={`{}
@@ -375,22 +375,8 @@ export default function InputOTPShowcase() {
             Dùng để nhập các đoạn mã có chiều dài cố định như OTP, PIN code,
             2FA.
           </DocsP>
-          <DocsH3>Khi nào nên dùng Macro</DocsH3>
-          <DocsP>
-            <DocsCode>InputOTPPreset</DocsCode> tự động sinh ra các nhóm số
-            (`InputOTPGroup`) và dấu phân cách (`InputOTPSeparator`) dựa vào
-            prop <DocsCode>groups</DocsCode> (ví dụ: `groups={[3, 3]}`). Dùng
-            Preset này cho 99% các trường hợp form nhập mã xác thực (OTP) vì nó
-            đã tích hợp sẵn Label và Error Message.
-          </DocsP>
-          <DocsH3>Khi nào nên dùng Micro</DocsH3>
-          <DocsP>
-            Dùng <DocsCode>InputOTP</DocsCode> và{" "}
-            <DocsCode>InputOTPGroup</DocsCode> thủ công khi bạn cần một giao
-            diện nhập mã đặc thù không theo chuẩn (ví dụ: các ô số nằm rải rác
-            trong một thiết kế đồ hoạ) hoặc khi chèn trực tiếp vào một luồng
-            không có Label đi kèm.
-          </DocsP>
+          
+          
         </ShowcaseDocs>
       }
       tabs={[

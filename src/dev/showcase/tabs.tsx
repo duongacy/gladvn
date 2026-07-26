@@ -30,7 +30,7 @@ function TabsMacroShowcase() {
     items={[
       {
         value: "account",
-        title: "Account",
+        title: "Tài khoản",
         content: (
           <div className="rounded-xl border border-border bg-card p-4 mt-2">
             <h4 className="font-medium">Account</h4>
@@ -41,7 +41,7 @@ function TabsMacroShowcase() {
         ) },
       {
         value: "password",
-        title: "Password",
+        title: "Mật khẩu",
         content: (
           <div className="rounded-xl border border-border bg-card p-4 mt-2">
             <h4 className="font-medium">Password</h4>
@@ -59,7 +59,7 @@ function TabsMacroShowcase() {
             items={[
               {
                 value: "account",
-                title: "Account",
+                title: "Tài khoản",
                 content: (
                   <div className="rounded-xl border border-border bg-card p-4 mt-2">
                     <h4 className="font-medium">Account</h4>
@@ -70,7 +70,7 @@ function TabsMacroShowcase() {
                 ) },
               {
                 value: "password",
-                title: "Password",
+                title: "Mật khẩu",
                 content: (
                   <div className="rounded-xl border border-border bg-card p-4 mt-2">
                     <h4 className="font-medium">Password</h4>
@@ -608,29 +608,7 @@ export default function TabsShowcase() {
     <Showcase
       title="Tabs"
       description="Tập hợp các tab panel được hiển thị lần lượt, chuyển đổi khi click vào tab tương ứng."
-      generalConcept={
-        <div className="space-y-4">
-          <ShowcaseDocs>
-            <DocsH3>Khi nào nên dùng Macro</DocsH3>
-            <DocsP>
-              <DocsCode>TabsPreset</DocsCode> là một component đóng gói sẵn,
-              nhận vào mảng <DocsCode>items</DocsCode> chứa thông tin cấu hình
-              của các tabs (value, title, content, disabled, ...). Thích hợp cho
-              các tab đơn giản, render từ dữ liệu cấu hình có sẵn.
-            </DocsP>
-          </ShowcaseDocs>
-          <ShowcaseDocs>
-            <DocsH3>Khi nào nên dùng Micro</DocsH3>
-            <DocsP>
-              Dùng <DocsCode>Tabs</DocsCode> và các thành phần con (
-              <DocsCode>TabsList</DocsCode>, <DocsCode>TabsTrigger</DocsCode>,{" "}
-              <DocsCode>TabsContent</DocsCode>) khi bạn muốn tự kiểm soát cấu
-              trúc HTML, muốn đính kèm Icon vào Trigger, hoặc xây dựng các dạng
-              Tab không theo khuôn mẫu (ví dụ: đặt List dọc, List rời rạc).
-            </DocsP>
-          </ShowcaseDocs>
-        </div>
-      }
+      
       tabs={[
         { label: "Micro (Primitive)", content: <TabsMicroShowcase /> },
         { label: "Macro (Preset)", content: <TabsMacroShowcase /> },

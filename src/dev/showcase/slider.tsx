@@ -336,7 +336,7 @@ function SliderMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleGrid>
 
       <ExampleSection
-        label="🧭 Use Case Comparison"
+        label="🧭 So sánh Use Case"
         description="So sánh nhanh khi nào dùng Micro và Macro."
         fullWidth
         codeString={`<div className="grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -494,29 +494,7 @@ export default function SliderShowcase() {
     <Showcase
       title="Slider"
       description="Thành phần điều khiển cho phép người dùng chọn một hoặc nhiều giá trị trong một phạm vi (range) nhất định."
-      generalConcept={
-        <div className="space-y-4">
-          <ShowcaseDocs>
-            <DocsH3>Khi nào nên dùng Macro</DocsH3>
-            <DocsP>
-              <DocsCode>SliderPreset</DocsCode> đóng gói sẵn Slider + Label +
-              Description + Error Message. Nó tự động xử lý ID linking cho khả
-              năng truy cập (Accessibility). Dùng Macro cho 95% trường hợp làm
-              form lấy giá trị số hoặc bộ lọc (filter).
-            </DocsP>
-          </ShowcaseDocs>
-          <ShowcaseDocs>
-            <DocsH3>Khi nào nên dùng Micro</DocsH3>
-            <DocsP>
-              Dùng <DocsCode>CompositionalSlider</DocsCode> và các thành phần
-              con (<DocsCode>SliderControl</DocsCode>,{" "}
-              <DocsCode>SliderTrack</DocsCode>, <DocsCode>SliderThumb</DocsCode>
-              ) khi bạn cần tuỳ biến giao diện cực hạn (ví dụ: track đổi màu
-              theo giá trị, thumb có hình dáng đặc biệt) hoặc không cần label.
-            </DocsP>
-          </ShowcaseDocs>
-        </div>
-      }
+      
       tabs={[
         {
           label: "Micro (Primitive)",

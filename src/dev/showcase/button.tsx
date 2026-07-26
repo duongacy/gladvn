@@ -231,13 +231,13 @@ function ButtonMicroShowcase({ globalSize }: { globalSize: Size }) {
     onClick={handleDelete}
   >
     {isDeleting && <Spinner />}
-    {isDeleting ? "Deleting..." : "Delete Permanently"}
+    {isDeleting ? "Đang xoá..." : "Xoá Vĩnh viễn"}
   </Button>`}
         >
           <div className="w-full max-w-xs mx-auto rounded-lg border border-destructive/20 bg-destructive/5 p-4 flex flex-col gap-2">
-            <p className="text-sm font-medium">Delete Workspace</p>
+            <p className="text-sm font-medium">Xoá Workspace</p>
             <p className="text-xs text-muted-foreground">
-              This action cannot be undone. All data will be lost.
+              Hành động này không thể hoàn tác. Tất cả dữ liệu sẽ bị mất.
             </p>
             <Button
               size={globalSize}
@@ -247,7 +247,7 @@ function ButtonMicroShowcase({ globalSize }: { globalSize: Size }) {
               onClick={handleDelete}
             >
               {isDeleting && <Spinner />}
-              {isDeleting ? "Deleting..." : "Delete Permanently"}
+              {isDeleting ? "Đang xoá..." : "Xoá Vĩnh viễn"}
             </Button>
           </div>
         </ExampleSection>

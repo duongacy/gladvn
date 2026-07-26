@@ -51,7 +51,7 @@ function NavigationMenuMicroShowcase() {
   return (
     <div className="space-y-10 mt-6">
       <ExampleSection
-        label="Default"
+        label="Mặc định"
         description="Điều hướng đa cấp với bảng thả xuống."
         codeString={`<NavigationMenu>
     <NavigationMenuList>
@@ -79,20 +79,20 @@ function NavigationMenuMicroShowcase() {
                 </p>
               </NavigationMenuLink>
             </li>
-            <ListItem href="/docs" title="Introduction">
+            <ListItem href="/docs" title="Giới thiệu">
               Re-usable components built using Radix UI and
               Tailwind CSS.
             </ListItem>
             <ListItem
               href="/docs/installation"
-              title="Installation"
+              title="Cài đặt"
             >
               How to install dependencies and structure your
               app.
             </ListItem>
             <ListItem
               href="/docs/primitives/typography"
-              title="Typography"
+              title="Kiểu chữ"
             >
               Styles for headings, paragraphs, lists...etc
             </ListItem>
@@ -106,28 +106,28 @@ function NavigationMenuMicroShowcase() {
         <NavigationMenuContent>
           <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
             <ListItem
-              title="Alert Dialog"
+              title="Hộp thoại Cảnh báo"
               href="/docs/primitives/alert-dialog"
             >
               A modal dialog that interrupts the user with
               important content and expects a response.
             </ListItem>
             <ListItem
-              title="Hover Card"
+              title="Thẻ Hover"
               href="/docs/primitives/hover-card"
             >
               For sighted users to preview content available
               behind a link.
             </ListItem>
             <ListItem
-              title="Progress"
+              title="Tiến trình"
               href="/docs/primitives/progress"
             >
               Displays an indicator showing the completion
               progress of a task.
             </ListItem>
             <ListItem
-              title="Scroll-area"
+              title="Khu vực Cuộn"
               href="/docs/primitives/scroll-area"
             >
               Visually or semantically separates content.
@@ -174,15 +174,15 @@ function NavigationMenuMicroShowcase() {
                       </p>
                     </NavigationMenuLink>
                   </li>
-                  <ListItem href="/docs" title="Introduction">
+                  <ListItem href="/docs" title="Giới thiệu">
                     Re-usable components built using Radix UI and Tailwind CSS.
                   </ListItem>
-                  <ListItem href="/docs/installation" title="Installation">
+                  <ListItem href="/docs/installation" title="Cài đặt">
                     How to install dependencies and structure your app.
                   </ListItem>
                   <ListItem
                     href="/docs/primitives/typography"
-                    title="Typography"
+                    title="Kiểu chữ"
                   >
                     Styles for headings, paragraphs, lists...etc
                   </ListItem>
@@ -190,30 +190,30 @@ function NavigationMenuMicroShowcase() {
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+              <NavigationMenuTrigger>Thành phần</NavigationMenuTrigger>
 
               <NavigationMenuContent>
                 <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
                   <ListItem
-                    title="Alert Dialog"
+                    title="Hộp thoại Cảnh báo"
                     href="/docs/primitives/alert-dialog"
                   >
                     A modal dialog that interrupts the user with important
                     content and expects a response.
                   </ListItem>
                   <ListItem
-                    title="Hover Card"
+                    title="Thẻ Hover"
                     href="/docs/primitives/hover-card"
                   >
                     For sighted users to preview content available behind a
                     link.
                   </ListItem>
-                  <ListItem title="Progress" href="/docs/primitives/progress">
+                  <ListItem title="Tiến trình" href="/docs/primitives/progress">
                     Displays an indicator showing the completion progress of a
                     task.
                   </ListItem>
                   <ListItem
-                    title="Scroll-area"
+                    title="Khu vực Cuộn"
                     href="/docs/primitives/scroll-area"
                   >
                     Visually or semantically separates content.

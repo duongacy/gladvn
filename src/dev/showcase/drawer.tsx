@@ -69,7 +69,7 @@ function DrawerMicroShowcase() {
           <DrawerFooter>
             <Button>Xác nhận</Button>
             <DrawerClose asChild>
-              <Button variant="outline">Cancel</Button>
+              <Button variant="outline">Huỷ</Button>
             </DrawerClose>
           </DrawerFooter>
         </div>
@@ -121,7 +121,7 @@ function DrawerMicroShowcase() {
                   <DrawerFooter>
                     <Button>Xác nhận</Button>
                     <DrawerClose asChild>
-                      <Button variant="outline">Cancel</Button>
+                      <Button variant="outline">Huỷ</Button>
                     </DrawerClose>
                   </DrawerFooter>
                 </div>
@@ -235,7 +235,7 @@ function DrawerMicroShowcase() {
         <DrawerFooter>
           <Button>Apply Filters</Button>
           <DrawerClose asChild>
-            <Button variant="outline">Cancel</Button>
+            <Button variant="outline">Huỷ</Button>
           </DrawerClose>
         </DrawerFooter>
       </DrawerContent>
@@ -290,7 +290,7 @@ function DrawerMicroShowcase() {
                 <DrawerFooter>
                   <Button>Apply Filters</Button>
                   <DrawerClose asChild>
-                    <Button variant="outline">Cancel</Button>
+                    <Button variant="outline">Huỷ</Button>
                   </DrawerClose>
                 </DrawerFooter>
               </DrawerContent>

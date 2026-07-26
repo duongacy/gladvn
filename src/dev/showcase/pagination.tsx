@@ -147,7 +147,7 @@ function PaginationMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleSection>
 
       <ExampleSection
-        label="🧭 Use Case Comparison"
+        label="🧭 So sánh Use Case"
         description="So sánh nhanh khi nào dùng Micro và Macro."
         fullWidth
         codeString={`<div className="grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -303,23 +303,7 @@ export default function PaginationShowcase() {
     <Showcase
       title="Pagination"
       description="Thanh phân trang với điều hướng trước/sau, tự động rút gọn dấu ba chấm."
-      generalConcept={
-        <ShowcaseDocs>
-          <DocsH3>Khi nào nên dùng Macro</DocsH3>
-          <DocsP>
-            <DocsCode>PaginationPreset</DocsCode> tự động tính toán số trang,
-            dấu ba chấm (ellipsis) và vô hiệu hóa nút Prev/Next. Bạn chỉ cần
-            truyền <DocsCode>currentPage</DocsCode> và{" "}
-            <DocsCode>totalPages</DocsCode>.
-          </DocsP>
-          <DocsH3>Khi nào nên dùng Micro</DocsH3>
-          <DocsP>
-            Dùng <DocsCode>Pagination</DocsCode> khi bạn muốn tự kiểm soát cấu
-            trúc HTML, thay đổi icon, hoặc dùng phân trang dạng tĩnh (như SEO
-            link /page/1, /page/2) thay vì phụ thuộc vào React state.
-          </DocsP>
-        </ShowcaseDocs>
-      }
+      
       tabs={[
         {
           label: "Micro (Primitive)",

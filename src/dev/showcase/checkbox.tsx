@@ -419,7 +419,7 @@ function CheckboxMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleGrid>
 
       <ExampleSection
-        label="🧭 Use Case Comparison"
+        label="🧭 So sánh Use Case"
         description="So sánh nhanh khi nào dùng Micro và Macro."
         fullWidth
         codeString={`<div className="grid grid-cols-1 gap-6 md:grid-cols-2">

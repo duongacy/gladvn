@@ -324,7 +324,7 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
           orange: "Orange",
           lemon: "Lemon",
           strawberry: "Strawberry",
-          blueberry: "Blueberry" }}
+          blueberry: "Việt quất" }}
       >
         <SelectTrigger>
           <SelectValue placeholder="Chọn loại quả..." />
@@ -362,7 +362,7 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
                   orange: "Orange",
                   lemon: "Lemon",
                   strawberry: "Strawberry",
-                  blueberry: "Blueberry" }}
+                  blueberry: "Việt quất" }}
               >
                 <SelectTrigger size={globalSize}>
                   <SelectValue placeholder="Chọn loại quả..." />
@@ -473,7 +473,7 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleGrid>
 
       <ExampleSection
-        label="🧭 Use Case Comparison"
+        label="🧭 So sánh Use Case"
         description="So sánh nhanh khi nào dùng Micro và Macro."
         fullWidth
         codeString={`<div className="grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -630,26 +630,7 @@ export default function SelectShowcase() {
     <Showcase
       title="Select"
       description="Thành phần điều khiển hiển thị danh sách các tùy chọn thả xuống để người dùng chọn."
-      generalConcept={
-        <ShowcaseDocs>
-          <DocsH3>Khi nào nên dùng Macro</DocsH3>
-          <DocsP>
-            <DocsCode>SelectPreset</DocsCode> đóng gói sẵn cấu trúc 8 thẻ của
-            Select nguyên thuỷ thành 1 Component duy nhất. Nó dùng prop{" "}
-            <DocsCode>options</DocsCode> để render danh sách thả xuống. Dùng
-            Macro cho 90% trường hợp form nhập liệu chọn 1 giá trị thông thường.
-          </DocsP>
-          <DocsH3>Khi nào nên dùng Micro</DocsH3>
-          <DocsP>
-            Dùng <DocsCode>Select</DocsCode> và các thành phần con nguyên thuỷ
-            khi bạn cần một danh sách thả xuống có phân nhóm (
-            <DocsCode>SelectGroup</DocsCode>, <DocsCode>SelectLabel</DocsCode>)
-            hoặc khi mỗi tuỳ chọn (<DocsCode>SelectItem</DocsCode>) có thiết kế
-            phức tạp (chứa icon, ảnh đại diện, subtext) thay vì chỉ là text đơn
-            thuần.
-          </DocsP>
-        </ShowcaseDocs>
-      }
+      
       tabs={[
         {
           label: "Micro (Primitive)",

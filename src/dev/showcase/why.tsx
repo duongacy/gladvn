@@ -77,7 +77,7 @@ export default function WhyGladvn() {
             Most UI libraries force a choice:
           </h2>
           <p className="text-xl md:text-2xl text-muted-foreground mb-12">
-            Low-level pain <span className="text-destructive font-bold">OR</span> High-level lock-in.
+            Đau đầu với Low-level <span className="text-destructive font-bold">HOẶC</span> Bị gò bó bởi High-level.
           </p>
           
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto text-left">
@@ -123,7 +123,7 @@ export default function WhyGladvn() {
               <div className="inline-flex p-3 rounded-xl bg-primary/10 text-primary mb-6">
                 <CodeIcon className="size-6" />
               </div>
-              <h3 className="text-2xl font-bold mb-4">Micro: Build your way</h3>
+              <h3 className="text-2xl font-bold mb-4">Micro: Xây dựng theo cách của bạn</h3>
               <p className="text-muted-foreground mb-8">
                 Lắp ráp từng mảnh ghép để kiểm soát 100% UI.
               </p>
@@ -143,7 +143,7 @@ export default function WhyGladvn() {
               <div className="inline-flex p-3 rounded-xl bg-info/10 text-info mb-6">
                 <LayersIcon className="size-6" />
               </div>
-              <h3 className="text-2xl font-bold mb-4">Macro: Move fast</h3>
+              <h3 className="text-2xl font-bold mb-4">Macro: Triển khai thần tốc</h3>
               <p className="text-muted-foreground mb-8">
                 Dùng các preset làm sẵn để phát triển nhanh chóng.
               </p>
@@ -163,7 +163,7 @@ export default function WhyGladvn() {
 
       {}
       <section className="px-4">
-        <h2 className="text-2xl font-bold mb-8 pl-4 border-l-4 border-primary">More Reasons to Choose Gladvn</h2>
+        <h2 className="text-2xl font-bold mb-8 pl-4 border-l-4 border-primary">Thêm lý do để chọn Gladvn</h2>
         <div className="grid md:grid-cols-3 gap-6">
           <Card className="hover:border-primary/50 transition-colors">
             <CardContent className="p-6 space-y-4">
@@ -255,7 +255,7 @@ export default function WhyGladvn() {
         <div className="rounded-[3rem] bg-foreground text-background p-12 md:p-20 text-center relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.1),transparent)]" />
           <div className="relative z-10">
-            <h2 className="text-4xl md:text-5xl font-black mb-8">Ready to build differently?</h2>
+            <h2 className="text-4xl md:text-5xl font-black mb-8">Sẵn sàng trải nghiệm khác biệt?</h2>
             <button
               onClick={handleCopy}
               className="bg-background text-foreground hover:bg-muted px-8 py-4 rounded-full font-mono text-base font-bold shadow-xl flex items-center gap-4 mx-auto transition-transform hover:scale-105"

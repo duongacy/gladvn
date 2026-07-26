@@ -33,9 +33,9 @@ function SonnerMicroShowcase() {
         codeString={`import { toast } from "sonner";
 
 // Default
-toast("Event has been created", {
-  description: "Sunday, December 03, 2023 at 9:00 AM",
-  action: { label: "Undo", onClick: () => console.log("Undo") } });
+toast("Sự kiện đã được tạo", {
+  description: "Chủ nhật, ngày 03 tháng 12 năm 2023 lúc 9:00 sáng",
+  action: { label: "Hoàn tác", onClick: () => console.log("Hoàn tác") } });
 
 // Typed variants
 toast.success("Successfully saved!");
@@ -47,9 +47,9 @@ toast.info("Update is available.");`}
           <Button
             variant="outline"
             onClick={() =>
-              toast("Event has been created", {
-                description: "Sunday, December 03, 2023 at 9:00 AM",
-                action: { label: "Undo", onClick: () => console.log("Undo") } })
+              toast("Sự kiện đã được tạo", {
+                description: "Chủ nhật, ngày 03 tháng 12 năm 2023 lúc 9:00 sáng",
+                action: { label: "Hoàn tác", onClick: () => console.log("Hoàn tác") } })
             }
           >
             Default
@@ -92,7 +92,7 @@ toast.info("Update is available.");`}
         codeString={`toast("File deleted", {
   description: "draft-v2.docx has been moved to trash.",
   action: {
-    label: "Undo",
+    label: "Hoàn tác",
     onClick: () => console.log("Undo delete") },
   cancel: {
     label: "Dismiss",
@@ -105,7 +105,7 @@ toast.info("Update is available.");`}
               toast("File deleted", {
                 description: "draft-v2.docx has been moved to trash.",
                 action: {
-                  label: "Undo",
+                  label: "Hoàn tác",
                   onClick: () => console.log("Undo delete") },
                 cancel: {
                   label: "Dismiss",

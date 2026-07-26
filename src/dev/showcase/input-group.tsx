@@ -282,7 +282,7 @@ function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
     <InputGroupButton
       icon
       variant="ghost"
-      aria-label="Search"
+      aria-label="Tìm kiếm"
     >
       <SearchIcon aria-hidden="true" />
     </InputGroupButton>
@@ -293,7 +293,7 @@ function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
     <InputGroupButton
       icon
       variant="solid"
-      aria-label="Search"
+      aria-label="Tìm kiếm"
     >
       <SearchIcon aria-hidden="true" />
     </InputGroupButton>
@@ -304,7 +304,7 @@ function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
     <InputGroupButton
       icon
       variant="soft"
-      aria-label="Search"
+      aria-label="Tìm kiếm"
     >
       <SearchIcon aria-hidden="true" />
     </InputGroupButton>
@@ -315,7 +315,7 @@ function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
     <InputGroupButton
       icon
       variant="outline"
-      aria-label="Search"
+      aria-label="Tìm kiếm"
     >
       <SearchIcon aria-hidden="true" />
     </InputGroupButton>
@@ -348,25 +348,25 @@ function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
           <InputGroup size={globalSize}>
             <InputGroupInput placeholder="ghost" />
-            <InputGroupButton icon variant="ghost" aria-label="Search">
+            <InputGroupButton icon variant="ghost" aria-label="Tìm kiếm">
               <SearchIcon aria-hidden="true" />
             </InputGroupButton>
           </InputGroup>
           <InputGroup size={globalSize}>
             <InputGroupInput placeholder="solid" />
-            <InputGroupButton icon variant="solid" aria-label="Search">
+            <InputGroupButton icon variant="solid" aria-label="Tìm kiếm">
               <SearchIcon aria-hidden="true" />
             </InputGroupButton>
           </InputGroup>
           <InputGroup size={globalSize}>
             <InputGroupInput placeholder="soft" />
-            <InputGroupButton icon variant="soft" aria-label="Search">
+            <InputGroupButton icon variant="soft" aria-label="Tìm kiếm">
               <SearchIcon aria-hidden="true" />
             </InputGroupButton>
           </InputGroup>
           <InputGroup size={globalSize}>
             <InputGroupInput placeholder="outline" />
-            <InputGroupButton icon variant="outline" aria-label="Search">
+            <InputGroupButton icon variant="outline" aria-label="Tìm kiếm">
               <SearchIcon aria-hidden="true" />
             </InputGroupButton>
           </InputGroup>

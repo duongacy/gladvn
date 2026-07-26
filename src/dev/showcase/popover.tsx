@@ -31,7 +31,7 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
     <div className="space-y-10 mt-6">
       <ExampleGrid>
         <ExampleSection
-          label="Default"
+          label="Mặc định"
           description="Cửa sổ Popover tiêu chuẩn."
           codeString={`<Popover>
   <PopoverTrigger
@@ -50,7 +50,7 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
     </PopoverHeader>
     <div className="grid gap-4 mt-4">
       <div className="grid grid-cols-3 items-center gap-4">
-        <Label htmlFor="width">Width</Label>
+        <Label htmlFor="width">Chiều rộng</Label>
         <Input
           id="width"
           defaultValue="100%"
@@ -88,7 +88,7 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
                 </PopoverHeader>
                 <div className="grid gap-4 mt-4">
                   <div className="grid grid-cols-3 items-center gap-4">
-                    <Label htmlFor="width">Width</Label>
+                    <Label htmlFor="width">Chiều rộng</Label>
                     <Input
                       id="width"
                       defaultValue="100%"

@@ -47,7 +47,7 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
     }
     footer={
       <>
-        <Button variant="ghost">Cancel</Button>
+        <Button variant="ghost">Huỷ</Button>
         <Button color="primary">Confirm</Button>
       </>
     }
@@ -79,10 +79,10 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
           label="Forms & Custom Content"
           description="Sử dụng children để render form hoặc nội dung phức tạp."
           codeString={`<DialogPreset
-    title="Edit profile"
-    description="Make changes to your profile here. Click save when you're done."
+    title="Chỉnh sửa hồ sơ"
+    description="Thay đổi thông tin hồ sơ của bạn tại đây. Bấm lưu khi hoàn tất."
     trigger={
-      <Button variant="outline">Edit Profile</Button>
+      <Button variant="outline">Chỉnh sửa hồ sơ</Button>
     }
     footer={<Button type="submit">Lưu thay đổi</Button>}
   >
@@ -112,11 +112,11 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
         >
           <DialogPreset
             size={globalSize}
-            title="Edit profile"
-            description="Make changes to your profile here. Click save when you're done."
+            title="Chỉnh sửa hồ sơ"
+            description="Thay đổi thông tin hồ sơ của bạn tại đây. Bấm lưu khi hoàn tất."
             trigger={
               <Button variant="outline" size={globalSize}>
-                Edit Profile
+                Chỉnh sửa hồ sơ
               </Button>
             }
             footer={
@@ -157,8 +157,8 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
           description="Ẩn nút X ở góc trên bằng showCloseButton={false}."
           codeString={`<DialogPreset
     showCloseButton={false}
-    title="Terms of Service"
-    description="You must accept the new terms to continue using the application."
+    title="Điều khoản Dịch vụ"
+    description="Bạn phải chấp nhận điều khoản mới để tiếp tục sử dụng ứng dụng."
     trigger={<Button variant="outline">View Terms</Button>}
     footer={
       <>
@@ -176,8 +176,8 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
           <DialogPreset
             size={globalSize}
             showCloseButton={false}
-            title="Terms of Service"
-            description="You must accept the new terms to continue using the application."
+            title="Điều khoản Dịch vụ"
+            description="Bạn phải chấp nhận điều khoản mới để tiếp tục sử dụng ứng dụng."
             trigger={
               <Button variant="outline" size={globalSize}>
                 View Terms
@@ -203,8 +203,8 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
           label="Large Content Sizing"
           description="Sử dụng size='lg' cho nội dung lớn hơn."
           codeString={`<DialogPreset
-    title="Detailed Report"
-    description="Monthly analytics and performance overview."
+    title="Báo cáo chi tiết"
+    description="Phân tích hàng tháng và tổng quan hiệu suất."
     trigger={<Button variant="outline">View Report</Button>}
     footer={<Button>Download PDF</Button>}
   >
@@ -217,8 +217,8 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
         >
           <DialogPreset
             size={globalSize}
-            title="Detailed Report"
-            description="Monthly analytics and performance overview."
+            title="Báo cáo chi tiết"
+            description="Phân tích hàng tháng và tổng quan hiệu suất."
             trigger={
               <Button variant="outline" size={globalSize}>
                 View Report
@@ -316,7 +316,7 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
     trigger={
       <Button variant="outline">View Long Content</Button>
     }
-    title="Terms & Conditions"
+    title="Điều khoản & Điều kiện"
     description="Cuộn xuống dưới cùng để có thể đồng ý với điều khoản."
     footer={
       <div className="flex w-full sm:justify-end gap-2">
@@ -350,7 +350,7 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
               </Button>
             }
             size={globalSize}
-            title="Terms & Conditions"
+            title="Điều khoản & Điều kiện"
             description="Cuộn xuống dưới cùng để có thể đồng ý với điều khoản."
             footer={
               <div className="flex w-full sm:justify-end gap-2">
@@ -488,13 +488,13 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
           codeString={`<Dialog>
     <DialogTrigger
       render={
-        <Button variant="outline">Edit Profile</Button>
+        <Button variant="outline">Chỉnh sửa hồ sơ</Button>
       }
     />
 
       <DialogContent className={contentClass}>
         <DialogHeader>
-          <DialogTitle>Edit profile</DialogTitle>
+          <DialogTitle>Chỉnh sửa hồ sơ</DialogTitle>
           <DialogDescription>
             Make changes to your profile here. Click save
             when you're done.
@@ -549,14 +549,14 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
             <DialogTrigger
               render={
                 <Button variant="outline" size={globalSize}>
-                  Edit Profile
+                  Chỉnh sửa hồ sơ
                 </Button>
               }
             />
 
               <DialogContent className={contentClass}>
                 <DialogHeader>
-                  <DialogTitle>Edit profile</DialogTitle>
+                  <DialogTitle>Chỉnh sửa hồ sơ</DialogTitle>
                   <DialogDescription>
                     Make changes to your profile here. Click save when you're
                     done.
@@ -619,7 +619,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
 
       <DialogContent className={contentClass}>
         <DialogHeader>
-          <DialogTitle>Terms of Service</DialogTitle>
+          <DialogTitle>Điều khoản Dịch vụ</DialogTitle>
           <DialogDescription>
             You must accept the new terms to continue using
             the application.
@@ -652,7 +652,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
 
               <DialogContent className={contentClass}>
                 <DialogHeader>
-                  <DialogTitle>Terms of Service</DialogTitle>
+                  <DialogTitle>Điều khoản Dịch vụ</DialogTitle>
                   <DialogDescription>
                     You must accept the new terms to continue using the
                     application.
@@ -687,9 +687,9 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
 
       <DialogContent className={contentClass}>
         <DialogHeader>
-          <DialogTitle>Detailed Report</DialogTitle>
+          <DialogTitle>Báo cáo chi tiết</DialogTitle>
           <DialogDescription>
-            Monthly analytics and performance overview.
+            Phân tích hàng tháng và tổng quan hiệu suất.
           </DialogDescription>
         </DialogHeader>
         <div className="flex h-[200px] items-center justify-center rounded-md border border-border border-dashed bg-muted/20">
@@ -728,9 +728,9 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
 
               <DialogContent className={contentClass}>
                 <DialogHeader>
-                  <DialogTitle>Detailed Report</DialogTitle>
+                  <DialogTitle>Báo cáo chi tiết</DialogTitle>
                   <DialogDescription>
-                    Monthly analytics and performance overview.
+                    Phân tích hàng tháng và tổng quan hiệu suất.
                   </DialogDescription>
                 </DialogHeader>
                 <div className="flex h-[200px] items-center justify-center rounded-md border border-border border-dashed bg-muted/20">
@@ -891,7 +891,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
         )}
       >
         <DialogHeader className="shrink-0 p-4 pb-0">
-          <DialogTitle>Terms & Conditions</DialogTitle>
+          <DialogTitle>Điều khoản & Điều kiện</DialogTitle>
           <DialogDescription>
             Cuộn xuống dưới cùng để có thể đồng ý với điều
             khoản.
@@ -952,7 +952,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                 )}
               >
                 <DialogHeader className="shrink-0 p-4 pb-0">
-                  <DialogTitle>Terms & Conditions</DialogTitle>
+                  <DialogTitle>Điều khoản & Điều kiện</DialogTitle>
                   <DialogDescription>
                     Cuộn xuống dưới cùng để có thể đồng ý với điều khoản.
                   </DialogDescription>
@@ -1001,7 +1001,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
 
         {}
         <ExampleSection
-          label="🧭 Use Case Comparison"
+          label="🧭 So sánh Use Case"
           description="Các kịch bản thực tế giúp bạn quyết định nên dùng Micro hay Macro."
           fullWidth
           codeString={`<div className="grid grid-cols-1 gap-6 md:grid-cols-2">

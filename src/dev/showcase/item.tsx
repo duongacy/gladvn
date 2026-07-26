@@ -29,13 +29,13 @@ function ItemMicroShowcase({ globalSize }: { globalSize: Size }) {
     <div className="space-y-10 mt-6">
       <ExampleGrid>
         <ExampleSection
-          label="Basic Content"
+          label="Nội dung cơ bản"
           description="Item cơ bản với tiêu đề và mô tả."
           codeString={`<Item className="w-full">
     <ItemContent>
       <ItemTitle>Basic Item Content</ItemTitle>
       <ItemDescription>
-        This item shows structured text.
+        Mục này hiển thị văn bản có cấu trúc.
       </ItemDescription>
     </ItemContent>
   </Item>`}
@@ -44,14 +44,14 @@ function ItemMicroShowcase({ globalSize }: { globalSize: Size }) {
             <ItemContent>
               <ItemTitle>Basic Item Content</ItemTitle>
               <ItemDescription>
-                This item shows structured text.
+                Mục này hiển thị văn bản có cấu trúc.
               </ItemDescription>
             </ItemContent>
           </Item>
         </ExampleSection>
 
         <ExampleSection
-          label="With Media"
+          label="Có hình ảnh"
           description="Item kèm icon hoặc avatar."
           codeString={`<Item className="w-full">
     <ItemMedia className="bg-primary/10 text-primary rounded-md p-2">
@@ -107,7 +107,7 @@ function ItemMicroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
 
         <ExampleSection
-          label="Media Variants"
+          label="Loại hình ảnh"
           description="ItemMedia hỗ trợ các variant riêng: icon và image."
           codeString={`<div className="flex flex-col gap-3 w-full">
     <Item>
@@ -152,7 +152,7 @@ function ItemMicroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
 
         <ExampleSection
-          label="With Actions"
+          label="Kèm nút thao tác"
           description="Item có các nút hành động ở cuối (ItemActions)."
           codeString={`<Item className="w-full">
     <ItemContent>
@@ -193,7 +193,7 @@ function ItemMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleGrid>
 
       <ExampleSection
-        label="Item Group"
+        label="Nhóm Item"
         description="Nhóm các Item và phân cách bằng ItemSeparator."
         codeString={`<ItemGroup className="w-full max-w-sm mx-auto">
     <Item>
@@ -211,7 +211,7 @@ function ItemMicroShowcase({ globalSize }: { globalSize: Size }) {
     <Item>
       <ItemContent>
         <ItemTitle className="text-destructive">
-          Delete Account
+          Xóa tài khoản
         </ItemTitle>
       </ItemContent>
     </Item>
@@ -232,14 +232,14 @@ function ItemMicroShowcase({ globalSize }: { globalSize: Size }) {
           <ItemSeparator />
           <Item size={globalSize}>
             <ItemContent>
-              <ItemTitle className="text-destructive">Delete Account</ItemTitle>
+              <ItemTitle className="text-destructive">Xóa tài khoản</ItemTitle>
             </ItemContent>
           </Item>
         </ItemGroup>
       </ExampleSection>
 
       <ExampleSection
-        label="With Header and Footer"
+        label="Có Header và Footer"
         description="Item phức tạp với ItemHeader và ItemFooter."
         codeString={`<Item className="w-full max-w-sm mx-auto flex-col items-start gap-2">
     <ItemHeader className="text-xs text-muted-foreground">

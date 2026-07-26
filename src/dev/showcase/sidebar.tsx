@@ -79,7 +79,7 @@ return (
 
             {}
             <div className="p-2 border-t border-sidebar-border mt-auto">
-              <SidebarLabel icon={<SettingsIcon />} text="Settings" />
+              <SidebarLabel icon={<SettingsIcon />} text="Cài đặt" />
             </div>
           </Sidebar>
 

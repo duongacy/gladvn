@@ -522,7 +522,7 @@ function AlertMicroShowcase({ globalSize }: { globalSize: Size }) {
 
       {/* ── Use Case Comparison ─────────────────────── */}
       <ExampleSection
-        label="🧭 Use Case Comparison"
+        label="🧭 So sánh Use Case"
         description="Các kịch bản thực tế giúp bạn quyết định nên dùng Micro hay Macro."
         fullWidth
         codeString={`<div className="grid grid-cols-1 gap-6 md:grid-cols-2">

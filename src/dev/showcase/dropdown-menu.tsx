@@ -147,7 +147,7 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
           <DropdownMenuSeparator />
           <DropdownMenuItem>
             <UserIcon className="mr-2 h-4 w-4" />
-            <span>Edit Profile</span>
+            <span>Chỉnh sửa hồ sơ</span>
           </DropdownMenuItem>
           <DropdownMenuItem disabled>
             <CreditCardIcon className="mr-2 h-4 w-4" />
@@ -182,7 +182,7 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
                   <DropdownMenuSeparator />
                   <DropdownMenuItem>
                     <UserIcon className="mr-2 h-4 w-4" />
-                    <span>Edit Profile</span>
+                    <span>Chỉnh sửa hồ sơ</span>
                   </DropdownMenuItem>
                   <DropdownMenuItem disabled>
                     <CreditCardIcon className="mr-2 h-4 w-4" />

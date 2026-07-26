@@ -452,7 +452,7 @@ function SwitchMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleGrid>
 
       <ExampleSection
-        label="🧭 Use Case Comparison"
+        label="🧭 So sánh Use Case"
         description="So sánh nhanh khi nào dùng Micro và Macro."
         fullWidth
         codeString={`<div className="grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -647,28 +647,7 @@ export default function SwitchShowcase() {
     <Showcase
       title="Switch"
       description="Thành phần điều khiển cho phép người dùng chuyển đổi qua lại giữa 2 trạng thái Bật / Tắt."
-      generalConcept={
-        <div className="space-y-4">
-          <ShowcaseDocs>
-            <DocsH3>Khi nào nên dùng Macro</DocsH3>
-            <DocsP>
-              <DocsCode>SwitchPreset</DocsCode> đóng gói Switch + Label +
-              Description + Error Message. Nó tự động căn chỉnh khoảng cách và
-              liên kết ID. Dùng trong 95% trường hợp làm màn hình cài đặt
-              (Settings) hoặc form yêu cầu bật/tắt tính năng.
-            </DocsP>
-          </ShowcaseDocs>
-          <ShowcaseDocs>
-            <DocsH3>Khi nào nên dùng Micro</DocsH3>
-            <DocsP>
-              Dùng <DocsCode>Switch</DocsCode> và{" "}
-              <DocsCode>SwitchThumb</DocsCode> nguyên thuỷ khi bạn cần một
-              layout không theo chuẩn <DocsCode>SwitchPreset</DocsCode> (ví dụ:
-              Switch nằm bên phải Label thay vì nằm bên trái).
-            </DocsP>
-          </ShowcaseDocs>
-        </div>
-      }
+      
       tabs={[
         {
           label: "Micro (Primitive)",

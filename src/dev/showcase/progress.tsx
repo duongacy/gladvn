@@ -137,7 +137,7 @@ function ProgressMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleSection>
 
       <ExampleSection
-        label="🧭 Use Case Comparison"
+        label="🧭 So sánh Use Case"
         description="So sánh nhanh khi nào dùng Micro và Macro."
         fullWidth
         codeString={`<div className="grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -286,25 +286,9 @@ export default function ProgressShowcase() {
   const { size: globalSize } = useDevContext();
   return (
     <Showcase
-      title="Progress"
+      title="Tiến trình"
       description="Thanh chỉ báo cho biết tiến độ hoàn thành của một công việc hoặc nhiệm vụ kéo dài."
-      generalConcept={
-        <ShowcaseDocs>
-          <DocsH3>Khi nào nên dùng Macro</DocsH3>
-          <DocsP>
-            <DocsCode>ProgressPreset</DocsCode> là một component đóng gói sẵn.
-            Nó tự động hiển thị nhãn (label) và phần trăm (value) lên trên thanh
-            tiến trình chỉ với các prop đơn giản, tiết kiệm thời gian code.
-          </DocsP>
-          <DocsH3>Khi nào nên dùng Micro</DocsH3>
-          <DocsP>
-            Dùng <DocsCode>Progress</DocsCode> nguyên thủy khi bạn muốn tự tùy
-            chỉnh hoàn toàn bố cục (ví dụ: đặt label ở bên dưới thanh thay vì
-            bên trên, đổi màu thanh indicator dựa trên giá trị, hoặc bỏ nhãn
-            hoàn toàn).
-          </DocsP>
-        </ShowcaseDocs>
-      }
+      
       tabs={[
         {
           label: "Micro (Primitive)",

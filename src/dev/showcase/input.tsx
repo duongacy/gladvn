@@ -350,7 +350,7 @@ function InputMicroShowcase({ globalSize }: { globalSize: Size }) {
         />
       </ExampleSection>
       <ExampleSection
-        label="🧭 Use Case Comparison"
+        label="🧭 So sánh Use Case"
         description="So sánh nhanh khi nào dùng Micro và Macro."
         fullWidth
         codeString={`<div className="grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -504,49 +504,7 @@ export default function InputShowcase() {
     <Showcase
       title="Input"
       description="Trường nhập văn bản cho phép người dùng điền dữ liệu."
-      generalConcept={
-        <ShowcaseDocs>
-          <DocsH3>Khi nào nên dùng Macro</DocsH3>
-          <DocsP>
-            Bản Macro (<DocsCode>InputPreset</DocsCode>) đóng gói sẵn toàn bộ
-            các thành phần thường thấy của một Form Control: Nhãn (Label), Mô tả
-            (Description), Lỗi (Error Message) và phần trang trí (Adornments).
-            Việc này giúp giảm thiểu lượng code lặp đi lặp lại khi xây dựng
-            form.
-          </DocsP>
-
-          <DocsH3>Tự động hoá Layout (Macro)</DocsH3>
-          <DocsUl>
-            <DocsLi>
-              Tự động bọc Input vào trong <DocsCode>InputGroup</DocsCode> nếu
-              bạn truyền <DocsCode>startAdornment</DocsCode> hoặc{" "}
-              <DocsCode>endAdornment</DocsCode>.
-            </DocsLi>
-            <DocsLi>
-              Tự động hiện Icon con mắt (Toggle ẩn/hiện) nếu{" "}
-              <DocsCode>type="password"</DocsCode>.
-            </DocsLi>
-            <DocsLi>
-              Tự động thêm class <DocsCode>aria-invalid</DocsCode> vào input nếu
-              bạn truyền <DocsCode>errorMessage</DocsCode>.
-            </DocsLi>
-          </DocsUl>
-
-          <DocsH3>Khi nào nên dùng Micro</DocsH3>
-          <DocsP>
-            Thành phần <DocsCode>Input</DocsCode> nguyên thuỷ chỉ là một thẻ{" "}
-            <DocsCode>input</DocsCode> duy nhất. Để có được một Form Control
-            đúng chuẩn WCAG, bạn cần phải tự bọc nó bằng{" "}
-            <DocsCode>Field</DocsCode>, kết nối <DocsCode>FieldLabel</DocsCode>{" "}
-            và <DocsCode>FieldDescription</DocsCode>.
-          </DocsP>
-          <DocsP>
-            Dùng Micro khi bạn cần layout form dị biệt (ví dụ: label nằm ngang
-            bên trái input) hoặc khi cần nhúng Input vào một component phức tạp
-            (như dropdown tìm kiếm).
-          </DocsP>
-        </ShowcaseDocs>
-      }
+      
 
       tabs={[
         {

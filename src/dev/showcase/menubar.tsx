@@ -39,7 +39,7 @@ function MenubarMicroShowcase() {
         description="Thanh menu đầy đủ: Items, Checkbox, Radio, Submenu, Shortcut, Separator."
         codeString={`<Menubar className="w-fit">
     <MenubarMenu>
-      <MenubarTrigger>File</MenubarTrigger>
+      <MenubarTrigger>Tệp</MenubarTrigger>
       <MenubarContent>
         <MenubarItem>
           New Tab <MenubarShortcut>⌘T</MenubarShortcut>
@@ -52,11 +52,11 @@ function MenubarMicroShowcase() {
         </MenubarItem>
         <MenubarSeparator />
         <MenubarSub>
-          <MenubarSubTrigger>Share</MenubarSubTrigger>
+          <MenubarSubTrigger>Chia sẻ</MenubarSubTrigger>
           <MenubarSubContent>
             <MenubarItem>Email link</MenubarItem>
-            <MenubarItem>Messages</MenubarItem>
-            <MenubarItem>Notes</MenubarItem>
+            <MenubarItem>Tin nhắn</MenubarItem>
+            <MenubarItem>Ghi chú</MenubarItem>
           </MenubarSubContent>
         </MenubarSub>
         <MenubarSeparator />
@@ -66,7 +66,7 @@ function MenubarMicroShowcase() {
       </MenubarContent>
     </MenubarMenu>
     <MenubarMenu>
-      <MenubarTrigger>View</MenubarTrigger>
+      <MenubarTrigger>Xem</MenubarTrigger>
       <MenubarContent>
         <MenubarCheckboxItem
           checked={showBookmarks}
@@ -121,7 +121,7 @@ function MenubarMicroShowcase() {
       >
         <Menubar className="w-fit">
           <MenubarMenu>
-            <MenubarTrigger>File</MenubarTrigger>
+            <MenubarTrigger>Tệp</MenubarTrigger>
             
               <MenubarContent>
                 <MenubarItem>
@@ -133,11 +133,11 @@ function MenubarMicroShowcase() {
                 <MenubarItem disabled>New Incognito Window</MenubarItem>
                 <MenubarSeparator />
                 <MenubarSub>
-                  <MenubarSubTrigger>Share</MenubarSubTrigger>
+                  <MenubarSubTrigger>Chia sẻ</MenubarSubTrigger>
                   <MenubarSubContent>
                     <MenubarItem>Email link</MenubarItem>
-                    <MenubarItem>Messages</MenubarItem>
-                    <MenubarItem>Notes</MenubarItem>
+                    <MenubarItem>Tin nhắn</MenubarItem>
+                    <MenubarItem>Ghi chú</MenubarItem>
                   </MenubarSubContent>
                 </MenubarSub>
                 <MenubarSeparator />
@@ -148,7 +148,7 @@ function MenubarMicroShowcase() {
             
           </MenubarMenu>
           <MenubarMenu>
-            <MenubarTrigger>View</MenubarTrigger>
+            <MenubarTrigger>Xem</MenubarTrigger>
             
               <MenubarContent>
                 <MenubarCheckboxItem
@@ -203,7 +203,7 @@ function MenubarMicroShowcase() {
           description="MenubarCheckboxItem cho phép bật/tắt từng tùy chọn độc lập nhau."
           codeString={`<Menubar className="w-fit">
     <MenubarMenu>
-      <MenubarTrigger>View</MenubarTrigger>
+      <MenubarTrigger>Xem</MenubarTrigger>
       <MenubarContent>
         <MenubarCheckboxItem
           checked={showBookmarks}
@@ -223,7 +223,7 @@ function MenubarMicroShowcase() {
         >
           <Menubar className="w-fit">
             <MenubarMenu>
-              <MenubarTrigger>View</MenubarTrigger>
+              <MenubarTrigger>Xem</MenubarTrigger>
               
                 <MenubarContent>
                   <MenubarCheckboxItem
@@ -297,14 +297,14 @@ function MenubarMicroShowcase() {
           description="MenubarSub tạo menu lồng nhau. Hover hoặc click vào SubTrigger để mở."
           codeString={`<Menubar className="w-fit">
     <MenubarMenu>
-      <MenubarTrigger>File</MenubarTrigger>
+      <MenubarTrigger>Tệp</MenubarTrigger>
       <MenubarContent>
         <MenubarSub>
-          <MenubarSubTrigger>Share</MenubarSubTrigger>
+          <MenubarSubTrigger>Chia sẻ</MenubarSubTrigger>
           <MenubarSubContent>
             <MenubarItem>Email link</MenubarItem>
-            <MenubarItem>Messages</MenubarItem>
-            <MenubarItem>Notes</MenubarItem>
+            <MenubarItem>Tin nhắn</MenubarItem>
+            <MenubarItem>Ghi chú</MenubarItem>
           </MenubarSubContent>
         </MenubarSub>
         <MenubarItem>
@@ -316,15 +316,15 @@ function MenubarMicroShowcase() {
         >
           <Menubar className="w-fit">
             <MenubarMenu>
-              <MenubarTrigger>File</MenubarTrigger>
+              <MenubarTrigger>Tệp</MenubarTrigger>
               
                 <MenubarContent>
                   <MenubarSub>
-                    <MenubarSubTrigger>Share</MenubarSubTrigger>
+                    <MenubarSubTrigger>Chia sẻ</MenubarSubTrigger>
                     <MenubarSubContent>
                       <MenubarItem>Email link</MenubarItem>
-                      <MenubarItem>Messages</MenubarItem>
-                      <MenubarItem>Notes</MenubarItem>
+                      <MenubarItem>Tin nhắn</MenubarItem>
+                      <MenubarItem>Ghi chú</MenubarItem>
                     </MenubarSubContent>
                   </MenubarSub>
                   <MenubarItem>
@@ -341,7 +341,7 @@ function MenubarMicroShowcase() {
           description="Items bị vô hiệu hóa không thể tương tác và hiển thị ở trạng thái mờ."
           codeString={`<Menubar className="w-fit">
     <MenubarMenu>
-      <MenubarTrigger>Edit</MenubarTrigger>
+      <MenubarTrigger>Chỉnh sửa</MenubarTrigger>
       <MenubarContent>
         <MenubarItem>
           Undo <MenubarShortcut>⌘Z</MenubarShortcut>
@@ -362,7 +362,7 @@ function MenubarMicroShowcase() {
         >
           <Menubar className="w-fit">
             <MenubarMenu>
-              <MenubarTrigger>Edit</MenubarTrigger>
+              <MenubarTrigger>Chỉnh sửa</MenubarTrigger>
               
                 <MenubarContent>
                   <MenubarItem>

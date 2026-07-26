@@ -46,13 +46,13 @@ function ResizableMicroShowcase() {
         >
           <ResizablePanel defaultSize={50}>
             <div className="flex h-[200px] items-center justify-center p-6">
-              <span className="font-semibold text-sm">Sidebar</span>
+              <span className="font-semibold text-sm">Thanh bên (Sidebar)</span>
             </div>
           </ResizablePanel>
           <ResizableHandle withHandle />
           <ResizablePanel defaultSize={50}>
             <div className="flex h-full items-center justify-center p-6">
-              <span className="font-semibold text-sm">Content</span>
+              <span className="font-semibold text-sm">Nội dung</span>
             </div>
           </ResizablePanel>
         </ResizablePanelGroup>
@@ -68,7 +68,7 @@ function ResizableMicroShowcase() {
   >
     <ResizablePanel defaultSize={50}>
       <div className="flex h-[120px] items-center justify-center p-6">
-        <span className="font-semibold text-sm">Top</span>
+        <span className="font-semibold text-sm">Trên</span>
       </div>
     </ResizablePanel>
     <ResizableHandle withHandle />
@@ -87,13 +87,13 @@ function ResizableMicroShowcase() {
         >
           <ResizablePanel defaultSize={50}>
             <div className="flex h-[120px] items-center justify-center p-6">
-              <span className="font-semibold text-sm">Top</span>
+              <span className="font-semibold text-sm">Trên</span>
             </div>
           </ResizablePanel>
           <ResizableHandle withHandle />
           <ResizablePanel defaultSize={50}>
             <div className="flex h-[120px] items-center justify-center p-6">
-              <span className="font-semibold text-sm">Bottom</span>
+              <span className="font-semibold text-sm">Dưới</span>
             </div>
           </ResizablePanel>
         </ResizablePanelGroup>
@@ -112,13 +112,13 @@ function ResizableMicroShowcase() {
           >
             <ResizablePanel defaultSize={50}>
               <div className="flex h-[120px] items-center justify-center p-4">
-                <span className="text-sm font-medium">Panel A</span>
+                <span className="text-sm font-medium">Bảng A</span>
               </div>
             </ResizablePanel>
             <ResizableHandle withHandle />
             <ResizablePanel defaultSize={50}>
               <div className="flex h-full items-center justify-center p-4">
-                <span className="text-sm font-medium">Panel B</span>
+                <span className="text-sm font-medium">Bảng B</span>
               </div>
             </ResizablePanel>
           </ResizablePanelGroup>
@@ -135,13 +135,13 @@ function ResizableMicroShowcase() {
           >
             <ResizablePanel defaultSize={50}>
               <div className="flex h-[120px] items-center justify-center p-4">
-                <span className="text-sm font-medium">Panel A</span>
+                <span className="text-sm font-medium">Bảng A</span>
               </div>
             </ResizablePanel>
             <ResizableHandle />
             <ResizablePanel defaultSize={50}>
               <div className="flex h-full items-center justify-center p-4">
-                <span className="text-sm font-medium">Panel B</span>
+                <span className="text-sm font-medium">Bảng B</span>
               </div>
             </ResizablePanel>
           </ResizablePanelGroup>
@@ -158,7 +158,7 @@ function ResizableMicroShowcase() {
   >
     <ResizablePanel defaultSize={25} minSize={15}>
       <div className="flex h-[250px] items-center justify-center p-6">
-        <span className="font-semibold text-sm">Nav</span>
+        <span className="font-semibold text-sm">Điều hướng</span>
       </div>
     </ResizablePanel>
     <ResizableHandle />
@@ -189,7 +189,7 @@ function ResizableMicroShowcase() {
         >
           <ResizablePanel defaultSize={25} minSize={15}>
             <div className="flex h-[250px] items-center justify-center p-6">
-              <span className="font-semibold text-sm">Nav</span>
+              <span className="font-semibold text-sm">Điều hướng</span>
             </div>
           </ResizablePanel>
           <ResizableHandle />
@@ -197,13 +197,13 @@ function ResizableMicroShowcase() {
             <ResizablePanelGroup orientation="vertical">
               <ResizablePanel defaultSize={25} minSize={20}>
                 <div className="flex h-full items-center justify-center p-6">
-                  <span className="font-semibold text-sm">Top Bar</span>
+                  <span className="font-semibold text-sm">Thanh trên</span>
                 </div>
               </ResizablePanel>
               <ResizableHandle />
               <ResizablePanel defaultSize={75}>
                 <div className="flex h-full items-center justify-center p-6">
-                  <span className="font-semibold text-sm">Main Content</span>
+                  <span className="font-semibold text-sm">Nội dung chính</span>
                 </div>
               </ResizablePanel>
             </ResizablePanelGroup>

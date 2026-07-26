@@ -6,14 +6,29 @@ import { execSync } from 'child_process';
 import readline from 'readline';
 
 const cyan = "\x1b[36m";
-const green = "\x1b[32m";
 const yellow = "\x1b[33m";
 const bold = "\x1b[1m";
 const dim = "\x1b[90m";
 const reset = "\x1b[0m";
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Read version from package.json
+const pkgPath = path.resolve(__dirname, "../package.json");
+const pkgContent = fs.readFileSync(pkgPath, "utf-8");
+const pkg = JSON.parse(pkgContent);
+const VERSION = pkg.version;
+
+if (process.argv.includes('--version') || process.argv.includes('-v')) {
+  console.log(`gladvn v${VERSION}`);
+  process.exit(0);
+}
+
 if (process.argv.includes('--help') || process.argv.includes('-h')) {
   console.log(`
+gladvn v${VERSION}
+
 Usage:
   npx gladvn init [destination]
   npx gladvn add <component | --all> [destination]
@@ -22,6 +37,7 @@ Usage:
 Options:
   [destination]   The folder where components will be copied. Defaults to "gladvn".
   --help, -h      Show this help message.
+  --version, -v   Show the current version.
 `);
   process.exit(0);
 }
@@ -54,13 +70,15 @@ if (args[0] === "init") {
   userDest = args[0];
 }
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
 const destPath = path.resolve(process.cwd(), userDest);
 const srcDir = path.resolve(__dirname, "../src");
 
-// Recursive file scanner
+// Helper: check if a file is a test file
+function isTestFile(filename) {
+  return /\.test\.(tsx?|jsx?)$/.test(filename);
+}
+
+// Recursive file scanner for CSS files
 const IGNORE_DIRS = ['node_modules', '.git', '.next', 'dist', 'build', 'out', 'coverage', '.cache', userDest];
 
 function findCssFiles(dir, fileList = []) {
@@ -81,6 +99,23 @@ function findCssFiles(dir, fileList = []) {
     }
   }
   return fileList;
+}
+
+// Recursive directory copy with optional filter
+function copyDirFiltered(src, dest, filter) {
+  if (!fs.existsSync(src)) return;
+  if (!fs.existsSync(dest)) fs.mkdirSync(dest, { recursive: true });
+  const entries = fs.readdirSync(src, { withFileTypes: true });
+  for (const entry of entries) {
+    const srcPath = path.join(src, entry.name);
+    const destPath = path.join(dest, entry.name);
+    if (entry.isDirectory()) {
+      copyDirFiltered(srcPath, destPath, filter);
+    } else {
+      if (filter && !filter(entry.name)) continue;
+      fs.cpSync(srcPath, destPath, { force: true });
+    }
+  }
 }
 
 // Native arrow key selector
@@ -141,82 +176,33 @@ async function selectOption(message, options) {
   });
 }
 
-async function selectMultipleOptions(message, options) {
-  return new Promise((resolve) => {
-    let selectedIndex = 0;
-    const selected = new Set();
-
-    const render = () => {
-      process.stdout.write('\x1B[?25l');
-      readline.cursorTo(process.stdout, 0);
-      readline.clearScreenDown(process.stdout);
-      
-      console.log(`\x1b[33m?\x1b[0m \x1b[1m${message}\x1b[0m \x1b[90m(Press <space> to select, <enter> to confirm)\x1b[0m`);
-      options.forEach((opt, index) => {
-        const isChecked = selected.has(index);
-        const checkbox = isChecked ? '\x1b[32m◉\x1b[0m' : '\x1b[90m◯\x1b[0m';
-        if (index === selectedIndex) {
-          console.log(`  \x1b[36m❯ ${checkbox} ${opt}\x1b[0m`);
-        } else {
-          console.log(`    ${checkbox} ${opt}`);
-        }
-      });
-      readline.moveCursor(process.stdout, 0, -(options.length + 1));
-    };
-
-    render();
-
-    const onKeyPress = (str, key) => {
-      if (key.name === 'up') {
-        selectedIndex = selectedIndex > 0 ? selectedIndex - 1 : options.length - 1;
-        render();
-      } else if (key.name === 'down') {
-        selectedIndex = selectedIndex < options.length - 1 ? selectedIndex + 1 : 0;
-        render();
-      } else if (key.name === 'space') {
-        if (selected.has(selectedIndex)) {
-          selected.delete(selectedIndex);
-        } else {
-          selected.add(selectedIndex);
-        }
-        render();
-      } else if (key.name === 'return' || key.name === 'enter') {
-        cleanup();
-        const results = Array.from(selected).map(idx => options[idx]);
-        console.log(`\x1b[32m✔\x1b[0m \x1b[1m${message}\x1b[0m \x1b[90m…\x1b[0m \x1b[36m${results.length} selected\x1b[0m`);
-        resolve(results);
-      } else if (key.name === 'c' && key.ctrl) {
-        cleanup();
-        console.log('\n\x1b[31m✖ Cancelled.\x1b[0m');
-        process.exit(1);
+// Helper: ensure lib/ and hooks/ exist in destPath (needed for add/add-block)
+function ensureCoreDeps(srcDir, destPath) {
+  const coreDeps = ['lib', 'hooks'];
+  let copied = false;
+  for (const dir of coreDeps) {
+    const targetDir = path.join(destPath, dir);
+    if (!fs.existsSync(targetDir)) {
+      const sourceDir = path.join(srcDir, dir);
+      if (fs.existsSync(sourceDir)) {
+        copyDirFiltered(sourceDir, targetDir, (name) => !isTestFile(name));
+        copied = true;
       }
-    };
-
-    const cleanup = () => {
-      process.stdin.removeListener('keypress', onKeyPress);
-      if (process.stdin.isTTY) process.stdin.setRawMode(false);
-      process.stdin.pause();
-      readline.moveCursor(process.stdout, 0, options.length + 1);
-      process.stdout.write('\x1B[?25h');
-      readline.moveCursor(process.stdout, 0, -(options.length + 1));
-      readline.clearScreenDown(process.stdout);
-    };
-
-    readline.emitKeypressEvents(process.stdin);
-    if (process.stdin.isTTY) process.stdin.setRawMode(true);
-    process.stdin.resume();
-    process.stdin.on('keypress', onKeyPress);
-  });
+    }
+  }
+  if (copied) {
+    console.log(`\x1b[32m✔ Copied required core dependencies (lib, hooks)\x1b[0m`);
+  }
 }
 
 async function main() {
   console.log(`\n${cyan}╔══════════════════════════════════════════════════════════════════╗${reset}`);
   if (command === "add") {
-    console.log(`${cyan}║  ${bold}gladvn${reset}${cyan} — Add Component                                      ║${reset}`);
+    console.log(`${cyan}║  ${bold}gladvn${reset} ${dim}v${VERSION}${reset}${cyan} — Add Component                              ║${reset}`);
   } else if (command === "add-block") {
-    console.log(`${cyan}║  ${bold}gladvn${reset}${cyan} — Add Block                                          ║${reset}`);
+    console.log(`${cyan}║  ${bold}gladvn${reset} ${dim}v${VERSION}${reset}${cyan} — Add Block                                  ║${reset}`);
   } else {
-    console.log(`${cyan}║  ${bold}gladvn${reset}${cyan} — Initialization                                     ║${reset}`);
+    console.log(`${cyan}║  ${bold}gladvn${reset} ${dim}v${VERSION}${reset}${cyan} — Initialization                             ║${reset}`);
   }
   console.log(`${cyan}╚══════════════════════════════════════════════════════════════════╝${reset}\n`);
 
@@ -233,7 +219,7 @@ async function main() {
       if (fs.existsSync(subPath)) {
         const files = fs.readdirSync(subPath);
         for (const file of files) {
-          if (file.endsWith('.tsx') || file.endsWith('.ts')) {
+          if ((file.endsWith('.tsx') || file.endsWith('.ts')) && !isTestFile(file)) {
             availableComponents.push(`${sub}/${file}`);
           }
         }
@@ -247,16 +233,20 @@ async function main() {
   if (fs.existsSync(blocksDir)) {
     const files = fs.readdirSync(blocksDir);
     for (const file of files) {
-      if (file.endsWith('.tsx') || file.endsWith('.ts')) {
+      if ((file.endsWith('.tsx') || file.endsWith('.ts')) && !isTestFile(file)) {
         availableBlocks.push(file);
       }
     }
   }
 
   if (command === "add") {
+    // ── ADD COMMAND ──────────────────────────────────────────────────────
     if (!fs.existsSync(destPath)) {
       fs.mkdirSync(destPath, { recursive: true });
     }
+
+    // Ensure lib/ and hooks/ exist for component imports
+    ensureCoreDeps(srcDir, destPath);
 
     if (componentToAdd === "--all") {
       console.log(`\x1b[36mAdding all components to ${userDest}...\x1b[0m`);
@@ -301,7 +291,9 @@ async function main() {
         hasErrors = true;
       }
     }
+
   } else if (command === "add-block") {
+    // ── ADD-BLOCK COMMAND ────────────────────────────────────────────────
     console.log(`\x1b[36mAdding block ${componentToAdd} to ${userDest}...\x1b[0m`);
     const blockMatches = availableBlocks.filter(b => b === `${componentToAdd}.tsx` || b === `${componentToAdd}.ts`);
     if (blockMatches.length === 0) {
@@ -312,6 +304,10 @@ async function main() {
     if (!fs.existsSync(destPath)) {
       fs.mkdirSync(destPath, { recursive: true });
     }
+
+    // Ensure lib/ and hooks/ exist for block imports
+    ensureCoreDeps(srcDir, destPath);
+
     const block = blockMatches[0];
     const sourcePath = path.join(blocksDir, block);
     const targetPath = path.join(destPath, 'blocks', block);
@@ -326,8 +322,9 @@ async function main() {
       console.error(`\x1b[31m✖ Failed to add block ${block}: ${err.message}\x1b[0m`);
       hasErrors = true;
     }
+
   } else {
-    // === INIT COMMAND ===
+    // ── INIT COMMAND ─────────────────────────────────────────────────────
     let targetCss = "app/globals.css";
     const cssFilesFull = findCssFiles(process.cwd());
     const cssFiles = cssFilesFull.map(f => path.relative(process.cwd(), f));
@@ -376,80 +373,237 @@ async function main() {
       cssFilePath = path.resolve(process.cwd(), targetCss);
     }
 
-    // 1. Copy files
+    // Step 1. Copy files
     console.log(`\n\x1b[36mInitializing gladvn components into ${userDest}...\x1b[0m`);
 
     if (!fs.existsSync(destPath)) {
       fs.mkdirSync(destPath, { recursive: true });
     }
 
-    // Always copy core directories
-
-  const coreDirs = ['hooks', 'lib', 'styles', 'components', 'blocks'];
-  for (const dir of coreDirs) {
-    const sourcePath = path.join(srcDir, dir);
-    const targetPath = path.join(destPath, dir);
-    if (fs.existsSync(sourcePath)) {
-      try {
-        fs.cpSync(sourcePath, targetPath, { recursive: true, force: true });
-      } catch (err) {
-        console.error(`\x1b[31m✖ Failed to copy core ${dir}/: ${err.message}\x1b[0m`);
-        hasErrors = true;
+    // Copy core directories (excluding test files)
+    const coreDirs = ['hooks', 'lib', 'styles', 'components', 'blocks'];
+    for (const dir of coreDirs) {
+      const sourceDir = path.join(srcDir, dir);
+      const targetDir = path.join(destPath, dir);
+      if (fs.existsSync(sourceDir)) {
+        try {
+          copyDirFiltered(sourceDir, targetDir, (name) => !isTestFile(name));
+        } catch (err) {
+          console.error(`\x1b[31m✖ Failed to copy core ${dir}/: ${err.message}\x1b[0m`);
+          hasErrors = true;
+        }
       }
     }
-  }
-  console.log(`\x1b[32m✔ Copied core files and all components (lib, hooks, styles, components, blocks)\x1b[0m`);
 
-  // 2. Inject CSS
-  if (cssFilePath && fs.existsSync(cssFilePath)) {
-    const cssContent = fs.readFileSync(cssFilePath, 'utf8');
-    const cssTarget = path.join(destPath, 'styles', 'gladvn.css');
-    let relPath = path.relative(path.dirname(cssFilePath), cssTarget).replace(/\\/g, '/');
-    if (!relPath.startsWith('.')) relPath = './' + relPath;
-    const importStmt = `@import "${relPath}";`;
-    if (!cssContent.includes(importStmt) && !cssContent.includes('gladvn.css')) {
-      if (cssContent.includes('@import "tailwindcss";')) {
-        fs.writeFileSync(cssFilePath, cssContent.replace('@import "tailwindcss";', `@import "tailwindcss";\n${importStmt}`));
-      } else if (cssContent.includes('@tailwind base;')) {
-        fs.writeFileSync(cssFilePath, cssContent.replace('@tailwind base;', `@tailwind base;\n${importStmt}`));
-      } else {
-        fs.writeFileSync(cssFilePath, `${importStmt}\n${cssContent}`);
+    // Copy root-level files (index.ts, preset.ts)
+    const rootFiles = ['index.ts', 'preset.ts'];
+    for (const file of rootFiles) {
+      const sourceFile = path.join(srcDir, file);
+      const targetFile = path.join(destPath, file);
+      if (fs.existsSync(sourceFile)) {
+        try {
+          fs.cpSync(sourceFile, targetFile, { force: true });
+        } catch (err) {
+          console.error(`\x1b[31m✖ Failed to copy ${file}: ${err.message}\x1b[0m`);
+          hasErrors = true;
+        }
       }
-      console.log(`\x1b[32m✔ Injected gladvn CSS into ${path.basename(cssFilePath)}\x1b[0m`);
     }
-  }
 
-  // 3. Configure Path Alias
-  let tsconfigPath = path.join(process.cwd(), 'tsconfig.json');
-  if (!fs.existsSync(tsconfigPath)) tsconfigPath = path.join(process.cwd(), 'jsconfig.json');
-  
-  if (fs.existsSync(tsconfigPath)) {
-    let content = fs.readFileSync(tsconfigPath, 'utf8');
-    if (!content.includes('@gladvn/*')) {
-      const pathsEmptyRegex = /"paths"\s*:\s*\{\s*\}/;
-      const compilerOptionsEmptyRegex = /"compilerOptions"\s*:\s*\{\s*\}/;
+    console.log(`\x1b[32m✔ Copied core files and all components (lib, hooks, styles, components, blocks)\x1b[0m`);
 
-      if (pathsEmptyRegex.test(content)) {
-        content = content.replace(pathsEmptyRegex, `"paths": {\n      "@gladvn/*": ["./${userDest}/*"]\n    }`);
-      } else if (content.match(/"paths"\s*:\s*\{/)) {
-        content = content.replace(/"paths"\s*:\s*\{/, `"paths": {\n      "@gladvn/*": ["./${userDest}/*"],`);
-      } else if (compilerOptionsEmptyRegex.test(content)) {
-        content = content.replace(compilerOptionsEmptyRegex, `"compilerOptions": {\n    "paths": {\n      "@gladvn/*": ["./${userDest}/*"]\n    }\n  }`);
-      } else if (content.match(/"compilerOptions"\s*:\s*\{/)) {
-        content = content.replace(/"compilerOptions"\s*:\s*\{/, `"compilerOptions": {\n    "paths": {\n      "@gladvn/*": ["./${userDest}/*"]\n    },`);
+    // Step 2. Inject CSS (tokens.css MUST come before gladvn.css)
+    if (cssFilePath && fs.existsSync(cssFilePath)) {
+      let cssContent = fs.readFileSync(cssFilePath, 'utf8');
+      const stylesDir = path.join(destPath, 'styles');
+      const relDir = path.relative(path.dirname(cssFilePath), stylesDir).replace(/\\/g, '/');
+      const prefix = relDir.startsWith('.') ? relDir : './' + relDir;
+
+      const tokensImport = `@import "${prefix}/tokens.css";`;
+      const gladvnImport = `@import "${prefix}/gladvn.css";`;
+      const combinedImport = `${tokensImport}\n${gladvnImport}`;
+
+      const needsTokens = !cssContent.includes('tokens.css');
+      const needsGladvn = !cssContent.includes('gladvn.css');
+
+      if (needsTokens || needsGladvn) {
+        const toInject = needsTokens && needsGladvn
+          ? combinedImport
+          : needsTokens ? tokensImport : gladvnImport;
+
+        if (cssContent.includes('@import "tailwindcss";')) {
+          cssContent = cssContent.replace('@import "tailwindcss";', `@import "tailwindcss";\n${toInject}`);
+        } else if (cssContent.includes('@tailwind base;')) {
+          cssContent = cssContent.replace('@tailwind base;', `@tailwind base;\n${toInject}`);
+        } else {
+          cssContent = `${toInject}\n${cssContent}`;
+        }
+        fs.writeFileSync(cssFilePath, cssContent);
+        console.log(`\x1b[32m✔ Injected gladvn styles (tokens + theme) into ${path.basename(cssFilePath)}\x1b[0m`);
       }
-      fs.writeFileSync(tsconfigPath, content);
-      console.log(`\x1b[32m✔ Configured path alias @gladvn/* in ${path.basename(tsconfigPath)}\x1b[0m`);
     }
-  }
+
+    // Step 3. Configure TypeScript Path Alias
+    const tsconfigFiles = ['tsconfig.app.json', 'tsconfig.json', 'jsconfig.json'];
+    let tsconfigPath = null;
+    for (const file of tsconfigFiles) {
+      const p = path.join(process.cwd(), file);
+      if (fs.existsSync(p)) {
+        tsconfigPath = p;
+        break;
+      }
+    }
+    
+    if (tsconfigPath) {
+      let content = fs.readFileSync(tsconfigPath, 'utf8');
+      let modified = false;
+
+      // 3a. Ensure baseUrl is set (required for paths to work)
+      if (!content.includes('"baseUrl"')) {
+        if (content.match(/"compilerOptions"\s*:\s*\{/)) {
+          content = content.replace(/"compilerOptions"\s*:\s*\{/, `"compilerOptions": {\n    "baseUrl": ".",`);
+          modified = true;
+        }
+      }
+
+      // 3b. Add path aliases: both @gladvn (barrel) and @gladvn/* (deep imports)
+      if (!content.includes('@gladvn')) {
+        const pathsBlock = `"paths": {\n      "@gladvn": ["./${userDest}/index.ts"],\n      "@gladvn/*": ["./${userDest}/*"]\n    }`;
+        const pathsEmptyRegex = /"paths"\s*:\s*\{\s*\}/;
+        const compilerOptionsEmptyRegex = /"compilerOptions"\s*:\s*\{\s*\}/;
+
+        if (pathsEmptyRegex.test(content)) {
+          content = content.replace(pathsEmptyRegex, pathsBlock);
+        } else if (content.match(/"paths"\s*:\s*\{/)) {
+          content = content.replace(/"paths"\s*:\s*\{/, `"paths": {\n      "@gladvn": ["./${userDest}/index.ts"],\n      "@gladvn/*": ["./${userDest}/*"],`);
+        } else if (compilerOptionsEmptyRegex.test(content)) {
+          content = content.replace(compilerOptionsEmptyRegex, `"compilerOptions": {\n    ${pathsBlock}\n  }`);
+        } else if (content.match(/"compilerOptions"\s*:\s*\{/)) {
+          content = content.replace(/"compilerOptions"\s*:\s*\{/, `"compilerOptions": {\n    ${pathsBlock},`);
+        } else if (!content.includes('"compilerOptions"')) {
+          content = content.replace(/\{/, `{\n  "compilerOptions": {\n    ${pathsBlock}\n  },`);
+        }
+        modified = true;
+      }
+
+      // 3c. Add destination folder to "include" so TS can see files outside src/
+      if (content.includes('"include"') && !content.includes(`"${userDest}"`)) {
+        content = content.replace(/"include"\s*:\s*\[/, `"include": [\n    "${userDest}",`);
+        modified = true;
+      }
+
+      if (modified) {
+        fs.writeFileSync(tsconfigPath, content);
+        console.log(`\x1b[32m✔ Configured path alias @gladvn in ${path.basename(tsconfigPath)}\x1b[0m`);
+      }
+    }
+
+    // Step 4. Configure Vite Alias
+    const viteConfigFiles = ['vite.config.ts', 'vite.config.js', 'vite.config.mts', 'vite.config.mjs'];
+    let viteConfigPath = null;
+    for (const file of viteConfigFiles) {
+      const p = path.join(process.cwd(), file);
+      if (fs.existsSync(p)) {
+        viteConfigPath = p;
+        break;
+      }
+    }
+
+    if (viteConfigPath) {
+      let content = fs.readFileSync(viteConfigPath, 'utf8');
+      let modified = false;
+
+      if (!content.includes('@gladvn')) {
+        // Add `import path from "path"` if missing
+        if (!content.includes('import path from') && !content.includes('require("path")')) {
+          if (content.includes('import ')) {
+            const lastImportIndex = content.lastIndexOf('import ');
+            const endOfLine = content.indexOf('\n', lastImportIndex);
+            if (endOfLine !== -1) {
+              content = content.slice(0, endOfLine + 1) + 'import path from "path"\n' + content.slice(endOfLine + 1);
+            } else {
+              content = 'import path from "path"\n' + content;
+            }
+          } else {
+            content = 'import path from "path"\n' + content;
+          }
+        }
+        
+        const resolveAlias = `\n  resolve: {\n    alias: {\n      "@gladvn": path.resolve(__dirname, "./${userDest}"),\n    },\n  },`;
+        
+        if (content.includes('resolve: {')) {
+           if (content.includes('alias: {')) {
+             content = content.replace(/alias:\s*\{/, `alias: {\n      "@gladvn": path.resolve(__dirname, "./${userDest}"),`);
+           } else {
+             content = content.replace(/resolve:\s*\{/, `resolve: {\n    alias: {\n      "@gladvn": path.resolve(__dirname, "./${userDest}"),\n    },`);
+           }
+        } else {
+           content = content.replace(/defineConfig\s*\(\s*\{/, `defineConfig({${resolveAlias}`);
+        }
+        modified = true;
+      }
+      
+      if (!content.includes('@tailwindcss/vite')) {
+        if (content.includes('import ')) {
+          const lastImportIndex = content.lastIndexOf('import ');
+          const endOfLine = content.indexOf('\n', lastImportIndex);
+          if (endOfLine !== -1) {
+            content = content.slice(0, endOfLine + 1) + 'import tailwindcss from "@tailwindcss/vite"\n' + content.slice(endOfLine + 1);
+          } else {
+            content = 'import tailwindcss from "@tailwindcss/vite"\n' + content;
+          }
+        } else {
+          content = 'import tailwindcss from "@tailwindcss/vite"\n' + content;
+        }
+        
+        if (content.includes('plugins: [')) {
+          content = content.replace(/plugins:\s*\[/, `plugins: [\n    tailwindcss(),`);
+        } else if (content.match(/plugins:\s*\[/)) {
+          content = content.replace(/plugins:\s*\[/, `plugins: [\n    tailwindcss(),`);
+        } else if (content.includes('defineConfig({')) {
+          content = content.replace(/defineConfig\s*\(\s*\{/, `defineConfig({\n  plugins: [tailwindcss()],`);
+        }
+        modified = true;
+      }
+      
+      if (modified) {
+        fs.writeFileSync(viteConfigPath, content);
+        console.log(`\x1b[32m✔ Configured resolve.alias & tailwindcss plugin in ${path.basename(viteConfigPath)}\x1b[0m`);
+      }
+    }
 
   } // END OF INIT COMMAND
 
-  // 3. Install dependencies
+  // Step 5. Install dependencies
+  // Track extra deps needed (e.g. @types/node for Vite TS projects)
+  const extraDepsToInstall = [];
+
+  // Check if we need @types/node (Vite + TypeScript)
+  const viteConfigExists = ['vite.config.ts', 'vite.config.mts'].some(f => fs.existsSync(path.join(process.cwd(), f)));
+  if (viteConfigExists || viteConfigPath) {
+    try {
+      const userPkgPath = path.resolve(process.cwd(), 'package.json');
+      if (fs.existsSync(userPkgPath)) {
+        const userPkg = JSON.parse(fs.readFileSync(userPkgPath, 'utf8'));
+        const allUserDeps = { ...userPkg.dependencies, ...userPkg.devDependencies };
+        if (viteConfigExists && !allUserDeps['@types/node']) {
+          extraDepsToInstall.push('@types/node@"^20.0.0"');
+        }
+        if (!allUserDeps['tailwindcss']) {
+          extraDepsToInstall.push('tailwindcss@"^4.0.0"');
+        }
+        if (!allUserDeps['@tailwindcss/vite']) {
+          extraDepsToInstall.push('@tailwindcss/vite@"^4.0.0"');
+        }
+      } else {
+        // If no package.json, just push them to be safe
+        extraDepsToInstall.push('tailwindcss@"^4.0.0"');
+        extraDepsToInstall.push('@tailwindcss/vite@"^4.0.0"');
+      }
+    } catch (e) {}
+  }
+
   try {
-    const pkgPath = path.resolve(__dirname, "../package.json");
-    const pkgContent = fs.readFileSync(pkgPath, "utf-8");
-    const pkg = JSON.parse(pkgContent);
     const depsObj = pkg.dependencies || {};
     
     if (Object.keys(depsObj).length > 0) {
@@ -489,7 +643,7 @@ async function main() {
         }
       }
       
-      if (usedDeps.size > 0) {
+      if (usedDeps.size > 0 || extraDepsToInstall.length > 0) {
         // Check user's package.json to see what is already installed
         const userPkgPath = path.resolve(process.cwd(), 'package.json');
         let userDeps = {};
@@ -500,7 +654,7 @@ async function main() {
           } catch (e) {}
         }
 
-        const depsToInstall = [];
+        const depsToInstall = [...extraDepsToInstall];
         for (const dep of usedDeps) {
           if (!userDeps[dep]) {
             depsToInstall.push(`${dep}@"${depsObj[dep]}"`);

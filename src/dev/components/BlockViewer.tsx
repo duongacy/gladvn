@@ -23,7 +23,7 @@ export function BlockViewer({
   const [width, setWidth] = useState<"100%" | "768px" | "375px">("100%");
   
   return (
-    <div className={className}>
+    <div className={cn("flex flex-col gap-6", className)}>
       <SectionHeader title={title} description={description} />
       
       <Tabs defaultValue="preview" className="w-full relative group">

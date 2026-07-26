@@ -293,7 +293,7 @@ export default function App() {
                 />
               }
               nativeButton={false}
-              className="text-muted-foreground hover:text-foreground hidden sm:inline-flex"
+              className="text-muted-foreground  hover:text-foreground hidden sm:inline-flex"
             >
               {/* GitHub SVG mark */}
               <svg

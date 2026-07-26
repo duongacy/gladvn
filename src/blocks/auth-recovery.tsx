@@ -18,7 +18,7 @@ export default function AuthRecoveryBlock() {
   };
 
   return (
-    <div className="flex min-h-[50vh] w-full items-center justify-center p-4 bg-muted/20">
+    <div className="flex min-h-screen w-full items-center justify-center p-4 bg-muted/20">
       <Card className="w-full max-w-sm">
         <CardHeader className="text-center">
           <CardTitle className="text-2xl font-bold">

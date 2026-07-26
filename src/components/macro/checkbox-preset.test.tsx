@@ -33,7 +33,7 @@ describe("CheckboxPreset", () => {
 
   it("renders the check indicator", () => {
     const { container } = render(<CheckboxPreset />);
-    // CheckboxIndicator may not render a separate data-slot when unchecked
+    
     const checkbox = container.querySelector("[data-slot='checkbox']");
     expect(checkbox).toBeInTheDocument();
   });
@@ -44,7 +44,7 @@ describe("CheckboxPreset", () => {
     const label = screen.getByText("Agree");
     expect(checkbox).toBeInTheDocument();
     expect(label).toBeInTheDocument();
-    // Label's for attr may point to internal input
+    
     expect(label.getAttribute("for")).toBeTruthy();
   });
 });

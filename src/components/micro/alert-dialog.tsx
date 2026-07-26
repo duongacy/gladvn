@@ -37,8 +37,6 @@ function AlertDialogClose({ ...props }: AlertDialogPrimitive.Close.Props) {
   );
 }
 
-
-
 function AlertDialogOverlay({
   className,
   ...props

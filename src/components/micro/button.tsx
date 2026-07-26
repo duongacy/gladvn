@@ -36,7 +36,7 @@ const buttonVariants = cva(
   "group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-border text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:ring-3 focus-visible:ring-offset-1 focus-visible:ring-offset-background active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:ring-3 aria-invalid:focus-visible:ring-destructive/50 dark:aria-invalid:border-destructive/50 dark:aria-invalid:focus-visible:ring-destructive/50 data-[icon=true]:aspect-square data-[icon=true]:px-0",
   {
     variants: {
-      // ── Visual style ─────────────────────────────────────────────
+      
       variant: {
         solid: "border-transparent",
         outline: "bg-transparent",
@@ -45,8 +45,6 @@ const buttonVariants = cva(
         link: "border-transparent bg-transparent underline-offset-4 hover:underline",
       },
 
-      // ── Semantic color ───────────────────────────────────────────
-      // Left empty — actual classes are injected via compoundVariants below
       color: {
         primary: "",
         secondary: "",
@@ -59,7 +57,6 @@ const buttonVariants = cva(
         accent: "",
       },
 
-      // ── Size ─────────────────────────────────────────────────────
       size: {
         sm: "h-7 gap-1 px-3 text-xs",
         md: "h-8 gap-1.5 px-3.5",
@@ -67,9 +64,8 @@ const buttonVariants = cva(
       },
     },
 
-    // ── variant × color combinations ─────────────────────────────
     compoundVariants: [
-      // solid — filled background, foreground text
+      
       {
         variant: "solid",
         color: "primary",
@@ -125,7 +121,6 @@ const buttonVariants = cva(
           "bg-accent      text-accent-foreground      hover:bg-accent/85",
       },
 
-      // outline — border + semantic text, tinted hover
       {
         variant: "outline",
         color: "primary",
@@ -174,7 +169,6 @@ const buttonVariants = cva(
           "border-accent      text-accent-foreground hover:bg-accent/10",
       },
 
-      // soft — tinted background, semantic text
       {
         variant: "soft",
         color: "primary",
@@ -222,7 +216,6 @@ const buttonVariants = cva(
           "bg-accent/50      text-accent-foreground hover:bg-accent/80",
       },
 
-      // ghost — transparent, semantic text, tinted hover
       {
         variant: "ghost",
         color: "primary",
@@ -269,7 +262,6 @@ const buttonVariants = cva(
         className: "text-accent-foreground hover:bg-accent/10",
       },
 
-      // link — just semantic text + underline on hover
       { variant: "link", color: "primary", className: "text-primary" },
       { variant: "link", color: "secondary", className: "text-secondary" },
       { variant: "link", color: "destructive", className: "text-destructive" },
@@ -279,7 +271,7 @@ const buttonVariants = cva(
       { variant: "link", color: "tertiary", className: "text-tertiary" },
       { variant: "link", color: "muted", className: "text-muted-foreground" },
       { variant: "link", color: "accent", className: "text-accent-foreground" },
-      // focus ring — semantic color at /15 opacity with offset
+      
       { color: "primary", className: "focus-visible:ring-primary/50" },
       { color: "secondary", className: "focus-visible:ring-secondary/50" },
       { color: "destructive", className: "focus-visible:ring-destructive/50" },

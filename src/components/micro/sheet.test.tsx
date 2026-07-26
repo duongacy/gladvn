@@ -14,7 +14,7 @@ import {
 
 describe("Sheet", () => {
   it("[3C.15-01] [P1] renders trigger correctly and content is hidden initially", () => {
-    // Given
+    
     render(
       <Sheet>
         <SheetTrigger>Open Sheet</SheetTrigger>
@@ -28,15 +28,14 @@ describe("Sheet", () => {
     );
 
     const trigger = screen.getByRole("button", { name: "Open Sheet" });
-    // Then
+    
     expect(trigger).toBeInTheDocument();
 
-    // Content should not be in the document
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
   });
 
   it("[3C.15-02] [P1] opens the sheet when trigger is clicked", async () => {
-    // Given
+    
     const user = userEvent.setup();
     render(
       <Sheet>
@@ -51,10 +50,9 @@ describe("Sheet", () => {
     );
 
     const trigger = screen.getByRole("button", { name: "Open Sheet" });
-    // When
+    
     await user.click(trigger);
 
-    // Then
     await waitFor(() => {
       const sheet = screen.getByRole("dialog");
       expect(sheet).toBeInTheDocument();
@@ -64,7 +62,7 @@ describe("Sheet", () => {
   });
 
   it("[3C.15-03] [P1] closes the sheet when default Close button is clicked", async () => {
-    // Given
+    
     const user = userEvent.setup();
     render(
       <Sheet>
@@ -75,16 +73,12 @@ describe("Sheet", () => {
       </Sheet>,
     );
 
-    // Open
-    // When
     await user.click(screen.getByRole("button", { name: "Open Sheet" }));
 
-    // Then
     await waitFor(() => {
       expect(screen.getByRole("dialog")).toBeInTheDocument();
     });
 
-    // Close via default 'X' button
     const closeBtn = screen.getByRole("button", { name: "Close" });
     await user.click(closeBtn);
 
@@ -94,7 +88,7 @@ describe("Sheet", () => {
   });
 
   it("[3C.15-04] [P1] closes the sheet when Escape is pressed", async () => {
-    // Given
+    
     const user = userEvent.setup();
     render(
       <Sheet>
@@ -105,10 +99,8 @@ describe("Sheet", () => {
       </Sheet>,
     );
 
-    // When
     await user.click(screen.getByRole("button", { name: "Open Sheet" }));
 
-    // Then
     await waitFor(() => {
       expect(screen.getByRole("dialog")).toBeInTheDocument();
     });

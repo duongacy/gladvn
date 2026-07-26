@@ -9,7 +9,6 @@
 
 import * as React from "react";
 
-// Fix TS2883: The inferred type cannot be named without a reference to @radix-ui/react-dialog
 import type { } from "@radix-ui/react-dialog";
 import { Drawer as DrawerPrimitive } from "vaul";
 
@@ -30,8 +29,6 @@ const DrawerTrigger = React.forwardRef<
   <DrawerPrimitive.Trigger ref={ref} data-slot="drawer-trigger" {...props} />
 ));
 DrawerTrigger.displayName = "DrawerTrigger";
-
-
 
 const DrawerClose = React.forwardRef<
   React.ElementRef<typeof DrawerPrimitive.Close>,

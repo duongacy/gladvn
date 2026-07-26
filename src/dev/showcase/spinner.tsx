@@ -11,13 +11,10 @@ import {
 } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
-// ──────────────────────────────────────────────────────────
-// SECTION 1: Micro Content
-// ──────────────────────────────────────────────────────────
 function SpinnerMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      {/* Default */}
+      {}
       <ExampleSection
         label="Default"
         description="Spinner mặc định với kích thước được kiểm soát bởi size toggle ở trên."
@@ -29,7 +26,7 @@ function SpinnerMicroShowcase({ globalSize }: { globalSize: Size }) {
         <Spinner size={globalSize} />
       </ExampleSection>
 
-      {/* Colors */}
+      {}
       <ExampleGrid>
         <ExampleSection
           label="Custom Colors"
@@ -71,7 +68,7 @@ function SpinnerMicroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      {/* Overlay / Fullscreen */}
+      {}
       <ExampleSection
         label="Overlay Loading"
         description="Đặt Spinner trên một overlay để chặn tương tác trong khi tải nội dung."
@@ -94,9 +91,6 @@ function SpinnerMicroShowcase({ globalSize }: { globalSize: Size }) {
   );
 }
 
-// ──────────────────────────────────────────────────────────
-// SECTION 2: Entry point
-// ──────────────────────────────────────────────────────────
 export default function SpinnerShowcase() {
   const { size: globalSize } = useDevContext();
   return (

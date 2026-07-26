@@ -25,9 +25,6 @@ import {
 } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
-// ──────────────────────────────────────────────────────────
-// SECTION 1: Macro Content
-// ──────────────────────────────────────────────────────────
 function InputOTPMacroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
@@ -124,9 +121,6 @@ function InputOTPMacroShowcase({ globalSize }: { globalSize: Size }) {
   );
 }
 
-// ──────────────────────────────────────────────────────────
-// SECTION 2: Micro Content
-// ──────────────────────────────────────────────────────────
 function InputOTPMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
@@ -292,14 +286,14 @@ function InputOTPMicroShowcase({ globalSize }: { globalSize: Size }) {
         label="🧭 Use Case Comparison"
         description="So sánh nhanh khi nào dùng Micro và Macro."
         fullWidth
-        codeString={`{/* Macro — đơn giản, 1 dòng khai báo */}
+        codeString={`{}
   <InputOTPPreset
     groups={[3, 3]}
     size="md"
     label="Mã xác thực"
   />
 
-  {/* Micro — khi cần custom từng slot */}
+  {}
   <InputOTP size="md" maxLength={6}>
     <InputOTPGroup>
       {Array.from({ length: 3 }).map((_, i) => (

@@ -109,9 +109,6 @@ function ControlledCarouselDemo() {
   );
 }
 
-// ──────────────────────────────────────────────────────────
-// SECTION 1: Macro Content
-// ──────────────────────────────────────────────────────────
 function CarouselMacroShowcase() {
   return (
     <div className="space-y-10 mt-6">
@@ -510,9 +507,6 @@ return (
   );
 }
 
-// ──────────────────────────────────────────────────────────
-// SECTION 2: Micro Content
-// ──────────────────────────────────────────────────────────
 function CarouselMicroShowcase() {
   return (
     <div className="space-y-10 mt-6">
@@ -660,9 +654,6 @@ function CarouselMicroShowcase() {
   );
 }
 
-// ──────────────────────────────────────────────────────────
-// SECTION 3: Entry point
-// ──────────────────────────────────────────────────────────
 export default function CarouselShowcase() {
   return (
     <Showcase

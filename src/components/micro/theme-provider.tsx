@@ -15,8 +15,6 @@
 
 import * as React from "react";
 
-// ─── Types ────────────────────────────────────────────────────────────────────
-
 type ThemeMode = "light" | "dark";
 
 type ThemeContextValue = {
@@ -26,13 +24,9 @@ type ThemeContextValue = {
   setMode: (mode: ThemeMode) => void;
 };
 
-// ─── Context ──────────────────────────────────────────────────────────────────
-
 const ThemeContext = React.createContext<ThemeContextValue | undefined>(
   undefined,
 );
-
-// ─── useTheme ─────────────────────────────────────────────────────────────────
 
 /**
  * Read and control the nearest ThemeProvider.
@@ -48,8 +42,6 @@ const ThemeContext = React.createContext<ThemeContextValue | undefined>(
 function useTheme(): ThemeContextValue | undefined {
   return React.useContext(ThemeContext);
 }
-
-// ─── ThemeProvider ────────────────────────────────────────────────────────────
 
 type ThemeProviderProps = {
   children: React.ReactNode;
@@ -131,8 +123,6 @@ function ThemeProvider({
 
 ThemeProvider.displayName = "ThemeProvider";
 
-// ─── ThemeWrapper ─────────────────────────────────────────────────────────────
-
 /**
  * ThemeWrapper — re-applies the current theme class inside a Portal.
  * Used internally by Dialog, Tooltip, Popover, etc. to tunnel the theme
@@ -156,8 +146,6 @@ function ThemeWrapper({ children }: { children: React.ReactNode }) {
 }
 
 ThemeWrapper.displayName = "ThemeWrapper";
-
-// ─── Exports ──────────────────────────────────────────────────────────────────
 
 export { ThemeProvider, ThemeWrapper, useTheme };
 export type { ThemeMode };

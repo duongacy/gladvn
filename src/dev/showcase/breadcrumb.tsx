@@ -25,9 +25,6 @@ import {
   ShowcaseDocs
 } from "../../dev/components/showcase";
 
-// ──────────────────────────────────────────────────────────
-// SECTION 1: Macro Content
-// ──────────────────────────────────────────────────────────
 function BreadcrumbMacroShowcase() {
   return (
     <div className="space-y-10 mt-6">
@@ -78,9 +75,6 @@ function BreadcrumbMacroShowcase() {
   );
 }
 
-// ──────────────────────────────────────────────────────────
-// SECTION 2: Micro Content
-// ──────────────────────────────────────────────────────────
 function BreadcrumbMicroShowcase() {
   return (
     <div className="space-y-10 mt-6">
@@ -246,9 +240,6 @@ function BreadcrumbMicroShowcase() {
   );
 }
 
-// ──────────────────────────────────────────────────────────
-// SECTION 3: Entry point
-// ──────────────────────────────────────────────────────────
 export default function BreadcrumbShowcase() {
   return (
     <Showcase

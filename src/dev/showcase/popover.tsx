@@ -24,9 +24,6 @@ import {
 } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
-// ──────────────────────────────────────────────────────────
-// SECTION 2: Micro Content (không export)
-// ──────────────────────────────────────────────────────────
 function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
   const [isOpen, setIsOpen] = useState(false);
 

@@ -40,7 +40,7 @@ export default function DisplaySection() {
         description="Avatars, Cards, Accordion, and more"
       />
 
-      {/* Avatar Showcase */}
+      {}
       <div className="rounded-2xl border border-border bg-card/40 p-6 shadow-sm">
         <div className="flex items-center justify-between mb-6">
           <div>
@@ -56,7 +56,7 @@ export default function DisplaySection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Sizes & Fallbacks */}
+          {}
           <div className="rounded-xl border border-border bg-card p-5 shadow-sm flex flex-col gap-4">
             <h4 className="text-sm font-medium text-muted-foreground">
               Sizes & Fallbacks
@@ -79,7 +79,7 @@ export default function DisplaySection() {
             </div>
           </div>
 
-          {/* Group & Badge */}
+          {}
           <div className="rounded-xl border border-border bg-card p-5 shadow-sm flex flex-col gap-4">
             <h4 className="text-sm font-medium text-muted-foreground">
               Groups & Status Badges
@@ -122,7 +122,7 @@ export default function DisplaySection() {
         </div>
       </div>
 
-      {/* The Badge Matrix */}
+      {}
       <div className="rounded-2xl border border-border bg-card/40 overflow-hidden shadow-sm">
         <div className="border-b border-b-border bg-muted/30 px-6 py-4">
           <h3 className="font-semibold text-lg flex items-center gap-2">

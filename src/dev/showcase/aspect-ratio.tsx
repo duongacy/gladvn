@@ -20,7 +20,7 @@ const commonRatios = [
 function AspectRatioMicroShowcase() {
   return (
     <div className="space-y-10 mt-6">
-      {/* ── Common Ratios ── */}
+      {}
       <ExampleGrid>
         <ExampleSection
           label="16:9"
@@ -89,7 +89,7 @@ function AspectRatioMicroShowcase() {
         </ExampleSection>
       </ExampleGrid>
 
-      {/* ── With Image ── */}
+      {}
       <ExampleGrid>
         <ExampleSection
           label="16:9 Image"
@@ -141,7 +141,7 @@ function AspectRatioMicroShowcase() {
         </ExampleSection>
       </ExampleGrid>
 
-      {/* ── Map / Embed placeholder ── */}
+      {}
       <ExampleGrid>
         <ExampleSection
           label="Video Embed"
@@ -244,7 +244,7 @@ function AspectRatioMicroShowcase() {
         </ExampleSection>
       </ExampleGrid>
 
-      {/* ── Custom Ratio ── */}
+      {}
       <ExampleGrid>
         <ExampleSection
           label="Ratio 2.35"

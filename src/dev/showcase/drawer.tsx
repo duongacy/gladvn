@@ -18,9 +18,6 @@ import {
   ShowcaseDocs
 } from "../../dev/components/showcase";
 
-// ──────────────────────────────────────────────────────────
-// SECTION 2: Micro Content (không export)
-// ──────────────────────────────────────────────────────────
 function DrawerMicroShowcase() {
   return (
     <div className="space-y-10 mt-6">
@@ -365,9 +362,6 @@ function DrawerMicroShowcase() {
   );
 }
 
-// ──────────────────────────────────────────────────────────
-// SECTION 3: Entry point (export default)
-// ──────────────────────────────────────────────────────────
 export default function DrawerShowcase() {
   return (
     <Showcase

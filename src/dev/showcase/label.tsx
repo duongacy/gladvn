@@ -9,9 +9,6 @@ import {
 } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
-// ──────────────────────────────────────────────────────────
-// SECTION 2: Micro Content (không export)
-// ──────────────────────────────────────────────────────────
 function LabelMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
@@ -84,9 +81,6 @@ function LabelMicroShowcase({ globalSize }: { globalSize: Size }) {
   );
 }
 
-// ──────────────────────────────────────────────────────────
-// SECTION 3: Entry point (export default)
-// ──────────────────────────────────────────────────────────
 export default function LabelShowcase() {
   const { size: globalSize } = useDevContext();
   return (

@@ -30,9 +30,6 @@ import {
 import { type Size } from "../../lib/types";
 import { cn } from "../../lib/utils";
 
-// ──────────────────────────────────────────────────────────
-// Macro Showcase
-// ──────────────────────────────────────────────────────────
 function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
   const [controlledOpen, setControlledOpen] = useState(false);
 
@@ -387,9 +384,6 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
   );
 }
 
-// ──────────────────────────────────────────────────────────
-// Micro Showcase
-// ──────────────────────────────────────────────────────────
 function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
   const [controlledOpen, setControlledOpen] = useState(false);
   const contentClass =
@@ -1005,7 +999,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
           </Dialog>
         </ExampleSection>
 
-        {/* ── Use Case Comparison ─────────────────────── */}
+        {}
         <ExampleSection
           label="🧭 Use Case Comparison"
           description="Các kịch bản thực tế giúp bạn quyết định nên dùng Micro hay Macro."
@@ -1064,7 +1058,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
   </div>`}
         >
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            {/* ── Story 1: Macro wins ── */}
+            {}
             <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
               <div className="flex items-start gap-3">
                 <span className="mt-0.5 shrink-0 rounded-full bg-green-500/10 p-1.5 text-green-600">
@@ -1086,7 +1080,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
               </p>
             </div>
 
-            {/* ── Story 2: Micro wins ── */}
+            {}
             <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
               <div className="flex items-start gap-3">
                 <span className="mt-0.5 shrink-0 rounded-full bg-blue-500/10 p-1.5 text-blue-600">
@@ -1114,9 +1108,6 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
   );
 }
 
-// ──────────────────────────────────────────────────────────
-// Main Showcase
-// ──────────────────────────────────────────────────────────
 export default function DialogShowcase() {
   const { size: globalSize } = useDevContext();
   return (

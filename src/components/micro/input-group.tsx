@@ -13,28 +13,23 @@ import { type VariantProps, cva } from "class-variance-authority";
 
 import { cn } from "../../lib/utils";
 
-/* ── InputGroup ─────────────────────────────────────────────────
-   Wrapper that groups inputs, addons, and action buttons.
-   `size` is set once here and propagated to all children via
-   CSS group modifiers: group-data-[size=sm|md|lg]/input-group:*
-   ─────────────────────────────────────────────────────────────── */
 const inputGroupVariants = cva(
   [
     "group/input-group relative flex min-w-0 items-center overflow-hidden rounded-lg border border-input transition-colors outline-none",
-    // Disabled state delegated from inner elements
+    
     "has-disabled:bg-input/50 has-disabled:opacity-50 has-disabled:cursor-not-allowed dark:has-disabled:bg-input/80",
-    // Focus ring delegated from [data-slot=input-group-control]
+    
     "has-[[data-slot=input-group-control]:focus-visible]:border-ring",
     "has-[[data-slot=input-group-control]:focus-visible]:ring-3",
     "has-[[data-slot=input-group-control]:focus-visible]:ring-ring/50",
     "has-[[data-slot=input-group-control]:focus-visible]:ring-offset-1",
     "has-[[data-slot=input-group-control]:focus-visible]:ring-offset-background",
-    // Error state delegated from aria-invalid on inner control
+    
     "has-[[data-slot][aria-invalid=true]]:border-destructive",
     "has-[[data-slot][aria-invalid=true]:focus-visible]:ring-3",
     "has-[[data-slot][aria-invalid=true]:focus-visible]:ring-destructive/50",
     "has-[[data-slot][aria-invalid=true]:focus-visible]:border-destructive",
-    // Dark mode base
+    
     "dark:bg-input/30",
   ],
   {
@@ -66,11 +61,6 @@ const InputGroup = React.forwardRef<
 });
 InputGroup.displayName = "InputGroup";
 
-/* ── InputGroupAddon ─────────────────────────────────────────────
-   Decorative slot for text/icon labels only (non-interactive).
-   Clicking the addon area focuses the nearest input/textarea.
-   Use `align="start"` (default) or `align="end"`.
-   ─────────────────────────────────────────────────────────────── */
 const inputGroupAddonVariants = cva(
   [
     "flex h-auto cursor-text items-center justify-center gap-2 font-medium text-muted-foreground select-none",
@@ -114,12 +104,6 @@ const InputGroupAddon = React.forwardRef<
 });
 InputGroupAddon.displayName = "InputGroupAddon";
 
-/* ── InputGroupText ──────────────────────────────────────────────
-   Inline label text or icon+text combo inside an InputGroupAddon.
-   @note Decorative icons placed here should include `aria-hidden="true"`
-   to prevent screen readers from announcing them, e.g.:
-   <InputGroupText><SearchIcon aria-hidden="true" /></InputGroupText>
-   ─────────────────────────────────────────────────────────────── */
 const InputGroupText = React.forwardRef<
   HTMLSpanElement,
   React.ComponentPropsWithoutRef<"span">
@@ -139,26 +123,15 @@ const InputGroupText = React.forwardRef<
 });
 InputGroupText.displayName = "InputGroupText";
 
-/* ── InputGroupButton ────────────────────────────────────────────
-   Self-contained native <button>. Place directly inside InputGroup
-   (not inside InputGroupAddon). Size is always inherited from the
-   parent InputGroup via CSS group modifiers — no `size` prop.
-
-   Separator borders (border-l / border-r) are applied automatically
-   based on DOM position within the flex container.
-
-   icon={true}  → square icon-only button (width = row height)
-   icon={false} → text button with horizontal padding (default)
-   ─────────────────────────────────────────────────────────────── */
 const inputGroupButtonVariants = cva(
   [
     "inline-flex shrink-0 self-stretch cursor-pointer items-center justify-center gap-1.5 font-medium whitespace-nowrap transition-colors duration-150 select-none",
-    // Self-managed focus ring (separate from wrapper delegation)
+    
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-1 focus-visible:ring-offset-background",
     "disabled:pointer-events-none disabled:opacity-50",
-    // Auto separator borders based on sibling position
+    
     "[&:not(:first-child)]:border-l [&:not(:last-child)]:border-r border-border",
-    // Icon sizing — base (md/lg), overridden for sm. Shared by both icon and text modes.
+    
     "[&>svg:not([class*='size-'])]:size-4",
     "group-data-[size=sm]/input-group:[&>svg:not([class*='size-'])]:size-3.5",
   ],
@@ -174,13 +147,13 @@ const inputGroupButtonVariants = cva(
       },
       icon: {
         true: [
-          // Square: width = min-h of wrapper
+          
           "group-data-[size=sm]/input-group:w-7",
           "group-data-[size=md]/input-group:w-8",
           "group-data-[size=lg]/input-group:w-9",
         ],
         false: [
-          // Text button: horizontal padding + font size from group
+          
           "group-data-[size=sm]/input-group:px-2 group-data-[size=sm]/input-group:text-xs",
           "group-data-[size=md]/input-group:px-2.5 group-data-[size=md]/input-group:text-sm",
           "group-data-[size=lg]/input-group:px-3 group-data-[size=lg]/input-group:text-sm",
@@ -212,9 +185,6 @@ const InputGroupButton = React.forwardRef<
 });
 InputGroupButton.displayName = "InputGroupButton";
 
-/* ── InputGroupInput ─────────────────────────────────────────────
-   Self-contained native <input>. Size inherited from InputGroup.
-   ─────────────────────────────────────────────────────────────── */
 const InputGroupInput = React.forwardRef<
   HTMLInputElement,
   React.ComponentPropsWithoutRef<"input">
@@ -236,9 +206,6 @@ const InputGroupInput = React.forwardRef<
 });
 InputGroupInput.displayName = "InputGroupInput";
 
-/* ── InputGroupTextarea ──────────────────────────────────────────
-   Self-contained native <textarea>. Size inherited from InputGroup.
-   ─────────────────────────────────────────────────────────────── */
 const InputGroupTextarea = React.forwardRef<
   HTMLTextAreaElement,
   React.ComponentPropsWithoutRef<"textarea">

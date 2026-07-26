@@ -1,5 +1,6 @@
 import { act, renderHook } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+
 import { useIsMobile } from "./use-mobile";
 
 describe("useIsMobile hook", () => {
@@ -7,7 +8,7 @@ describe("useIsMobile hook", () => {
 
   beforeEach(() => {
     originalInnerWidth = window.innerWidth;
-    
+
     // Mock matchMedia
     Object.defineProperty(window, "matchMedia", {
       writable: true,
@@ -43,7 +44,7 @@ describe("useIsMobile hook", () => {
 
   it("should update when resize event changes innerWidth", () => {
     let changeCallback: () => void = () => {};
-    
+
     // Custom mock to capture the event listener
     Object.defineProperty(window, "matchMedia", {
       writable: true,

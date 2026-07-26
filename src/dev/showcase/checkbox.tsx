@@ -25,9 +25,6 @@ import {
 } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
-// ──────────────────────────────────────────────────────────
-// RHF Form Demo (Macro)
-// ──────────────────────────────────────────────────────────
 const formSchema = z.object({
   mobile: z.boolean().default(false).optional() });
 type FormValues = z.infer<typeof formSchema>;
@@ -95,9 +92,6 @@ function CheckboxForm({ size }: { size: Size }) {
   );
 }`;
 
-// ──────────────────────────────────────────────────────────
-// SECTION 1: Macro Content
-// ──────────────────────────────────────────────────────────
 function CheckboxMacroShowcase({ globalSize }: { globalSize: Size }) {
   const [checked, setChecked] = useState(false);
 
@@ -250,9 +244,6 @@ function CheckboxMacroShowcase({ globalSize }: { globalSize: Size }) {
   );
 }
 
-// ──────────────────────────────────────────────────────────
-// SECTION 2: Micro Content
-// ──────────────────────────────────────────────────────────
 function CheckboxMicroShowcase({ globalSize }: { globalSize: Size }) {
   const [checked, setChecked] = useState(false);
 
@@ -352,7 +343,7 @@ function CheckboxMicroShowcase({ globalSize }: { globalSize: Size }) {
   </Field>`}
         >
           <Field className="flex items-start gap-3" data-size={globalSize}>
-            {/* 1 khoảng trắng vô hình để căn chỉnh cho Label và Checkbox thẳng hàng với nhau theo dòng chữ đầu tiên */}
+            {}
             <div className="flex items-center text-sm leading-snug group-data-[size=sm]/field:text-xs">
               &#8203;
               <Checkbox id="cb-field-micro" size={globalSize}>
@@ -536,7 +527,7 @@ function CheckboxMicroShowcase({ globalSize }: { globalSize: Size }) {
   </div>`}
       >
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          {/* Story 1: Macro wins */}
+          {}
           <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
             <div className="flex items-start gap-3">
               <span className="mt-0.5 shrink-0 rounded-full bg-green-500/10 p-1.5 text-green-600">
@@ -582,7 +573,7 @@ function CheckboxMicroShowcase({ globalSize }: { globalSize: Size }) {
             </div>
           </div>
 
-          {/* Story 2: Micro wins */}
+          {}
           <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
             <div className="flex items-start gap-3">
               <span className="mt-0.5 shrink-0 rounded-full bg-blue-500/10 p-1.5 text-blue-600">
@@ -641,9 +632,6 @@ function CheckboxMicroShowcase({ globalSize }: { globalSize: Size }) {
   );
 }
 
-// ──────────────────────────────────────────────────────────
-// SECTION 3: Entry point
-// ──────────────────────────────────────────────────────────
 export default function CheckboxShowcase() {
   const { size: globalSize } = useDevContext();
   return (

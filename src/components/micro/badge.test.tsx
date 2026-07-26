@@ -6,17 +6,16 @@ import { Badge } from "./badge";
 
 describe("Badge", () => {
   it("[3C.10-01] [P1] renders correctly with default styles", () => {
-    // Given
+    
     render(<Badge data-testid="badge">Hello</Badge>);
     const badge = screen.getByTestId("badge");
 
-    // Then
     expect(badge).toBeInTheDocument();
     expect(badge).toHaveTextContent("Hello");
   });
 
   it("[3C.10-02] [P1] applies variant and color correctly", () => {
-    // Given
+    
     const { rerender } = render(
       <Badge
         variant="outline"
@@ -27,10 +26,9 @@ describe("Badge", () => {
       </Badge>,
     );
     const outlineBadge = screen.getByTestId("badge-outline-destructive");
-    // Then
+    
     expect(outlineBadge).toHaveClass("border-destructive", "text-destructive");
 
-    // When
     rerender(
       <Badge variant="soft" color="success" data-testid="badge-soft-success">
         Success
@@ -41,7 +39,7 @@ describe("Badge", () => {
   });
 
   it("[3C.10-03] [P1] supports polymorphism via render prop", () => {
-    // Given
+    
     render(
       <Badge render={<a href="/test" data-testid="badge-link" />}>
         Link Badge
@@ -49,7 +47,7 @@ describe("Badge", () => {
     );
 
     const link = screen.getByTestId("badge-link");
-    // Then
+    
     expect(link.tagName).toBe("A");
     expect(link).toHaveAttribute("href", "/test");
     expect(link).toHaveTextContent("Link Badge");

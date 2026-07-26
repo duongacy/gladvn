@@ -36,9 +36,6 @@ import {
 } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
-// ──────────────────────────────────────────────────────────
-// RHF Form Demo (Macro)
-// ──────────────────────────────────────────────────────────
 const formSchema = z.object({
   language: z.string().min(1, "Vui lòng chọn một ngôn ngữ.") });
 type FormValues = z.infer<typeof formSchema>;
@@ -112,9 +109,6 @@ function SelectForm({ size }: { size: Size }) {
   );
 }`;
 
-// ──────────────────────────────────────────────────────────
-// SECTION 1: Macro Content
-// ──────────────────────────────────────────────────────────
 function SelectMacroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
@@ -260,9 +254,6 @@ function SelectMacroShowcase({ globalSize }: { globalSize: Size }) {
   );
 }
 
-// ──────────────────────────────────────────────────────────
-// SECTION 2: Micro Content
-// ──────────────────────────────────────────────────────────
 function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
@@ -559,7 +550,7 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
   </div>`}
       >
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          {/* Story 1: Macro wins */}
+          {}
           <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
             <div className="flex items-start gap-3">
               <span className="mt-0.5 shrink-0 rounded-full bg-green-500/10 p-1.5 text-green-600">
@@ -593,7 +584,7 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
             </p>
           </div>
 
-          {/* Story 2: Micro wins */}
+          {}
           <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
             <div className="flex items-start gap-3">
               <span className="mt-0.5 shrink-0 rounded-full bg-blue-500/10 p-1.5 text-blue-600">
@@ -633,9 +624,6 @@ function SelectMicroShowcase({ globalSize }: { globalSize: Size }) {
   );
 }
 
-// ──────────────────────────────────────────────────────────
-// SECTION 3: Entry point
-// ──────────────────────────────────────────────────────────
 export default function SelectShowcase() {
   const { size: globalSize } = useDevContext();
   return (

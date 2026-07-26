@@ -16,9 +16,6 @@ import { type VariantProps } from "class-variance-authority";
 import { toggleVariants } from "../../components/micro/toggle";
 import { cn } from "../../lib/utils";
 
-// ──────────────────────────────────────────────────────────
-// Context
-// ──────────────────────────────────────────────────────────
 type ToggleGroupContextValue = VariantProps<typeof toggleVariants> & {
   spacing?: number;
   orientation?: "horizontal" | "vertical";
@@ -31,9 +28,6 @@ const ToggleGroupContext = React.createContext<ToggleGroupContextValue>({
   orientation: "horizontal",
 });
 
-// ──────────────────────────────────────────────────────────
-// Types
-// ──────────────────────────────────────────────────────────
 type ToggleGroupProps = ToggleGroupPrimitive.Props &
   VariantProps<typeof toggleVariants> & {
     spacing?: number;
@@ -42,10 +36,6 @@ type ToggleGroupProps = ToggleGroupPrimitive.Props &
 
 type ToggleGroupItemProps = TogglePrimitive.Props &
   VariantProps<typeof toggleVariants>;
-
-// ──────────────────────────────────────────────────────────
-// Components
-// ──────────────────────────────────────────────────────────
 
 /**
  * @description A set of two-state buttons that can be toggled on or off.
@@ -59,8 +49,7 @@ function ToggleGroup({
   className,
   variant,
   size,
-  // spacing is a dynamic numeric value — CSS variable is the only viable approach
-  // since Tailwind cannot generate arbitrary gap-{n} utilities at runtime.
+
   spacing = 2,
   orientation = "horizontal",
   children,

@@ -172,7 +172,6 @@ const CarouselContent = React.forwardRef<
 >(({ className, ...props }, ref) => {
   const { carouselRef } = useCarousel();
 
-  // Combine forwarded ref and internal embla ref
   const setRefs = React.useCallback(
     (node: HTMLDivElement) => {
       carouselRef(node);

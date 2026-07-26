@@ -17,9 +17,6 @@ import {
   ShowcaseDocs
 } from "../../dev/components/showcase";
 
-// ──────────────────────────────────────────────────────────
-// SECTION 1: Macro Content
-// ──────────────────────────────────────────────────────────
 function TabsMacroShowcase() {
   return (
     <div className="space-y-10 mt-6">
@@ -315,9 +312,6 @@ function TabsMacroShowcase() {
   );
 }
 
-// ──────────────────────────────────────────────────────────
-// SECTION 2: Micro Content
-// ──────────────────────────────────────────────────────────
 function TabsMicroShowcase() {
   return (
     <div className="space-y-10 mt-6">
@@ -609,9 +603,6 @@ function TabsMicroShowcase() {
   );
 }
 
-// ──────────────────────────────────────────────────────────
-// SECTION 3: Entry point
-// ──────────────────────────────────────────────────────────
 export default function TabsShowcase() {
   return (
     <Showcase

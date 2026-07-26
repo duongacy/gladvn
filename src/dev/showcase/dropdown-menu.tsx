@@ -36,9 +36,6 @@ import {
 } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
-// ──────────────────────────────────────────────────────────
-// SECTION 2: Micro Content (không export)
-// ──────────────────────────────────────────────────────────
 function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
   const [showStatusBar, setShowStatusBar] = useState(true);
   const [showPanel, setShowPanel] = useState(false);
@@ -390,9 +387,6 @@ function DropdownMenuMicroShowcase({ globalSize }: { globalSize: Size }) {
   );
 }
 
-// ──────────────────────────────────────────────────────────
-// SECTION 3: Entry point (export default)
-// ──────────────────────────────────────────────────────────
 export default function DropdownMenuShowcase() {
   const { size: globalSize } = useDevContext();
   return (

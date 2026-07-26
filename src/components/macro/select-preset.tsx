@@ -143,7 +143,7 @@ const SelectPreset = React.forwardRef<
                           </SelectGroup>
                         );
                       }
-                      // Items without a group
+                      
                       return opts.map((opt) => (
                         <SelectItem
                           key={opt.value}

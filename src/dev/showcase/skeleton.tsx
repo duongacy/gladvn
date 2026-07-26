@@ -9,9 +9,6 @@ import {
   ShowcaseDocs
 } from "../../dev/components/showcase";
 
-// ──────────────────────────────────────────────────────────
-// SECTION 1: Micro Content (Only Micro exists)
-// ──────────────────────────────────────────────────────────
 function SkeletonMicroShowcase() {
   return (
     <div className="space-y-10 mt-6">
@@ -181,9 +178,6 @@ function SkeletonMicroShowcase() {
   );
 }
 
-// ──────────────────────────────────────────────────────────
-// SECTION 3: Entry point
-// ──────────────────────────────────────────────────────────
 export default function SkeletonShowcase() {
   return (
     <Showcase

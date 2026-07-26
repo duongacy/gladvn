@@ -12,13 +12,10 @@ import {
   ShowcaseDocs
 } from "../../dev/components/showcase";
 
-// ──────────────────────────────────────────────────────────
-// SECTION 1: Micro Content
-// ──────────────────────────────────────────────────────────
 function ResizableMicroShowcase() {
   return (
     <div className="space-y-10 mt-6">
-      {/* Horizontal split */}
+      {}
       <ExampleSection
         label="Horizontal Split"
         description="Kéo tay cầm để thay đổi kích thước bảng theo chiều ngang."
@@ -61,7 +58,7 @@ function ResizableMicroShowcase() {
         </ResizablePanelGroup>
       </ExampleSection>
 
-      {/* Vertical split */}
+      {}
       <ExampleSection
         label="Vertical Split"
         description='orientation="vertical" chia bảng theo chiều dọc.'
@@ -102,7 +99,7 @@ function ResizableMicroShowcase() {
         </ResizablePanelGroup>
       </ExampleSection>
 
-      {/* Handle variants */}
+      {}
       <ExampleGrid>
         <ExampleSection
           label="With Handle Grip"
@@ -151,7 +148,7 @@ function ResizableMicroShowcase() {
         </ExampleSection>
       </ExampleGrid>
 
-      {/* Nested layout */}
+      {}
       <ExampleSection
         label="Nested Layout"
         description="Bố cục phức tạp với các nhóm có thể thay đổi kích thước lồng nhau."
@@ -217,9 +214,6 @@ function ResizableMicroShowcase() {
   );
 }
 
-// ──────────────────────────────────────────────────────────
-// SECTION 2: Entry point
-// ──────────────────────────────────────────────────────────
 export default function ResizableShowcase() {
   return (
     <Showcase

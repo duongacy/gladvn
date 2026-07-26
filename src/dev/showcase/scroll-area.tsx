@@ -9,9 +9,6 @@ import {
   ShowcaseDocs
 } from "../../dev/components/showcase";
 
-// ──────────────────────────────────────────────────────────
-// SECTION 1: Explicit Sub-components for Demo
-// ──────────────────────────────────────────────────────────
 function VerticalList() {
   const items = [
     "Tùy chọn 1",
@@ -75,9 +72,6 @@ function HorizontalList() {
   );
 }
 
-// ──────────────────────────────────────────────────────────
-// SECTION 2: Micro Content (Only Micro exists)
-// ──────────────────────────────────────────────────────────
 function ScrollAreaMicroShowcase() {
   return (
     <div className="space-y-10 mt-6">
@@ -140,9 +134,6 @@ function ScrollAreaMicroShowcase() {
   );
 }
 
-// ──────────────────────────────────────────────────────────
-// SECTION 3: Entry point
-// ──────────────────────────────────────────────────────────
 export default function ScrollAreaShowcase() {
   return (
     <Showcase

@@ -13,8 +13,6 @@ import { type VariantProps, cva } from "class-variance-authority";
 
 import { cn } from "../../lib/utils";
 
-// CSS Delegated Logic:
-// - KHÔNG CÒN MAGIC CSS: Mọi logic layout (như khoảng cách icon, padding action) đều được uỷ quyền cho Macro xử lý.
 const alertVariants = cva(
   "group/alert relative rounded-lg border border-border text-left bg-card text-card-foreground",
   {

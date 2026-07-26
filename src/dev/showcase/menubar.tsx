@@ -26,9 +26,6 @@ import {
   ShowcaseDocs
 } from "../../dev/components/showcase";
 
-// ──────────────────────────────────────────────────────────
-// SECTION 1: Micro Content
-// ──────────────────────────────────────────────────────────
 function MenubarMicroShowcase() {
   const [showBookmarks, setShowBookmarks] = useState(true);
   const [showFullUrls, setShowFullUrls] = useState(false);
@@ -36,7 +33,7 @@ function MenubarMicroShowcase() {
 
   return (
     <div className="space-y-10 mt-6">
-      {/* Full Demo */}
+      {}
       <ExampleSection
         label="Full Menubar"
         description="Thanh menu đầy đủ: Items, Checkbox, Radio, Submenu, Shortcut, Separator."
@@ -199,7 +196,7 @@ function MenubarMicroShowcase() {
         </Menubar>
       </ExampleSection>
 
-      {/* Checkbox & Radio */}
+      {}
       <ExampleGrid>
         <ExampleSection
           label="Checkbox Items"
@@ -293,7 +290,7 @@ function MenubarMicroShowcase() {
         </ExampleSection>
       </ExampleGrid>
 
-      {/* Submenu & Disabled */}
+      {}
       <ExampleGrid>
         <ExampleSection
           label="Submenu"
@@ -391,9 +388,6 @@ function MenubarMicroShowcase() {
   );
 }
 
-// ──────────────────────────────────────────────────────────
-// SECTION 2: Entry point (export default)
-// ──────────────────────────────────────────────────────────
 export default function MenubarShowcase() {
   return (
     <Showcase

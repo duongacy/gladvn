@@ -35,7 +35,7 @@ const badgeVariants = cva(
       },
     },
     compoundVariants: [
-      // Solid
+      
       {
         variant: "solid",
         color: "primary",
@@ -82,7 +82,6 @@ const badgeVariants = cva(
         className: "bg-accent text-accent-foreground",
       },
 
-      // Outline
       {
         variant: "outline",
         color: "primary",
@@ -125,7 +124,6 @@ const badgeVariants = cva(
         className: "border-accent text-accent-foreground",
       },
 
-      // Soft
       {
         variant: "soft",
         color: "primary",

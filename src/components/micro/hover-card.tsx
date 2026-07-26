@@ -39,8 +39,6 @@ const HoverCardTrigger = React.forwardRef<
 ));
 HoverCardTrigger.displayName = "HoverCardTrigger";
 
-
-
 const HoverCardContent = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<typeof PreviewCardPrimitive.Popup> &

@@ -8,9 +8,6 @@ import {
   ShowcaseDocs
 } from "../../dev/components/showcase";
 
-// ──────────────────────────────────────────────────────────
-// SECTION 1: Micro Content (Only Micro exists)
-// ──────────────────────────────────────────────────────────
 function SeparatorMicroShowcase() {
   return (
     <div className="space-y-10 mt-6">
@@ -104,9 +101,6 @@ function SeparatorMicroShowcase() {
   );
 }
 
-// ──────────────────────────────────────────────────────────
-// SECTION 3: Entry point
-// ──────────────────────────────────────────────────────────
 export default function SeparatorShowcase() {
   return (
     <Showcase

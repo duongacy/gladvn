@@ -52,9 +52,6 @@ const allFrameworks = [...frontendFrameworks, ...backendFrameworks];
 const tagItems = ["bug", "feature", "enhancement", "docs"];
 const engineItems = ["v8", "spidermonkey"];
 
-// ──────────────────────────────────────────────────────────
-// RHF Form Demo (Macro)
-// ──────────────────────────────────────────────────────────
 const formSchema = z.object({
   framework: z.string().min(1, "Vui lòng chọn một framework.") });
 type FormValues = z.infer<typeof formSchema>;
@@ -133,9 +130,6 @@ function ComboboxForm({ size }: { size: Size }) {
   );
 }`;
 
-// ──────────────────────────────────────────────────────────
-// SECTION 1: Macro Content
-// ──────────────────────────────────────────────────────────
 function ComboboxMacroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
@@ -660,7 +654,7 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
         description="So sánh nhanh khi nào dùng Micro và Macro."
         fullWidth
         codeString={`<div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-    {/* Story 1: Macro wins */}
+    {}
     <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
       <div className="flex items-start gap-3">
         <span className="mt-0.5 shrink-0 rounded-full bg-green-500/10 p-1.5 text-green-600">
@@ -696,7 +690,7 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
       </p>
     </div>
 
-    {/* Story 2: Micro wins */}
+    {}
     <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
       <div className="flex items-start gap-3">
         <span className="mt-0.5 shrink-0 rounded-full bg-blue-500/10 p-1.5 text-blue-600">
@@ -733,7 +727,7 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
   </div>`}
       >
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          {/* Story 1: Macro wins */}
+          {}
           <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
             <div className="flex items-start gap-3">
               <span className="mt-0.5 shrink-0 rounded-full bg-green-500/10 p-1.5 text-green-600">
@@ -768,7 +762,7 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
             </p>
           </div>
 
-          {/* Story 2: Micro wins */}
+          {}
           <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
             <div className="flex items-start gap-3">
               <span className="mt-0.5 shrink-0 rounded-full bg-blue-500/10 p-1.5 text-blue-600">
@@ -807,9 +801,6 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
   );
 }
 
-// ──────────────────────────────────────────────────────────
-// SECTION 3: Entry point
-// ──────────────────────────────────────────────────────────
 export default function ComboboxShowcase() {
   const { size: globalSize } = useDevContext();
   return (

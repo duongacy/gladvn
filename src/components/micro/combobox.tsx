@@ -80,7 +80,7 @@ function ComboboxInput({ className, ...props }: ComboboxPrimitive.Input.Props) {
       data-slot="combobox-input"
       className={cn(
         "flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
-        // Clear standalone styles when inside InputGroup
+        
         "group-data-[slot=input-group]/input-group:border-0",
         "group-data-[slot=input-group]/input-group:shadow-none",
         "group-data-[slot=input-group]/input-group:h-auto",
@@ -238,8 +238,6 @@ function ComboboxSeparator({
     />
   );
 }
-
-
 
 const comboboxChipsVariants = cva(
   "group/combobox-chips flex flex-wrap items-center gap-1 rounded-lg border border-input bg-transparent bg-clip-padding transition-colors focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/50 has-aria-invalid:border-destructive has-aria-invalid:focus-within:ring-3 has-aria-invalid:focus-within:ring-destructive/20 has-[[data-slot=combobox-chip]]:px-1 dark:bg-input/30 dark:has-aria-invalid:border-destructive/50 dark:has-aria-invalid:focus-within:ring-destructive/40 has-disabled:opacity-50 has-disabled:cursor-not-allowed has-disabled:pointer-events-none",

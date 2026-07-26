@@ -36,9 +36,6 @@ import {
 } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
-// ──────────────────────────────────────────────────────────
-// SECTION 1: Macro Content (không export)
-// ──────────────────────────────────────────────────────────
 function AlertDialogMacroShowcase({ globalSize }: { globalSize: Size }) {
   const [controlledOpen, setControlledOpen] = useState(false);
 
@@ -762,7 +759,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
         description="Các kịch bản thực tế giúp bạn quyết định nên dùng Micro hay Macro."
         fullWidth
         codeString={`<div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-    {/* ── Story 1: Macro wins ── */}
+    {}
     <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
       <div className="flex items-start gap-3">
         <span className="mt-0.5 shrink-0 rounded-full bg-green-500/10 p-1.5 text-green-600">
@@ -819,7 +816,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
       </div>
     </div>
 
-    {/* ── Story 2: Micro wins ── */}
+    {}
     <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
       <div className="flex items-start gap-3">
         <span className="mt-0.5 shrink-0 rounded-full bg-blue-500/10 p-1.5 text-blue-600">

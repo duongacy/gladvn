@@ -18,7 +18,7 @@ export type CheckboxPresetProps = Omit<
   React.ComponentProps<typeof Checkbox>,
   "className" | "size"
 > & {
-  // Forward className to the outermost wrapper (FieldPreset) instead of the Checkbox primitive
+  
   className?: string;
   label?: React.ReactNode;
   description?: React.ReactNode;
@@ -52,7 +52,7 @@ const CheckboxPreset = React.forwardRef<
         className={cn("flex flex-row items-start gap-3", className)}
         data-size={size}
       >
-        {/* Zero-width space hack to perfectly align the Checkbox with the first line of the Label */}
+        {}
         <div className="flex items-center text-sm leading-snug group-data-[size=sm]/field:text-xs group-data-[size=lg]/field:text-base">
           &#8203;
           <Checkbox

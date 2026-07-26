@@ -23,7 +23,6 @@ export type CarouselPresetProps = Omit<
   itemClassName?: string;
   contentClassName?: string;
 
-  // Controlled & Uncontrolled props
   index?: number;
   defaultIndex?: number;
   onIndexChange?: (index: number) => void;

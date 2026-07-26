@@ -186,7 +186,7 @@ function CollapsibleMicroShowcase() {
   )`}
         >
           <div className="w-full space-y-4">
-            {/* Đây là nút nằm HOÀN TOÀN BÊN NGOÀI thẻ Collapsible */}
+            {}
             <div className="flex items-center gap-4 rounded-md border border-border border-dashed p-4">
               <Button size="sm" onClick={() => setIsOpen(!isOpen)}>
                 {isOpen
@@ -201,7 +201,7 @@ function CollapsibleMicroShowcase() {
               </span>
             </div>
 
-            {/* Đây là component Collapsible nhận state từ ngoài */}
+            {}
             <Collapsible
               open={isOpen}
               onOpenChange={setIsOpen}
@@ -294,9 +294,6 @@ function CollapsibleMicroShowcase() {
   );
 }
 
-// ──────────────────────────────────────────────────────────
-// SECTION 3: Entry point
-// ──────────────────────────────────────────────────────────
 export default function CollapsibleShowcase() {
   return (
     <Showcase

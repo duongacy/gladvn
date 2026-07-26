@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+
 import { cn } from "./utils";
 
 describe("cn utility function", () => {
@@ -14,9 +15,9 @@ describe("cn utility function", () => {
   });
 
   it("should handle conditional classes", () => {
-    expect(cn("base-class", true && "truthy-class", false && "falsy-class")).toBe(
-      "base-class truthy-class"
-    );
+    expect(
+      cn("base-class", true && "truthy-class", false && "falsy-class"),
+    ).toBe("base-class truthy-class");
   });
 
   it("should handle arrays of classes", () => {
@@ -25,7 +26,7 @@ describe("cn utility function", () => {
 
   it("should ignore null and undefined values", () => {
     expect(cn("valid-class", null, undefined, "another-class")).toBe(
-      "valid-class another-class"
+      "valid-class another-class",
     );
   });
 });

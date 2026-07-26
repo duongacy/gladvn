@@ -45,7 +45,6 @@ export const InputPreset = React.forwardRef<HTMLInputElement, InputPresetProps>(
     const inputId = id || generatedId;
     const isInvalid = !!errorMessage;
 
-    // Auto password toggle logic
     const isPasswordType = type === "password";
     const [showPassword, setShowPassword] = useState(false);
     const actualType = isPasswordType

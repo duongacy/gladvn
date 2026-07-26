@@ -32,13 +32,10 @@ import {
   ShowcaseDocs
 } from "../../dev/components/showcase";
 
-// ──────────────────────────────────────────────────────────
-// SECTION 2: Micro Content (không export)
-// ──────────────────────────────────────────────────────────
 function KbdMicroShowcase() {
   return (
     <div className="space-y-10 mt-6">
-      {/* ── Kbd đơn ── */}
+      {}
       <ExampleGrid>
         <ExampleSection
           label="Kbd — Phím đơn"
@@ -75,7 +72,7 @@ function KbdMicroShowcase() {
         </ExampleSection>
       </ExampleGrid>
 
-      {/* ── Ký tự & Symbols ── */}
+      {}
       <ExampleSection
         label="Ký tự & Symbols"
         description="Kbd có thể chứa ký tự Unicode, chữ cái, số hoặc tên phím dài."
@@ -106,7 +103,7 @@ function KbdMicroShowcase() {
         </div>
       </ExampleSection>
 
-      {/* ── Kbd trong Tooltip ── */}
+      {}
       <ExampleSection
         label="Kbd trong Tooltip"
         description="Kbd tự đổi màu khi nằm trong TooltipContent — màu nền sáng trên nền tối của tooltip, không cần thêm class."
@@ -165,7 +162,7 @@ function KbdMicroShowcase() {
         </div>
       </ExampleSection>
 
-      {/* ── Use case thực tế: Menu với shortcuts ── */}
+      {}
       <ExampleSection
         label="Use case — Menu với Keyboard Shortcut"
         description="Kbd dùng trong DropdownMenuItem để hiển thị phím tắt bên cạnh label — pattern phổ biến trong text editor, IDE, Figma."
@@ -232,7 +229,7 @@ function KbdMicroShowcase() {
         </DropdownMenu>
       </ExampleSection>
 
-      {/* ── Gợi ý inline trong form ── */}
+      {}
       <ExampleSection
         label="Gợi ý inline trong văn bản"
         description="Kbd dùng inline trong đoạn văn bản để gợi ý phím tắt — phổ biến trong help text, onboarding, documentation."
@@ -263,9 +260,6 @@ function KbdMicroShowcase() {
   );
 }
 
-// ──────────────────────────────────────────────────────────
-// SECTION 3: Entry point (export default)
-// ──────────────────────────────────────────────────────────
 export default function KbdShowcase() {
   return (
     <Showcase

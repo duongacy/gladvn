@@ -21,7 +21,7 @@ export function GladvnLogo({
       className={cn(iconSize, variant === "icon" && className)}
       aria-hidden="true"
     >
-      {/* Macro layer — outer rounded square, primary fill */}
+      {}
       <rect
         x="1"
         y="1"
@@ -30,7 +30,7 @@ export function GladvnLogo({
         rx="7"
         className="fill-primary"
       />
-      {/* Micro layer — inner square, offset top-right, semi-transparent white */}
+      {}
       <rect
         x="11"
         y="5"
@@ -40,7 +40,7 @@ export function GladvnLogo({
         fill="white"
         fillOpacity="0.25"
       />
-      {/* Micro inner highlight — brighter corner */}
+      {}
       <rect
         x="15"
         y="5"
@@ -50,9 +50,9 @@ export function GladvnLogo({
         fill="white"
         fillOpacity="0.2"
       />
-      {/* Token dot — bottom left, CSS token representation */}
+      {}
       <circle cx="8" cy="24" r="3" fill="white" fillOpacity="0.7" />
-      {/* Macro bottom bar — connects Macro to token */}
+      {}
       <rect
         x="6"
         y="17"

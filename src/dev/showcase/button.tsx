@@ -30,7 +30,7 @@ function ButtonMicroShowcase({ globalSize }: { globalSize: Size }) {
 
   return (
     <div className="space-y-10 mt-6">
-      {/* ── Variants ── */}
+      {}
       <ExampleSection
         label="Variants"
         description="Tất cả các kiểu hiển thị hiện có."
@@ -57,7 +57,7 @@ function ButtonMicroShowcase({ globalSize }: { globalSize: Size }) {
         </Button>
       </ExampleSection>
 
-      {/* ── Colors ── */}
+      {}
       <ExampleSection
         label="Colors"
         description="Các màu semantic đi kèm variant solid."
@@ -100,7 +100,7 @@ function ButtonMicroShowcase({ globalSize }: { globalSize: Size }) {
         </Button>
       </ExampleSection>
 
-      {/* ── With Icon ── */}
+      {}
       <ExampleGrid>
         <ExampleSection
           label="With Icon"
@@ -149,7 +149,7 @@ function ButtonMicroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      {/* ── Disabled ── */}
+      {}
       <ExampleSection
         label="Disabled"
         description="Button không thể tương tác, hiển thị mờ."
@@ -184,7 +184,7 @@ function ButtonMicroShowcase({ globalSize }: { globalSize: Size }) {
         </Button>
       </ExampleSection>
 
-      {/* ── Real-world examples ── */}
+      {}
       <ExampleGrid>
         <ExampleSection
           label="Loading State"
@@ -256,9 +256,6 @@ function ButtonMicroShowcase({ globalSize }: { globalSize: Size }) {
   );
 }
 
-// ──────────────────────────────────────────────────────────
-// SECTION 3: Entry point
-// ──────────────────────────────────────────────────────────
 export default function ButtonShowcase() {
   const { size: globalSize } = useDevContext();
   return (

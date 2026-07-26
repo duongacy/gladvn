@@ -43,10 +43,10 @@ export default function FeedbackSection() {
         description="Alert, Progress, Skeleton, Spinner, Sonner, Empty"
       />
 
-      {/* Toaster provider for this section */}
+      {}
       <Toaster position="bottom-right" />
 
-      {/* ── Alert ── */}
+      {}
       <ShowcaseBlock title="Alert">
         <div className="space-y-3">
           <Alert color="info">
@@ -81,7 +81,7 @@ export default function FeedbackSection() {
       </ShowcaseBlock>
 
       <div className="grid gap-5 sm:grid-cols-2">
-        {/* ── Progress ── */}
+        {}
         <ShowcaseBlock title="Progress">
           <div className="space-y-4">
             <Progress value={progress1} size="sm" />
@@ -114,7 +114,7 @@ export default function FeedbackSection() {
           </div>
         </ShowcaseBlock>
 
-        {/* ── Skeleton ── */}
+        {}
         <ShowcaseBlock title="Skeleton">
           <div className="space-y-3">
             <div className="flex items-center gap-3">
@@ -135,7 +135,7 @@ export default function FeedbackSection() {
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2">
-        {/* ── Spinner ── */}
+        {}
         <ShowcaseBlock title="Spinner">
           <div className="space-y-4">
             <div className="flex items-center gap-6">
@@ -173,10 +173,10 @@ export default function FeedbackSection() {
           </div>
         </ShowcaseBlock>
 
-        {/* ── Sonner (Toast) ── */}
+        {}
         <ShowcaseBlock title="Sonner (Toast)">
           <div className="space-y-6">
-            {/* States */}
+            {}
             <div className="space-y-3">
               <div>
                 <h4 className="text-sm font-medium">States</h4>
@@ -227,7 +227,7 @@ export default function FeedbackSection() {
               </div>
             </div>
 
-            {/* Interactivity */}
+            {}
             <div className="space-y-3">
               <div>
                 <h4 className="text-sm font-medium">Interactivity</h4>
@@ -283,7 +283,7 @@ export default function FeedbackSection() {
               </div>
             </div>
 
-            {/* Advanced */}
+            {}
             <div className="space-y-3">
               <div>
                 <h4 className="text-sm font-medium">Advanced</h4>
@@ -323,7 +323,7 @@ export default function FeedbackSection() {
         </ShowcaseBlock>
       </div>
 
-      {/* ── Empty ── */}
+      {}
       <ShowcaseBlock title="Empty">
         <div className="grid gap-5 sm:grid-cols-3">
           <Empty className="border border-border">

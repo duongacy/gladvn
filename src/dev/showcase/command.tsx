@@ -219,9 +219,6 @@ function CommandMicroShowcase() {
   );
 }
 
-// ──────────────────────────────────────────────────────────
-// SECTION 3: Entry point
-// ──────────────────────────────────────────────────────────
 export default function CommandShowcase() {
   return (
     <Showcase

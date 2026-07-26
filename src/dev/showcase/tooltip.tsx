@@ -20,9 +20,6 @@ import {
 } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
-// ──────────────────────────────────────────────────────────
-// SECTION 1: Micro Content (Only Micro exists)
-// ──────────────────────────────────────────────────────────
 function TooltipMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
@@ -370,9 +367,6 @@ function TooltipMicroShowcase({ globalSize }: { globalSize: Size }) {
   );
 }
 
-// ──────────────────────────────────────────────────────────
-// SECTION 3: Entry point
-// ──────────────────────────────────────────────────────────
 export default function TooltipShowcase() {
   const { size: globalSize } = useDevContext();
   return (

@@ -14,10 +14,6 @@ import { COLORS, COLOR_INFO } from "../../dev/data";
 import { type Size } from "../../lib/types";
 import { cn } from "../../lib/utils";
 
-/* ─────────────────────────────────────────────────────────────────
-   SectionHeader  –  page‐level title bar
-   Clean typography + subtle separator. No blobs, no gradients.
-   ────────────────────────────────────────────────────────────── */
 export function SectionHeader({
   title,
   description,
@@ -42,9 +38,6 @@ export function SectionHeader({
   );
 }
 
-/* ─────────────────────────────────────────────────────────────────
-   ShowcaseDocs  –  Documentation block
-   ────────────────────────────────────────────────────────────── */
 export function ShowcaseDocs({ children }: { children: React.ReactNode }) {
   return (
     <div className="mb-12 overflow-hidden rounded-2xl border border-border border-amber-500/20 bg-amber-500/5 shadow-sm">
@@ -89,21 +82,6 @@ export function DocsCode({ children }: { children: React.ReactNode }) {
   );
 }
 
-/* ─────────────────────────────────────────────────────────────────
-   ExampleSection  –  a single demo block (replaces ComponentPreview)
-   
-   Inspired by shadcn docs:  
-   ┌─ label ──────────────────────────────────────────────┐
-   │                                                       │
-   │            live component preview                     │
-   │                                                       │
-   └───────────────────────────────────────────────────────┘
-   
-   • Label sits *above* the card as a small muted caption
-   • The card itself is a clean bordered rectangle
-   • Component sits centered with generous padding
-   • NO icon badges, NO dot‑grid, NO gradients inside
-   ────────────────────────────────────────────────────────── */
 export function ExampleSection({
   label,
   description,
@@ -206,9 +184,6 @@ export function ExampleSection({
   );
 }
 
-/* ─────────────────────────────────────────────────────────────────
-   ExampleGrid  –  responsive columns for multiple examples
-   ────────────────────────────────────────────────────────── */
 export function ExampleGrid({
   children,
   className,
@@ -221,9 +196,6 @@ export function ExampleGrid({
   );
 }
 
-/* ─────────────────────────────────────────────────────────────────
-   Legacy compat – keep old names working during migration
-   ────────────────────────────────────────────────────────── */
 export const ComponentGrid = ExampleGrid;
 export function ComponentPreview({
   title,
@@ -249,9 +221,6 @@ export function ComponentPreview({
   );
 }
 
-/* ─────────────────────────────────────────────────────────────────
-   ShowcaseBlock  –  legacy wrapper (still used by some pages)
-   ────────────────────────────────────────────────────────── */
 export function ShowcaseBlock({
   title,
   children,
@@ -262,9 +231,6 @@ export function ShowcaseBlock({
   return <ExampleSection label={title}>{children}</ExampleSection>;
 }
 
-/* ─────────────────────────────────────────────────────────────────
-   ColorSwatch  –  design‑token preview
-   ────────────────────────────────────────────────────────── */
 const bgColorMap: Record<(typeof COLORS)[number], string> = {
   primary: "bg-primary",
   secondary: "bg-secondary",
@@ -294,10 +260,6 @@ export function ColorSwatch({ color }: { color: (typeof COLORS)[number] }) {
   );
 }
 
-/* ─────────────────────────────────────────────────────────────────
-   Showcase  –  The unified showcase layout wrapper
-   ────────────────────────────────────────────────────────────── */
-
 export interface ShowcaseTab {
   label: string;
   content: React.ReactNode;
@@ -322,7 +284,7 @@ export function Showcase({
 
   const content = (
     <>
-      {/* 1 & 2: Title and Description */}
+      {}
       <div className="flex flex-col gap-2 mb-6">
         <div className="flex items-center gap-4">
           <h2 className="text-3xl font-bold tracking-tight bg-gradient-to-br from-foreground to-foreground/60 bg-clip-text text-transparent">
@@ -335,10 +297,10 @@ export function Showcase({
         )}
       </div>
 
-      {/* 3: General Concept */}
+      {}
       {generalConcept && <div className="mb-8">{generalConcept}</div>}
 
-      {/* 4 & 5: TabsList and Active Content */}
+      {}
       <div className="mt-2">
         {hasTabs && (
           <div className="mb-6 flex">

@@ -54,10 +54,10 @@ return (
             defaultState={defaultState}
             expandedWidth={300}
           >
-            {/* Logo */}
+            {}
             <SidebarLogo icon={<Package2Icon />} text="Acme Corp" />
 
-            {/* Menu chính */}
+            {}
             <div className="flex-1 py-2 flex flex-col gap-4">
               <div className="flex flex-col gap-1">
                 <SidebarLabel icon={<FolderIcon />} text="Projects" />
@@ -77,7 +77,7 @@ return (
               </div>
             </div>
 
-            {/* Footer */}
+            {}
             <div className="p-2 border-t border-sidebar-border mt-auto">
               <SidebarLabel icon={<SettingsIcon />} text="Settings" />
             </div>

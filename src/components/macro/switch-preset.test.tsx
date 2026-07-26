@@ -48,7 +48,7 @@ describe("SwitchPreset", () => {
     const label = screen.getByText("Dark mode");
     expect(switchEl).toBeInTheDocument();
     expect(label).toBeInTheDocument();
-    // Label's for attr may point to internal input, not the switch button
+    
     expect(label.getAttribute("for")).toBeTruthy();
   });
 });

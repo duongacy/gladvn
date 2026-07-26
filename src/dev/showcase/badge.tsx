@@ -39,7 +39,7 @@ export default function BadgeShowcase() {
 function BadgeMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      {/* ── Variants ── */}
+      {}
       <ExampleSection
         label="Variants"
         description="Tất cả các kiểu hiển thị hiện có."
@@ -52,7 +52,7 @@ function BadgeMicroShowcase({ globalSize }: { globalSize: Size }) {
         <Badge variant="outline">Outline</Badge>
       </ExampleSection>
 
-      {/* ── Colors ── */}
+      {}
       <ExampleGrid>
         <ExampleSection
           label="Solid Colors"
@@ -123,7 +123,7 @@ function BadgeMicroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      {/* ── With Icons ── */}
+      {}
       <ExampleSection
         label="With Icons"
         description="Badge kèm icon để bổ sung ngữ cảnh."
@@ -165,7 +165,7 @@ function BadgeMicroShowcase({ globalSize }: { globalSize: Size }) {
         </Badge>
       </ExampleSection>
 
-      {/* ── Real-world Use Cases ── */}
+      {}
       <ExampleGrid>
         <ExampleSection
           label="Status Indicators"
@@ -227,7 +227,7 @@ function BadgeMicroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      {/* ── As Link ── */}
+      {}
       <ExampleSection
         label="As Link"
         description="Badge render dưới dạng thẻ a nhờ prop render."

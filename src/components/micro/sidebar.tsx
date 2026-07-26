@@ -4,9 +4,6 @@ import * as React from "react";
 
 import { cn } from "../../lib/utils";
 
-// ─────────────────────────────────────────────────────────────────────────────
-// 1. Sidebar (Wrapper)
-// ─────────────────────────────────────────────────────────────────────────────
 const Sidebar = React.forwardRef<
   HTMLDivElement,
   React.ComponentProps<"div"> & {
@@ -27,7 +24,7 @@ const Sidebar = React.forwardRef<
     },
     ref,
   ) => {
-    // will-change only during animation, not always-on
+    
     const handleTransitionStart = (
       e: React.TransitionEvent<HTMLDivElement>,
     ) => {
@@ -39,7 +36,7 @@ const Sidebar = React.forwardRef<
     };
 
     return (
-      // Outer: only this div animates width. No layout children to reflow.
+      
       <div
         ref={ref}
         role="navigation"

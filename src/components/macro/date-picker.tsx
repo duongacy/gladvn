@@ -18,10 +18,6 @@ import { type Size } from "../../lib/types";
 import { cn } from "../../lib/utils";
 import { FieldPreset } from "./field-preset";
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Types
-// ─────────────────────────────────────────────────────────────────────────────
-
 type DatePickerBaseProps = {
   /** Visual mode. "single" selects one date, "range" selects a start–end span. */
   mode?: "single" | "range";
@@ -43,7 +39,7 @@ type DatePickerBaseProps = {
   id?: string;
   /** className applied to the outermost FieldPreset wrapper. */
   className?: string;
-  // ─── Calendar passthrough ───────────────────────────────────────────────
+  
   /** Number of calendar months to display. */
   numberOfMonths?: number;
   /** Navigation control style. */
@@ -82,10 +78,6 @@ type DatePickerRangeProps = DatePickerBaseProps & {
 
 type DatePickerProps = DatePickerSingleProps | DatePickerRangeProps;
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Trigger styles — native <button>, no micro/button dependency
-// ─────────────────────────────────────────────────────────────────────────────
-
 const triggerVariants = cva(
   "inline-flex w-full items-center justify-start rounded-lg border border-input bg-transparent font-normal whitespace-nowrap transition-colors outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-offset-1 focus-visible:ring-offset-background disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:ring-3 aria-invalid:focus-visible:ring-destructive/50 dark:bg-input/30 [&>svg:not([class*='size-'])]:size-[1.1em] [&>svg:not([class*='size-'])]:shrink-0",
   {
@@ -97,10 +89,6 @@ const triggerVariants = cva(
     defaultVariants: {
       size: "md" } },
 );
-
-// ─────────────────────────────────────────────────────────────────────────────
-// Helpers
-// ─────────────────────────────────────────────────────────────────────────────
 
 const fmt = (
   date: Date,

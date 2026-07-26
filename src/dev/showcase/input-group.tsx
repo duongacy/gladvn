@@ -40,7 +40,7 @@ function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
 
   return (
     <div className="space-y-10 mt-6">
-      {/* ── Text / Icon Addons ─────────────────────────────── */}
+      {}
       <ExampleGrid>
         <ExampleSection
           label="Text Prefix & Suffix"
@@ -98,7 +98,7 @@ function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      {/* ── Icon Buttons (utility) ─────────────────────────── */}
+      {}
       <ExampleGrid>
         <ExampleSection
           label="Password Toggle"
@@ -195,7 +195,7 @@ function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      {/* ── Text Buttons ───────────────────────────────────── */}
+      {}
       <ExampleGrid>
         <ExampleSection
           label="Text Button (non-icon)"
@@ -272,7 +272,7 @@ function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      {/* ── Button Variants ─────────────────────────────────── */}
+      {}
       <ExampleSection
         label="Button Variants"
         description="InputGroupButton hỗ trợ 4 variants: ghost (default), solid, soft, outline. Demo với icon và text mode."
@@ -391,7 +391,7 @@ function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
         </div>
       </ExampleSection>
 
-      {/* ── States ─────────────────────────────────────────── */}
+      {}
       <ExampleGrid>
         <ExampleSection
           label="Disabled"
@@ -448,7 +448,7 @@ function InputGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      {/* ── Textarea ───────────────────────────────────────── */}
+      {}
       <ExampleSection
         label="With Textarea"
         description="InputGroupTextarea — InputGroup wrapper tự co giãn chiều cao với className='h-auto'."

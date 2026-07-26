@@ -47,9 +47,6 @@ const ListItem = React.forwardRef<
 });
 ListItem.displayName = "ListItem";
 
-// ──────────────────────────────────────────────────────────
-// SECTION 2: Micro Content (không export)
-// ──────────────────────────────────────────────────────────
 function NavigationMenuMicroShowcase() {
   return (
     <div className="space-y-10 mt-6">
@@ -281,9 +278,6 @@ function NavigationMenuMicroShowcase() {
   );
 }
 
-// ──────────────────────────────────────────────────────────
-// SECTION 3: Entry point (export default)
-// ──────────────────────────────────────────────────────────
 export default function NavigationMenuShowcase() {
   return (
     <Showcase

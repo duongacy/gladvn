@@ -345,31 +345,30 @@ function CalendarDayButton({
       data-range-end={modifiers.range_end}
       data-range-middle={modifiers.range_middle}
       className={cn(
-        // Base layout — size driven by parent group
+        
         "relative isolate z-10 flex aspect-square size-7 flex-col items-center justify-center gap-1 rounded-md font-normal leading-none transition-colors outline-none select-none",
         "group-[.calendar-sm]/calendar:size-6 group-[.calendar-lg]/calendar:size-8",
-        // Text size — responsive via parent group
+        
         "text-sm group-[.calendar-sm]/calendar:text-xs",
-        // Hover
+        
         "hover:bg-accent hover:text-accent-foreground",
-        // Focus ring (standard)
+        
         "focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-offset-1 focus-visible:ring-offset-background",
-        // Press feedback
+        
         "active:translate-y-px",
-        // Disabled
+        
         "disabled:pointer-events-none disabled:opacity-50",
-        // Keyboard focus from react-day-picker
+        
         "group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10 group-data-[focused=true]/day:ring-3 group-data-[focused=true]/day:ring-ring/50",
-        // Selected single
+        
         "data-[selected-single=true]:bg-primary data-[selected-single=true]:text-primary-foreground data-[selected-single=true]:hover:bg-primary/90",
-        // Range start
+        
         "data-[range-start=true]:bg-primary data-[range-start=true]:text-primary-foreground",
-        // Range end
+        
         "data-[range-end=true]:bg-primary data-[range-end=true]:text-primary-foreground",
-        // Range middle
+        
         "data-[range-middle=true]:bg-muted data-[range-middle=true]:text-foreground",
-        // Content spans (event dots etc.) — consumer should use data-slot on spans
-        // Dark mode
+
         "dark:hover:text-foreground",
         className,
       )}

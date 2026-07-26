@@ -27,15 +27,12 @@ import {
 } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
-// ──────────────────────────────────────────────────────────
-// SECTION 2: Micro Content (không export)
-// ──────────────────────────────────────────────────────────
 function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
   const [open, setOpen] = useState(false);
 
   return (
     <div className="space-y-10 mt-6">
-      {/* ── Sides ── */}
+      {}
       <ExampleSection
         label="Hướng trượt (Side)"
         description="Sheet có thể trượt ra từ bốn cạnh: right (mặc định), left, top, bottom."
@@ -95,7 +92,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
   </Sheet>`}
       >
         <div className="grid grid-cols-2 gap-2">
-          {/* top */}
+          {}
           <Sheet>
             <SheetTrigger
               render={
@@ -140,7 +137,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
             
           </Sheet>
 
-          {/* right */}
+          {}
           <Sheet>
             <SheetTrigger
               render={
@@ -195,7 +192,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
             
           </Sheet>
 
-          {/* bottom */}
+          {}
           <Sheet>
             <SheetTrigger
               render={
@@ -240,7 +237,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
             
           </Sheet>
 
-          {/* left */}
+          {}
           <Sheet>
             <SheetTrigger
               render={
@@ -297,7 +294,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
         </div>
       </ExampleSection>
 
-      {/* ── showCloseButton ── */}
+      {}
       <ExampleGrid>
         <ExampleSection
           label="Có nút đóng (mặc định)"
@@ -403,7 +400,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      {/* ── Controlled ── */}
+      {}
       <ExampleSection
         label="Controlled State"
         description="Quản lý trạng thái đóng/mở qua React state với open và onOpenChange."
@@ -478,7 +475,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
         </div>
       </ExampleSection>
 
-      {/* ── Real-world: Filter Panel ── */}
+      {}
       <ExampleSection
         label="Use case — Filter Panel"
         description="Sheet dùng làm bảng lọc dữ liệu bên phải — pattern phổ biến trong dashboard, table view."
@@ -569,9 +566,6 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
   );
 }
 
-// ──────────────────────────────────────────────────────────
-// SECTION 3: Entry point (export default)
-// ──────────────────────────────────────────────────────────
 export default function SheetShowcase() {
   const { size: globalSize } = useDevContext();
   return (

@@ -23,13 +23,10 @@ import {
 } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
-// ──────────────────────────────────────────────────────────
-// SECTION 1: Micro Content
-// ──────────────────────────────────────────────────────────
 function ToggleGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      {/* Single vs Multiple */}
+      {}
       <ExampleGrid>
         <ExampleSection
           label="Single Selection"
@@ -97,7 +94,7 @@ function ToggleGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      {/* Variants */}
+      {}
       <ExampleGrid>
         <ExampleSection
           label="Outline Variant"
@@ -162,7 +159,7 @@ function ToggleGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      {/* Vertical & Disabled */}
+      {}
       <ExampleGrid>
         <ExampleSection
           label="Vertical"
@@ -238,9 +235,6 @@ function ToggleGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
   );
 }
 
-// ──────────────────────────────────────────────────────────
-// SECTION 2: Entry point
-// ──────────────────────────────────────────────────────────
 export default function ToggleGroupShowcase() {
   const { size: globalSize } = useDevContext();
   return (

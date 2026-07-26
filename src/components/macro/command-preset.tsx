@@ -61,7 +61,7 @@ function CommandDialog({
 CommandDialog.displayName = "CommandDialog";
 
 export {
-  // Re-export primitives for convenience
+  
   Command,
   CommandDialog,
   CommandEmpty,

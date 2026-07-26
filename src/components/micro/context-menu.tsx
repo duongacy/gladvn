@@ -33,8 +33,6 @@ function ContextMenu({ ...props }: ContextMenuPrimitive.Root.Props) {
 }
 ContextMenu.displayName = "ContextMenu";
 
-
-
 const ContextMenuTrigger = React.forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.Trigger>

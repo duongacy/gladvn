@@ -42,10 +42,10 @@ export default function AuthCardBlock() {
               type="password"
               label={
                 <div className="flex items-center justify-between w-full">
-                  <span>Password</span>
+                  <span>Mật khẩu</span>
                   {mode === "login" && (
                     <Button variant="link" color="primary" className="h-auto p-0 text-xs">
-                      Forgot password?
+                      Quên mật khẩu?
                     </Button>
                   )}
                 </div>
@@ -60,20 +60,20 @@ export default function AuthCardBlock() {
                 required
                 label={
                   <span className="text-sm font-normal text-muted-foreground">
-                    I agree to the <a href="#" className="text-primary hover:underline">terms and conditions</a>
+                    Tôi đồng ý với <a href="#" className="text-primary hover:underline">các điều khoản và điều kiện</a>
                   </span>
                 }
               />
             )}
 
             <Button type="submit" className="w-full" disabled={isLoading} aria-busy={isLoading}>
-              {isLoading ? "Loading..." : mode === "login" ? "Sign In" : "Create Account"}
+              {isLoading ? "Đang xử lý..." : mode === "login" ? "Đăng nhập" : "Tạo tài khoản"}
             </Button>
           </form>
 
           <div className="flex justify-center">
             <span className="text-[13px] font-medium text-muted-foreground uppercase">
-              Or continue with
+              Hoặc tiếp tục với
             </span>
           </div>
 

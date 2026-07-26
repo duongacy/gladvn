@@ -16,7 +16,7 @@ import {
 
 describe("Dialog", () => {
   it("[3C.4-01] [P1] renders trigger correctly and content is hidden initially", () => {
-    // Given
+    
     render(
       <Dialog>
         <DialogTrigger>Open Dialog</DialogTrigger>
@@ -30,15 +30,14 @@ describe("Dialog", () => {
     );
 
     const trigger = screen.getByRole("button", { name: "Open Dialog" });
-    // Then
+    
     expect(trigger).toBeInTheDocument();
 
-    // Content should not be in the document
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
   });
 
   it("[3C.4-02] [P1] opens the dialog when trigger is clicked", async () => {
-    // Given
+    
     const user = userEvent.setup();
     render(
       <Dialog>
@@ -56,10 +55,9 @@ describe("Dialog", () => {
     );
 
     const trigger = screen.getByRole("button", { name: "Open Dialog" });
-    // When
+    
     await user.click(trigger);
 
-    // Then
     await waitFor(() => {
       const dialog = screen.getByRole("dialog");
       expect(dialog).toBeInTheDocument();
@@ -69,7 +67,7 @@ describe("Dialog", () => {
   });
 
   it("[3C.4-03] [P1] closes the dialog when Close button is clicked", async () => {
-    // Given
+    
     const user = userEvent.setup();
     render(
       <Dialog>
@@ -81,16 +79,12 @@ describe("Dialog", () => {
       </Dialog>,
     );
 
-    // Open
-    // When
     await user.click(screen.getByRole("button", { name: "Open Dialog" }));
 
-    // Then
     await waitFor(() => {
       expect(screen.getByRole("dialog")).toBeInTheDocument();
     });
 
-    // Close
     await user.click(screen.getByRole("button", { name: "Close Me" }));
 
     await waitFor(() => {
@@ -99,7 +93,7 @@ describe("Dialog", () => {
   });
 
   it("[3C.4-04] [P1] closes the dialog when Escape is pressed", async () => {
-    // Given
+    
     const user = userEvent.setup();
     render(
       <Dialog>
@@ -110,10 +104,8 @@ describe("Dialog", () => {
       </Dialog>,
     );
 
-    // When
     await user.click(screen.getByRole("button", { name: "Open Dialog" }));
 
-    // Then
     await waitFor(() => {
       expect(screen.getByRole("dialog")).toBeInTheDocument();
     });

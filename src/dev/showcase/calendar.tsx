@@ -28,7 +28,7 @@ function CalendarMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
       <ExampleGrid>
-        {/* ── Single Date ── */}
+        {}
         <ExampleSection
           label="Single Date"
           description="Chọn một ngày duy nhất."
@@ -52,7 +52,7 @@ function CalendarMicroShowcase({ globalSize }: { globalSize: Size }) {
           </div>
         </ExampleSection>
 
-        {/* ── Date Range ── */}
+        {}
         <ExampleSection
           label="Date Range"
           description="Chọn một phạm vi ngày."
@@ -80,7 +80,7 @@ function CalendarMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleGrid>
 
       <ExampleGrid>
-        {/* ── Multiple Dates ── */}
+        {}
         <ExampleSection
           label="Multiple Dates"
           description="Chọn nhiều ngày rời rạc (mode='multiple')."
@@ -104,7 +104,7 @@ function CalendarMicroShowcase({ globalSize }: { globalSize: Size }) {
           </div>
         </ExampleSection>
 
-        {/* ── Disabled Dates ── */}
+        {}
         <ExampleSection
           label="Disabled Dates"
           description="Vô hiệu hóa chọn ngày (VD: ngày trong quá khứ)."
@@ -126,7 +126,7 @@ function CalendarMicroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      {/* ── Two Months ── */}
+      {}
       <ExampleSection
         label="Two Months"
         description="Hiển thị 2 tháng liền kề (numberOfMonths=2) thường dùng cho Date Range."
@@ -150,7 +150,7 @@ function CalendarMicroShowcase({ globalSize }: { globalSize: Size }) {
         </div>
       </ExampleSection>
 
-      {/* ── With Navigation Dropdown ── */}
+      {}
       <ExampleSection
         label="With Navigation"
         description="Lịch với điều hướng thả xuống cho tháng/năm."
@@ -173,9 +173,6 @@ function CalendarMicroShowcase({ globalSize }: { globalSize: Size }) {
   );
 }
 
-// ──────────────────────────────────────────────────────────
-// SECTION 3: Macro Showcase
-// ──────────────────────────────────────────────────────────
 function CalendarMacroShowcase({ globalSize }: { globalSize: Size }) {
   const [singleDate, setSingleDate] = useState<Date | undefined>(undefined);
   const [rangeDate, setRangeDate] = useState<DateRange | undefined>(undefined);
@@ -188,7 +185,7 @@ function CalendarMacroShowcase({ globalSize }: { globalSize: Size }) {
 
   return (
     <div className="space-y-10 mt-6">
-      {/* ── Single Date ── */}
+      {}
       <ExampleGrid>
         <ExampleSection
           label="Single Date"
@@ -210,7 +207,7 @@ function CalendarMacroShowcase({ globalSize }: { globalSize: Size }) {
           />
         </ExampleSection>
 
-        {/* ── Date Range ── */}
+        {}
         <ExampleSection
           label="Date Range"
           description="DatePicker chọn khoảng thời gian (range mode)."
@@ -234,7 +231,7 @@ function CalendarMacroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      {/* ── Dropdown Modes ── */}
+      {}
       <ExampleGrid>
         <ExampleSection
           label="Single Dropdown"
@@ -286,7 +283,7 @@ function CalendarMacroShowcase({ globalSize }: { globalSize: Size }) {
         </ExampleSection>
       </ExampleGrid>
 
-      {/* ── With Description ── */}
+      {}
       <ExampleSection
         label="With Label & Description"
         description="Hiển thị label và mô tả bên dưới trigger."
@@ -308,7 +305,7 @@ function CalendarMacroShowcase({ globalSize }: { globalSize: Size }) {
         />
       </ExampleSection>
 
-      {/* ── Error / Validation ── */}
+      {}
       <ExampleSection
         label="Error State"
         description="Trigger hiển thị viền đỏ khi có errorMessage."
@@ -328,7 +325,7 @@ function CalendarMacroShowcase({ globalSize }: { globalSize: Size }) {
         />
       </ExampleSection>
 
-      {/* ── Disabled ── */}
+      {}
       <ExampleSection
         label="Disabled"
         description="Trigger bị vô hiệu hoá, người dùng không thể mở calendar."
@@ -347,9 +344,6 @@ function CalendarMacroShowcase({ globalSize }: { globalSize: Size }) {
   );
 }
 
-// ──────────────────────────────────────────────────────────
-// SECTION 4: Entry point
-// ──────────────────────────────────────────────────────────
 export default function CalendarShowcase() {
   const { size: globalSize } = useDevContext();
   return (

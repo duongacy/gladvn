@@ -11,7 +11,6 @@ import {
   ShowcaseDocs
 } from "../../dev/components/showcase";
 
-// Simulated async operation for Promise demo
 const mockSave = () =>
   new Promise<{ name: string }>((resolve) =>
     setTimeout(() => resolve({ name: "Sonner" }), 1500),
@@ -22,15 +21,12 @@ const mockFail = () =>
     setTimeout(() => reject(new Error("Server error")), 1500),
   );
 
-// ──────────────────────────────────────────────────────────
-// SECTION 2: Micro Content (không export)
-// ──────────────────────────────────────────────────────────
 function SonnerMicroShowcase() {
   return (
     <div className="space-y-10 mt-6">
-      {/* Toaster phải mount ở đây để toast() hoạt động trong showcase */}
+      {}
       <Toaster position="bottom-right" />
-      {/* ── Toast Types ── */}
+      {}
       <ExampleSection
         label="Loại Toast"
         description="Năm loại toast cơ bản: default, success, error, warning, info."
@@ -89,7 +85,7 @@ toast.info("Update is available.");`}
         </div>
       </ExampleSection>
 
-      {/* ── Mô tả & Action ── */}
+      {}
       <ExampleSection
         label="Mô tả & Action Button"
         description="Toast kèm description phụ và action button — pattern phổ biến cho undo/redo, navigation."
@@ -130,7 +126,7 @@ toast.info("Update is available.");`}
         </div>
       </ExampleSection>
 
-      {/* ── Promise ── */}
+      {}
       <ExampleGrid>
         <ExampleSection
           label="Promise — Thành công"
@@ -190,15 +186,13 @@ toast.promise(failRequest(), {
       <ExampleSection
         label="Loading & Dismiss"
         description="toast.loading() tạo toast thủ công, sau đó dùng toast.success/error(id) để cập nhật, hoặc toast.dismiss(id) để huỷ."
-        codeString={`// Tạo loading toast và giữ id
+        codeString={`
 const toastId = toast.loading("Đang xử lý...");
 
-// Sau khi async xong — cập nhật cùng toast
 setTimeout(() => {
   toast.success("Hoàn tất!", { id: toastId });
 }, 2000);
 
-// Hoặc huỷ thủ công
 toast.dismiss(toastId);`}
       >
         <div className="flex flex-wrap gap-2">
@@ -234,9 +228,9 @@ toast.dismiss(toastId);`}
       <ExampleSection
         label="Position"
         description="Toaster nhận prop position để xác định vị trí hiển thị — cấu hình một lần ở root layout. Nhấn vào từng vùng để xem toast xuất hiện ở đâu."
-        codeString={`// Trong root layout (app/layout.tsx):
-  <Toaster position="bottom-right" /> // mặc định // Các vị
-  trí hỗ trợ: // "top-left" | "top-center" | "top-right" //
+        codeString={`
+  <Toaster position="bottom-right" /> 
+  trí hỗ trợ: 
   "bottom-left" | "bottom-center" | "bottom-right"`}
       >
         {/* Visual 3×2 position grid */}

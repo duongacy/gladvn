@@ -22,8 +22,6 @@ function DropdownMenu({ ...props }: MenuPrimitive.Root.Props) {
 }
 DropdownMenu.displayName = "DropdownMenu";
 
-
-
 const DropdownMenuTrigger = React.forwardRef<
   HTMLButtonElement,
   MenuPrimitive.Trigger.Props

@@ -23,9 +23,6 @@ import {
 } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
-// ──────────────────────────────────────────────────────────
-// Shared demo card content
-// ──────────────────────────────────────────────────────────
 function NextJsCard() {
   return (
     <div className="flex justify-between space-x-4">
@@ -53,13 +50,10 @@ function NextJsCard() {
   );
 }
 
-// ──────────────────────────────────────────────────────────
-// SECTION 2: Micro Content (không export)
-// ──────────────────────────────────────────────────────────
 function HoverCardMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10 mt-6">
-      {/* ── Default ── */}
+      {}
       <ExampleSection
         label="Default"
         description="Di chuột qua liên kết để xem bản xem trước. Trigger render dưới dạng Button với variant link."
@@ -115,7 +109,7 @@ function HoverCardMicroShowcase({ globalSize }: { globalSize: Size }) {
         </HoverCard>
       </ExampleSection>
 
-      {/* ── Vị trí (Sides) ── */}
+      {}
       <ExampleSection
         label="Vị trí (Side)"
         description="HoverCard có thể xuất hiện ở bốn phía của trigger thông qua prop side."
@@ -154,7 +148,7 @@ function HoverCardMicroShowcase({ globalSize }: { globalSize: Size }) {
         </div>
       </ExampleSection>
 
-      {/* ── Căn chỉnh (Align) ── */}
+      {}
       <ExampleGrid>
         {(["start", "center", "end"] as const).map((align) => (
           <ExampleSection

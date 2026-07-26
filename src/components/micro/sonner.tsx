@@ -43,7 +43,6 @@ function Toaster({ ...props }: ToasterProps) {
           "--normal-border": "var(--border)",
           "--border-radius": "var(--radius)",
 
-          /* Map Sonner's internal variables to our design system variables */
           "--success-bg":
             "color-mix(in srgb, var(--success) 10%, var(--popover))",
           "--success-text": "var(--success)",

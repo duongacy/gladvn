@@ -41,7 +41,7 @@ const Switch = React.forwardRef<
     <SwitchPrimitive.Root
       ref={ref}
       data-slot="switch"
-      /* Expand touch target area (Hit Area) minimally to 44x44px via pseudo-element (after:-inset-*) */
+      
       className={cn(switchVariants({ size, className }))}
       {...props}
     />

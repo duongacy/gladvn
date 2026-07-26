@@ -23,7 +23,7 @@ export default function WhyGladvn() {
 
   return (
     <div className="space-y-24 overflow-hidden pb-24 font-sans max-w-5xl mx-auto">
-      {/* HERO SECTION */}
+      {}
       <section className="relative pt-20 pb-16">
         <div className="absolute inset-0 -z-10 h-full w-full bg-background bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(var(--primary-rgb),0.2),rgba(255,255,255,0))] dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(var(--primary-rgb),0.15),rgba(255,255,255,0))]" />
         
@@ -70,7 +70,7 @@ export default function WhyGladvn() {
         </div>
       </section>
 
-      {/* THE PROBLEM */}
+      {}
       <section className="px-4">
         <div className="rounded-[2.5rem] border border-destructive/20 bg-destructive/5 p-8 md:p-16 text-center">
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-6">
@@ -106,7 +106,7 @@ export default function WhyGladvn() {
         </div>
       </section>
 
-      {/* THE SOLUTION */}
+      {}
       <section className="px-4 space-y-12">
         <div className="text-center max-w-2xl mx-auto space-y-4">
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">
@@ -161,7 +161,7 @@ export default function WhyGladvn() {
         </div>
       </section>
 
-      {/* MORE REASONS */}
+      {}
       <section className="px-4">
         <h2 className="text-2xl font-bold mb-8 pl-4 border-l-4 border-primary">More Reasons to Choose Gladvn</h2>
         <div className="grid md:grid-cols-3 gap-6">
@@ -195,7 +195,7 @@ export default function WhyGladvn() {
         </div>
       </section>
 
-      {/* VS SHADCN */}
+      {}
       <section className="px-4">
         <h2 className="text-2xl font-bold mb-8 text-center">So sánh nhanh</h2>
         <div className="overflow-x-auto rounded-2xl border border-border bg-card">
@@ -250,7 +250,7 @@ export default function WhyGladvn() {
         </div>
       </section>
 
-      {/* CTA */}
+      {}
       <section className="px-4 pb-20">
         <div className="rounded-[3rem] bg-foreground text-background p-12 md:p-20 text-center relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.1),transparent)]" />

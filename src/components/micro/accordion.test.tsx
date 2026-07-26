@@ -12,7 +12,7 @@ import {
 
 describe("Accordion", () => {
   it("[3C.13-01] [P1] renders correctly and is closed by default", () => {
-    // Given
+    
     render(
       <Accordion>
         <AccordionItem value="item-1">
@@ -23,11 +23,10 @@ describe("Accordion", () => {
     );
 
     const trigger = screen.getByRole("button", { name: "Section 1" });
-    // Then
+    
     expect(trigger).toBeInTheDocument();
     expect(trigger).toHaveAttribute("aria-expanded", "false");
 
-    // Content is either not in document or hidden based on Base UI implementation
     const content = screen.queryByText("Content 1");
     if (content) {
       expect(content).not.toBeVisible();
@@ -35,7 +34,7 @@ describe("Accordion", () => {
   });
 
   it("[3C.13-02] [P1] expands the content when trigger is clicked", async () => {
-    // Given
+    
     const user = userEvent.setup();
     render(
       <Accordion>
@@ -47,10 +46,9 @@ describe("Accordion", () => {
     );
 
     const trigger = screen.getByRole("button", { name: "Section 1" });
-    // When
+    
     await user.click(trigger);
 
-    // Then
     await waitFor(() => {
       expect(trigger).toHaveAttribute("aria-expanded", "true");
       expect(screen.getByText("Content 1")).toBeVisible();
@@ -58,7 +56,7 @@ describe("Accordion", () => {
   });
 
   it("[3C.13-03] [P1] supports keyboard navigation", async () => {
-    // Given
+    
     const user = userEvent.setup();
     render(
       <Accordion>
@@ -76,17 +74,13 @@ describe("Accordion", () => {
     const trigger1 = screen.getByRole("button", { name: "Section 1" });
     const trigger2 = screen.getByRole("button", { name: "Section 2" });
 
-    // Focus first
-    // When
     await user.tab();
-    // Then
+    
     expect(trigger1).toHaveFocus();
 
-    // Tab to move to next item
     await user.tab();
     expect(trigger2).toHaveFocus();
 
-    // Enter to expand
     await user.keyboard("[Enter]");
     await waitFor(() => {
       expect(trigger2).toHaveAttribute("aria-expanded", "true");

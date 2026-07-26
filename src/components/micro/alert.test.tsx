@@ -13,7 +13,7 @@ import {
 
 describe("Alert", () => {
   it("[3C.12-01] [P1] renders all alert parts correctly", () => {
-    // Given
+    
     render(
       <Alert data-testid="alert">
         <AlertIcon render={<InfoIcon />} data-testid="alert-icon" />
@@ -23,7 +23,6 @@ describe("Alert", () => {
       </Alert>,
     );
 
-    // Then
     expect(screen.getByTestId("alert")).toBeInTheDocument();
     expect(screen.getByTestId("alert-icon")).toBeInTheDocument();
     expect(screen.getByText("Alert Title")).toBeInTheDocument();
@@ -32,19 +31,18 @@ describe("Alert", () => {
   });
 
   it("[3C.12-02] [P1] applies the color variants correctly", () => {
-    // Given
+    
     const { rerender } = render(
       <Alert color="destructive" data-testid="alert-destructive">
         Error
       </Alert>,
     );
-    // Then
+    
     expect(screen.getByTestId("alert-destructive")).toHaveAttribute(
       "data-color",
       "destructive",
     );
 
-    // When
     rerender(
       <Alert color="success" data-testid="alert-success">
         Success
@@ -57,16 +55,15 @@ describe("Alert", () => {
   });
 
   it("[3C.12-03] [P1] applies the size variants correctly", () => {
-    // Given
+    
     const { rerender } = render(
       <Alert size="sm" data-testid="alert-sm">
         Small
       </Alert>,
     );
-    // Then
+    
     expect(screen.getByTestId("alert-sm")).toHaveAttribute("data-size", "sm");
 
-    // When
     rerender(
       <Alert size="lg" data-testid="alert-lg">
         Large

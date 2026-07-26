@@ -22,12 +22,12 @@ export default function AuthRecoveryBlock() {
       <Card className="w-full max-w-sm">
         <CardHeader className="text-center">
           <CardTitle className="text-2xl font-bold">
-            {isSent ? "Check your email" : "Forgot Password"}
+            {isSent ? "Kiểm tra email của bạn" : "Quên mật khẩu?"}
           </CardTitle>
           <CardDescription>
             {isSent
-              ? "We have sent a password reset link to your email."
-              : "Enter your email address and we will send you a link to reset your password."}
+              ? "Chúng tôi đã gửi link đặt lại mật khẩu đến email của bạn."
+              : "Không sao đâu, ai cũng có lúc quên mà. Nhập email vào đây để tụi mình gửi link reset cho nha."}
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -35,20 +35,20 @@ export default function AuthRecoveryBlock() {
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               <InputPreset id="recovery-email" type="email" label="Email" placeholder="m@example.com" required />
               <Button type="submit" className="w-full" disabled={isLoading}>
-                {isLoading ? "Sending link..." : "Send Reset Link"}
+                {isLoading ? "Đang gửi..." : "Gửi link reset mật khẩu"}
               </Button>
             </form>
           ) : (
             <div className="flex flex-col gap-4">
               <Button type="button" variant="outline" className="w-full" onClick={() => setIsSent(false)}>
-                Try another email
+                Thử email khác
               </Button>
             </div>
           )}
         </CardContent>
         <CardFooter className="flex justify-center">
           <Button variant="link" color="primary" className="text-sm">
-            Back to Login
+            Quay lại đăng nhập
           </Button>
         </CardFooter>
       </Card>

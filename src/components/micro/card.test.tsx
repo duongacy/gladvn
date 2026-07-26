@@ -13,7 +13,7 @@ import {
 
 describe("Card", () => {
   it("[3C.11-01] [P1] renders all card parts correctly", () => {
-    // Given
+    
     render(
       <Card data-testid="card">
         <CardHeader>
@@ -25,7 +25,6 @@ describe("Card", () => {
       </Card>,
     );
 
-    // Then
     expect(screen.getByTestId("card")).toBeInTheDocument();
     expect(screen.getByText("Card Title")).toBeInTheDocument();
     expect(screen.getByText("Card Description")).toBeInTheDocument();
@@ -34,16 +33,15 @@ describe("Card", () => {
   });
 
   it("[3C.11-02] [P1] applies the size variants correctly", () => {
-    // Given
+    
     const { rerender } = render(
       <Card size="sm" data-testid="card-sm">
         Content
       </Card>,
     );
-    // Then
+    
     expect(screen.getByTestId("card-sm")).toHaveAttribute("data-size", "sm");
 
-    // When
     rerender(
       <Card size="lg" data-testid="card-lg">
         Content

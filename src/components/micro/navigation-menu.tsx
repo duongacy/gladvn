@@ -190,8 +190,6 @@ const NavigationMenuLink = React.forwardRef<
 });
 NavigationMenuLink.displayName = "NavigationMenuLink";
 
-
-
 export {
   NavigationMenu,
   NavigationMenuContent,

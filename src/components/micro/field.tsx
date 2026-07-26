@@ -73,7 +73,7 @@ const fieldVariants = cva("group/field flex min-w-fit", {
     orientation: {
       vertical: "flex-col [&>.sr-only]:w-auto",
       horizontal: "flex-row items-center [&>[data-slot=field-label]]:flex-auto",
-      // Responsive: vertical on mobile, horizontal on @md breakpoint.
+      
       responsive:
         "flex-col @md/field-group:flex-row @md/field-group:items-center @md/field-group:[&>[data-slot=field-label]]:flex-auto [&>.sr-only]:w-auto",
     },
@@ -200,9 +200,9 @@ const FieldDescription = React.forwardRef<
       ref={ref}
       data-slot="field-description"
       className={cn(
-        // Pull up when after a legend variant; balance text when inside horizontal Field
+        
         "text-left leading-normal font-normal text-muted-foreground group-data-[orientation=horizontal]/field:text-balance [[data-variant=legend]+&]:-mt-1.5",
-        // Tighten gap: no margin when last child, pull up when second-to-last (before FieldError)
+        
         "last:mt-0 nth-last-2:-mt-1",
         "[&>a]:underline [&>a]:underline-offset-4 [&>a:hover]:text-primary",
         "text-sm group-data-[size=sm]/field:text-xs",

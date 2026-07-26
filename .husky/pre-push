@@ -1,0 +1,27 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Detect if we are pushing to main
+while read local_ref local_sha remote_ref remote_sha
+do
+  if [ "$remote_ref" = "refs/heads/main" ] || [ "$(git rev-parse --abbrev-ref HEAD)" = "main" ]; then
+    echo "==========================================================="
+    echo "🚀 Đang push lên nhánh main! Đang chạy Test để kiểm tra..."
+    echo "==========================================================="
+    
+    echo "▶️ Đang chạy Unit Tests..."
+    npm run test || {
+      echo "❌ Unit test thất bại! Huỷ push."
+      exit 1
+    }
+    
+    echo "▶️ Đang chạy E2E Tests (Playwright)..."
+    npm run test:e2e || {
+      echo "❌ E2E test thất bại! Huỷ push."
+      exit 1
+    }
+    
+    echo "✅ Toàn bộ Test đã pass xanh lè! Cho phép push."
+    echo "==========================================================="
+  fi
+done

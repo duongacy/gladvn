@@ -59,10 +59,22 @@ export function CodeHighlighter({
   }
 
   return (
-    <div
-      ref={containerRef}
-      className="code-highlighter overflow-x-auto text-[13px] leading-relaxed"
-      dangerouslySetInnerHTML={{ __html: html }}
-    />
+    <>
+      <style>{`
+        html.dark .shiki,
+        html.dark .shiki span {
+          color: var(--shiki-dark) !important;
+          background-color: var(--shiki-dark-bg) !important;
+          font-style: var(--shiki-dark-font-style) !important;
+          font-weight: var(--shiki-dark-font-weight) !important;
+          text-decoration: var(--shiki-dark-text-decoration) !important;
+        }
+      `}</style>
+      <div
+        ref={containerRef}
+        className="code-highlighter overflow-x-auto text-[13px] leading-relaxed"
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
+    </>
   );
 }

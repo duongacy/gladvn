@@ -42,13 +42,19 @@ const groupedComponents = COMPONENTS.reduce(
   {} as Record<string, (typeof COMPONENTS)[number][]>,
 );
 
-const categoryOrder = [
+const componentCategories = [
   "Layout & Structure",
   "Forms & Inputs",
   "Feedback & Overlays",
   "Navigation",
   "Data Display",
   "Other",
+];
+
+const blockCategories = [
+  "Dashboards",
+  "Settings",
+  "Authentication",
 ];
 
 function ComponentViewer({ id }: { id: string }) {
@@ -71,6 +77,20 @@ function ComponentViewer({ id }: { id: string }) {
 }
 
 export default function App() {
+  if (typeof window !== "undefined" && window.location.pathname.startsWith("/preview/")) {
+    const blockId = window.location.pathname.replace(/^\/preview\//, "");
+    // Dynamically load the block component
+    const Block = lazy(() => import(`../blocks/${blockId}.tsx`));
+    
+    return (
+      <Suspense fallback={<div className="p-12 text-center text-muted-foreground animate-pulse">Loading preview...</div>}>
+        <div className="w-full min-h-screen bg-background antialiased">
+          <Block />
+        </div>
+      </Suspense>
+    );
+  }
+
   const theme = useTheme();
   const { size, setSize } = useDevContext();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -200,21 +220,64 @@ export default function App() {
             </a>
           </div>
 
-          {/* Center — Search bar (opens Command Palette) */}
-          <button
-            id="cmd-search-trigger"
-            onClick={() => setCmdOpen(true)}
-            className="hidden md:flex h-9 items-center gap-2.5 px-4 rounded-lg border border-border bg-muted/30 text-sm text-muted-foreground hover:bg-muted/60 transition-colors w-64 xl:w-80"
-            aria-label="Tìm component (⌘K)"
-          >
-            <SearchIcon className="size-3.5 shrink-0" />
-            <span className="flex-1 text-left text-[13px]">
-              Tìm component...
-            </span>
-            <kbd className="text-[10px] bg-background border border-border/80 rounded px-1.5 py-0.5 font-sans leading-none">
-              ⌘K
-            </kbd>
-          </button>
+          {/* Center — Navigation Tabs & Search */}
+          <div className="flex flex-1 justify-center gap-6 hidden md:flex items-center mx-4">
+            <button
+              onClick={() => setActive("overview")}
+              className={`text-[14px] font-medium transition-colors ${
+                active === "overview"
+                  ? "text-foreground"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              Overview
+            </button>
+            <button
+              onClick={() => {
+                if (active === "overview" || blockCategories.includes(COMPONENTS.find(c => c.id === active)?.category || "")) {
+                  setActive("accordion");
+                }
+              }}
+              className={`text-[14px] font-medium transition-colors ${
+                active !== "overview" && !blockCategories.includes(COMPONENTS.find(c => c.id === active)?.category || "")
+                  ? "text-foreground"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              Components
+            </button>
+            <button
+              onClick={() => {
+                if (!blockCategories.includes(COMPONENTS.find(c => c.id === active)?.category || "")) {
+                  setActive("dashboard-block");
+                }
+              }}
+              className={`text-[14px] font-medium transition-colors ${
+                blockCategories.includes(COMPONENTS.find(c => c.id === active)?.category || "")
+                  ? "text-foreground"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              Blocks
+            </button>
+            
+            <div className="mx-2 h-4 w-px bg-border/50"></div>
+
+            <button
+              id="cmd-search-trigger"
+              onClick={() => setCmdOpen(true)}
+              className="flex h-8 items-center gap-2 px-3 rounded-md border border-border bg-muted/30 text-[13px] text-muted-foreground hover:bg-muted/60 transition-colors w-56"
+              aria-label="Tìm component (⌘K)"
+            >
+              <SearchIcon className="size-3.5 shrink-0" />
+              <span className="flex-1 text-left">
+                Search...
+              </span>
+              <kbd className="text-[10px] bg-background border border-border/80 rounded px-1.5 py-0.5 font-sans leading-none">
+                ⌘K
+              </kbd>
+            </button>
+          </div>
 
           {/* Right — GitHub + npx + theme toggle */}
           <div className="flex items-center gap-1.5">
@@ -276,11 +339,11 @@ export default function App() {
 
         {/* Sidebar */}
         <aside
-          className={`fixed inset-y-0 left-0 z-50 w-64 transform border-r bg-background border-border pt-4 px-3 transition-transform duration-200 ease-in-out md:sticky md:top-16 md:block md:h-[calc(100vh-4rem)] md:w-56 md:translate-x-0 md:pt-6 md:z-0 overflow-y-auto custom-scrollbar ${
+          className={`fixed inset-y-0 left-0 z-50 w-64 transform border-r bg-background border-border pt-4 px-3 transition-transform duration-200 ease-in-out md:sticky md:top-16 md:h-[calc(100vh-4rem)] md:w-56 md:translate-x-0 md:pt-6 md:z-0 overflow-y-auto custom-scrollbar ${
             isMobileMenuOpen ? "translate-x-0 shadow-2xl" : "-translate-x-full"
-          }`}
+          } ${active === "overview" ? "md:hidden" : "md:block"}`}
         >
-          <nav className="space-y-0.5">
+          <nav className="space-y-0.5 md:hidden">
             <button
               onClick={() => setActive("overview")}
               className={`w-full flex items-center gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors text-left mb-2 ${
@@ -292,35 +355,75 @@ export default function App() {
               <LayersIcon className="size-3.5" />
               Overview
             </button>
+            <div className="h-px bg-border/50 my-2 mx-1"></div>
+            <button
+              onClick={() => setActive("accordion")}
+              className={`w-full flex items-center gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors text-left ${
+                active !== "overview" && !blockCategories.includes(COMPONENTS.find(c => c.id === active)?.category || "")
+                  ? "bg-accent text-accent-foreground font-medium"
+                  : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
+              }`}
+            >
+              Components
+            </button>
+            <button
+              onClick={() => setActive("dashboard-block")}
+              className={`w-full flex items-center gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors text-left mb-2 ${
+                blockCategories.includes(COMPONENTS.find(c => c.id === active)?.category || "")
+                  ? "bg-accent text-accent-foreground font-medium"
+                  : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
+              }`}
+            >
+              Blocks
+            </button>
+            <div className="h-px bg-border/50 my-2 mx-1"></div>
           </nav>
 
           <div className="mt-6">
-            {categoryOrder.map((cat) => {
-              const comps = groupedComponents[cat];
-              if (!comps || comps.length === 0) return null;
-              return (
-                <div key={cat} className="mb-4">
-                  <p className="mb-2 px-2 text-[10px] font-bold uppercase tracking-wider text-foreground/70">
-                    {cat}
-                  </p>
-                  <nav className="space-y-0.5">
-                    {comps.map(({ id, label }) => (
-                      <button
-                        key={id}
-                        onClick={() => setActive(id)}
-                        className={`w-full flex items-center justify-between gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors text-left ${
-                          active === id
-                            ? "bg-accent text-accent-foreground font-medium"
-                            : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
-                        }`}
-                      >
-                        <span>{label}</span>
-                      </button>
-                    ))}
-                  </nav>
-                </div>
-              );
-            })}
+            {blockCategories.includes(COMPONENTS.find(c => c.id === active)?.category || "") ? (
+              <nav className="space-y-0.5">
+                {COMPONENTS.filter(c => blockCategories.includes(c.category)).map(({ id, label }) => (
+                  <button
+                    key={id}
+                    onClick={() => setActive(id)}
+                    className={`w-full flex items-center justify-between gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors text-left ${
+                      active === id
+                        ? "bg-accent text-accent-foreground font-medium"
+                        : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
+                    }`}
+                  >
+                    <span>{label}</span>
+                  </button>
+                ))}
+              </nav>
+            ) : (
+              componentCategories.map((cat) => {
+                const comps = groupedComponents[cat];
+                if (!comps || comps.length === 0) return null;
+                return (
+                  <div key={cat} className="mb-4">
+                    <p className="mb-2 px-2 text-[10px] font-bold uppercase tracking-wider text-foreground/70">
+                      {cat}
+                    </p>
+                    <nav className="space-y-0.5">
+                      {comps.map(({ id, label }) => (
+                        <button
+                          key={id}
+                          onClick={() => setActive(id)}
+                          className={`w-full flex items-center justify-between gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors text-left ${
+                            active === id
+                              ? "bg-accent text-accent-foreground font-medium"
+                              : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
+                          }`}
+                        >
+                          <span>{label}</span>
+                        </button>
+                      ))}
+                    </nav>
+                  </div>
+                );
+              })
+            )}
           </div>
         </aside>
 

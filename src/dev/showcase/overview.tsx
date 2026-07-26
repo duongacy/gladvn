@@ -990,6 +990,7 @@ export default function OverviewSection() {
           <div className="relative z-10 mt-10">
             <Button
               render={<a href="/dialog" />}
+              nativeButton={false}
               variant="outline"
               color="warning"
               className="gap-2 font-bold px-6 py-5 rounded-xl border-warning/30 bg-warning/10 hover:bg-warning/20 shadow-sm"
@@ -1087,6 +1088,7 @@ export default function OverviewSection() {
                 rel="noreferrer"
               />
             }
+            nativeButton={false}
           >
             Đóng góp cùng chúng tôi
           </Button>
@@ -1131,6 +1133,7 @@ export default function OverviewSection() {
                     rel="noreferrer"
                   />
                 }
+                nativeButton={false}
                 variant="ghost"
                 className="text-muted-foreground hover:text-foreground"
               >

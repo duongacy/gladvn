@@ -5,9 +5,9 @@ import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsH3,
   DocsP,
-  ShowcaseExample,
   Showcase,
-  ShowcaseDocs
+  ShowcaseDocs,
+  ShowcaseExample
 } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 

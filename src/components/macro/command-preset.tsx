@@ -61,7 +61,7 @@ function CommandDialog({
 CommandDialog.displayName = "CommandDialog";
 
 export {
-  
+
   Command,
   CommandDialog,
   CommandEmpty,

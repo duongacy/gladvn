@@ -1,11 +1,10 @@
-import React from "react";
-import { HeroSection } from "./overview-components/HeroSection";
-import { DashboardPreview } from "./overview-components/DashboardPreview";
-import { PrinciplesSection } from "./overview-components/PrinciplesSection";
 import { ArchitectureSection } from "./overview-components/ArchitectureSection";
-import { FeatureGridSection } from "./overview-components/FeatureGridSection";
 import { ColorPaletteSection } from "./overview-components/ColorPaletteSection";
+import { DashboardPreview } from "./overview-components/DashboardPreview";
+import { FeatureGridSection } from "./overview-components/FeatureGridSection";
 import { FooterCTA } from "./overview-components/FooterCTA";
+import { HeroSection } from "./overview-components/HeroSection";
+import { PrinciplesSection } from "./overview-components/PrinciplesSection";
 
 export default function OverviewSection() {
   return (

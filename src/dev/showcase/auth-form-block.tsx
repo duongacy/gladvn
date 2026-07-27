@@ -1,5 +1,5 @@
-import { BlockViewer } from "../components/BlockViewer";
 import codeString from "../../blocks/auth-form.tsx?raw";
+import { BlockViewer } from "../components/BlockViewer";
 
 export default function AuthFormBlockShowcase() {
   return (

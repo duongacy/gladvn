@@ -28,7 +28,7 @@ export function SectionHeader({
   return (
     <div className={cn("flex flex-col gap-1", className)}>
       <div className="flex items-end justify-between gap-4">
-        <h2 className="text-3xl font-bold tracking-tight bg-gradient-to-br from-foreground to-foreground/60 bg-clip-text text-transparent">
+        <h2 className="text-3xl font-bold tracking-tight bg-linear-to-br from-foreground to-foreground/60 bg-clip-text text-transparent">
           {title}
         </h2>
         {children && <div className="shrink-0 pb-0.5">{children}</div>}
@@ -147,7 +147,7 @@ export function ShowcaseExample({
         <TabsContent value="preview" className="mt-0 outline-none">
           <div
             className={cn(
-              "relative min-h-[120px] w-full rounded-2xl bg-muted/30 dark:bg-muted/20 p-4 sm:p-6",
+              "relative min-h-30 w-full rounded-2xl bg-muted/30 dark:bg-muted/20 p-4 sm:p-6",
               className,
             )}
           >
@@ -268,7 +268,7 @@ export function Showcase({
     <div className={cn("flex flex-col gap-8", className)}>
       <div className="flex flex-col gap-2">
         <div className="flex items-center gap-4">
-          <h2 className="text-3xl font-bold tracking-tight bg-gradient-to-br from-foreground to-foreground/60 bg-clip-text text-transparent">
+          <h2 className="text-3xl font-bold tracking-tight bg-linear-to-br from-foreground to-foreground/60 bg-clip-text text-transparent">
             {title}
           </h2>
           {actions && <div className="shrink-0">{actions}</div>}

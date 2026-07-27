@@ -14,7 +14,7 @@ import { cn } from "../../lib/utils";
 /**
  * @description Augments native scroll functionality for custom, cross-browser styling.
  * @example
- * <ScrollArea className="h-[200px] w-[350px]">
+ * <ScrollArea className="h-50 w-[350px]">
  *   Jokester began sneaking into the castle in the middle of the night.
  * </ScrollArea>
  */

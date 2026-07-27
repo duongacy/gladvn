@@ -4,9 +4,9 @@ import {
   DocsH3,
   DocsP,
   ExampleGrid,
-  ShowcaseExample,
   Showcase,
-  ShowcaseDocs
+  ShowcaseDocs,
+  ShowcaseExample
 } from "../../dev/components/showcase";
 
 function SkeletonMicroShowcase() {
@@ -37,7 +37,7 @@ function SkeletonMicroShowcase() {
     <div className="flex items-center space-x-4">
       <Skeleton className="h-12 w-12 rounded-full" />
       <div className="space-y-2">
-        <Skeleton className="h-4 w-[200px]" />
+        <Skeleton className="h-4 w-50" />
         <Skeleton className="h-4 w-[150px]" />
       </div>
     </div>
@@ -51,7 +51,7 @@ function SkeletonMicroShowcase() {
                           <div className="flex items-center space-x-4">
                             <Skeleton className="h-12 w-12 rounded-full" />
                             <div className="space-y-2">
-                              <Skeleton className="h-4 w-[200px]" />
+                              <Skeleton className="h-4 w-50" />
                               <Skeleton className="h-4 w-[150px]" />
                             </div>
                           </div>
@@ -93,15 +93,15 @@ function SkeletonMicroShowcase() {
     <div className="flex items-center space-x-4">
       <Skeleton className="h-8 w-8 rounded-full" />
       <div className="space-y-2">
-        <Skeleton className="h-3 w-[180px]" />
-        <Skeleton className="h-3 w-[100px]" />
+        <Skeleton className="h-3 w-45" />
+        <Skeleton className="h-3 w-25" />
       </div>
     </div>
     <div className="flex items-center space-x-4">
       <Skeleton className="h-8 w-8 rounded-full" />
       <div className="space-y-2">
         <Skeleton className="h-3 w-[150px]" />
-        <Skeleton className="h-3 w-[120px]" />
+        <Skeleton className="h-3 w-30" />
       </div>
     </div>
     <div className="flex items-center space-x-4">
@@ -117,15 +117,15 @@ function SkeletonMicroShowcase() {
                           <div className="flex items-center space-x-4">
                             <Skeleton className="h-8 w-8 rounded-full" />
                             <div className="space-y-2">
-                              <Skeleton className="h-3 w-[180px]" />
-                              <Skeleton className="h-3 w-[100px]" />
+                              <Skeleton className="h-3 w-45" />
+                              <Skeleton className="h-3 w-25" />
                             </div>
                           </div>
                           <div className="flex items-center space-x-4">
                             <Skeleton className="h-8 w-8 rounded-full" />
                             <div className="space-y-2">
                               <Skeleton className="h-3 w-[150px]" />
-                              <Skeleton className="h-3 w-[120px]" />
+                              <Skeleton className="h-3 w-30" />
                             </div>
                           </div>
                           <div className="flex items-center space-x-4">
@@ -144,7 +144,7 @@ function SkeletonMicroShowcase() {
     <div className="flex justify-between items-center pt-2">
       <div className="space-y-2">
         <Skeleton className="h-4 w-[150px]" />
-        <Skeleton className="h-3 w-[100px]" />
+        <Skeleton className="h-3 w-25" />
       </div>
       <Skeleton className="h-8 w-16 rounded-md" />
     </div>
@@ -155,7 +155,7 @@ function SkeletonMicroShowcase() {
                           <div className="flex justify-between items-center pt-2">
                             <div className="space-y-2">
                               <Skeleton className="h-4 w-[150px]" />
-                              <Skeleton className="h-3 w-[100px]" />
+                              <Skeleton className="h-3 w-25" />
                             </div>
                             <Skeleton className="h-8 w-16 rounded-md" />
                           </div>

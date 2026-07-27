@@ -18,14 +18,9 @@ import {
 import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsCode,
-  DocsH3,
-  DocsLi,
-  DocsP,
-  DocsUl,
   ExampleGrid,
-  ShowcaseExample,
   Showcase,
-  ShowcaseDocs
+  ShowcaseExample
 } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 

@@ -12,7 +12,7 @@ import { cn } from "../../lib/utils";
 /**
  * @description Use to show a placeholder while content is loading.
  * @example
- * <Skeleton className="w-[100px] h-[20px] rounded-full" />
+ * <Skeleton className="w-25 h-5 rounded-full" />
  */
 const Skeleton = React.forwardRef<
   HTMLDivElement,

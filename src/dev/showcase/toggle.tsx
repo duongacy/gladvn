@@ -7,9 +7,9 @@ import {
   DocsH3,
   DocsP,
   ExampleGrid,
-  ShowcaseExample,
   Showcase,
-  ShowcaseDocs
+  ShowcaseDocs,
+  ShowcaseExample
 } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 

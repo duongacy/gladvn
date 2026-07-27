@@ -2,12 +2,12 @@ import { Separator } from "../../components/micro/separator";
 import {
   DocsCode,
   DocsH3,
+  DocsLi,
   DocsP,
   DocsUl,
-  DocsLi,
-  ShowcaseExample,
   Showcase,
-  ShowcaseDocs
+  ShowcaseDocs,
+  ShowcaseExample
 } from "../../dev/components/showcase";
 
 function SeparatorMicroShowcase() {

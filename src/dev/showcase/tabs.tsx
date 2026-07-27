@@ -8,13 +8,9 @@ import {
   TabsTrigger
 } from "../../components/micro/tabs";
 import {
-  DocsCode,
-  DocsH3,
-  DocsP,
   ExampleGrid,
-  ShowcaseExample,
   Showcase,
-  ShowcaseDocs
+  ShowcaseExample
 } from "../../dev/components/showcase";
 
 function TabsMacroShowcase() {

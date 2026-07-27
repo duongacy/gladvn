@@ -10,9 +10,9 @@ import {
 import {
   DocsCode,
   DocsP,
-  ShowcaseExample,
   Showcase,
-  ShowcaseDocs
+  ShowcaseDocs,
+  ShowcaseExample
 } from "../../dev/components/showcase";
 
 export default function ChartShowcase() {
@@ -58,7 +58,7 @@ const chartConfig = {
 
 <ChartContainer
   config={chartConfig}
-  className="min-h-[200px] w-full max-w-lg"
+  className="min-h-50 w-full max-w-lg"
 >
   <BarChart accessibilityLayer data={chartData}>
     <CartesianGrid vertical={false} />
@@ -84,7 +84,7 @@ const chartConfig = {
                       mobile: {
                         label: "Mobile",
                         color: "hsl(var(--chart-2))" } }}
-                    className="min-h-[200px] w-full max-w-lg"
+                    className="min-h-50 w-full max-w-lg"
                   >
                     <BarChart
                       accessibilityLayer

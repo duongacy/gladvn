@@ -1,11 +1,11 @@
-import React, { useState } from "react";
 import { Maximize2Icon, MonitorIcon, SmartphoneIcon, TabletIcon } from "lucide-react";
+import { useState } from "react";
 
 import { Button } from "../../components/micro/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../components/micro/tabs";
-import { SectionHeader } from "./showcase";
-import { CodeHighlighter } from "./code-highlighter";
 import { cn } from "../../lib/utils";
+import { CodeHighlighter } from "./code-highlighter";
+import { SectionHeader } from "./showcase";
 
 export function BlockViewer({
   blockId,

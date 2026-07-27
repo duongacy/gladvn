@@ -1,5 +1,5 @@
-import { BlockViewer } from "../components/BlockViewer";
 import codeString from "../../blocks/auth-split.tsx?raw";
+import { BlockViewer } from "../components/BlockViewer";
 
 export default function AuthSplitBlockShowcase() {
   return (

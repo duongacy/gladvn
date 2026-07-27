@@ -10,13 +10,9 @@ import { Field, FieldError, FieldLabel } from "../../components/micro/field";
 import { Switch, SwitchThumb } from "../../components/micro/switch";
 import { useDevContext } from "../../dev/components/dev-context";
 import {
-  DocsCode,
-  DocsH3,
-  DocsP,
   ExampleGrid,
-  ShowcaseExample,
   Showcase,
-  ShowcaseDocs
+  ShowcaseExample
 } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 

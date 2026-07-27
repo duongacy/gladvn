@@ -20,9 +20,9 @@ import {
 import {
   DocsP,
   ExampleGrid,
-  ShowcaseExample,
   Showcase,
-  ShowcaseDocs
+  ShowcaseDocs,
+  ShowcaseExample
 } from "../../dev/components/showcase";
 
 function BreadcrumbMacroShowcase() {

@@ -13,9 +13,9 @@ import {
 import {
   DocsP,
   ExampleGrid,
-  ShowcaseExample,
   Showcase,
-  ShowcaseDocs
+  ShowcaseDocs,
+  ShowcaseExample
 } from "../../dev/components/showcase";
 import { cn } from "../../lib/utils";
 
@@ -24,27 +24,27 @@ const SLIDES = [
     id: 1,
     title: "Giao diện Hiện đại",
     desc: "Crafting beautiful interfaces with tailwind.",
-    bg: "bg-gradient-to-tr from-violet-500 to-purple-500" },
+    bg: "bg-linear-to-tr from-violet-500 to-purple-500" },
   {
     id: 2,
     title: "Tương tác Mượt mà",
     desc: "Fluid animations and micro-interactions.",
-    bg: "bg-gradient-to-tr from-pink-500 to-rose-500" },
+    bg: "bg-linear-to-tr from-pink-500 to-rose-500" },
   {
     id: 3,
     title: "Dễ tuỳ chỉnh",
     desc: "Easily adapt to your brand.",
-    bg: "bg-gradient-to-tr from-blue-500 to-cyan-500" },
+    bg: "bg-linear-to-tr from-blue-500 to-cyan-500" },
   {
     id: 4,
     title: "Mặc định Accessible",
     desc: "Keyboard navigation out of the box.",
-    bg: "bg-gradient-to-tr from-emerald-500 to-teal-500" },
+    bg: "bg-linear-to-tr from-emerald-500 to-teal-500" },
   {
     id: 5,
     title: "Hỗ trợ Dark Mode",
     desc: "Looks stunning on dark and light mode.",
-    bg: "bg-gradient-to-tr from-amber-500 to-orange-500" },
+    bg: "bg-linear-to-tr from-amber-500 to-orange-500" },
 ];
 
 function ControlledCarouselDemo() {
@@ -265,7 +265,7 @@ function CarouselMacroShowcase() {
         id: "loop-1",
         content: (
           <div className="p-1 border border-border rounded-xl">
-            <div className="flex aspect-square items-center justify-center p-6 bg-gradient-to-tr from-violet-500 to-purple-500 rounded-lg text-white">
+            <div className="flex aspect-square items-center justify-center p-6 bg-linear-to-tr from-violet-500 to-purple-500 rounded-lg text-white">
               <span className="text-4xl font-semibold">
                 1
               </span>
@@ -276,7 +276,7 @@ function CarouselMacroShowcase() {
         id: "loop-2",
         content: (
           <div className="p-1 border border-border rounded-xl">
-            <div className="flex aspect-square items-center justify-center p-6 bg-gradient-to-tr from-pink-500 to-rose-500 rounded-lg text-white">
+            <div className="flex aspect-square items-center justify-center p-6 bg-linear-to-tr from-pink-500 to-rose-500 rounded-lg text-white">
               <span className="text-4xl font-semibold">
                 2
               </span>
@@ -287,7 +287,7 @@ function CarouselMacroShowcase() {
         id: "loop-3",
         content: (
           <div className="p-1 border border-border rounded-xl">
-            <div className="flex aspect-square items-center justify-center p-6 bg-gradient-to-tr from-blue-500 to-cyan-500 rounded-lg text-white">
+            <div className="flex aspect-square items-center justify-center p-6 bg-linear-to-tr from-blue-500 to-cyan-500 rounded-lg text-white">
               <span className="text-4xl font-semibold">
                 3
               </span>
@@ -306,7 +306,7 @@ function CarouselMacroShowcase() {
                                 id: "loop-1",
                                 content: (
                                   <div className="p-1 border border-border rounded-xl">
-                                    <div className="flex aspect-square items-center justify-center p-6 bg-gradient-to-tr from-violet-500 to-purple-500 rounded-lg text-white">
+                                    <div className="flex aspect-square items-center justify-center p-6 bg-linear-to-tr from-violet-500 to-purple-500 rounded-lg text-white">
                                       <span className="text-4xl font-semibold">1</span>
                                     </div>
                                   </div>
@@ -315,7 +315,7 @@ function CarouselMacroShowcase() {
                                 id: "loop-2",
                                 content: (
                                   <div className="p-1 border border-border rounded-xl">
-                                    <div className="flex aspect-square items-center justify-center p-6 bg-gradient-to-tr from-pink-500 to-rose-500 rounded-lg text-white">
+                                    <div className="flex aspect-square items-center justify-center p-6 bg-linear-to-tr from-pink-500 to-rose-500 rounded-lg text-white">
                                       <span className="text-4xl font-semibold">2</span>
                                     </div>
                                   </div>
@@ -324,7 +324,7 @@ function CarouselMacroShowcase() {
                                 id: "loop-3",
                                 content: (
                                   <div className="p-1 border border-border rounded-xl">
-                                    <div className="flex aspect-square items-center justify-center p-6 bg-gradient-to-tr from-blue-500 to-cyan-500 rounded-lg text-white">
+                                    <div className="flex aspect-square items-center justify-center p-6 bg-linear-to-tr from-blue-500 to-cyan-500 rounded-lg text-white">
                                       <span className="text-4xl font-semibold">3</span>
                                     </div>
                                   </div>
@@ -430,7 +430,7 @@ return (
         <ShowcaseExample title="Theo chiều dọc (Vertical Orientation)" description="Băng chuyền macro cuộn theo chiều dọc." code={`<CarouselPreset
     className="w-full"
     orientation="vertical"
-    contentClassName="h-[300px]"
+    contentClassName="h-75"
     itemClassName="basis-[250px]"
     items={[
       {
@@ -461,7 +461,7 @@ return (
                           <CarouselPreset
                             className="w-full"
                             orientation="vertical"
-                            contentClassName="h-[300px]"
+                            contentClassName="h-75"
                             itemClassName="basis-[250px]"
                             items={[
                               {

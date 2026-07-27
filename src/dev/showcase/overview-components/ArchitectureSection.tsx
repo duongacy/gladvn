@@ -1,4 +1,3 @@
-import React from "react";
 import { cn } from "../../../lib/utils";
 
 const ARCHITECTURE_CARDS = [
@@ -8,9 +7,9 @@ const ARCHITECTURE_CARDS = [
     title: "Macro — Khu vực an toàn",
     desc: (
       <>
-        Muốn tuỳ chỉnh? Bắt đầu từ đây nhé. Mỗi Macro là một khối độc lập — thêm footer cho DatePicker, giấu nút đóng của Dialog, v.v.{" "}
-        <strong className="text-foreground">Cứ thoải mái vọc vạch</strong>
-        , sửa cái nào thì chỉ ảnh hưởng cái đó thôi, chả lo "cháy nhà" hàng xóm.
+        Muốn tuỳ chỉnh? Bắt đầu từ đây nhé. Mỗi Macro là một khối độc lập — thêm footer cho DatePicker, giấu nút đóng của Dialog...{" "}
+        <strong className="text-foreground">Cứ thoải mái vọc</strong>
+        , sửa cái nào chỉ ảnh hưởng cái đó thôi, chả lo "cháy nhà" hàng xóm.
       </>
     ),
     colorScheme: "primary"
@@ -22,8 +21,8 @@ const ARCHITECTURE_CARDS = [
     desc: (
       <>
         Mọi thứ đều xây từ đây. Sửa cái padding của Button hay animation của Tooltip thì{" "}
-        <strong className="text-foreground">nguyên dàn app sẽ ăn theo</strong>
-        . Cân nhắc kỹ chút trước khi gõ phím nhé, "sai một ly đi một dặm" đấy!
+        <strong className="text-foreground">cả app sẽ ăn theo</strong>
+        . Cân nhắc kỹ trước khi gõ phím nhé — "sai một ly đi một dặm" đấy!
       </>
     ),
     colorScheme: "warning"
@@ -34,9 +33,9 @@ const ARCHITECTURE_CARDS = [
     title: "CSS Token — Nút bấm hạt nhân",
     desc: (
       <>
-        Nơi nắm trùm về màu sắc, font, độ bo góc. Đổi một biến ở đây là{" "}
+        Nơi quyết định màu sắc, font, độ bo góc. Đổi một biến ở đây là{" "}
         <strong className="text-foreground">giao diện lột xác toàn tập</strong>
-        . Rất đã khi cần thay áo mới (rebrand), nhưng tuyệt đối đừng dùng để vá lỗi vặt.
+        . Rất đã khi cần thay áo mới (rebrand) — nhưng đừng dùng để vá lỗi vặt.
       </>
     ),
     colorScheme: "destructive"
@@ -47,7 +46,7 @@ const ARCHITECTURE_CARDS = [
     title: "Blocks — Sân chơi tự do",
     desc: (
       <>
-        Chẳng có quy tắc nào ép bạn phải dùng 100% Micro hay Macro. Layout quen thuộc thì <strong className="text-foreground">lấy Macro ra xài cho lẹ</strong>. Gặp thiết kế dị biệt thì <strong className="text-foreground">mở Micro ra tự xếp hình</strong>. Linh hoạt lên, code sao cho bản thân thấy sướng là được!
+        Không ai ép bạn phải dùng 100% Micro hay Macro. Layout quen thuộc? <strong className="text-foreground">Lấy Macro ra xài cho lẹ.</strong> Gặp thiết kế dị biệt? <strong className="text-foreground">Mở Micro ra tự xếp hình.</strong> Code sao cho bản thân thấy sướng là được!
       </>
     ),
     colorScheme: "info"

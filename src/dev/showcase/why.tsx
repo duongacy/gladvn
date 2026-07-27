@@ -38,7 +38,7 @@ export default function WhyGladvn() {
             <span className="block text-foreground drop-shadow-sm">
               Composable React components.
             </span>
-            <span className="block mt-2 bg-gradient-to-r from-primary via-info to-primary bg-[length:200%_auto] bg-clip-text text-transparent animate-[spin_8s_linear_infinite] [animation-name:gradient]">
+            <span className="block mt-2 bg-linear-to-r from-primary via-info to-primary bg-[length:200%_auto] bg-clip-text text-transparent animate-[spin_8s_linear_infinite] [animation-name:gradient]">
               From primitive to preset — you choose.
             </span>
           </h1>

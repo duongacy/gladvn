@@ -22,9 +22,9 @@ import {
 import {
   DocsP,
   ExampleGrid,
-  ShowcaseExample,
   Showcase,
-  ShowcaseDocs
+  ShowcaseDocs,
+  ShowcaseExample
 } from "../../dev/components/showcase";
 
 function EmptyMacroShowcase() {
@@ -38,7 +38,7 @@ function EmptyMacroShowcase() {
     title="No projects yet"
     description="Create your first project to get started."
     action={<Button>New Project</Button>}
-    className="w-full min-h-[280px]"
+    className="w-full min-h-70"
   />`} preview={
                       <>
               <EmptyPreset
@@ -46,7 +46,7 @@ function EmptyMacroShowcase() {
                           title="No projects yet"
                           description="Create your first project to get started."
                           action={<Button>New Project</Button>}
-                          className="w-full min-h-[280px]"
+                          className="w-full min-h-70"
                         />
                       </>
                     } />
@@ -55,14 +55,14 @@ function EmptyMacroShowcase() {
     title="No notifications"
     description="You're all caught up. Check back later."
     action={<Button variant="outline">Refresh</Button>}
-    className="w-full min-h-[280px]"
+    className="w-full min-h-70"
   />`} preview={
                       <>
               <EmptyPreset
                           title="No notifications"
                           description="You're all caught up. Check back later."
                           action={<Button variant="outline">Refresh</Button>}
-                          className="w-full min-h-[280px]"
+                          className="w-full min-h-70"
                         />
                       </>
                     } />
@@ -75,26 +75,26 @@ function EmptyMacroShowcase() {
     }
     title="No messages"
     description="Messages from your team will appear here."
-    className="w-full min-h-[240px]"
+    className="w-full min-h-60"
   />`} preview={
                       <>
               <EmptyPreset
                           icon={<InboxIcon className="size-4 text-muted-foreground" />}
                           title="No messages"
                           description="Messages from your team will appear here."
-                          className="w-full min-h-[240px]"
+                          className="w-full min-h-60"
                         />
                       </>
                     } />
 
         <ShowcaseExample title="Tối giản (Minimal)" description="Chỉ có tiêu đề." code={`<EmptyPreset
     title="Nothing here yet"
-    className="w-full min-h-[240px]"
+    className="w-full min-h-60"
   />`} preview={
                       <>
               <EmptyPreset
                           title="Nothing here yet"
-                          className="w-full min-h-[240px]"
+                          className="w-full min-h-60"
                         />
                       </>
                     } />
@@ -113,7 +113,7 @@ function EmptyMacroShowcase() {
         <Button>Browse all</Button>
       </div>
     }
-    className="w-full min-h-[240px]"
+    className="w-full min-h-60"
   />`} preview={
                       <>
               <div className="w-full max-w-md">
@@ -127,7 +127,7 @@ function EmptyMacroShowcase() {
                                 <Button>Browse all</Button>
                               </div>
                             }
-                            className="w-full min-h-[240px]"
+                            className="w-full min-h-60"
                           />
                         </div>
                       </>
@@ -145,7 +145,7 @@ function EmptyMacroShowcase() {
       </>
     }
     action={<Button>Upload Document</Button>}
-    className="w-full min-h-[240px]"
+    className="w-full min-h-60"
   />`} preview={
                       <>
               <div className="w-full max-w-md">
@@ -159,7 +159,7 @@ function EmptyMacroShowcase() {
                               </>
                             }
                             action={<Button>Upload Document</Button>}
-                            className="w-full min-h-[240px]"
+                            className="w-full min-h-60"
                           />
                         </div>
                       </>
@@ -173,7 +173,7 @@ function EmptyMicroShowcase() {
   return (
     <div className="space-y-10">
       <ExampleGrid>
-        <ShowcaseExample title="Cơ bản (Default)" description="Trạng thái trống cơ bản với cấu trúc thủ công." code={`<Empty className="w-full min-h-[280px]">
+        <ShowcaseExample title="Cơ bản (Default)" description="Trạng thái trống cơ bản với cấu trúc thủ công." code={`<Empty className="w-full min-h-70">
     <EmptyHeader>
       <EmptyTitle>No customers found</EmptyTitle>
       <EmptyDescription>
@@ -190,7 +190,7 @@ function EmptyMicroShowcase() {
     </EmptyContent>
   </Empty>`} preview={
                       <>
-              <Empty className="w-full min-h-[280px]">
+              <Empty className="w-full min-h-70">
                           <EmptyHeader>
                             <EmptyTitle>No customers found</EmptyTitle>
                             <EmptyDescription>
@@ -209,7 +209,7 @@ function EmptyMicroShowcase() {
                       </>
                     } />
 
-        <ShowcaseExample title="Kèm Icon nền màu (Icon Variant)" description="Dùng EmptyMedia variant='icon' để hiển thị background mờ cho Icon." code={`<Empty className="w-full min-h-[280px]">
+        <ShowcaseExample title="Kèm Icon nền màu (Icon Variant)" description="Dùng EmptyMedia variant='icon' để hiển thị background mờ cho Icon." code={`<Empty className="w-full min-h-70">
     <EmptyHeader>
       <EmptyMedia variant="icon">
         <FolderOpenIcon className="size-4 text-muted-foreground" />
@@ -229,7 +229,7 @@ function EmptyMicroShowcase() {
     </EmptyContent>
   </Empty>`} preview={
                       <>
-              <Empty className="w-full min-h-[280px]">
+              <Empty className="w-full min-h-70">
                           <EmptyHeader>
                             <EmptyMedia variant="icon">
                               <FolderOpenIcon className="size-4 text-muted-foreground" />
@@ -253,7 +253,7 @@ function EmptyMicroShowcase() {
       </ExampleGrid>
 
       <ExampleGrid>
-        <ShowcaseExample title="Chỉ văn bản (Text Only)" description="Không icon, không action." code={`<Empty className="w-full min-h-[200px]">
+        <ShowcaseExample title="Chỉ văn bản (Text Only)" description="Không icon, không action." code={`<Empty className="w-full min-h-50">
     <EmptyHeader>
       <EmptyTitle>No results</EmptyTitle>
       <EmptyDescription>
@@ -262,7 +262,7 @@ function EmptyMicroShowcase() {
     </EmptyHeader>
   </Empty>`} preview={
                       <>
-              <Empty className="w-full min-h-[200px]">
+              <Empty className="w-full min-h-50">
                           <EmptyHeader>
                             <EmptyTitle>No results</EmptyTitle>
                             <EmptyDescription>
@@ -273,7 +273,7 @@ function EmptyMicroShowcase() {
                       </>
                     } />
 
-        <ShowcaseExample title="Link bên trong mô tả (Link in Description)" description="EmptyDescription tự động style thẻ <a> bên trong." code={`<Empty className="w-full min-h-[200px]">
+        <ShowcaseExample title="Link bên trong mô tả (Link in Description)" description="EmptyDescription tự động style thẻ <a> bên trong." code={`<Empty className="w-full min-h-50">
     <EmptyHeader>
       <EmptyMedia variant="icon">
         <InboxIcon className="size-4 text-muted-foreground" />
@@ -286,7 +286,7 @@ function EmptyMicroShowcase() {
     </EmptyHeader>
   </Empty>`} preview={
                       <>
-              <Empty className="w-full min-h-[200px]">
+              <Empty className="w-full min-h-50">
                           <EmptyHeader>
                             <EmptyMedia variant="icon">
                               <InboxIcon className="size-4 text-muted-foreground" />
@@ -303,7 +303,7 @@ function EmptyMicroShowcase() {
       </ExampleGrid>
 
       <ShowcaseExample title="Cấu trúc tùy chỉnh nâng cao" description="Nút xóa bộ lọc nằm tách biệt khỏi hành động chính." code={`<div className="w-full max-w-md">
-    <Empty className="w-full min-h-[240px]">
+    <Empty className="w-full min-h-60">
       <EmptyHeader>
         <EmptyMedia variant="icon">
           <SearchIcon className="size-4 text-muted-foreground" />
@@ -324,7 +324,7 @@ function EmptyMicroShowcase() {
   </div>`} preview={
                   <>
           <div className="w-full max-w-md">
-                    <Empty className="w-full min-h-[240px]">
+                    <Empty className="w-full min-h-60">
                       <EmptyHeader>
                         <EmptyMedia variant="icon">
                           <SearchIcon className="size-4 text-muted-foreground" />

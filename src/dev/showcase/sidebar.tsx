@@ -10,9 +10,9 @@ import {
 } from "../../components/micro/sidebar";
 import {
   DocsP,
-  ShowcaseExample,
   Showcase,
-  ShowcaseDocs
+  ShowcaseDocs,
+  ShowcaseExample
 } from "../../dev/components/showcase";
 
 function SidebarMicroShowcase() {
@@ -24,7 +24,7 @@ function SidebarMicroShowcase() {
       <ShowcaseExample title="Dumb Component Architecture" description="Sidebar không có transition width, sử dụng display: none để ẩn ngay lập tức, không gây hiệu ứng giật khung." code={`const { sidebarRef, toggleSidebar, defaultState } = useSidebarToggle("expanded");
 
 return (
-  <div className="flex h-[500px] w-full">
+  <div className="flex h-125 w-full">
     <Sidebar ref={sidebarRef} defaultState={defaultState} expandedWidth={300}>
       <SidebarLogo icon={<Package2Icon />} text="Acme Corp" />
       <div className="flex-1 py-2 flex flex-col gap-4">
@@ -44,7 +44,7 @@ return (
   </div>
 );`} preview={
                   <>
-          <div className="rounded-xl border border-border overflow-hidden flex h-[500px] w-full bg-background">
+          <div className="rounded-xl border border-border overflow-hidden flex h-125 w-full bg-background">
                     <Sidebar
                       ref={sidebarRef}
                       defaultState={defaultState}

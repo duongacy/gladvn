@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { LayersIcon, DatabaseIcon, ShieldCheckIcon } from "lucide-react";
+import { DatabaseIcon, LayersIcon, ShieldCheckIcon } from "lucide-react";
+import { useEffect, useState } from "react";
 
 import { ProgressPreset as Progress } from "../../../components/macro/progress-preset";
 import {
@@ -31,7 +31,7 @@ export function DashboardPreview({ className }: { className?: string }) {
       className={cn("mt-20 relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 animate-fade-up", className)}
       style={{ animationDelay: "500ms", animationFillMode: "both" }}
     >
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-20 pointer-events-none h-full w-full" />
+      <div className="absolute inset-0 bg-linear-to-t from-background via-transparent to-transparent z-20 pointer-events-none h-full w-full" />
 
       <div className="relative rounded-2xl border border-border bg-card/40 backdrop-blur-2xl shadow-2xl overflow-hidden [transform:perspective(1200px)_rotateX(5deg)] [transform-origin:top_center] hover:[transform:perspective(1200px)_rotateX(0deg)] transition-transform duration-700 ease-out">
         <div className="h-12 bg-muted/30 border-b border-b-border flex items-center px-4 gap-2">

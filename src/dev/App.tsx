@@ -1,5 +1,5 @@
+import React, { Suspense, lazy, useCallback, useEffect, useMemo, useState } from "react";
 import { cn } from "../lib/utils";
-import React, { Suspense, lazy, useCallback, useEffect, useState, useMemo } from "react";
 
 import {
   LayersIcon,
@@ -193,7 +193,7 @@ export default function App() {
     <div className="min-h-screen bg-background text-foreground">
       {/* Top nav */}
       <header className="sticky top-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-md">
-        <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between px-4 md:px-6">
+        <div className="mx-auto flex h-16 max-w-360 items-center justify-between px-4 md:px-6">
           {/* Left — Logo + version */}
           <div className="flex items-center gap-3">
             <button
@@ -328,7 +328,7 @@ export default function App() {
         </div>
       </header>
 
-      <div className="mx-auto flex max-w-[1440px] gap-0">
+      <div className="mx-auto flex max-w-360 gap-0">
         {/* Mobile Backdrop */}
         {isMobileMenuOpen && (
           <div

@@ -68,7 +68,7 @@ export default function SettingsBlock() {
                 label="Giới thiệu bản thân"
                 placeholder="Kể một chút về bro đi..."
                 defaultValue="Mình là dev chill chill."
-                className="min-h-[100px]"
+                className="min-h-25"
                 description="Có thể @mention người dùng hoặc tổ chức để tạo liên kết nha."
               />
 

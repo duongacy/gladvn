@@ -1,8 +1,7 @@
-import React, { useState } from "react";
-import { SparklesIcon, CheckIcon, CopyIcon } from "lucide-react";
-import { STATS } from "../../data";
-import { cn } from "../../../lib/utils";
+import { CheckIcon, CopyIcon, SparklesIcon } from "lucide-react";
+import { useState } from "react";
 import { Container } from "../../components/Container";
+import { STATS } from "../../data";
 
 export function PrinciplesSection({ className }: { className?: string }) {
   const [copied, setCopied] = useState(false);
@@ -16,7 +15,7 @@ export function PrinciplesSection({ className }: { className?: string }) {
   return (
     <div className={className}>
       <Container as="section" className="border-y border-y-border bg-muted/5 py-12 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent animate-[pulse_4s_ease-in-out_infinite]" />
+        <div className="absolute inset-0 bg-linear-to-r from-transparent via-primary/5 to-transparent animate-[pulse_4s_ease-in-out_infinite]" />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 divide-x-0 md:divide-x relative z-10">
           {STATS.map((s) => (
             <div
@@ -40,7 +39,7 @@ export function PrinciplesSection({ className }: { className?: string }) {
             Kiến trúc rành mạch. Sửa code không "đổ mồ hôi".
           </h2>
           <p className="text-muted-foreground text-lg">
-            Nhiều dự án thường bắt đầu "bốc mùi" sau một thời gian — đụng vào đâu cũng sợ gãy, muốn sửa mà rén. gladvn chia code thành{" "}
+            Nhiều dự án bắt đầu "bốc mùi" sau một thời gian — đụng vào đâu cũng sợ gãy, muốn sửa mà rén. gladvn chia code thành{" "}
             <strong className="text-foreground">các tầng rạch ròi</strong>
             {", "}giúp bạn luôn biết chính xác mình đang sửa cái gì, ảnh hưởng tới đâu. Tâm an, code mới nhàn!
           </p>
@@ -59,7 +58,7 @@ export function PrinciplesSection({ className }: { className?: string }) {
                 Code là của bạn, 100%
               </h3>
               <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl">
-                Chạy một lệnh — toàn bộ components, hooks, styles, contexts được
+                Chạy một lệnh — toàn bộ component, hook, style, context được
                 copy thẳng vào thư mục{" "}
                 <code className="text-sm bg-primary/20 text-primary px-1.5 py-0.5 rounded">
                   src/

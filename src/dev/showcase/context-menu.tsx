@@ -19,9 +19,9 @@ import {
 } from "../../components/micro/context-menu";
 import {
   DocsP,
-  ShowcaseExample,
   Showcase,
-  ShowcaseDocs
+  ShowcaseDocs,
+  ShowcaseExample
 } from "../../dev/components/showcase";
 
 function ContextMenuMicroShowcase() {
@@ -32,7 +32,7 @@ function ContextMenuMicroShowcase() {
   return (
     <div className="space-y-10">
       <ShowcaseExample title="Full Context Menu" description="Nhấp chuột phải vào khu vực bên dưới để mở." code={`<ContextMenu>
-    <ContextMenuTrigger className="flex h-[150px] w-full max-w-[400px] items-center justify-center rounded-md border border-border border-dashed text-sm">
+    <ContextMenuTrigger className="flex h-[150px] w-full max-w-100 items-center justify-center rounded-md border border-border border-dashed text-sm">
       Right click here
     </ContextMenuTrigger>
     
@@ -109,7 +109,7 @@ function ContextMenuMicroShowcase() {
   </ContextMenu>`} preview={
                   <>
           <ContextMenu>
-                    <ContextMenuTrigger className="flex h-[150px] w-full max-w-[400px] items-center justify-center rounded-md border border-border border-dashed text-sm">
+                    <ContextMenuTrigger className="flex h-[150px] w-full max-w-100 items-center justify-center rounded-md border border-border border-dashed text-sm">
                       Right click here
                     </ContextMenuTrigger>
 
@@ -175,7 +175,7 @@ function ContextMenuMicroShowcase() {
                 } />
 
       <ShowcaseExample title="Destructive Variant" description="Context menu với các action nguy hiểm hiển thị màu destructive." code={`<ContextMenu>
-    <ContextMenuTrigger className="flex h-[100px] w-full max-w-[300px] items-center justify-center rounded-md border border-border border-dashed text-sm">
+    <ContextMenuTrigger className="flex h-25 w-full max-w-75 items-center justify-center rounded-md border border-border border-dashed text-sm">
       Right click here
     </ContextMenuTrigger>
     
@@ -195,7 +195,7 @@ function ContextMenuMicroShowcase() {
   </ContextMenu>`} preview={
                   <>
           <ContextMenu>
-                    <ContextMenuTrigger className="flex h-[100px] w-full max-w-[300px] items-center justify-center rounded-md border border-border border-dashed text-sm">
+                    <ContextMenuTrigger className="flex h-25 w-full max-w-75 items-center justify-center rounded-md border border-border border-dashed text-sm">
                       Right click here
                     </ContextMenuTrigger>
 

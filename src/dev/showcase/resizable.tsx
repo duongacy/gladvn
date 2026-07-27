@@ -7,9 +7,9 @@ import {
   DocsCode,
   DocsP,
   ExampleGrid,
-  ShowcaseExample,
   Showcase,
-  ShowcaseDocs
+  ShowcaseDocs,
+  ShowcaseExample
 } from "../../dev/components/showcase";
 
 function ResizableMicroShowcase() {
@@ -20,7 +20,7 @@ function ResizableMicroShowcase() {
     className="max-w-md rounded-xl border border-border bg-card"
   >
     <ResizablePanel defaultSize={50}>
-      <div className="flex h-[200px] items-center justify-center p-6">
+      <div className="flex h-50 items-center justify-center p-6">
         <span className="font-semibold text-sm">
           Sidebar
         </span>
@@ -41,7 +41,7 @@ function ResizableMicroShowcase() {
                     className="max-w-md rounded-xl border border-border bg-card"
                   >
                     <ResizablePanel defaultSize={50}>
-                      <div className="flex h-[200px] items-center justify-center p-6">
+                      <div className="flex h-50 items-center justify-center p-6">
                         <span className="font-semibold text-sm">Thanh bên (Sidebar)</span>
                       </div>
                     </ResizablePanel>
@@ -60,13 +60,13 @@ function ResizableMicroShowcase() {
     className="max-w-md rounded-xl border border-border bg-card"
   >
     <ResizablePanel defaultSize={50}>
-      <div className="flex h-[120px] items-center justify-center p-6">
+      <div className="flex h-30 items-center justify-center p-6">
         <span className="font-semibold text-sm">Trên</span>
       </div>
     </ResizablePanel>
     <ResizableHandle withHandle />
     <ResizablePanel defaultSize={50}>
-      <div className="flex h-[120px] items-center justify-center p-6">
+      <div className="flex h-30 items-center justify-center p-6">
         <span className="font-semibold text-sm">
           Bottom
         </span>
@@ -79,13 +79,13 @@ function ResizableMicroShowcase() {
                     className="max-w-md rounded-xl border border-border bg-card"
                   >
                     <ResizablePanel defaultSize={50}>
-                      <div className="flex h-[120px] items-center justify-center p-6">
+                      <div className="flex h-30 items-center justify-center p-6">
                         <span className="font-semibold text-sm">Trên</span>
                       </div>
                     </ResizablePanel>
                     <ResizableHandle withHandle />
                     <ResizablePanel defaultSize={50}>
-                      <div className="flex h-[120px] items-center justify-center p-6">
+                      <div className="flex h-30 items-center justify-center p-6">
                         <span className="font-semibold text-sm">Dưới</span>
                       </div>
                     </ResizablePanel>
@@ -101,7 +101,7 @@ function ResizableMicroShowcase() {
                           className="rounded-xl border border-border bg-card"
                         >
                           <ResizablePanel defaultSize={50}>
-                            <div className="flex h-[120px] items-center justify-center p-4">
+                            <div className="flex h-30 items-center justify-center p-4">
                               <span className="text-sm font-medium">Bảng A</span>
                             </div>
                           </ResizablePanel>
@@ -122,7 +122,7 @@ function ResizableMicroShowcase() {
                           className="rounded-xl border border-border bg-card"
                         >
                           <ResizablePanel defaultSize={50}>
-                            <div className="flex h-[120px] items-center justify-center p-4">
+                            <div className="flex h-30 items-center justify-center p-4">
                               <span className="text-sm font-medium">Bảng A</span>
                             </div>
                           </ResizablePanel>

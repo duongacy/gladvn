@@ -9,11 +9,11 @@ export function HeroSection({ className }: { className?: string }) {
 
       <div className="absolute top-0 inset-x-0 flex justify-center -z-10 pointer-events-none opacity-50 dark:opacity-40 blur-[100px]">
         <div
-          className="w-[30rem] h-[20rem] bg-primary/40 rounded-full mix-blend-multiply animate-pulse"
+          className="w-120 h-80 bg-primary/40 rounded-full mix-blend-multiply animate-pulse"
           style={{ animationDuration: "8s" }}
         />
         <div
-          className="w-[20rem] h-[15rem] bg-info/30 rounded-full mix-blend-multiply animate-pulse absolute top-10"
+          className="w-80 h-60 bg-info/30 rounded-full mix-blend-multiply animate-pulse absolute top-10"
           style={{ animationDuration: "10s" }}
         />
       </div>
@@ -22,7 +22,7 @@ export function HeroSection({ className }: { className?: string }) {
         <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-8 text-sm font-medium rounded-full border border-primary/20 bg-background/50 backdrop-blur-md shadow-sm animate-fade-up">
           <CodeIcon className="w-3.5 h-3.5 text-primary" />
           <span className="text-muted-foreground">
-            Copy mã · Tuỳ biến tự do · Không lock-in
+            Copy code · Tuỳ biến tự do · Không lock-in
           </span>
         </div>
 
@@ -33,7 +33,7 @@ export function HeroSection({ className }: { className?: string }) {
           <span className="block text-foreground drop-shadow-sm">
             Tinh tế. Đẳng cấp.
           </span>
-          <span className="block mt-2 bg-gradient-to-r leading-[1.2] from-primary via-info to-primary bg-[length:200%_auto] bg-clip-text text-transparent animate-[spin_8s_linear_infinite] [animation-name:gradient] [animation-duration:8s] [animation-timing-function:linear] [animation-iteration-count:infinite]">
+          <span className="block mt-2 bg-linear-to-r leading-[1.2] from-primary via-info to-primary bg-[length:200%_auto] bg-clip-text text-transparent animate-[spin_8s_linear_infinite] [animation-name:gradient] [animation-duration:8s] [animation-timing-function:linear] [animation-iteration-count:infinite]">
             Không giới hạn.
           </span>
         </h1>
@@ -57,7 +57,7 @@ export function HeroSection({ className }: { className?: string }) {
           className="max-w-2xl text-lg md:text-xl font-medium text-foreground/90 italic mt-2 p-5 border-l-4 border-primary bg-primary/5 rounded-r-xl shadow-sm animate-fade-up"
           style={{ animationDelay: "300ms", animationFillMode: "both" }}
         >
-          "Thư viện này sinh ra để giúp bạn code nhanh hơn, sống nhàn hơn, đừng tự làm khó mình."
+          "Thư viện này sinh ra để giúp bạn code nhanh hơn, sống nhàn hơn — đừng tự làm khó mình."
         </div>
       </Container>
     </section>

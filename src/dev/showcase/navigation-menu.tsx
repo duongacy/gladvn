@@ -13,9 +13,9 @@ import {
 } from "../../components/micro/navigation-menu";
 import {
   DocsP,
-  ShowcaseExample,
   Showcase,
-  ShowcaseDocs
+  ShowcaseDocs,
+  ShowcaseExample
 } from "../../dev/components/showcase";
 import { cn } from "../../lib/utils";
 
@@ -57,12 +57,12 @@ function NavigationMenuMicroShowcase() {
           Getting started
         </NavigationMenuTrigger>
         <NavigationMenuContent>
-          <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+          <ul className="grid gap-3 p-4 md:w-100 lg:w-125 lg:grid-cols-[.75fr_1fr]">
             <li className="row-span-3">
               <NavigationMenuLink
                 render={
                   <a
-                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-linear-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                     href="/"
                   />
                 }
@@ -101,7 +101,7 @@ function NavigationMenuMicroShowcase() {
           Components
         </NavigationMenuTrigger>
         <NavigationMenuContent>
-          <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+          <ul className="grid w-100 gap-3 p-4 md:w-125 md:grid-cols-2 lg:w-150 ">
             <ListItem
               title="Hộp thoại Cảnh báo"
               href="/docs/primitives/alert-dialog"
@@ -152,12 +152,12 @@ function NavigationMenuMicroShowcase() {
                         <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
 
                         <NavigationMenuContent>
-                          <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                          <ul className="grid gap-3 p-4 md:w-100 lg:w-125 lg:grid-cols-[.75fr_1fr]">
                             <li className="row-span-3">
                               <NavigationMenuLink
                                 render={
                                   <a
-                                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-linear-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                                     href="/"
                                   />
                                 }
@@ -190,7 +190,7 @@ function NavigationMenuMicroShowcase() {
                         <NavigationMenuTrigger>Thành phần</NavigationMenuTrigger>
 
                         <NavigationMenuContent>
-                          <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                          <ul className="grid w-100 gap-3 p-4 md:w-125 md:grid-cols-2 lg:w-150 ">
                             <ListItem
                               title="Hộp thoại Cảnh báo"
                               href="/docs/primitives/alert-dialog"
@@ -241,7 +241,7 @@ function NavigationMenuMicroShowcase() {
           Disabled Trigger
         </NavigationMenuTrigger>
         <NavigationMenuContent>
-          <div className="p-4 w-[200px]">
+          <div className="p-4 w-50">
             Content will not be visible
           </div>
         </NavigationMenuContent>
@@ -260,7 +260,7 @@ function NavigationMenuMicroShowcase() {
                         </NavigationMenuTrigger>
 
                         <NavigationMenuContent>
-                          <div className="p-4 w-[200px]">Content will not be visible</div>
+                          <div className="p-4 w-50">Content will not be visible</div>
                         </NavigationMenuContent>
                       </NavigationMenuItem>
                     </NavigationMenuList>

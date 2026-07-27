@@ -23,9 +23,9 @@ import {
   DocsH3,
   DocsP,
   ExampleGrid,
-  ShowcaseExample,
   Showcase,
-  ShowcaseDocs
+  ShowcaseDocs,
+  ShowcaseExample
 } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 import { cn } from "../../lib/utils";
@@ -199,7 +199,7 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
     trigger={<Button variant="outline">View Report</Button>}
     footer={<Button>Download PDF</Button>}
   >
-    <div className="h-[200px] flex items-center justify-center rounded-md border border-border border-dashed bg-muted/20">
+    <div className="h-50 flex items-center justify-center rounded-md border border-border border-dashed bg-muted/20">
       <span className="text-muted-foreground text-sm">
         Large Content Area
       </span>
@@ -217,7 +217,7 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
                           }
                           footer={<Button size={globalSize}>Download PDF</Button>}
                         >
-                          <div className="h-[200px] flex items-center justify-center rounded-md border border-border border-dashed bg-muted/20">
+                          <div className="h-50 flex items-center justify-center rounded-md border border-border border-dashed bg-muted/20">
                             <span className="text-muted-foreground text-sm">
                               Large Content Area
                             </span>
@@ -314,7 +314,7 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
       </div>
     }
   >
-    <div className="flex h-[800px] flex-col items-center justify-between rounded-md border border-border border-dashed bg-muted/20 py-8">
+    <div className="flex h-200 flex-col items-center justify-between rounded-md border border-border border-dashed bg-muted/20 py-8">
       <span className="text-sm font-medium text-muted-foreground">
         START OF CONTENT
       </span>
@@ -350,7 +350,7 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
                             </div>
                           }
                         >
-                          <div className="flex h-[800px] flex-col items-center justify-between rounded-md border border-border border-dashed bg-muted/20 py-8">
+                          <div className="flex h-200 flex-col items-center justify-between rounded-md border border-border border-dashed bg-muted/20 py-8">
                             <span className="text-sm font-medium text-muted-foreground">
                               START OF CONTENT
                             </span>
@@ -671,7 +671,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
             Phân tích hàng tháng và tổng quan hiệu suất.
           </DialogDescription>
         </DialogHeader>
-        <div className="flex h-[200px] items-center justify-center rounded-md border border-border border-dashed bg-muted/20">
+        <div className="flex h-50 items-center justify-center rounded-md border border-border border-dashed bg-muted/20">
           <span className="text-sm text-muted-foreground">
             Large Content Area
           </span>
@@ -712,7 +712,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                                   Phân tích hàng tháng và tổng quan hiệu suất.
                                 </DialogDescription>
                               </DialogHeader>
-                              <div className="flex h-[200px] items-center justify-center rounded-md border border-border border-dashed bg-muted/20">
+                              <div className="flex h-50 items-center justify-center rounded-md border border-border border-dashed bg-muted/20">
                                 <span className="text-sm text-muted-foreground">
                                   Large Content Area
                                 </span>
@@ -873,7 +873,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
           </DialogDescription>
         </DialogHeader>
         <div className="flex-1 min-h-0 overflow-y-auto p-4">
-          <div className="flex h-[800px] flex-col items-center justify-between rounded-md border border-border border-dashed bg-muted/20 py-8">
+          <div className="flex h-200 flex-col items-center justify-between rounded-md border border-border border-dashed bg-muted/20 py-8">
             <span className="text-sm font-medium text-muted-foreground">
               START OF CONTENT
             </span>
@@ -933,7 +933,7 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                                 </DialogDescription>
                               </DialogHeader>
                               <div className="flex-1 min-h-0 overflow-y-auto p-4">
-                                <div className="flex h-[800px] flex-col items-center justify-between rounded-md border border-border border-dashed bg-muted/20 py-8">
+                                <div className="flex h-200 flex-col items-center justify-between rounded-md border border-border border-dashed bg-muted/20 py-8">
                                   <span className="text-sm font-medium text-muted-foreground">
                                     START OF CONTENT
                                   </span>

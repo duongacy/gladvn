@@ -131,7 +131,7 @@ export default function DisplaySection() {
           </p>
         </div>
         <div className="p-6 overflow-x-auto">
-          <table className="w-full min-w-[600px] text-left border-collapse">
+          <table className="w-full min-w-150 text-left border-collapse">
             <thead>
               <tr>
                 <th className="pb-4 font-medium text-muted-foreground text-sm">

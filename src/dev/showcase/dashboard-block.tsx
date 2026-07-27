@@ -1,6 +1,6 @@
-import { BlockViewer } from "../components/BlockViewer";
-import codeString from "../../blocks/dashboard.tsx?raw";
 import { InfoIcon } from "lucide-react";
+import codeString from "../../blocks/dashboard.tsx?raw";
+import { BlockViewer } from "../components/BlockViewer";
 
 export default function DashboardBlockShowcase() {
   return (

@@ -1,12 +1,11 @@
-import React, { useState } from "react";
 import { ArrowRightIcon, CheckIcon, CopyIcon } from "lucide-react";
-import { Button } from "../../../components/micro/button";
+import { useState } from "react";
 import {
   Avatar,
   AvatarFallback,
   AvatarImage
 } from "../../../components/micro/avatar";
-import { cn } from "../../../lib/utils";
+import { Button } from "../../../components/micro/button";
 import { Container } from "../../components/Container";
 
 export function FooterCTA({ className }: { className?: string }) {
@@ -82,7 +81,7 @@ export function FooterCTA({ className }: { className?: string }) {
 
       {/* 🚀 FINAL CTA */}
       <Container as="section">
-        <div className="rounded-[2.5rem] border-2 border-primary/40 bg-gradient-to-br from-primary/10 via-background to-info/5 p-10 md:p-16 shadow-2xl shadow-primary/5 text-center relative overflow-hidden">
+        <div className="rounded-[2.5rem] border-2 border-primary/40 bg-linear-to-br from-primary/10 via-background to-info/5 p-10 md:p-16 shadow-2xl shadow-primary/5 text-center relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_0%,rgba(var(--primary-rgb),0.15),transparent)] pointer-events-none" />
           <div className="relative z-10 space-y-6 max-w-2xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight">
@@ -93,7 +92,7 @@ export function FooterCTA({ className }: { className?: string }) {
               <code className="text-sm bg-primary/20 text-primary px-1.5 py-0.5 rounded">
                 src/
               </code>{" "}
-              rồi xài thôi. Không config rườm rà nhức đầu làm gì.
+              rồi xài thôi. Không config rườm rà, nhức đầu làm gì.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
               <button
@@ -127,7 +126,7 @@ export function FooterCTA({ className }: { className?: string }) {
               </Button>
             </div>
             <p className="text-xs text-muted-foreground pt-2">
-              Tương thích với npm, yarn, pnpm và bun. Hỗ trợ React 18+.
+              Tương thích npm, yarn, pnpm và bun. Hỗ trợ React 18+.
             </p>
           </div>
         </div>

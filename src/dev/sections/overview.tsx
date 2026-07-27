@@ -56,7 +56,7 @@ export default function OverviewSection() {
           className="md:col-span-2 row-span-2 relative overflow-hidden rounded-2xl border border-border bg-card/40 p-6 md:p-8 shadow-sm transition-all hover:shadow-md hover:bg-card/60 group opacity-0 animate-fade-up"
           style={{ animationDelay: "0ms" }}
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-50 group-hover:opacity-70 transition-opacity duration-500" />
+          <div className="absolute inset-0 bg-linear-to-br from-primary/10 via-transparent to-transparent opacity-50 group-hover:opacity-70 transition-opacity duration-500" />
           <div
             className="absolute inset-0 opacity-[0.03] group-hover:opacity-[0.05] transition-opacity duration-500"
             style={{
@@ -73,16 +73,16 @@ export default function OverviewSection() {
               <h2 className="text-3xl font-bold tracking-tight mb-2">
                 Crafted for Perfection
               </h2>
-              <p className="text-muted-foreground max-w-[400px]">
+              <p className="text-muted-foreground max-w-100">
                 A premium collection of components designed for modern,
                 highly-interactive web applications. Focus on building your
                 product, we handle the pixels.
               </p>
             </div>
 
-            <div className="relative h-[240px] mt-8 w-full">
+            <div className="relative h-60 mt-8 w-full">
               <div className="absolute top-0 right-4 lg:right-12 hover:-translate-y-1 transition-transform duration-300 animate-float-slow">
-                <Card className="w-[220px] shadow-xl bg-background/80 backdrop-blur-md border-primary/20">
+                <Card className="w-55 shadow-xl bg-background/80 backdrop-blur-md border-primary/20">
                   <CardHeader className="p-4 pb-2">
                     <CardTitle className="text-sm font-medium flex items-center gap-2">
                       <div className="size-2 rounded-full bg-success animate-pulse" />
@@ -99,7 +99,7 @@ export default function OverviewSection() {
               </div>
 
               <div className="absolute bottom-4 left-0 hover:-translate-y-1 transition-transform duration-300 animate-float-fast">
-                <div className="flex flex-col gap-3 p-4 rounded-xl border border-border bg-card/50 backdrop-blur-md shadow-lg w-[260px]">
+                <div className="flex flex-col gap-3 p-4 rounded-xl border border-border bg-card/50 backdrop-blur-md shadow-lg w-65">
                   <div className="flex items-center justify-between">
                     <Label className="text-sm font-medium">Dark Mode</Label>
                     <Switch defaultChecked />

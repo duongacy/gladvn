@@ -3,6 +3,20 @@
   <p align="center">
     <strong>Composable React components. From primitive to preset — you choose.</strong>
   </p>
+
+  <br />
+
+  <table align="center">
+    <tr>
+      <td align="center">
+        <h3>⚠️ IMPORTANT: Installation via NPX is required (Do not use <code>npm install</code>)</h3>
+        <code>npx gladvn init</code>
+      </td>
+    </tr>
+  </table>
+
+  <br />
+
   <p align="center">
     <a href="https://github.com/duongacy/gladvn/actions"><img src="https://img.shields.io/github/actions/workflow/status/duongacy/gladvn/ci.yml?branch=main" alt="Build Status"></a>
     <a href="https://github.com/duongacy/gladvn/stargazers"><img src="https://img.shields.io/github/stars/duongacy/gladvn" alt="GitHub Stars"></a>

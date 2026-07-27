@@ -43,21 +43,30 @@ export default function WhyGladvn() {
             </span>
           </h1>
 
-          <p className="max-w-2xl text-lg md:text-xl text-muted-foreground leading-relaxed mb-10">
+          <p className="max-w-2xl text-lg md:text-xl text-muted-foreground leading-relaxed mb-6">
             A CLI to scaffold beautiful, accessible React components. Built on Base UI + Tailwind CSS v4.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center gap-4">
+          <div 
+            className="flex flex-col lg:flex-row items-center gap-4 p-2 lg:pr-6 mb-10 text-sm md:text-base font-bold rounded-[2rem] border-2 border-warning/40 bg-warning/10 text-warning-foreground shadow-sm max-w-fit mx-auto"
+          >
             <button
               onClick={handleCopy}
-              className="bg-background/80 hover:bg-background border-border backdrop-blur-md px-6 py-4 rounded-2xl border hover:border-primary/50 transition-colors font-mono text-sm shadow-inner flex items-center gap-4 cursor-pointer group/copy"
+              className="bg-background/90 hover:bg-background border-border backdrop-blur-md px-6 py-4 rounded-[1.5rem] border hover:border-warning/50 transition-colors font-mono text-sm shadow-inner flex items-center gap-4 cursor-pointer group/copy"
             >
-              <span className="text-primary font-bold">~</span>
-              <span>npx gladvn init</span>
-              <div className="ml-4 text-muted-foreground group-hover/copy:text-primary transition-colors">
+              <span className="text-warning font-bold">~</span>
+              <span className="text-foreground">npx gladvn init</span>
+              <div className="ml-4 text-muted-foreground group-hover/copy:text-warning transition-colors">
                 {copied ? <CheckIcon className="size-4 text-success" /> : <CopyIcon className="size-4" />}
               </div>
             </button>
+            <div className="flex items-center gap-2 px-2 pb-2 lg:pb-0 text-center">
+              <span className="text-xl">⚠️</span> 
+              <span>IMPORTANT: NPX is required (Do not use npm install)</span>
+            </div>
+          </div>
+
+          <div className="flex justify-center">
             <Button
               size="lg"
               className="h-14 px-8 rounded-2xl text-base"

@@ -9,7 +9,7 @@
   <table align="center">
     <tr>
       <td align="center">
-        <h3>⚠️ IMPORTANT: Installation via NPX is required (Do not use <code>npm install</code>)</h3>
+        <h3><font color="red">⚠️ IMPORTANT: Installation via NPX is required (Do not use <code>npm install</code>)</font></h3>
         <code>npx gladvn init</code>
       </td>
     </tr>

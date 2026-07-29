@@ -6,16 +6,16 @@ import {
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-
   NavigationMenuPositioner,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle
+  navigationMenuTriggerStyle,
 } from "../../components/micro/navigation-menu";
+import { useI18n } from "../../dev/components/dev-context";
 import {
   DocsP,
   Showcase,
   ShowcaseDocs,
-  ShowcaseExample
+  ShowcaseExample,
 } from "../../dev/components/showcase";
 import { cn } from "../../lib/utils";
 
@@ -48,9 +48,16 @@ const ListItem = React.forwardRef<
 ListItem.displayName = "ListItem";
 
 function NavigationMenuMicroShowcase() {
+  const t = useI18n();
   return (
     <div className="space-y-10">
-      <ShowcaseExample title="Mặc định" description="Điều hướng đa cấp với bảng thả xuống." code={`<NavigationMenu>
+      <ShowcaseExample
+        title={t("Mặc định", "Default")}
+        description={t(
+          "Điều hướng đa cấp với bảng thả xuống.",
+          "Multi-level navigation with a dropdown panel.",
+        )}
+        code={`<NavigationMenu>
     <NavigationMenuList>
       <NavigationMenuItem>
         <NavigationMenuTrigger>
@@ -76,20 +83,20 @@ function NavigationMenuMicroShowcase() {
                 </p>
               </NavigationMenuLink>
             </li>
-            <ListItem href="/docs" title="Giới thiệu">
+            <ListItem href="/docs" title="Introduction">
               Re-usable components built using Radix UI and
               Tailwind CSS.
             </ListItem>
             <ListItem
               href="/docs/installation"
-              title="Cài đặt"
+              title="Installation"
             >
               How to install dependencies and structure your
               app.
             </ListItem>
             <ListItem
               href="/docs/primitives/typography"
-              title="Kiểu chữ"
+              title="Typography"
             >
               Styles for headings, paragraphs, lists...etc
             </ListItem>
@@ -103,28 +110,28 @@ function NavigationMenuMicroShowcase() {
         <NavigationMenuContent>
           <ul className="grid w-100 gap-3 p-4 md:w-125 md:grid-cols-2 lg:w-150 ">
             <ListItem
-              title="Hộp thoại Cảnh báo"
+              title="Alert Dialog"
               href="/docs/primitives/alert-dialog"
             >
               A modal dialog that interrupts the user with
               important content and expects a response.
             </ListItem>
             <ListItem
-              title="Thẻ Hover"
+              title="Hover Card"
               href="/docs/primitives/hover-card"
             >
               For sighted users to preview content available
               behind a link.
             </ListItem>
             <ListItem
-              title="Tiến trình"
+              title="Progress"
               href="/docs/primitives/progress"
             >
               Displays an indicator showing the completion
               progress of a task.
             </ListItem>
             <ListItem
-              title="Khu vực Cuộn"
+              title="Scroll Area"
               href="/docs/primitives/scroll-area"
             >
               Visually or semantically separates content.
@@ -144,97 +151,108 @@ function NavigationMenuMicroShowcase() {
     
       <NavigationMenuPositioner />
     
-  </NavigationMenu>`} preview={
-                  <>
-          <NavigationMenu>
-                    <NavigationMenuList>
-                      <NavigationMenuItem>
-                        <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
+  </NavigationMenu>`}
+        preview={
+          <>
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
 
-                        <NavigationMenuContent>
-                          <ul className="grid gap-3 p-4 md:w-100 lg:w-125 lg:grid-cols-[.75fr_1fr]">
-                            <li className="row-span-3">
-                              <NavigationMenuLink
-                                render={
-                                  <a
-                                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-linear-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                                    href="/"
-                                  />
-                                }
-                              >
-                                <div className="mb-2 mt-4 text-lg font-medium">
-                                  gladvn/ui
-                                </div>
-                                <p className="text-sm leading-tight text-muted-foreground">
-                                  Beautifully designed components built with Radix UI and
-                                  Tailwind CSS.
-                                </p>
-                              </NavigationMenuLink>
-                            </li>
-                            <ListItem href="/docs" title="Giới thiệu">
-                              Re-usable components built using Radix UI and Tailwind CSS.
-                            </ListItem>
-                            <ListItem href="/docs/installation" title="Cài đặt">
-                              How to install dependencies and structure your app.
-                            </ListItem>
-                            <ListItem
-                              href="/docs/primitives/typography"
-                              title="Kiểu chữ"
-                            >
-                              Styles for headings, paragraphs, lists...etc
-                            </ListItem>
-                          </ul>
-                        </NavigationMenuContent>
-                      </NavigationMenuItem>
-                      <NavigationMenuItem>
-                        <NavigationMenuTrigger>Thành phần</NavigationMenuTrigger>
-
-                        <NavigationMenuContent>
-                          <ul className="grid w-100 gap-3 p-4 md:w-125 md:grid-cols-2 lg:w-150 ">
-                            <ListItem
-                              title="Hộp thoại Cảnh báo"
-                              href="/docs/primitives/alert-dialog"
-                            >
-                              A modal dialog that interrupts the user with important
-                              content and expects a response.
-                            </ListItem>
-                            <ListItem
-                              title="Thẻ Hover"
-                              href="/docs/primitives/hover-card"
-                            >
-                              For sighted users to preview content available behind a
-                              link.
-                            </ListItem>
-                            <ListItem title="Tiến trình" href="/docs/primitives/progress">
-                              Displays an indicator showing the completion progress of a
-                              task.
-                            </ListItem>
-                            <ListItem
-                              title="Khu vực Cuộn"
-                              href="/docs/primitives/scroll-area"
-                            >
-                              Visually or semantically separates content.
-                            </ListItem>
-                          </ul>
-                        </NavigationMenuContent>
-                      </NavigationMenuItem>
-                      <NavigationMenuItem>
+                  <NavigationMenuContent>
+                    <ul className="grid gap-3 p-4 md:w-100 lg:w-125 lg:grid-cols-[.75fr_1fr]">
+                      <li className="row-span-3">
                         <NavigationMenuLink
-                          href="/docs"
-                          className={navigationMenuTriggerStyle()}
+                          render={
+                            <a
+                              className="flex h-full w-full select-none flex-col justify-end rounded-md bg-linear-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                              href="/"
+                            />
+                          }
                         >
-                          Documentation
+                          <div className="mb-2 mt-4 text-lg font-medium">
+                            gladvn/ui
+                          </div>
+                          <p className="text-sm leading-tight text-muted-foreground">
+                            Beautifully designed components built with Radix UI
+                            and Tailwind CSS.
+                          </p>
                         </NavigationMenuLink>
-                      </NavigationMenuItem>
-                    </NavigationMenuList>
-                    
-                      <NavigationMenuPositioner />
-                    
-                  </NavigationMenu>
-                  </>
-                } />
+                      </li>
+                      <ListItem href="/docs" title="Introduction">
+                        Re-usable components built using Radix UI and Tailwind
+                        CSS.
+                      </ListItem>
+                      <ListItem href="/docs/installation" title="Installation">
+                        How to install dependencies and structure your app.
+                      </ListItem>
+                      <ListItem
+                        href="/docs/primitives/typography"
+                        title="Typography"
+                      >
+                        Styles for headings, paragraphs, lists...etc
+                      </ListItem>
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger>Components</NavigationMenuTrigger>
 
-      <ShowcaseExample title="Disabled State" description="Menu trigger ở trạng thái vô hiệu hóa." code={`<NavigationMenu>
+                  <NavigationMenuContent>
+                    <ul className="grid w-100 gap-3 p-4 md:w-125 md:grid-cols-2 lg:w-150 ">
+                      <ListItem
+                        title="Alert Dialog"
+                        href="/docs/primitives/alert-dialog"
+                      >
+                        A modal dialog that interrupts the user with important
+                        content and expects a response.
+                      </ListItem>
+                      <ListItem
+                        title="Hover Card"
+                        href="/docs/primitives/hover-card"
+                      >
+                        For sighted users to preview content available behind a
+                        link.
+                      </ListItem>
+                      <ListItem
+                        title="Progress"
+                        href="/docs/primitives/progress"
+                      >
+                        Displays an indicator showing the completion progress of
+                        a task.
+                      </ListItem>
+                      <ListItem
+                        title="Scroll Area"
+                        href="/docs/primitives/scroll-area"
+                      >
+                        Visually or semantically separates content.
+                      </ListItem>
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuLink
+                    href="/docs"
+                    className={navigationMenuTriggerStyle()}
+                  >
+                    Documentation
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+
+              <NavigationMenuPositioner />
+            </NavigationMenu>
+          </>
+        }
+      />
+
+      <ShowcaseExample
+        title={t("Trạng thái vô hiệu hóa (Disabled State)", "Disabled State")}
+        description={t(
+          "Menu trigger ở trạng thái vô hiệu hóa.",
+          "Menu trigger in a disabled state.",
+        )}
+        code={`<NavigationMenu>
     <NavigationMenuList>
       <NavigationMenuItem>
         <NavigationMenuTrigger disabled>
@@ -250,41 +268,55 @@ function NavigationMenuMicroShowcase() {
     
       <NavigationMenuPositioner />
     
-  </NavigationMenu>`} preview={
-                  <>
-          <NavigationMenu>
-                    <NavigationMenuList>
-                      <NavigationMenuItem>
-                        <NavigationMenuTrigger disabled>
-                          Disabled Trigger
-                        </NavigationMenuTrigger>
+  </NavigationMenu>`}
+        preview={
+          <>
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger disabled>
+                    Disabled Trigger
+                  </NavigationMenuTrigger>
 
-                        <NavigationMenuContent>
-                          <div className="p-4 w-50">Content will not be visible</div>
-                        </NavigationMenuContent>
-                      </NavigationMenuItem>
-                    </NavigationMenuList>
-                    
-                      <NavigationMenuPositioner />
-                    
-                  </NavigationMenu>
-                  </>
-                } />
+                  <NavigationMenuContent>
+                    <div className="p-4 w-50">Content will not be visible</div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+
+              <NavigationMenuPositioner />
+            </NavigationMenu>
+          </>
+        }
+      />
     </div>
   );
 }
 
 export default function NavigationMenuShowcase() {
+  const t = useI18n();
   return (
     <Showcase
       title="Navigation Menu"
-      description="Thanh điều hướng đa cấp với panel thả xuống — dùng cho header navigation."
+      description={t(
+        "Thanh điều hướng đa cấp với panel thả xuống — dùng cho header navigation.",
+        "Multi-level navigation bar with dropdown panels — used for header navigation.",
+      )}
       guideline={
         <ShowcaseDocs>
           <DocsP>
-            Navigation Menu là một hệ thống điều hướng chính (thường nằm ở
-            header) cho phép người dùng khám phá trang web thông qua các danh
-            sách mục và bảng thả xuống mượt mà.
+            {t(
+              <>
+                Navigation Menu là một hệ thống điều hướng chính (thường nằm ở
+                header) cho phép người dùng khám phá trang web thông qua các
+                danh sách mục và bảng thả xuống mượt mà.
+              </>,
+              <>
+                Navigation Menu is a main navigation system (usually located in
+                the header) that allows users to explore the website through
+                lists of items and smooth dropdown panels.
+              </>,
+            )}
           </DocsP>
         </ShowcaseDocs>
       }

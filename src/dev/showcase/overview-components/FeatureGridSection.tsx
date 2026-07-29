@@ -14,9 +14,11 @@ import {
   SparklesIcon
 } from "lucide-react";
 import { Button } from "../../../components/micro/button";
+import { useI18n } from "../../components/dev-context";
 import { CodeBlock } from "./CodeBlock";
 
 export function FeatureGridSection({ className }: { className?: string }) {
+  const t = useI18n();
   return (
     <div className={className}>
       <div className="columns-1 md:columns-2 gap-6">
@@ -27,29 +29,39 @@ export function FeatureGridSection({ className }: { className?: string }) {
           </div>
           <div className="relative z-10 space-y-4 mb-10">
             <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">
-              Luật chơi Micro/Macro
+              {t("Luật chơi Micro/Macro", "The Micro/Macro rules")}
             </h3>
             <p className="text-muted-foreground max-w-lg text-lg leading-relaxed">
-              Micro chỉ là những mảnh Lego thuần túy — đẹp nhưng vô tri. Macro mới là người chỉ huy — sắp xếp các mảnh Lego thành giao diện hoàn chỉnh.
-              <strong className="text-foreground block mt-2">
-                Micro không bao giờ được phép tự tiện lo chuyện layout (margin, width). Việc đó là của Macro!
-              </strong>
+              {t(
+                <>
+                  Micro chỉ là những mảnh Lego thuần túy — đẹp nhưng vô tri. Macro mới là người chỉ huy — sắp xếp các mảnh Lego thành giao diện hoàn chỉnh.
+                  <strong className="text-foreground block mt-2">
+                    Micro không bao giờ được phép tự tiện lo chuyện layout (margin, width). Việc đó là của Macro!
+                  </strong>
+                </>,
+                <>
+                  Micro components are just pure Lego pieces — beautiful but dumb. Macros are the commanders — assembling Lego pieces into complete interfaces.
+                  <strong className="text-foreground block mt-2">
+                    Micro components are never allowed to handle layout (margin, width) on their own. That's the Macro's job!
+                  </strong>
+                </>
+              )}
             </p>
           </div>
           <div className="relative z-10 mt-auto pt-6 space-y-3">
-            <CodeBlock type="success" title="Đúng — Để Macro lo layout:">
+            <CodeBlock type="success" title={t("Đúng — Để Macro lo layout:", "Correct — Let Macro handle the layout:")}>
               <span className="text-success/80">
-                {"/* Macro biết con mình là gì → gắn class chính xác */"}
+                {t("/* Macro biết con mình là gì → gắn class chính xác */", "/* Macro knows its children → attaches exact classes */")}
               </span>
               <br />
               <span className="text-foreground">{"<AlertDialogFooter>"}</span>
               <br />
               <span className="pl-4">
-                {'<Button variant="ghost">Trợ giúp</Button>'}
+                {t('<Button variant="ghost">Trợ giúp</Button>', '<Button variant="ghost">Help</Button>')}
               </span>
               <br />
               <span className="pl-4 text-success font-bold">
-                {'<Button className="ml-auto">Xác nhận</Button>'}
+                {t('<Button className="ml-auto">Xác nhận</Button>', '<Button className="ml-auto">Confirm</Button>')}
               </span>
               <br />
               <span className="text-foreground">
@@ -57,9 +69,9 @@ export function FeatureGridSection({ className }: { className?: string }) {
               </span>
             </CodeBlock>
 
-            <CodeBlock type="destructive" title="Sai — Micro tự đoán layout:">
+            <CodeBlock type="destructive" title={t("Sai — Micro tự đoán layout:", "Wrong — Micro guesses the layout:")}>
               <span className="text-destructive/80">
-                {"/* Micro không biết con mình là gì → phải đoán bằng CSS */"}
+                {t("/* Micro không biết con mình là gì → phải đoán bằng CSS */", "/* Micro doesn't know its children → relies on CSS hacks */")}
               </span>
               <br />
               <span className="text-foreground">{"<AlertDialogFooter"}</span>
@@ -86,14 +98,24 @@ export function FeatureGridSection({ className }: { className?: string }) {
           </div>
           <div className="relative z-10 space-y-4">
             <h3 className="text-2xl font-extrabold tracking-tight">
-              Style Encapsulation
+              {t("Style Encapsulation", "Style Encapsulation")}
             </h3>
             <p className="text-muted-foreground text-base leading-relaxed">
-              Style của mỗi component không rò rỉ ra ngoài. Muốn tuỳ chỉnh thì
-              dùng <code>data-slot</code> — contract rõ ràng, có sẵn.{" "}
-              <strong className="text-foreground">
-                Refactor bên trong mà không ảnh hưởng bên ngoài.
-              </strong>
+              {t(
+                <>
+                  Style của mỗi component không rò rỉ ra ngoài. Muốn tuỳ chỉnh thì
+                  dùng <code>data-slot</code> — contract rõ ràng, có sẵn.{" "}
+                  <strong className="text-foreground">
+                    Refactor bên trong mà không ảnh hưởng bên ngoài.
+                  </strong>
+                </>,
+                <>
+                  Component styles don't leak out. If you want to customize, use <code>data-slot</code> — a clear, built-in contract.{" "}
+                  <strong className="text-foreground">
+                    Refactor the inside without breaking the outside.
+                  </strong>
+                </>
+              )}
             </p>
           </div>
           <div className="relative z-10 mt-auto pt-6 space-y-3">
@@ -121,33 +143,30 @@ export function FeatureGridSection({ className }: { className?: string }) {
           </div>
           <div className="relative z-10 space-y-4">
             <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">
-              Variant × Color
+              {t("Variant × Color", "Variant × Color")}
             </h3>
             <p className="text-muted-foreground text-lg leading-relaxed max-w-lg">
-              Variant (solid, outline, ghost...) và Color (primary,
-              destructive...) là hai trục độc lập. Kết hợp tự do mà class
-              không phình ra.
+              {t(
+                "Variant (solid, outline, ghost...) và Color (primary, destructive...) là hai trục độc lập. Kết hợp tự do mà class không phình ra.",
+                "Variant (solid, outline, ghost...) and Color (primary, destructive...) are two independent axes. Combine them freely without class explosion."
+              )}
             </p>
           </div>
           <div className="relative z-10 mt-auto pt-8 grid sm:grid-cols-2 gap-4">
             <div className="p-3 sm:p-5 rounded-2xl border border-border bg-background/60 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow">
               <strong className="flex items-center gap-2 text-foreground text-base mb-2">
-                <BoxIcon className="size-4 text-muted-foreground" /> Trục
-                Variant
+                <BoxIcon className="size-4 text-muted-foreground" /> {t("Trục Variant", "Variant Axis")}
               </strong>
               <span className="text-sm text-muted-foreground leading-relaxed">
-                solid, outline, ghost, soft. Quyết định cách component trông
-                như thế nào.
+                {t("solid, outline, ghost, soft. Quyết định cách component trông như thế nào.", "solid, outline, ghost, soft. Determines how the component looks.")}
               </span>
             </div>
             <div className="p-3 sm:p-5 rounded-2xl border border-border bg-background/60 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow">
               <strong className="flex items-center gap-2 text-foreground text-base mb-2">
-                <PaintbrushIcon className="size-4 text-muted-foreground" />{" "}
-                Trục Color
+                <PaintbrushIcon className="size-4 text-muted-foreground" /> {t("Trục Color", "Color Axis")}
               </strong>
               <span className="text-sm text-muted-foreground leading-relaxed">
-                primary, secondary, destructive. Quyết định bảng màu của
-                component.
+                {t("primary, secondary, destructive. Quyết định bảng màu của component.", "primary, secondary, destructive. Determines the component's color palette.")}
               </span>
             </div>
           </div>
@@ -159,26 +178,37 @@ export function FeatureGridSection({ className }: { className?: string }) {
           </div>
           <div className="relative z-10 space-y-4">
             <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">
-              Zero-prop Defaults
+              {t("Zero-prop Defaults", "Zero-prop Defaults")}
             </h3>
             <p className="text-muted-foreground text-lg leading-relaxed max-w-lg">
-              Đặt component vào mà không truyền prop nào — vẫn chạy đẹp, vẫn
-              đúng behavior.{" "}
-              <strong className="text-foreground">
-                Không phải tra docs mỗi lần dùng.
-              </strong>
+              {t(
+                <>
+                  Đặt component vào mà không truyền prop nào — vẫn chạy đẹp, vẫn
+                  đúng behavior.{" "}
+                  <strong className="text-foreground">
+                    Không phải tra docs mỗi lần dùng.
+                  </strong>
+                </>,
+                <>
+                  Drop a component in without passing any props — it still looks great and
+                  behaves correctly.{" "}
+                  <strong className="text-foreground">
+                    No need to check the docs every time you use it.
+                  </strong>
+                </>
+              )}
             </p>
           </div>
           <div className="relative z-10 mt-auto pt-8 flex flex-col gap-4">
             <div className="flex items-center justify-between gap-4 p-4 rounded-xl border border-success/20 bg-success/5 shadow-sm">
-              <Button>Click Me</Button>
+              <Button>{t("Click Me", "Click Me")}</Button>
               <span className="text-[11px] sm:text-xs font-mono text-success font-medium">
-                {"<Button>Click Me</Button>"}
+                {t("<Button>Click Me</Button>", "<Button>Click Me</Button>")}
               </span>
             </div>
             <div className="flex items-center justify-between gap-4 p-4 rounded-xl border border-destructive/20 bg-destructive/5 shadow-sm opacity-60">
               <Button size="md" color="primary">
-                Click Me
+                {t("Click Me", "Click Me")}
               </Button>
               <span className="text-[11px] sm:text-xs font-mono text-destructive font-medium line-through">
                 {'<Button size="md" color="primary">...'}
@@ -194,14 +224,25 @@ export function FeatureGridSection({ className }: { className?: string }) {
           </div>
           <div className="relative z-10 space-y-4">
             <h3 className="text-2xl font-extrabold tracking-tight">
-              Headless + Style
+              {t("Headless + Style", "Headless + Style")}
             </h3>
             <p className="text-muted-foreground text-base leading-relaxed">
-              Keyboard, focus, ARIA — Base UI lo hết. Micro component chỉ thêm
-              lớp style lên trên, không tự viết logic tương tác.{" "}
-              <strong className="text-foreground">
-                Behavior đúng sẵn, không cần test lại.
-              </strong>
+              {t(
+                <>
+                  Keyboard, focus, ARIA — Base UI lo hết. Micro component chỉ thêm
+                  lớp style lên trên, không tự viết logic tương tác.{" "}
+                  <strong className="text-foreground">
+                    Behavior đúng sẵn, không cần test lại.
+                  </strong>
+                </>,
+                <>
+                  Keyboard, focus, ARIA — Base UI handles it all. Micro components only add
+                  a styling layer on top, without writing interactive logic themselves.{" "}
+                  <strong className="text-foreground">
+                    Behaviors are correct out of the box, no re-testing needed.
+                  </strong>
+                </>
+              )}
             </p>
           </div>
           <div className="relative z-10 mt-auto pt-8">
@@ -222,25 +263,36 @@ export function FeatureGridSection({ className }: { className?: string }) {
         </div>
 
         <div className="break-inside-avoid mb-6 rounded-[2rem] border border-border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
-          <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
+          <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:-rotate-12 duration-700">
             <PaletteIcon className="w-56 h-56" />
           </div>
           <div className="relative z-10 space-y-4">
             <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">
-              CSS Token
+              {t("CSS Token", "CSS Tokens")}
             </h3>
             <p className="text-muted-foreground text-lg leading-relaxed max-w-lg">
-              Không component nào hardcode màu hay spacing. Tất cả đều tham
-              chiếu từ hệ thống token chung.{" "}
-              <strong className="text-foreground">
-                Đổi một token — cả app cập nhật.
-              </strong>
+              {t(
+                <>
+                  Không component nào hardcode màu hay spacing. Tất cả đều tham
+                  chiếu từ hệ thống token chung.{" "}
+                  <strong className="text-foreground">
+                    Đổi một token — cả app cập nhật.
+                  </strong>
+                </>,
+                <>
+                  No component hardcodes colors or spacing. Everything references a
+                  shared token system.{" "}
+                  <strong className="text-foreground">
+                    Change a single token — the whole app updates.
+                  </strong>
+                </>
+              )}
             </p>
           </div>
           <div className="relative z-10 mt-auto pt-8 grid sm:grid-cols-2 gap-4">
             <div className="p-4 rounded-xl border border-success/20 bg-success/5 shadow-sm">
               <div className="text-success font-semibold mb-2 text-sm">
-                ✅ Token
+                ✅ {t("Token", "Token")}
               </div>
               <div className="text-[11px] font-mono text-success/80">
                 oklch(var(--primary))
@@ -248,7 +300,7 @@ export function FeatureGridSection({ className }: { className?: string }) {
             </div>
             <div className="p-4 rounded-xl border border-destructive/20 bg-destructive/5 shadow-sm opacity-60">
               <div className="text-destructive font-semibold mb-2 text-sm">
-                ❌ Hardcode
+                ❌ {t("Hardcode", "Hardcode")}
               </div>
               <div className="text-[11px] font-mono text-destructive/80 line-through">
                 #2563eb
@@ -259,17 +311,25 @@ export function FeatureGridSection({ className }: { className?: string }) {
 
 
         <div className="break-inside-avoid mb-6 rounded-[2rem] border border-border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
-          <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
+          <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:-rotate-12 duration-700">
             <CopyIcon className="w-56 h-56" />
           </div>
           <div className="relative z-10 space-y-4">
             <h3 className="text-2xl font-extrabold tracking-tight">
-              Polymorphism
+              {t("Polymorphism", "Polymorphism")}
             </h3>
             <p className="text-muted-foreground text-base leading-relaxed">
-              Dùng <code>render</code> prop để đổi thẻ HTML root — ví dụ biến
-              Button thành Link. Không cần prop <code>as</code> hay tạo
-              wrapper lồng nhau.
+              {t(
+                <>
+                  Dùng <code>render</code> prop để đổi thẻ HTML root — ví dụ biến
+                  Button thành Link. Không cần prop <code>as</code> hay tạo
+                  wrapper lồng nhau.
+                </>,
+                <>
+                  Use the <code>render</code> prop to change the root HTML tag — e.g. turning a
+                  Button into a Link. No need for an <code>as</code> prop or nested wrappers.
+                </>
+              )}
             </p>
           </div>
           <div className="relative z-10 mt-auto pt-6 space-y-3">
@@ -297,14 +357,25 @@ export function FeatureGridSection({ className }: { className?: string }) {
           </div>
           <div className="relative z-10 space-y-4">
             <h3 className="text-2xl font-extrabold tracking-tight">
-              Stateless Primitive
+              {t("Stateless Primitive", "Stateless Primitive")}
             </h3>
             <p className="text-muted-foreground text-base leading-relaxed">
-              Micro component không chứa <code>useState</code> hay{" "}
-              <code>useEffect</code>. State nằm ở Headless UI hoặc Macro.{" "}
-              <strong className="text-foreground">
-                Component càng đơn giản, càng ít bug.
-              </strong>
+              {t(
+                <>
+                  Micro component không chứa <code>useState</code> hay{" "}
+                  <code>useEffect</code>. State nằm ở Headless UI hoặc Macro.{" "}
+                  <strong className="text-foreground">
+                    Component càng đơn giản, càng ít bug.
+                  </strong>
+                </>,
+                <>
+                  Micro components don't contain <code>useState</code> or{" "}
+                  <code>useEffect</code>. State lives in Headless UI or Macros.{" "}
+                  <strong className="text-foreground">
+                    The simpler the component, the fewer the bugs.
+                  </strong>
+                </>
+              )}
             </p>
           </div>
           <div className="relative z-10 mt-auto pt-6 space-y-3">
@@ -327,19 +398,30 @@ export function FeatureGridSection({ className }: { className?: string }) {
 
 
         <div className="break-inside-avoid mb-6 rounded-[2rem] border border-border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
-          <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
+          <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:-rotate-12 duration-700">
             <AccessibilityIcon className="w-56 h-56" />
           </div>
           <div className="relative z-10 space-y-4">
             <h3 className="text-2xl font-extrabold tracking-tight">
-              Accessibility
+              {t("Accessibility", "Accessibility")}
             </h3>
             <p className="text-muted-foreground text-base leading-relaxed">
-              Semantic HTML, <code>aria-describedby</code> cho form, icon
-              trang trí tự ẩn khỏi screen reader.{" "}
-              <strong className="text-foreground">
-                Chuẩn WCAG — không cần nghĩ thêm.
-              </strong>
+              {t(
+                <>
+                  Semantic HTML, <code>aria-describedby</code> cho form, icon
+                  trang trí tự ẩn khỏi screen reader.{" "}
+                  <strong className="text-foreground">
+                    Chuẩn WCAG — không cần nghĩ thêm.
+                  </strong>
+                </>,
+                <>
+                  Semantic HTML, <code>aria-describedby</code> for forms, decorative icons
+                  hide themselves from screen readers.{" "}
+                  <strong className="text-foreground">
+                    WCAG compliant — without a second thought.
+                  </strong>
+                </>
+              )}
             </p>
           </div>
           <div className="relative z-10 mt-auto pt-6 space-y-3">
@@ -366,15 +448,27 @@ export function FeatureGridSection({ className }: { className?: string }) {
           </div>
           <div className="relative z-10 space-y-4">
             <h3 className="text-2xl font-extrabold tracking-tight">
-              Explicit State Contract
+              {t("Explicit State Contract", "Explicit State Contract")}
             </h3>
             <p className="text-muted-foreground text-base leading-relaxed">
-              Component công khai trạng thái qua <code>data-attributes</code>,
-              không phải qua imperative ref. Bạn style và animate trực tiếp
-              trên từng trạng thái, không cần JavaScript.{" "}
-              <strong className="text-foreground">
-                State là public API — tường minh và ổn định.
-              </strong>
+              {t(
+                <>
+                  Component công khai trạng thái qua <code>data-attributes</code>,
+                  không phải qua imperative ref. Bạn style và animate trực tiếp
+                  trên từng trạng thái, không cần JavaScript.{" "}
+                  <strong className="text-foreground">
+                    State là public API — tường minh và ổn định.
+                  </strong>
+                </>,
+                <>
+                  Components expose their state via <code>data-attributes</code>,
+                  not through imperative refs. You style and animate directly
+                  on each state, no JavaScript needed.{" "}
+                  <strong className="text-foreground">
+                    State is a public API — explicit and stable.
+                  </strong>
+                </>
+              )}
             </p>
           </div>
           <div className="relative z-10 mt-auto pt-8">
@@ -402,34 +496,44 @@ export function FeatureGridSection({ className }: { className?: string }) {
           </div>
           <div className="relative z-10 space-y-4">
             <h3 className="text-2xl font-extrabold tracking-tight">
-              3-Layer Source Ownership
+              {t("3-Layer Source Ownership", "3-Layer Source Ownership")}
             </h3>
             <p className="text-muted-foreground text-base leading-relaxed">
-              Source được phân tầng: <code>micro/</code> (primitive không có
-              layout cứng nhắc), <code>macro/</code> (preset lắp ráp có chủ
-              đích), <code>index.css</code> (token toàn hệ thống).{" "}
-              <strong className="text-foreground">
-                Sửa ở tầng nào chỉ ảnh hưởng đến tầng đó.
-              </strong>
+              {t(
+                <>
+                  Source được phân tầng: <code>micro/</code> (primitive không có
+                  layout cứng nhắc), <code>macro/</code> (preset lắp ráp có chủ
+                  đích), <code>index.css</code> (token toàn hệ thống).{" "}
+                  <strong className="text-foreground">
+                    Sửa ở tầng nào chỉ ảnh hưởng đến tầng đó.
+                  </strong>
+                </>,
+                <>
+                  Source code is layered: <code>micro/</code> (primitives without rigid layouts), <code>macro/</code> (purpose-built presets), <code>index.css</code> (global tokens).{" "}
+                  <strong className="text-foreground">
+                    Changes in one layer only affect that layer.
+                  </strong>
+                </>
+              )}
             </p>
           </div>
           <div className="relative z-10 mt-auto pt-6 space-y-2">
             <div className="p-3 rounded-xl border border-border bg-background/60 text-[11px] font-mono flex items-center gap-3">
               <span className="text-destructive font-bold">CSS</span>
               <span className="text-muted-foreground">
-                index.css — token toàn cục
+                {t("index.css — token toàn cục", "index.css — global tokens")}
               </span>
             </div>
             <div className="p-3 rounded-xl border border-border bg-background/60 text-[11px] font-mono flex items-center gap-3">
               <span className="text-warning font-bold">Macro</span>
               <span className="text-muted-foreground">
-                macro/ — preset lắp ráp
+                {t("macro/ — preset lắp ráp", "macro/ — purpose-built presets")}
               </span>
             </div>
             <div className="p-3 rounded-xl border border-border bg-background/60 text-[11px] font-mono flex items-center gap-3">
               <span className="text-success font-bold">Micro</span>
               <span className="text-muted-foreground">
-                micro/ — primitive thuần
+                {t("micro/ — primitive thuần", "micro/ — pure primitives")}
               </span>
             </div>
           </div>
@@ -441,12 +545,21 @@ export function FeatureGridSection({ className }: { className?: string }) {
           </div>
           <div className="relative z-10 space-y-4">
             <h3 className="text-2xl font-extrabold tracking-tight">
-              Pure Composition
+              {t("Pure Composition", "Pure Composition")}
             </h3>
             <p className="text-muted-foreground text-base leading-relaxed">
-              Design component theo dạng lắp ghép (ví dụ: Root, Trigger,
-              Content) thay vì ôm đồm nhận vào một mảng data rồi tự{" "}
-              <code>map()</code> bên trong.
+              {t(
+                <>
+                  Design component theo dạng lắp ghép (ví dụ: Root, Trigger,
+                  Content) thay vì ôm đồm nhận vào một mảng data rồi tự{" "}
+                  <code>map()</code> bên trong.
+                </>,
+                <>
+                  Design components as building blocks (e.g., Root, Trigger, Content)
+                  instead of dumping an array of data and doing an internal{" "}
+                  <code>map()</code>.
+                </>
+              )}
             </p>
           </div>
           <div className="relative z-10 mt-auto pt-6 space-y-3">
@@ -483,13 +596,27 @@ export function FeatureGridSection({ className }: { className?: string }) {
 
           <div className="relative z-10 max-w-3xl mb-14 space-y-5">
             <h3 className="text-3xl md:text-5xl font-extrabold tracking-tight text-warning">
-              Scoped Theme Tunnel
+              {t("Scoped Theme Tunnel", "Scoped Theme Tunnel")}
             </h3>
             <p className="text-muted-foreground text-xl leading-relaxed">
-              Tooltip hay Dialog thường bị <strong className="text-foreground">mất theme cục bộ (Dark/Light)</strong> khi nhảy ra ngoài DOM tree qua Portal.
+              {t(
+                <>
+                  Tooltip hay Dialog thường bị <strong className="text-foreground">mất theme cục bộ (Dark/Light)</strong> khi nhảy ra ngoài DOM tree qua Portal.
+                </>,
+                <>
+                  Tooltips and Dialogs often <strong className="text-foreground">lose their local theme (Dark/Light)</strong> when escaping the DOM tree via Portals.
+                </>
+              )}
             </p>
             <p className="text-muted-foreground text-xl leading-relaxed">
-              Nhờ <strong>Zero-Portal API</strong>, khả năng giữ theme đã được nhúng sẵn vào các <code className="text-sm bg-warning/20 text-warning px-1.5 py-0.5 rounded">*Content</code> (VD: <code className="text-sm bg-warning/20 text-warning px-1.5 py-0.5 rounded">DialogContent</code>). Mọi thứ hoạt động trơn tru tự động, bạn không cần phải import hay bọc <code className="text-sm bg-warning/20 text-warning px-1.5 py-0.5 rounded">ThemeWrapper</code> thủ công nữa!
+              {t(
+                <>
+                  Nhờ <strong>Zero-Portal API</strong>, khả năng giữ theme đã được nhúng sẵn vào các <code className="text-sm bg-warning/20 text-warning px-1.5 py-0.5 rounded">*Content</code> (VD: <code className="text-sm bg-warning/20 text-warning px-1.5 py-0.5 rounded">DialogContent</code>). Mọi thứ hoạt động trơn tru tự động, bạn không cần phải import hay bọc <code className="text-sm bg-warning/20 text-warning px-1.5 py-0.5 rounded">ThemeWrapper</code> thủ công nữa!
+                </>,
+                <>
+                  Thanks to the <strong>Zero-Portal API</strong>, theme-preserving capabilities are embedded directly into <code className="text-sm bg-warning/20 text-warning px-1.5 py-0.5 rounded">*Content</code> components (e.g., <code className="text-sm bg-warning/20 text-warning px-1.5 py-0.5 rounded">DialogContent</code>). Everything works smoothly and automatically, no need to manually import or wrap with <code className="text-sm bg-warning/20 text-warning px-1.5 py-0.5 rounded">ThemeWrapper</code> anymore!
+                </>
+              )}
             </p>
           </div>
 
@@ -499,17 +626,29 @@ export function FeatureGridSection({ className }: { className?: string }) {
                 ✅ gladvn
               </div>
               <p className="text-success/80 text-sm leading-relaxed">
-                Tooltip, Dialog trong dark section luôn đúng màu — kể cả khi
-                Portal render ra{" "}
-                <code className="opacity-80">document.body</code>.
+                {t(
+                  <>
+                    Tooltip, Dialog trong dark section luôn đúng màu — kể cả khi
+                    Portal render ra{" "}
+                    <code className="opacity-80">document.body</code>.
+                  </>,
+                  <>
+                    Tooltips and Dialogs inside dark sections always have the correct color — even when
+                    Portals render them to{" "}
+                    <code className="opacity-80">document.body</code>.
+                  </>
+                )}
               </p>
             </div>
             <div className="p-6 rounded-2xl border border-destructive/30 bg-destructive/10 shadow-sm opacity-80 flex flex-col gap-2">
               <div className="text-destructive font-semibold text-lg flex items-center gap-2">
-                ❌ Thư viện khác
+                ❌ {t("Thư viện khác", "Other libraries")}
               </div>
               <p className="text-destructive/80 text-sm leading-relaxed">
-                Tooltip, Dialog "trắng lạc quẻ" — mất theme khi vượt Portal.
+                {t(
+                  'Tooltip, Dialog "trắng lạc quẻ" — mất theme khi vượt Portal.',
+                  'Tooltips and Dialogs look out of place — losing themes when crossing Portals.'
+                )}
               </p>
             </div>
           </div>
@@ -522,7 +661,7 @@ export function FeatureGridSection({ className }: { className?: string }) {
               color="warning"
               className="gap-2 font-bold px-6 py-5 rounded-xl border-warning/30 bg-warning/10 hover:bg-warning/20 shadow-sm"
             >
-              Xem demo thực tế
+              {t("Xem demo thực tế", "See live demo")}
               <ArrowRightIcon className="size-4" />
             </Button>
           </div>

@@ -1,59 +1,80 @@
 import { cn } from "../../../lib/utils";
-
-const ARCHITECTURE_CARDS = [
-  {
-    tag: "Nên bắt đầu ở đây",
-    path: "src/components/macro/",
-    title: "Macro — Khu vực an toàn",
-    desc: (
-      <>
-        Muốn tuỳ chỉnh? Bắt đầu từ đây nhé. Mỗi Macro là một khối độc lập — thêm footer cho DatePicker, giấu nút đóng của Dialog...{" "}
-        <strong className="text-foreground">Cứ thoải mái vọc</strong>
-        , sửa cái nào chỉ ảnh hưởng cái đó thôi, chả lo "cháy nhà" hàng xóm.
-      </>
-    ),
-    colorScheme: "primary"
-  },
-  {
-    tag: "Cẩn thận",
-    path: "src/components/micro/",
-    title: "Micro — Lãnh địa cốt lõi",
-    desc: (
-      <>
-        Mọi thứ đều xây từ đây. Sửa cái padding của Button hay animation của Tooltip thì{" "}
-        <strong className="text-foreground">cả app sẽ ăn theo</strong>
-        . Cân nhắc kỹ trước khi gõ phím nhé — "sai một ly đi một dặm" đấy!
-      </>
-    ),
-    colorScheme: "warning"
-  },
-  {
-    tag: "Ảnh hưởng toàn cục",
-    path: "src/index.css",
-    title: "CSS Token — Nút bấm hạt nhân",
-    desc: (
-      <>
-        Nơi quyết định màu sắc, font, độ bo góc. Đổi một biến ở đây là{" "}
-        <strong className="text-foreground">giao diện lột xác toàn tập</strong>
-        . Rất đã khi cần thay áo mới (rebrand) — nhưng đừng dùng để vá lỗi vặt.
-      </>
-    ),
-    colorScheme: "destructive"
-  },
-  {
-    tag: "Lắp ghép linh hoạt",
-    path: "src/blocks/",
-    title: "Blocks — Sân chơi tự do",
-    desc: (
-      <>
-        Không ai ép bạn phải dùng 100% Micro hay Macro. Layout quen thuộc? <strong className="text-foreground">Lấy Macro ra xài cho lẹ.</strong> Gặp thiết kế dị biệt? <strong className="text-foreground">Mở Micro ra tự xếp hình.</strong> Code sao cho bản thân thấy sướng là được!
-      </>
-    ),
-    colorScheme: "info"
-  }
-] as const;
+import { useI18n } from "../../components/dev-context";
 
 export function ArchitectureSection({ className }: { className?: string }) {
+  const t = useI18n();
+
+  const ARCHITECTURE_CARDS = [
+    {
+      tag: t("Lắp ghép linh hoạt", "Flexible assembly"),
+      path: "src/blocks/",
+      title: t("Blocks — Sân chơi tự do", "Blocks — The free playground"),
+      desc: t(
+        <>
+          Không ai ép bạn phải dùng 100% Micro hay Macro. Layout quen thuộc? <strong className="text-foreground">Lấy Macro ra xài cho lẹ.</strong> Gặp thiết kế dị biệt? <strong className="text-foreground">Mở Micro ra tự xếp hình.</strong> Code sao cho bản thân thấy sướng là được!
+        </>,
+        <>
+          Nobody forces you to use 100% Micro or Macro. Familiar layout? <strong className="text-foreground">Grab a Macro to be quick.</strong> Odd design? <strong className="text-foreground">Open Micro and build it yourself.</strong> Just code however makes you happy!
+        </>
+      ),
+      colorScheme: "info"
+    },
+    {
+      tag: t("Vùng an toàn", "Safe zone"),
+      path: "src/components/macro/",
+      title: t("Macro — Khu vực an toàn", "Macro — The safe zone"),
+      desc: t(
+        <>
+          Muốn tuỳ chỉnh? Bắt đầu từ đây nhé. Mỗi Macro là một khối độc lập — thêm footer cho DatePicker, giấu nút đóng của Dialog...{" "}
+          <strong className="text-foreground">Cứ thoải mái vọc</strong>
+          , sửa cái nào chỉ ảnh hưởng cái đó thôi, chả lo "cháy nhà" hàng xóm.
+        </>,
+        <>
+          Want to customize? Start here. Each Macro is an independent block — add a footer to a DatePicker, hide a Dialog's close button...{" "}
+          <strong className="text-foreground">Feel free to tinker</strong>
+          , changing one thing only affects itself, no fear of breaking the neighbors.
+        </>
+      ),
+      colorScheme: "primary"
+    },
+    {
+      tag: t("Cẩn thận", "Be careful"),
+      path: "src/components/micro/",
+      title: t("Micro — Lãnh địa cốt lõi", "Micro — The core territory"),
+      desc: t(
+        <>
+          Mọi thứ đều xây từ đây. Sửa cái padding của Button hay animation của Tooltip thì{" "}
+          <strong className="text-foreground">cả app sẽ ăn theo</strong>
+          . Cân nhắc kỹ trước khi gõ phím nhé — "sai một ly đi một dặm" đấy!
+        </>,
+        <>
+          Everything is built from here. Changing a Button's padding or a Tooltip's animation means{" "}
+          <strong className="text-foreground">the whole app follows suit</strong>
+          . Think twice before typing — one wrong move can break the layout globally!
+        </>
+      ),
+      colorScheme: "warning"
+    },
+    {
+      tag: t("Ảnh hưởng toàn cục", "Global impact"),
+      path: "src/index.css",
+      title: t("CSS Token — Nút bấm hạt nhân", "CSS Tokens — The nuclear button"),
+      desc: t(
+        <>
+          Nơi quyết định màu sắc, font, độ bo góc. Đổi một biến ở đây là{" "}
+          <strong className="text-foreground">giao diện lột xác toàn tập</strong>
+          . Rất đã khi cần thay áo mới (rebrand) — nhưng đừng dùng để vá lỗi vặt.
+        </>,
+        <>
+          Where colors, fonts, and border radii are determined. Change a variable here and the{" "}
+          <strong className="text-foreground">entire UI transforms</strong>
+          . Great for rebranding — but don't use it for quick localized fixes.
+        </>
+      ),
+      colorScheme: "destructive"
+    }
+  ] as const;
+
   return (
     <div
       className={cn(
@@ -62,7 +83,7 @@ export function ArchitectureSection({ className }: { className?: string }) {
       )}
     >
       <p className="text-sm font-bold uppercase tracking-wider text-primary mb-5">
-        Tuỳ chỉnh theo từng tầng kiến trúc
+        {t("Tuỳ chỉnh theo từng tầng kiến trúc", "Customization by architectural layers")}
       </p>
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {ARCHITECTURE_CARDS.map((card, idx) => {

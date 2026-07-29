@@ -8,7 +8,7 @@ export function CodeBlock({
   children
 }: {
   type: "success" | "destructive";
-  title: string;
+  title: React.ReactNode;
   className?: string;
   children: React.ReactNode;
 }) {

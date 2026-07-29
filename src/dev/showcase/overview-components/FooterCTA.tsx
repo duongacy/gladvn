@@ -7,9 +7,11 @@ import {
 } from "../../../components/micro/avatar";
 import { Button } from "../../../components/micro/button";
 import { Container } from "../../components/Container";
+import { useI18n } from "../../components/dev-context";
 
 export function FooterCTA({ className }: { className?: string }) {
   const [copied, setCopied] = useState(false);
+  const t = useI18n();
 
   const handleCopy = () => {
     navigator.clipboard.writeText("npx gladvn init");
@@ -19,80 +21,31 @@ export function FooterCTA({ className }: { className?: string }) {
 
   return (
     <div className={className}>
-      {/* 🤝 CONTRIBUTORS */}
-      <Container as="section" className="mb-24">
-        <div className="flex flex-col items-center text-center space-y-8">
-          <div className="space-y-4 max-w-2xl">
-            <h2 className="text-3xl font-extrabold tracking-tight">
-              Những người đóng góp
-            </h2>
-          </div>
-
-          <div className="flex flex-wrap justify-center gap-6">
-            {[
-              {
-                name: "Ý Le",
-                role: "Tác giả & Bảo trì",
-                avatar: "https://github.com/duongacy.png",
-                url: "https://github.com/duongacy"
-              },
-            ].map((user) => (
-              <a
-                key={user.name}
-                href={user.url}
-                target="_blank"
-                rel="noreferrer"
-                className="group flex flex-col items-center gap-3 p-4 rounded-2xl hover:bg-muted/50 transition-colors"
-              >
-                <Avatar className="size-16 border-2 border-transparent group-hover:border-primary/20 transition-all duration-300 group-hover:scale-105">
-                  <AvatarImage src={user.avatar} alt={user.name} />
-                  <AvatarFallback className="text-lg bg-primary/5 text-primary">
-                    {user.name.substring(0, 2).toUpperCase()}
-                  </AvatarFallback>
-                </Avatar>
-                <div className="text-center">
-                  <div className="font-semibold text-sm group-hover:text-primary transition-colors">
-                    {user.name}
-                  </div>
-                  <div className="text-xs text-muted-foreground mt-0.5">
-                    {user.role}
-                  </div>
-                </div>
-              </a>
-            ))}
-          </div>
-
-          <Button
-            variant="outline"
-            className="mt-4 rounded-full"
-            render={
-              <a
-                href="https://github.com/duongacy/gladvn"
-                target="_blank"
-                rel="noreferrer"
-              />
-            }
-            nativeButton={false}
-          >
-            Đóng góp cùng chúng tôi
-          </Button>
-        </div>
-      </Container>
-
       {/* 🚀 FINAL CTA */}
-      <Container as="section">
+      <Container as="section" className="mb-24">
         <div className="rounded-[2.5rem] border-2 border-primary/40 bg-linear-to-br from-primary/10 via-background to-info/5 p-10 md:p-16 shadow-2xl shadow-primary/5 text-center relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_0%,rgba(var(--primary-rgb),0.15),transparent)] pointer-events-none" />
           <div className="relative z-10 space-y-6 max-w-2xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight">
-              30 giây là có đồ chơi.
+              {t("30 giây là có đồ chơi.", "Ready to play in 30 seconds.")}
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed">
-              Quẳng hết code vào{" "}
-              <code className="text-sm bg-primary/20 text-primary px-1.5 py-0.5 rounded">
-                src/
-              </code>{" "}
-              rồi xài thôi. Không config rườm rà, nhức đầu làm gì.
+              {t(
+                <>
+                  Quẳng hết code vào{" "}
+                  <code className="text-sm bg-primary/20 text-primary px-1.5 py-0.5 rounded">
+                    src/
+                  </code>{" "}
+                  rồi xài thôi. Không config rườm rà, nhức đầu làm gì.
+                </>,
+                <>
+                  Throw all the code into{" "}
+                  <code className="text-sm bg-primary/20 text-primary px-1.5 py-0.5 rounded">
+                    src/
+                  </code>{" "}
+                  and start using it. No complex configurations, no headaches.
+                </>
+              )}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
               <button
@@ -121,14 +74,75 @@ export function FooterCTA({ className }: { className?: string }) {
                 variant="ghost"
                 className="text-muted-foreground hover:text-foreground"
               >
-                Xem trên GitHub
+                {t("Xem trên GitHub", "View on GitHub")}
                 <ArrowRightIcon className="size-4 ml-1" />
               </Button>
             </div>
             <p className="text-xs text-muted-foreground pt-2">
-              Tương thích npm, yarn, pnpm và bun. Hỗ trợ React 18+.
+              {t("Tương thích npm, yarn, pnpm và bun. Hỗ trợ React 18+.", "Compatible with npm, yarn, pnpm, and bun. Supports React 18+.")}
             </p>
           </div>
+        </div>
+      </Container>
+
+      {/* 🤝 CONTRIBUTORS */}
+      <Container as="section">
+        <div className="flex flex-col items-center text-center space-y-8">
+          <div className="space-y-4 max-w-2xl">
+            <h2 className="text-2xl font-bold tracking-tight opacity-80">
+              {t("Những người đóng góp", "Contributors")}
+            </h2>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-6">
+            {[
+              {
+                name: "Ý Le",
+                role: t("Tác giả & Bảo trì", "Author & Maintainer"),
+                avatar: "https://github.com/duongacy.png",
+                url: "https://github.com/duongacy"
+              },
+            ].map((user) => (
+              <a
+                key={user.name}
+                href={user.url}
+                target="_blank"
+                rel="noreferrer"
+                className="group flex flex-col items-center gap-3 p-4 rounded-2xl hover:bg-muted/50 transition-colors"
+              >
+                <Avatar className="size-14 border-2 border-transparent group-hover:border-primary/20 transition-all duration-300 group-hover:scale-105">
+                  <AvatarImage src={user.avatar} alt={user.name} />
+                  <AvatarFallback className="text-lg bg-primary/5 text-primary">
+                    {user.name.substring(0, 2).toUpperCase()}
+                  </AvatarFallback>
+                </Avatar>
+                <div className="text-center">
+                  <div className="font-semibold text-sm group-hover:text-primary transition-colors">
+                    {user.name}
+                  </div>
+                  <div className="text-[10px] text-muted-foreground mt-0.5">
+                    {user.role}
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+
+          <Button
+            variant="ghost"
+            size="sm"
+            className="rounded-full opacity-60 hover:opacity-100"
+            render={
+              <a
+                href="https://github.com/duongacy/gladvn"
+                target="_blank"
+                rel="noreferrer"
+              />
+            }
+            nativeButton={false}
+          >
+            {t("Đóng góp cùng chúng tôi", "Contribute with us")}
+          </Button>
         </div>
       </Container>
     </div>

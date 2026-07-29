@@ -10,6 +10,7 @@ import {
   XIcon,
 } from "lucide-react";
 
+import { ToggleGroup, ToggleGroupItem } from "../components/micro/toggle-group";
 import {
   Command,
   CommandDialog,
@@ -44,18 +45,18 @@ const groupedComponents = COMPONENTS.reduce(
 );
 
 const componentCategories = [
-  "Layout & Structure",
-  "Forms & Inputs",
-  "Feedback & Overlays",
-  "Navigation",
-  "Data Display",
-  "Other",
+  "Bố cục & Cấu trúc",
+  "Biểu mẫu & Đầu vào",
+  "Phản hồi & Lớp phủ",
+  "Điều hướng",
+  "Hiển thị Dữ liệu",
+  "Khác",
 ];
 
 const blockCategories = [
-  "Dashboards",
-  "Settings",
-  "Authentication",
+  "Dashboard",
+  "Cài đặt",
+  "Xác thực",
 ];
 
 function ComponentViewer({ id }: { id: string }) {
@@ -96,7 +97,7 @@ export default function App() {
   }
 
   const theme = useTheme();
-  const { size, setSize } = useDevContext();
+  const { size, setSize, language, setLanguage } = useDevContext();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [cmdOpen, setCmdOpen] = useState(false);
   const [active, setActiveState] = useState(() => {
@@ -282,6 +283,7 @@ export default function App() {
 
           {/* Right — GitHub + npx + theme toggle */}
           <div className="flex items-center gap-1.5">
+
             <Button
               variant="ghost"
               iconOnly
@@ -324,6 +326,22 @@ export default function App() {
               <MoonIcon className="absolute size-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
               <span className="sr-only">Đổi giao diện</span>
             </Button>
+            <Separator
+              orientation="vertical"
+              className="h-4 mx-1 hidden sm:block"
+            />
+            
+            <ToggleGroup
+              value={[language]}
+              onValueChange={(v) => { if (v && v.length > 0) setLanguage(v[0] as "vi" | "en") }}
+              size="sm"
+              variant="default"
+              spacing={3}
+              className="flex gap-x-1"
+            >
+              <ToggleGroupItem value="vi" className={cn("px-1 transition-all duration-300", language === "vi" ? "text-2xl scale-110" : "text-sm opacity-50 hover:opacity-80")} aria-label="Tiếng Việt">🇻🇳</ToggleGroupItem>
+              <ToggleGroupItem value="en" className={cn("px-1 transition-all duration-300", language === "en" ? "text-2xl scale-110" : "text-sm opacity-50 hover:opacity-80")} aria-label="English">🇬🇧</ToggleGroupItem>
+            </ToggleGroup>
           </div>
         </div>
       </header>

@@ -2,8 +2,10 @@ import { PaletteIcon } from "lucide-react";
 import { ColorSwatch } from "../../../dev/components/showcase";
 import { COLORS } from "../../../dev/data";
 import { Container } from "../../components/Container";
+import { useI18n } from "../../components/dev-context";
 
 export function ColorPaletteSection({ className }: { className?: string }) {
+  const t = useI18n();
   return (
     <Container as="section" className={className}>
       <div className="rounded-[2.5rem] border border-border bg-card/30 p-10 md:p-16 shadow-xl relative overflow-hidden group">
@@ -13,12 +15,13 @@ export function ColorPaletteSection({ className }: { className?: string }) {
 
         <div className="relative z-10 max-w-3xl mb-14 space-y-5">
           <h3 className="text-3xl md:text-5xl font-extrabold tracking-tight">
-            Không gian màu OKLCH
+            {t("Không gian màu OKLCH", "OKLCH Color Space")}
           </h3>
           <p className="text-muted-foreground text-xl leading-relaxed">
-            Mọi token màu sắc được tính trên không gian OKLCH — chuyển sắc
-            mượt, tương phản đạt WCAG AA/AAA trên mọi theme mà không cần định
-            nghĩa thủ công từng dải màu.
+            {t(
+              "Mọi token màu sắc được tính trên không gian OKLCH — chuyển sắc mượt, tương phản đạt WCAG AA/AAA trên mọi theme mà không cần định nghĩa thủ công từng dải màu.",
+              "All color tokens are calculated in the OKLCH space — smooth gradients, WCAG AA/AAA contrast on all themes without manually defining every color scale."
+            )}
           </p>
         </div>
 

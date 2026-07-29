@@ -16,11 +16,13 @@ import {
   SelectTrigger,
   SelectValue
 } from "../../../components/micro/select";
-import { Switch } from "../../../components/micro/switch";
+import { Switch, SwitchThumb } from "../../../components/micro/switch";
 import { cn } from "../../../lib/utils";
+import { useI18n } from "../../components/dev-context";
 
 export function DashboardPreview({ className }: { className?: string }) {
   const [mounted, setMounted] = useState(false);
+  const t = useI18n();
 
   useEffect(() => {
     setMounted(true);
@@ -48,29 +50,29 @@ export function DashboardPreview({ className }: { className?: string }) {
               <CardHeader className="pb-3">
                 <CardTitle className="text-sm font-medium flex items-center gap-2">
                   <div className="size-2 rounded-full bg-success animate-pulse shadow-[0_0_8px_var(--success)]" />
-                  Hệ thống Thời gian thực
+                  {t("Trạng thái Design System", "Design System Status")}
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-5">
                   <div className="space-y-2">
                     <div className="flex justify-between text-xs font-medium">
-                      <span className="text-muted-foreground">Tải CPU</span>
+                      <span className="text-muted-foreground">{t("Tiêu chuẩn a11y", "a11y Compliance")}</span>
                       <span className="text-primary font-mono">
-                        {mounted ? "24%" : "0%"}
+                        {mounted ? "100%" : "0%"}
                       </span>
                     </div>
-                    <Progress value={mounted ? 24 : 0} className="h-1.5" />
+                    <Progress value={mounted ? 100 : 0} className="h-1.5" />
                   </div>
                   <div className="space-y-2">
                     <div className="flex justify-between text-xs font-medium">
-                      <span className="text-muted-foreground">Bộ nhớ</span>
+                      <span className="text-muted-foreground">{t("Độ phủ Test", "Test Coverage")}</span>
                       <span className="text-warning font-mono">
-                        {mounted ? "82%" : "0%"}
+                        {mounted ? "92%" : "0%"}
                       </span>
                     </div>
                     <Progress
-                      value={mounted ? 82 : 0}
+                      value={mounted ? 92 : 0}
                       color="warning"
                       className="h-1.5"
                     />
@@ -82,24 +84,26 @@ export function DashboardPreview({ className }: { className?: string }) {
             <div className="flex flex-col gap-4 p-5 rounded-xl border border-border/50 bg-background/60 backdrop-blur-xl shadow-lg">
               <div className="flex items-center justify-between">
                 <Label className="text-sm font-medium cursor-pointer">
-                  Auto-scaling
+                  {t("Giảm chuyển động", "Reduced Motion")}
                 </Label>
-                <Switch defaultChecked />
+                <Switch defaultChecked={false}>
+                  <SwitchThumb />
+                </Switch>
               </div>
-              <Select defaultValue="edge">
+              <Select defaultValue="zinc">
                 <SelectTrigger className="w-full bg-background/50">
-                  <SelectValue placeholder="Chọn vùng" />
+                  <SelectValue placeholder={t("Màu chủ đạo", "Base Color") as string} />
                 </SelectTrigger>
 
                 <SelectContent>
-                  <SelectItem value="edge">
-                    Edge Network (Toàn cầu)
+                  <SelectItem value="zinc">
+                    {t("Zinc (Mặc định)", "Zinc (Default)")}
                   </SelectItem>
-                  <SelectItem value="us-east">
-                    US East (Virginia)
+                  <SelectItem value="slate">
+                    {t("Slate (Xanh xám)", "Slate (Blue-gray)")}
                   </SelectItem>
-                  <SelectItem value="ap-se">
-                    AP South East (Sing)
+                  <SelectItem value="neutral">
+                    {t("Neutral (Trung tính)", "Neutral (Gray)")}
                   </SelectItem>
                 </SelectContent>
 
@@ -117,10 +121,10 @@ export function DashboardPreview({ className }: { className?: string }) {
                 </div>
                 <div>
                   <h4 className="font-bold text-sm">
-                    Kiến trúc Micro/Macro
+                    {t("Kiến trúc Micro/Macro", "Micro/Macro Architecture")}
                   </h4>
                   <p className="text-xs text-muted-foreground font-medium mt-1">
-                    Primitive nhỏ, lắp thành preset lớn
+                    {t("Primitive nhỏ, lắp thành preset lớn", "Small primitives, assembled into large presets")}
                   </p>
                 </div>
               </div>
@@ -131,10 +135,10 @@ export function DashboardPreview({ className }: { className?: string }) {
                 </div>
                 <div>
                   <h4 className="font-bold text-sm">
-                    Thiết kế theo Dữ liệu
+                    {t("Thiết kế theo Dữ liệu", "Data-driven Design")}
                   </h4>
                   <p className="text-xs text-muted-foreground font-medium mt-1">
-                    Truyền items vào root, không map() thủ công
+                    {t("Truyền items vào root, không map() thủ công", "Pass items to root, no manual map()")}
                   </p>
                 </div>
               </div>
@@ -144,9 +148,9 @@ export function DashboardPreview({ className }: { className?: string }) {
                   <ShieldCheckIcon className="size-6" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm">Styling có Kỷ luật</h4>
+                  <h4 className="font-bold text-sm">{t("Styling có Kỷ luật", "Disciplined Styling")}</h4>
                   <p className="text-xs text-muted-foreground font-medium mt-1">
-                    Nói không với Magic CSS
+                    {t("Nói không với Magic CSS", "Say no to Magic CSS")}
                   </p>
                 </div>
               </div>

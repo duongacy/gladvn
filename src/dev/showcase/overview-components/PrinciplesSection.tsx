@@ -1,10 +1,12 @@
 import { CheckIcon, CopyIcon, SparklesIcon } from "lucide-react";
 import { useState } from "react";
 import { Container } from "../../components/Container";
+import { useI18n } from "../../components/dev-context";
 import { STATS } from "../../data";
 
 export function PrinciplesSection({ className }: { className?: string }) {
   const [copied, setCopied] = useState(false);
+  const t = useI18n();
 
   const handleCopy = () => {
     navigator.clipboard.writeText("npx gladvn init");
@@ -36,12 +38,32 @@ export function PrinciplesSection({ className }: { className?: string }) {
       <Container as="section" className="space-y-12 mt-24">
         <div className="text-center max-w-2xl mx-auto space-y-4">
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">
-            Kiến trúc rành mạch. Sửa code không "đổ mồ hôi".
+            {t(
+              <>
+                Kiến trúc tường minh.<br className="hidden md:block" /> Làm chủ mọi giao diện.
+              </>,
+              <>
+                Explicit architecture.<br className="hidden md:block" /> Master any interface.
+              </>
+            )}
           </h2>
           <p className="text-muted-foreground text-lg">
-            Nhiều dự án bắt đầu "bốc mùi" sau một thời gian — đụng vào đâu cũng sợ gãy, muốn sửa mà rén. gladvn chia code thành{" "}
-            <strong className="text-foreground">các tầng rạch ròi</strong>
-            {", "}giúp bạn luôn biết chính xác mình đang sửa cái gì, ảnh hưởng tới đâu. Tâm an, code mới nhàn!
+            {t(
+              <>
+                Sự phức tạp thường biến các dự án thành những mớ bòng bong. gladvn định hình source code thành{" "}
+                <strong className="text-foreground">các tầng chuyên biệt</strong>
+                {", "}giúp bạn nắm rõ từng dòng code và tác động của nó.
+                <br className="hidden md:block" />
+                <span className="text-foreground font-medium">Tối đa khả năng mở rộng, giảm thiểu rủi ro.</span>
+              </>,
+              <>
+                Complexity often turns projects into unmanageable messes. gladvn shapes source code into{" "}
+                <strong className="text-foreground">specialized layers</strong>
+                {", "}helping you understand every line of code and its impact.
+                <br className="hidden md:block" />
+                <span className="text-foreground font-medium">Maximize scalability, minimize risk.</span>
+              </>
+            )}
           </p>
         </div>
 
@@ -52,22 +74,38 @@ export function PrinciplesSection({ className }: { className?: string }) {
           <div className="flex flex-col md:flex-row items-start gap-6 md:gap-8">
             <div className="relative z-10 flex-1 space-y-6">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary text-primary-foreground text-sm font-bold uppercase tracking-wider shadow-lg shadow-primary/20">
-                <SparklesIcon className="size-4" /> Cốt lõi
+                <SparklesIcon className="size-4" /> {t("Sự khác biệt", "The Key Difference")}
               </div>
               <h3 className="text-3xl md:text-5xl font-extrabold tracking-tight">
-                Code là của bạn, 100%
+                {t("Code là của bạn, 100%", "The code is 100% yours")}
               </h3>
               <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl">
-                Chạy một lệnh — toàn bộ component, hook, style, context được
-                copy thẳng vào thư mục{" "}
-                <code className="text-sm bg-primary/20 text-primary px-1.5 py-0.5 rounded">
-                  src/
-                </code>{" "}
-                của bạn.{" "}
-                <strong className="text-foreground">
-                  Không qua node_modules. Không phụ thuộc vào ai.
-                </strong>{" "}
-                Đọc được, sửa được, xoá được từng dòng.
+                {t(
+                  <>
+                    Chạy một lệnh — toàn bộ component, hook, style, context được
+                    copy thẳng vào thư mục{" "}
+                    <code className="text-sm bg-primary/20 text-primary px-1.5 py-0.5 rounded">
+                      src/
+                    </code>{" "}
+                    của bạn.{" "}
+                    <strong className="text-foreground">
+                      Không qua node_modules. Không phụ thuộc vào ai.
+                    </strong>{" "}
+                    Đọc được, sửa được, xoá được từng dòng.
+                  </>,
+                  <>
+                    Run a single command — every component, hook, style, and context is
+                    copied directly into your{" "}
+                    <code className="text-sm bg-primary/20 text-primary px-1.5 py-0.5 rounded">
+                      src/
+                    </code>{" "}
+                    directory.{" "}
+                    <strong className="text-foreground">
+                      No node_modules. Zero external dependencies.
+                    </strong>{" "}
+                    You can read, modify, or delete every single line of code.
+                  </>
+                )}
               </p>
 
               <div className="flex items-center gap-4 pt-2">
@@ -95,13 +133,23 @@ export function PrinciplesSection({ className }: { className?: string }) {
                 </div>
                 <div>
                   <h4 className="font-bold text-success text-lg">
-                    Toàn bộ Component & Hook
+                    {t("Toàn bộ Component & Hook", "All Components & Hooks")}
                   </h4>
                   <p className="text-xs text-success/80 mt-1">
-                    Nằm gọn trong{" "}
-                    <code className="opacity-80">
-                      src/components/micro/ & macro/
-                    </code>
+                    {t(
+                      <>
+                        Nằm gọn trong{" "}
+                        <code className="opacity-80">
+                          src/components/micro/ & macro/
+                        </code>
+                      </>,
+                      <>
+                        Neatly placed inside{" "}
+                        <code className="opacity-80">
+                          src/components/micro/ & macro/
+                        </code>
+                      </>
+                    )}
                   </p>
                 </div>
               </div>
@@ -111,10 +159,13 @@ export function PrinciplesSection({ className }: { className?: string }) {
                 </div>
                 <div>
                   <h4 className="font-bold text-success text-lg">
-                    CSS Token & Theme Config
+                    {t("CSS Token & Theme Config", "CSS Tokens & Theme Config")}
                   </h4>
                   <p className="text-xs text-success/80 mt-1">
-                    OKLCH color tokens, dark/light mode — đẹp ngay từ đầu
+                    {t(
+                      "OKLCH color tokens, dark/light mode — đẹp ngay từ đầu",
+                      "OKLCH color tokens, dark/light mode — beautiful out of the box"
+                    )}
                   </p>
                 </div>
               </div>

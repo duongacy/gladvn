@@ -1,50 +1,81 @@
 import { Label } from "../../components/micro/label";
-import { useDevContext } from "../../dev/components/dev-context";
+import { useDevContext, useI18n } from "../../dev/components/dev-context";
 import {
   DocsCode,
   DocsP,
   Showcase,
   ShowcaseDocs,
-  ShowcaseExample
+  ShowcaseExample,
 } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 function LabelMicroShowcase({ globalSize }: { globalSize: Size }) {
+  const t = useI18n();
   return (
     <div className="space-y-10">
-      <ShowcaseExample title="Default" description="Cách sử dụng nhãn tiêu chuẩn." code={`<Label htmlFor="terms">Chấp nhận điều khoản và điều kiện</Label>`} preview={
-                  <>
-          <Label htmlFor="terms" size={globalSize}>
-                    Chấp nhận điều khoản và điều kiện
-                  </Label>
-                  </>
-                } />
+      <ShowcaseExample
+        title={t("Mặc định (Default)", "Default")}
+        description={t(
+          "Cách sử dụng nhãn tiêu chuẩn.",
+          "How to use the standard label.",
+        )}
+        code={`<Label htmlFor="terms">Accept terms and conditions</Label>`}
+        preview={
+          <>
+            <Label htmlFor="terms" size={globalSize}>
+              Accept terms and conditions
+            </Label>
+          </>
+        }
+      />
 
-      <ShowcaseExample title="Disabled" description="Trạng thái bị vô hiệu hóa khi nằm trong group bị vô hiệu." code={`<div data-disabled="true" className="group">
-    <Label htmlFor="disabled">Nhãn này đã bị khóa</Label>
-  </div>`} preview={
-                  <>
-          <div data-disabled="true" className="group">
-                    <Label htmlFor="disabled" size={globalSize}>
-                      Nhãn này đã bị khóa
-                    </Label>
-                  </div>
-                  </>
-                } />
+      <ShowcaseExample
+        title={t("Khóa / Bất hoạt (Disabled)", "Disabled")}
+        description={t(
+          "Trạng thái bị vô hiệu hóa khi nằm trong group bị vô hiệu.",
+          "Disabled state when placed in a disabled group.",
+        )}
+        code={`<div data-disabled="true" className="group">
+    <Label htmlFor="disabled">This label is disabled</Label>
+  </div>`}
+        preview={
+          <>
+            <div data-disabled="true" className="group">
+              <Label htmlFor="disabled" size={globalSize}>
+                This label is disabled
+              </Label>
+            </div>
+          </>
+        }
+      />
 
-      <ShowcaseExample title="Error State" description="Hiển thị màu đỏ khi nằm trong group bị lỗi (data-invalid)." code={`<div data-invalid="true" className="group">
-    <Label htmlFor="error">Email là bắt buộc</Label>
-  </div>`} preview={
-                  <>
-          <div data-invalid="true" className="group">
-                    <Label htmlFor="error" size={globalSize}>
-                      Email là bắt buộc
-                    </Label>
-                  </div>
-                  </>
-                } />
+      <ShowcaseExample
+        title={t("Trạng thái Lỗi (Error State)", "Error State")}
+        description={t(
+          "Hiển thị màu đỏ khi nằm trong group bị lỗi (data-invalid).",
+          "Displays red color when placed in an error group (data-invalid).",
+        )}
+        code={`<div data-invalid="true" className="group">
+    <Label htmlFor="error">Email is required</Label>
+  </div>`}
+        preview={
+          <>
+            <div data-invalid="true" className="group">
+              <Label htmlFor="error" size={globalSize}>
+                Email is required
+              </Label>
+            </div>
+          </>
+        }
+      />
 
-      <ShowcaseExample title="With Peer Input" description="Phản hồi trạng thái disabled của input liền kề (dùng class peer)." code={`<div className="flex items-center gap-2">
+      <ShowcaseExample
+        title={t("Kèm Input ngang hàng (With Peer Input)", "With Peer Input")}
+        description={t(
+          "Phản hồi trạng thái disabled của input liền kề (dùng class peer).",
+          "Responds to the disabled state of an adjacent input (using the peer class).",
+        )}
+        code={`<div className="flex items-center gap-2">
     <input
       type="checkbox"
       disabled
@@ -52,33 +83,39 @@ function LabelMicroShowcase({ globalSize }: { globalSize: Size }) {
       className="peer w-4 h-4"
     />
     <Label htmlFor="peer-disabled">
-      Bị khóa bởi peer checkbox
+      Disabled by peer checkbox
     </Label>
-  </div>`} preview={
-                  <>
-          <div className="flex items-center gap-2">
-                    <input
-                      type="checkbox"
-                      disabled
-                      id="peer-disabled"
-                      className="peer w-4 h-4"
-                    />
-                    <Label htmlFor="peer-disabled" size={globalSize}>
-                      Bị khóa bởi peer checkbox
-                    </Label>
-                  </div>
-                  </>
-                } />
+  </div>`}
+        preview={
+          <>
+            <div className="flex items-center gap-2">
+              <input
+                type="checkbox"
+                disabled
+                id="peer-disabled"
+                className="peer w-4 h-4"
+              />
+              <Label htmlFor="peer-disabled" size={globalSize}>
+                Disabled by peer checkbox
+              </Label>
+            </div>
+          </>
+        }
+      />
     </div>
   );
 }
 
 export default function LabelShowcase() {
   const { size: globalSize } = useDevContext();
+  const t = useI18n();
   return (
     <Showcase
       title="Label"
-      description="Nhãn gắn với form control, cải thiện accessibility."
+      description={t(
+        "Nhãn gắn với form control, cải thiện accessibility.",
+        "Label attached to a form control, improving accessibility.",
+      )}
       guideline={
         <ShowcaseDocs>
           <DocsP>

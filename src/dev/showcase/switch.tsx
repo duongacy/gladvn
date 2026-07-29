@@ -8,22 +8,26 @@ import { SwitchPreset } from "../../components/macro/switch-preset";
 import { Button } from "../../components/micro/button";
 import { Field, FieldError, FieldLabel } from "../../components/micro/field";
 import { Switch, SwitchThumb } from "../../components/micro/switch";
+import { useI18n } from "../../dev/components/dev-context";
 import { useDevContext } from "../../dev/components/dev-context";
 import {
   ExampleGrid,
   Showcase,
-  ShowcaseExample
+  ShowcaseExample,
 } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 const formSchema = z.object({
-  marketing: z.boolean().default(false).optional() });
+  marketing: z.boolean().default(false).optional(),
+});
 type FormValues = z.infer<typeof formSchema>;
 
 function SwitchForm({ size }: { size: Size }) {
+  const t = useI18n();
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
-    defaultValues: { marketing: false } });
+    defaultValues: { marketing: false },
+  });
 
   return (
     <form
@@ -37,7 +41,7 @@ function SwitchForm({ size }: { size: Size }) {
           <SwitchPreset
             size={size}
             label="Email Marketing"
-            description="Nhận email về các sản phẩm, tính năng mới và hơn thế nữa."
+            description="Receive emails about new products, features, and more."
             checked={field.value}
             onCheckedChange={field.onChange}
             errorMessage={fieldState.error?.message}
@@ -45,7 +49,7 @@ function SwitchForm({ size }: { size: Size }) {
         )}
       />
       <Button type="submit" size={size}>
-        Lưu thay đổi
+        Save changes
       </Button>
     </form>
   );
@@ -73,126 +77,173 @@ function SwitchForm({ size }: { size: Size }) {
           />
         )}
       />
-      <Button type="submit" size={size}>Lưu</Button>
+      <Button type="submit" size={size}>Save</Button>
     </form>
   );
 }`;
 
 function SwitchMacroShowcase({ globalSize }: { globalSize: Size }) {
+  const t = useI18n();
   return (
     <div className="space-y-10">
       <ExampleGrid>
-        <ShowcaseExample title="Tiêu chuẩn" description="Công tắc cơ bản có nhãn và mô tả." code={`<SwitchPreset
+        <ShowcaseExample
+          title={t("Tiêu chuẩn", "Standard")}
+          description={t(
+            "Công tắc cơ bản có nhãn và mô tả.",
+            "Basic switch with label and description.",
+          )}
+          code={`<SwitchPreset
     className="w-full"
-    label="Chế độ máy bay"
-    description="Vô hiệu hóa tất cả các kết nối không dây."
-  />`} preview={
-                      <>
+    label="Airplane Mode"
+    description="Disable all wireless connections."
+  />`}
+          preview={
+            <>
               <SwitchPreset
-                          className="w-full"
-                          size={globalSize}
-                          label="Chế độ máy bay"
-                          description="Vô hiệu hóa tất cả các kết nối không dây."
-                        />
-                      </>
-                    } />
+                className="w-full"
+                size={globalSize}
+                label="Airplane Mode"
+                description="Disable all wireless connections."
+              />
+            </>
+          }
+        />
 
-        <ShowcaseExample title="Trạng thái Lỗi (Error)" description="Báo lỗi khi bật/tắt thất bại." code={`<div className="w-full flex flex-col gap-6">
+        <ShowcaseExample
+          title={t("Trạng thái Lỗi (Error)", "Error State")}
+          description={t(
+            "Báo lỗi khi bật/tắt thất bại.",
+            "Shows error when toggle fails.",
+          )}
+          code={`<div className="w-full flex flex-col gap-6">
     <SwitchPreset
-      label="Kết nối mạng (Lỗi)"
-      errorMessage="Mất kết nối mạng. Không thể lưu cài đặt."
+      label="Network Connection (Error)"
+      errorMessage="Network connection lost. Cannot save settings."
     />
-  </div>`} preview={
-                      <>
+  </div>`}
+          preview={
+            <>
               <div className="w-full flex flex-col gap-6">
-                          <SwitchPreset
-                            size={globalSize}
-                            label="Kết nối mạng (Lỗi)"
-                            errorMessage="Mất kết nối mạng. Không thể lưu cài đặt."
-                          />
-                        </div>
-                      </>
-                    } />
+                <SwitchPreset
+                  size={globalSize}
+                  label="Network Connection (Error)"
+                  errorMessage="Network connection lost. Cannot save settings."
+                />
+              </div>
+            </>
+          }
+        />
       </ExampleGrid>
 
       <ExampleGrid>
-        <ShowcaseExample title="Khóa / Bất hoạt (Disabled)" description="Người dùng không thể tương tác với công tắc." code={`<div className="w-full flex flex-col gap-6">
+        <ShowcaseExample
+          title={t("Khóa / Bất hoạt (Disabled)", "Disabled")}
+          description={t(
+            "Người dùng không thể tương tác với công tắc.",
+            "Users cannot interact with the switch.",
+          )}
+          code={`<div className="w-full flex flex-col gap-6">
     <SwitchPreset
-      label="Đồng bộ danh bạ"
-      description="Yêu cầu cấp quyền truy cập vào danh bạ."
+      label="Sync Contacts"
+      description="Requires permission to access contacts."
       disabled
     />
     <SwitchPreset
-      label="Dữ liệu di động"
-      description="Dữ liệu di động đang bị tắt trên toàn cầu."
+      label="Cellular Data"
+      description="Cellular data is currently turned off globally."
       defaultChecked
       disabled
     />
-  </div>`} preview={
-                      <>
+  </div>`}
+          preview={
+            <>
               <div className="w-full flex flex-col gap-6">
-                          <SwitchPreset
-                            size={globalSize}
-                            label="Đồng bộ danh bạ"
-                            description="Yêu cầu cấp quyền truy cập vào danh bạ."
-                            disabled
-                          />
-                          <SwitchPreset
-                            size={globalSize}
-                            label="Dữ liệu di động"
-                            description="Dữ liệu di động đang bị tắt trên toàn cầu."
-                            defaultChecked
-                            disabled
-                          />
-                        </div>
-                      </>
-                    } />
+                <SwitchPreset
+                  size={globalSize}
+                  label="Sync Contacts"
+                  description="Requires permission to access contacts."
+                  disabled
+                />
+                <SwitchPreset
+                  size={globalSize}
+                  label="Cellular Data"
+                  description="Cellular data is currently turned off globally."
+                  defaultChecked
+                  disabled
+                />
+              </div>
+            </>
+          }
+        />
 
-        <ShowcaseExample title="Nhãn phức tạp (Custom Content)" description="Truyền React Node vào Label để tạo giao diện phong phú." code={`<SwitchPreset
+        <ShowcaseExample
+          title={t("Nhãn phức tạp (Custom Content)", "Custom Content")}
+          description={t(
+            "Truyền React Node vào Label để tạo giao diện phong phú.",
+            "Pass React Node into Label to create rich interfaces.",
+          )}
+          code={`<SwitchPreset
     label={
       <span className="flex items-center gap-2">
-        Xác thực 2 bước (2FA)
+        Two-Factor Authentication (2FA)
         <span className="rounded bg-success/20 px-1.5 py-0.5 text-[10px] font-semibold text-success">
-          KHUYÊN DÙNG
+          RECOMMENDED
         </span>
       </span>
     }
-    description="Thêm một lớp bảo mật bổ sung cho tài khoản của bạn. Chúng tôi sẽ yêu cầu mã xác nhận mỗi khi bạn đăng nhập từ thiết bị mới."
-  />`} preview={
-                      <>
+    description="Add an extra layer of security to your account. We will ask for a verification code whenever you sign in from a new device."
+  />`}
+          preview={
+            <>
               <SwitchPreset
-                          size={globalSize}
-                          label={
-                            <span className="flex items-center gap-2">
-                              Xác thực 2 bước (2FA)
-                              <span className="rounded bg-success/20 px-1.5 py-0.5 text-[10px] font-semibold text-success">
-                                KHUYÊN DÙNG
-                              </span>
-                            </span>
-                          }
-                          description="Thêm một lớp bảo mật bổ sung cho tài khoản của bạn. Chúng tôi sẽ yêu cầu mã xác nhận mỗi khi bạn đăng nhập từ thiết bị mới."
-                        />
-                      </>
-                    } />
+                size={globalSize}
+                label={
+                  <span className="flex items-center gap-2">
+                    Two-Factor Authentication (2FA)
+                    <span className="rounded bg-success/20 px-1.5 py-0.5 text-[10px] font-semibold text-success">
+                      RECOMMENDED
+                    </span>
+                  </span>
+                }
+                description="Add an extra layer of security to your account. We will ask for a verification code whenever you sign in from a new device."
+              />
+            </>
+          }
+        />
       </ExampleGrid>
 
       <ExampleGrid>
-
-        <ShowcaseExample title="Tích hợp React Hook Form" description="Dùng Controller của RHF để bọc SwitchPreset." code={rhfCode} preview={
-                      <>
+        <ShowcaseExample
+          title={t("Tích hợp React Hook Form", "React Hook Form Integration")}
+          description={t(
+            "Dùng Controller của RHF để bọc SwitchPreset.",
+            "Use RHF's Controller to wrap SwitchPreset.",
+          )}
+          code={rhfCode}
+          preview={
+            <>
               <SwitchForm size={globalSize} />
-                      </>
-                    } />
+            </>
+          }
+        />
       </ExampleGrid>
     </div>
   );
 }
 
 function SwitchMicroShowcase({ globalSize }: { globalSize: Size }) {
+  const t = useI18n();
   return (
     <div className="space-y-10">
       <ExampleGrid>
-        <ShowcaseExample title="Cơ bản (Primitive)" description="Kết nối thủ công Switch và SwitchThumb." code={`<div className="flex items-center gap-4">
+        <ShowcaseExample
+          title={t("Cơ bản (Primitive)", "Primitive")}
+          description={t(
+            "Kết nối thủ công Switch và SwitchThumb.",
+            "Manually connect Switch and SwitchThumb.",
+          )}
+          code={`<div className="flex items-center gap-4">
     <Switch id="sw-micro">
       <SwitchThumb />
     </Switch>
@@ -200,22 +251,30 @@ function SwitchMicroShowcase({ globalSize }: { globalSize: Size }) {
       htmlFor="sw-micro"
       className="text-sm cursor-pointer"
     >
-      Công tắc đơn trần
+      Bare Switch
     </label>
-  </div>`} preview={
-                      <>
+  </div>`}
+          preview={
+            <>
               <div className="flex items-center gap-4">
-                          <Switch size={globalSize} id="sw-micro">
-                            <SwitchThumb />
-                          </Switch>
-                          <label htmlFor="sw-micro" className="text-sm cursor-pointer">
-                            Công tắc đơn trần
-                          </label>
-                        </div>
-                      </>
-                    } />
+                <Switch size={globalSize} id="sw-micro">
+                  <SwitchThumb />
+                </Switch>
+                <label htmlFor="sw-micro" className="text-sm cursor-pointer">
+                  Bare Switch
+                </label>
+              </div>
+            </>
+          }
+        />
 
-        <ShowcaseExample title="Layout Đảo ngược (Reverse)" description="Dùng Field với orientation='horizontal' để đẩy Switch sang bên phải." code={`<div className="w-full space-y-4">
+        <ShowcaseExample
+          title={t("Layout Đảo ngược (Reverse)", "Reverse Layout")}
+          description={t(
+            "Dùng Field với orientation='horizontal' để đẩy Switch sang bên phải.",
+            "Use Field with orientation='horizontal' to push Switch to the right.",
+          )}
+          code={`<div className="w-full space-y-4">
     <Field
       orientation="horizontal"
       className="justify-between"
@@ -224,7 +283,7 @@ function SwitchMicroShowcase({ globalSize }: { globalSize: Size }) {
         htmlFor="switch-notif"
         className="font-normal cursor-pointer"
       >
-        Thông báo đẩy
+        Push Notifications
       </FieldLabel>
       <Switch id="switch-notif" defaultChecked>
         <SwitchThumb />
@@ -238,52 +297,60 @@ function SwitchMicroShowcase({ globalSize }: { globalSize: Size }) {
         htmlFor="switch-dark"
         className="font-normal cursor-pointer"
       >
-        Chế độ tối (Dark Mode)
+        Dark Mode
       </FieldLabel>
       <Switch id="switch-dark">
         <SwitchThumb />
       </Switch>
     </Field>
-  </div>`} preview={
-                      <>
+  </div>`}
+          preview={
+            <>
               <div className="w-full space-y-4">
-                          <Field
-                            orientation="horizontal"
-                            size={globalSize}
-                            className="justify-between"
-                          >
-                            <FieldLabel
-                              htmlFor="switch-notif"
-                              className="font-normal cursor-pointer"
-                            >
-                              Thông báo đẩy
-                            </FieldLabel>
-                            <Switch id="switch-notif" size={globalSize} defaultChecked>
-                              <SwitchThumb />
-                            </Switch>
-                          </Field>
-                          <Field
-                            orientation="horizontal"
-                            size={globalSize}
-                            className="justify-between"
-                          >
-                            <FieldLabel
-                              htmlFor="switch-dark"
-                              className="font-normal cursor-pointer"
-                            >
-                              Chế độ tối (Dark Mode)
-                            </FieldLabel>
-                            <Switch id="switch-dark" size={globalSize}>
-                              <SwitchThumb />
-                            </Switch>
-                          </Field>
-                        </div>
-                      </>
-                    } />
+                <Field
+                  orientation="horizontal"
+                  size={globalSize}
+                  className="justify-between"
+                >
+                  <FieldLabel
+                    htmlFor="switch-notif"
+                    className="font-normal cursor-pointer"
+                  >
+                    Push Notifications
+                  </FieldLabel>
+                  <Switch id="switch-notif" size={globalSize} defaultChecked>
+                    <SwitchThumb />
+                  </Switch>
+                </Field>
+                <Field
+                  orientation="horizontal"
+                  size={globalSize}
+                  className="justify-between"
+                >
+                  <FieldLabel
+                    htmlFor="switch-dark"
+                    className="font-normal cursor-pointer"
+                  >
+                    Dark Mode
+                  </FieldLabel>
+                  <Switch id="switch-dark" size={globalSize}>
+                    <SwitchThumb />
+                  </Switch>
+                </Field>
+              </div>
+            </>
+          }
+        />
       </ExampleGrid>
 
       <ExampleGrid>
-        <ShowcaseExample title="Khóa (Disabled)" description="Các công tắc đảo ngược nhưng bị vô hiệu hoá." code={`<div className="w-full space-y-4">
+        <ShowcaseExample
+          title={t("Khóa (Disabled)", "Disabled")}
+          description={t(
+            "Các công tắc đảo ngược nhưng bị vô hiệu hoá.",
+            "Reversed switches but disabled.",
+          )}
+          code={`<div className="w-full space-y-4">
     <Field
       orientation="horizontal"
       className="justify-between"
@@ -306,50 +373,63 @@ function SwitchMicroShowcase({ globalSize }: { globalSize: Size }) {
         htmlFor="switch-d2"
         className="font-normal text-muted-foreground"
       >
-        Vị trí (GPS)
+        Location (GPS)
       </FieldLabel>
       <Switch id="switch-d2" disabled>
         <SwitchThumb />
       </Switch>
     </Field>
-  </div>`} preview={
-                      <>
+  </div>`}
+          preview={
+            <>
               <div className="w-full space-y-4">
-                          <Field
-                            orientation="horizontal"
-                            size={globalSize}
-                            className="justify-between"
-                          >
-                            <FieldLabel
-                              htmlFor="switch-d1"
-                              className="font-normal text-muted-foreground"
-                            >
-                              Bluetooth
-                            </FieldLabel>
-                            <Switch id="switch-d1" disabled size={globalSize} defaultChecked>
-                              <SwitchThumb />
-                            </Switch>
-                          </Field>
-                          <Field
-                            orientation="horizontal"
-                            size={globalSize}
-                            className="justify-between"
-                          >
-                            <FieldLabel
-                              htmlFor="switch-d2"
-                              className="font-normal text-muted-foreground"
-                            >
-                              Vị trí (GPS)
-                            </FieldLabel>
-                            <Switch id="switch-d2" disabled size={globalSize}>
-                              <SwitchThumb />
-                            </Switch>
-                          </Field>
-                        </div>
-                      </>
-                    } />
+                <Field
+                  orientation="horizontal"
+                  size={globalSize}
+                  className="justify-between"
+                >
+                  <FieldLabel
+                    htmlFor="switch-d1"
+                    className="font-normal text-muted-foreground"
+                  >
+                    Bluetooth
+                  </FieldLabel>
+                  <Switch
+                    id="switch-d1"
+                    disabled
+                    size={globalSize}
+                    defaultChecked
+                  >
+                    <SwitchThumb />
+                  </Switch>
+                </Field>
+                <Field
+                  orientation="horizontal"
+                  size={globalSize}
+                  className="justify-between"
+                >
+                  <FieldLabel
+                    htmlFor="switch-d2"
+                    className="font-normal text-muted-foreground"
+                  >
+                    Location (GPS)
+                  </FieldLabel>
+                  <Switch id="switch-d2" disabled size={globalSize}>
+                    <SwitchThumb />
+                  </Switch>
+                </Field>
+              </div>
+            </>
+          }
+        />
 
-        <ShowcaseExample title="Trạng thái Lỗi thủ công" description="Tự gắn aria-invalid vào Switch." code={`<Field
+        <ShowcaseExample
+          title={t("Trạng thái Lỗi thủ công", "Manual Error State")}
+          description={t(
+            "Tự gắn aria-invalid vào Switch.",
+            "Manually attach aria-invalid to Switch.",
+          )}
+          code={`<Field
     orientation="horizontal"
     data-invalid={true}
     className="justify-between items-start"
@@ -359,9 +439,9 @@ function SwitchMicroShowcase({ globalSize }: { globalSize: Size }) {
         htmlFor="switch-err"
         className="font-normal cursor-pointer"
       >
-        Tự động sao lưu
+        Auto Backup
       </FieldLabel>
-      <FieldError>Máy chủ sao lưu đang offline.</FieldError>
+      <FieldError>Backup server is offline.</FieldError>
     </div>
     <Switch
       id="switch-err"
@@ -370,37 +450,42 @@ function SwitchMicroShowcase({ globalSize }: { globalSize: Size }) {
     >
       <SwitchThumb />
     </Switch>
-  </Field>`} preview={
-                      <>
+  </Field>`}
+          preview={
+            <>
               <Field
-                          orientation="horizontal"
-                          data-invalid={true}
-                          size={globalSize}
-                          className="justify-between items-start"
-                        >
-                          <div className="grid gap-1.5">
-                            <FieldLabel
-                              htmlFor="switch-err"
-                              className="font-normal cursor-pointer"
-                            >
-                              Tự động sao lưu
-                            </FieldLabel>
-                            <FieldError>Máy chủ sao lưu đang offline.</FieldError>
-                          </div>
-                          <Switch
-                            id="switch-err"
-                            size={globalSize}
-                            aria-invalid={true}
-                            defaultChecked
-                          >
-                            <SwitchThumb />
-                          </Switch>
-                        </Field>
-                      </>
-                    } />
+                orientation="horizontal"
+                data-invalid={true}
+                size={globalSize}
+                className="justify-between items-start"
+              >
+                <div className="grid gap-1.5">
+                  <FieldLabel
+                    htmlFor="switch-err"
+                    className="font-normal cursor-pointer"
+                  >
+                    Auto Backup
+                  </FieldLabel>
+                  <FieldError>Backup server is offline.</FieldError>
+                </div>
+                <Switch
+                  id="switch-err"
+                  size={globalSize}
+                  aria-invalid={true}
+                  defaultChecked
+                >
+                  <SwitchThumb />
+                </Switch>
+              </Field>
+            </>
+          }
+        />
       </ExampleGrid>
 
-      <ShowcaseExample title="🧭 So sánh Use Case" description="So sánh nhanh khi nào dùng Micro và Macro." code={`<div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+      <ShowcaseExample
+        title="🧭 So sánh Use Case"
+        description="So sánh nhanh khi nào dùng Micro và Macro."
+        code={`<div className="grid grid-cols-1 gap-6 md:grid-cols-2">
     {/* Story 1: Macro wins */}
     <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
       <div className="flex items-start gap-3">
@@ -424,19 +509,18 @@ function SwitchMicroShowcase({ globalSize }: { globalSize: Size }) {
             Story 1 · Dùng Macro
           </p>
           <h3 className="mt-0.5 text-sm font-semibold text-foreground">
-            Form thông thường
+            Standard Form
           </h3>
         </div>
       </div>
       <p className="text-xs text-muted-foreground leading-relaxed">
-        Bạn cần một Switch giống như Checkbox (công tắc ở
-        bên trái, chữ bên phải). Dùng Preset cho nhanh gọn.
+        You need a Switch that acts like a Checkbox (switch on the left, text on the right). Use Preset for quick setup.
       </p>
       <div className="rounded-lg bg-muted/50 p-3">
         <SwitchPreset
           size="sm"
-          label="Đồng ý điều khoản"
-          description="Bật để tiếp tục."
+          label="Accept Terms"
+          description="Turn on to continue."
         />
       </div>
     </div>
@@ -464,14 +548,12 @@ function SwitchMicroShowcase({ globalSize }: { globalSize: Size }) {
             Story 2 · Dùng Micro
           </p>
           <h3 className="mt-0.5 text-sm font-semibold text-foreground">
-            Menu Cài đặt (iOS Style)
+            Settings Menu (iOS Style)
           </h3>
         </div>
       </div>
       <p className="text-xs text-muted-foreground leading-relaxed">
-        Giống như iPhone, chữ nằm bên trái và Công tắc nằm
-        tít bên phải của dòng. Macro không hỗ trợ layout này
-        nên bạn dùng cấu trúc Field + Micro.
+        Like an iPhone, the text is on the left and the Switch is on the far right of the line. Macro doesn't support this layout, so you use the Field + Micro structure.
       </p>
       <div className="rounded-lg bg-muted/50 p-3 border border-border divide-y">
         <div className="p-2 flex justify-between items-center">
@@ -490,108 +572,114 @@ function SwitchMicroShowcase({ globalSize }: { globalSize: Size }) {
         </div>
       </div>
     </div>
-  </div>`} preview={
-                  <>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                    <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
-                      <div className="flex items-start gap-3">
-                        <span className="mt-0.5 shrink-0 rounded-full bg-green-500/10 p-1.5 text-green-600">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="size-4"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            aria-hidden="true"
-                          >
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                          </svg>
-                        </span>
-                        <div>
-                          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                            Story 1 · Dùng Macro
-                          </p>
-                          <h3 className="mt-0.5 text-sm font-semibold text-foreground">
-                            Form thông thường
-                          </h3>
-                        </div>
-                      </div>
-                      <p className="text-xs text-muted-foreground leading-relaxed">
-                        Bạn cần một Switch giống như Checkbox (công tắc ở bên trái, chữ
-                        bên phải). Dùng Preset cho nhanh gọn.
-                      </p>
-                      <div className="rounded-lg bg-muted/50 p-3">
-                        <SwitchPreset
-                          size={globalSize}
-                          label="Đồng ý điều khoản"
-                          description="Bật để tiếp tục."
-                        />
-                      </div>
-                    </div>
-
-                    <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
-                      <div className="flex items-start gap-3">
-                        <span className="mt-0.5 shrink-0 rounded-full bg-blue-500/10 p-1.5 text-blue-600">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="size-4"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            aria-hidden="true"
-                          >
-                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-                          </svg>
-                        </span>
-                        <div>
-                          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                            Story 2 · Dùng Micro
-                          </p>
-                          <h3 className="mt-0.5 text-sm font-semibold text-foreground">
-                            Menu Cài đặt (iOS Style)
-                          </h3>
-                        </div>
-                      </div>
-                      <p className="text-xs text-muted-foreground leading-relaxed">
-                        Giống như iPhone, chữ nằm bên trái và Công tắc nằm tít bên phải
-                        của dòng. Macro không hỗ trợ layout này nên bạn dùng cấu trúc
-                        Field + Micro.
-                      </p>
-                      <div className="rounded-lg bg-muted/50 p-3 border border-border divide-y">
-                        <div className="p-2 flex justify-between items-center">
-                          <span className="text-sm font-medium">Wi-Fi</span>
-                          <Switch size={globalSize} defaultChecked>
-                            <SwitchThumb />
-                          </Switch>
-                        </div>
-                        <div className="p-2 flex justify-between items-center">
-                          <span className="text-sm font-medium">Bluetooth</span>
-                          <Switch size={globalSize}>
-                            <SwitchThumb />
-                          </Switch>
-                        </div>
-                      </div>
-                    </div>
+  </div>`}
+        preview={
+          <>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
+                <div className="flex items-start gap-3">
+                  <span className="mt-0.5 shrink-0 rounded-full bg-green-500/10 p-1.5 text-green-600">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="size-4"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                  </span>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                      Story 1 · Dùng Macro
+                    </p>
+                    <h3 className="mt-0.5 text-sm font-semibold text-foreground">
+                      Standard Form
+                    </h3>
                   </div>
-                  </>
-                } />
+                </div>
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  You need a Switch that acts like a Checkbox (switch on the
+                  left, text on the right). Use Preset for quick setup.
+                </p>
+                <div className="rounded-lg bg-muted/50 p-3">
+                  <SwitchPreset
+                    size={globalSize}
+                    label="Accept Terms"
+                    description="Turn on to continue."
+                  />
+                </div>
+              </div>
+
+              <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
+                <div className="flex items-start gap-3">
+                  <span className="mt-0.5 shrink-0 rounded-full bg-blue-500/10 p-1.5 text-blue-600">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="size-4"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                    </svg>
+                  </span>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                      Story 2 · Dùng Micro
+                    </p>
+                    <h3 className="mt-0.5 text-sm font-semibold text-foreground">
+                      Settings Menu (iOS Style)
+                    </h3>
+                  </div>
+                </div>
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  Like an iPhone, the text is on the left and the Switch is on
+                  the far right of the line. Macro doesn't support this layout,
+                  so you use the Field + Micro structure.
+                </p>
+                <div className="rounded-lg bg-muted/50 p-3 border border-border divide-y">
+                  <div className="p-2 flex justify-between items-center">
+                    <span className="text-sm font-medium">Wi-Fi</span>
+                    <Switch size={globalSize} defaultChecked>
+                      <SwitchThumb />
+                    </Switch>
+                  </div>
+                  <div className="p-2 flex justify-between items-center">
+                    <span className="text-sm font-medium">Bluetooth</span>
+                    <Switch size={globalSize}>
+                      <SwitchThumb />
+                    </Switch>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </>
+        }
+      />
     </div>
   );
 }
 
 export default function SwitchShowcase() {
+  const t = useI18n();
   const { size: globalSize } = useDevContext();
   return (
     <Showcase
       title="Switch"
-      description="Thành phần điều khiển cho phép người dùng chuyển đổi qua lại giữa 2 trạng thái Bật / Tắt."
-      
+      description={t(
+        "Thành phần điều khiển cho phép người dùng chuyển đổi qua lại giữa 2 trạng thái Bật / Tắt.",
+        "A control component that allows the user to toggle between two states: On / Off.",
+      )}
+
       micro={{ content: <SwitchMicroShowcase globalSize={globalSize} /> }}
       macro={{ content: <SwitchMacroShowcase globalSize={globalSize} /> }}
     />

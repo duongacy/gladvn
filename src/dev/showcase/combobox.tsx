@@ -52,7 +52,7 @@ const tagItems = ["bug", "feature", "enhancement", "docs"];
 const engineItems = ["v8", "spidermonkey"];
 
 const formSchema = z.object({
-  framework: z.string().min(1, "Vui lòng chọn một framework."),
+  framework: z.string().min(1, "Please select a framework."),
 });
 type FormValues = z.infer<typeof formSchema>;
 
@@ -97,7 +97,7 @@ function ComboboxForm({ size }: { size: Size }) {
   );
 }
 
-const rhfCode = `const formSchema = z.object({ framework: z.string().min(1, "Bắt buộc chọn") });
+const rhfCode = `const formSchema = z.object({ framework: z.string().min(1, "Required") });
 
 function ComboboxForm({ size }: { size: Size }) {
   const form = useForm({
@@ -126,7 +126,7 @@ function ComboboxForm({ size }: { size: Size }) {
           />
         )}
       />
-      <Button type="submit" size={size}>Gửi</Button>
+      <Button type="submit" size={size}>Submit</Button>
     </form>
   );
 }`;
@@ -707,8 +707,11 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleGrid>
 
       <ShowcaseExample
-        title="🧭 So sánh Use Case"
-        description="So sánh nhanh khi nào dùng Micro và Macro."
+        title={t("🧭 So sánh Use Case", "🧭 Use Case Comparison")}
+        description={t(
+          "So sánh nhanh khi nào dùng Micro và Macro.",
+          "Quick comparison of when to use Micro vs Macro.",
+        )}
         code={`<div className="grid grid-cols-1 gap-6 md:grid-cols-2">
     <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
       <div className="flex items-start gap-3">
@@ -729,10 +732,10 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
         </span>
         <div>
           <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-            Story 1 · Dùng Macro
+            Story 1 · Macro
           </p>
           <h3 className="mt-0.5 text-sm font-semibold text-foreground">
-            Single Select tự động hoàn thành
+            Autocomplete Single Select
           </h3>
         </div>
       </div>
@@ -764,10 +767,10 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
         </span>
         <div>
           <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-            Story 2 · Dùng Micro
+            Story 2 · Micro
           </p>
           <h3 className="mt-0.5 text-sm font-semibold text-foreground">
-            Gán thẻ (Multi-select)
+            Assign Tags (Multi-select)
           </h3>
         </div>
       </div>
@@ -801,10 +804,10 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
                   </span>
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                      Story 1 · Dùng Macro
+                      Story 1 · Macro
                     </p>
                     <h3 className="mt-0.5 text-sm font-semibold text-foreground">
-                      Single Select tự động hoàn thành
+                      Autocomplete Single Select
                     </h3>
                   </div>
                 </div>
@@ -835,10 +838,10 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
                   </span>
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                      Story 2 · Dùng Micro
+                      Story 2 · Micro
                     </p>
                     <h3 className="mt-0.5 text-sm font-semibold text-foreground">
-                      Gán thẻ (Multi-select)
+                      Assign Tags (Multi-select)
                     </h3>
                   </div>
                 </div>
@@ -858,18 +861,30 @@ function ComboboxMicroShowcase({ globalSize }: { globalSize: Size }) {
 }
 
 export default function ComboboxShowcase() {
-  const t = useI18n();
   const { size: globalSize } = useDevContext();
+  const t = useI18n();
   return (
     <Showcase
       title="Combobox"
-      description="Thành phần mở rộng của Select, cho phép người dùng gõ phím để tìm kiếm và lọc qua các tập dữ liệu lớn."
+      description={t(
+        "Thành phần mở rộng của Select, cho phép người dùng gõ phím để tìm kiếm và lọc qua các tập dữ liệu lớn.",
+        "An extension of Select, allowing users to type to search and filter through large datasets.",
+      )}
       guideline={
         <ShowcaseDocs>
           <DocsP>
-            Dùng để chọn một hoặc nhiều giá trị từ một danh sách lớn. Khác với
-            Select, Combobox có ô nhập liệu để người dùng có thể gõ từ khóa tìm
-            kiếm và lọc các tùy chọn một cách nhanh chóng.
+            {t(
+              <>
+                Dùng để chọn một hoặc nhiều giá trị từ một danh sách lớn. Khác
+                với Select, Combobox có ô nhập liệu để người dùng có thể gõ từ
+                khóa tìm kiếm và lọc các tùy chọn một cách nhanh chóng.
+              </>,
+              <>
+                Used to select one or multiple values from a large list. Unlike
+                Select, Combobox has an input field so users can quickly type
+                keywords to search and filter options.
+              </>,
+            )}
           </DocsP>
         </ShowcaseDocs>
       }

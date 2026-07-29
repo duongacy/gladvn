@@ -211,3 +211,13 @@ When creating or modifying components within the `src/blocks` directory (e.g., p
 - **No Callout Boxes in Preview**: You MUST NOT place usage guidance, advice callouts, tutorial banners, or recommendation cards (e.g., `<div className="...bg-blue-500/5...">✅ Dùng Micro khi...</div>`) inside the `preview` prop of `<ShowcaseExample>`.
 - **Proper Placement**: All usage instructions, architectural advice, and recommendations belong EXCLUSIVELY in the top `ShowcaseDocs` (`guideline={<ShowcaseDocs>...</ShowcaseDocs>}`) section of the showcase page.
 - **Pure Previews**: The `preview` block of a `<ShowcaseExample>` must render ONLY the actual component being showcased, wrapped in necessary structural containers if required for layout.
+
+## 33. Batch Processing and 5-Iteration Loop
+
+When executing batch updates (e.g. processing multiple files in chunks), you MUST adhere to the following workflow:
+1. **Iteration 1 (Dịch & Build)**: Apply code transformations and verify with `tsc`.
+2. **Iteration 2 (Ngôn ngữ)**: Refine language and ensure correct localization.
+3. **Iteration 3 (Layout & Gap)**: Ensure visual layout elements like `flex`, `gap`, and sizes are correctly implemented without magic CSS.
+4. **Iteration 4 (Formatting & Indent)**: Ensure correct formatting and indentation (e.g. running Prettier).
+5. **Iteration 5 (Final Polish)**: Conduct a final cross-review for safety and edge cases.
+- **Commit Rule**: After EVERY batch is completed and reviewed 5 times, you MUST commit the changes to version control but DO NOT push. Continue this process until the entire task is done.

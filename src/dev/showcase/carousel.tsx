@@ -10,6 +10,7 @@ import {
   CarouselNext,
   CarouselPrevious
 } from "../../components/micro/carousel";
+import { useI18n } from "../../dev/components/dev-context";
 import {
   DocsP,
   ExampleGrid,
@@ -19,36 +20,9 @@ import {
 } from "../../dev/components/showcase";
 import { cn } from "../../lib/utils";
 
-const SLIDES = [
-  {
-    id: 1,
-    title: "Giao diện Hiện đại",
-    desc: "Crafting beautiful interfaces with tailwind.",
-    bg: "bg-linear-to-tr from-violet-500 to-purple-500" },
-  {
-    id: 2,
-    title: "Tương tác Mượt mà",
-    desc: "Fluid animations and micro-interactions.",
-    bg: "bg-linear-to-tr from-pink-500 to-rose-500" },
-  {
-    id: 3,
-    title: "Dễ tuỳ chỉnh",
-    desc: "Easily adapt to your brand.",
-    bg: "bg-linear-to-tr from-blue-500 to-cyan-500" },
-  {
-    id: 4,
-    title: "Mặc định Accessible",
-    desc: "Keyboard navigation out of the box.",
-    bg: "bg-linear-to-tr from-emerald-500 to-teal-500" },
-  {
-    id: 5,
-    title: "Hỗ trợ Dark Mode",
-    desc: "Looks stunning on dark and light mode.",
-    bg: "bg-linear-to-tr from-amber-500 to-orange-500" },
-];
-
 function ControlledCarouselDemo() {
   const [index, setIndex] = useState(0);
+  const t = useI18n();
 
   return (
     <div className="w-full max-w-sm flex flex-col items-center gap-6">
@@ -60,7 +34,7 @@ function ControlledCarouselDemo() {
             data-active={index === i ? "" : undefined}
             className="px-4 py-2 text-sm font-medium rounded-md transition-colors bg-muted text-muted-foreground hover:bg-muted/80 data-active:bg-primary data-active:text-primary-foreground data-active:shadow-sm data-active:hover:bg-primary/90"
           >
-            Slide {i + 1}
+            {t("Slide", "Slide")} {i + 1}
           </button>
         ))}
       </div>
@@ -102,7 +76,7 @@ function ControlledCarouselDemo() {
         />
       </div>
       <p className="text-sm text-muted-foreground text-center">
-        Current Index in State:{" "}
+        {t("Chỉ số Index hiện tại: ", "Current Index in State: ")}
         <span className="font-mono font-bold text-foreground">{index}</span>
       </p>
     </div>
@@ -110,10 +84,15 @@ function ControlledCarouselDemo() {
 }
 
 function CarouselMacroShowcase() {
+  const t = useI18n();
+
   return (
     <div className="space-y-10">
       <ExampleGrid>
-        <ShowcaseExample title="Tiêu chuẩn (Standard)" description="Băng chuyền cơ bản nhất với cầu trượt." code={`<CarouselPreset
+        <ShowcaseExample 
+          title="Tiêu chuẩn (Standard)" 
+          description={t("Băng chuyền cơ bản nhất với cầu trượt.", "The most basic carousel with a slider.")} 
+          code={`<CarouselPreset
     items={[
       {
         id: "std-1",
@@ -187,7 +166,10 @@ function CarouselMacroShowcase() {
                       </>
                     } />
 
-        <ShowcaseExample title="Thư viện ảnh (Image Gallery)" description="Sử dụng hình ảnh thực làm nội dung slide." code={`<CarouselPreset
+        <ShowcaseExample 
+          title={t("Thư viện ảnh (Image Gallery)", "Image Gallery")} 
+          description={t("Sử dụng hình ảnh thực làm nội dung slide.", "Use real images as slide content.")} 
+          code={`<CarouselPreset
     items={[
       {
         id: "img-1",
@@ -257,7 +239,10 @@ function CarouselMacroShowcase() {
       </ExampleGrid>
 
       <ExampleGrid>
-        <ShowcaseExample title="Vòng lặp vô hạn (Loop Enabled)" description="Chỉ hiển thị dấu chấm (ẩn mũi tên)." code={`<CarouselPreset
+        <ShowcaseExample 
+          title={t("Vòng lặp vô hạn (Loop Enabled)", "Loop Enabled")} 
+          description={t("Chỉ hiển thị dấu chấm (ẩn mũi tên).", "Show dots only (hide arrows).")} 
+          code={`<CarouselPreset
     opts={{ loop: true }}
     showArrows={false}
     items={[
@@ -335,7 +320,10 @@ function CarouselMacroShowcase() {
                       </>
                     } />
 
-        <ShowcaseExample title="Chỉ mũi tên (Arrows Only)" description="Mũi tên điều hướng không có dấu chấm." code={`<CarouselPreset
+        <ShowcaseExample 
+          title={t("Chỉ mũi tên (Arrows Only)", "Arrows Only")} 
+          description={t("Mũi tên điều hướng không có dấu chấm.", "Navigation arrows without dots.")} 
+          code={`<CarouselPreset
     showDots={false}
     items={[
       {
@@ -413,7 +401,10 @@ function CarouselMacroShowcase() {
       </ExampleGrid>
 
       <ExampleGrid>
-        <ShowcaseExample title="Điều khiển từ bên ngoài (Controlled Mode)" description="Sử dụng biến state React để điều khiển slide." code={`const [index, setIndex] = useState(0);
+        <ShowcaseExample 
+          title={t("Điều khiển từ bên ngoài (Controlled Mode)", "Controlled Mode")} 
+          description={t("Sử dụng biến state React để điều khiển slide.", "Use a React state variable to control the slide.")} 
+          code={`const [index, setIndex] = useState(0);
 
 return (
   <CarouselPreset
@@ -427,7 +418,10 @@ return (
                       </>
                     } />
 
-        <ShowcaseExample title="Theo chiều dọc (Vertical Orientation)" description="Băng chuyền macro cuộn theo chiều dọc." code={`<CarouselPreset
+        <ShowcaseExample 
+          title={t("Theo chiều dọc (Vertical Orientation)", "Vertical Orientation")} 
+          description={t("Băng chuyền macro cuộn theo chiều dọc.", "Macro carousel scrolling vertically.")} 
+          code={`<CarouselPreset
     className="w-full"
     orientation="vertical"
     contentClassName="h-75"
@@ -496,9 +490,42 @@ return (
 }
 
 function CarouselMicroShowcase() {
+  const t = useI18n();
+
+  const SLIDES = [
+    {
+      id: 1,
+      title: t("Giao diện Hiện đại", "Modern Interface"),
+      desc: t("Thiết kế giao diện tuyệt đẹp với tailwind.", "Crafting beautiful interfaces with tailwind."),
+      bg: "bg-linear-to-tr from-violet-500 to-purple-500" },
+    {
+      id: 2,
+      title: t("Tương tác Mượt mà", "Smooth Interactions"),
+      desc: t("Hiệu ứng chuyển động và tương tác vi mô mượt mà.", "Fluid animations and micro-interactions."),
+      bg: "bg-linear-to-tr from-pink-500 to-rose-500" },
+    {
+      id: 3,
+      title: t("Dễ tuỳ chỉnh", "Easily Customizable"),
+      desc: t("Dễ dàng điều chỉnh theo thương hiệu của bạn.", "Easily adapt to your brand."),
+      bg: "bg-linear-to-tr from-blue-500 to-cyan-500" },
+    {
+      id: 4,
+      title: t("Mặc định Accessible", "Accessible by Default"),
+      desc: t("Hỗ trợ điều hướng bằng bàn phím ngay lập tức.", "Keyboard navigation out of the box."),
+      bg: "bg-linear-to-tr from-emerald-500 to-teal-500" },
+    {
+      id: 5,
+      title: t("Hỗ trợ Dark Mode", "Dark Mode Support"),
+      desc: t("Giao diện tuyệt đẹp trên cả chế độ tối và sáng.", "Looks stunning on dark and light mode."),
+      bg: "bg-linear-to-tr from-amber-500 to-orange-500" },
+  ];
+
   return (
     <div className="space-y-10">
-      <ShowcaseExample title="Hero Banner (Overlay Navigation)" description="Mũi tên kính mờ nằm đè trên Banner, chỉ hiện khi hover. Dấu chấm nằm sát mép dưới." code={`<Carousel
+      <ShowcaseExample 
+        title={t("Hero Banner (Overlay Navigation)", "Hero Banner (Overlay Navigation)")} 
+        description={t("Mũi tên kính mờ nằm đè trên Banner, chỉ hiện khi hover. Dấu chấm nằm sát mép dưới.", "Frosted glass arrows overlaid on the Banner, appearing only on hover. Dots are placed near the bottom edge.")} 
+        code={`<Carousel
     opts={{ loop: true }}
     className="group relative w-full overflow-hidden rounded-2xl shadow-xl"
   >
@@ -552,7 +579,50 @@ function CarouselMicroShowcase() {
                   </>
                 } />
 
-      <ShowcaseExample title="Nhiều phần tử trên 1 slide (Product Gallery)" description="Hiển thị nhiều Card (vd: basis-1/2, lg:basis-1/3) trên cùng một Slide của Băng chuyền." code={`<div className="mx-auto w-full max-w-5xl px-12">
+      <ShowcaseExample 
+        title={t("Nhiều phần tử trên 1 slide (Product Gallery)", "Multiple items per slide (Product Gallery)")} 
+        description={t("Hiển thị nhiều Card (vd: basis-1/2, lg:basis-1/3) trên cùng một Slide của Băng chuyền.", "Display multiple Cards (e.g., basis-1/2, lg:basis-1/3) on the same Carousel slide.")} 
+        code={t(`<div className="mx-auto w-full max-w-5xl px-12">
+    <Carousel
+      opts={{ align: "start" }}
+      className="w-full relative"
+    >
+      <CarouselContent className="-ml-4">
+        {Array.from({ length: 10 }).map((_, index) => (
+          <CarouselItem
+            key={index}
+            className="pl-4 md:basis-1/2 lg:basis-1/3"
+          >
+            <div className="p-1">
+              <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div className="aspect-4/3 bg-muted flex items-center justify-center relative group">
+                  <span className="text-4xl font-black text-muted-foreground/30 transition-transform duration-500 group-hover:scale-110">
+                    0{index + 1}
+                  </span>
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex items-end p-4">
+                    <span className="text-white font-medium">
+                      Xem mục {index + 1}
+                    </span>
+                  </div>
+                </div>
+                <CardContent className="p-4">
+                  <div className="text-sm font-medium text-muted-foreground mb-1">
+                    Danh mục
+                  </div>
+                  <h4 className="font-semibold text-lg leading-none">
+                    Sản phẩm nổi bật {index + 1}
+                  </h4>
+                </CardContent>
+              </Card>
+            </div>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+
+      <CarouselPrevious className="absolute -left-12 top-1/2 -translate-y-1/2 border-border shadow-sm hover:bg-accent" />
+      <CarouselNext className="absolute -right-12 top-1/2 -translate-y-1/2 border-border shadow-sm hover:bg-accent" />
+    </Carousel>
+  </div>`, `<div className="mx-auto w-full max-w-5xl px-12">
     <Carousel
       opts={{ align: "start" }}
       className="w-full relative"
@@ -592,63 +662,68 @@ function CarouselMicroShowcase() {
       <CarouselPrevious className="absolute -left-12 top-1/2 -translate-y-1/2 border-border shadow-sm hover:bg-accent" />
       <CarouselNext className="absolute -right-12 top-1/2 -translate-y-1/2 border-border shadow-sm hover:bg-accent" />
     </Carousel>
-  </div>`} preview={
-                  <>
-          <div className="mx-auto w-full max-w-5xl px-12">
-                    <Carousel opts={{ align: "start" }} className="w-full relative">
-                      <CarouselContent className="-ml-4">
-                        {Array.from({ length: 10 }).map((_, index) => (
-                          <CarouselItem
-                            key={index}
-                            className="pl-4 md:basis-1/2 lg:basis-1/3"
-                          >
-                            <div className="p-1">
-                              <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                                <div className="aspect-4/3 bg-muted flex items-center justify-center relative group">
-                                  <span className="text-4xl font-black text-muted-foreground/30 transition-transform duration-500 group-hover:scale-110">
-                                    0{index + 1}
-                                  </span>
-                                  <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex items-end p-4">
-                                    <span className="text-white font-medium">
-                                      View Item {index + 1}
-                                    </span>
-                                  </div>
-                                </div>
-                                <CardContent className="p-4">
-                                  <div className="text-sm font-medium text-muted-foreground mb-1">
-                                    Category
-                                  </div>
-                                  <h4 className="font-semibold text-lg leading-none">
-                                    Featured Item {index + 1}
-                                  </h4>
-                                </CardContent>
-                              </Card>
+  </div>`)} 
+        preview={
+          <>
+            <div className="mx-auto w-full max-w-5xl px-12">
+              <Carousel opts={{ align: "start" }} className="w-full relative">
+                <CarouselContent className="-ml-4">
+                  {Array.from({ length: 10 }).map((_, index) => (
+                    <CarouselItem
+                      key={index}
+                      className="pl-4 md:basis-1/2 lg:basis-1/3"
+                    >
+                      <div className="p-1">
+                        <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                          <div className="aspect-4/3 bg-muted flex items-center justify-center relative group">
+                            <span className="text-4xl font-black text-muted-foreground/30 transition-transform duration-500 group-hover:scale-110">
+                              0{index + 1}
+                            </span>
+                            <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex items-end p-4">
+                              <span className="text-white font-medium">
+                                {t("Xem mục", "View Item")} {index + 1}
+                              </span>
                             </div>
-                          </CarouselItem>
-                        ))}
-                      </CarouselContent>
+                          </div>
+                          <CardContent className="p-4">
+                            <div className="text-sm font-medium text-muted-foreground mb-1">
+                              {t("Danh mục", "Category")}
+                            </div>
+                            <h4 className="font-semibold text-lg leading-none">
+                              {t("Sản phẩm nổi bật", "Featured Item")} {index + 1}
+                            </h4>
+                          </CardContent>
+                        </Card>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
 
-                      <CarouselPrevious className="absolute -left-12 top-1/2 -translate-y-1/2 border-border shadow-sm hover:bg-accent" />
-                      <CarouselNext className="absolute -right-12 top-1/2 -translate-y-1/2 border-border shadow-sm hover:bg-accent" />
-                    </Carousel>
-                  </div>
-                  </>
-                } />
+                <CarouselPrevious className="absolute -left-12 top-1/2 -translate-y-1/2 border-border shadow-sm hover:bg-accent" />
+                <CarouselNext className="absolute -right-12 top-1/2 -translate-y-1/2 border-border shadow-sm hover:bg-accent" />
+              </Carousel>
+            </div>
+          </>
+        } 
+      />
     </div>
   );
 }
 
 export default function CarouselShowcase() {
+  const t = useI18n();
+
   return (
     <Showcase
       title="Carousel"
-      description="Băng chuyền vuốt chuyển động cao cấp được xây dựng bằng Embla."
+      description={t("Băng chuyền vuốt chuyển động cao cấp được xây dựng bằng Embla.", "Premium swipe-animated carousel built with Embla.")}
       guideline={
         <ShowcaseDocs>
           <DocsP>
-            Dùng để duyệt qua một tập hợp các nội dung (như hình ảnh, thẻ bài,
-            hoặc biểu ngữ) theo dạng trượt ngang hoặc dọc. Thích hợp cho không
-            gian hiển thị giới hạn cần hiển thị nhiều mục.
+            {t(
+              "Dùng để duyệt qua một tập hợp các nội dung (như hình ảnh, thẻ bài, hoặc biểu ngữ) theo dạng trượt ngang hoặc dọc. Thích hợp cho không gian hiển thị giới hạn cần hiển thị nhiều mục.",
+              "Use to browse through a collection of content (like images, cards, or banners) by swiping horizontally or vertically. Suitable for limited display spaces that need to show multiple items."
+            )}
           </DocsP>
         </ShowcaseDocs>
       }

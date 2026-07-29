@@ -186,3 +186,8 @@ When creating or modifying components within the `src/blocks` directory (e.g., p
 1. **Macro First**: Always attempt to use a Macro component (Preset) first (e.g., `InputPreset`, `FieldPreset`, `ButtonPreset`, `AccordionPreset`). These encapsulate common UX patterns and state.
 2. **Micro Second**: If a Macro component does not exist for the specific use case or cannot be reasonably adapted, then construct the UI using Micro primitives (e.g., `Input`, `Label`, `Button`).
 3. **Manual HTML/Tailwind Last**: Only as a last resort, if neither Macro nor Micro components are available or suitable, should you manually create elements using raw HTML tags and Tailwind classes (e.g., `<input className="...">`).
+
+## 28. Strict Read-Only Policy & Review Process
+
+- **Read-Only Directories**: While working, you are strictly limited to READ-ONLY access for the `src/components/` and `src/blocks/` directories. You absolutely MUST NOT modify any files within these directories.
+- **Auto-Review Process**: Before reporting back to the user at the end of a task batch, you MUST automatically scan your work 3 times and review what you just did to ensure no rules were violated during that batch.

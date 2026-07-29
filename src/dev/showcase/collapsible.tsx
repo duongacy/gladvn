@@ -8,6 +8,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger
 } from "../../components/micro/collapsible";
+import { useI18n } from "../../dev/components/dev-context";
 import {
   DocsP,
   ExampleGrid,
@@ -18,11 +19,15 @@ import {
 
 function CollapsibleMicroShowcase() {
   const [isOpen, setIsOpen] = React.useState(false);
+  const t = useI18n();
 
   return (
     <div className="space-y-10">
       <ExampleGrid>
-        <ShowcaseExample title="Default" description="Nhấn để mở rộng hoặc thu gọn." code={`<Collapsible className="w-full space-y-2">
+        <ShowcaseExample 
+          title="Default" 
+          description={t("Nhấn để mở rộng hoặc thu gọn.", "Click to expand or collapse.")} 
+          code={`<Collapsible className="w-full space-y-2">
     <div className="flex items-center justify-between space-x-4 px-4">
       <h4 className="text-sm font-semibold">
         @peduarte starred 3 repositories
@@ -86,7 +91,10 @@ function CollapsibleMicroShowcase() {
                       </>
                     } />
 
-        <ShowcaseExample title="Mở mặc định" description="Bắt đầu ở trạng thái mở rộng." code={`<Collapsible defaultOpen className="w-full space-y-2">
+        <ShowcaseExample 
+          title={t("Mở mặc định", "Default Open")} 
+          description={t("Bắt đầu ở trạng thái mở rộng.", "Starts in an expanded state.")} 
+          code={`<Collapsible defaultOpen className="w-full space-y-2">
     <div className="flex items-center justify-between space-x-4 px-4">
       <h4 className="text-sm font-semibold">
         Recent activity
@@ -148,7 +156,10 @@ function CollapsibleMicroShowcase() {
                       </>
                     } />
 
-        <ShowcaseExample title="Controlled Mode" description="Trạng thái mở được kiểm soát bằng state." code={`const [isOpen, setIsOpen] = React.useState(false) return (
+        <ShowcaseExample 
+          title="Controlled Mode" 
+          description={t("Trạng thái mở được kiểm soát bằng state.", "Open state controlled by state variable.")} 
+          code={t(`const [isOpen, setIsOpen] = React.useState(false) return (
   <Collapsible
     open={isOpen}
     onOpenChange={setIsOpen}
@@ -176,55 +187,88 @@ function CollapsibleMicroShowcase() {
       </div>
     </CollapsibleContent>
   </Collapsible>
-  )`} preview={
-                      <>
+  )`, `const [isOpen, setIsOpen] = React.useState(false) return (
+  <Collapsible
+    open={isOpen}
+    onOpenChange={setIsOpen}
+    className="w-full space-y-2"
+  >
+    <div className="flex items-center justify-between space-x-4 px-4">
+      <h4 className="text-sm font-semibold">
+        Content display panel
+      </h4>
+      <CollapsibleTrigger asChild>
+        <Button
+          variant="ghost"
+          size="sm"
+          className="w-9 p-0"
+        >
+          <ChevronsUpDown className="h-4 w-4" />
+          <span className="sr-only">Toggle</span>
+        </Button>
+      </CollapsibleTrigger>
+    </div>
+    <CollapsibleContent>
+      <div className="rounded-md border border-border bg-muted/50 px-4 py-3 font-mono text-sm">
+        This content is controlled by the external button or the arrow above!
+      </div>
+    </CollapsibleContent>
+  </Collapsible>
+  )`)} 
+          preview={
+            <>
               <div className="w-full space-y-4">
-                          <div className="flex items-center gap-4 rounded-md border border-border border-dashed p-4">
-                            <Button size="sm" onClick={() => setIsOpen(!isOpen)}>
-                              {isOpen
-                                ? "Đóng bảng bên dưới (External)"
-                                : "Mở bảng bên dưới (External)"}
-                            </Button>
-                            <span className="text-sm text-muted-foreground">
-                              State hiện tại:{" "}
-                              <strong className="text-foreground">
-                                {isOpen ? "Mở" : "Đóng"}
-                              </strong>
-                            </span>
-                          </div>
+                <div className="flex items-center gap-4 rounded-md border border-border border-dashed p-4">
+                  <Button size="sm" onClick={() => setIsOpen(!isOpen)}>
+                    {isOpen
+                      ? t("Đóng bảng bên dưới (External)", "Close panel below (External)")
+                      : t("Mở bảng bên dưới (External)", "Open panel below (External)")}
+                  </Button>
+                  <span className="text-sm text-muted-foreground">
+                    {t("State hiện tại:", "Current state:")}{" "}
+                    <strong className="text-foreground">
+                      {isOpen ? t("Mở", "Open") : t("Đóng", "Closed")}
+                    </strong>
+                  </span>
+                </div>
 
-                          <Collapsible
-                            open={isOpen}
-                            onOpenChange={setIsOpen}
-                            className="w-full space-y-2 rounded-md border border-border p-4 bg-muted/20"
-                          >
-                            <div className="flex items-center justify-between">
-                              <h4 className="text-sm font-semibold">
-                                Bảng hiển thị nội dung
-                              </h4>
-                              <CollapsibleTrigger
-                                render={
-                                  <Button variant="ghost" size="sm" className="w-9 p-0" />
-                                }
-                              >
-                                <ChevronsUpDownIcon className="h-4 w-4" />
-                                <span className="sr-only">Toggle</span>
-                              </CollapsibleTrigger>
-                            </div>
-                            <CollapsibleContent>
-                              <div className="flex flex-col gap-2 pt-2">
-                                <div className="rounded-md border border-border bg-muted/50 px-4 py-3 font-mono text-sm text-center">
-                                  Nội dung này được điều khiển bởi nút bên ngoài hoặc mũi tên
-                                  ở trên!
-                                </div>
-                              </div>
-                            </CollapsibleContent>
-                          </Collapsible>
-                        </div>
-                      </>
-                    } />
+                <Collapsible
+                  open={isOpen}
+                  onOpenChange={setIsOpen}
+                  className="w-full space-y-2 rounded-md border border-border p-4 bg-muted/20"
+                >
+                  <div className="flex items-center justify-between">
+                    <h4 className="text-sm font-semibold">
+                      {t("Bảng hiển thị nội dung", "Content display panel")}
+                    </h4>
+                    <CollapsibleTrigger
+                      render={
+                        <Button variant="ghost" size="sm" className="w-9 p-0" />
+                      }
+                    >
+                      <ChevronsUpDownIcon className="h-4 w-4" />
+                      <span className="sr-only">Toggle</span>
+                    </CollapsibleTrigger>
+                  </div>
+                  <CollapsibleContent>
+                    <div className="flex flex-col gap-2 pt-2">
+                      <div className="rounded-md border border-border bg-muted/50 px-4 py-3 font-mono text-sm text-center">
+                        {t(
+                          "Nội dung này được điều khiển bởi nút bên ngoài hoặc mũi tên ở trên!",
+                          "This content is controlled by the external button or the arrow above!"
+                        )}
+                      </div>
+                    </div>
+                  </CollapsibleContent>
+                </Collapsible>
+              </div>
+            </>
+          } />
 
-        <ShowcaseExample title="Disabled" description="Không thể tương tác (Vô hiệu hóa)." code={`<Collapsible disabled className="w-full space-y-2">
+        <ShowcaseExample 
+          title="Disabled" 
+          description={t("Không thể tương tác (Vô hiệu hóa).", "Cannot be interacted with (Disabled).")} 
+          code={`<Collapsible disabled className="w-full space-y-2">
     <div className="flex items-center justify-between space-x-4 px-4 opacity-50">
       <h4 className="text-sm font-semibold">
         Archived Repositories
@@ -285,16 +329,18 @@ function CollapsibleMicroShowcase() {
 }
 
 export default function CollapsibleShowcase() {
+  const t = useI18n();
   return (
     <Showcase
       title="Collapsible"
-      description="Mở rộng/thu gọn một panel nội dung."
+      description={t("Mở rộng/thu gọn một panel nội dung.", "Expand/collapse a content panel.")}
       guideline={
         <ShowcaseDocs>
           <DocsP>
-            Dùng để ẩn/hiện các phần nội dung phụ, giúp tiết kiệm không gian màn
-            hình. Thường được sử dụng cho phần bình luận, chi tiết đơn hàng,
-            hoặc các danh sách dài có thể thu gọn.
+            {t(
+              "Dùng để ẩn/hiện các phần nội dung phụ, giúp tiết kiệm không gian màn hình. Thường được sử dụng cho phần bình luận, chi tiết đơn hàng, hoặc các danh sách dài có thể thu gọn.",
+              "Used to show/hide secondary content, saving screen space. Commonly used for comments, order details, or long collapsible lists."
+            )}
           </DocsP>
         </ShowcaseDocs>
       }

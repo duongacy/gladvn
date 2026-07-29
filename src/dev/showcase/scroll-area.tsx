@@ -1,4 +1,5 @@
 import { ScrollArea, ScrollBar } from "../../components/micro/scroll-area";
+import { useI18n } from "../../dev/components/dev-context";
 import {
   DocsCode,
   DocsH3,
@@ -10,32 +11,12 @@ import {
 } from "../../dev/components/showcase";
 
 function VerticalList() {
-  const items = [
-    "Tùy chọn 1",
-    "Tùy chọn 2",
-    "Tùy chọn 3",
-    "Tùy chọn 4",
-    "Tùy chọn 5",
-    "Tùy chọn 6",
-    "Tùy chọn 7",
-    "Tùy chọn 8",
-    "Tùy chọn 9",
-    "Tùy chọn 10",
-    "Tùy chọn 11",
-    "Tùy chọn 12",
-    "Tùy chọn 13",
-    "Tùy chọn 14",
-    "Tùy chọn 15",
-    "Tùy chọn 16",
-    "Tùy chọn 17",
-    "Tùy chọn 18",
-    "Tùy chọn 19",
-    "Tùy chọn 20",
-  ];
+  const t = useI18n();
+  const items = Array.from({ length: 20 }).map((_, i) => `${t("Tùy chọn", "Option")} ${i + 1}`);
   return (
     <div className="p-4">
       <h4 className="mb-4 text-sm font-medium leading-none">
-        Cài đặt hệ thống
+        {t("Cài đặt hệ thống", "System settings")}
       </h4>
       {items.map((label) => (
         <div
@@ -50,19 +31,17 @@ function VerticalList() {
 }
 
 function HorizontalList() {
-  const works = [
-    { title: "Tác phẩm 1", artist: "Họa sĩ 1" },
-    { title: "Tác phẩm 2", artist: "Họa sĩ 2" },
-    { title: "Tác phẩm 3", artist: "Họa sĩ 3" },
-    { title: "Tác phẩm 4", artist: "Họa sĩ 4" },
-    { title: "Tác phẩm 5", artist: "Họa sĩ 5" },
-  ];
+  const t = useI18n();
+  const works = Array.from({ length: 5 }).map((_, i) => ({
+    title: `${t("Tác phẩm", "Artwork")} ${i + 1}`,
+    artist: `${t("Họa sĩ", "Artist")} ${i + 1}`,
+  }));
   return (
     <div className="flex w-max space-x-4 p-4">
       {works.map((w) => (
         <div key={w.title} className="w-[150px] shrink-0">
           <div className="overflow-hidden rounded-md bg-muted aspect-[3/4] mb-2 flex items-center justify-center">
-            <span className="text-xs text-muted-foreground">Ảnh bìa</span>
+            <span className="text-xs text-muted-foreground">{t("Ảnh bìa", "Cover")}</span>
           </div>
           <p className="text-sm font-medium">{w.title}</p>
           <p className="text-xs text-muted-foreground">{w.artist}</p>
@@ -73,10 +52,14 @@ function HorizontalList() {
 }
 
 function ScrollAreaMicroShowcase() {
+  const t = useI18n();
   return (
     <div className="space-y-10">
       <ExampleGrid>
-        <ShowcaseExample title="Cuộn dọc (Vertical)" description="Danh sách các mục có thể cuộn từ trên xuống dưới." code={`<ScrollArea className="h-72 w-full max-w-sm rounded-xl border border-border bg-card">
+        <ShowcaseExample 
+          title={t("Cuộn dọc (Vertical)", "Vertical Scroll")} 
+          description={t("Danh sách các mục có thể cuộn từ trên xuống dưới.", "List of items that can be scrolled vertically.")} 
+          code={t(`<ScrollArea className="h-72 w-full max-w-sm rounded-xl border border-border bg-card">
     <div className="p-4">
       <h4 className="mb-4 text-sm font-medium leading-none">
         Cài đặt hệ thống
@@ -92,7 +75,24 @@ function ScrollAreaMicroShowcase() {
       </div>
       {/* ... */}
     </div>
-  </ScrollArea>`} preview={
+  </ScrollArea>`, `<ScrollArea className="h-72 w-full max-w-sm rounded-xl border border-border bg-card">
+    <div className="p-4">
+      <h4 className="mb-4 text-sm font-medium leading-none">
+        System settings
+      </h4>
+      <div className="text-sm py-3 border-b border-b-border hover:bg-muted/50 cursor-pointer">
+        Option 1
+      </div>
+      <div className="text-sm py-3 border-b border-b-border hover:bg-muted/50 cursor-pointer">
+        Option 2
+      </div>
+      <div className="text-sm py-3 border-b border-b-border hover:bg-muted/50 cursor-pointer">
+        Option 3
+      </div>
+      {/* ... */}
+    </div>
+  </ScrollArea>`)} 
+          preview={
                       <>
               <ScrollArea className="h-72 w-full max-w-sm rounded-xl border border-border bg-card">
                           <VerticalList />
@@ -100,7 +100,10 @@ function ScrollAreaMicroShowcase() {
                       </>
                     } />
 
-        <ShowcaseExample title="Cuộn ngang (Horizontal)" description="Trình bày danh sách phần tử nằm ngang (thường dùng cho ảnh, card)." code={`<ScrollArea className="w-full max-w-sm whitespace-nowrap rounded-xl border border-border bg-card p-4">
+        <ShowcaseExample 
+          title={t("Cuộn ngang (Horizontal)", "Horizontal Scroll")} 
+          description={t("Trình bày danh sách phần tử nằm ngang (thường dùng cho ảnh, card).", "Presents a horizontal list of elements (commonly used for images, cards).")} 
+          code={t(`<ScrollArea className="w-full max-w-sm whitespace-nowrap rounded-xl border border-border bg-card p-4">
     <div className="flex w-max space-x-4">
       <div className="w-[150px] shrink-0">
         <div className="aspect-[3/4] rounded-md bg-muted" />
@@ -117,7 +120,25 @@ function ScrollAreaMicroShowcase() {
       {/* ... */}
     </div>
     <ScrollBar orientation="horizontal" />
-  </ScrollArea>`} preview={
+  </ScrollArea>`, `<ScrollArea className="w-full max-w-sm whitespace-nowrap rounded-xl border border-border bg-card p-4">
+    <div className="flex w-max space-x-4">
+      <div className="w-[150px] shrink-0">
+        <div className="aspect-[3/4] rounded-md bg-muted" />
+        <p className="text-sm font-medium mt-2">
+          Artwork 1
+        </p>
+      </div>
+      <div className="w-[150px] shrink-0">
+        <div className="aspect-[3/4] rounded-md bg-muted" />
+        <p className="text-sm font-medium mt-2">
+          Artwork 2
+        </p>
+      </div>
+      {/* ... */}
+    </div>
+    <ScrollBar orientation="horizontal" />
+  </ScrollArea>`)} 
+          preview={
                       <>
               <ScrollArea className="w-full max-w-sm whitespace-nowrap rounded-xl border border-border bg-card">
                           <HorizontalList />
@@ -131,18 +152,19 @@ function ScrollAreaMicroShowcase() {
 }
 
 export default function ScrollAreaShowcase() {
+  const t = useI18n();
   return (
     <Showcase
       title="Scroll Area"
-      description="Khu vực nội dung có thanh cuộn tuỳ biến giao diện, đồng bộ trên mọi trình duyệt thay cho thanh cuộn mặc định."
+      description={t("Khu vực nội dung có thanh cuộn tuỳ biến giao diện, đồng bộ trên mọi trình duyệt thay cho thanh cuộn mặc định.", "Content area with custom scrollbar, visually synchronized across all browsers instead of the default scrollbar.")}
       guideline={
         <ShowcaseDocs>
-          <DocsH3>Scroll Area (Khu vực cuộn)</DocsH3>
+          <DocsH3>{t("Scroll Area (Khu vực cuộn)", "Scroll Area")}</DocsH3>
           <DocsP>
-            <DocsCode>ScrollArea</DocsCode> không có phiên bản Macro. Nó thay
-            thế thanh cuộn mặc định của trình duyệt bằng một thanh cuộn tuỳ biến
-            đẹp mắt, đồng nhất trên mọi nền tảng (Windows/Mac) mà không làm mất
-            đi trải nghiệm native (chỉ hiện khi hover).
+            <DocsCode>ScrollArea</DocsCode>{t(
+              " không có phiên bản Macro. Nó thay thế thanh cuộn mặc định của trình duyệt bằng một thanh cuộn tuỳ biến đẹp mắt, đồng nhất trên mọi nền tảng (Windows/Mac) mà không làm mất đi trải nghiệm native (chỉ hiện khi hover).",
+              " does not have a Macro version. It replaces the default browser scrollbar with a custom scrollbar that looks beautiful and consistent across all platforms (Windows/Mac) without losing the native experience (only appears on hover)."
+            )}
           </DocsP>
         </ShowcaseDocs>
       }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
 
 import { useI18n } from "../../dev/components/dev-context";
 
@@ -22,8 +22,8 @@ export function SectionHeader({
   children,
   className,
 }: {
-  title: string;
-  description?: string;
+  title: React.ReactNode;
+  description?: React.ReactNode;
   children?: React.ReactNode;
   className?: string;
 }) {
@@ -94,8 +94,8 @@ export function ShowcaseExample({
   className,
   code,
 }: {
-  title?: string;
-  description?: string;
+  title?: React.ReactNode;
+  description?: React.ReactNode;
   preview: React.ReactNode;
   className?: string;
   code?: string;

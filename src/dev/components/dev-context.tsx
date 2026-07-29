@@ -83,5 +83,5 @@ export function useDevContext() {
 
 export function useI18n() {
   const { language } = useDevContext();
-  return (vi: React.ReactNode, en: React.ReactNode) => (language === "vi" ? vi : en);
+  return <T,>(vi: T, en: T): T => (language === "vi" ? vi : en);
 }

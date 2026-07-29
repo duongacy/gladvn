@@ -59,6 +59,26 @@ const blockCategories = [
   "Xác thực",
 ];
 
+const categoryTranslations: Record<string, string> = {
+  "Bố cục & Cấu trúc": "Layout",
+  "Biểu mẫu & Đầu vào": "Forms",
+  "Phản hồi & Lớp phủ": "Feedback",
+  "Điều hướng": "Navigation",
+  "Hiển thị Dữ liệu": "Data Display",
+  "Khác": "Miscellaneous",
+  "Dashboard": "Dashboard",
+  "Cài đặt": "Settings",
+  "Xác thực": "Authentication",
+};
+
+const labelTranslations: Record<string, string> = {
+  "Giao diện Cài đặt": "Settings Layout",
+  "Form Đăng nhập": "Login Form",
+  "Khôi phục Mật khẩu": "Password Reset",
+  "Đăng nhập (Chia màn hình)": "Login (Split Layout)",
+  "Tại sao chọn gladvn?": "Why gladvn?",
+};
+
 function ComponentViewer({ id }: { id: string }) {
   const compDef = COMPONENTS.find((c) => c.id === id);
   if (!compDef) return null;
@@ -228,7 +248,7 @@ export default function App() {
                 }
               )}
             >
-              Tổng quan
+              {language === "en" ? "Overview" : "Tổng quan"}
             </button>
             <button
               onClick={() => {
@@ -273,7 +293,7 @@ export default function App() {
             >
               <SearchIcon className="size-3.5 shrink-0" />
               <span className="flex-1 text-left">
-                Tìm kiếm...
+                {language === "en" ? "Search..." : "Tìm kiếm..."}
               </span>
               <kbd className="text-[10px] bg-background border border-border/80 rounded px-1.5 py-0.5 font-sans leading-none">
                 ⌘K
@@ -309,11 +329,6 @@ export default function App() {
               <span className="sr-only">GitHub</span>
             </Button>
 
-            <Separator
-              orientation="vertical"
-              className="h-4 mx-1 hidden sm:block"
-            />
-
             <Button
               variant="ghost"
               iconOnly
@@ -326,21 +341,29 @@ export default function App() {
               <MoonIcon className="absolute size-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
               <span className="sr-only">Đổi giao diện</span>
             </Button>
-            <Separator
-              orientation="vertical"
-              className="h-4 mx-1 hidden sm:block"
-            />
-            
+
             <ToggleGroup
               value={[language]}
               onValueChange={(v) => { if (v && v.length > 0) setLanguage(v[0] as "vi" | "en") }}
               size="sm"
               variant="default"
-              spacing={3}
-              className="flex gap-x-1"
+              spacing={2}
+              className="flex items-center gap-1 justify-end shrink-0 w-[72px]"
             >
-              <ToggleGroupItem value="vi" className={cn("px-1 transition-all duration-300", language === "vi" ? "text-2xl scale-110" : "text-sm opacity-50 hover:opacity-80")} aria-label="Tiếng Việt">🇻🇳</ToggleGroupItem>
-              <ToggleGroupItem value="en" className={cn("px-1 transition-all duration-300", language === "en" ? "text-2xl scale-110" : "text-sm opacity-50 hover:opacity-80")} aria-label="English">🇬🇧</ToggleGroupItem>
+              <ToggleGroupItem
+                value="vi"
+                className={cn("w-8 h-8 p-0 flex items-center justify-center transition-opacity duration-300", language === "vi" ? "opacity-100" : "opacity-50 hover:opacity-80")}
+                aria-label="Tiếng Việt"
+              >
+                <span className={cn("text-lg leading-none inline-block transition-transform duration-300", language === "vi" ? "scale-110" : "scale-75")}>🇻🇳</span>
+              </ToggleGroupItem>
+              <ToggleGroupItem
+                value="en"
+                className={cn("w-8 h-8 p-0 flex items-center justify-center transition-opacity duration-300", language === "en" ? "opacity-100" : "opacity-50 hover:opacity-80")}
+                aria-label="English"
+              >
+                <span className={cn("text-lg leading-none inline-block transition-transform duration-300", language === "en" ? "scale-110" : "scale-75")}>🇬🇧</span>
+              </ToggleGroupItem>
             </ToggleGroup>
           </div>
         </div>
@@ -380,7 +403,7 @@ export default function App() {
               )}
             >
               <LayersIcon className="size-3.5" />
-              Tổng quan
+              {language === "en" ? "Overview" : "Tổng quan"}
             </button>
             <div className="h-px bg-border/50 my-2 mx-1"></div>
             <button
@@ -425,7 +448,7 @@ export default function App() {
                       }
                     )}
                   >
-                    <span>{label}</span>
+                    <span>{language === "en" ? (labelTranslations[label] || label) : label}</span>
                   </button>
                 ))}
               </nav>
@@ -436,7 +459,7 @@ export default function App() {
                 return (
                   <div key={cat} className="mb-4">
                     <p className="mb-2 px-2 text-[10px] font-bold uppercase tracking-wider text-foreground/70">
-                      {cat}
+                      {language === "en" ? (categoryTranslations[cat] || cat) : cat}
                     </p>
                     <nav className="space-y-0.5">
                       {comps.map(({ id, label }) => (
@@ -451,7 +474,7 @@ export default function App() {
                             }
                           )}
                         >
-                          <span>{label}</span>
+                          <span>{language === "en" ? (labelTranslations[label] || label) : label}</span>
                         </button>
                       ))}
                     </nav>
@@ -484,13 +507,13 @@ export default function App() {
       <CommandDialog
         open={cmdOpen}
         onOpenChange={setCmdOpen}
-        title="Tìm component"
-        description="Tìm kiếm nhanh component trong Gladvn UI"
+        title={language === "en" ? "Search components" : "Tìm component"}
+        description={language === "en" ? "Quickly search components in Gladvn UI" : "Tìm kiếm nhanh component trong Gladvn UI"}
       >
         <Command size="lg">
-          <CommandInput placeholder="Nhập tên component..." autoFocus />
+          <CommandInput placeholder={language === "en" ? "Type a component name..." : "Nhập tên component..."} autoFocus />
           <CommandList className="max-h-96">
-            <CommandEmpty>Không tìm thấy component nào.</CommandEmpty>
+            <CommandEmpty>{language === "en" ? "No components found." : "Không tìm thấy component nào."}</CommandEmpty>
 
             <CommandGroup>
               {COMPONENTS.map(({ id, label, category }) => (

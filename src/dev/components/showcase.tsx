@@ -43,7 +43,7 @@ export function SectionHeader({
 export function ShowcaseDocs({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
     <div className={cn("overflow-hidden rounded-2xl border border-amber-500/20 bg-amber-500/5 shadow-sm", className)}>
-      <div className="flex items-center gap-2 border-b border-b-border border-amber-500/20 bg-amber-500/10 px-6 py-3.5">
+      <div className="flex items-center gap-2 border-b border-amber-500/20 bg-amber-500/10 px-6 py-3.5">
         <BookOpenIcon className="size-4 text-amber-700 dark:text-amber-500" />
         <h3 className="text-sm font-semibold text-amber-900 dark:text-amber-200">
           Hướng dẫn sử dụng

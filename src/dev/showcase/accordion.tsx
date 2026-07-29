@@ -754,7 +754,7 @@ function AccordionMicroShowcase() {
         />
       </div>
 
-      <div className="rounded-md border border-border border-green-500/20 bg-green-500/5 px-3 py-2">
+      <div className="rounded-md border border-green-500/20 bg-green-500/5 px-3 py-2">
         <p className="text-xs font-medium text-green-700 dark:text-green-400">
           ✅ Dùng{" "}
           <code className="font-mono">AccordionPreset</code>{" "}
@@ -810,7 +810,7 @@ function AccordionMicroShowcase() {
         </Accordion>
       </div>
 
-      <div className="rounded-md border border-border border-blue-500/20 bg-blue-500/5 px-3 py-2">
+      <div className="rounded-md border border-blue-500/20 bg-blue-500/5 px-3 py-2">
         <p className="text-xs font-medium text-blue-700 dark:text-blue-400">
           ✅ Dùng{" "}
           <code className="font-mono">Accordion</code>{" "}
@@ -859,7 +859,7 @@ function AccordionMicroShowcase() {
                         />
                       </div>
 
-                      <div className="rounded-md border border-border border-green-500/20 bg-green-500/5 px-3 py-2">
+                      <div className="rounded-md border border-green-500/20 bg-green-500/5 px-3 py-2">
                         <p className="text-xs font-medium text-green-700 dark:text-green-400">
                           ✅ Dùng <code className="font-mono">AccordionPreset</code> — Tự
                           động lặp qua array, không cần viết lại JSX cho từng thẻ Item.
@@ -909,7 +909,7 @@ function AccordionMicroShowcase() {
                         </Accordion>
                       </div>
 
-                      <div className="rounded-md border border-border border-blue-500/20 bg-blue-500/5 px-3 py-2">
+                      <div className="rounded-md border border-blue-500/20 bg-blue-500/5 px-3 py-2">
                         <p className="text-xs font-medium text-blue-700 dark:text-blue-400">
                           ✅ Dùng <code className="font-mono">Accordion</code> (Micro) —
                           Toàn quyền kiểm soát cấu trúc HTML của Trigger và Content.

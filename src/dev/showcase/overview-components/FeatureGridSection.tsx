@@ -131,7 +131,7 @@ export function FeatureGridSection({ className }: { className?: string }) {
           </div>
           <div className="relative z-10 mt-auto pt-8 grid sm:grid-cols-2 gap-4">
             <div className="p-3 sm:p-5 rounded-2xl border border-border bg-background/60 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow">
-              <strong className="block text-foreground text-base mb-2 flex items-center gap-2">
+              <strong className="flex items-center gap-2 text-foreground text-base mb-2">
                 <BoxIcon className="size-4 text-muted-foreground" /> Trục
                 Variant
               </strong>
@@ -141,7 +141,7 @@ export function FeatureGridSection({ className }: { className?: string }) {
               </span>
             </div>
             <div className="p-3 sm:p-5 rounded-2xl border border-border bg-background/60 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow">
-              <strong className="block text-foreground text-base mb-2 flex items-center gap-2">
+              <strong className="flex items-center gap-2 text-foreground text-base mb-2">
                 <PaintbrushIcon className="size-4 text-muted-foreground" />{" "}
                 Trục Color
               </strong>

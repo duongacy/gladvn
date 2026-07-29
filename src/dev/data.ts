@@ -20,12 +20,12 @@ export const COLORS = [
 export const SIZES = ["sm", "md", "lg"] as const;
 
 export const NAV = [
-  { id: "overview", label: "Overview", icon: LayersIcon },
-  { id: "buttons", label: "Buttons", icon: BoxIcon },
-  { id: "forms", label: "Forms", icon: TypeIcon },
-  { id: "feedback", label: "Feedback", icon: AlertCircleIcon },
-  { id: "display", label: "Display", icon: PaletteIcon },
-  { id: "interactive", label: "Interactive", icon: ToggleLeftIcon },
+  { id: "overview", label: "Tổng quan", icon: LayersIcon },
+  { id: "buttons", label: "Nút bấm", icon: BoxIcon },
+  { id: "forms", label: "Biểu mẫu", icon: TypeIcon },
+  { id: "feedback", label: "Phản hồi", icon: AlertCircleIcon },
+  { id: "display", label: "Hiển thị", icon: PaletteIcon },
+  { id: "interactive", label: "Tương tác", icon: ToggleLeftIcon },
 ];
 
 export const STATS = [
@@ -36,19 +36,19 @@ export const STATS = [
 ];
 
 export const COLOR_INFO = {
-  primary: { label: "Primary", description: "Main action" },
-  secondary: { label: "Secondary", description: "Alternative" },
-  destructive: { label: "Destructive", description: "Danger / Delete" },
-  warning: { label: "Warning", description: "Caution" },
-  success: { label: "Success", description: "Confirm / Done" },
-  info: { label: "Info", description: "Information" },
-  tertiary: { label: "Tertiary", description: "Extra / Beta" },
+  primary: { label: "Primary", description: "Hành động chính" },
+  secondary: { label: "Secondary", description: "Thay thế / Phụ" },
+  destructive: { label: "Destructive", description: "Nguy hiểm / Xóa" },
+  warning: { label: "Warning", description: "Cảnh báo" },
+  success: { label: "Success", description: "Thành công / Hoàn tất" },
+  info: { label: "Info", description: "Thông tin" },
+  tertiary: { label: "Tertiary", description: "Bổ sung / Thử nghiệm" },
 };
 
 export const COMPONENTS = [
   {
     id: "accordion",
-    category: "Layout & Structure",
+    category: "Bố cục & Cấu trúc",
     label: "Accordion",
     hasMicro: true,
     hasMacro: true,
@@ -56,7 +56,7 @@ export const COMPONENTS = [
   },
   {
     id: "alert",
-    category: "Feedback & Overlays",
+    category: "Phản hồi & Lớp phủ",
     label: "Alert",
     hasMicro: true,
     hasMacro: true,
@@ -65,7 +65,7 @@ export const COMPONENTS = [
   },
   {
     id: "alert-dialog",
-    category: "Feedback & Overlays",
+    category: "Phản hồi & Lớp phủ",
     label: "Alert Dialog",
     hasMicro: true,
     hasMacro: true,
@@ -74,7 +74,7 @@ export const COMPONENTS = [
   },
   {
     id: "aspect-ratio",
-    category: "Layout & Structure",
+    category: "Bố cục & Cấu trúc",
     label: "Aspect Ratio",
     hasMicro: true,
     hasMacro: false,
@@ -82,7 +82,7 @@ export const COMPONENTS = [
   },
   {
     id: "avatar",
-    category: "Data Display",
+    category: "Hiển thị Dữ liệu",
     label: "Avatar",
     hasMicro: true,
     hasMacro: true,
@@ -91,7 +91,7 @@ export const COMPONENTS = [
   },
   {
     id: "badge",
-    category: "Data Display",
+    category: "Hiển thị Dữ liệu",
     label: "Badge",
     hasMicro: true,
     hasMacro: false,
@@ -100,7 +100,7 @@ export const COMPONENTS = [
   },
   {
     id: "breadcrumb",
-    category: "Navigation",
+    category: "Điều hướng",
     label: "Breadcrumb",
     hasMicro: true,
     hasMacro: true,
@@ -108,7 +108,7 @@ export const COMPONENTS = [
   },
   {
     id: "button",
-    category: "Forms & Inputs",
+    category: "Biểu mẫu & Đầu vào",
     label: "Button",
     hasMicro: true,
     hasMacro: false,
@@ -117,7 +117,7 @@ export const COMPONENTS = [
   },
   {
     id: "calendar",
-    category: "Forms & Inputs",
+    category: "Biểu mẫu & Đầu vào",
     label: "Calendar",
     hasMicro: true,
     hasMacro: false,
@@ -126,7 +126,7 @@ export const COMPONENTS = [
   },
   {
     id: "card",
-    category: "Layout & Structure",
+    category: "Bố cục & Cấu trúc",
     label: "Card",
     hasMicro: true,
     hasMacro: true,
@@ -135,7 +135,7 @@ export const COMPONENTS = [
   },
   {
     id: "carousel",
-    category: "Layout & Structure",
+    category: "Bố cục & Cấu trúc",
     label: "Carousel",
     hasMicro: true,
     hasMacro: true,
@@ -143,7 +143,7 @@ export const COMPONENTS = [
   },
   {
     id: "chart",
-    category: "Data Display",
+    category: "Hiển thị Dữ liệu",
     label: "Chart",
     hasMicro: true,
     hasMacro: false,
@@ -151,7 +151,7 @@ export const COMPONENTS = [
   },
   {
     id: "checkbox",
-    category: "Forms & Inputs",
+    category: "Biểu mẫu & Đầu vào",
     label: "Checkbox",
     hasMicro: true,
     hasMacro: true,
@@ -160,7 +160,7 @@ export const COMPONENTS = [
   },
   {
     id: "collapsible",
-    category: "Layout & Structure",
+    category: "Bố cục & Cấu trúc",
     label: "Collapsible",
     hasMicro: true,
     hasMacro: false,
@@ -168,7 +168,7 @@ export const COMPONENTS = [
   },
   {
     id: "combobox",
-    category: "Forms & Inputs",
+    category: "Biểu mẫu & Đầu vào",
     label: "Combobox",
     hasMicro: true,
     hasMacro: true,
@@ -177,7 +177,7 @@ export const COMPONENTS = [
   },
   {
     id: "command",
-    category: "Navigation",
+    category: "Điều hướng",
     label: "Command",
     hasMicro: true,
     hasMacro: false,
@@ -185,7 +185,7 @@ export const COMPONENTS = [
   },
   {
     id: "context-menu",
-    category: "Navigation",
+    category: "Điều hướng",
     label: "Context Menu",
     hasMicro: true,
     hasMacro: false,
@@ -193,7 +193,7 @@ export const COMPONENTS = [
   },
   {
     id: "dialog",
-    category: "Feedback & Overlays",
+    category: "Phản hồi & Lớp phủ",
     label: "Dialog",
     hasMicro: true,
     hasMacro: true,
@@ -202,7 +202,7 @@ export const COMPONENTS = [
   },
   {
     id: "drawer",
-    category: "Feedback & Overlays",
+    category: "Phản hồi & Lớp phủ",
     label: "Drawer",
     hasMicro: true,
     hasMacro: false,
@@ -210,7 +210,7 @@ export const COMPONENTS = [
   },
   {
     id: "dropdown-menu",
-    category: "Navigation",
+    category: "Điều hướng",
     label: "Dropdown Menu",
     hasMicro: true,
     hasMacro: false,
@@ -219,7 +219,7 @@ export const COMPONENTS = [
   },
   {
     id: "empty",
-    category: "Data Display",
+    category: "Hiển thị Dữ liệu",
     label: "Empty",
     hasMicro: true,
     hasMacro: true,
@@ -228,7 +228,7 @@ export const COMPONENTS = [
 
   {
     id: "hover-card",
-    category: "Feedback & Overlays",
+    category: "Phản hồi & Lớp phủ",
     label: "Hover Card",
     hasMicro: true,
     hasMacro: false,
@@ -237,7 +237,7 @@ export const COMPONENTS = [
   },
   {
     id: "input",
-    category: "Forms & Inputs",
+    category: "Biểu mẫu & Đầu vào",
     label: "Input",
     hasMicro: true,
     hasMacro: true,
@@ -246,7 +246,7 @@ export const COMPONENTS = [
   },
   {
     id: "input-group",
-    category: "Forms & Inputs",
+    category: "Biểu mẫu & Đầu vào",
     label: "Input Group",
     hasMicro: true,
     hasMacro: false,
@@ -255,7 +255,7 @@ export const COMPONENTS = [
   },
   {
     id: "input-otp",
-    category: "Forms & Inputs",
+    category: "Biểu mẫu & Đầu vào",
     label: "Input Otp",
     hasMicro: true,
     hasMacro: true,
@@ -264,7 +264,7 @@ export const COMPONENTS = [
   },
   {
     id: "item",
-    category: "Data Display",
+    category: "Hiển thị Dữ liệu",
     label: "Item",
     hasMicro: true,
     hasMacro: false,
@@ -273,7 +273,7 @@ export const COMPONENTS = [
   },
   {
     id: "kbd",
-    category: "Data Display",
+    category: "Hiển thị Dữ liệu",
     label: "Kbd",
     hasMicro: true,
     hasMacro: false,
@@ -281,7 +281,7 @@ export const COMPONENTS = [
   },
   {
     id: "label",
-    category: "Forms & Inputs",
+    category: "Biểu mẫu & Đầu vào",
     label: "Label",
     hasMicro: true,
     hasMacro: false,
@@ -290,7 +290,7 @@ export const COMPONENTS = [
   },
   {
     id: "menubar",
-    category: "Navigation",
+    category: "Điều hướng",
     label: "Menubar",
     hasMicro: true,
     hasMacro: false,
@@ -298,7 +298,7 @@ export const COMPONENTS = [
   },
   {
     id: "navigation-menu",
-    category: "Navigation",
+    category: "Điều hướng",
     label: "Navigation Menu",
     hasMicro: true,
     hasMacro: false,
@@ -306,7 +306,7 @@ export const COMPONENTS = [
   },
   {
     id: "pagination",
-    category: "Navigation",
+    category: "Điều hướng",
     label: "Pagination",
     hasMicro: true,
     hasMacro: true,
@@ -315,7 +315,7 @@ export const COMPONENTS = [
   },
   {
     id: "popover",
-    category: "Feedback & Overlays",
+    category: "Phản hồi & Lớp phủ",
     label: "Popover",
     hasMicro: true,
     hasMacro: false,
@@ -324,7 +324,7 @@ export const COMPONENTS = [
   },
   {
     id: "progress",
-    category: "Feedback & Overlays",
+    category: "Phản hồi & Lớp phủ",
     label: "Progress",
     hasMicro: true,
     hasMacro: true,
@@ -333,7 +333,7 @@ export const COMPONENTS = [
   },
   {
     id: "radio-group",
-    category: "Forms & Inputs",
+    category: "Biểu mẫu & Đầu vào",
     label: "Radio Group",
     hasMicro: true,
     hasMacro: true,
@@ -342,7 +342,7 @@ export const COMPONENTS = [
   },
   {
     id: "resizable",
-    category: "Layout & Structure",
+    category: "Bố cục & Cấu trúc",
     label: "Resizable",
     hasMicro: true,
     hasMacro: false,
@@ -350,7 +350,7 @@ export const COMPONENTS = [
   },
   {
     id: "scroll-area",
-    category: "Layout & Structure",
+    category: "Bố cục & Cấu trúc",
     label: "Scroll Area",
     hasMicro: true,
     hasMacro: false,
@@ -358,7 +358,7 @@ export const COMPONENTS = [
   },
   {
     id: "select",
-    category: "Forms & Inputs",
+    category: "Biểu mẫu & Đầu vào",
     label: "Select",
     hasMicro: true,
     hasMacro: true,
@@ -367,7 +367,7 @@ export const COMPONENTS = [
   },
   {
     id: "separator",
-    category: "Layout & Structure",
+    category: "Bố cục & Cấu trúc",
     label: "Separator",
     hasMicro: true,
     hasMacro: false,
@@ -375,7 +375,7 @@ export const COMPONENTS = [
   },
   {
     id: "sheet",
-    category: "Feedback & Overlays",
+    category: "Phản hồi & Lớp phủ",
     label: "Sheet",
     hasMicro: true,
     hasMacro: false,
@@ -384,14 +384,14 @@ export const COMPONENTS = [
   },
   {
     id: "sidebar",
-    category: "Layout & Structure",
+    category: "Bố cục & Cấu trúc",
     label: "Sidebar",
     hasMicro: true,
     hasMacro: false,
   },
   {
     id: "skeleton",
-    category: "Feedback & Overlays",
+    category: "Phản hồi & Lớp phủ",
     label: "Skeleton",
     hasMicro: true,
     hasMacro: false,
@@ -399,7 +399,7 @@ export const COMPONENTS = [
   },
   {
     id: "slider",
-    category: "Forms & Inputs",
+    category: "Biểu mẫu & Đầu vào",
     label: "Slider",
     hasMicro: true,
     hasMacro: true,
@@ -408,7 +408,7 @@ export const COMPONENTS = [
   },
   {
     id: "sonner",
-    category: "Feedback & Overlays",
+    category: "Phản hồi & Lớp phủ",
     label: "Sonner",
     hasMicro: true,
     hasMacro: false,
@@ -416,7 +416,7 @@ export const COMPONENTS = [
   },
   {
     id: "spinner",
-    category: "Feedback & Overlays",
+    category: "Phản hồi & Lớp phủ",
     label: "Spinner",
     hasMicro: true,
     hasMacro: false,
@@ -425,7 +425,7 @@ export const COMPONENTS = [
   },
   {
     id: "switch",
-    category: "Forms & Inputs",
+    category: "Biểu mẫu & Đầu vào",
     label: "Switch",
     hasMicro: true,
     hasMacro: true,
@@ -434,7 +434,7 @@ export const COMPONENTS = [
   },
   {
     id: "table",
-    category: "Layout & Structure",
+    category: "Bố cục & Cấu trúc",
     label: "Table",
     hasMicro: true,
     hasMacro: false,
@@ -442,7 +442,7 @@ export const COMPONENTS = [
   },
   {
     id: "tabs",
-    category: "Navigation",
+    category: "Điều hướng",
     label: "Tabs",
     hasMicro: true,
     hasMacro: true,
@@ -450,7 +450,7 @@ export const COMPONENTS = [
   },
   {
     id: "textarea",
-    category: "Forms & Inputs",
+    category: "Biểu mẫu & Đầu vào",
     label: "Textarea",
     hasMicro: true,
     hasMacro: true,
@@ -459,7 +459,7 @@ export const COMPONENTS = [
   },
   {
     id: "toggle",
-    category: "Forms & Inputs",
+    category: "Biểu mẫu & Đầu vào",
     label: "Toggle",
     hasMicro: true,
     hasMacro: false,
@@ -468,7 +468,7 @@ export const COMPONENTS = [
   },
   {
     id: "toggle-group",
-    category: "Forms & Inputs",
+    category: "Biểu mẫu & Đầu vào",
     label: "Toggle Group",
     hasMicro: true,
     hasMacro: false,
@@ -477,7 +477,7 @@ export const COMPONENTS = [
   },
   {
     id: "tooltip",
-    category: "Feedback & Overlays",
+    category: "Phản hồi & Lớp phủ",
     label: "Tooltip",
     hasMicro: true,
     hasMacro: false,
@@ -486,7 +486,7 @@ export const COMPONENTS = [
   },
   {
     id: "dashboard-block",
-    category: "Dashboards",
+    category: "Dashboard",
     label: "Dashboard",
     hasMicro: false,
     hasMacro: false,
@@ -494,40 +494,40 @@ export const COMPONENTS = [
   },
   {
     id: "settings-block",
-    category: "Settings",
-    label: "Settings Layout",
+    category: "Cài đặt",
+    label: "Giao diện Cài đặt",
     hasMicro: false,
     hasMacro: false,
     status: "new",
   },
   {
     id: "auth-form-block",
-    category: "Authentication",
-    label: "Login Form",
+    category: "Xác thực",
+    label: "Form Đăng nhập",
     hasMicro: false,
     hasMacro: false,
     status: "new",
   },
   {
     id: "auth-recovery-block",
-    category: "Authentication",
-    label: "Password Recovery",
+    category: "Xác thực",
+    label: "Khôi phục Mật khẩu",
     hasMicro: false,
     hasMacro: false,
     status: "new",
   },
   {
     id: "auth-split-block",
-    category: "Authentication",
-    label: "Login (Split Screen)",
+    category: "Xác thực",
+    label: "Đăng nhập (Chia màn hình)",
     hasMicro: false,
     hasMacro: false,
     status: "new",
   },
   {
     id: "why",
-    category: "Other",
-    label: "Why gladvn?",
+    category: "Khác",
+    label: "Tại sao chọn gladvn?",
     hasMicro: false,
     hasMacro: false,
     status: "stable",

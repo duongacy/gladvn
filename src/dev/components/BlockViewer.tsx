@@ -117,7 +117,7 @@ export function BlockViewer({
         </TabsContent>
         
         <TabsContent value="code" className="mt-4 relative group/code">
-          <div className="rounded-2xl border border-border overflow-hidden [&_.shiki]:!m-0 [&_.shiki]:!rounded-none [&_.shiki]:!p-6 [&_.shiki]:max-h-[750px] overflow-auto custom-scrollbar">
+          <div className="rounded-2xl border border-border [&_.shiki]:!m-0 [&_.shiki]:!rounded-none [&_.shiki]:!p-6 [&_.shiki]:max-h-[750px] overflow-auto custom-scrollbar">
             <CodeHighlighter code={codeString} />
           </div>
           <Button

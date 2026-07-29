@@ -17,9 +17,10 @@ export function CodeBlock({
     <div
       className={cn(
         "rounded-xl overflow-hidden border shadow-sm",
-        isSuccess
-          ? "border-success/30 bg-success/5"
-          : "border-destructive/30 bg-destructive/5 opacity-80",
+        {
+          "border-success/30 bg-success/5": isSuccess,
+          "border-destructive/30 bg-destructive/5 opacity-80": !isSuccess,
+        },
         className
       )}
     >
@@ -36,11 +37,7 @@ export function CodeBlock({
       </div>
       <div
         className={cn(
-          "text-muted-foreground pl-3 border-l-2 leading-relaxed",
-          {
-            "border-success/50": isSuccess,
-            "border-destructive/50": !isSuccess,
-          }
+          "text-muted-foreground px-4 pb-3 leading-relaxed font-mono text-[11px] sm:text-xs"
         )}
       >
         {children}

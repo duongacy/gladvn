@@ -24,7 +24,7 @@ export function FooterCTA({ className }: { className?: string }) {
         <div className="flex flex-col items-center text-center space-y-8">
           <div className="space-y-4 max-w-2xl">
             <h2 className="text-3xl font-extrabold tracking-tight">
-              Contributors
+              Những người đóng góp
             </h2>
           </div>
 
@@ -32,7 +32,7 @@ export function FooterCTA({ className }: { className?: string }) {
             {[
               {
                 name: "Ý Le",
-                role: "Creator & Maintainer",
+                role: "Tác giả & Bảo trì",
                 avatar: "https://github.com/duongacy.png",
                 url: "https://github.com/duongacy"
               },

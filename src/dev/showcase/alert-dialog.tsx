@@ -773,7 +773,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
         />
       </div>
 
-      <div className="rounded-md border border-border border-green-500/20 bg-green-500/5 px-3 py-2">
+      <div className="rounded-md border border-green-500/20 bg-green-500/5 px-3 py-2">
         <p className="text-xs font-medium text-green-700 dark:text-green-400">
           ✅ Dùng{" "}
           <code className="font-mono">
@@ -846,7 +846,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
         </AlertDialog>
       </div>
 
-      <div className="rounded-md border border-border border-blue-500/20 bg-blue-500/5 px-3 py-2">
+      <div className="rounded-md border border-blue-500/20 bg-blue-500/5 px-3 py-2">
         <p className="text-xs font-medium text-blue-700 dark:text-blue-400">
           ✅ Dùng{" "}
           <code className="font-mono">AlertDialog</code>{" "}
@@ -900,7 +900,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                         />
                       </div>
 
-                      <div className="rounded-md border border-border border-green-500/20 bg-green-500/5 px-3 py-2">
+                      <div className="rounded-md border border-green-500/20 bg-green-500/5 px-3 py-2">
                         <p className="text-xs font-medium text-green-700 dark:text-green-400">
                           ✅ Dùng <code className="font-mono">AlertDialogPreset</code> —
                           Viết đúng 1 element. Tự động xử lý Grid/Flex responsive siêu
@@ -969,7 +969,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                         </AlertDialog>
                       </div>
 
-                      <div className="rounded-md border border-border border-blue-500/20 bg-blue-500/5 px-3 py-2">
+                      <div className="rounded-md border border-blue-500/20 bg-blue-500/5 px-3 py-2">
                         <p className="text-xs font-medium text-blue-700 dark:text-blue-400">
                           ✅ Dùng <code className="font-mono">AlertDialog</code> (Micro) —
                           Không bị ràng buộc bởi bất kỳ layout định sẵn nào. Lắp ráp thẻ

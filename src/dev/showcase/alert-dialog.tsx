@@ -7,7 +7,7 @@ import {
   MessageSquareWarningIcon,
   ShieldAlertIcon,
   TrashIcon,
-  XIcon
+  XIcon,
 } from "lucide-react";
 
 import { AlertDialogPreset } from "../../components/macro/alert-dialog-preset";
@@ -21,9 +21,8 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogMedia,
-
   AlertDialogTitle,
-  AlertDialogTrigger
+  AlertDialogTrigger,
 } from "../../components/micro/alert-dialog";
 import { Button } from "../../components/micro/button";
 import { useDevContext } from "../../dev/components/dev-context";
@@ -32,77 +31,108 @@ import {
   ExampleGrid,
   Showcase,
   ShowcaseDocs,
-  ShowcaseExample
+  ShowcaseExample,
 } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 import { useI18n } from "../components/dev-context";
 
 function AlertDialogMacroShowcase({ globalSize }: { globalSize: Size }) {
+  const t = useI18n();
   return (
     <div className="space-y-10">
       <ExampleGrid>
-        <ShowcaseExample title={"Destructive"} description={"Sử dụng actionColor='destructive' để tạo nút hành động nguy hiểm."} code={`<AlertDialogPreset
+        <ShowcaseExample
+          title={t("Nguy hiểm", "Destructive")}
+          description={t(
+            "Sử dụng actionColor='destructive' để tạo nút hành động nguy hiểm.",
+            "Use actionColor='destructive' to create a dangerous action button.",
+          )}
+          code={`<AlertDialogPreset
     trigger={
       <Button variant="outline" color="destructive">
-        Xoá Tài Khoản
+        Delete Account
       </Button>
     }
-    title="Bạn có chắc chắn muốn xoá?"
-    description="Hành động này không thể hoàn tác. Tài khoản and toàn bộ dữ liệu của bạn trên hệ thống sẽ bị xoá vĩnh viễn."
-    cancelLabel="Huỷ"
-    actionLabel="Xoá"
+    title="Are you sure you want to delete?"
+    description="This action cannot be undone. Your account and all its data will be permanently deleted."
+    cancelLabel="Cancel"
+    actionLabel="Delete"
     actionColor="destructive"
-    onAction={() => console.log("Đã xoá!")}
-  />`} preview={
-                      <>
+    onAction={() => console.log("Deleted!")}
+  />`}
+          preview={
+            <>
               <AlertDialogPreset
-                          size={globalSize}
-                          trigger={
-                            <Button variant="outline" color="destructive" size={globalSize}>
-                              Xoá Tài Khoản
-                            </Button>
-                          }
-                          title={"Bạn có chắc chắn muốn xoá?"}
-                          description={"Hành động này không thể hoàn tác. Tài khoản và toàn bộ dữ liệu của bạn trên hệ thống sẽ bị xoá vĩnh viễn."}
-                          cancelLabel={"Huỷ"}
-                          actionLabel={"Xoá"}
-                          actionColor="destructive"
-                          onAction={() => console.log("Đã xoá!")}
-                        />
-                      </>
-                    } />
+                size={globalSize}
+                trigger={
+                  <Button
+                    variant="outline"
+                    color="destructive"
+                    size={globalSize}
+                  >
+                    Delete Account
+                  </Button>
+                }
+                title={"Are you sure you want to delete?"}
+                description={
+                  "This action cannot be undone. Your account and all its data will be permanently deleted."
+                }
+                cancelLabel={"Cancel"}
+                actionLabel={"Delete"}
+                actionColor="destructive"
+                onAction={() => console.log("Deleted!")}
+              />
+            </>
+          }
+        />
 
-        <ShowcaseExample title={"Xác Nhận Tiêu Chuẩn"} description={"Dialog xác nhận thông thường chỉ với Text."} code={`<AlertDialogPreset
-    trigger={<Button variant="outline">Đăng Xuất</Button>}
-    title="Đăng xuất khỏi tài khoản?"
-    description="Bạn sẽ cần nhập lại thông tin đăng nhập để truy cập ando tài khoản."
-    cancelLabel="Ở Lại"
-    actionLabel="Đăng Xuất"
+        <ShowcaseExample
+          title={t("Confirm tiêu chuẩn", "Standard Confirmation")}
+          description={t(
+            "Dialog xác nhận thông thường chỉ với Text.",
+            "Standard confirmation dialog with just text.",
+          )}
+          code={`<AlertDialogPreset
+    trigger={<Button variant="outline">Log Out</Button>}
+    title="Log out of your account?"
+    description="You will need to re-enter your credentials to access your account."
+    cancelLabel="Stay"
+    actionLabel="Log Out"
     onAction={() => console.log("Logged out!")}
-  />`} preview={
-                      <>
+  />`}
+          preview={
+            <>
               <AlertDialogPreset
-                          size={globalSize}
-                          trigger={
-                            <Button variant="outline" size={globalSize}>
-                              Đăng Xuất
-                            </Button>
-                          }
-                          title={"Đăng xuất khỏi tài khoản?"}
-                          description={"Bạn sẽ cần nhập lại thông tin đăng nhập để truy cập vào tài khoản."}
-                          cancelLabel={"Ở Lại"}
-                          actionLabel={"Đăng Xuất"}
-                          onAction={() => console.log("Logged out!")}
-                        />
-                      </>
-                    } />
+                size={globalSize}
+                trigger={
+                  <Button variant="outline" size={globalSize}>
+                    Log Out
+                  </Button>
+                }
+                title={"Log out of your account?"}
+                description={
+                  "You will need to re-enter your credentials to access your account."
+                }
+                cancelLabel={"Stay"}
+                actionLabel={"Log Out"}
+                onAction={() => console.log("Logged out!")}
+              />
+            </>
+          }
+        />
       </ExampleGrid>
 
       <ExampleGrid>
-        <ShowcaseExample title={"Icon/Image"} description={"Tự động chia cột Flexbox Side-by-Side khi truyền prop 'icon'."} code={`<AlertDialogPreset
+        <ShowcaseExample
+          title={t("Biểu tượng/Hình ảnh", "Icon/Image")}
+          description={t(
+            "Tự động chia cột Flexbox Side-by-Side khi truyền prop 'icon'.",
+            "Automatically splits into a Side-by-Side Flexbox layout when the 'icon' prop is passed.",
+          )}
+          code={`<AlertDialogPreset
     trigger={
       <Button variant="outline" color="warning">
-        Thu Hồi Quyền
+        Revoke Access
       </Button>
     }
     icon={
@@ -110,39 +140,49 @@ function AlertDialogMacroShowcase({ globalSize }: { globalSize: Size }) {
         <ShieldAlertIcon className="text-warning" />
       </div>
     }
-    title="Thu hồi quyền truy cập API?"
-    description="Tất cả các ứng dụng đang sử dụng API key này sẽ bị mất quyền truy cập ngay lập tức."
-    cancelLabel="Giữ Lại"
-    actionLabel="Thu Hồi"
+    title="Revoke API access?"
+    description="All applications using this API key will immediately lose access."
+    cancelLabel="Keep"
+    actionLabel="Revoke"
     actionColor="warning"
     onAction={() => console.log("Revoked!")}
-  />`} preview={
-                      <>
+  />`}
+          preview={
+            <>
               <AlertDialogPreset
-                          size={globalSize}
-                          trigger={
-                            <Button variant="outline" color="warning" size={globalSize}>
-                              Thu Hồi Quyền
-                            </Button>
-                          }
-                          icon={
-                            <div className="flex size-full items-center justify-center rounded-full bg-warning/10">
-                              <ShieldAlertIcon className="text-warning" />
-                            </div>
-                          }
-                          title={"Thu hồi quyền truy cập API?"}
-                          description={"Tất cả các ứng dụng đang sử dụng API key này sẽ bị mất quyền truy cập ngay lập tức."}
-                          cancelLabel={"Giữ Lại"}
-                          actionLabel={"Thu Hồi"}
-                          actionColor="warning"
-                          onAction={() => console.log("Revoked!")}
-                        />
-                      </>
-                    } />
+                size={globalSize}
+                trigger={
+                  <Button variant="outline" color="warning" size={globalSize}>
+                    Revoke Access
+                  </Button>
+                }
+                icon={
+                  <div className="flex size-full items-center justify-center rounded-full bg-warning/10">
+                    <ShieldAlertIcon className="text-warning" />
+                  </div>
+                }
+                title={"Revoke API access?"}
+                description={
+                  "All applications using this API key will immediately lose access."
+                }
+                cancelLabel={"Keep"}
+                actionLabel={"Revoke"}
+                actionColor="warning"
+                onAction={() => console.log("Revoked!")}
+              />
+            </>
+          }
+        />
       </ExampleGrid>
 
       <ExampleGrid>
-        <ShowcaseExample title="Custom Button Variants" description={"Tuỳ chỉnh variant cho cả nút Action (soft) và Cancel (ghost) thông qua actionVariant/cancelVariant."} code={`<AlertDialogPreset
+        <ShowcaseExample
+          title={t("Tùy chỉnh Variant của Nút", "Custom Button Variants")}
+          description={t(
+            "Tuỳ chỉnh variant cho cả nút Action (soft) và Cancel (ghost) thông qua actionVariant/cancelVariant.",
+            "Customize the variant for both the Action (soft) and Cancel (ghost) buttons via actionVariant/cancelVariant.",
+          )}
+          code={`<AlertDialogPreset
     trigger={
       <Button variant="outline">Custom Variants</Button>
     }
@@ -151,50 +191,60 @@ function AlertDialogMacroShowcase({ globalSize }: { globalSize: Size }) {
         <MailWarningIcon className="text-info" />
       </div>
     }
-    title="Gửi phản hồi?"
-    description="Phản hồi của bạn sẽ được gửi ẩn danh tới đội ngũ phát triển."
-    cancelLabel="Bỏ qua"
+    title="Send feedback?"
+    description="Your feedback will be sent anonymously to the development team."
+    cancelLabel="Skip"
     cancelVariant="ghost"
-    actionLabel="Gửi"
+    actionLabel="Send"
     actionColor="info"
     actionVariant="soft"
     onAction={() => console.log("Feedback sent!")}
-  />`} preview={
-                      <>
+  />`}
+          preview={
+            <>
               <AlertDialogPreset
-                          size={globalSize}
-                          trigger={
-                            <Button variant="outline" size={globalSize}>
-                              Custom Variants
-                            </Button>
-                          }
-                          icon={
-                            <div className="flex size-full items-center justify-center rounded-full bg-info/10">
-                              <MailWarningIcon className="text-info" />
-                            </div>
-                          }
-                          title={"Gửi phản hồi?"}
-                          description={"Phản hồi của bạn sẽ được gửi ẩn danh tới đội ngũ phát triển."}
-                          cancelLabel={"Bỏ qua"}
-                          cancelVariant="ghost"
-                          actionLabel={"Gửi"}
-                          actionColor="info"
-                          actionVariant="soft"
-                          onAction={() => console.log("Feedback sent!")}
-                        />
-                      </>
-                    } />
+                size={globalSize}
+                trigger={
+                  <Button variant="outline" size={globalSize}>
+                    Custom Variants
+                  </Button>
+                }
+                icon={
+                  <div className="flex size-full items-center justify-center rounded-full bg-info/10">
+                    <MailWarningIcon className="text-info" />
+                  </div>
+                }
+                title={"Send feedback?"}
+                description={
+                  "Your feedback will be sent anonymously to the development team."
+                }
+                cancelLabel={"Skip"}
+                cancelVariant="ghost"
+                actionLabel={"Send"}
+                actionColor="info"
+                actionVariant="soft"
+                onAction={() => console.log("Feedback sent!")}
+              />
+            </>
+          }
+        />
 
-        <ShowcaseExample title={"Children"} description={"Prop children cho phép chèn thêm nội dung tuỳ ý vào phần Header."} code={`<AlertDialogPreset
+        <ShowcaseExample
+          title={t("Thành phần con (Children)", "Children")}
+          description={t(
+            "Prop children cho phép chèn thêm nội dung tuỳ ý vào phần Header.",
+            "The children prop allows inserting arbitrary content into the Header section.",
+          )}
+          code={`<AlertDialogPreset
     trigger={
       <Button variant="outline" color="warning">
-        Báo Cáo Lỗi
+        Report Bug
       </Button>
     }
-    title="Báo cáo lỗi hệ thống"
-    description="Vui lòng kiểm tra thông tin lỗi bên dưới trước khi gửi."
-    cancelLabel="Huỷ"
-    actionLabel="Gửi Báo Cáo"
+    title="System error report"
+    description="Please check the error information below before sending."
+    cancelLabel="Cancel"
+    actionLabel="Send Report"
     actionColor="warning"
     onAction={() => console.log("Report sent!")}
   >
@@ -203,68 +253,34 @@ function AlertDialogMacroShowcase({ globalSize }: { globalSize: Size }) {
       <p>Timestamp: 2026-07-05T14:30:00Z</p>
       <p>Module: api/gateway</p>
     </div>
-  </AlertDialogPreset>`} preview={
-                      <>
+  </AlertDialogPreset>`}
+          preview={
+            <>
               <AlertDialogPreset
-                          size={globalSize}
-                          trigger={
-                            <Button variant="outline" color="warning" size={globalSize}>
-                              Báo Cáo Lỗi
-                            </Button>
-                          }
-                          title={"Báo cáo lỗi hệ thống"}
-                          description={"Vui lòng kiểm tra thông tin lỗi bên dưới trước khi gửi."}
-                          cancelLabel={"Huỷ"}
-                          actionLabel={"Gửi Báo Cáo"}
-                          actionColor="warning"
-                          onAction={() => console.log("Report sent!")}
-                        >
-                          <div className="mt-2 rounded-md border border-border bg-muted/50 p-3 font-mono text-xs text-muted-foreground">
-                            <p>Error Code: ERR_NETWORK_TIMEOUT</p>
-                            <p>Timestamp: 2026-07-05T14:30:00Z</p>
-                            <p>Module: api/gateway</p>
-                          </div>
-                        </AlertDialogPreset>
-                      </>
-                    } />
-      </ExampleGrid>
-
-      <ExampleGrid>
-        <ShowcaseExample title={"Compact"} description={"Khi dùng size='sm', nội dung sẽ được căn giữa và footer tự động dàn hàng ngang 2 cột."} code={`<AlertDialogPreset
-    size="sm"
-    trigger={
-      <Button variant="outline">Xác Nhận Nhanh</Button>
-    }
-    icon={
-      <div className="flex size-full items-center justify-center rounded-full bg-muted">
-        <InfoIcon />
-      </div>
-    }
-    title="Xác nhận hành động?"
-    description="Đây là dialog dạng nhỏ, phù hợp cho các thao tác nhanh với 2 nút nằm ngang."
-    cancelLabel="Không"
-    actionLabel="Có"
-  />`} preview={
-                      <>
-              <AlertDialogPreset
-                          size={globalSize}
-                          trigger={
-                            <Button variant="outline" size={globalSize}>
-                              Xác Nhận Nhanh
-                            </Button>
-                          }
-                          icon={
-                            <div className="flex size-full items-center justify-center rounded-full bg-muted">
-                              <InfoIcon />
-                            </div>
-                          }
-                          title={"Xác nhận hành động?"}
-                          description={"Đây là dialog dạng nhỏ, phù hợp cho các thao tác nhanh với 2 nút nằm ngang."}
-                          cancelLabel={"Không"}
-                          actionLabel={"Có"}
-                        />
-                      </>
-                    } />
+                size={globalSize}
+                trigger={
+                  <Button variant="outline" color="warning" size={globalSize}>
+                    Report Bug
+                  </Button>
+                }
+                title={"System error report"}
+                description={
+                  "Please check the error information below before sending."
+                }
+                cancelLabel={"Cancel"}
+                actionLabel={"Send Report"}
+                actionColor="warning"
+                onAction={() => console.log("Report sent!")}
+              >
+                <div className="mt-2 rounded-md border border-border bg-muted/50 p-3 font-mono text-xs text-muted-foreground">
+                  <p>Error Code: ERR_NETWORK_TIMEOUT</p>
+                  <p>Timestamp: 2026-07-05T14:30:00Z</p>
+                  <p>Module: api/gateway</p>
+                </div>
+              </AlertDialogPreset>
+            </>
+          }
+        />
       </ExampleGrid>
     </div>
   );
@@ -274,71 +290,83 @@ function AlertDialogMacroShowcase({ globalSize }: { globalSize: Size }) {
 // SECTION 2: Micro Content (không export)
 // ──────────────────────────────────────────────────────────
 function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
+  const t = useI18n();
   return (
     <div className="space-y-10">
       <ExampleGrid>
-        <ShowcaseExample title={"Sử dụng Cơ bản"} description={"Lắp ráp thủ công các khối Header, Title, Description, Footer."} code={`<AlertDialog>
+        <ShowcaseExample
+          title={t("Sử dụng cơ bản", "Basic Usage")}
+          description={t(
+            "Lắp ráp thủ công các khối Header, Title, Description, Footer.",
+            "Manually assemble the Header, Title, Description, and Footer blocks.",
+          )}
+          code={`<AlertDialog>
     <AlertDialogTrigger
       render={
-        <Button variant="outline">Mở Dialog Trắng</Button>
+        <Button variant="outline">Open Blank Dialog</Button>
       }
     />
     
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle>
-            Cấu trúc nguyên thuỷ
+            Primitive Structure
           </AlertDialogTitle>
           <AlertDialogDescription>
-            Không có bất kỳ layout "thần thánh" nào ép buộc
-            ở đây. Các thành phần chỉ xếp dọc (flex-col) mặc
-            định.
+            There is no forced 'magic' layout here. The components simply stack vertically (flex-col) by default.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>Huỷ bỏ</AlertDialogCancel>
-          <AlertDialogAction>Tiếp tục</AlertDialogAction>
+          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogAction>Continue</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     
-  </AlertDialog>`} preview={
-                      <>
+  </AlertDialog>`}
+          preview={
+            <>
               <AlertDialog>
-                          <AlertDialogTrigger
-                            render={
-                              <Button variant="outline" size={globalSize}>
-                                Mở Dialog Trắng
-                              </Button>
-                            }
-                          />
+                <AlertDialogTrigger
+                  render={
+                    <Button variant="outline" size={globalSize}>
+                      Open Blank Dialog
+                    </Button>
+                  }
+                />
 
-                            <AlertDialogContent size={globalSize}>
-                              <AlertDialogHeader>
-                                <AlertDialogTitle>Cấu trúc nguyên thuỷ</AlertDialogTitle>
-                                <AlertDialogDescription>
-                                  Không có bất kỳ layout "thần thánh" nào ép buộc ở đây. Các
-                                  thành phần chỉ xếp dọc (flex-col) mặc định.
-                                </AlertDialogDescription>
-                              </AlertDialogHeader>
-                              <AlertDialogFooter>
-                                <AlertDialogCancel size={globalSize}>
-                                  Huỷ bỏ
-                                </AlertDialogCancel>
-                                <AlertDialogAction size={globalSize}>
-                                  Tiếp tục
-                                </AlertDialogAction>
-                              </AlertDialogFooter>
-                            </AlertDialogContent>
-                          
-                        </AlertDialog>
-                      </>
-                    } />
+                <AlertDialogContent size={globalSize}>
+                  <AlertDialogHeader>
+                    <AlertDialogTitle>Primitive Structure</AlertDialogTitle>
+                    <AlertDialogDescription>
+                      Không có bất kỳ layout "thần thánh" nào ép buộc ở đây. Các
+                      thành phần chỉ xếp dọc (flex-col) mặc định.
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+                  <AlertDialogFooter>
+                    <AlertDialogCancel size={globalSize}>
+                      Cancel
+                    </AlertDialogCancel>
+                    <AlertDialogAction size={globalSize}>
+                      Continue
+                    </AlertDialogAction>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialog>
+            </>
+          }
+        />
 
-        <ShowcaseExample title={"Tự Do Custom Layout"} description={"Bởi vì Micro component rất 'dumb', bạn có thể tự chèn thẻ div, custom flexbox để làm ra bất kỳ giao diện nào."} code={`<AlertDialog>
+        <ShowcaseExample
+          title={t("Tự do tùy chỉnh Layout", "Free Custom Layout")}
+          description={t(
+            "Bởi vì Micro component rất 'dumb', bạn có thể tự chèn thẻ div, custom flexbox để làm ra bất kỳ giao diện nào.",
+            "Because the Micro component is 'dumb', you can insert div tags and custom flexbox to create any interface.",
+          )}
+          code={`<AlertDialog>
     <AlertDialogTrigger
       render={
         <Button variant="outline" color="warning">
-          Giao Diện Custom
+          Custom Interface
         </Button>
       }
     />
@@ -348,64 +376,70 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
           <div className="size-16 rounded-lg bg-warning/20 border border-warning" />
           <AlertDialogHeader className="sm:text-left">
             <AlertDialogTitle className="text-warning">
-              Cảnh báo Tùy chỉnh
+              Custom Warning
             </AlertDialogTitle>
             <AlertDialogDescription>
-              Icon đang nằm bên trái, or có thể dời sang
-              phải tuỳ ý bạn vì bạn đang kiểm soát HTML.
+              The icon is on the left, but you can move it to the right as you control the HTML.
             </AlertDialogDescription>
           </AlertDialogHeader>
         </div>
         <AlertDialogFooter className="border-t-0 bg-transparent">
           <AlertDialogCancel className="w-full">
-            Tôi đã hiểu
+            I understand
           </AlertDialogCancel>
         </AlertDialogFooter>
       </AlertDialogContent>
     
-  </AlertDialog>`} preview={
-                      <>
+  </AlertDialog>`}
+          preview={
+            <>
               <AlertDialog>
-                          <AlertDialogTrigger
-                            render={
-                              <Button variant="outline" color="warning" size={globalSize}>
-                                Giao Diện Custom
-                              </Button>
-                            }
-                          />
+                <AlertDialogTrigger
+                  render={
+                    <Button variant="outline" color="warning" size={globalSize}>
+                      Custom Interface
+                    </Button>
+                  }
+                />
 
-                            <AlertDialogContent
-                              size={globalSize}
-                              className="border-warning/50"
-                            >
-                              <div className="flex flex-col-reverse items-center justify-center gap-4 py-4 sm:flex-row">
-                                <div className="size-16 rounded-lg bg-warning/20 border border-warning" />
-                                <AlertDialogHeader className="sm:text-left">
-                                  <AlertDialogTitle className="text-warning">
-                                    Cảnh báo Tùy chỉnh
-                                  </AlertDialogTitle>
-                                  <AlertDialogDescription>
-                                    Icon đang nằm bên trái, hoặc có thể dời sang phải tuỳ ý
-                                    bạn vì bạn đang kiểm soát HTML.
-                                  </AlertDialogDescription>
-                                </AlertDialogHeader>
-                              </div>
-                              <AlertDialogFooter className="border-t-0 bg-transparent">
-                                <AlertDialogCancel size={globalSize} className="w-full">
-                                  Tôi đã hiểu
-                                </AlertDialogCancel>
-                              </AlertDialogFooter>
-                            </AlertDialogContent>
-                          
-                        </AlertDialog>
-                      </>
-                    } />
+                <AlertDialogContent
+                  size={globalSize}
+                  className="border-warning/50"
+                >
+                  <div className="flex flex-col-reverse items-center justify-center gap-4 py-4 sm:flex-row">
+                    <div className="size-16 rounded-lg bg-warning/20 border border-warning" />
+                    <AlertDialogHeader className="sm:text-left">
+                      <AlertDialogTitle className="text-warning">
+                        Custom Warning
+                      </AlertDialogTitle>
+                      <AlertDialogDescription>
+                        Icon đang nằm bên trái, hoặc có thể dời sang phải tuỳ ý
+                        bạn vì bạn đang kiểm soát HTML.
+                      </AlertDialogDescription>
+                    </AlertDialogHeader>
+                  </div>
+                  <AlertDialogFooter className="border-t-0 bg-transparent">
+                    <AlertDialogCancel size={globalSize} className="w-full">
+                      I understand
+                    </AlertDialogCancel>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialog>
+            </>
+          }
+        />
       </ExampleGrid>
 
       <ExampleGrid>
-        <ShowcaseExample title="AlertDialogMedia" description={"Khối chứa Icon/Image, tự scale theo size của AlertDialogContent."} code={`<AlertDialog>
+        <ShowcaseExample
+          title={t("Phương tiện (Media)", "AlertDialogMedia")}
+          description={t(
+            "Khối chứa Icon/Image, tự scale theo size của AlertDialogContent.",
+            "A block containing an Icon/Image that automatically scales according to the size of AlertDialogContent.",
+          )}
+          code={`<AlertDialog>
     <AlertDialogTrigger
-      render={<Button variant="outline">Với Media</Button>}
+      render={<Button variant="outline">With Media</Button>}
     />
     
       <AlertDialogContent>
@@ -415,130 +449,144 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
           </AlertDialogMedia>
           <AlertDialogHeader>
             <AlertDialogTitle>
-              Cảnh báo bảo mật
+              Security Warning
             </AlertDialogTitle>
             <AlertDialogDescription>
-              AlertDialogMedia là khối div chứa icon, tự
-              động scale kích thước theo data-size của
-              AlertDialogContent.
+              AlertDialogMedia is a div containing an icon, automatically scaling its size according to the data-size of AlertDialogContent.
             </AlertDialogDescription>
           </AlertDialogHeader>
         </div>
         <AlertDialogFooter>
-          <AlertDialogCancel>Huỷ</AlertDialogCancel>
+          <AlertDialogCancel>Cancel</AlertDialogCancel>
           <AlertDialogAction color="warning">
-            Xác nhận
+            Confirm
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     
-  </AlertDialog>`} preview={
-                      <>
+  </AlertDialog>`}
+          preview={
+            <>
               <AlertDialog>
-                          <AlertDialogTrigger
-                            render={
-                              <Button variant="outline" size={globalSize}>
-                                Với Media
-                              </Button>
-                            }
-                          />
+                <AlertDialogTrigger
+                  render={
+                    <Button variant="outline" size={globalSize}>
+                      With Media
+                    </Button>
+                  }
+                />
 
-                            <AlertDialogContent size={globalSize}>
-                              <div className="flex flex-col gap-1.5 sm:flex-row sm:gap-4">
-                                <AlertDialogMedia className="mx-auto mb-2 shrink-0 sm:mx-0 sm:mb-0">
-                                  <ShieldAlertIcon className="text-warning" />
-                                </AlertDialogMedia>
-                                <AlertDialogHeader>
-                                  <AlertDialogTitle>Cảnh báo bảo mật</AlertDialogTitle>
-                                  <AlertDialogDescription>
-                                    AlertDialogMedia là khối div chứa icon, tự động scale kích
-                                    thước theo data-size của AlertDialogContent.
-                                  </AlertDialogDescription>
-                                </AlertDialogHeader>
-                              </div>
-                              <AlertDialogFooter>
-                                <AlertDialogCancel size={globalSize}>Huỷ</AlertDialogCancel>
-                                <AlertDialogAction size={globalSize} color="warning">
-                                  Xác nhận
-                                </AlertDialogAction>
-                              </AlertDialogFooter>
-                            </AlertDialogContent>
-                          
-                        </AlertDialog>
-                      </>
-                    } />
+                <AlertDialogContent size={globalSize}>
+                  <div className="flex flex-col gap-1.5 sm:flex-row sm:gap-4">
+                    <AlertDialogMedia className="mx-auto mb-2 shrink-0 sm:mx-0 sm:mb-0">
+                      <ShieldAlertIcon className="text-warning" />
+                    </AlertDialogMedia>
+                    <AlertDialogHeader>
+                      <AlertDialogTitle>Security Warning</AlertDialogTitle>
+                      <AlertDialogDescription>
+                        AlertDialogMedia là khối div chứa icon, tự động scale
+                        kích thước theo data-size của AlertDialogContent.
+                      </AlertDialogDescription>
+                    </AlertDialogHeader>
+                  </div>
+                  <AlertDialogFooter>
+                    <AlertDialogCancel size={globalSize}>
+                      Cancel
+                    </AlertDialogCancel>
+                    <AlertDialogAction size={globalSize} color="warning">
+                      Confirm
+                    </AlertDialogAction>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialog>
+            </>
+          }
+        />
 
-        <ShowcaseExample title="AlertDialogClose" description={"Primitive đóng dialog cơ bản, cho phép render bất kỳ element nào (không bị ép thành Button)."} code={`<AlertDialog>
+        <ShowcaseExample
+          title={t("Nút Close", "AlertDialogClose")}
+          description={t(
+            "Primitive đóng dialog cơ bản, cho phép render bất kỳ element nào (không bị ép thành Button).",
+            "A basic dialog closing primitive that allows rendering any element (not forced to be a Button).",
+          )}
+          code={`<AlertDialog>
     <AlertDialogTrigger
       render={
-        <Button variant="outline">Dialog Có Nút X</Button>
+        <Button variant="outline">Dialog With X Button</Button>
       }
     />
     
       <AlertDialogContent>
         <AlertDialogClose className="absolute top-3 right-3 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:outline-none">
           <XIcon className="size-4" />
-          <span className="sr-only">Đóng</span>
+          <span className="sr-only">Close</span>
         </AlertDialogClose>
         <AlertDialogHeader>
           <AlertDialogTitle>
             AlertDialogClose
           </AlertDialogTitle>
           <AlertDialogDescription>
-            Khác với AlertDialogCancel (luôn render Button),
-            AlertDialogClose là bare-bone — bạn có thể
-            renders the X, link, hay bất kỳ thứ gì.
+            Unlike AlertDialogCancel (which always renders a Button), AlertDialogClose is bare-bone — you can render an X icon, a link, or anything else.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>Huỷ</AlertDialogCancel>
-          <AlertDialogAction>Đồng ý</AlertDialogAction>
+          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogAction>Agree</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     
-  </AlertDialog>`} preview={
-                      <>
+  </AlertDialog>`}
+          preview={
+            <>
               <AlertDialog>
-                          <AlertDialogTrigger
-                            render={
-                              <Button variant="outline" size={globalSize}>
-                                Dialog Có Nút X
-                              </Button>
-                            }
-                          />
+                <AlertDialogTrigger
+                  render={
+                    <Button variant="outline" size={globalSize}>
+                      Dialog With X Button
+                    </Button>
+                  }
+                />
 
-                            <AlertDialogContent size={globalSize}>
-                              <AlertDialogClose className="absolute top-3 right-3 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:outline-none">
-                                <XIcon className="size-4" />
-                                <span className="sr-only">Đóng</span>
-                              </AlertDialogClose>
-                              <AlertDialogHeader>
-                                <AlertDialogTitle>AlertDialogClose</AlertDialogTitle>
-                                <AlertDialogDescription>
-                                  Khác với AlertDialogCancel (luôn render Button),
-                                  AlertDialogClose là bare-bone — bạn có thể render icon X,
-                                  link, hay bất kỳ thứ gì.
-                                </AlertDialogDescription>
-                              </AlertDialogHeader>
-                              <AlertDialogFooter>
-                                <AlertDialogCancel size={globalSize}>Huỷ</AlertDialogCancel>
-                                <AlertDialogAction size={globalSize}>
-                                  Đồng ý
-                                </AlertDialogAction>
-                              </AlertDialogFooter>
-                            </AlertDialogContent>
-                          
-                        </AlertDialog>
-                      </>
-                    } />
+                <AlertDialogContent size={globalSize}>
+                  <AlertDialogClose className="absolute top-3 right-3 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:outline-none">
+                    <XIcon className="size-4" />
+                    <span className="sr-only">Close</span>
+                  </AlertDialogClose>
+                  <AlertDialogHeader>
+                    <AlertDialogTitle>AlertDialogClose</AlertDialogTitle>
+                    <AlertDialogDescription>
+                      Khác với AlertDialogCancel (luôn render Button),
+                      AlertDialogClose là bare-bone — bạn có thể render icon X,
+                      link, hay bất kỳ thứ gì.
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+                  <AlertDialogFooter>
+                    <AlertDialogCancel size={globalSize}>
+                      Cancel
+                    </AlertDialogCancel>
+                    <AlertDialogAction size={globalSize}>
+                      Agree
+                    </AlertDialogAction>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialog>
+            </>
+          }
+        />
       </ExampleGrid>
 
       <ExampleGrid>
-        <ShowcaseExample title="Action Colors" description={"AlertDialogAction hỗ trợ prop color để thay đổi ngữ nghĩa hành động."} code={`<AlertDialog>
+        <ShowcaseExample
+          title={t("Màu sắc hành động", "Action Colors")}
+          description={t(
+            "AlertDialogAction hỗ trợ prop color để thay đổi ngữ nghĩa hành động.",
+            "AlertDialogAction supports the color prop to change the semantic meaning of the action.",
+          )}
+          code={`<AlertDialog>
     <AlertDialogTrigger
       render={
         <Button variant="outline" color="destructive">
-          Xoá Tài Khoản
+          Delete Account
         </Button>
       }
     />
@@ -550,60 +598,72 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
           </AlertDialogMedia>
           <AlertDialogHeader>
             <AlertDialogTitle>
-              Xoá tài khoản vĩnh viễn?
+              Delete tài khoản vĩnh viễn?
             </AlertDialogTitle>
             <AlertDialogDescription>
-              Tất cả dữ liệu sẽ bị xoá and không thể khôi
-              phục.
+              All data will be deleted and cannot be recovered.
             </AlertDialogDescription>
           </AlertDialogHeader>
         </div>
         <AlertDialogFooter>
-          <AlertDialogCancel>Huỷ</AlertDialogCancel>
+          <AlertDialogCancel>Cancel</AlertDialogCancel>
           <AlertDialogAction color="destructive">
-            Xoá vĩnh viễn
+            Delete Permanently
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     
-  </AlertDialog>`} preview={
-                      <>
+  </AlertDialog>`}
+          preview={
+            <>
               <AlertDialog>
-                          <AlertDialogTrigger
-                            render={
-                              <Button variant="outline" color="destructive" size={globalSize}>
-                                Xoá Tài Khoản
-                              </Button>
-                            }
-                          />
+                <AlertDialogTrigger
+                  render={
+                    <Button
+                      variant="outline"
+                      color="destructive"
+                      size={globalSize}
+                    >
+                      Delete Account
+                    </Button>
+                  }
+                />
 
-                            <AlertDialogContent size={globalSize}>
-                              <div className="flex flex-col gap-1.5 sm:flex-row sm:gap-4">
-                                <AlertDialogMedia className="mx-auto mb-2 shrink-0 sm:mx-0 sm:mb-0">
-                                  <TrashIcon className="text-destructive" />
-                                </AlertDialogMedia>
-                                <AlertDialogHeader>
-                                  <AlertDialogTitle>
-                                    Xoá tài khoản vĩnh viễn?
-                                  </AlertDialogTitle>
-                                  <AlertDialogDescription>
-                                    Tất cả dữ liệu sẽ bị xoá và không thể khôi phục.
-                                  </AlertDialogDescription>
-                                </AlertDialogHeader>
-                              </div>
-                              <AlertDialogFooter>
-                                <AlertDialogCancel size={globalSize}>Huỷ</AlertDialogCancel>
-                                <AlertDialogAction size={globalSize} color="destructive">
-                                  Xoá vĩnh viễn
-                                </AlertDialogAction>
-                              </AlertDialogFooter>
-                            </AlertDialogContent>
-                          
-                        </AlertDialog>
-                      </>
-                    } />
+                <AlertDialogContent size={globalSize}>
+                  <div className="flex flex-col gap-1.5 sm:flex-row sm:gap-4">
+                    <AlertDialogMedia className="mx-auto mb-2 shrink-0 sm:mx-0 sm:mb-0">
+                      <TrashIcon className="text-destructive" />
+                    </AlertDialogMedia>
+                    <AlertDialogHeader>
+                      <AlertDialogTitle>
+                        Delete tài khoản vĩnh viễn?
+                      </AlertDialogTitle>
+                      <AlertDialogDescription>
+                        All data will be deleted and cannot be recovered.
+                      </AlertDialogDescription>
+                    </AlertDialogHeader>
+                  </div>
+                  <AlertDialogFooter>
+                    <AlertDialogCancel size={globalSize}>
+                      Cancel
+                    </AlertDialogCancel>
+                    <AlertDialogAction size={globalSize} color="destructive">
+                      Delete Permanently
+                    </AlertDialogAction>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialog>
+            </>
+          }
+        />
 
-        <ShowcaseExample title="Action & Cancel Variants" description={"Tuỳ chỉnh variant cho cả Action (soft) và Cancel (ghost)."} code={`<AlertDialog>
+        <ShowcaseExample
+          title={t("Variant cho Action & Cancel", "Action & Cancel Variants")}
+          description={t(
+            "Tuỳ chỉnh variant cho cả Action (soft) và Cancel (ghost).",
+            "Customize the variant for both Action (soft) and Cancel (ghost).",
+          )}
+          code={`<AlertDialog>
     <AlertDialogTrigger
       render={
         <Button variant="outline">Custom Variants</Button>
@@ -616,16 +676,15 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
             <LogOutIcon />
           </AlertDialogMedia>
           <AlertDialogHeader>
-            <AlertDialogTitle>Đăng xuất?</AlertDialogTitle>
+            <AlertDialogTitle>Log out?</AlertDialogTitle>
             <AlertDialogDescription>
-              Phiên đăng nhập của bạn sẽ kết thúc. Bạn cần
-              nhập lại mật khẩu để quay lại.
+              Your session will end. You will need to re-enter your password to log back in.
             </AlertDialogDescription>
           </AlertDialogHeader>
         </div>
         <AlertDialogFooter>
           <AlertDialogCancel variant="ghost">
-            Ở lại
+            Stay
           </AlertDialogCancel>
           <AlertDialogAction variant="soft" color="info">
             Đăng xuất
@@ -633,303 +692,49 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
         </AlertDialogFooter>
       </AlertDialogContent>
     
-  </AlertDialog>`} preview={
-                      <>
+  </AlertDialog>`}
+          preview={
+            <>
               <AlertDialog>
-                          <AlertDialogTrigger
-                            render={
-                              <Button variant="outline" size={globalSize}>
-                                Custom Variants
-                              </Button>
-                            }
-                          />
+                <AlertDialogTrigger
+                  render={
+                    <Button variant="outline" size={globalSize}>
+                      Custom Variants
+                    </Button>
+                  }
+                />
 
-                            <AlertDialogContent size={globalSize}>
-                              <div className="flex flex-col gap-1.5 sm:flex-row sm:gap-4">
-                                <AlertDialogMedia className="mx-auto mb-2 shrink-0 sm:mx-0 sm:mb-0">
-                                  <LogOutIcon />
-                                </AlertDialogMedia>
-                                <AlertDialogHeader>
-                                  <AlertDialogTitle>Đăng xuất?</AlertDialogTitle>
-                                  <AlertDialogDescription>
-                                    Phiên đăng nhập của bạn sẽ kết thúc. Bạn cần nhập lại mật
-                                    khẩu để quay lại.
-                                  </AlertDialogDescription>
-                                </AlertDialogHeader>
-                              </div>
-                              <AlertDialogFooter>
-                                <AlertDialogCancel size={globalSize} variant="ghost">
-                                  Ở lại
-                                </AlertDialogCancel>
-                                <AlertDialogAction
-                                  size={globalSize}
-                                  variant="soft"
-                                  color="info"
-                                >
-                                  Đăng xuất
-                                </AlertDialogAction>
-                              </AlertDialogFooter>
-                            </AlertDialogContent>
-                          
-                        </AlertDialog>
-                      </>
-                    } />
-      </ExampleGrid>
-
-      {/* ── Use Case Comparison ─────────────────────── */}
-      <ShowcaseExample title={"🧭 So sánh Use Case"} description={"Các kịch bản thực tế giúp bạn quyết định nên dùng Micro hay Macro."} code={`<div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-    <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
-      <div className="flex items-start gap-3">
-        <span className="mt-0.5 shrink-0 rounded-full bg-green-500/10 p-1.5 text-green-600">
-          <ShieldAlertIcon
-            className="size-4"
-            aria-hidden="true"
-          />
-        </span>
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-            Story 1 · Use Macro
-          </p>
-          <h3 className="mt-0.5 text-sm font-semibold text-foreground">
-            Xác nhận chuẩn mực với Icon
-          </h3>
-        </div>
-      </div>
-
-      <p className="text-xs text-muted-foreground leading-relaxed">
-        Bạn cần làm một dialog xác nhận xoá với layout
-        Side-by-Side (Icon nằm bên trái trên màn hình lớn,
-        nằm ở trên cùng trên màn hình nhỏ).
-      </p>
-
-      <div className="rounded-lg bg-muted/50 p-3 flex justify-center">
-        <AlertDialogPreset
-          size="sm"
-          trigger={
-            <Button variant="outline" size="sm">
-              Xem Demo
-            </Button>
-          }
-          icon={
-            <div className="flex size-full items-center justify-center rounded-full bg-muted">
-              <InfoIcon />
-            </div>
-          }
-          title="Xác nhận thao tác"
-          description="Macro bọc mọi thứ ando một component duy nhất."
-          cancelLabel="Huỷ"
-          actionLabel="Tiếp tục"
-        />
-      </div>
-
-      <div className="rounded-md border border-green-500/20 bg-green-500/5 px-3 py-2">
-        <p className="text-xs font-medium text-green-700 dark:text-green-400">
-          ✅ Dùng{" "}
-          <code className="font-mono">
-            AlertDialogPreset
-          </code>{" "}
-          — Viết đúng 1 element. Tự động xử lý Grid/Flex
-          responsive siêu phức tạp.
-        </p>
-      </div>
-    </div>
-
-    <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
-      <div className="flex items-start gap-3">
-        <span className="mt-0.5 shrink-0 rounded-full bg-blue-500/10 p-1.5 text-blue-600">
-          <MessageSquareWarningIcon
-            className="size-4"
-            aria-hidden="true"
-          />
-        </span>
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-            Story 2 · Use Micro
-          </p>
-          <h3 className="mt-0.5 text-sm font-semibold text-foreground">
-            Custom Layout độc lạ
-          </h3>
-        </div>
-      </div>
-
-      <p className="text-xs text-muted-foreground leading-relaxed">
-        Designer yêu cầu một Modal có Layout đặc thù: Image
-        bự ở trên cùng, Text ở dưới, Footer có 3 nút. Không
-        có bất kỳ Preset nào support layout này.
-      </p>
-
-      <div className="rounded-lg bg-muted/50 p-3 flex justify-center">
-        <AlertDialog>
-          <AlertDialogTrigger
-            render={
-              <Button variant="outline" size="sm">
-                Xem Demo
-              </Button>
-            }
-          />
-          
-            <AlertDialogContent size="sm">
-              <div className="h-24 w-full rounded-md bg-muted flex items-center justify-center text-xs text-muted-foreground">
-                Custom Image
-              </div>
-              <AlertDialogHeader>
-                <AlertDialogTitle>
-                  Tùy biến 100%
-                </AlertDialogTitle>
-              </AlertDialogHeader>
-              <AlertDialogFooter className="flex-col gap-2 sm:flex-col">
-                <Button className="w-full">Action 1</Button>
-                <Button
-                  color="secondary"
-                  variant="soft"
-                  className="w-full"
-                >
-                  Action 2
-                </Button>
-                <AlertDialogCancel className="w-full">
-                  Cancel
-                </AlertDialogCancel>
-              </AlertDialogFooter>
-            </AlertDialogContent>
-          
-        </AlertDialog>
-      </div>
-
-      <div className="rounded-md border border-blue-500/20 bg-blue-500/5 px-3 py-2">
-        <p className="text-xs font-medium text-blue-700 dark:text-blue-400">
-          ✅ Dùng{" "}
-          <code className="font-mono">AlertDialog</code>{" "}
-          (Micro) — Không bị ràng buộc bởi bất kỳ layout
-          định sẵn nào. Lắp ráp thẻ tự do.
-        </p>
-      </div>
-    </div>
-  </div>`} preview={
-                  <>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                    {/* ── Story 1: Macro wins ── */}
-                    <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
-                      <div className="flex items-start gap-3">
-                        <span className="mt-0.5 shrink-0 rounded-full bg-green-500/10 p-1.5 text-green-600">
-                          <ShieldAlertIcon className="size-4" aria-hidden="true" />
-                        </span>
-                        <div>
-                          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                            Story 1 · Use Macro
-                          </p>
-                          <h3 className="mt-0.5 text-sm font-semibold text-foreground">
-                            Xác nhận chuẩn mực với Icon
-                          </h3>
-                        </div>
-                      </div>
-
-                      <p className="text-xs text-muted-foreground leading-relaxed">
-                        Bạn cần làm một dialog xác nhận xoá với layout Side-by-Side (Icon
-                        nằm bên trái trên màn hình lớn, nằm ở trên cùng trên màn hình
-                        nhỏ).
-                      </p>
-
-                      <div className="rounded-lg bg-muted/50 p-3 flex justify-center">
-                        <AlertDialogPreset
-                          size={globalSize}
-                          trigger={
-                            <Button variant="outline" size={globalSize}>
-                              Xem Demo
-                            </Button>
-                          }
-                          icon={
-                            <div className="flex size-full items-center justify-center rounded-full bg-muted">
-                              <InfoIcon />
-                            </div>
-                          }
-                          title={"Xác nhận thao tác"}
-                          description={"Macro bọc mọi thứ vào một component duy nhất."}
-                          cancelLabel={"Huỷ"}
-                          actionLabel={"Tiếp tục"}
-                        />
-                      </div>
-
-                      <div className="rounded-md border border-green-500/20 bg-green-500/5 px-3 py-2">
-                        <p className="text-xs font-medium text-green-700 dark:text-green-400">
-                          ✅ Dùng <code className="font-mono">AlertDialogPreset</code> —
-                          Viết đúng 1 element. Tự động xử lý Grid/Flex responsive siêu
-                          phức tạp.
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* ── Story 2: Micro wins ── */}
-                    <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
-                      <div className="flex items-start gap-3">
-                        <span className="mt-0.5 shrink-0 rounded-full bg-blue-500/10 p-1.5 text-blue-600">
-                          <MessageSquareWarningIcon
-                            className="size-4"
-                            aria-hidden="true"
-                          />
-                        </span>
-                        <div>
-                          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                            Story 2 · Use Micro
-                          </p>
-                          <h3 className="mt-0.5 text-sm font-semibold text-foreground">
-                            Custom Layout độc lạ
-                          </h3>
-                        </div>
-                      </div>
-
-                      <p className="text-xs text-muted-foreground leading-relaxed">
-                        Designer yêu cầu một Modal có Layout đặc thù: Image bự ở trên
-                        cùng, Text ở dưới, Footer có 3 nút. Không có bất kỳ Preset nào
-                        support layout này.
-                      </p>
-
-                      <div className="rounded-lg bg-muted/50 p-3 flex justify-center">
-                        <AlertDialog>
-                          <AlertDialogTrigger
-                            render={
-                              <Button variant="outline" size={globalSize}>
-                                Xem Demo
-                              </Button>
-                            }
-                          />
-
-                            <AlertDialogContent size={globalSize}>
-                              <div className="h-24 w-full rounded-md bg-muted flex items-center justify-center text-xs text-muted-foreground">
-                                Custom Image
-                              </div>
-                              <AlertDialogHeader>
-                                <AlertDialogTitle>Tùy biến 100%</AlertDialogTitle>
-                              </AlertDialogHeader>
-                              <AlertDialogFooter className="flex-col gap-2 sm:flex-col">
-                                <Button className="w-full" size={globalSize}>Action 1</Button>
-                                <Button
-                                  color="secondary"
-                                  variant="soft"
-                                  className="w-full"
-                                  size={globalSize}
-                                >
-                                  Action 2
-                                </Button>
-                                <AlertDialogCancel className="w-full">
-                                  Cancel
-                                </AlertDialogCancel>
-                              </AlertDialogFooter>
-                            </AlertDialogContent>
-                          
-                        </AlertDialog>
-                      </div>
-
-                      <div className="rounded-md border border-blue-500/20 bg-blue-500/5 px-3 py-2">
-                        <p className="text-xs font-medium text-blue-700 dark:text-blue-400">
-                          ✅ Dùng <code className="font-mono">AlertDialog</code> (Micro) —
-                          Không bị ràng buộc bởi bất kỳ layout định sẵn nào. Lắp ráp thẻ
-                          tự do.
-                        </p>
-                      </div>
-                    </div>
+                <AlertDialogContent size={globalSize}>
+                  <div className="flex flex-col gap-1.5 sm:flex-row sm:gap-4">
+                    <AlertDialogMedia className="mx-auto mb-2 shrink-0 sm:mx-0 sm:mb-0">
+                      <LogOutIcon />
+                    </AlertDialogMedia>
+                    <AlertDialogHeader>
+                      <AlertDialogTitle>Log out?</AlertDialogTitle>
+                      <AlertDialogDescription>
+                        Phiên đăng nhập của bạn sẽ kết thúc. Bạn cần nhập lại
+                        mật khẩu để quay lại.
+                      </AlertDialogDescription>
+                    </AlertDialogHeader>
                   </div>
-                  </>
-                } />
+                  <AlertDialogFooter>
+                    <AlertDialogCancel size={globalSize} variant="ghost">
+                      Stay
+                    </AlertDialogCancel>
+                    <AlertDialogAction
+                      size={globalSize}
+                      variant="soft"
+                      color="info"
+                    >
+                      Đăng xuất
+                    </AlertDialogAction>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialog>
+            </>
+          }
+        />
+      </ExampleGrid>
     </div>
   );
 }
@@ -943,11 +748,22 @@ export default function AlertDialogShowcase() {
   return (
     <Showcase
       title="Alert Dialog"
-      description={"An interrupting dialog that requires the user to confirm important or destructive actions."}
+      description={
+        "An interrupting dialog that requires the user to confirm important or destructive actions."
+      }
       guideline={
         <ShowcaseDocs>
           <DocsP>
-            {t("Dùng để làm gián đoạn người dùng với một thông báo hoặc xác nhận cực\n            kỳ quan trọng, thường mang tính phá huỷ (như Xoá dữ liệu, Đăng xuất)\n            hoặc không thể hoàn tác. Yêu cầu người dùng phải hành động rõ ràng\n            thì mới thoát được cửa sổ.", "Dùng để làm gián đoạn người dùng với một thông báo hoặc xác nhận cực\n            kỳ quan trọng, thường mang tính phá huỷ (như Xoá dữ liệu, Đăng xuất)\n            hoặc không thể hoàn tác. Yêu cầu người dùng phải hành động rõ ràng\n            thì mới thoát được cửa sổ.")}
+            {t(
+              t(
+                "Dùng để làm gián đoạn người dùng với một thông báo hoặc xác nhận cực\n            kỳ quan trọng, thường mang tính phá huỷ (như Delete dữ liệu, Đăng xuất)\n            hoặc không thể hoàn tác. Yêu cầu người dùng phải hành động rõ ràng\n            thì mới thoát được cửa sổ.",
+                "Dùng để làm gián đoạn người dùng với một thông báo hoặc xác nhận cực\n            kỳ quan trọng, thường mang tính phá huỷ (như Delete dữ liệu, Đăng xuất)\n            hoặc không thể hoàn tác. Yêu cầu người dùng phải hành động rõ ràng\n            thì mới thoát được cửa sổ.",
+              ),
+              t(
+                "Dùng để làm gián đoạn người dùng với một thông báo hoặc xác nhận cực\n            kỳ quan trọng, thường mang tính phá huỷ (như Delete dữ liệu, Đăng xuất)\n            hoặc không thể hoàn tác. Yêu cầu người dùng phải hành động rõ ràng\n            thì mới thoát được cửa sổ.",
+                "Dùng để làm gián đoạn người dùng với một thông báo hoặc xác nhận cực\n            kỳ quan trọng, thường mang tính phá huỷ (như Delete dữ liệu, Đăng xuất)\n            hoặc không thể hoàn tác. Yêu cầu người dùng phải hành động rõ ràng\n            thì mới thoát được cửa sổ.",
+              ),
+            )}
           </DocsP>
         </ShowcaseDocs>
       }

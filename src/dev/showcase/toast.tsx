@@ -1,29 +1,37 @@
 import { toast } from "sonner";
 
 import { Button } from "../../components/micro/button";
+import { useI18n } from "../../dev/components/dev-context";
 import { useDevContext } from "../../dev/components/dev-context";
 import {
   DocsH3,
   DocsP,
   Showcase,
   ShowcaseDocs,
-  ShowcaseExample
+  ShowcaseExample,
 } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
 
 function ToastMicroShowcase({ globalSize }: { globalSize: Size }) {
+  const t = useI18n();
   return (
     <div className="space-y-10">
-      <ShowcaseExample title="Toast Notifications" description="Nhấp để kích hoạt các loại toast khác nhau." code={`<div className="flex flex-wrap gap-3">
+      <ShowcaseExample
+        title="Toast Notifications"
+        description={t(
+          "Nhấp để kích hoạt các loại toast khác nhau.",
+          "Click to trigger different types of toasts.",
+        )}
+        code={`<div className="flex flex-wrap gap-3">
     <Button
       variant="outline"
       onClick={() => {
-        toast("Sự kiện đã được tạo", {
+        toast("Event created", {
           description:
-            "Chủ nhật, ngày 03 tháng 12 năm 2023 lúc 9:00 sáng",
+            "Sunday, December 03, 2023 at 9:00 AM",
           action: {
-            label: "Hoàn tác",
-            onClick: () => console.log("Hoàn tác") } })
+            label: "Undo",
+            onClick: () => console.log("Undo") } })
       }}
     >
       Show Toast
@@ -46,59 +54,72 @@ function ToastMicroShowcase({ globalSize }: { globalSize: Size }) {
     >
       Error Toast
     </Button>
-  </div>`} preview={
-                  <>
-          <div className="flex flex-wrap gap-3">
-                    <Button
-                      variant="outline"
-                      size={globalSize}
-                      onClick={() => {
-                        toast("Sự kiện đã được tạo", {
-                          description: "Chủ nhật, ngày 03 tháng 12 năm 2023 lúc 9:00 sáng",
-                          action: {
-                            label: "Hoàn tác",
-                            onClick: () => console.log("Hoàn tác") } });
-                      }}
-                    >
-                      Show Toast
-                    </Button>
-                    <Button
-                      variant="outline"
-                      color="success"
-                      size={globalSize}
-                      onClick={() => {
-                        toast.success("Profile updated successfully");
-                      }}
-                    >
-                      Success Toast
-                    </Button>
-                    <Button
-                      variant="outline"
-                      color="destructive"
-                      size={globalSize}
-                      onClick={() => {
-                        toast.error("Failed to update profile");
-                      }}
-                    >
-                      Error Toast
-                    </Button>
-                  </div>
-                  </>
-                } />
+  </div>`}
+        preview={
+          <>
+            <div className="flex flex-wrap gap-3">
+              <Button
+                variant="outline"
+                size={globalSize}
+                onClick={() => {
+                  toast("Event created", {
+                    description: "Sunday, December 03, 2023 at 9:00 AM",
+                    action: {
+                      label: "Undo",
+                      onClick: () => console.log("Undo"),
+                    },
+                  });
+                }}
+              >
+                Show Toast
+              </Button>
+              <Button
+                variant="outline"
+                color="success"
+                size={globalSize}
+                onClick={() => {
+                  toast.success("Profile updated successfully");
+                }}
+              >
+                Success Toast
+              </Button>
+              <Button
+                variant="outline"
+                color="destructive"
+                size={globalSize}
+                onClick={() => {
+                  toast.error("Failed to update profile");
+                }}
+              >
+                Error Toast
+              </Button>
+            </div>
+          </>
+        }
+      />
     </div>
   );
 }
 
 export default function ToastShowcase() {
+  const t = useI18n();
   const { size: globalSize } = useDevContext();
   return (
     <Showcase
       title="Toast"
-      description="Một thông báo ngắn gọn được hiển thị tạm thời."
+      description={t(
+        "Một thông báo ngắn gọn được hiển thị tạm thời.",
+        "A brief message that is displayed temporarily.",
+      )}
       guideline={
         <ShowcaseDocs>
           <DocsH3>Toast (Sonner)</DocsH3>
-          <DocsP>Sử dụng để hiển thị các thông báo nhanh cho người dùng.</DocsP>
+          <DocsP>
+            {t(
+              "Sử dụng để hiển thị các thông báo nhanh cho người dùng.",
+              "Use to display quick notifications to users.",
+            )}
+          </DocsP>
         </ShowcaseDocs>
       }
       micro={{ content: <ToastMicroShowcase globalSize={globalSize} /> }}

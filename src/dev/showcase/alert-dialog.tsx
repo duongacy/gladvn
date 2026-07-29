@@ -884,7 +884,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                         <AlertDialogPreset
                           size="sm"
                           trigger={
-                            <Button variant="outline" size="sm">
+                            <Button variant="outline" size={globalSize}>
                               Xem Demo
                             </Button>
                           }
@@ -938,7 +938,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                         <AlertDialog>
                           <AlertDialogTrigger
                             render={
-                              <Button variant="outline" size="sm">
+                              <Button variant="outline" size={globalSize}>
                                 Xem Demo
                               </Button>
                             }
@@ -952,11 +952,12 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                                 <AlertDialogTitle>Tùy biến 100%</AlertDialogTitle>
                               </AlertDialogHeader>
                               <AlertDialogFooter className="flex-col gap-2 sm:flex-col">
-                                <Button className="w-full">Action 1</Button>
+                                <Button className="w-full" size={globalSize}>Action 1</Button>
                                 <Button
                                   color="secondary"
                                   variant="soft"
                                   className="w-full"
+                                  size={globalSize}
                                 >
                                   Action 2
                                 </Button>

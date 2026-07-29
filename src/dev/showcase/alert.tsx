@@ -140,7 +140,7 @@ return (
                               </code>
                             </p>
                             <Button
-                              size="sm"
+                              size={globalSize}
                               variant="outline"
                               className="h-7 text-xs"
                               onClick={() => setControlledOpen(true)}
@@ -195,7 +195,7 @@ return (
                             dismissible
                             action={
                               <Button
-                                size="sm"
+                                size={globalSize}
                                 variant="outline"
                                 className="h-7 px-2 text-xs"
                               >
@@ -394,7 +394,7 @@ function AlertMicroShowcase({ globalSize }: { globalSize: Size }) {
                           <AlertAction className="absolute right-1 top-1">
                             <Button
                               variant="ghost"
-                              size="sm"
+                              size={globalSize}
                               className="size-6 p-0 group-data-[size=sm]/alert:size-5 group-data-[size=lg]/alert:size-7"
                               iconOnly
                             >
@@ -668,7 +668,7 @@ function AlertMicroShowcase({ globalSize }: { globalSize: Size }) {
                           <Button
                             variant="soft"
                             color="warning"
-                            size="sm"
+                            size={globalSize}
                             className="mt-2 w-fit"
                           >
                             Nâng Cấp Ngay

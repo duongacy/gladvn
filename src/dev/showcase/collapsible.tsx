@@ -8,7 +8,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger
 } from "../../components/micro/collapsible";
-import { useI18n } from "../../dev/components/dev-context";
+import { useDevContext, useI18n } from "../../dev/components/dev-context";
 import {
   DocsP,
   ExampleGrid,
@@ -19,6 +19,7 @@ import {
 
 function CollapsibleMicroShowcase() {
   const [isOpen, setIsOpen] = React.useState(false);
+  const { size: globalSize } = useDevContext();
   const t = useI18n();
 
   return (
@@ -67,7 +68,7 @@ function CollapsibleMicroShowcase() {
                             </h4>
                             <CollapsibleTrigger
                               render={
-                                <Button variant="ghost" size="sm" className="w-9 p-0" />
+                                <Button variant="ghost" size={globalSize} className="w-9 p-0" />
                               }
                             >
                               <ChevronsUpDownIcon className="h-4 w-4" />
@@ -132,7 +133,7 @@ function CollapsibleMicroShowcase() {
                             <h4 className="text-sm font-semibold">Recent activity</h4>
                             <CollapsibleTrigger
                               render={
-                                <Button variant="ghost" size="sm" className="w-9 p-0" />
+                                <Button variant="ghost" size={globalSize} className="w-9 p-0" />
                               }
                             >
                               <ChevronsUpDownIcon className="h-4 w-4" />
@@ -219,7 +220,7 @@ function CollapsibleMicroShowcase() {
             <>
               <div className="w-full space-y-4">
                 <div className="flex items-center gap-4 rounded-md border border-border border-dashed p-4">
-                  <Button size="sm" onClick={() => setIsOpen(!isOpen)}>
+                  <Button size={globalSize} onClick={() => setIsOpen(!isOpen)}>
                     {isOpen
                       ? t("Đóng bảng bên dưới (External)", "Close panel below (External)")
                       : t("Mở bảng bên dưới (External)", "Open panel below (External)")}
@@ -243,7 +244,7 @@ function CollapsibleMicroShowcase() {
                     </h4>
                     <CollapsibleTrigger
                       render={
-                        <Button variant="ghost" size="sm" className="w-9 p-0" />
+                        <Button variant="ghost" size={globalSize} className="w-9 p-0" />
                       }
                     >
                       <ChevronsUpDownIcon className="h-4 w-4" />
@@ -303,7 +304,7 @@ function CollapsibleMicroShowcase() {
                             <h4 className="text-sm font-semibold">Archived Repositories</h4>
                             <CollapsibleTrigger
                               render={
-                                <Button variant="ghost" size="sm" className="w-9 p-0" />
+                                <Button variant="ghost" size={globalSize} className="w-9 p-0" />
                               }
                             >
                               <ChevronsUpDownIcon className="h-4 w-4" />

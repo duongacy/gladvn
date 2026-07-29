@@ -23,6 +23,7 @@ const mockFail = () =>
   );
 
 function SonnerMicroShowcase() {
+  const { size: globalSize } = useDevContext();
   return (
     <div className="space-y-10">
 

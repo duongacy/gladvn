@@ -3,7 +3,7 @@ import {
   FileIcon,
   FilePlusIcon,
   FolderOpenIcon,
-  SaveIcon
+  SaveIcon,
 } from "lucide-react";
 
 import { Button } from "../../components/micro/button";
@@ -11,63 +11,85 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-
   DropdownMenuSeparator,
-  DropdownMenuTrigger
+  DropdownMenuTrigger,
 } from "../../components/micro/dropdown-menu";
 import { Kbd, KbdGroup } from "../../components/micro/kbd";
 import {
   Tooltip,
   TooltipContent,
-
   TooltipProvider,
-  TooltipTrigger
+  TooltipTrigger,
 } from "../../components/micro/tooltip";
+import { useI18n } from "../../dev/components/dev-context";
 import {
   DocsCode,
   DocsP,
   ExampleGrid,
   Showcase,
   ShowcaseDocs,
-  ShowcaseExample
+  ShowcaseExample,
 } from "../../dev/components/showcase";
 
 function KbdMicroShowcase() {
+  const t = useI18n();
   return (
     <div className="space-y-10">
       <ExampleGrid>
-        <ShowcaseExample title="Kbd — Phím đơn" description="Hiển thị một phím bàn phím riêng lẻ dùng thẻ <kbd> semantic." code={`<p className="text-sm text-muted-foreground">
+        <ShowcaseExample
+          title={t("Kbd — Phím đơn", "Kbd — Single Key")}
+          description={t(
+            "Hiển thị một phím bàn phím riêng lẻ dùng thẻ <kbd> semantic.",
+            "Displays a single keyboard key using the semantic <kbd> tag.",
+          )}
+          code={`<p className="text-sm text-muted-foreground">
     Press <Kbd>⌘</Kbd> <Kbd>K</Kbd> to open search.
-  </p>`} preview={
-                      <>
+  </p>`}
+          preview={
+            <>
               <p className="text-sm text-muted-foreground">
-                          Press <Kbd>⌘</Kbd> <Kbd>K</Kbd> to open search.
-                        </p>
-                      </>
-                    } />
+                Press <Kbd>⌘</Kbd> <Kbd>K</Kbd> to open search.
+              </p>
+            </>
+          }
+        />
 
-        <ShowcaseExample title="KbdGroup — Tổ hợp phím" description="Nhóm nhiều phím cạnh nhau với khoảng cách đều. Dùng khi biểu diễn tổ hợp phím như Ctrl+Shift+P." code={`<p className="text-sm text-muted-foreground flex items-center gap-2">
+        <ShowcaseExample
+          title={t("KbdGroup — Tổ hợp phím", "KbdGroup — Key Combination")}
+          description={t(
+            "Nhóm nhiều phím cạnh nhau với khoảng cách đều. Use khi biểu diễn tổ hợp phím như Ctrl+Shift+P.",
+            "Groups multiple keys side-by-side with equal spacing. Used for key combinations like Ctrl+Shift+P.",
+          )}
+          code={`<p className="text-sm text-muted-foreground flex items-center gap-2">
     Open Command Palette
     <KbdGroup>
       <Kbd>⌘</Kbd>
       <Kbd>⇧</Kbd>
       <Kbd>P</Kbd>
     </KbdGroup>
-  </p>`} preview={
-                      <>
+  </p>`}
+          preview={
+            <>
               <p className="text-sm text-muted-foreground flex items-center gap-2">
-                          Open Command Palette
-                          <KbdGroup>
-                            <Kbd>⌘</Kbd>
-                            <Kbd>⇧</Kbd>
-                            <Kbd>P</Kbd>
-                          </KbdGroup>
-                        </p>
-                      </>
-                    } />
+                Open Command Palette
+                <KbdGroup>
+                  <Kbd>⌘</Kbd>
+                  <Kbd>⇧</Kbd>
+                  <Kbd>P</Kbd>
+                </KbdGroup>
+              </p>
+            </>
+          }
+        />
       </ExampleGrid>
 
-      <ShowcaseExample title="Ký tự & Symbols" description="Kbd có thể chứa ký tự Unicode, chữ cái, số hoặc tên phím dài." code={`<div className="flex flex-wrap items-center gap-2">
+      <ShowcaseExample
+        title={t("Ký tự & Symbols", "Characters & Symbols")}
+        description={t(
+          "Kbd có thể chứa ký tự Unicode, chữ cái, số hoặc tên phím dài.",
+          "Kbd can contain Unicode characters, letters, numbers, or long key names.",
+        )}
+        code={`<div className="flex flex-wrap items-center gap-2">
     <Kbd>Ctrl</Kbd>
     <Kbd>Alt</Kbd>
     <Kbd>⌘</Kbd>
@@ -78,24 +100,32 @@ function KbdMicroShowcase() {
     <Kbd>Esc</Kbd>
     <Kbd>F1</Kbd>
     <Kbd>→</Kbd>
-  </div>`} preview={
-                  <>
-          <div className="flex flex-wrap items-center gap-2">
-                    <Kbd>Ctrl</Kbd>
-                    <Kbd>Alt</Kbd>
-                    <Kbd>⌘</Kbd>
-                    <Kbd>⇧</Kbd>
-                    <Kbd>⌫</Kbd>
-                    <Kbd>↵</Kbd>
-                    <Kbd>Tab</Kbd>
-                    <Kbd>Esc</Kbd>
-                    <Kbd>F1</Kbd>
-                    <Kbd>→</Kbd>
-                  </div>
-                  </>
-                } />
+  </div>`}
+        preview={
+          <>
+            <div className="flex flex-wrap items-center gap-2">
+              <Kbd>Ctrl</Kbd>
+              <Kbd>Alt</Kbd>
+              <Kbd>⌘</Kbd>
+              <Kbd>⇧</Kbd>
+              <Kbd>⌫</Kbd>
+              <Kbd>↵</Kbd>
+              <Kbd>Tab</Kbd>
+              <Kbd>Esc</Kbd>
+              <Kbd>F1</Kbd>
+              <Kbd>→</Kbd>
+            </div>
+          </>
+        }
+      />
 
-      <ShowcaseExample title="Kbd trong Tooltip" description="Kbd tự đổi màu khi nằm trong TooltipContent — màu nền sáng trên nền tối của tooltip, không cần thêm class." code={`<TooltipProvider>
+      <ShowcaseExample
+        title={t("Kbd trong Tooltip", "Kbd in Tooltip")}
+        description={t(
+          "Kbd tự đổi màu khi nằm trong TooltipContent — màu nền sáng trên nền tối của tooltip, không cần thêm class.",
+          "Kbd automatically changes color inside TooltipContent — light background on tooltip's dark background, no extra class needed.",
+        )}
+        code={`<TooltipProvider>
     <Tooltip>
       <TooltipTrigger
         render={
@@ -105,53 +135,62 @@ function KbdMicroShowcase() {
         }
       />
       <TooltipContent>
-        Lưu tài liệu <Kbd>⌘</Kbd>
+        Save document <Kbd>⌘</Kbd>
         <Kbd>S</Kbd>
       </TooltipContent>
     </Tooltip>
-  </TooltipProvider>`} preview={
-                  <>
-          <div className="flex items-center gap-3">
-                    <TooltipProvider>
-                      <Tooltip>
-                        <TooltipTrigger
-                          render={
-                            <Button variant="outline" iconOnly>
-                              <SaveIcon aria-hidden="true" />
-                            </Button>
-                          }
-                        />
-                        
-                          <TooltipContent>
-                            Lưu tài liệu <Kbd>⌘</Kbd>
-                            <Kbd>S</Kbd>
-                          </TooltipContent>
-                        
-                      </Tooltip>
-                    </TooltipProvider>
+  </TooltipProvider>`}
+        preview={
+          <>
+            <div className="flex items-center gap-3">
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger
+                    render={
+                      <Button variant="outline" iconOnly>
+                        <SaveIcon aria-hidden="true" />
+                      </Button>
+                    }
+                  />
 
-                    <TooltipProvider>
-                      <Tooltip>
-                        <TooltipTrigger
-                          render={
-                            <Button variant="outline" iconOnly>
-                              <CopyIcon aria-hidden="true" />
-                            </Button>
-                          }
-                        />
-                        
-                          <TooltipContent>
-                            Sao chép <Kbd>⌘</Kbd>
-                            <Kbd>C</Kbd>
-                          </TooltipContent>
-                        
-                      </Tooltip>
-                    </TooltipProvider>
-                  </div>
-                  </>
-                } />
+                  <TooltipContent>
+                    Save document <Kbd>⌘</Kbd>
+                    <Kbd>S</Kbd>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
 
-      <ShowcaseExample title="Use case — Menu với Keyboard Shortcut" description="Kbd dùng trong DropdownMenuItem để hiển thị phím tắt bên cạnh label — pattern phổ biến trong text editor, IDE, Figma." code={`<DropdownMenuItem>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger
+                    render={
+                      <Button variant="outline" iconOnly>
+                        <CopyIcon aria-hidden="true" />
+                      </Button>
+                    }
+                  />
+
+                  <TooltipContent>
+                    Copy <Kbd>⌘</Kbd>
+                    <Kbd>C</Kbd>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            </div>
+          </>
+        }
+      />
+
+      <ShowcaseExample
+        title={t(
+          "Use case — Menu với Keyboard Shortcut",
+          "Use Case — Menu with Keyboard Shortcut",
+        )}
+        description={t(
+          "Kbd dùng trong DropdownMenuItem để hiển thị phím tắt bên cạnh label — pattern phổ biến trong text editor, IDE, Figma.",
+          "Kbd used in DropdownMenuItem to show shortcuts next to the label — a common pattern in text editors, IDEs, Figma.",
+        )}
+        code={`<DropdownMenuItem>
     <FileIcon />
     New File
     <KbdGroup className="ml-auto">
@@ -167,87 +206,100 @@ function KbdMicroShowcase() {
       <Kbd>⌘</Kbd>
       <Kbd>S</Kbd>
     </KbdGroup>
-  </DropdownMenuItem>`} preview={
-                  <>
-          <DropdownMenu>
-                    <DropdownMenuTrigger
-                      render={<Button variant="outline">File menu</Button>}
-                    />
-                    
-                      <DropdownMenuContent className="w-56">
-                        <DropdownMenuItem>
-                          <FilePlusIcon aria-hidden="true" />
-                          New File
-                          <KbdGroup className="ml-auto">
-                            <Kbd>⌘</Kbd>
-                            <Kbd>N</Kbd>
-                          </KbdGroup>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem>
-                          <FolderOpenIcon aria-hidden="true" />
-                          Open...
-                          <KbdGroup className="ml-auto">
-                            <Kbd>⌘</Kbd>
-                            <Kbd>O</Kbd>
-                          </KbdGroup>
-                        </DropdownMenuItem>
-                        <DropdownMenuSeparator />
-                        <DropdownMenuItem>
-                          <SaveIcon aria-hidden="true" />
-                          Save
-                          <KbdGroup className="ml-auto">
-                            <Kbd>⌘</Kbd>
-                            <Kbd>S</Kbd>
-                          </KbdGroup>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem>
-                          <FileIcon aria-hidden="true" />
-                          Save As...
-                          <KbdGroup className="ml-auto">
-                            <Kbd>⌘</Kbd>
-                            <Kbd>⇧</Kbd>
-                            <Kbd>S</Kbd>
-                          </KbdGroup>
-                        </DropdownMenuItem>
-                      </DropdownMenuContent>
-                    
-                  </DropdownMenu>
-                  </>
-                } />
+  </DropdownMenuItem>`}
+        preview={
+          <>
+            <DropdownMenu>
+              <DropdownMenuTrigger
+                render={<Button variant="outline">File menu</Button>}
+              />
 
-      <ShowcaseExample title="Gợi ý inline trong văn bản" description="Kbd dùng inline trong đoạn văn bản để gợi ý phím tắt — phổ biến trong help text, onboarding, documentation." code={`<p className="text-sm text-muted-foreground">
-    Nhấn <Kbd>Enter</Kbd> để gửi, hoặc{" "}
+              <DropdownMenuContent className="w-56">
+                <DropdownMenuItem>
+                  <FilePlusIcon aria-hidden="true" />
+                  New File
+                  <KbdGroup className="ml-auto">
+                    <Kbd>⌘</Kbd>
+                    <Kbd>N</Kbd>
+                  </KbdGroup>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <FolderOpenIcon aria-hidden="true" />
+                  Open...
+                  <KbdGroup className="ml-auto">
+                    <Kbd>⌘</Kbd>
+                    <Kbd>O</Kbd>
+                  </KbdGroup>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>
+                  <SaveIcon aria-hidden="true" />
+                  Save
+                  <KbdGroup className="ml-auto">
+                    <Kbd>⌘</Kbd>
+                    <Kbd>S</Kbd>
+                  </KbdGroup>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <FileIcon aria-hidden="true" />
+                  Save As...
+                  <KbdGroup className="ml-auto">
+                    <Kbd>⌘</Kbd>
+                    <Kbd>⇧</Kbd>
+                    <Kbd>S</Kbd>
+                  </KbdGroup>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </>
+        }
+      />
+
+      <ShowcaseExample
+        title={t("Gợi ý inline trong văn bản", "Inline text hint")}
+        description={t(
+          "Kbd dùng inline trong đoạn văn bản để gợi ý phím tắt — phổ biến trong help text, onboarding, documentation.",
+          "Kbd used inline in text to hint at shortcuts — common in help text, onboarding, documentation.",
+        )}
+        code={`<p className="text-sm text-muted-foreground">
+    Press <Kbd>Enter</Kbd> để gửi, hoặc{" "}
     <KbdGroup>
       <Kbd>⇧</Kbd>
       <Kbd>Enter</Kbd>
     </KbdGroup>{" "}
-    để xuống dòng.
-  </p>`} preview={
-                  <>
-          <div className="space-y-3">
-                    <p className="text-sm text-muted-foreground">
-                      Nhấn <Kbd>Enter</Kbd> để gửi, hoặc{" "}
-                      <KbdGroup>
-                        <Kbd>⇧</Kbd>
-                        <Kbd>Enter</Kbd>
-                      </KbdGroup>{" "}
-                      để xuống dòng.
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      Dùng <Kbd>Tab</Kbd> để chuyển trường, <Kbd>Esc</Kbd> để huỷ.
-                    </p>
-                  </div>
-                  </>
-                } />
+    to newline.
+  </p>`}
+        preview={
+          <>
+            <div className="space-y-3">
+              <p className="text-sm text-muted-foreground">
+                Press <Kbd>Enter</Kbd> để gửi, hoặc{" "}
+                <KbdGroup>
+                  <Kbd>⇧</Kbd>
+                  <Kbd>Enter</Kbd>
+                </KbdGroup>{" "}
+                to newline.
+              </p>
+              <p className="text-sm text-muted-foreground">
+                Use <Kbd>Tab</Kbd> to switch fields, <Kbd>Esc</Kbd> to cancel.
+              </p>
+            </div>
+          </>
+        }
+      />
     </div>
   );
 }
 
 export default function KbdShowcase() {
+  const t = useI18n();
   return (
     <Showcase
       title="Keyboard Shortcut"
-      description="Hiển thị phím tắt bàn phím dạng inline với thẻ HTML semantic <kbd>."
+      description={t(
+        "Hiển thị phím tắt bàn phím dạng inline với thẻ HTML semantic <kbd>.",
+        "Displays inline keyboard shortcuts with semantic HTML <kbd> tag.",
+      )}
       guideline={
         <ShowcaseDocs>
           <DocsP>

@@ -53,7 +53,7 @@ function SpinnerMicroShowcase({ globalSize }: { globalSize: Size }) {
                           disabled
                           className="flex items-center gap-2 px-4 py-2 rounded-md bg-primary text-primary-foreground text-sm opacity-70 cursor-not-allowed"
                         >
-                          <Spinner size="sm" className="text-primary-foreground" />
+                          <Spinner size={globalSize} className="text-primary-foreground" />
                           Đang lưu...
                         </button>
                       </>
@@ -68,7 +68,7 @@ function SpinnerMicroShowcase({ globalSize }: { globalSize: Size }) {
                   <>
           <div className="relative rounded-xl border border-border bg-card h-32 w-full max-w-sm">
                     <div className="absolute inset-0 flex items-center justify-center bg-background/60 rounded-xl">
-                      <Spinner size="lg" className="text-primary" />
+                      <Spinner size={globalSize} className="text-primary" />
                     </div>
                     <div className="p-4 text-sm text-muted-foreground">
                       Nội dung đang tải...

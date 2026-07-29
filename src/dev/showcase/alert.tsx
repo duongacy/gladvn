@@ -525,7 +525,7 @@ function AlertMicroShowcase({ globalSize }: { globalSize: Size }) {
                 <div className="rounded-lg bg-muted/50 p-3">
                   <AlertPreset
                     color="info"
-                    size="sm"
+                    size={globalSize}
                     title="Có bản cập nhật mới"
                     description="Phiên bản 2.0.4 đã sẵn sàng để tải xuống."
                     icon={<InfoIcon />}
@@ -567,7 +567,7 @@ function AlertMicroShowcase({ globalSize }: { globalSize: Size }) {
                 <div className="rounded-lg bg-muted/50 p-3">
                   <Alert
                     color="warning"
-                    size="sm"
+                    size={globalSize}
                     className="flex flex-col gap-0.5"
                   >
                     <AlertTitle>Bản dùng thử hết hạn</AlertTitle>

@@ -413,7 +413,7 @@ function TextareaMicroShowcase({ globalSize }: { globalSize: Size }) {
                       </p>
                       <div className="rounded-lg bg-muted/50 p-3">
                         <TextareaPreset
-                          size="sm"
+                          size={globalSize}
                           label="Mục tiêu nghề nghiệp"
                           description="Tối đa 500 từ."
                           className="w-full"
@@ -453,7 +453,7 @@ function TextareaMicroShowcase({ globalSize }: { globalSize: Size }) {
                         như giao diện chat. Macro không hỗ trợ layout này cho Textarea.
                       </p>
                       <div className="rounded-lg bg-muted/50 p-3">
-                        <InputGroup size="sm" className="items-end w-full">
+                        <InputGroup size={globalSize} className="items-end w-full">
                           <InputGroupTextarea rows={2} placeholder="Tin nhắn..." />
                           <button className="h-full px-3 shrink-0 rounded-r-md border-l border-input bg-muted/50 text-xs font-semibold text-primary transition-colors hover:bg-muted">
                             GỬI

@@ -181,7 +181,7 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
                               render={
                                 <Button
                                   variant="ghost"
-                                  size="md"
+                                  size={globalSize}
                                   iconOnly
                                   className="rounded-full"
                                 >
@@ -204,7 +204,7 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
                           <Popover>
                             <PopoverTrigger
                               render={
-                                <Button variant="outline" size="md" iconOnly>
+                                <Button variant="outline" size={globalSize} iconOnly>
                                   <Settings className="size-4" />
                                 </Button>
                               }
@@ -330,7 +330,7 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
                           </PopoverHeader>
                           <div className="mt-4 flex justify-end">
                             <Button
-                              size="sm"
+                              size={globalSize}
                               color="secondary"
                               onClick={() => setIsOpen(false)}
                             >

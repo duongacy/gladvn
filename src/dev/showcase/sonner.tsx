@@ -233,7 +233,7 @@ toast.dismiss(toastId);`} preview={
                     <div className="grid grid-cols-3 gap-1.5">
                       <Button
                         variant="outline"
-                        size="sm"
+                        size={globalSize}
                         className="text-xs"
                         onClick={() =>
                           toast("Toast: top-left", {
@@ -246,7 +246,7 @@ toast.dismiss(toastId);`} preview={
                       </Button>
                       <Button
                         variant="outline"
-                        size="sm"
+                        size={globalSize}
                         className="text-xs"
                         onClick={() =>
                           toast("Toast: top-center", {
@@ -259,7 +259,7 @@ toast.dismiss(toastId);`} preview={
                       </Button>
                       <Button
                         variant="outline"
-                        size="sm"
+                        size={globalSize}
                         className="text-xs"
                         onClick={() =>
                           toast("Toast: top-right", {
@@ -272,7 +272,7 @@ toast.dismiss(toastId);`} preview={
                       </Button>
                       <Button
                         variant="outline"
-                        size="sm"
+                        size={globalSize}
                         className="text-xs"
                         onClick={() =>
                           toast("Toast: bottom-left", {
@@ -285,7 +285,7 @@ toast.dismiss(toastId);`} preview={
                       </Button>
                       <Button
                         variant="outline"
-                        size="sm"
+                        size={globalSize}
                         className="text-xs"
                         onClick={() =>
                           toast("Toast: bottom-center", {
@@ -298,7 +298,7 @@ toast.dismiss(toastId);`} preview={
                       </Button>
                       <Button
                         variant="outline"
-                        size="sm"
+                        size={globalSize}
                         className="text-xs"
                         onClick={() =>
                           toast("Toast: bottom-right", {

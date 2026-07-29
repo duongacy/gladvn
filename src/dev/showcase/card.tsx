@@ -153,7 +153,7 @@ function CardMacroShowcase({ globalSize }: { globalSize: Size }) {
               >
                 <div className="text-sm text-muted-foreground bg-muted/30 p-4 rounded-lg border border-dashed border-border/50 flex items-center justify-between">
                   <span className="font-mono">sk_live_123...</span>
-                  <Button size="sm" variant="outline">
+                  <Button size={globalSize} variant="outline">
                     Copy
                   </Button>
                 </div>
@@ -478,7 +478,7 @@ function CardMicroShowcase({ globalSize }: { globalSize: Size }) {
                     </div>
                     <Button
                       variant="ghost"
-                      size="sm"
+                      size={globalSize}
                       iconOnly
                       className="h-8 w-8 rounded-full"
                     >

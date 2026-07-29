@@ -525,7 +525,7 @@ function SwitchMicroShowcase({ globalSize }: { globalSize: Size }) {
                       </p>
                       <div className="rounded-lg bg-muted/50 p-3">
                         <SwitchPreset
-                          size="sm"
+                          size={globalSize}
                           label="Đồng ý điều khoản"
                           description="Bật để tiếp tục."
                         />
@@ -566,13 +566,13 @@ function SwitchMicroShowcase({ globalSize }: { globalSize: Size }) {
                       <div className="rounded-lg bg-muted/50 p-3 border border-border divide-y">
                         <div className="p-2 flex justify-between items-center">
                           <span className="text-sm font-medium">Wi-Fi</span>
-                          <Switch size="sm" defaultChecked>
+                          <Switch size={globalSize} defaultChecked>
                             <SwitchThumb />
                           </Switch>
                         </div>
                         <div className="p-2 flex justify-between items-center">
                           <span className="text-sm font-medium">Bluetooth</span>
-                          <Switch size="sm">
+                          <Switch size={globalSize}>
                             <SwitchThumb />
                           </Switch>
                         </div>

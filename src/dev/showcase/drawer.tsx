@@ -92,7 +92,7 @@ function DrawerMicroShowcase({ globalSize }: { globalSize: Size }) {
                                   <div className="flex items-center justify-center space-x-2">
                                     <Button
                                       variant="outline"
-                                      size="sm"
+                                      size={globalSize}
                                       className="h-8 w-8 rounded-full"
                                       onClick={() => {}}
                                     >
@@ -108,7 +108,7 @@ function DrawerMicroShowcase({ globalSize }: { globalSize: Size }) {
                                     </div>
                                     <Button
                                       variant="outline"
-                                      size="sm"
+                                      size={globalSize}
                                       className="h-8 w-8 rounded-full"
                                       onClick={() => {}}
                                     >

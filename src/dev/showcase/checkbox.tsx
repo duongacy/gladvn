@@ -756,12 +756,12 @@ function CheckboxMicroShowcase({ globalSize }: { globalSize: Size }) {
                 </p>
                 <div className="rounded-lg bg-muted/50 p-3 flex flex-col gap-4">
                   <CheckboxPreset
-                    size="sm"
+                    size={globalSize}
                     label={t("Nhận Email Marketing", "Receive Marketing Email") as string}
                     description={t("Gửi email cho bạn về các chương trình khuyến mãi hàng tuần.", "Send emails about weekly promotions.") as string}
                   />
                   <CheckboxPreset
-                    size="sm"
+                    size={globalSize}
                     label={t("Thông báo bảo mật", "Security alerts") as string}
                     description={t("Cảnh báo khi có thiết bị lạ đăng nhập.", "Alert when unknown devices log in.") as string}
                     defaultChecked
@@ -802,7 +802,7 @@ function CheckboxMicroShowcase({ globalSize }: { globalSize: Size }) {
                 <div className="rounded-lg bg-muted/50 p-3">
                   <div className="border border-border rounded-md divide-y overflow-hidden">
                     <div className="flex items-center gap-3 p-2 bg-muted">
-                      <Checkbox size="sm">
+                      <Checkbox size={globalSize}>
                         <CheckboxIndicator>
                           <MinusIcon />
                         </CheckboxIndicator>
@@ -810,7 +810,7 @@ function CheckboxMicroShowcase({ globalSize }: { globalSize: Size }) {
                       <span className="text-xs font-semibold">{t("Tên nhân viên", "Employee name")}</span>
                     </div>
                     <div className="flex items-center gap-3 p-2 bg-background hover:bg-muted/50">
-                      <Checkbox size="sm" defaultChecked>
+                      <Checkbox size={globalSize} defaultChecked>
                         <CheckboxIndicator>
                           <CheckIcon />
                         </CheckboxIndicator>

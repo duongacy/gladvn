@@ -170,10 +170,10 @@ function ItemMicroShowcase({ globalSize }: { globalSize: Size }) {
                             <ItemTitle>Actionable Item</ItemTitle>
                           </ItemContent>
                           <ItemActions>
-                            <Button variant="ghost" size="sm" className="size-8 p-0" iconOnly>
+                            <Button variant="ghost" size={globalSize} className="size-8 p-0" iconOnly>
                               <HeartIcon className="size-4" />
                             </Button>
-                            <Button variant="ghost" size="sm" className="size-8 p-0" iconOnly>
+                            <Button variant="ghost" size={globalSize} className="size-8 p-0" iconOnly>
                               <MoreVerticalIcon className="size-4" />
                             </Button>
                           </ItemActions>

@@ -246,7 +246,7 @@ function AlertDialogMacroShowcase({ globalSize }: { globalSize: Size }) {
   />`} preview={
                       <>
               <AlertDialogPreset
-                          size="sm"
+                          size={globalSize}
                           trigger={
                             <Button variant="outline" size={globalSize}>
                               Xác Nhận Nhanh
@@ -830,7 +830,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
 
                       <div className="rounded-lg bg-muted/50 p-3 flex justify-center">
                         <AlertDialogPreset
-                          size="sm"
+                          size={globalSize}
                           trigger={
                             <Button variant="outline" size={globalSize}>
                               Xem Demo
@@ -892,7 +892,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                             }
                           />
 
-                            <AlertDialogContent size="sm">
+                            <AlertDialogContent size={globalSize}>
                               <div className="h-24 w-full rounded-md bg-muted flex items-center justify-center text-xs text-muted-foreground">
                                 Custom Image
                               </div>

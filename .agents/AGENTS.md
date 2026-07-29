@@ -191,3 +191,12 @@ When creating or modifying components within the `src/blocks` directory (e.g., p
 
 - **Read-Only Directories**: While working, you are strictly limited to READ-ONLY access for the `src/components/` and `src/blocks/` directories. You absolutely MUST NOT modify any files within these directories.
 - **Auto-Review Process**: Before reporting back to the user at the end of a task batch, you MUST automatically scan your work 3 times and review what you just did to ensure no rules were violated during that batch.
+
+## 29. Showcase Preview Gap & Truthfulness
+
+- **Spacing (Gap)**: If multiple components are rendered in a `<ShowcaseExample>` preview (e.g., multiple Buttons, Badges, or form fields) and they appear too close or stick together, you MUST wrap them in a container with a `gap` (e.g., `<div className="flex flex-wrap items-center gap-4">`) to ensure they are visually distinct.
+- **Truthfulness (Code = Preview)**: Whenever you add layout wrappers like `flex`, `gap-4`, or any other positioning containers to the `preview` block, the exact same wrapper MUST be reflected in the `code` prop. The snippet shown to the user must be a 1:1 match with the rendered output so they don't experience broken CSS when copying.
+## 30. No Explanations for Basic React Patterns
+
+- **Assume Developer Competence**: Do not add textual explanations or dedicated showcase examples for standard React state management patterns (like Controlled vs Uncontrolled) in Showcase files. 
+- **Focus on Component API**: Assume the developers consuming this library are experienced enough to understand how these standard patterns work natively. Focus the documentation and showcases strictly on the specific API, design, and capabilities of the components themselves.

@@ -1,3 +1,4 @@
+import { type Size } from "../../lib/types";
 import { Button } from "../../components/micro/button";
 import {
   Drawer,
@@ -18,13 +19,13 @@ import {
   ShowcaseExample
 } from "../../dev/components/showcase";
 
-function DrawerMicroShowcase() {
+function DrawerMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10">
       <ExampleGrid>
         <ShowcaseExample title="Bottom Drawer" description="Drawer mặc định trượt từ dưới lên." code={`<Drawer>
     <DrawerTrigger asChild>
-      <Button variant="outline">Open Bottom</Button>
+      <Button size={globalSize} variant="outline">Open Bottom</Button>
     </DrawerTrigger>
     
       <DrawerContent>
@@ -64,9 +65,9 @@ function DrawerMicroShowcase() {
             </div>
           </div>
           <DrawerFooter>
-            <Button>Xác nhận</Button>
+            <Button size={globalSize}>Xác nhận</Button>
             <DrawerClose asChild>
-              <Button variant="outline">Huỷ</Button>
+              <Button size={globalSize} variant="outline">Huỷ</Button>
             </DrawerClose>
           </DrawerFooter>
         </div>
@@ -76,7 +77,7 @@ function DrawerMicroShowcase() {
                       <>
               <Drawer>
                           <DrawerTrigger asChild>
-                            <Button variant="outline">Open Bottom</Button>
+                            <Button size={globalSize} variant="outline">Open Bottom</Button>
                           </DrawerTrigger>
 
                             <DrawerContent>
@@ -116,9 +117,9 @@ function DrawerMicroShowcase() {
                                   </div>
                                 </div>
                                 <DrawerFooter>
-                                  <Button>Xác nhận</Button>
+                                  <Button size={globalSize}>Xác nhận</Button>
                                   <DrawerClose asChild>
-                                    <Button variant="outline">Huỷ</Button>
+                                    <Button size={globalSize} variant="outline">Huỷ</Button>
                                   </DrawerClose>
                                 </DrawerFooter>
                               </div>
@@ -130,7 +131,7 @@ function DrawerMicroShowcase() {
 
         <ShowcaseExample title="Simple Message" description="Drawer với nội dung văn bản đơn giản." code={`<Drawer>
     <DrawerTrigger asChild>
-      <Button variant="outline">Show Info</Button>
+      <Button size={globalSize} variant="outline">Show Info</Button>
     </DrawerTrigger>
     
       <DrawerContent>
@@ -146,7 +147,7 @@ function DrawerMicroShowcase() {
           </DrawerHeader>
           <DrawerFooter>
             <DrawerClose asChild>
-              <Button variant="outline">Got it</Button>
+              <Button size={globalSize} variant="outline">Got it</Button>
             </DrawerClose>
           </DrawerFooter>
         </div>
@@ -156,7 +157,7 @@ function DrawerMicroShowcase() {
                       <>
               <Drawer>
                           <DrawerTrigger asChild>
-                            <Button variant="outline">Show Info</Button>
+                            <Button size={globalSize} variant="outline">Show Info</Button>
                           </DrawerTrigger>
 
                             <DrawerContent>
@@ -171,7 +172,7 @@ function DrawerMicroShowcase() {
                                 </DrawerHeader>
                                 <DrawerFooter>
                                   <DrawerClose asChild>
-                                    <Button variant="outline">Got it</Button>
+                                    <Button size={globalSize} variant="outline">Got it</Button>
                                   </DrawerClose>
                                 </DrawerFooter>
                               </div>
@@ -182,7 +183,7 @@ function DrawerMicroShowcase() {
                     } />
         <ShowcaseExample title="Left / Right Drawers" description="Drawer mở từ cạnh trái hoặc phải — phù hợp cho Sidebar và Filter panel." code={`<Drawer direction="left">
     <DrawerTrigger asChild>
-      <Button variant="outline">Open Left</Button>
+      <Button size={globalSize} variant="outline">Open Left</Button>
     </DrawerTrigger>
     
       <DrawerContent>
@@ -201,7 +202,7 @@ function DrawerMicroShowcase() {
         </div>
         <DrawerFooter>
           <DrawerClose asChild>
-            <Button variant="outline">Close</Button>
+            <Button size={globalSize} variant="outline">Close</Button>
           </DrawerClose>
         </DrawerFooter>
       </DrawerContent>
@@ -210,7 +211,7 @@ function DrawerMicroShowcase() {
 
   <Drawer direction="right">
     <DrawerTrigger asChild>
-      <Button variant="outline">Open Right</Button>
+      <Button size={globalSize} variant="outline">Open Right</Button>
     </DrawerTrigger>
     
       <DrawerContent>
@@ -226,9 +227,9 @@ function DrawerMicroShowcase() {
           <div className="h-4 w-2/3 rounded bg-muted" />
         </div>
         <DrawerFooter>
-          <Button>Apply Filters</Button>
+          <Button size={globalSize}>Apply Filters</Button>
           <DrawerClose asChild>
-            <Button variant="outline">Huỷ</Button>
+            <Button size={globalSize} variant="outline">Huỷ</Button>
           </DrawerClose>
         </DrawerFooter>
       </DrawerContent>
@@ -237,7 +238,7 @@ function DrawerMicroShowcase() {
                       <>
               <Drawer direction="left">
                           <DrawerTrigger asChild>
-                            <Button variant="outline">Open Left</Button>
+                            <Button size={globalSize} variant="outline">Open Left</Button>
                           </DrawerTrigger>
 
                             <DrawerContent>
@@ -256,14 +257,14 @@ function DrawerMicroShowcase() {
                               </div>
                               <DrawerFooter>
                                 <DrawerClose asChild>
-                                  <Button variant="outline">Close</Button>
+                                  <Button size={globalSize} variant="outline">Close</Button>
                                 </DrawerClose>
                               </DrawerFooter>
                             </DrawerContent>
                           
                         </Drawer><Drawer direction="right">
                           <DrawerTrigger asChild>
-                            <Button variant="outline">Open Right</Button>
+                            <Button size={globalSize} variant="outline">Open Right</Button>
                           </DrawerTrigger>
 
                             <DrawerContent>
@@ -279,9 +280,9 @@ function DrawerMicroShowcase() {
                                 <div className="h-4 w-2/3 rounded bg-muted" />
                               </div>
                               <DrawerFooter>
-                                <Button>Apply Filters</Button>
+                                <Button size={globalSize}>Apply Filters</Button>
                                 <DrawerClose asChild>
-                                  <Button variant="outline">Huỷ</Button>
+                                  <Button size={globalSize} variant="outline">Huỷ</Button>
                                 </DrawerClose>
                               </DrawerFooter>
                             </DrawerContent>
@@ -292,7 +293,7 @@ function DrawerMicroShowcase() {
 
         <ShowcaseExample title="Top Drawer" description="Drawer mở từ phía trên — phù hợp cho notifications, alerts, hoặc search." code={`<Drawer direction="top">
     <DrawerTrigger asChild>
-      <Button variant="outline">Open Top</Button>
+      <Button size={globalSize} variant="outline">Open Top</Button>
     </DrawerTrigger>
     
       <DrawerContent>
@@ -310,7 +311,7 @@ function DrawerMicroShowcase() {
           </div>
           <DrawerFooter>
             <DrawerClose asChild>
-              <Button variant="outline">Dismiss all</Button>
+              <Button size={globalSize} variant="outline">Dismiss all</Button>
             </DrawerClose>
           </DrawerFooter>
         </div>
@@ -320,7 +321,7 @@ function DrawerMicroShowcase() {
                       <>
               <Drawer direction="top">
                           <DrawerTrigger asChild>
-                            <Button variant="outline">Open Top</Button>
+                            <Button size={globalSize} variant="outline">Open Top</Button>
                           </DrawerTrigger>
 
                             <DrawerContent>
@@ -338,7 +339,7 @@ function DrawerMicroShowcase() {
                                 </div>
                                 <DrawerFooter>
                                   <DrawerClose asChild>
-                                    <Button variant="outline">Dismiss all</Button>
+                                    <Button size={globalSize} variant="outline">Dismiss all</Button>
                                   </DrawerClose>
                                 </DrawerFooter>
                               </div>
@@ -352,7 +353,10 @@ function DrawerMicroShowcase() {
   );
 }
 
+import { useDevContext } from "../../dev/components/dev-context";
+
 export default function DrawerShowcase() {
+  const { size: globalSize } = useDevContext();
   return (
     <Showcase
       title="Drawer"
@@ -367,7 +371,7 @@ export default function DrawerShowcase() {
           </DocsP>
         </ShowcaseDocs>
       }
-      micro={{ content: <DrawerMicroShowcase /> }}
+      micro={{ content: <DrawerMicroShowcase globalSize={globalSize} /> }}
     />
   );
 }

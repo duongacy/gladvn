@@ -79,8 +79,6 @@ function SwitchForm({ size }: { size: Size }) {
 }`;
 
 function SwitchMacroShowcase({ globalSize }: { globalSize: Size }) {
-  const [checked, setChecked] = useState(false);
-
   return (
     <div className="space-y-10">
       <ExampleGrid>
@@ -179,31 +177,6 @@ function SwitchMacroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleGrid>
 
       <ExampleGrid>
-        <ShowcaseExample title="React State (Controlled Mode)" description="Sử dụng biến state của React để điều khiển." code={`const [checked, setChecked] = useState(false); return (
-  <SwitchPreset
-    checked={checked}
-    onCheckedChange={(c) => setChecked(!!c)}
-    label="Chế độ nhà phát triển"
-  />
-  );`} preview={
-                      <>
-              <div className="w-full flex flex-col gap-4">
-                          <SwitchPreset
-                            size={globalSize}
-                            checked={checked}
-                            onCheckedChange={(c) => setChecked(!!c)}
-                            label="Chế độ nhà phát triển"
-                            description="Bật các tính năng thử nghiệm nội bộ."
-                          />
-                          <p className="text-sm text-muted-foreground">
-                            Trạng thái:{" "}
-                            <span className="font-mono font-bold text-foreground">
-                              {checked ? "BẬT" : "TẮT"}
-                            </span>
-                          </p>
-                        </div>
-                      </>
-                    } />
 
         <ShowcaseExample title="Tích hợp React Hook Form" description="Dùng Controller của RHF để bọc SwitchPreset." code={rhfCode} preview={
                       <>

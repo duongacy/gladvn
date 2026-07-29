@@ -119,7 +119,7 @@ function TableMicroShowcase() {
                   </>
                 } />
 
-      <ShowcaseExample title="Sortable" description="Bảng có tính năng sắp xếp dữ liệu (strictly controlled). Thử click vào cột Invoice!" code={`const [invoiceSort, setInvoiceSort] = React.useState<"asc" | "desc" | "none">("asc")
+      <ShowcaseExample title="Sortable" description="Bảng có tính năng sắp xếp dữ liệu. Thử click vào cột Invoice!" code={`const [invoiceSort, setInvoiceSort] = React.useState<"asc" | "desc" | "none">("asc")
 
 // Tính toán sortedData dựa trên invoiceSort ở đây...
 

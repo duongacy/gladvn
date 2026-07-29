@@ -37,8 +37,6 @@ import {
 import { type Size } from "../../lib/types";
 
 function AlertDialogMacroShowcase({ globalSize }: { globalSize: Size }) {
-  const [controlledOpen, setControlledOpen] = useState(false);
-
   return (
     <div className="space-y-10">
       <ExampleGrid>
@@ -138,56 +136,6 @@ function AlertDialogMacroShowcase({ globalSize }: { globalSize: Size }) {
                           actionColor="warning"
                           onAction={() => console.log("Revoked!")}
                         />
-                      </>
-                    } />
-
-        <ShowcaseExample title="Trạng Thái Controlled" description="Quản lý trạng thái đóng mở thông qua React State thay vì dùng prop Trigger." code={`const [controlledOpen, setControlledOpen] = useState(false);
-return (
-  <>
-    <Button variant="outline" color="info" onClick={() => setControlledOpen(true)}>
-      Bật Chế Độ Máy Bay
-    </Button>
-    <AlertDialogPreset
-      open={controlledOpen}
-      onOpenChange={setControlledOpen}
-      size="${globalSize}"
-      title="Bật chế độ máy bay?"
-      description="Tất cả các kết nối mạng bao gồm Wi-Fi và Bluetooth sẽ bị ngắt."
-      cancelLabel="Huỷ"
-      actionLabel="Đồng Ý"
-      actionColor="info"
-      onAction={() => console.log("Airplane mode on!")}
-    />
-  </>
-);`} preview={
-                      <>
-              <div className="flex w-full flex-col items-center gap-3">
-                          <p className="text-xs text-muted-foreground">
-                            State:{" "}
-                            <code className="rounded bg-muted px-1.5 py-0.5 text-xs font-mono">
-                              {controlledOpen ? "true" : "false"}
-                            </code>
-                          </p>
-                          <Button
-                            variant="outline"
-                            color="info"
-                            size={globalSize}
-                            onClick={() => setControlledOpen(true)}
-                          >
-                            Bật Chế Độ Máy Bay
-                          </Button>
-                          <AlertDialogPreset
-                            open={controlledOpen}
-                            onOpenChange={setControlledOpen}
-                            size={globalSize}
-                            title="Bật chế độ máy bay?"
-                            description="Tất cả các kết nối mạng bao gồm Wi-Fi và Bluetooth sẽ bị ngắt."
-                            cancelLabel="Huỷ"
-                            actionLabel="Đồng Ý"
-                            actionColor="info"
-                            onAction={() => console.log("Airplane mode on!")}
-                          />
-                        </div>
                       </>
                     } />
       </ExampleGrid>

@@ -94,7 +94,6 @@ function CheckboxForm({ size }: { size: Size }) {
 }`;
 
 function CheckboxMacroShowcase({ globalSize }: { globalSize: Size }) {
-  const [checked, setChecked] = useState(false);
   const t = useI18n();
 
   return (
@@ -247,46 +246,7 @@ function CheckboxMacroShowcase({ globalSize }: { globalSize: Size }) {
           } 
         />
       </ExampleGrid>
-
       <ExampleGrid>
-        <ShowcaseExample 
-          title="React State (Controlled Mode)" 
-          description={t("Sử dụng biến state của React để điều khiển.", "Use a React state variable to control the component.")} 
-          code={t(`const [checked, setChecked] = useState(false); return (
-  <CheckboxPreset
-    checked={checked}
-    onCheckedChange={(c) => setChecked(!!c)}
-    label="Checkbox có kiểm soát"
-    description="React quản lý trạng thái của checkbox này."
-  />
-  );`, `const [checked, setChecked] = useState(false); return (
-  <CheckboxPreset
-    checked={checked}
-    onCheckedChange={(c) => setChecked(!!c)}
-    label="Controlled checkbox"
-    description="React manages the state of this checkbox."
-  />
-  );`)} 
-          preview={
-            <>
-              <div className="w-full flex flex-col gap-4">
-                <CheckboxPreset
-                  size={globalSize}
-                  checked={checked}
-                  onCheckedChange={(c) => setChecked(!!c)}
-                  label={t("Checkbox có kiểm soát", "Controlled checkbox")}
-                  description={t("React quản lý trạng thái của checkbox này.", "React manages the state of this checkbox.")}
-                />
-                <p className="text-sm text-muted-foreground">
-                  {t("Giá trị hiện tại:", "Current value:")}{" "}
-                  <span className="font-mono font-bold text-foreground">
-                    {checked ? "TRUE" : "FALSE"}
-                  </span>
-                </p>
-              </div>
-            </>
-          } 
-        />
 
         <ShowcaseExample 
           title={t("Tích hợp React Hook Form", "React Hook Form Integration")} 
@@ -305,7 +265,6 @@ function CheckboxMacroShowcase({ globalSize }: { globalSize: Size }) {
 
 function CheckboxMicroShowcase({ globalSize }: { globalSize: Size }) {
   const t = useI18n();
-  const [checked, setChecked] = useState(false);
 
   return (
     <div className="space-y-10">

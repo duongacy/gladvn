@@ -50,8 +50,6 @@ const presetItems = [
 ];
 
 function AccordionMacroShowcase() {
-  const [controlledValue, setControlledValue] = useState<string[]>([]);
-
   return (
     <div className="space-y-10">
       <ExampleGrid>
@@ -151,65 +149,6 @@ function AccordionMacroShowcase() {
       </ExampleGrid>
 
       <ExampleGrid>
-        <ShowcaseExample title="Controlled" description="Trạng thái mở được quản lý bằng state. Click vào các mục để xem state thay đổi." code={`const [controlledValue, setControlledValue] = useState<string[]>([]);
-return (
-  <AccordionPreset
-    className="w-full"
-    multiple
-    value={controlledValue}
-    onValueChange={setControlledValue}
-    items={[
-              {
-                value: "item-1",
-                title: "Hỗ trợ Accessible (a11y) không?",
-                content: "Có chứ. Component tuân thủ chuẩn WAI-ARIA. Bàn phím hay screen reader cân hết." },
-              {
-                value: "item-2",
-                title: "Có CSS sẵn không?",
-                content: "Có nha. Style mặc định bao đẹp, match với các component khác." },
-              {
-                value: "item-3",
-                title: "Có animation không?",
-                content: "Đầy đủ. Mở ra đóng lại mượt mà." },
-            ]}
-  />
-);`} preview={
-                      <>
-              <div className="flex w-full flex-col gap-3">
-                          <p className="text-xs text-muted-foreground">
-                            Open:{" "}
-                            <code className="rounded bg-muted px-1.5 py-0.5 text-xs font-mono">
-                              {controlledValue.length > 0
-                                ? controlledValue.map((v) => `"${v}"`).join(", ")
-                                : "(none)"}
-                            </code>
-                          </p>
-                          <AccordionPreset
-                            className="w-full"
-                            multiple
-                            value={controlledValue}
-                            onValueChange={setControlledValue}
-                            items={[
-                              {
-                                value: "item-1",
-                                title: "Hỗ trợ Accessible (a11y) không?",
-                                content:
-                                  "Có chứ. Component tuân thủ chuẩn WAI-ARIA. Bàn phím hay screen reader cân hết." },
-                              {
-                                value: "item-2",
-                                title: "Có CSS sẵn không?",
-                                content:
-                                  "Có nha. Style mặc định bao đẹp, match với các component khác." },
-                              {
-                                value: "item-3",
-                                title: "Có animation không?",
-                                content:
-                                  "Đầy đủ. Mở ra đóng lại mượt mà." },
-                            ]}
-                          />
-                        </div>
-                      </>
-                    } />
 
         <ShowcaseExample title="Disabled (Vô hiệu hoá)" description="Từng mục riêng lẻ có thể bị vô hiệu hóa trong khi các mục khác vẫn tương tác bình thường." code={`<AccordionPreset
     className="w-full"

@@ -31,8 +31,6 @@ import { type Size } from "../../lib/types";
 import { cn } from "../../lib/utils";
 
 function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
-  const [controlledOpen, setControlledOpen] = useState(false);
-
   return (
     <div className="space-y-10">
       <ExampleGrid>
@@ -228,77 +226,6 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleGrid>
 
       <ExampleGrid>
-        <ShowcaseExample title="Controlled State" description="Sử dụng open và onOpenChange để quản lý trạng thái đóng mở bằng React state." code={`<div className="w-full flex flex-col gap-4 items-center justify-center">
-    <div className="flex gap-4 items-center">
-      <Button
-        onClick={() => setControlledOpen(true)}
-        variant="outline"
-      >
-        Open Controlled Dialog
-      </Button>
-      <span className="text-sm text-muted-foreground font-mono">
-        State: {controlledOpen ? "true" : "false"}
-      </span>
-    </div>
-
-    <DialogPreset
-      open={controlledOpen}
-      onOpenChange={setControlledOpen}
-      title="Controlled Dialog"
-      description="Trạng thái của dialog này được quản lý hoàn toàn bởi React state bên ngoài."
-      footer={
-        <Button
-          color="primary"
-          onClick={() => setControlledOpen(false)}
-        >
-          Close Manually
-        </Button>
-      }
-    >
-      <p className="text-sm text-foreground">
-        Bạn có thể đóng bằng nút bên dưới hoặc dấu X.
-      </p>
-    </DialogPreset>
-  </div>`} preview={
-                      <>
-              <div className="w-full flex flex-col gap-4 items-center justify-center">
-                          <div className="flex gap-4 items-center">
-                            <Button
-                              onClick={() => setControlledOpen(true)}
-                              variant="outline"
-                              size={globalSize}
-                            >
-                              Open Controlled Dialog
-                            </Button>
-                            <span className="text-sm text-muted-foreground font-mono">
-                              State: {controlledOpen ? "true" : "false"}
-                            </span>
-                          </div>
-
-                          <DialogPreset
-                            open={controlledOpen}
-                            onOpenChange={setControlledOpen}
-                            size={globalSize}
-                            title="Controlled Dialog"
-                            description="Trạng thái của dialog này được quản lý hoàn toàn bởi React state bên ngoài."
-                            footer={
-                              <Button
-                                color="primary"
-                                onClick={() => setControlledOpen(false)}
-                                size={globalSize}
-                              >
-                                Close Manually
-                              </Button>
-                            }
-                          >
-                            <p className="text-sm text-foreground">
-                              Bạn có thể đóng bằng nút bên dưới hoặc dấu X.
-                            </p>
-                          </DialogPreset>
-                        </div>
-                      </>
-                    } />
-
         <ShowcaseExample title="Sticky Footer (Long Content)" description="Layout in-flow giúp footer luôn dính ở dưới cùng khi có thanh cuộn." code={`<DialogPreset
     trigger={
       <Button variant="outline">View Long Content</Button>
@@ -373,7 +300,6 @@ function DialogMacroShowcase({ globalSize }: { globalSize: Size }) {
 }
 
 function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
-  const [controlledOpen, setControlledOpen] = useState(false);
   const contentClass =
     globalSize === "sm"
       ? "sm:max-w-md"
@@ -741,117 +667,6 @@ function DialogMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleGrid>
 
       <ExampleGrid>
-        <ShowcaseExample title="Controlled State" description="Sử dụng open và onOpenChange để quản lý trạng thái đóng mở bằng React state." code={`<div className="w-full flex flex-col gap-4 items-center justify-center">
-    <div className="flex gap-4 items-center">
-      <Button
-        onClick={() => setControlledOpen(true)}
-        variant="outline"
-      >
-        Open Controlled Dialog
-      </Button>
-      <span className="text-sm text-muted-foreground font-mono">
-        State: {controlledOpen ? "true" : "false"}
-      </span>
-    </div>
-
-    <Dialog
-      open={controlledOpen}
-      onOpenChange={setControlledOpen}
-    >
-      
-        <DialogContent className={contentClass}>
-          <DialogHeader>
-            <DialogTitle>Controlled Dialog</DialogTitle>
-            <DialogDescription>
-              Trạng thái của dialog này được quản lý hoàn
-              toàn bởi React state bên ngoài.
-            </DialogDescription>
-          </DialogHeader>
-          <p className="text-sm text-foreground">
-            Bạn có thể đóng bằng nút bên dưới hoặc dấu X.
-          </p>
-          <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
-            <Button
-              color="primary"
-              onClick={() => setControlledOpen(false)}
-            >
-              Close Manually
-            </Button>
-          </DialogFooter>
-          <DialogClose
-            render={
-              <Button
-                variant="ghost"
-                className="absolute top-2 right-2"
-                size="sm"
-                iconOnly
-              />
-            }
-          >
-            <XIcon />
-            <span className="sr-only">Close</span>
-          </DialogClose>
-        </DialogContent>
-      
-    </Dialog>
-  </div>`} preview={
-                      <>
-              <div className="w-full flex flex-col gap-4 items-center justify-center">
-                          <div className="flex gap-4 items-center">
-                            <Button
-                              onClick={() => setControlledOpen(true)}
-                              variant="outline"
-                              size={globalSize}
-                            >
-                              Open Controlled Dialog
-                            </Button>
-                            <span className="text-sm text-muted-foreground font-mono">
-                              State: {controlledOpen ? "true" : "false"}
-                            </span>
-                          </div>
-
-                          <Dialog open={controlledOpen} onOpenChange={setControlledOpen}>
-                            
-                              <DialogContent className={contentClass}>
-                                <DialogHeader>
-                                  <DialogTitle>Controlled Dialog</DialogTitle>
-                                  <DialogDescription>
-                                    Trạng thái của dialog này được quản lý hoàn toàn bởi React
-                                    state bên ngoài.
-                                  </DialogDescription>
-                                </DialogHeader>
-                                <p className="text-sm text-foreground">
-                                  Bạn có thể đóng bằng nút bên dưới hoặc dấu X.
-                                </p>
-                                <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
-                                  <Button
-                                    color="primary"
-                                    onClick={() => setControlledOpen(false)}
-                                    size={globalSize}
-                                  >
-                                    Close Manually
-                                  </Button>
-                                </DialogFooter>
-                                <DialogClose
-                                  render={
-                                    <Button
-                                      variant="ghost"
-                                      className="absolute top-2 right-2"
-                                      size="sm"
-                                      iconOnly
-                                    />
-                                  }
-                                >
-                                  <XIcon />
-                                  <span className="sr-only">Close</span>
-                                </DialogClose>
-                              </DialogContent>
-                            
-                          </Dialog>
-                        </div>
-                      </>
-                    } />
-
         <ShowcaseExample title="Sticky Footer (Long Content)" description="Ghi đè class của DialogContent thành flex-col để khóa scroll ở phần body." code={`<Dialog>
     <DialogTrigger
       render={

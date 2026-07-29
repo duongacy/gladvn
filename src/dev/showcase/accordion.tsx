@@ -3,6 +3,7 @@ import { useState } from "react";
 import { BoxIcon, SettingsIcon, SlidersHorizontalIcon } from "lucide-react";
 
 import { AccordionPreset } from "../../components/macro/accordion-preset";
+import { useI18n } from "../components/dev-context";
 import {
   Accordion,
   AccordionContent,
@@ -19,13 +20,13 @@ import {
 
 const faqItems = [
   {
-    q: "Hỗ trợ Accessible (a11y) không?",
+    q: "Does it support Accessibility (a11y)?",
     a: "Có chứ. Component tuân thủ chuẩn WAI-ARIA. Bàn phím hay screen reader cân hết." },
   {
-    q: "Có CSS sẵn không?",
+    q: "Is it styled?",
     a: "Có nha. Style mặc định bao đẹp, match với các component khác. Override vô tư qua CSS variable." },
   {
-    q: "Có animation không?",
+    q: "Is it animated?",
     a: "Đầy đủ. Mở ra đóng lại mượt mà, nhưng nếu không thích thì tắt cũng dễ òm." },
   {
     q: "Có lồng nhau (nest) được không?",
@@ -35,43 +36,44 @@ const faqItems = [
 const presetItems = [
   {
     value: "item-1",
-    title: "Hỗ trợ Accessible (a11y) không?",
+    title: "Does it support Accessibility (a11y)?",
     content:
       "Có chứ. Component tuân thủ chuẩn WAI-ARIA. Bàn phím hay screen reader cân hết." },
   {
     value: "item-2",
-    title: "Có CSS sẵn không?",
+    title: "Is it styled?",
     content:
       "Có nha. Style mặc định bao đẹp, match với các component khác. Override vô tư qua CSS variable." },
   {
     value: "item-3",
-    title: "Có animation không?",
+    title: "Is it animated?",
     content: "Đầy đủ. Mở ra đóng lại mượt mà, nhưng nếu không thích thì tắt cũng dễ òm." },
 ];
 
 function AccordionMacroShowcase() {
+  const t = useI18n();
   return (
     <div className="space-y-10">
       <ExampleGrid>
-        <ShowcaseExample title="Tiêu Chuẩn (Standard)" description="Accordion mở đơn cơ bản." code={`<AccordionPreset
+        <ShowcaseExample title={"Standard"} description={"Accordion mở đơn cơ bản."} code={`<AccordionPreset
     className="w-full"
     defaultValue={["item-1"]}
     items={[
       {
         value: "item-1",
-        title: "Hỗ trợ Accessible (a11y) không?",
+        title: "Does it support Accessibility (a11y)?",
         content:
-          "Có chứ. Component tuân thủ chuẩn WAI-ARIA. Bàn phím hay screen reader cân hết." },
+          "Yes it does. The component complies with WAI-ARIA standards. Bàn phím hay screen reader cân hết." },
       {
         value: "item-2",
-        title: "Có CSS sẵn không?",
+        title: "Is it styled?",
         content:
-          "Có nha. Style mặc định bao đẹp, match với các component khác." },
+          "Yes. The default style is beautiful and matches other components." },
       {
         value: "item-3",
-        title: "Có animation không?",
+        title: "Is it animated?",
         content:
-          "Đầy đủ. Mở ra đóng lại mượt mà." },
+          "Fully animated. Smooth opening and closing." },
     ]}
   />`} preview={
                       <>
@@ -81,44 +83,44 @@ function AccordionMacroShowcase() {
                           items={[
                             {
                               value: "item-1",
-                              title: "Hỗ trợ Accessible (a11y) không?",
+                              title: "Does it support Accessibility (a11y)?",
                               content:
                                 "Có chứ. Component tuân thủ chuẩn WAI-ARIA. Bàn phím hay screen reader cân hết." },
                             {
                               value: "item-2",
-                              title: "Có CSS sẵn không?",
+                              title: "Is it styled?",
                               content:
-                                "Có nha. Style mặc định bao đẹp, match với các component khác." },
+                                "Yes. The default style is beautiful and matches other components." },
                             {
                               value: "item-3",
-                              title: "Có animation không?",
+                              title: "Is it animated?",
                               content:
-                                "Đầy đủ. Mở ra đóng lại mượt mà." },
+                                "Fully animated. Smooth opening and closing." },
                           ]}
                         />
                       </>
                     } />
 
-        <ShowcaseExample title="Mở Nhiều (Multiple Expansion)" description="Cho phép mở nhiều mục cùng một lúc." code={`<AccordionPreset
+        <ShowcaseExample title={"Multiple Expansion"} description={"Cho phép mở nhiều mục cùng một lúc."} code={`<AccordionPreset
     className="w-full"
     multiple
     defaultValue={["item-1", "item-2"]}
     items={[
       {
         value: "item-1",
-        title: "Hỗ trợ Accessible (a11y) không?",
+        title: "Does it support Accessibility (a11y)?",
         content:
-          "Có chứ. Component tuân thủ chuẩn WAI-ARIA. Bàn phím hay screen reader cân hết." },
+          "Yes it does. The component complies with WAI-ARIA standards. Bàn phím hay screen reader cân hết." },
       {
         value: "item-2",
-        title: "Có CSS sẵn không?",
+        title: "Is it styled?",
         content:
-          "Có nha. Style mặc định bao đẹp, match với các component khác." },
+          "Yes. The default style is beautiful and matches other components." },
       {
         value: "item-3",
-        title: "Có animation không?",
+        title: "Is it animated?",
         content:
-          "Đầy đủ. Mở ra đóng lại mượt mà." },
+          "Fully animated. Smooth opening and closing." },
     ]}
   />`} preview={
                       <>
@@ -129,19 +131,19 @@ function AccordionMacroShowcase() {
                           items={[
                             {
                               value: "item-1",
-                              title: "Hỗ trợ Accessible (a11y) không?",
+                              title: "Does it support Accessibility (a11y)?",
                               content:
                                 "Có chứ. Component tuân thủ chuẩn WAI-ARIA. Bàn phím hay screen reader cân hết." },
                             {
                               value: "item-2",
-                              title: "Có CSS sẵn không?",
+                              title: "Is it styled?",
                               content:
-                                "Có nha. Style mặc định bao đẹp, match với các component khác." },
+                                "Yes. The default style is beautiful and matches other components." },
                             {
                               value: "item-3",
-                              title: "Có animation không?",
+                              title: "Is it animated?",
                               content:
-                                "Đầy đủ. Mở ra đóng lại mượt mà." },
+                                "Fully animated. Smooth opening and closing." },
                           ]}
                         />
                       </>
@@ -150,7 +152,7 @@ function AccordionMacroShowcase() {
 
       <ExampleGrid>
 
-        <ShowcaseExample title="Disabled (Vô hiệu hoá)" description="Từng mục riêng lẻ có thể bị vô hiệu hóa trong khi các mục khác vẫn tương tác bình thường." code={`<AccordionPreset
+        <ShowcaseExample title={"Disabled"} description={"Individual items can be disabled while other items remain interactive."} code={`<AccordionPreset
     className="w-full"
     items={[
       {
@@ -197,7 +199,7 @@ function AccordionMacroShowcase() {
       </ExampleGrid>
 
       <ExampleGrid>
-        <ShowcaseExample title="Nội Dung Phức Tạp" description="Render các React Node bên trong nội dung." code={`<AccordionPreset
+        <ShowcaseExample title={"Nội Dung Phức Tạp"} description={"Render các React Node bên trong nội dung."} code={`<AccordionPreset
     className="w-full"
     items={[
       {
@@ -238,7 +240,7 @@ function AccordionMacroShowcase() {
                       </>
                     } />
 
-        <ShowcaseExample title="Lồng Nhau (Nested Accordions)" description="Nội dung bên trong có thể chứa một Accordion khác." code={`<AccordionPreset
+        <ShowcaseExample title={"Nested Accordions"} description={"Nội dung bên trong có thể chứa một Accordion khác."} code={`<AccordionPreset
     className="w-full"
     items={[
       {
@@ -267,7 +269,7 @@ function AccordionMacroShowcase() {
                 value: "controlled",
                 title: "Chế độ Controlled",
                 content:
-                  "Sử dụng props value và onValueChange để kiểm soát các mục đang mở." },
+                  "Sử dụng props value and onValueChange để kiểm soát các mục đang mở." },
             ]}
           />
         ) },
@@ -317,17 +319,18 @@ function AccordionMacroShowcase() {
 }
 
 function AccordionMicroShowcase() {
+  const t = useI18n();
   return (
     <div className="space-y-10">
       <ExampleGrid>
-        <ShowcaseExample title="Mở Đơn (Single Expand)" description="Chỉ một mục được phép mở tại một thời điểm (mặc định)." code={`<Accordion
+        <ShowcaseExample title={"Single Expand"} description={"Only one item is allowed open at a time (default)."} code={`<Accordion
     className="w-full"
-    defaultValue={["Hỗ trợ Accessible (a11y) không?"]}
+    defaultValue={["Does it support Accessibility (a11y)?"]}
   >
-    <AccordionItem value="Hỗ trợ Accessible (a11y) không?">
+    <AccordionItem value="Does it support Accessibility (a11y)?">
       <AccordionTrigger>Is it accessible?</AccordionTrigger>
       <AccordionContent>
-        Có chứ. Component tuân thủ chuẩn WAI-ARIA.
+        Yes it does. The component complies with WAI-ARIA standards.
         Keyboard navigation and screen readers are fully
         supported.
       </AccordionContent>
@@ -350,11 +353,11 @@ function AccordionMicroShowcase() {
     </AccordionItem>
   </Accordion>`} preview={
                       <>
-              <Accordion className="w-full" defaultValue={["Hỗ trợ Accessible (a11y) không?"]}>
-                          <AccordionItem value="Hỗ trợ Accessible (a11y) không?">
+              <Accordion className="w-full" defaultValue={["Does it support Accessibility (a11y)?"]}>
+                          <AccordionItem value={"Does it support Accessibility (a11y)?"}>
                             <AccordionTrigger>Is it accessible?</AccordionTrigger>
                             <AccordionContent>
-                              Có chứ. Component tuân thủ chuẩn WAI-ARIA.
+                              Yes it does. The component complies with WAI-ARIA standards.
                             </AccordionContent>
                           </AccordionItem>
                           <AccordionItem value="Is it styled?">
@@ -367,22 +370,22 @@ function AccordionMicroShowcase() {
                           <AccordionItem value="Is it animated?">
                             <AccordionTrigger>Is it animated?</AccordionTrigger>
                             <AccordionContent>
-                              Đầy đủ. Mở ra đóng lại mượt mà.
+                              Fully animated. Smooth opening and closing.
                             </AccordionContent>
                           </AccordionItem>
                         </Accordion>
                       </>
                     } />
 
-        <ShowcaseExample title="Mở Nhiều (Multiple Expand)" description="Cho phép mở nhiều mục cùng lúc." code={`<Accordion
+        <ShowcaseExample title={"Multiple Expand"} description={"Allows multiple items to be open at the same time."} code={`<Accordion
     className="w-full"
     multiple
-    defaultValue={["Hỗ trợ Accessible (a11y) không?", "Is it styled?"]}
+    defaultValue={["Does it support Accessibility (a11y)?", "Is it styled?"]}
   >
-    <AccordionItem value="Hỗ trợ Accessible (a11y) không?">
+    <AccordionItem value="Does it support Accessibility (a11y)?">
       <AccordionTrigger>Is it accessible?</AccordionTrigger>
       <AccordionContent>
-        Có chứ. Component tuân thủ chuẩn WAI-ARIA.
+        Yes it does. The component complies with WAI-ARIA standards.
         Keyboard navigation and screen readers are fully
         supported.
       </AccordionContent>
@@ -408,12 +411,12 @@ function AccordionMicroShowcase() {
               <Accordion
                           className="w-full"
                           multiple
-                          defaultValue={["Hỗ trợ Accessible (a11y) không?", "Is it styled?"]}
+                          defaultValue={["Does it support Accessibility (a11y)?", "Is it styled?"]}
                         >
-                          <AccordionItem value="Hỗ trợ Accessible (a11y) không?">
+                          <AccordionItem value={"Does it support Accessibility (a11y)?"}>
                             <AccordionTrigger>Is it accessible?</AccordionTrigger>
                             <AccordionContent>
-                              Có chứ. Component tuân thủ chuẩn WAI-ARIA.
+                              Yes it does. The component complies with WAI-ARIA standards.
                             </AccordionContent>
                           </AccordionItem>
                           <AccordionItem value="Is it styled?">
@@ -426,7 +429,7 @@ function AccordionMicroShowcase() {
                           <AccordionItem value="Is it animated?">
                             <AccordionTrigger>Is it animated?</AccordionTrigger>
                             <AccordionContent>
-                              Đầy đủ. Mở ra đóng lại mượt mà.
+                              Fully animated. Smooth opening and closing.
                             </AccordionContent>
                           </AccordionItem>
                         </Accordion>
@@ -435,7 +438,7 @@ function AccordionMicroShowcase() {
       </ExampleGrid>
 
       <ExampleGrid>
-        <ShowcaseExample title="Disabled (Vô hiệu hoá)" description="Từng mục riêng lẻ có thể bị vô hiệu hóa trong khi các mục khác vẫn tương tác bình thường." code={`<Accordion className="w-full">
+        <ShowcaseExample title={"Disabled"} description={"Individual items can be disabled while other items remain interactive."} code={`<Accordion className="w-full">
     <AccordionItem value="enabled-1">
       <AccordionTrigger>Available Feature</AccordionTrigger>
       <AccordionContent>
@@ -484,7 +487,7 @@ function AccordionMicroShowcase() {
                       </>
                     } />
 
-        <ShowcaseExample title="Lồng Nhau (Nested Accordions)" description="Nội dung bên trong có thể chứa một Accordion khác để tạo cấu trúc nhiều cấp." code={`<Accordion className="w-full max-w-lg">
+        <ShowcaseExample title={"Nested Accordions"} description={"Nội dung bên trong có thể chứa một Accordion khác để tạo cấu trúc nhiều cấp."} code={`<Accordion className="w-full max-w-lg">
     <AccordionItem value="getting-started">
       <AccordionTrigger>Getting Started</AccordionTrigger>
       <AccordionContent>
@@ -582,11 +585,11 @@ function AccordionMicroShowcase() {
                     } />
       </ExampleGrid>
 
-      <ShowcaseExample title="FAQ Hoàn Chỉnh" description="Ví dụ một phần hỏi đáp FAQ hoàn chỉnh." code={`<Accordion className="w-full max-w-lg">
-    <AccordionItem value="Hỗ trợ Accessible (a11y) không?">
+      <ShowcaseExample title={"Complete FAQ"} description={"Example of a complete FAQ."} code={`<Accordion className="w-full max-w-lg">
+    <AccordionItem value="Does it support Accessibility (a11y)?">
       <AccordionTrigger>Is it accessible?</AccordionTrigger>
       <AccordionContent>
-        Có chứ. Component tuân thủ chuẩn WAI-ARIA.
+        Yes it does. The component complies with WAI-ARIA standards.
         Keyboard navigation and screen readers are fully
         supported.
       </AccordionContent>
@@ -619,10 +622,10 @@ function AccordionMicroShowcase() {
   </Accordion>`} preview={
                   <>
           <Accordion className="w-full max-w-lg">
-                    <AccordionItem value="Hỗ trợ Accessible (a11y) không?">
+                    <AccordionItem value={"Does it support Accessibility (a11y)?"}>
                       <AccordionTrigger>Is it accessible?</AccordionTrigger>
                       <AccordionContent>
-                        Có chứ. Component tuân thủ chuẩn WAI-ARIA.
+                        Yes it does. The component complies with WAI-ARIA standards.
                       </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="Is it styled?">
@@ -635,7 +638,7 @@ function AccordionMicroShowcase() {
                     <AccordionItem value="Is it animated?">
                       <AccordionTrigger>Is it animated?</AccordionTrigger>
                       <AccordionContent>
-                        Đầy đủ. Mở ra đóng lại mượt mà.
+                        Fully animated. Smooth opening and closing.
                       </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="Can I nest accordions?">
@@ -649,7 +652,7 @@ function AccordionMicroShowcase() {
                   </>
                 } />
 
-      <ShowcaseExample title="🧭 So sánh Use Case" description="Các kịch bản thực tế giúp bạn quyết định nên dùng Micro (Accordion) hay Macro (AccordionPreset)." code={`<div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+      <ShowcaseExample title={"🧭 So sánh Use Case"} description={"Real-life scenarios help you decide whether to use Micro (Accordion) or Macro (AccordionPreset)."} code={`<div className="grid grid-cols-1 gap-6 md:grid-cols-2">
     {/* ── Story 1: Macro wins ── */}
     <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
       <div className="flex items-start gap-3">
@@ -661,16 +664,16 @@ function AccordionMicroShowcase() {
         </span>
         <div>
           <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-            Story 1 · Dùng Macro
+            Story 1 · Use Macro
           </p>
           <h3 className="mt-0.5 text-sm font-semibold text-foreground">
-            Render danh sách FAQ từ API
+            Render FAQ list from API
           </h3>
         </div>
       </div>
 
       <p className="text-xs text-muted-foreground leading-relaxed">
-        Bạn nhận được một mảng dữ liệu FAQ (hỏi đáp) từ
+        Bạn nhận được một mảng dữ liệu FAQ (hỏi đáp) from
         server. Nội dung đơn giản chỉ là text. Dùng Macro để
         tiết kiệm code.
       </p>
@@ -680,15 +683,15 @@ function AccordionMicroShowcase() {
           className="w-full"
           items={[
             {
-              value: "Hỗ trợ Accessible (a11y) không?",
-              title: "Hỗ trợ Accessible (a11y) không?",
+              value: "Does it support Accessibility (a11y)?",
+              title: "Does it support Accessibility (a11y)?",
               content:
-                "Có chứ. Component tuân thủ chuẩn WAI-ARIA." },
+                "Yes it does. The component complies with WAI-ARIA standards." },
             {
               value: "Is it styled?",
-              title: "Có CSS sẵn không?",
+              title: "Is it styled?",
               content:
-                "Có nha. Style mặc định bao đẹp, match với các component khác." },
+                "Yes. The default style is beautiful and matches other components." },
           ]}
         />
       </div>
@@ -698,7 +701,7 @@ function AccordionMicroShowcase() {
           ✅ Dùng{" "}
           <code className="font-mono">AccordionPreset</code>{" "}
           — Tự động lặp qua array, không cần viết lại JSX
-          cho từng thẻ Item.
+          cho fromng thẻ Item.
         </p>
       </div>
     </div>
@@ -711,16 +714,16 @@ function AccordionMicroShowcase() {
         </span>
         <div>
           <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-            Story 2 · Dùng Micro
+            Story 2 · Use Micro
           </p>
           <h3 className="mt-0.5 text-sm font-semibold text-foreground">
-            Tuỳ biến Trigger / Form phức tạp
+            Customize Trigger / Complex Form
           </h3>
         </div>
       </div>
 
       <p className="text-xs text-muted-foreground leading-relaxed">
-        Trigger cần hiển thị Icon hoặc Badge. Nội dung bên
+        Trigger cần hiển thị Icon or Badge. Nội dung bên
         trong là một Form phức tạp (chứ không phải text đơn
         thuần). Macro không thể làm được việc này.
       </p>
@@ -731,7 +734,7 @@ function AccordionMicroShowcase() {
             <AccordionTrigger className="gap-3">
               <SlidersHorizontalIcon className="size-4 text-primary" />
               <span className="flex-1 text-left">
-                Cài đặt nâng cao
+                Advanced Settings
               </span>
               <span className="mr-2 rounded bg-primary/10 px-2 py-0.5 text-[10px] uppercase tracking-wider text-primary">
                 New
@@ -754,7 +757,7 @@ function AccordionMicroShowcase() {
           ✅ Dùng{" "}
           <code className="font-mono">Accordion</code>{" "}
           (Micro) — Toàn quyền kiểm soát cấu trúc HTML của
-          Trigger và Content.
+          Trigger and Content.
         </p>
       </div>
     </div>
@@ -768,10 +771,10 @@ function AccordionMicroShowcase() {
                         </span>
                         <div>
                           <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                            Story 1 · Dùng Macro
+                            Story 1 · Use Macro
                           </p>
                           <h3 className="mt-0.5 text-sm font-semibold text-foreground">
-                            Render danh sách FAQ từ API
+                            Render FAQ list from API
                           </h3>
                         </div>
                       </div>
@@ -786,14 +789,14 @@ function AccordionMicroShowcase() {
                           className="w-full"
                           items={[
                             {
-                              value: "Hỗ trợ Accessible (a11y) không?",
-                              title: "Hỗ trợ Accessible (a11y) không?",
-                              content: "Có chứ. Component tuân thủ chuẩn WAI-ARIA." },
+                              value: "Does it support Accessibility (a11y)?",
+                              title: "Does it support Accessibility (a11y)?",
+                              content: "Yes it does. The component complies with WAI-ARIA standards." },
                             {
                               value: "Is it styled?",
-                              title: "Có CSS sẵn không?",
+                              title: "Is it styled?",
                               content:
-                                "Có nha. Style mặc định bao đẹp, match với các component khác." },
+                                "Yes. The default style is beautiful and matches other components." },
                           ]}
                         />
                       </div>
@@ -813,10 +816,10 @@ function AccordionMicroShowcase() {
                         </span>
                         <div>
                           <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                            Story 2 · Dùng Micro
+                            Story 2 · Use Micro
                           </p>
                           <h3 className="mt-0.5 text-sm font-semibold text-foreground">
-                            Tuỳ biến Trigger / Form phức tạp
+                            Customize Trigger / Complex Form
                           </h3>
                         </div>
                       </div>
@@ -832,7 +835,7 @@ function AccordionMicroShowcase() {
                           <AccordionItem value="settings">
                             <AccordionTrigger className="gap-3">
                               <SlidersHorizontalIcon className="size-4 text-primary" />
-                              <span className="flex-1 text-left">Cài đặt nâng cao</span>
+                              <span className="flex-1 text-left">Advanced Settings</span>
                               <span className="mr-2 rounded bg-primary/10 px-2 py-0.5 text-[10px] uppercase tracking-wider text-primary">
                                 New
                               </span>
@@ -840,7 +843,7 @@ function AccordionMicroShowcase() {
                             <AccordionContent>
                               <div className="flex items-center gap-3 rounded border border-border p-3 text-xs text-muted-foreground">
                                 <span>
-                                  Nội dung tuỳ biến hoàn toàn, ví dụ: Form, Toggle, v.v.
+                                  Fully customizable content, e.g. Form, Toggle, etc.
                                 </span>
                               </div>
                             </AccordionContent>
@@ -863,17 +866,15 @@ function AccordionMicroShowcase() {
 }
 
 export default function AccordionShowcase() {
+  const t = useI18n();
   return (
     <Showcase
       title="Accordion"
-      description="Tập hợp các tiêu đề có thể tương tác xếp chồng lên nhau theo chiều dọc, mỗi tiêu đề sẽ mở ra một phần nội dung."
+      description={"A vertically stacked set of interactive headings that each reveal a section of content."}
       guideline={
         <ShowcaseDocs>
           <DocsP>
-            Dùng để gom nhóm các khối nội dung lớn nhằm tiết kiệm không gian
-            hiển thị (ví dụ: FAQ, Cài đặt nâng cao). Không nên dùng Accordion
-            nếu nội dung bên trong quá quan trọng và cần user phải nhìn thấy
-            ngay lập tức.
+            {t("Dùng để gom nhóm các khối nội dung lớn nhằm tiết kiệm không gian\n            hiển thị (ví dụ: FAQ, Cài đặt nâng cao). Không nên dùng Accordion\n            nếu nội dung bên trong quá quan trọng và cần user phải nhìn thấy\n            ngay lập tức.", "Dùng để gom nhóm các khối nội dung lớn nhằm tiết kiệm không gian\n            hiển thị (ví dụ: FAQ, Cài đặt nâng cao). Không nên dùng Accordion\n            nếu nội dung bên trong quá quan trọng và cần user phải nhìn thấy\n            ngay lập tức.")}
           </DocsP>
         </ShowcaseDocs>
       }

@@ -200,3 +200,14 @@ When creating or modifying components within the `src/blocks` directory (e.g., p
 
 - **Assume Developer Competence**: Do not add textual explanations or dedicated showcase examples for standard React state management patterns (like Controlled vs Uncontrolled) in Showcase files. 
 - **Focus on Component API**: Assume the developers consuming this library are experienced enough to understand how these standard patterns work natively. Focus the documentation and showcases strictly on the specific API, design, and capabilities of the components themselves.
+
+## 31. Macro and Micro Showcase Naming Consistency
+
+- **Exact Match Required**: The `title` and `description` of a Macro (preset) showcase example MUST exactly match the `title` and `description` of its corresponding Micro showcase example if they demonstrate the same functionality or state.
+- **No Generic Overrides**: Do not use generic titles like "Tiêu Chuẩn (Standard)" for the Macro component if the Micro equivalent has a specific, descriptive name (e.g., "Mở Đơn (Single Expand)"). Always sync the titles to perfectly align the mental model between the raw building blocks and the preset.
+
+## 32. No Usage Guidance Inside Showcase Examples
+
+- **No Callout Boxes in Preview**: You MUST NOT place usage guidance, advice callouts, tutorial banners, or recommendation cards (e.g., `<div className="...bg-blue-500/5...">✅ Dùng Micro khi...</div>`) inside the `preview` prop of `<ShowcaseExample>`.
+- **Proper Placement**: All usage instructions, architectural advice, and recommendations belong EXCLUSIVELY in the top `ShowcaseDocs` (`guideline={<ShowcaseDocs>...</ShowcaseDocs>}`) section of the showcase page.
+- **Pure Previews**: The `preview` block of a `<ShowcaseExample>` must render ONLY the actual component being showcased, wrapped in necessary structural containers if required for layout.

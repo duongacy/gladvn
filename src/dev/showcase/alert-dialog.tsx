@@ -35,19 +35,20 @@ import {
   ShowcaseExample
 } from "../../dev/components/showcase";
 import { type Size } from "../../lib/types";
+import { useI18n } from "../components/dev-context";
 
 function AlertDialogMacroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10">
       <ExampleGrid>
-        <ShowcaseExample title="Hành Động Nguy Danger (Destructive)" description="Sử dụng actionColor='destructive' để tạo nút hành động nguy hiểm." code={`<AlertDialogPreset
+        <ShowcaseExample title={"Destructive"} description={"Sử dụng actionColor='destructive' để tạo nút hành động nguy hiểm."} code={`<AlertDialogPreset
     trigger={
       <Button variant="outline" color="destructive">
         Xoá Tài Khoản
       </Button>
     }
     title="Bạn có chắc chắn muốn xoá?"
-    description="Hành động này không thể hoàn tác. Tài khoản và toàn bộ dữ liệu của bạn trên hệ thống sẽ bị xoá vĩnh viễn."
+    description="Hành động này không thể hoàn tác. Tài khoản and toàn bộ dữ liệu của bạn trên hệ thống sẽ bị xoá vĩnh viễn."
     cancelLabel="Huỷ"
     actionLabel="Xoá"
     actionColor="destructive"
@@ -61,20 +62,20 @@ function AlertDialogMacroShowcase({ globalSize }: { globalSize: Size }) {
                               Xoá Tài Khoản
                             </Button>
                           }
-                          title="Bạn có chắc chắn muốn xoá?"
-                          description="Hành động này không thể hoàn tác. Tài khoản và toàn bộ dữ liệu của bạn trên hệ thống sẽ bị xoá vĩnh viễn."
-                          cancelLabel="Huỷ"
-                          actionLabel="Xoá"
+                          title={"Bạn có chắc chắn muốn xoá?"}
+                          description={"Hành động này không thể hoàn tác. Tài khoản và toàn bộ dữ liệu của bạn trên hệ thống sẽ bị xoá vĩnh viễn."}
+                          cancelLabel={"Huỷ"}
+                          actionLabel={"Xoá"}
                           actionColor="destructive"
                           onAction={() => console.log("Đã xoá!")}
                         />
                       </>
                     } />
 
-        <ShowcaseExample title="Xác Nhận Tiêu Chuẩn" description="Dialog xác nhận thông thường chỉ với Text." code={`<AlertDialogPreset
+        <ShowcaseExample title={"Xác Nhận Tiêu Chuẩn"} description={"Dialog xác nhận thông thường chỉ với Text."} code={`<AlertDialogPreset
     trigger={<Button variant="outline">Đăng Xuất</Button>}
     title="Đăng xuất khỏi tài khoản?"
-    description="Bạn sẽ cần nhập lại thông tin đăng nhập để truy cập vào tài khoản."
+    description="Bạn sẽ cần nhập lại thông tin đăng nhập để truy cập ando tài khoản."
     cancelLabel="Ở Lại"
     actionLabel="Đăng Xuất"
     onAction={() => console.log("Logged out!")}
@@ -87,10 +88,10 @@ function AlertDialogMacroShowcase({ globalSize }: { globalSize: Size }) {
                               Đăng Xuất
                             </Button>
                           }
-                          title="Đăng xuất khỏi tài khoản?"
-                          description="Bạn sẽ cần nhập lại thông tin đăng nhập để truy cập vào tài khoản."
-                          cancelLabel="Ở Lại"
-                          actionLabel="Đăng Xuất"
+                          title={"Đăng xuất khỏi tài khoản?"}
+                          description={"Bạn sẽ cần nhập lại thông tin đăng nhập để truy cập vào tài khoản."}
+                          cancelLabel={"Ở Lại"}
+                          actionLabel={"Đăng Xuất"}
                           onAction={() => console.log("Logged out!")}
                         />
                       </>
@@ -98,7 +99,7 @@ function AlertDialogMacroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleGrid>
 
       <ExampleGrid>
-        <ShowcaseExample title="Kèm Media (Icon/Image)" description="Tự động chia cột Flexbox Side-by-Side khi truyền prop 'icon'." code={`<AlertDialogPreset
+        <ShowcaseExample title={"Icon/Image"} description={"Tự động chia cột Flexbox Side-by-Side khi truyền prop 'icon'."} code={`<AlertDialogPreset
     trigger={
       <Button variant="outline" color="warning">
         Thu Hồi Quyền
@@ -129,10 +130,10 @@ function AlertDialogMacroShowcase({ globalSize }: { globalSize: Size }) {
                               <ShieldAlertIcon className="text-warning" />
                             </div>
                           }
-                          title="Thu hồi quyền truy cập API?"
-                          description="Tất cả các ứng dụng đang sử dụng API key này sẽ bị mất quyền truy cập ngay lập tức."
-                          cancelLabel="Giữ Lại"
-                          actionLabel="Thu Hồi"
+                          title={"Thu hồi quyền truy cập API?"}
+                          description={"Tất cả các ứng dụng đang sử dụng API key này sẽ bị mất quyền truy cập ngay lập tức."}
+                          cancelLabel={"Giữ Lại"}
+                          actionLabel={"Thu Hồi"}
                           actionColor="warning"
                           onAction={() => console.log("Revoked!")}
                         />
@@ -141,7 +142,7 @@ function AlertDialogMacroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleGrid>
 
       <ExampleGrid>
-        <ShowcaseExample title="Custom Button Variants" description="Tuỳ chỉnh variant cho cả nút Action (soft) và Cancel (ghost) thông qua actionVariant/cancelVariant." code={`<AlertDialogPreset
+        <ShowcaseExample title="Custom Button Variants" description={"Tuỳ chỉnh variant cho cả nút Action (soft) và Cancel (ghost) thông qua actionVariant/cancelVariant."} code={`<AlertDialogPreset
     trigger={
       <Button variant="outline">Custom Variants</Button>
     }
@@ -172,11 +173,11 @@ function AlertDialogMacroShowcase({ globalSize }: { globalSize: Size }) {
                               <MailWarningIcon className="text-info" />
                             </div>
                           }
-                          title="Gửi phản hồi?"
-                          description="Phản hồi của bạn sẽ được gửi ẩn danh tới đội ngũ phát triển."
-                          cancelLabel="Bỏ qua"
+                          title={"Gửi phản hồi?"}
+                          description={"Phản hồi của bạn sẽ được gửi ẩn danh tới đội ngũ phát triển."}
+                          cancelLabel={"Bỏ qua"}
                           cancelVariant="ghost"
-                          actionLabel="Gửi"
+                          actionLabel={"Gửi"}
                           actionColor="info"
                           actionVariant="soft"
                           onAction={() => console.log("Feedback sent!")}
@@ -184,7 +185,7 @@ function AlertDialogMacroShowcase({ globalSize }: { globalSize: Size }) {
                       </>
                     } />
 
-        <ShowcaseExample title="Children (Nội dung bổ sung)" description="Prop children cho phép chèn thêm nội dung tuỳ ý vào phần Header." code={`<AlertDialogPreset
+        <ShowcaseExample title={"Children"} description={"Prop children cho phép chèn thêm nội dung tuỳ ý vào phần Header."} code={`<AlertDialogPreset
     trigger={
       <Button variant="outline" color="warning">
         Báo Cáo Lỗi
@@ -211,10 +212,10 @@ function AlertDialogMacroShowcase({ globalSize }: { globalSize: Size }) {
                               Báo Cáo Lỗi
                             </Button>
                           }
-                          title="Báo cáo lỗi hệ thống"
-                          description="Vui lòng kiểm tra thông tin lỗi bên dưới trước khi gửi."
-                          cancelLabel="Huỷ"
-                          actionLabel="Gửi Báo Cáo"
+                          title={"Báo cáo lỗi hệ thống"}
+                          description={"Vui lòng kiểm tra thông tin lỗi bên dưới trước khi gửi."}
+                          cancelLabel={"Huỷ"}
+                          actionLabel={"Gửi Báo Cáo"}
                           actionColor="warning"
                           onAction={() => console.log("Report sent!")}
                         >
@@ -229,7 +230,7 @@ function AlertDialogMacroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleGrid>
 
       <ExampleGrid>
-        <ShowcaseExample title="Giao Diện Nhỏ (Compact)" description="Khi dùng size='sm', nội dung sẽ được căn giữa và footer tự động dàn hàng ngang 2 cột." code={`<AlertDialogPreset
+        <ShowcaseExample title={"Compact"} description={"Khi dùng size='sm', nội dung sẽ được căn giữa và footer tự động dàn hàng ngang 2 cột."} code={`<AlertDialogPreset
     size="sm"
     trigger={
       <Button variant="outline">Xác Nhận Nhanh</Button>
@@ -257,10 +258,10 @@ function AlertDialogMacroShowcase({ globalSize }: { globalSize: Size }) {
                               <InfoIcon />
                             </div>
                           }
-                          title="Xác nhận hành động?"
-                          description="Đây là dialog dạng nhỏ, phù hợp cho các thao tác nhanh với 2 nút nằm ngang."
-                          cancelLabel="Không"
-                          actionLabel="Có"
+                          title={"Xác nhận hành động?"}
+                          description={"Đây là dialog dạng nhỏ, phù hợp cho các thao tác nhanh với 2 nút nằm ngang."}
+                          cancelLabel={"Không"}
+                          actionLabel={"Có"}
                         />
                       </>
                     } />
@@ -276,7 +277,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
   return (
     <div className="space-y-10">
       <ExampleGrid>
-        <ShowcaseExample title="Sử dụng Cơ bản" description="Lắp ráp thủ công các khối Header, Title, Description, Footer." code={`<AlertDialog>
+        <ShowcaseExample title={"Sử dụng Cơ bản"} description={"Lắp ráp thủ công các khối Header, Title, Description, Footer."} code={`<AlertDialog>
     <AlertDialogTrigger
       render={
         <Button variant="outline">Mở Dialog Trắng</Button>
@@ -333,7 +334,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                       </>
                     } />
 
-        <ShowcaseExample title="Tự Do Custom Layout" description="Bởi vì Micro component rất 'dumb', bạn có thể tự chèn thẻ div, custom flexbox để làm ra bất kỳ giao diện nào." code={`<AlertDialog>
+        <ShowcaseExample title={"Tự Do Custom Layout"} description={"Bởi vì Micro component rất 'dumb', bạn có thể tự chèn thẻ div, custom flexbox để làm ra bất kỳ giao diện nào."} code={`<AlertDialog>
     <AlertDialogTrigger
       render={
         <Button variant="outline" color="warning">
@@ -350,7 +351,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
               Cảnh báo Tùy chỉnh
             </AlertDialogTitle>
             <AlertDialogDescription>
-              Icon đang nằm bên trái, hoặc có thể dời sang
+              Icon đang nằm bên trái, or có thể dời sang
               phải tuỳ ý bạn vì bạn đang kiểm soát HTML.
             </AlertDialogDescription>
           </AlertDialogHeader>
@@ -402,7 +403,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleGrid>
 
       <ExampleGrid>
-        <ShowcaseExample title="AlertDialogMedia" description="Khối chứa Icon/Image, tự scale theo size của AlertDialogContent." code={`<AlertDialog>
+        <ShowcaseExample title="AlertDialogMedia" description={"Khối chứa Icon/Image, tự scale theo size của AlertDialogContent."} code={`<AlertDialog>
     <AlertDialogTrigger
       render={<Button variant="outline">Với Media</Button>}
     />
@@ -467,7 +468,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                       </>
                     } />
 
-        <ShowcaseExample title="AlertDialogClose" description="Primitive đóng dialog cơ bản, cho phép render bất kỳ element nào (không bị ép thành Button)." code={`<AlertDialog>
+        <ShowcaseExample title="AlertDialogClose" description={"Primitive đóng dialog cơ bản, cho phép render bất kỳ element nào (không bị ép thành Button)."} code={`<AlertDialog>
     <AlertDialogTrigger
       render={
         <Button variant="outline">Dialog Có Nút X</Button>
@@ -486,7 +487,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
           <AlertDialogDescription>
             Khác với AlertDialogCancel (luôn render Button),
             AlertDialogClose là bare-bone — bạn có thể
-            render icon X, link, hay bất kỳ thứ gì.
+            renders the X, link, hay bất kỳ thứ gì.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
@@ -533,7 +534,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleGrid>
 
       <ExampleGrid>
-        <ShowcaseExample title="Action Colors" description="AlertDialogAction hỗ trợ prop color để thay đổi ngữ nghĩa hành động." code={`<AlertDialog>
+        <ShowcaseExample title="Action Colors" description={"AlertDialogAction hỗ trợ prop color để thay đổi ngữ nghĩa hành động."} code={`<AlertDialog>
     <AlertDialogTrigger
       render={
         <Button variant="outline" color="destructive">
@@ -552,7 +553,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
               Xoá tài khoản vĩnh viễn?
             </AlertDialogTitle>
             <AlertDialogDescription>
-              Tất cả dữ liệu sẽ bị xoá và không thể khôi
+              Tất cả dữ liệu sẽ bị xoá and không thể khôi
               phục.
             </AlertDialogDescription>
           </AlertDialogHeader>
@@ -602,7 +603,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                       </>
                     } />
 
-        <ShowcaseExample title="Action & Cancel Variants" description="Tuỳ chỉnh variant cho cả Action (soft) và Cancel (ghost)." code={`<AlertDialog>
+        <ShowcaseExample title="Action & Cancel Variants" description={"Tuỳ chỉnh variant cho cả Action (soft) và Cancel (ghost)."} code={`<AlertDialog>
     <AlertDialogTrigger
       render={
         <Button variant="outline">Custom Variants</Button>
@@ -676,7 +677,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleGrid>
 
       {/* ── Use Case Comparison ─────────────────────── */}
-      <ShowcaseExample title="🧭 So sánh Use Case" description="Các kịch bản thực tế giúp bạn quyết định nên dùng Micro hay Macro." code={`<div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+      <ShowcaseExample title={"🧭 So sánh Use Case"} description={"Các kịch bản thực tế giúp bạn quyết định nên dùng Micro hay Macro."} code={`<div className="grid grid-cols-1 gap-6 md:grid-cols-2">
     <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
       <div className="flex items-start gap-3">
         <span className="mt-0.5 shrink-0 rounded-full bg-green-500/10 p-1.5 text-green-600">
@@ -687,7 +688,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
         </span>
         <div>
           <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-            Story 1 · Dùng Macro
+            Story 1 · Use Macro
           </p>
           <h3 className="mt-0.5 text-sm font-semibold text-foreground">
             Xác nhận chuẩn mực với Icon
@@ -715,7 +716,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
             </div>
           }
           title="Xác nhận thao tác"
-          description="Macro bọc mọi thứ vào một component duy nhất."
+          description="Macro bọc mọi thứ ando một component duy nhất."
           cancelLabel="Huỷ"
           actionLabel="Tiếp tục"
         />
@@ -743,7 +744,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
         </span>
         <div>
           <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-            Story 2 · Dùng Micro
+            Story 2 · Use Micro
           </p>
           <h3 className="mt-0.5 text-sm font-semibold text-foreground">
             Custom Layout độc lạ
@@ -814,7 +815,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                         </span>
                         <div>
                           <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                            Story 1 · Dùng Macro
+                            Story 1 · Use Macro
                           </p>
                           <h3 className="mt-0.5 text-sm font-semibold text-foreground">
                             Xác nhận chuẩn mực với Icon
@@ -841,10 +842,10 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                               <InfoIcon />
                             </div>
                           }
-                          title="Xác nhận thao tác"
-                          description="Macro bọc mọi thứ vào một component duy nhất."
-                          cancelLabel="Huỷ"
-                          actionLabel="Tiếp tục"
+                          title={"Xác nhận thao tác"}
+                          description={"Macro bọc mọi thứ vào một component duy nhất."}
+                          cancelLabel={"Huỷ"}
+                          actionLabel={"Tiếp tục"}
                         />
                       </div>
 
@@ -868,7 +869,7 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
                         </span>
                         <div>
                           <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                            Story 2 · Dùng Micro
+                            Story 2 · Use Micro
                           </p>
                           <h3 className="mt-0.5 text-sm font-semibold text-foreground">
                             Custom Layout độc lạ
@@ -937,18 +938,16 @@ function AlertDialogMicroShowcase({ globalSize }: { globalSize: Size }) {
 // SECTION 3: Entry point (export default)
 // ──────────────────────────────────────────────────────────
 export default function AlertDialogShowcase() {
+  const t = useI18n();
   const { size: globalSize } = useDevContext();
   return (
     <Showcase
       title="Alert Dialog"
-      description="Dialog gián đoạn yêu cầu người dùng xác nhận các hành động quan trọng hoặc mang tính phá hủy."
+      description={"An interrupting dialog that requires the user to confirm important or destructive actions."}
       guideline={
         <ShowcaseDocs>
           <DocsP>
-            Dùng để làm gián đoạn người dùng với một thông báo hoặc xác nhận cực
-            kỳ quan trọng, thường mang tính phá huỷ (như Xoá dữ liệu, Đăng xuất)
-            hoặc không thể hoàn tác. Yêu cầu người dùng phải hành động rõ ràng
-            thì mới thoát được cửa sổ.
+            {t("Dùng để làm gián đoạn người dùng với một thông báo hoặc xác nhận cực\n            kỳ quan trọng, thường mang tính phá huỷ (như Xoá dữ liệu, Đăng xuất)\n            hoặc không thể hoàn tác. Yêu cầu người dùng phải hành động rõ ràng\n            thì mới thoát được cửa sổ.", "Dùng để làm gián đoạn người dùng với một thông báo hoặc xác nhận cực\n            kỳ quan trọng, thường mang tính phá huỷ (như Xoá dữ liệu, Đăng xuất)\n            hoặc không thể hoàn tác. Yêu cầu người dùng phải hành động rõ ràng\n            thì mới thoát được cửa sổ.")}
           </DocsP>
         </ShowcaseDocs>
       }

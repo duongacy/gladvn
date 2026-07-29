@@ -1,21 +1,29 @@
 import {
   ResizableHandle,
   ResizablePanel,
-  ResizablePanelGroup
+  ResizablePanelGroup,
 } from "../../components/micro/resizable";
+import { useI18n } from "../../dev/components/dev-context";
 import {
   DocsCode,
   DocsP,
   ExampleGrid,
   Showcase,
   ShowcaseDocs,
-  ShowcaseExample
+  ShowcaseExample,
 } from "../../dev/components/showcase";
 
 function ResizableMicroShowcase() {
+  const t = useI18n();
   return (
     <div className="space-y-10">
-      <ShowcaseExample title="Horizontal Split" description="Kéo tay cầm để thay đổi kích thước bảng theo chiều ngang." code={`<ResizablePanelGroup
+      <ShowcaseExample
+        title={t("Horizontal Split", "Horizontal Split")}
+        description={t(
+          "Kéo tay cầm để thay đổi kích thước bảng theo chiều ngang.",
+          "Drag the handle to resize panels horizontally.",
+        )}
+        code={`<ResizablePanelGroup
     orientation="horizontal"
     className="max-w-md rounded-xl border border-border bg-card"
   >
@@ -34,34 +42,42 @@ function ResizableMicroShowcase() {
         </span>
       </div>
     </ResizablePanel>
-  </ResizablePanelGroup>`} preview={
-                  <>
-          <ResizablePanelGroup
-                    orientation="horizontal"
-                    className="max-w-md rounded-xl border border-border bg-card"
-                  >
-                    <ResizablePanel defaultSize={50}>
-                      <div className="flex h-50 items-center justify-center p-6">
-                        <span className="font-semibold text-sm">Thanh bên (Sidebar)</span>
-                      </div>
-                    </ResizablePanel>
-                    <ResizableHandle withHandle />
-                    <ResizablePanel defaultSize={50}>
-                      <div className="flex h-full items-center justify-center p-6">
-                        <span className="font-semibold text-sm">Nội dung</span>
-                      </div>
-                    </ResizablePanel>
-                  </ResizablePanelGroup>
-                  </>
-                } />
+  </ResizablePanelGroup>`}
+        preview={
+          <>
+            <ResizablePanelGroup
+              orientation="horizontal"
+              className="max-w-md rounded-xl border border-border bg-card"
+            >
+              <ResizablePanel defaultSize={50}>
+                <div className="flex h-50 items-center justify-center p-6">
+                  <span className="font-semibold text-sm">Sidebar</span>
+                </div>
+              </ResizablePanel>
+              <ResizableHandle withHandle />
+              <ResizablePanel defaultSize={50}>
+                <div className="flex h-full items-center justify-center p-6">
+                  <span className="font-semibold text-sm">Content</span>
+                </div>
+              </ResizablePanel>
+            </ResizablePanelGroup>
+          </>
+        }
+      />
 
-      <ShowcaseExample title="Vertical Split" description='orientation="vertical" chia bảng theo chiều dọc.' code={`<ResizablePanelGroup
+      <ShowcaseExample
+        title={t("Vertical Split", "Vertical Split")}
+        description={t(
+          'orientation="vertical" chia bảng theo chiều dọc.',
+          'orientation="vertical" splits panels vertically.',
+        )}
+        code={`<ResizablePanelGroup
     orientation="vertical"
     className="max-w-md rounded-xl border border-border bg-card"
   >
     <ResizablePanel defaultSize={50}>
       <div className="flex h-30 items-center justify-center p-6">
-        <span className="font-semibold text-sm">Trên</span>
+        <span className="font-semibold text-sm">Top</span>
       </div>
     </ResizablePanel>
     <ResizableHandle withHandle />
@@ -72,78 +88,102 @@ function ResizableMicroShowcase() {
         </span>
       </div>
     </ResizablePanel>
-  </ResizablePanelGroup>`} preview={
-                  <>
-          <ResizablePanelGroup
-                    orientation="vertical"
-                    className="max-w-md rounded-xl border border-border bg-card"
-                  >
-                    <ResizablePanel defaultSize={50}>
-                      <div className="flex h-30 items-center justify-center p-6">
-                        <span className="font-semibold text-sm">Trên</span>
-                      </div>
-                    </ResizablePanel>
-                    <ResizableHandle withHandle />
-                    <ResizablePanel defaultSize={50}>
-                      <div className="flex h-30 items-center justify-center p-6">
-                        <span className="font-semibold text-sm">Dưới</span>
-                      </div>
-                    </ResizablePanel>
-                  </ResizablePanelGroup>
-                  </>
-                } />
+  </ResizablePanelGroup>`}
+        preview={
+          <>
+            <ResizablePanelGroup
+              orientation="vertical"
+              className="max-w-md rounded-xl border border-border bg-card"
+            >
+              <ResizablePanel defaultSize={50}>
+                <div className="flex h-30 items-center justify-center p-6">
+                  <span className="font-semibold text-sm">Top</span>
+                </div>
+              </ResizablePanel>
+              <ResizableHandle withHandle />
+              <ResizablePanel defaultSize={50}>
+                <div className="flex h-30 items-center justify-center p-6">
+                  <span className="font-semibold text-sm">Bottom</span>
+                </div>
+              </ResizablePanel>
+            </ResizablePanelGroup>
+          </>
+        }
+      />
 
       <ExampleGrid>
-        <ShowcaseExample title="With Handle Grip" description="withHandle hiển thị thanh tay cầm trực quan ở giữa divider." code={`<ResizableHandle withHandle />`} preview={
-                      <>
+        <ShowcaseExample
+          title={t("With Handle Grip", "With Handle Grip")}
+          description={t(
+            "withHandle hiển thị thanh tay cầm trực quan ở giữa divider.",
+            "withHandle displays a visual handle grip in the middle of the divider.",
+          )}
+          code={`<ResizableHandle withHandle />`}
+          preview={
+            <>
               <ResizablePanelGroup
-                          orientation="horizontal"
-                          className="rounded-xl border border-border bg-card"
-                        >
-                          <ResizablePanel defaultSize={50}>
-                            <div className="flex h-30 items-center justify-center p-4">
-                              <span className="text-sm font-medium">Bảng A</span>
-                            </div>
-                          </ResizablePanel>
-                          <ResizableHandle withHandle />
-                          <ResizablePanel defaultSize={50}>
-                            <div className="flex h-full items-center justify-center p-4">
-                              <span className="text-sm font-medium">Bảng B</span>
-                            </div>
-                          </ResizablePanel>
-                        </ResizablePanelGroup>
-                      </>
-                    } />
+                orientation="horizontal"
+                className="rounded-xl border border-border bg-card"
+              >
+                <ResizablePanel defaultSize={50}>
+                  <div className="flex h-30 items-center justify-center p-4">
+                    <span className="text-sm font-medium">Panel A</span>
+                  </div>
+                </ResizablePanel>
+                <ResizableHandle withHandle />
+                <ResizablePanel defaultSize={50}>
+                  <div className="flex h-full items-center justify-center p-4">
+                    <span className="text-sm font-medium">Panel B</span>
+                  </div>
+                </ResizablePanel>
+              </ResizablePanelGroup>
+            </>
+          }
+        />
 
-        <ShowcaseExample title="Plain Divider" description="Bỏ withHandle để chỉ hiển thị đường phân cách mỏng, không có visual grip." code={`<ResizableHandle />`} preview={
-                      <>
+        <ShowcaseExample
+          title={t("Plain Divider", "Plain Divider")}
+          description={t(
+            "Bỏ withHandle để chỉ hiển thị đường phân cách mỏng, không có visual grip.",
+            "Omit withHandle to only display a thin divider line, without a visual grip.",
+          )}
+          code={`<ResizableHandle />`}
+          preview={
+            <>
               <ResizablePanelGroup
-                          orientation="horizontal"
-                          className="rounded-xl border border-border bg-card"
-                        >
-                          <ResizablePanel defaultSize={50}>
-                            <div className="flex h-30 items-center justify-center p-4">
-                              <span className="text-sm font-medium">Bảng A</span>
-                            </div>
-                          </ResizablePanel>
-                          <ResizableHandle />
-                          <ResizablePanel defaultSize={50}>
-                            <div className="flex h-full items-center justify-center p-4">
-                              <span className="text-sm font-medium">Bảng B</span>
-                            </div>
-                          </ResizablePanel>
-                        </ResizablePanelGroup>
-                      </>
-                    } />
+                orientation="horizontal"
+                className="rounded-xl border border-border bg-card"
+              >
+                <ResizablePanel defaultSize={50}>
+                  <div className="flex h-30 items-center justify-center p-4">
+                    <span className="text-sm font-medium">Panel A</span>
+                  </div>
+                </ResizablePanel>
+                <ResizableHandle />
+                <ResizablePanel defaultSize={50}>
+                  <div className="flex h-full items-center justify-center p-4">
+                    <span className="text-sm font-medium">Panel B</span>
+                  </div>
+                </ResizablePanel>
+              </ResizablePanelGroup>
+            </>
+          }
+        />
       </ExampleGrid>
 
-      <ShowcaseExample title="Nested Layout" description="Bố cục phức tạp với các nhóm có thể thay đổi kích thước lồng nhau." code={`<ResizablePanelGroup
+      <ShowcaseExample
+        title={t("Nested Layout", "Nested Layout")}
+        description={t(
+          "Bố cục phức tạp với các nhóm có thể thay đổi kích thước lồng nhau.",
+          "Complex layout with nested resizable groups.",
+        )}
+        code={`<ResizablePanelGroup
     orientation="horizontal"
     className="max-w-md rounded-xl border border-border bg-card"
   >
     <ResizablePanel defaultSize={25} minSize={15}>
       <div className="flex h-[250px] items-center justify-center p-6">
-        <span className="font-semibold text-sm">Điều hướng</span>
+        <span className="font-semibold text-sm">Navigation</span>
       </div>
     </ResizablePanel>
     <ResizableHandle />
@@ -166,45 +206,53 @@ function ResizableMicroShowcase() {
         </ResizablePanel>
       </ResizablePanelGroup>
     </ResizablePanel>
-  </ResizablePanelGroup>`} preview={
-                  <>
-          <ResizablePanelGroup
-                    orientation="horizontal"
-                    className="max-w-md rounded-xl border border-border bg-card"
-                  >
-                    <ResizablePanel defaultSize={25} minSize={15}>
-                      <div className="flex h-[250px] items-center justify-center p-6">
-                        <span className="font-semibold text-sm">Điều hướng</span>
-                      </div>
-                    </ResizablePanel>
-                    <ResizableHandle />
-                    <ResizablePanel defaultSize={75}>
-                      <ResizablePanelGroup orientation="vertical">
-                        <ResizablePanel defaultSize={25} minSize={20}>
-                          <div className="flex h-full items-center justify-center p-6">
-                            <span className="font-semibold text-sm">Thanh trên</span>
-                          </div>
-                        </ResizablePanel>
-                        <ResizableHandle />
-                        <ResizablePanel defaultSize={75}>
-                          <div className="flex h-full items-center justify-center p-6">
-                            <span className="font-semibold text-sm">Nội dung chính</span>
-                          </div>
-                        </ResizablePanel>
-                      </ResizablePanelGroup>
-                    </ResizablePanel>
-                  </ResizablePanelGroup>
-                  </>
-                } />
+  </ResizablePanelGroup>`}
+        preview={
+          <>
+            <ResizablePanelGroup
+              orientation="horizontal"
+              className="max-w-md rounded-xl border border-border bg-card"
+            >
+              <ResizablePanel defaultSize={25} minSize={15}>
+                <div className="flex h-[250px] items-center justify-center p-6">
+                  <span className="font-semibold text-sm">Navigation</span>
+                </div>
+              </ResizablePanel>
+              <ResizableHandle />
+              <ResizablePanel defaultSize={75}>
+                <ResizablePanelGroup orientation="vertical">
+                  <ResizablePanel defaultSize={25} minSize={20}>
+                    <div className="flex h-full items-center justify-center p-6">
+                      <span className="font-semibold text-sm">Top Bar</span>
+                    </div>
+                  </ResizablePanel>
+                  <ResizableHandle />
+                  <ResizablePanel defaultSize={75}>
+                    <div className="flex h-full items-center justify-center p-6">
+                      <span className="font-semibold text-sm">
+                        Content chính
+                      </span>
+                    </div>
+                  </ResizablePanel>
+                </ResizablePanelGroup>
+              </ResizablePanel>
+            </ResizablePanelGroup>
+          </>
+        }
+      />
     </div>
   );
 }
 
 export default function ResizableShowcase() {
+  const t = useI18n();
   return (
     <Showcase
       title="Resizable"
-      description="Panel có thể thay đổi kích thước với hỗ trợ bàn phím, lồng nhau linh hoạt."
+      description={t(
+        "Panel có thể thay đổi kích thước với hỗ trợ bàn phím, lồng nhau linh hoạt.",
+        "Resizable panels with keyboard support, flexible nesting.",
+      )}
       guideline={
         <ShowcaseDocs>
           <DocsP>

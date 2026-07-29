@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import { useI18n } from "../../dev/components/dev-context";
+
 import { BookOpenIcon, CheckIcon, CopyIcon } from "lucide-react";
 
 import { Button } from "../../components/micro/button";
@@ -41,12 +43,13 @@ export function SectionHeader({
 }
 
 export function ShowcaseDocs({ children, className }: { children: React.ReactNode; className?: string }) {
+  const t = useI18n();
   return (
     <div className={cn("overflow-hidden rounded-2xl border border-amber-500/20 bg-amber-500/5 shadow-sm", className)}>
       <div className="flex items-center gap-2 border-b border-amber-500/20 bg-amber-500/10 px-6 py-3.5">
         <BookOpenIcon className="size-4 text-amber-700 dark:text-amber-500" />
         <h3 className="text-sm font-semibold text-amber-900 dark:text-amber-200">
-          Hướng dẫn sử dụng
+          {t("Hướng dẫn sử dụng", "Usage Guide")}
         </h3>
       </div>
       <div className="px-6 py-5 text-[15px] leading-relaxed text-muted-foreground">

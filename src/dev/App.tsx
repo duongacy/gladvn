@@ -373,12 +373,12 @@ export default function App() {
               size="sm"
               variant="default"
               spacing={2}
-              className="flex items-center gap-1 justify-end shrink-0 w-[72px]"
+              className="flex items-center gap-1 justify-end shrink-0 w-[88px]"
             >
               <ToggleGroupItem
                 value="vi"
                 className={cn(
-                  "w-8 h-8 p-0 flex items-center justify-center transition-opacity duration-300",
+                  "w-10 h-8 p-0 flex items-center justify-center transition-opacity duration-300",
                   language === "vi"
                     ? "opacity-100"
                     : "opacity-50 hover:opacity-80",
@@ -397,7 +397,7 @@ export default function App() {
               <ToggleGroupItem
                 value="en"
                 className={cn(
-                  "w-8 h-8 p-0 flex items-center justify-center transition-opacity duration-300",
+                  "w-10 h-8 p-0 flex items-center justify-center transition-opacity duration-300",
                   language === "en"
                     ? "opacity-100"
                     : "opacity-50 hover:opacity-80",

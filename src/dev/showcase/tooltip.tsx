@@ -183,6 +183,56 @@ function TooltipMicroShowcase({ globalSize }: { globalSize: Size }) {
             </>
           }
         />
+
+        <ShowcaseExample
+          title={t("Trigger bị vô hiệu (Disabled Trigger)", "Disabled Trigger")}
+          description={t(
+            "Mặc định, nút bị vô hiệu hoá (disabled) sẽ không hiển thị Tooltip vì không nhận sự kiện chuột. Đây là hành vi chuẩn.",
+            "By default, a disabled button will not show the Tooltip because it does not receive pointer events. This is standard behavior.",
+          )}
+          code={`<TooltipProvider>
+    <Tooltip>
+      <TooltipTrigger
+        render={
+          <Button
+            variant="outline"
+            disabled
+            iconOnly
+          >
+            <ShieldAlertIcon />
+          </Button>
+        }
+      />
+      <TooltipContent side="right">
+        <p>You do not have permission to perform this action.</p>
+      </TooltipContent>
+    </Tooltip>
+  </TooltipProvider>`}
+          preview={
+            <>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger
+                    render={
+                      <Button
+                        variant="outline"
+                        size={globalSize}
+                        disabled
+                        iconOnly
+                      >
+                        <ShieldAlertIcon />
+                      </Button>
+                    }
+                  />
+
+                  <TooltipContent side="right">
+                    <p>You do not have permission to perform this action.</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            </>
+          }
+        />
       </ExampleGrid>
 
       <ShowcaseExample

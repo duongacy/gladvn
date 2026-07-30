@@ -359,7 +359,7 @@ function SliderMicroShowcase({ globalSize }: { globalSize: Size }) {
         </SliderControl>
       </CompositionalSlider>
     </FieldContent>
-    <FieldError>Ngân sách của bạn chỉ còn $100.</FieldError>
+    <FieldError>You only have $100 left in your budget.</FieldError>
   </Field>`}
           preview={
             <>
@@ -385,7 +385,7 @@ function SliderMicroShowcase({ globalSize }: { globalSize: Size }) {
                     </SliderControl>
                   </CompositionalSlider>
                 </FieldContent>
-                <FieldError>Ngân sách của bạn chỉ còn $100.</FieldError>
+                <FieldError>You only have $100 left in your budget.</FieldError>
               </Field>
             </>
           }

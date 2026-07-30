@@ -1,6 +1,6 @@
 {
   "name": "gladvn",
-  "version": "0.2.43",
+  "version": "0.2.44",
   "type": "module",
   "packageManager": "pnpm@10.11.0",
   "description": "A CLI to scaffold beautiful, accessible React components into your project. Powered by Tailwind CSS v4 and Base UI.",

@@ -379,15 +379,21 @@ export default function HoverCardShowcase() {
       guideline={
         <ShowcaseDocs>
           <DocsP>
+            <DocsCode>HoverCard</DocsCode>
             {t(
-              "<DocsCode>HoverCard</DocsCode> hiển thị một khung xem trước thông tin bổ sung khi người dùng di chuột qua (hover) một phần tử, thường là một liên kết hoặc một từ khoá. Nó giúp người dùng nắm bắt thông tin nhanh chóng mà không cần chuyển hướng hay click.",
-              "<DocsCode>HoverCard</DocsCode> displays a preview pane of additional information when the user hovers over an element, usually a link or a keyword. It helps users quickly grasp information without navigating or clicking.",
+              " hiển thị một khung xem trước thông tin bổ sung khi người dùng di chuột qua (hover) một phần tử, thường là một liên kết hoặc một từ khoá. Nó giúp người dùng nắm bắt thông tin nhanh chóng mà không cần chuyển hướng hay click.",
+              " displays a preview pane of additional information when the user hovers over an element, usually a link or a keyword. It helps users quickly grasp information without navigating or clicking.",
             )}
           </DocsP>
           <DocsP>
             {t(
-              "Trigger hỗ trợ polymorphism qua prop <DocsCode>render</DocsCode> — bạn có thể truyền bất kỳ phần tử nào (Button, anchor, span…) và HoverCard sẽ giữ nguyên style & a11y của phần tử đó.",
-              "Trigger supports polymorphism via the <DocsCode>render</DocsCode> prop — you can pass any element (Button, anchor, span…) and HoverCard will retain the style & a11y of that element.",
+              "Trigger hỗ trợ polymorphism qua prop ",
+              "Trigger supports polymorphism via the ",
+            )}
+            <DocsCode>render</DocsCode>
+            {t(
+              " — bạn có thể truyền bất kỳ phần tử nào (Button, anchor, span…) và HoverCard sẽ giữ nguyên style & a11y của phần tử đó.",
+              " prop — you can pass any element (Button, anchor, span…) and HoverCard will retain the style & a11y of that element.",
             )}
           </DocsP>
         </ShowcaseDocs>

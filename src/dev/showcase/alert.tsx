@@ -162,7 +162,8 @@ function AlertMicroShowcase({ globalSize }: { globalSize: Size }) {
           "Mỗi màu sắc truyền đạt một mức độ khẩn cấp hoặc ý nghĩa khác nhau.",
           "Each color conveys a different level of urgency or meaning.",
         )}
-        code={`<Alert color="info" className="flex items-start">
+        code={`<div className="flex flex-col gap-4 w-full">
+  <Alert color="info" className="flex items-start">
     <AlertIcon
       render={<InfoIcon />}
       className="mt-0.5 shrink-0"
@@ -213,65 +214,68 @@ function AlertMicroShowcase({ globalSize }: { globalSize: Size }) {
         Cannot connect to the database. Please check your network connection.
       </AlertDescription>
     </div>
-  </Alert>`}
+  </Alert>
+</div>`}
         preview={
           <>
-            <Alert color="info" size={globalSize} className="flex items-start">
-              <AlertIcon render={<InfoIcon />} className="mt-0.5 shrink-0" />
-              <div className="flex-1 space-y-0.5">
-                <AlertTitle>New update available</AlertTitle>
-                <AlertDescription>
-                  Version 2.0.4 is ready to download. Please update to
-                  experience new features.
-                </AlertDescription>
-              </div>
-            </Alert>
-            <Alert
-              color="success"
-              size={globalSize}
-              className="flex items-start"
-            >
-              <AlertIcon
-                render={<CheckCircle2Icon />}
-                className="mt-0.5 shrink-0"
-              />
-              <div className="flex-1 space-y-0.5">
-                <AlertTitle>Saved successfully</AlertTitle>
-                <AlertDescription>
-                  Your changes have been synced to the cloud.
-                </AlertDescription>
-              </div>
-            </Alert>
-            <Alert
-              color="warning"
-              size={globalSize}
-              className="flex items-start"
-            >
-              <AlertIcon
-                render={<TriangleAlertIcon />}
-                className="mt-0.5 shrink-0"
-              />
-              <div className="flex-1 space-y-0.5">
-                <AlertTitle>Session expiring soon</AlertTitle>
-                <AlertDescription>
-                  Your session will expire in 5 minutes. Please save your work.
-                </AlertDescription>
-              </div>
-            </Alert>
-            <Alert
-              color="destructive"
-              size={globalSize}
-              className="flex items-start"
-            >
-              <AlertIcon render={<XCircleIcon />} className="mt-0.5 shrink-0" />
-              <div className="flex-1 space-y-0.5">
-                <AlertTitle>Connection failed</AlertTitle>
-                <AlertDescription>
-                  Cannot connect to the database. Please check your network
-                  connection.
-                </AlertDescription>
-              </div>
-            </Alert>
+            <div className="flex flex-col gap-4 w-full">
+              <Alert color="info" size={globalSize} className="flex items-start">
+                <AlertIcon render={<InfoIcon />} className="mt-0.5 shrink-0" />
+                <div className="flex-1 space-y-0.5">
+                  <AlertTitle>New update available</AlertTitle>
+                  <AlertDescription>
+                    Version 2.0.4 is ready to download. Please update to
+                    experience new features.
+                  </AlertDescription>
+                </div>
+              </Alert>
+              <Alert
+                color="success"
+                size={globalSize}
+                className="flex items-start"
+              >
+                <AlertIcon
+                  render={<CheckCircle2Icon />}
+                  className="mt-0.5 shrink-0"
+                />
+                <div className="flex-1 space-y-0.5">
+                  <AlertTitle>Saved successfully</AlertTitle>
+                  <AlertDescription>
+                    Your changes have been synced to the cloud.
+                  </AlertDescription>
+                </div>
+              </Alert>
+              <Alert
+                color="warning"
+                size={globalSize}
+                className="flex items-start"
+              >
+                <AlertIcon
+                  render={<TriangleAlertIcon />}
+                  className="mt-0.5 shrink-0"
+                />
+                <div className="flex-1 space-y-0.5">
+                  <AlertTitle>Session expiring soon</AlertTitle>
+                  <AlertDescription>
+                    Your session will expire in 5 minutes. Please save your work.
+                  </AlertDescription>
+                </div>
+              </Alert>
+              <Alert
+                color="destructive"
+                size={globalSize}
+                className="flex items-start"
+              >
+                <AlertIcon render={<XCircleIcon />} className="mt-0.5 shrink-0" />
+                <div className="flex-1 space-y-0.5">
+                  <AlertTitle>Connection failed</AlertTitle>
+                  <AlertDescription>
+                    Cannot connect to the database. Please check your network
+                    connection.
+                  </AlertDescription>
+                </div>
+              </Alert>
+            </div>
           </>
         }
       />
@@ -376,7 +380,8 @@ function AlertMicroShowcase({ globalSize }: { globalSize: Size }) {
           "Alert chỉ có nội dung mô tả, không có tiêu đề.",
           "Alert with only description content, without a title.",
         )}
-        code={`<Alert color="info" className="flex items-start">
+        code={`<div className="flex flex-col gap-4 w-full">
+  <Alert color="info" className="flex items-start">
     <AlertIcon
       render={<InfoIcon />}
       className="mt-0.5 shrink-0"
@@ -393,28 +398,31 @@ function AlertMicroShowcase({ globalSize }: { globalSize: Size }) {
     <AlertDescription className="flex-1">
       Your trial will expire in 3 days.
     </AlertDescription>
-  </Alert>`}
+  </Alert>
+</div>`}
         preview={
           <>
-            <Alert color="info" size={globalSize} className="flex items-start">
-              <AlertIcon render={<InfoIcon />} className="mt-0.5 shrink-0" />
-              <AlertDescription className="flex-1">
-                You can add components to your project using the CLI.
-              </AlertDescription>
-            </Alert>
-            <Alert
-              color="warning"
-              size={globalSize}
-              className="flex items-start"
-            >
-              <AlertIcon
-                render={<TriangleAlertIcon />}
-                className="mt-0.5 shrink-0"
-              />
-              <AlertDescription className="flex-1">
-                Your trial will expire in 3 days.
-              </AlertDescription>
-            </Alert>
+            <div className="flex flex-col gap-4 w-full">
+              <Alert color="info" size={globalSize} className="flex items-start">
+                <AlertIcon render={<InfoIcon />} className="mt-0.5 shrink-0" />
+                <AlertDescription className="flex-1">
+                  You can add components to your project using the CLI.
+                </AlertDescription>
+              </Alert>
+              <Alert
+                color="warning"
+                size={globalSize}
+                className="flex items-start"
+              >
+                <AlertIcon
+                  render={<TriangleAlertIcon />}
+                  className="mt-0.5 shrink-0"
+                />
+                <AlertDescription className="flex-1">
+                  Your trial will expire in 3 days.
+                </AlertDescription>
+              </Alert>
+            </div>
           </>
         }
       />
@@ -426,7 +434,8 @@ function AlertMicroShowcase({ globalSize }: { globalSize: Size }) {
           "Alert đơn giản không có icon — layout tự nhiên.",
           "Simple alert without an icon — natural layout.",
         )}
-        code={`<Alert color="success" className="flex flex-col gap-0.5">
+        code={`<div className="flex flex-col gap-4 w-full">
+  <Alert color="success" className="flex flex-col gap-0.5">
     <AlertTitle>Payment successful</AlertTitle>
     <AlertDescription>
       Your invoice #1234 has been fully paid.
@@ -440,29 +449,32 @@ function AlertMicroShowcase({ globalSize }: { globalSize: Size }) {
     <AlertDescription>
       Please contact support to unlock your account.
     </AlertDescription>
-  </Alert>`}
+  </Alert>
+</div>`}
         preview={
           <>
-            <Alert
-              color="success"
-              size={globalSize}
-              className="flex flex-col gap-0.5"
-            >
-              <AlertTitle>Payment successful</AlertTitle>
-              <AlertDescription>
-                Your invoice #1234 has been fully paid.
-              </AlertDescription>
-            </Alert>
-            <Alert
-              color="destructive"
-              size={globalSize}
-              className="flex flex-col gap-0.5"
-            >
-              <AlertTitle>Account locked</AlertTitle>
-              <AlertDescription>
-                Please contact support to unlock your account.
-              </AlertDescription>
-            </Alert>
+            <div className="flex flex-col gap-4 w-full">
+              <Alert
+                color="success"
+                size={globalSize}
+                className="flex flex-col gap-0.5"
+              >
+                <AlertTitle>Payment successful</AlertTitle>
+                <AlertDescription>
+                  Your invoice #1234 has been fully paid.
+                </AlertDescription>
+              </Alert>
+              <Alert
+                color="destructive"
+                size={globalSize}
+                className="flex flex-col gap-0.5"
+              >
+                <AlertTitle>Account locked</AlertTitle>
+                <AlertDescription>
+                  Please contact support to unlock your account.
+                </AlertDescription>
+              </Alert>
+            </div>
           </>
         }
       />

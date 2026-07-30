@@ -755,14 +755,8 @@ export default function AlertDialogShowcase() {
         <ShowcaseDocs>
           <DocsP>
             {t(
-              t(
-                "Dùng để làm gián đoạn người dùng với một thông báo hoặc xác nhận cực\n            kỳ quan trọng, thường mang tính phá huỷ (như Delete dữ liệu, Đăng xuất)\n            hoặc không thể hoàn tác. Yêu cầu người dùng phải hành động rõ ràng\n            thì mới thoát được cửa sổ.",
-                "Dùng để làm gián đoạn người dùng với một thông báo hoặc xác nhận cực\n            kỳ quan trọng, thường mang tính phá huỷ (như Delete dữ liệu, Đăng xuất)\n            hoặc không thể hoàn tác. Yêu cầu người dùng phải hành động rõ ràng\n            thì mới thoát được cửa sổ.",
-              ),
-              t(
-                "Dùng để làm gián đoạn người dùng với một thông báo hoặc xác nhận cực\n            kỳ quan trọng, thường mang tính phá huỷ (như Delete dữ liệu, Đăng xuất)\n            hoặc không thể hoàn tác. Yêu cầu người dùng phải hành động rõ ràng\n            thì mới thoát được cửa sổ.",
-                "Dùng để làm gián đoạn người dùng với một thông báo hoặc xác nhận cực\n            kỳ quan trọng, thường mang tính phá huỷ (như Delete dữ liệu, Đăng xuất)\n            hoặc không thể hoàn tác. Yêu cầu người dùng phải hành động rõ ràng\n            thì mới thoát được cửa sổ.",
-              ),
+              "Dùng để làm gián đoạn người dùng với một thông báo hoặc xác nhận cực kỳ quan trọng, thường mang tính phá huỷ (như Delete dữ liệu, Đăng xuất) hoặc không thể hoàn tác. Yêu cầu người dùng phải hành động rõ ràng thì mới thoát được cửa sổ.",
+              "Used to interrupt the user with a critical notification or confirmation, usually destructive (e.g., Delete data, Logout) or irreversible. Requires the user to take a specific action to close the dialog."
             )}
           </DocsP>
         </ShowcaseDocs>

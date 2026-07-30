@@ -524,12 +524,4 @@ export const COMPONENTS = [
     hasMacro: false,
     status: "new",
   },
-  {
-    id: "why",
-    category: "Khác",
-    label: "Tại sao chọn gladvn?",
-    hasMicro: false,
-    hasMacro: false,
-    status: "stable",
-  },
 ];

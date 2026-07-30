@@ -262,18 +262,18 @@ function KbdMicroShowcase() {
           "Kbd used inline in text to hint at shortcuts — common in help text, onboarding, documentation.",
         )}
         code={`<p className="text-sm text-muted-foreground">
-    Press <Kbd>Enter</Kbd> để gửi, hoặc{" "}
+    Press <Kbd>Enter</Kbd> {t("để gửi, hoặc ", "to send, or ")}
     <KbdGroup>
       <Kbd>⇧</Kbd>
       <Kbd>Enter</Kbd>
     </KbdGroup>{" "}
-    to newline.
+    {t("to newline.", "to newline.")}
   </p>`}
         preview={
           <>
             <div className="space-y-3">
               <p className="text-sm text-muted-foreground">
-                Press <Kbd>Enter</Kbd> để gửi, hoặc{" "}
+                Press <Kbd>Enter</Kbd> {t("để gửi, hoặc ", "to send, or ")}
                 <KbdGroup>
                   <Kbd>⇧</Kbd>
                   <Kbd>Enter</Kbd>
@@ -295,7 +295,7 @@ export default function KbdShowcase() {
   const t = useI18n();
   return (
     <Showcase
-      title="Keyboard Shortcut"
+      title={t("Phím tắt (Keyboard Shortcut)", "Keyboard Shortcut")}
       description={t(
         "Hiển thị phím tắt bàn phím dạng inline với thẻ HTML semantic <kbd>.",
         "Displays inline keyboard shortcuts with semantic HTML <kbd> tag.",
@@ -303,15 +303,24 @@ export default function KbdShowcase() {
       guideline={
         <ShowcaseDocs>
           <DocsP>
-            <DocsCode>Kbd</DocsCode> dùng thẻ HTML semantic{" "}
-            <DocsCode>&lt;kbd&gt;</DocsCode> để biểu diễn một phím bàn phím.
-            Screen reader nhận ra đây là keyboard input thay vì văn bản thường.
+            <DocsCode>Kbd</DocsCode>
+            {t(" dùng thẻ HTML semantic ", " uses the semantic HTML tag ")}
+            <DocsCode>&lt;kbd&gt;</DocsCode>
+            {t(
+              " để biểu diễn một phím bàn phím. Screen reader nhận ra đây là keyboard input thay vì văn bản thường.",
+              " to represent a keyboard key. Screen readers recognize this as keyboard input instead of regular text.",
+            )}
           </DocsP>
           <DocsP>
-            <DocsCode>KbdGroup</DocsCode> nhóm nhiều <DocsCode>Kbd</DocsCode>{" "}
-            lại để tạo tổ hợp phím (ví dụ: ⌘ + ⇧ + P). Kbd tự thích nghi màu sắc
-            khi nằm trong <DocsCode>TooltipContent</DocsCode> nhờ data-slot
-            context.
+            <DocsCode>KbdGroup</DocsCode>
+            {t(" nhóm nhiều ", " groups multiple ")}
+            <DocsCode>Kbd</DocsCode>
+            {t(
+              " lại để tạo tổ hợp phím (ví dụ: ⌘ + ⇧ + P). Kbd tự thích nghi màu sắc khi nằm trong ",
+              " together to create a key combination (e.g., ⌘ + ⇧ + P). Kbd automatically adapts its colors when placed inside ",
+            )}
+            <DocsCode>TooltipContent</DocsCode>
+            {t(" nhờ data-slot context.", " thanks to the data-slot context.")}
           </DocsP>
         </ShowcaseDocs>
       }

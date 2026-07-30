@@ -419,7 +419,7 @@ export default function MenubarShowcase() {
   const t = useI18n();
   return (
     <Showcase
-      title="Menubar"
+      title={t("Thanh Menu (Menubar)", "Menubar")}
       description={t(
         "Thanh menu cố định dạng ngang — phổ biến trong các desktop app (File, Edit, View...).",
         "Horizontal fixed menubar — common in desktop apps (File, Edit, View...).",
@@ -427,10 +427,10 @@ export default function MenubarShowcase() {
       guideline={
         <ShowcaseDocs>
           <DocsP>
-            Menubar cung cấp thanh điều hướng ngang với các menu dropdown
-            (thường thấy trên thanh công cụ của hệ điều hành như macOS). Nó hỗ
-            trợ nhiều tính năng phức tạp như sub-menus, checkbox, radio group,
-            và shortcut keys.
+            {t(
+              "Menubar cung cấp thanh điều hướng ngang với các menu dropdown (thường thấy trên thanh công cụ của hệ điều hành như macOS). Nó hỗ trợ nhiều tính năng phức tạp như sub-menus, checkbox, radio group, và shortcut keys.",
+              "Menubar provides a horizontal navigation bar with dropdown menus (often seen on OS toolbars like macOS). It supports complex features like sub-menus, checkbox, radio group, and shortcut keys.",
+            )}
           </DocsP>
         </ShowcaseDocs>
       }

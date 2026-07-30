@@ -20,7 +20,7 @@ export default function ChartShowcase() {
   const t = useI18n();
   return (
     <Showcase
-      title="Chart"
+      title={t("Biểu đồ (Chart)", "Chart")}
       description={t(
         "Biểu đồ đẹp và responsive, xây dựng trên nền Recharts.",
         "Beautiful and responsive charts, built on top of Recharts.",
@@ -28,11 +28,18 @@ export default function ChartShowcase() {
       guideline={
         <ShowcaseDocs>
           <DocsP>
-            Component wrapper cho thư viện <DocsCode>Recharts</DocsCode>. Cung
-            cấp <DocsCode>ChartContainer</DocsCode> để cấu hình theme màu sắc,{" "}
-            <DocsCode>ChartTooltip</DocsCode> và{" "}
-            <DocsCode>ChartLegend</DocsCode> để hiển thị thông tin bổ sung khi
-            hover.
+            {t("Component wrapper cho thư viện ", "Component wrapper for the ")}
+            <DocsCode>Recharts</DocsCode>
+            {t(" library. Cung cấp ", ". Provides ")}
+            <DocsCode>ChartContainer</DocsCode>
+            {t(" để cấu hình theme màu sắc, ", " to configure color themes, ")}
+            <DocsCode>ChartTooltip</DocsCode>
+            {t(" và ", " and ")}
+            <DocsCode>ChartLegend</DocsCode>
+            {t(
+              " để hiển thị thông tin bổ sung khi hover.",
+              " to display additional information on hover.",
+            )}
           </DocsP>
         </ShowcaseDocs>
       }

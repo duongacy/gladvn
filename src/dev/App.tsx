@@ -1,5 +1,11 @@
-import React, { Suspense, lazy, useCallback, useEffect, useMemo, useState } from "react";
-import { cn } from "../lib/utils";
+import React, {
+  Suspense,
+  lazy,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 
 import {
   LayersIcon,
@@ -10,7 +16,6 @@ import {
   XIcon,
 } from "lucide-react";
 
-import { ToggleGroup, ToggleGroupItem } from "../components/micro/toggle-group";
 import {
   Command,
   CommandDialog,
@@ -23,11 +28,13 @@ import {
 import { Button } from "../components/micro/button";
 import { Separator } from "../components/micro/separator";
 import { useTheme } from "../components/micro/theme-provider";
+import { ToggleGroup, ToggleGroupItem } from "../components/micro/toggle-group";
 import { GladvnLogo } from "../dev/components/GladvnLogo";
 import { useDevContext } from "../dev/components/dev-context";
 import { SizeToggle } from "../dev/components/showcase";
 import { COMPONENTS } from "../dev/data";
 import OverviewSection from "../dev/showcase/overview";
+import { cn } from "../lib/utils";
 
 const components: Record<string, React.LazyExoticComponent<any>> = {};
 COMPONENTS.forEach((comp) => {
@@ -53,11 +60,7 @@ const componentCategories = [
   "Khác",
 ];
 
-const blockCategories = [
-  "Dashboard",
-  "Cài đặt",
-  "Xác thực",
-];
+const blockCategories = ["Dashboard", "Cài đặt", "Xác thực"];
 
 const categoryTranslations: Record<string, string> = {
   "Bố cục & Cấu trúc": "Layout",
@@ -65,8 +68,8 @@ const categoryTranslations: Record<string, string> = {
   "Phản hồi & Lớp phủ": "Feedback",
   "Điều hướng": "Navigation",
   "Hiển thị Dữ liệu": "Data Display",
-  "Khác": "Miscellaneous",
-  "Dashboard": "Dashboard",
+  Khác: "Miscellaneous",
+  Dashboard: "Dashboard",
   "Cài đặt": "Settings",
   "Xác thực": "Authentication",
 };
@@ -76,7 +79,6 @@ const labelTranslations: Record<string, string> = {
   "Form Đăng nhập": "Login Form",
   "Khôi phục Mật khẩu": "Password Reset",
   "Đăng nhập (Chia màn hình)": "Login (Split Layout)",
-  "Tại sao chọn gladvn?": "Why gladvn?",
 };
 
 function ComponentViewer({ id }: { id: string }) {
@@ -99,10 +101,19 @@ function ComponentViewer({ id }: { id: string }) {
 }
 
 function PreviewViewer({ blockId }: { blockId: string }) {
-  const Block = useMemo(() => lazy(() => import(`../blocks/${blockId}.tsx`)), [blockId]);
+  const Block = useMemo(
+    () => lazy(() => import(`../blocks/${blockId}.tsx`)),
+    [blockId],
+  );
 
   return (
-    <Suspense fallback={<div className="p-12 text-center text-muted-foreground animate-pulse">Loading preview...</div>}>
+    <Suspense
+      fallback={
+        <div className="p-12 text-center text-muted-foreground animate-pulse">
+          Loading preview...
+        </div>
+      }
+    >
       <div className="w-full min-h-screen bg-background antialiased">
         <Block />
       </div>
@@ -111,7 +122,10 @@ function PreviewViewer({ blockId }: { blockId: string }) {
 }
 
 export default function App() {
-  if (typeof window !== "undefined" && window.location.pathname.startsWith("/preview/")) {
+  if (
+    typeof window !== "undefined" &&
+    window.location.pathname.startsWith("/preview/")
+  ) {
     const blockId = window.location.pathname.replace(/^\/preview\//, "");
     return <PreviewViewer blockId={blockId} />;
   }
@@ -135,7 +149,10 @@ export default function App() {
     return "overview";
   });
 
-  const activeComponent = useMemo(() => COMPONENTS.find((c) => c.id === active), [active]);
+  const activeComponent = useMemo(
+    () => COMPONENTS.find((c) => c.id === active),
+    [active],
+  );
 
   const setActive = useCallback((id: string) => {
     setActiveState(id);
@@ -166,7 +183,8 @@ export default function App() {
     const handlePopState = () => {
       const params = new URLSearchParams(window.location.search);
       const queryComp = params.get("component");
-      const comp = queryComp || window.location.pathname.replace(/^\/+/, "") || "overview";
+      const comp =
+        queryComp || window.location.pathname.replace(/^\/+/, "") || "overview";
       setActiveState(comp);
       window.scrollTo({ top: 0, behavior: "smooth" });
     };
@@ -240,45 +258,51 @@ export default function App() {
           <div className="flex-1 justify-center gap-6 hidden md:flex items-center mx-4">
             <button
               onClick={() => setActive("overview")}
-              className={cn(
-                "text-[14px] font-medium transition-colors",
-                {
-                  "text-foreground": active === "overview",
-                  "text-muted-foreground hover:text-foreground": !(active === "overview")
-                }
-              )}
+              className={cn("text-[14px] font-medium transition-colors", {
+                "text-foreground": active === "overview",
+                "text-muted-foreground hover:text-foreground": !(
+                  active === "overview"
+                ),
+              })}
             >
               {language === "en" ? "Overview" : "Tổng quan"}
             </button>
             <button
               onClick={() => {
-                if (active === "overview" || blockCategories.includes(activeComponent?.category || "")) {
+                if (
+                  active === "overview" ||
+                  blockCategories.includes(activeComponent?.category || "")
+                ) {
                   setActive("accordion");
                 }
               }}
-              className={cn(
-                "text-[14px] font-medium transition-colors",
-                {
-                  "text-foreground": active !== "overview" && !blockCategories.includes(activeComponent?.category || ""),
-                  "text-muted-foreground hover:text-foreground": !(active !== "overview" && !blockCategories.includes(activeComponent?.category || ""))
-                }
-              )}
+              className={cn("text-[14px] font-medium transition-colors", {
+                "text-foreground":
+                  active !== "overview" &&
+                  !blockCategories.includes(activeComponent?.category || ""),
+                "text-muted-foreground hover:text-foreground": !(
+                  active !== "overview" &&
+                  !blockCategories.includes(activeComponent?.category || "")
+                ),
+              })}
             >
               Components
             </button>
             <button
               onClick={() => {
-                if (!blockCategories.includes(activeComponent?.category || "")) {
+                if (
+                  !blockCategories.includes(activeComponent?.category || "")
+                ) {
                   setActive("dashboard-block");
                 }
               }}
-              className={cn(
-                "text-[14px] font-medium transition-colors",
-                {
-                  "text-foreground": blockCategories.includes(activeComponent?.category || ""),
-                  "text-muted-foreground hover:text-foreground": !(blockCategories.includes(activeComponent?.category || ""))
-                }
-              )}
+              className={cn("text-[14px] font-medium transition-colors", {
+                "text-foreground": blockCategories.includes(
+                  activeComponent?.category || "",
+                ),
+                "text-muted-foreground hover:text-foreground":
+                  !blockCategories.includes(activeComponent?.category || ""),
+              })}
             >
               Blocks
             </button>
@@ -303,7 +327,6 @@ export default function App() {
 
           {/* Right — GitHub + npx + theme toggle */}
           <div className="flex items-center gap-1.5">
-
             <Button
               variant="ghost"
               iconOnly
@@ -344,7 +367,9 @@ export default function App() {
 
             <ToggleGroup
               value={[language]}
-              onValueChange={(v) => { if (v && v.length > 0) setLanguage(v[0] as "vi" | "en") }}
+              onValueChange={(v) => {
+                if (v && v.length > 0) setLanguage(v[0] as "vi" | "en");
+              }}
               size="sm"
               variant="default"
               spacing={2}
@@ -352,17 +377,41 @@ export default function App() {
             >
               <ToggleGroupItem
                 value="vi"
-                className={cn("w-8 h-8 p-0 flex items-center justify-center transition-opacity duration-300", language === "vi" ? "opacity-100" : "opacity-50 hover:opacity-80")}
+                className={cn(
+                  "w-8 h-8 p-0 flex items-center justify-center transition-opacity duration-300",
+                  language === "vi"
+                    ? "opacity-100"
+                    : "opacity-50 hover:opacity-80",
+                )}
                 aria-label="Tiếng Việt"
               >
-                <span className={cn("text-lg leading-none inline-block transition-transform duration-300", language === "vi" ? "scale-110" : "scale-75")}>🇻🇳</span>
+                <span
+                  className={cn(
+                    "text-lg leading-none inline-block transition-transform duration-300",
+                    language === "vi" ? "scale-110" : "scale-75",
+                  )}
+                >
+                  🇻🇳
+                </span>
               </ToggleGroupItem>
               <ToggleGroupItem
                 value="en"
-                className={cn("w-8 h-8 p-0 flex items-center justify-center transition-opacity duration-300", language === "en" ? "opacity-100" : "opacity-50 hover:opacity-80")}
+                className={cn(
+                  "w-8 h-8 p-0 flex items-center justify-center transition-opacity duration-300",
+                  language === "en"
+                    ? "opacity-100"
+                    : "opacity-50 hover:opacity-80",
+                )}
                 aria-label="English"
               >
-                <span className={cn("text-lg leading-none inline-block transition-transform duration-300", language === "en" ? "scale-110" : "scale-75")}>🇬🇧</span>
+                <span
+                  className={cn(
+                    "text-lg leading-none inline-block transition-transform duration-300",
+                    language === "en" ? "scale-110" : "scale-75",
+                  )}
+                >
+                  🇬🇧
+                </span>
               </ToggleGroupItem>
             </ToggleGroup>
           </div>
@@ -387,8 +436,8 @@ export default function App() {
               "translate-x-0 shadow-2xl": isMobileMenuOpen,
               "-translate-x-full": !isMobileMenuOpen,
               "md:hidden": active === "overview",
-              "md:block": active !== "overview"
-            }
+              "md:block": active !== "overview",
+            },
           )}
         >
           <nav className="space-y-0.5 md:hidden">
@@ -397,9 +446,11 @@ export default function App() {
               className={cn(
                 "w-full flex items-center gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors text-left mb-2",
                 {
-                  "bg-accent text-accent-foreground font-medium": active === "overview",
-                  "text-muted-foreground hover:bg-muted/60 hover:text-foreground": !(active === "overview")
-                }
+                  "bg-accent text-accent-foreground font-medium":
+                    active === "overview",
+                  "text-muted-foreground hover:bg-muted/60 hover:text-foreground":
+                    !(active === "overview"),
+                },
               )}
             >
               <LayersIcon className="size-3.5" />
@@ -411,9 +462,15 @@ export default function App() {
               className={cn(
                 "w-full flex items-center gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors text-left",
                 {
-                  "bg-accent text-accent-foreground font-medium": active !== "overview" && !blockCategories.includes(activeComponent?.category || ""),
-                  "text-muted-foreground hover:bg-muted/60 hover:text-foreground": !(active !== "overview" && !blockCategories.includes(activeComponent?.category || ""))
-                }
+                  "bg-accent text-accent-foreground font-medium":
+                    active !== "overview" &&
+                    !blockCategories.includes(activeComponent?.category || ""),
+                  "text-muted-foreground hover:bg-muted/60 hover:text-foreground":
+                    !(
+                      active !== "overview" &&
+                      !blockCategories.includes(activeComponent?.category || "")
+                    ),
+                },
               )}
             >
               Components
@@ -423,9 +480,11 @@ export default function App() {
               className={cn(
                 "w-full flex items-center gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors text-left mb-2",
                 {
-                  "bg-accent text-accent-foreground font-medium": blockCategories.includes(activeComponent?.category || ""),
-                  "text-muted-foreground hover:bg-muted/60 hover:text-foreground": !(blockCategories.includes(activeComponent?.category || ""))
-                }
+                  "bg-accent text-accent-foreground font-medium":
+                    blockCategories.includes(activeComponent?.category || ""),
+                  "text-muted-foreground hover:bg-muted/60 hover:text-foreground":
+                    !blockCategories.includes(activeComponent?.category || ""),
+                },
               )}
             >
               Blocks
@@ -436,19 +495,27 @@ export default function App() {
           <div className="mt-6">
             {blockCategories.includes(activeComponent?.category || "") ? (
               <nav className="space-y-0.5">
-                {COMPONENTS.filter(c => blockCategories.includes(c.category)).map(({ id, label }) => (
+                {COMPONENTS.filter((c) =>
+                  blockCategories.includes(c.category),
+                ).map(({ id, label }) => (
                   <button
                     key={id}
                     onClick={() => setActive(id)}
                     className={cn(
                       "w-full flex items-center justify-between gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors text-left",
                       {
-                        "bg-accent text-accent-foreground font-medium": active === id,
-                        "text-muted-foreground hover:bg-muted/60 hover:text-foreground": !(active === id)
-                      }
+                        "bg-accent text-accent-foreground font-medium":
+                          active === id,
+                        "text-muted-foreground hover:bg-muted/60 hover:text-foreground":
+                          !(active === id),
+                      },
                     )}
                   >
-                    <span>{language === "en" ? (labelTranslations[label] || label) : label}</span>
+                    <span>
+                      {language === "en"
+                        ? labelTranslations[label] || label
+                        : label}
+                    </span>
                   </button>
                 ))}
               </nav>
@@ -459,7 +526,9 @@ export default function App() {
                 return (
                   <div key={cat} className="mb-4">
                     <p className="mb-2 px-2 text-[10px] font-bold uppercase tracking-wider text-foreground/70">
-                      {language === "en" ? (categoryTranslations[cat] || cat) : cat}
+                      {language === "en"
+                        ? categoryTranslations[cat] || cat
+                        : cat}
                     </p>
                     <nav className="space-y-0.5">
                       {comps.map(({ id, label }) => (
@@ -469,12 +538,18 @@ export default function App() {
                           className={cn(
                             "w-full flex items-center justify-between gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors text-left",
                             {
-                              "bg-accent text-accent-foreground font-medium": active === id,
-                              "text-muted-foreground hover:bg-muted/60 hover:text-foreground": !(active === id)
-                            }
+                              "bg-accent text-accent-foreground font-medium":
+                                active === id,
+                              "text-muted-foreground hover:bg-muted/60 hover:text-foreground":
+                                !(active === id),
+                            },
                           )}
                         >
-                          <span>{language === "en" ? (labelTranslations[label] || label) : label}</span>
+                          <span>
+                            {language === "en"
+                              ? labelTranslations[label] || label
+                              : label}
+                          </span>
                         </button>
                       ))}
                     </nav>
@@ -508,12 +583,27 @@ export default function App() {
         open={cmdOpen}
         onOpenChange={setCmdOpen}
         title={language === "en" ? "Search components" : "Tìm component"}
-        description={language === "en" ? "Quickly search components in Gladvn UI" : "Tìm kiếm nhanh component trong Gladvn UI"}
+        description={
+          language === "en"
+            ? "Quickly search components in Gladvn UI"
+            : "Tìm kiếm nhanh component trong Gladvn UI"
+        }
       >
         <Command size="lg">
-          <CommandInput placeholder={language === "en" ? "Type a component name..." : "Nhập tên component..."} autoFocus />
+          <CommandInput
+            placeholder={
+              language === "en"
+                ? "Type a component name..."
+                : "Nhập tên component..."
+            }
+            autoFocus
+          />
           <CommandList className="max-h-96">
-            <CommandEmpty>{language === "en" ? "No components found." : "Không tìm thấy component nào."}</CommandEmpty>
+            <CommandEmpty>
+              {language === "en"
+                ? "No components found."
+                : "Không tìm thấy component nào."}
+            </CommandEmpty>
 
             <CommandGroup>
               {COMPONENTS.map(({ id, label, category }) => (

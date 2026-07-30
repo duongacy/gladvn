@@ -336,14 +336,19 @@ export default function ItemShowcase() {
   const { size: globalSize } = useDevContext();
   return (
     <Showcase
-      title="Item"
-      description="Container linh hoạt cho danh sách hoặc khối nội dung có cấu trúc."
+      title={t("Mục danh sách (Item)", "Item")}
+      description={t(
+        "Container linh hoạt cho danh sách hoặc khối nội dung có cấu trúc.",
+        "Flexible container for lists or structured content blocks.",
+      )}
       guideline={
         <ShowcaseDocs>
           <DocsH3>Item</DocsH3>
           <DocsP>
-            Sử dụng để tạo danh sách hoặc khối nội dung có icon, tiêu đề, mô tả
-            và hành động.
+            {t(
+              "Sử dụng để tạo danh sách hoặc khối nội dung có icon, tiêu đề, mô tả và hành động.",
+              "Use to create lists or content blocks with an icon, title, description, and actions.",
+            )}
           </DocsP>
         </ShowcaseDocs>
       }

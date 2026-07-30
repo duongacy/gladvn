@@ -387,11 +387,11 @@ export default function App() {
               >
                 <span
                   className={cn(
-                    "text-lg leading-none inline-block transition-transform duration-300",
+                    "inline-block transition-transform duration-300 overflow-hidden rounded-[2px] shadow-sm",
                     language === "vi" ? "scale-110" : "scale-75",
                   )}
                 >
-                  🇻🇳
+                  <img src="https://flagcdn.com/vn.svg" alt="Vietnam Flag" className="w-5 h-auto object-cover" />
                 </span>
               </ToggleGroupItem>
               <ToggleGroupItem
@@ -406,11 +406,11 @@ export default function App() {
               >
                 <span
                   className={cn(
-                    "text-lg leading-none inline-block transition-transform duration-300",
+                    "inline-block transition-transform duration-300 overflow-hidden rounded-[2px] shadow-sm",
                     language === "en" ? "scale-110" : "scale-75",
                   )}
                 >
-                  🇬🇧
+                  <img src="https://flagcdn.com/gb.svg" alt="English Flag" className="w-5 h-auto object-cover" />
                 </span>
               </ToggleGroupItem>
             </ToggleGroup>

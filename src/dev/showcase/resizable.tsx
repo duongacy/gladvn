@@ -256,14 +256,26 @@ export default function ResizableShowcase() {
       guideline={
         <ShowcaseDocs>
           <DocsP>
-            Resizable sử dụng thư viện{" "}
-            <DocsCode>react-resizable-panels</DocsCode> để tạo các panel có thể
-            kéo thay đổi kích thước. Dùng{" "}
-            <DocsCode>ResizablePanelGroup</DocsCode> làm container,{" "}
-            <DocsCode>ResizablePanel</DocsCode> cho nội dung, và{" "}
-            <DocsCode>ResizableHandle</DocsCode> cho thanh phân cách tương tác.
-            Prop <DocsCode>withHandle</DocsCode> hiển thị visual grip giúp người
-            dùng dễ nhận biết vùng kéo hơn.
+            {t("Resizable sử dụng thư viện ", "Resizable uses the ")}
+            <DocsCode>react-resizable-panels</DocsCode>{" "}
+            {t(
+              "để tạo các panel có thể kéo thay đổi kích thước. Dùng ",
+              "library to create draggable resizable panels. Use ",
+            )}
+            <DocsCode>ResizablePanelGroup</DocsCode>{" "}
+            {t("làm container, ", "as the container, ")}
+            <DocsCode>ResizablePanel</DocsCode>{" "}
+            {t("cho nội dung, và ", "for content, and ")}
+            <DocsCode>ResizableHandle</DocsCode>{" "}
+            {t(
+              "cho thanh phân cách tương tác. Prop ",
+              "for the interactive separator. The ",
+            )}
+            <DocsCode>withHandle</DocsCode>{" "}
+            {t(
+              "hiển thị visual grip giúp người dùng dễ nhận biết vùng kéo hơn.",
+              "prop displays a visual grip to help users easily identify the draggable area.",
+            )}
           </DocsP>
         </ShowcaseDocs>
       }

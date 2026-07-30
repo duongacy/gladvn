@@ -300,3 +300,31 @@ function PopoverMicroShowcase({ globalSize }: { globalSize: Size }) {
     </div>
   );
 }
+
+// ──────────────────────────────────────────────────────────
+// SECTION 3: Entry point (export default)
+// ──────────────────────────────────────────────────────────
+export default function PopoverShowcase() {
+  const { size: globalSize } = useDevContext();
+  const t = useI18n();
+  return (
+    <Showcase
+      title={t("Popover", "Popover")}
+      description={t(
+        "Hiển thị nội dung phong phú trong một portal, được kích hoạt bởi một nút bấm.",
+        "Displays rich content in a portal, triggered by a button.",
+      )}
+      guideline={
+        <ShowcaseDocs>
+          <DocsP>
+            {t(
+              "Dùng Popover khi bạn cần hiển thị thêm tuỳ chọn hoặc thông tin chi tiết mà không làm rời rạc mạch hiển thị hiện tại.",
+              "Use Popover when you need to display additional options or details without disrupting the current flow.",
+            )}
+          </DocsP>
+        </ShowcaseDocs>
+      }
+      micro={{ content: <PopoverMicroShowcase globalSize={globalSize} /> }}
+    />
+  );
+}

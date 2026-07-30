@@ -10,6 +10,7 @@ import { RadioGroup, RadioGroupItem } from "../../components/micro/radio-group";
 import { useDevContext, useI18n } from "../../dev/components/dev-context";
 import {
   DocsCode,
+  DocsP,
   ExampleGrid,
   Showcase,
   ShowcaseExample,
@@ -279,21 +280,11 @@ function RadioGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
   >
     <div className="flex items-center gap-3">
       <RadioGroupItem value="default" id="rg-m-1" />
-      <Label
-        htmlFor="rg-m-1"
-        className="cursor-pointer font-normal"
-      >
-        Mặc định
-      </Label>
+      <Label htmlFor="rg-m-1" className="cursor-pointer font-normal">Default</Label>
     </div>
     <div className="flex items-center gap-3">
       <RadioGroupItem value="comfortable" id="rg-m-2" />
-      <Label
-        htmlFor="rg-m-2"
-        className="cursor-pointer font-normal"
-      >
-        Thoải mái
-      </Label>
+      <Label htmlFor="rg-m-2" className="cursor-pointer font-normal">Comfortable</Label>
     </div>
   </RadioGroup>`}
           preview={
@@ -312,7 +303,7 @@ function RadioGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
                     htmlFor="rg-m-1"
                     className="cursor-pointer font-normal"
                   >
-                    Mặc định
+                    Default
                   </Label>
                 </div>
                 <div className="flex items-center gap-3">
@@ -325,7 +316,7 @@ function RadioGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
                     htmlFor="rg-m-2"
                     className="cursor-pointer font-normal"
                   >
-                    Thoải mái
+                    Comfortable
                   </Label>
                 </div>
               </RadioGroup>
@@ -576,160 +567,6 @@ function RadioGroupMicroShowcase({ globalSize }: { globalSize: Size }) {
           }
         />
       </ExampleGrid>
-
-      <ShowcaseExample
-        title={t("🧭 So sánh Use Case", "🧭 Use Case Comparison")}
-        description={t(
-          "So sánh nhanh khi nào dùng Micro và Macro.",
-          "Quick comparison of when to use Micro vs Macro.",
-        )}
-        code={`<div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-    {/* Story 1: Macro wins */}
-    <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
-      <div className="flex items-start gap-3">
-        <span className="mt-0.5 shrink-0 rounded-full bg-green-500/10 p-1.5 text-green-600">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="size-4"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
-          >
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-          </svg>
-        </span>
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-            Story 1 · Macro
-          </p>
-          <h3 className="mt-0.5 text-sm font-semibold text-foreground">
-            Survey Question
-          </h3>
-        </div>
-      </div>
-      <p className="text-xs text-muted-foreground leading-relaxed">
-        Bạn cần làm một danh sách dài các tuỳ chọn dạng chữ
-        từ trên xuống dưới. Macro{" "}
-        <DocsCode>RadioGroupPreset</DocsCode> sinh ra để xử
-        lý việc này nhanh gọn qua thuộc tính{" "}
-        <DocsCode>options</DocsCode>.
-      </p>
-    </div>
-
-    {/* Story 2: Micro wins */}
-    <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
-      <div className="flex items-start gap-3">
-        <span className="mt-0.5 shrink-0 rounded-full bg-blue-500/10 p-1.5 text-blue-600">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="size-4"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
-          >
-            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-          </svg>
-        </span>
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-            Story 2 · Micro
-          </p>
-          <h3 className="mt-0.5 text-sm font-semibold text-foreground">
-            Hidden Radio Card
-          </h3>
-        </div>
-      </div>
-      <p className="text-xs text-muted-foreground leading-relaxed">
-        Bạn muốn người dùng click vào một khối Card lớn
-        (chứa ảnh sản phẩm, mô tả) thay vì click vào nút
-        tròn. Bạn sẽ dùng Micro để ẩn đi{" "}
-        <DocsCode>RadioGroupItem</DocsCode> và style{" "}
-        <DocsCode>Label</DocsCode> as a Card.
-      </p>
-    </div>
-  </div>`}
-        preview={
-          <>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-              <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
-                <div className="flex items-start gap-3">
-                  <span className="mt-0.5 shrink-0 rounded-full bg-green-500/10 p-1.5 text-green-600">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="size-4"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                    </svg>
-                  </span>
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                      Story 1 · Macro
-                    </p>
-                    <h3 className="mt-0.5 text-sm font-semibold text-foreground">
-                      Survey Question
-                    </h3>
-                  </div>
-                </div>
-                <p className="text-xs text-muted-foreground leading-relaxed">
-                  You need to make a long list of text options from top to
-                  bottom. The Macro <DocsCode>RadioGroupPreset</DocsCode> is
-                  designed to handle this quickly via the{" "}
-                  <DocsCode>options</DocsCode>.
-                </p>
-              </div>
-
-              <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
-                <div className="flex items-start gap-3">
-                  <span className="mt-0.5 shrink-0 rounded-full bg-blue-500/10 p-1.5 text-blue-600">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="size-4"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-                    </svg>
-                  </span>
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                      Story 2 · Micro
-                    </p>
-                    <h3 className="mt-0.5 text-sm font-semibold text-foreground">
-                      Hidden Radio Card
-                    </h3>
-                  </div>
-                </div>
-                <p className="text-xs text-muted-foreground leading-relaxed">
-                  You want the user to click on a large Card block (containing
-                  product image, description) instead of a round button. You
-                  will use Micro to hide the <DocsCode>RadioGroupItem</DocsCode>{" "}
-                  và style <DocsCode>Label</DocsCode> as a Card.
-                </p>
-              </div>
-            </div>
-          </>
-        }
-      />
     </div>
   );
 }

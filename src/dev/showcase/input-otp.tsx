@@ -335,85 +335,6 @@ function InputOTPMicroShowcase({ globalSize }: { globalSize: Size }) {
           }
         />
       </ExampleGrid>
-
-      <ShowcaseExample
-        title={t("🧭 So sánh Use Case", "🧭 Use Case Comparison")}
-        description={t(
-          "So sánh nhanh khi nào dùng Micro và Macro.",
-          "Quick comparison of when to use Micro vs Macro.",
-        )}
-        code={`{}
-  <InputOTPPreset
-    groups={[3, 3]}
-    size="md"
-    label="Verification Code"
-  />
-
-  <InputOTP size="md" maxLength={6}>
-    <InputOTPGroup>
-      {Array.from({ length: 3 }).map((_, i) => (
-        <InputOTPSlot key={i} index={i} />
-      ))}
-    </InputOTPGroup>
-    <InputOTPSeparator />
-    <InputOTPGroup>
-      {Array.from({ length: 3 }).map((_, i) => (
-        <InputOTPSlot key={i + 3} index={i + 3} />
-      ))}
-    </InputOTPGroup>
-  </InputOTP>`}
-        preview={
-          <>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-              {/* Story 1: Macro wins */}
-              <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
-                <div className="flex items-start gap-3">
-                  <span className="mt-0.5 shrink-0 rounded-full bg-green-500/10 p-1.5 text-green-600">
-                    <ShieldIcon className="size-4" aria-hidden="true" />
-                  </span>
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                      Story 1 · Macro
-                    </p>
-                    <h3 className="mt-0.5 text-sm font-semibold text-foreground">
-                      Standard SMS verification form
-                    </h3>
-                  </div>
-                </div>
-                <p className="text-xs text-muted-foreground leading-relaxed">
-                  Thay vì phải dùng vòng lặp <DocsCode>.map()</DocsCode> dài
-                  dòng cho từng nhóm số, dùng Preset{" "}
-                  <DocsCode>groups={`{[3, 3]}`}</DocsCode> để code sinh ra y
-                  chang chỉ với 1 dòng khai báo. Cực kỳ sạch.
-                </p>
-              </div>
-
-              {/* Story 2: Micro wins */}
-              <div className="rounded-xl border border-border bg-card p-5 flex flex-col gap-4">
-                <div className="flex items-start gap-3">
-                  <span className="mt-0.5 shrink-0 rounded-full bg-blue-500/10 p-1.5 text-blue-600">
-                    <WrenchIcon className="size-4" aria-hidden="true" />
-                  </span>
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                      Story 2 · Micro
-                    </p>
-                    <h3 className="mt-0.5 text-sm font-semibold text-foreground">
-                      Custom Slot Design
-                    </h3>
-                  </div>
-                </div>
-                <p className="text-xs text-muted-foreground leading-relaxed">
-                  Bạn cần can thiệp trực tiếp vào từng ô số (ví dụ: style lại
-                  các ô đầu là số, ô cuối là chữ cái đặc biệt, hoặc xen kẽ Icon
-                  vào giữa thay vì dấu gạch ngang). Lúc này bạn buộc phải viết
-                  vòng lặp <DocsCode>.map()</DocsCode> và dùng Micro.
-                </p>
-              </div>
-            </div>
-          </>
-        }
-      />
     </div>
   );
 }
@@ -433,10 +354,12 @@ export default function InputOTPShowcase() {
       )}
       guideline={
         <ShowcaseDocs>
-          {t(
-            "<DocsP>Dùng để nhập các đoạn mã có chiều dài cố định như OTP, PIN code, 2FA.</DocsP>",
-            "<DocsP>Used to input fixed-length codes such as OTP, PIN codes, 2FA.</DocsP>",
-          )}
+          <DocsP>
+            {t(
+              "Dùng để nhập các đoạn mã có chiều dài cố định như OTP, PIN code, 2FA.",
+              "Used to input fixed-length codes such as OTP, PIN codes, 2FA.",
+            )}
+          </DocsP>
         </ShowcaseDocs>
       }
       micro={{ content: <InputOTPMicroShowcase globalSize={globalSize} /> }}

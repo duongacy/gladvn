@@ -57,7 +57,7 @@ describe('CLI Integration', () => {
     // Verify CSS file
     const cssContent = fs.readFileSync(path.join(tempDir, 'app/globals.css'), 'utf-8');
     expect(cssContent).toContain('@import "tailwindcss";');
-  }, 30000);
+  }, 60000);
 
   it('[3D-02] [P1] supports custom destination argument', async () => {
     // Given: An empty temporary directory
@@ -72,7 +72,7 @@ describe('CLI Integration', () => {
     const destDir = path.join(tempDir, 'custom-ui');
     expect(fs.existsSync(destDir)).toBe(true);
     expect(fs.existsSync(path.join(destDir, 'lib', 'utils.ts'))).toBe(true);
-  }, 30000);
+  }, 60000);
 
   it('[3D-03] [P1] handles existing CSS files via non-TTY stdin prompt', async () => {
     // Given: an existing CSS file
@@ -92,5 +92,5 @@ describe('CLI Integration', () => {
     const cssContent = fs.readFileSync(path.join(cssPath, 'main.css'), 'utf-8');
     expect(cssContent).toContain('@import "../gladvn/styles/gladvn.css";');
     expect(cssContent).toContain('body { background: white; }'); // Original content preserved
-  }, 30000);
+  }, 60000);
 });

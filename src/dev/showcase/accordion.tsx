@@ -699,14 +699,8 @@ export default function AccordionShowcase() {
         <ShowcaseDocs>
           <DocsP>
             {t(
-              t(
-                "Dùng để gom nhóm các khối nội dung lớn nhằm tiết kiệm không gian\n            hiển thị (ví dụ: FAQ, Installation nâng cao). Không nên dùng Accordion\n            nếu nội dung bên trong quá quan trọng và cần user phải nhìn thấy\n            ngay lập tức.",
-                "Dùng để gom nhóm các khối nội dung lớn nhằm tiết kiệm không gian\n            hiển thị (ví dụ: FAQ, Installation nâng cao). Không nên dùng Accordion\n            nếu nội dung bên trong quá quan trọng và cần user phải nhìn thấy\n            ngay lập tức.",
-              ),
-              t(
-                "Dùng để gom nhóm các khối nội dung lớn nhằm tiết kiệm không gian\n            hiển thị (ví dụ: FAQ, Installation nâng cao). Không nên dùng Accordion\n            nếu nội dung bên trong quá quan trọng và cần user phải nhìn thấy\n            ngay lập tức.",
-                "Dùng để gom nhóm các khối nội dung lớn nhằm tiết kiệm không gian\n            hiển thị (ví dụ: FAQ, Installation nâng cao). Không nên dùng Accordion\n            nếu nội dung bên trong quá quan trọng và cần user phải nhìn thấy\n            ngay lập tức.",
-              ),
+              "Dùng để gom nhóm các khối nội dung lớn nhằm tiết kiệm không gian hiển thị (ví dụ: FAQ, Installation nâng cao). Không nên dùng Accordion nếu nội dung bên trong quá quan trọng và cần user phải nhìn thấy ngay lập tức.",
+              "Use to group large blocks of content to save display space (e.g. FAQ, advanced installation). Do not use Accordion if the content inside is too important and needs to be seen by the user immediately.",
             )}
           </DocsP>
         </ShowcaseDocs>

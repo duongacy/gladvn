@@ -12,7 +12,7 @@ test.describe('Showcase UI', () => {
     await expect(logo).toBeVisible();
 
     // Check for overview content
-    await expect(page.locator('text=Tinh tế. Đẳng cấp.')).toBeVisible();
+    await expect(page.locator('text=Elegant. Premium.')).toBeVisible();
   });
 
   test('should navigate via sidebar', async ({ page }) => {

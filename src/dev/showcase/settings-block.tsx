@@ -1,12 +1,14 @@
 import codeString from "../../blocks/settings.tsx?raw";
+import { useI18n } from "../../dev/components/dev-context";
 import { BlockViewer } from "../components/BlockViewer";
 
 export default function SettingsBlockShowcase() {
+  const t = useI18n();
   return (
     <BlockViewer
       blockId="settings"
-      title="Settings Layout"
-      description="A vertical tabs-based settings page with various input controls and danger zones."
+      title={t("Bố cục cài đặt (Settings)", "Settings Layout")}
+      description={t("Trang cài đặt dựa trên tab dọc với nhiều điều khiển đầu vào.", "A vertical tabs-based settings page with various input controls.")}
       codeString={codeString}
     />
   );

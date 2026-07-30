@@ -39,7 +39,7 @@ export default function AuthSplitBlock() {
               <div key={i} className="size-8 rounded-full border-2 border-primary bg-primary-foreground/20" />
             ))}
           </div>
-          <p>Được tin dùng bởi hơn 10k+ nhà phát triển</p>
+          <p>Trusted by over 10k+ developers</p>
         </div>
       </div>
 
@@ -47,12 +47,12 @@ export default function AuthSplitBlock() {
         <div className="mx-auto flex w-full max-w-sm flex-col justify-center space-y-6">
           <div className="flex flex-col space-y-2 text-center lg:text-left">
             <h1 className="text-3xl font-bold tracking-tight">
-              {mode === "login" ? "Chào mừng trở lại" : "Tạo tài khoản mới"}
+              {mode === "login" ? "Welcome back" : "Create new account"}
             </h1>
             <p className="text-sm text-muted-foreground">
               {mode === "login"
-                ? "Nhập email của bạn bên dưới để đăng nhập vào tài khoản"
-                : "Nhập thông tin chi tiết bên dưới để tạo tài khoản của bạn"}
+                ? "Enter your email below to log in to your account"
+                : "Enter your details below to create your account"}
             </p>
           </div>
 
@@ -60,8 +60,8 @@ export default function AuthSplitBlock() {
             {mode === "register" && (
               <InputPreset
                 id="name"
-                label="Họ và tên"
-                placeholder="Nguyễn Văn A"
+                label="Full name"
+                placeholder="John Doe"
                 required
               />
             )}
@@ -79,10 +79,10 @@ export default function AuthSplitBlock() {
               type="password"
               label={
                 <div className="flex items-center justify-between w-full">
-                  <span>Mật khẩu</span>
+                  <span>Password</span>
                   {mode === "login" && (
                     <Button type="button" variant="link" color="primary" className="h-auto p-0 text-xs">
-                      Quên mật khẩu?
+                      Forgot password?
                     </Button>
                   )}
                 </div>
@@ -96,14 +96,14 @@ export default function AuthSplitBlock() {
                 required
                 label={
                   <span className="text-sm font-normal text-muted-foreground">
-                    Tôi đồng ý với các <a href="#" className="text-primary hover:underline">điều khoản và dịch vụ</a>
+                    I agree to the <a href="#" className="text-primary hover:underline">terms of service</a>
                   </span>
                 }
               />
             )}
 
             <Button type="submit" className="w-full" disabled={isLoading}>
-              {isLoading ? "Đang xử lý..." : mode === "login" ? "Đăng nhập" : "Tạo tài khoản"}
+              {isLoading ? "Processing..." : mode === "login" ? "Login" : "Create account"}
             </Button>
           </form>
 

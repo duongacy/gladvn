@@ -16,9 +16,9 @@ export default function SettingsBlock() {
   return (
     <div className="container max-w-4xl py-10 px-4 md:px-6 mx-auto">
       <div className="space-y-0.5 mb-6">
-        <h2 className="text-3xl font-bold tracking-tight">Cài đặt</h2>
+        <h2 className="text-3xl font-bold tracking-tight">Settings</h2>
         <p className="text-muted-foreground">
-          Quản lý tài khoản và thiết lập các tuỳ chọn nhận email.
+          Manage your account and set email preferences.
         </p>
       </div>
       <Separator className="my-6" />
@@ -26,36 +26,36 @@ export default function SettingsBlock() {
       <Tabs orientation="vertical" defaultValue="profile" className="flex flex-col md:flex-row gap-8">
         <aside className="w-full md:w-64 shrink-0">
           <TabsList className="flex md:flex-col justify-start h-auto bg-transparent p-0 gap-2 w-full">
-            <TabsTrigger value="profile" className="w-full justify-start">Hồ sơ</TabsTrigger>
-            <TabsTrigger value="appearance" className="w-full justify-start">Giao diện</TabsTrigger>
-            <TabsTrigger value="notifications" className="w-full justify-start">Thông báo</TabsTrigger>
-            <TabsTrigger value="advanced" className="w-full justify-start">Nâng cao</TabsTrigger>
+            <TabsTrigger value="profile" className="w-full justify-start">Profile</TabsTrigger>
+            <TabsTrigger value="appearance" className="w-full justify-start">Appearance</TabsTrigger>
+            <TabsTrigger value="notifications" className="w-full justify-start">Notifications</TabsTrigger>
+            <TabsTrigger value="advanced" className="w-full justify-start">Advanced</TabsTrigger>
           </TabsList>
         </aside>
 
         <div className="flex-1">
           <TabsContent value="profile" className="mt-0">
             <div className="space-y-4">
-              <h3 className="text-xl font-medium">Hồ sơ cá nhân</h3>
-              <p className="text-sm text-muted-foreground">Đây là cách người khác sẽ nhìn thấy bạn trên app.</p>
+              <h3 className="text-xl font-medium">Profile</h3>
+              <p className="text-sm text-muted-foreground">This is how others will see you on the app.</p>
             </div>
             <Separator className="my-6" />
 
             <div className="flex flex-col gap-8">
               <InputPreset
                 id="username"
-                label="Tên người dùng"
+                label="Username"
                 placeholder="gladvn"
                 defaultValue="johndoe"
-                description="Tên hiển thị công khai. Tên thật hay biệt danh chém gió gì cũng được."
+                description="Public display name. Can be your real name or a pseudonym."
               />
 
               <SelectPreset
                 id="email"
                 label="Email"
                 defaultValue="m@example.com"
-                placeholder="Chọn email đã xác thực để hiển thị"
-                description="Bro có thể quản lý các email này trong phần cài đặt tài khoản."
+                placeholder="Select a verified email to display"
+                description="You can manage these emails in your account settings."
                 options={[
                   { value: "m@example.com", label: "m@example.com" },
                   { value: "m@google.com", label: "m@google.com" },
@@ -65,32 +65,32 @@ export default function SettingsBlock() {
 
               <TextareaPreset
                 id="bio"
-                label="Giới thiệu bản thân"
-                placeholder="Kể một chút về bro đi..."
-                defaultValue="Mình là dev chill chill."
+                label="Bio"
+                placeholder="Tell us a little bit about yourself..."
+                defaultValue="I am a chill dev."
                 className="min-h-25"
-                description="Có thể @mention người dùng hoặc tổ chức để tạo liên kết nha."
+                description="You can @mention other users and organizations to link to them."
               />
 
-              <Button className="w-fit">Cập nhật hồ sơ</Button>
+              <Button className="w-fit">Update profile</Button>
             </div>
           </TabsContent>
 
           <TabsContent value="appearance" className="mt-0">
             <div className="space-y-4">
-              <h3 className="text-xl font-medium">Giao diện</h3>
-              <p className="text-sm text-muted-foreground">Tuỳ biến giao diện sáng tối sao cho vừa mắt nhất.</p>
+              <h3 className="text-xl font-medium">Appearance</h3>
+              <p className="text-sm text-muted-foreground">Customize the appearance of the app. Automatically switch between day and night themes.</p>
             </div>
             <Separator className="my-6" />
 
             <div className="flex flex-col gap-8">
               <RadioGroupPreset
-                label="Giao diện mặc định"
+                label="Theme"
                 defaultValue="light"
                 options={[
-                  { value: "light", label: "Giao diện sáng" },
-                  { value: "dark", label: "Giao diện tối" },
-                  { value: "system", label: "Theo hệ thống" },
+                  { value: "light", label: "Light" },
+                  { value: "dark", label: "Dark" },
+                  { value: "system", label: "System" },
                 ]}
               />
 
@@ -98,19 +98,19 @@ export default function SettingsBlock() {
                 defaultValue={[50]}
                 label={
                   <div className="flex items-center gap-2">
-                    <span>Kích thước giao diện</span>
+                    <span>Interface size</span>
                     <TooltipProvider>
                       <Tooltip>
                         <TooltipTrigger render={<InfoIcon className="size-4 text-muted-foreground" />} />
-                        <TooltipContent>Điều chỉnh độ to nhỏ tổng thể của UI</TooltipContent>
+                        <TooltipContent>Adjust the overall size of the UI</TooltipContent>
                       </Tooltip>
                     </TooltipProvider>
                   </div>
                 }
-                description={<div className="text-right">Vừa phải (100%)</div>}
+                description={<div className="text-right">Default (100%)</div>}
               />
 
-              <Button className="w-fit">Lưu tuỳ chọn</Button>
+              <Button className="w-fit">Save preferences</Button>
             </div>
           </TabsContent>
 

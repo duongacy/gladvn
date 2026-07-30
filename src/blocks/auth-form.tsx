@@ -41,7 +41,7 @@ export default function AuthCardBlock() {
               name="password"
               type="password"
               label={
-                <div className="flex items-center justify-between w-full">
+                <div className="flex items-center justify-between gap-1">
                   <span>Password</span>
                   {mode === "login" && (
                     <Button variant="link" color="primary" className="h-auto p-0 text-xs">

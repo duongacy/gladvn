@@ -6,14 +6,10 @@
 
   <br />
 
-  <table align="center">
-    <tr>
-      <td align="center">
-        <h3><font color="red">⚠️ IMPORTANT: Installation via NPX is required (Do not use <code>npm install</code>)</font></h3>
-        <code>npx gladvn init</code>
-      </td>
-    </tr>
-  </table>
+> [!WARNING]
+> **IMPORTANT:** Installation via NPX is required (Do not use `npm install`).
+>
+> Run `npx gladvn init` instead.
 
   <br />
 
@@ -47,13 +43,13 @@ Most UI libraries force a choice:
 Both use the exact same design system.
 
 ```tsx
-// Micro — Lắp ráp theo ý bạn
+// Micro — Assemble it your way
 import { Button } from "@gladvn/components/micro/button";
 
 <Button variant="solid" color="primary">Submit</Button>
 
 
-// Macro — Preset làm sẵn tiện lợi
+// Macro — Ready-to-use presets
 import { InputPreset } from "@gladvn/components/macro/input-preset";
 
 <InputPreset label="Email" error={errors.email} />

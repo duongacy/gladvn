@@ -60,9 +60,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
             <Label
               htmlFor="name-right"
               className="text-right"
-            >
-              Tên
-            </Label>
+            >Name</Label>
             <Input
               id="name-right"
               defaultValue="Pedro Duarte"
@@ -84,9 +82,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
           </div>
         </div>
         <SheetFooter>
-          <SheetClose render={<Button variant="outline" />}>
-            Huỷ
-          </SheetClose>
+          <SheetClose render={<Button variant="outline" />}>Cancel</SheetClose>
           <Button>Save changes</Button>
         </SheetFooter>
       </SheetContent>
@@ -118,7 +114,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
                   <div className="grid gap-4 py-4 px-4">
                     <div className="grid grid-cols-4 items-center gap-4">
                       <Label htmlFor="name-top" className="text-right">
-                        Tên
+                        Name
                       </Label>
                       <Input
                         id="name-top"
@@ -131,7 +127,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
                     <SheetClose
                       render={<Button variant="outline" size={globalSize} />}
                     >
-                      Huỷ
+                      Cancel
                     </SheetClose>
                     <Button size={globalSize}>Save changes</Button>
                   </SheetFooter>
@@ -161,7 +157,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
                   <div className="grid gap-4 py-4 px-4">
                     <div className="grid grid-cols-4 items-center gap-4">
                       <Label htmlFor="name-right" className="text-right">
-                        Tên
+                        Name
                       </Label>
                       <Input
                         id="name-right"
@@ -184,7 +180,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
                     <SheetClose
                       render={<Button variant="outline" size={globalSize} />}
                     >
-                      Huỷ
+                      Cancel
                     </SheetClose>
                     <Button size={globalSize}>Save changes</Button>
                   </SheetFooter>
@@ -214,7 +210,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
                   <div className="grid gap-4 py-4 px-4">
                     <div className="grid grid-cols-4 items-center gap-4">
                       <Label htmlFor="name-bottom" className="text-right">
-                        Tên
+                        Name
                       </Label>
                       <Input
                         id="name-bottom"
@@ -227,7 +223,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
                     <SheetClose
                       render={<Button variant="outline" size={globalSize} />}
                     >
-                      Huỷ
+                      Cancel
                     </SheetClose>
                     <Button size={globalSize}>Save changes</Button>
                   </SheetFooter>
@@ -257,7 +253,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
                   <div className="grid gap-4 py-4 px-4">
                     <div className="grid grid-cols-4 items-center gap-4">
                       <Label htmlFor="name-left" className="text-right">
-                        Tên
+                        Name
                       </Label>
                       <Input
                         id="name-left"
@@ -280,7 +276,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
                     <SheetClose
                       render={<Button variant="outline" size={globalSize} />}
                     >
-                      Huỷ
+                      Cancel
                     </SheetClose>
                     <Button size={globalSize}>Save changes</Button>
                   </SheetFooter>
@@ -293,20 +289,19 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
 
       <ExampleGrid>
         <ShowcaseExample
-          title="Có nút đóng (mặc định)"
-          description="showCloseButton={true} — nút X tự động hiển thị ở góc trên phải."
+          title={t("Có nút đóng (mặc định)", "With Close Button (Default)")}
+          description={t(
+            "showCloseButton={true} — nút X tự động hiển thị ở góc trên phải.",
+            "showCloseButton={true} — the X button automatically appears in the top right corner.",
+          )}
           code={`<Sheet>
     <SheetTrigger render={<Button variant="outline" />}>
-      <PanelRightIcon />
-      Mở Sheet
-    </SheetTrigger>
+      <PanelRightIcon />Open Sheet</SheetTrigger>
     
       <SheetContent side="right">
         <SheetHeader>
-          <SheetTitle>Có nút đóng</SheetTitle>
-          <SheetDescription>
-            Nút X xuất hiện tự động.
-          </SheetDescription>
+          <SheetTitle>With Close Button</SheetTitle>
+          <SheetDescription>The X button appears automatically.</SheetDescription>
         </SheetHeader>
       </SheetContent>
     
@@ -318,14 +313,14 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
                   render={<Button variant="outline" size={globalSize} />}
                 >
                   <PanelRightIcon aria-hidden="true" />
-                  Mở Sheet
+                  Open Sheet
                 </SheetTrigger>
 
                 <SheetContent side="right">
                   <SheetHeader>
-                    <SheetTitle>Có nút đóng</SheetTitle>
+                    <SheetTitle>With Close Button</SheetTitle>
                     <SheetDescription>
-                      Nút X xuất hiện tự động.
+                      The X button appears automatically.
                     </SheetDescription>
                   </SheetHeader>
                 </SheetContent>
@@ -335,20 +330,19 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
         />
 
         <ShowcaseExample
-          title="Ẩn nút đóng"
-          description="showCloseButton={false} — dùng khi muốn tự control nút đóng bên trong nội dung."
+          title={t("Ẩn nút đóng", "Hide Close Button")}
+          description={t(
+            "showCloseButton={false} — dùng khi muốn tự control nút đóng bên trong nội dung.",
+            "showCloseButton={false} — used when you want to control the close button manually inside the content.",
+          )}
           code={`<Sheet>
     <SheetTrigger render={<Button variant="outline" />}>
-      <PanelRightIcon />
-      Không có X
-    </SheetTrigger>
+      <PanelRightIcon />No X Button</SheetTrigger>
     
       <SheetContent side="right" showCloseButton={false}>
         <SheetHeader>
-          <SheetTitle>Ẩn nút đóng</SheetTitle>
-          <SheetDescription>
-            Consumer tự render nút đóng trong footer.
-          </SheetDescription>
+          <SheetTitle>Hide Close Button</SheetTitle>
+          <SheetDescription>Consumer renders the close button in the footer.</SheetDescription>
         </SheetHeader>
         <SheetFooter>
           <SheetClose
@@ -358,9 +352,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
                 className="w-full"
               />
             }
-          >
-            Đóng thủ công
-          </SheetClose>
+          >Close Manually</SheetClose>
         </SheetFooter>
       </SheetContent>
     
@@ -372,14 +364,14 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
                   render={<Button variant="outline" size={globalSize} />}
                 >
                   <PanelRightIcon aria-hidden="true" />
-                  Không có X
+                  No X Button
                 </SheetTrigger>
 
                 <SheetContent side="right" showCloseButton={false}>
                   <SheetHeader>
-                    <SheetTitle>Ẩn nút đóng</SheetTitle>
+                    <SheetTitle>Hide Close Button</SheetTitle>
                     <SheetDescription>
-                      Consumer tự render nút đóng trong footer.
+                      Consumer renders the close button in the footer.
                     </SheetDescription>
                   </SheetHeader>
                   <SheetFooter>
@@ -392,7 +384,7 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
                         />
                       }
                     >
-                      Đóng thủ công
+                      Close Manually
                     </SheetClose>
                   </SheetFooter>
                 </SheetContent>
@@ -403,8 +395,14 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
       </ExampleGrid>
 
       <ShowcaseExample
-        title="Controlled State"
-        description="Quản lý trạng thái đóng/mở qua React state với open và onOpenChange."
+        title={t(
+          "Trạng thái được kiểm soát (Controlled State)",
+          "Controlled State",
+        )}
+        description={t(
+          "Quản lý trạng thái đóng/mở qua React state với open và onOpenChange.",
+          "Manage the open/closed state via React state with open and onOpenChange.",
+        )}
         code={`const [open, setOpen] = useState(false);
   <div className="flex items-center gap-4">
     <Sheet open={open} onOpenChange={setOpen}>
@@ -416,26 +414,21 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
         <SheetContent side="right">
           <SheetHeader>
             <SheetTitle>Controlled Mode</SheetTitle>
-            <SheetDescription>
-              Sheet được điều khiển hoàn toàn bởi React
-              state.
-            </SheetDescription>
+            <SheetDescription>Sheet is fully controlled by React state.</SheetDescription>
           </SheetHeader>
           <SheetFooter>
-            <Button onClick={() => setOpen(false)}>
-              Đóng bằng state
-            </Button>
+            <Button onClick={() => setOpen(false)}>Close via state</Button>
           </SheetFooter>
         </SheetContent>
       
     </Sheet>
     <p className="text-sm text-muted-foreground">
-      Trạng thái:{" "}
+      Status: {" "}
       <strong
         data-active={open ? "" : undefined}
         className="data-active:text-primary"
       >
-        {open ? "Mở" : "Đóng"}
+        {open ? "Open" : "Closed"}
       </strong>
     </p>
   </div>`}
@@ -454,23 +447,23 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
                   <SheetHeader>
                     <SheetTitle>Controlled Mode</SheetTitle>
                     <SheetDescription>
-                      Sheet được điều khiển hoàn toàn bởi React state.
+                      Sheet is fully controlled by React state.
                     </SheetDescription>
                   </SheetHeader>
                   <SheetFooter>
                     <Button size={globalSize} onClick={() => setOpen(false)}>
-                      Đóng bằng state
+                      Close via state
                     </Button>
                   </SheetFooter>
                 </SheetContent>
               </Sheet>
               <p className="text-sm text-muted-foreground">
-                Trạng thái:{" "}
+                Status:{" "}
                 <strong
                   data-active={open ? "" : undefined}
                   className="data-active:text-primary"
                 >
-                  {open ? "Mở" : "Đóng"}
+                  {open ? "Open" : "Closed"}
                 </strong>
               </p>
             </div>
@@ -479,47 +472,40 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
       />
 
       <ShowcaseExample
-        title="Use case — Filter Panel"
-        description="Sheet dùng làm bảng lọc dữ liệu bên phải — pattern phổ biến trong dashboard, table view."
+        title={t("Tình huống sử dụng — Bảng lọc", "Use case — Filter Panel")}
+        description={t(
+          "Sheet dùng làm bảng lọc dữ liệu bên phải — pattern phổ biến trong dashboard, table view.",
+          "Sheet used as a right-side data filter panel — a common pattern in dashboards, table views.",
+        )}
         code={`<Sheet>
     <SheetTrigger render={<Button variant="outline" />}>
-      <FilterIcon />
-      Lọc dữ liệu
-    </SheetTrigger>
+      <FilterIcon />Filter Data</SheetTrigger>
     
       <SheetContent side="right">
         <SheetHeader>
-          <SheetTitle>Bộ lọc</SheetTitle>
-          <SheetDescription>
-            Tinh chỉnh kết quả hiển thị theo điều kiện.
-          </SheetDescription>
+          <SheetTitle>Filters</SheetTitle>
+          <SheetDescription>Refine the displayed results based on conditions.</SheetDescription>
         </SheetHeader>
         <div className="flex flex-col gap-4 p-4">
           <div className="flex flex-col gap-2">
-            <Label htmlFor="filter-status">
-              Trạng thái
-            </Label>
+            <Label htmlFor="filter-status">Status</Label>
             <Input
               id="filter-status"
-              placeholder="Tất cả"
+              placeholder="All"
             />
           </div>
           <div className="flex flex-col gap-2">
-            <Label htmlFor="filter-date-from">
-              Từ ngày
-            </Label>
+            <Label htmlFor="filter-date-from">From Date</Label>
             <Input id="filter-date-from" type="date" />
           </div>
           <div className="flex flex-col gap-2">
-            <Label htmlFor="filter-date-to">Đến ngày</Label>
+            <Label htmlFor="filter-date-to">To Date</Label>
             <Input id="filter-date-to" type="date" />
           </div>
         </div>
         <SheetFooter>
-          <SheetClose render={<Button variant="outline" />}>
-            Xoá bộ lọc
-          </SheetClose>
-          <Button>Áp dụng</Button>
+          <SheetClose render={<Button variant="outline" />}>Clear Filters</SheetClose>
+          <Button>Apply</Button>
         </SheetFooter>
       </SheetContent>
     
@@ -531,27 +517,27 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
                 render={<Button variant="outline" size={globalSize} />}
               >
                 <FilterIcon aria-hidden="true" />
-                Lọc dữ liệu
+                Filter Data
               </SheetTrigger>
 
               <SheetContent side="right">
                 <SheetHeader>
-                  <SheetTitle>Bộ lọc</SheetTitle>
+                  <SheetTitle>Filters</SheetTitle>
                   <SheetDescription>
-                    Tinh chỉnh kết quả hiển thị theo điều kiện.
+                    Refine the displayed results based on conditions.
                   </SheetDescription>
                 </SheetHeader>
                 <div className="flex flex-col gap-4 p-4">
                   <div className="flex flex-col gap-2">
-                    <Label htmlFor="filter-status">Trạng thái</Label>
-                    <Input id="filter-status" placeholder="Tất cả" />
+                    <Label htmlFor="filter-status">Status</Label>
+                    <Input id="filter-status" placeholder="All" />
                   </div>
                   <div className="flex flex-col gap-2">
-                    <Label htmlFor="filter-date-from">Từ ngày</Label>
+                    <Label htmlFor="filter-date-from">From Date</Label>
                     <Input id="filter-date-from" type="date" />
                   </div>
                   <div className="flex flex-col gap-2">
-                    <Label htmlFor="filter-date-to">Đến ngày</Label>
+                    <Label htmlFor="filter-date-to">To Date</Label>
                     <Input id="filter-date-to" type="date" />
                   </div>
                 </div>
@@ -559,9 +545,9 @@ function SheetMicroShowcase({ globalSize }: { globalSize: Size }) {
                   <SheetClose
                     render={<Button variant="outline" size={globalSize} />}
                   >
-                    Xoá bộ lọc
+                    Clear Filters
                   </SheetClose>
-                  <Button size={globalSize}>Áp dụng</Button>
+                  <Button size={globalSize}>Apply</Button>
                 </SheetFooter>
               </SheetContent>
             </Sheet>
@@ -577,22 +563,36 @@ export default function SheetShowcase() {
   const { size: globalSize } = useDevContext();
   return (
     <Showcase
-      title="Sheet"
-      description="Panel trượt từ cạnh màn hình — mở rộng Dialog để hiển thị nội dung bổ sung mà không rời trang."
+      title={t("Sheet", "Sheet")}
+      description={t(
+        "Panel trượt từ cạnh màn hình — mở rộng Dialog để hiển thị nội dung bổ sung mà không rời trang.",
+        "A panel that slides in from the edge of the screen — extending Dialog to display additional content without leaving the page.",
+      )}
       guideline={
         <ShowcaseDocs>
           <DocsP>
-            <DocsCode>Sheet</DocsCode> là một variant của Dialog, nhưng thay vì
-            hiện ở giữa màn hình, nó trượt ra từ một cạnh (right, left, top,
-            bottom). Phù hợp cho navigation drawer, filter panel, settings
-            sidebar, hay form chỉnh sửa.
+            <DocsCode>Sheet</DocsCode>
+            {t(
+              " là một variant của Dialog, nhưng thay vì hiện ở giữa màn hình, nó trượt ra từ một cạnh (right, left, top, bottom). Phù hợp cho navigation drawer, filter panel, settings sidebar, hay form chỉnh sửa.",
+              " is a variant of Dialog, but instead of appearing in the center of the screen, it slides out from an edge (right, left, top, bottom). Suitable for navigation drawer, filter panel, settings sidebar, or edit forms.",
+            )}
           </DocsP>
           <DocsP>
-            <DocsCode>SheetContent</DocsCode> tự tích hợp{" "}
-            <DocsCode>Portal</DocsCode> và <DocsCode>Overlay</DocsCode> bên
-            trong. Prop <DocsCode>showCloseButton</DocsCode> cho phép bật/tắt
-            nút X tự động. Dùng <DocsCode>open</DocsCode> /{" "}
-            <DocsCode>onOpenChange</DocsCode> để controlled mode.
+            <DocsCode>SheetContent</DocsCode>
+            {t(" tự tích hợp ", " integrates ")}
+            <DocsCode>Portal</DocsCode>
+            {t(" và ", " and ")}
+            <DocsCode>Overlay</DocsCode>
+            {t(" bên trong. Prop ", " internally. The ")}
+            <DocsCode>showCloseButton</DocsCode>
+            {t(
+              " cho phép bật/tắt nút X tự động. Dùng ",
+              " prop allows toggling the automatic X button. Use ",
+            )}
+            <DocsCode>open</DocsCode>
+            {t(" / ", " / ")}
+            <DocsCode>onOpenChange</DocsCode>
+            {t(" để sử dụng controlled mode.", " for controlled mode.")}
           </DocsP>
         </ShowcaseDocs>
       }

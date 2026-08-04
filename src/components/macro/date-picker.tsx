@@ -11,12 +11,22 @@ import { Calendar } from "../../components/micro/calendar";
 import {
   Popover,
   PopoverContent,
-
   PopoverTrigger
 } from "../../components/micro/popover";
 import { type Size } from "../../lib/types";
 import { cn } from "../../lib/utils";
 import { FieldPreset } from "./field-preset";
+
+type DatePickerLabels = {
+  /** Placeholder for single date mode. @default "Pick a date" */
+  placeholderSingle?: string;
+  /** Placeholder for range date mode. @default "Pick a date range" */
+  placeholderRange?: string;
+  /** Cancel button label. @default "Cancel" */
+  cancel?: string;
+  /** Confirm button label. @default "Apply" */
+  confirm?: string;
+};
 
 type DatePickerBaseProps = {
   /** Visual mode. "single" selects one date, "range" selects a start–end span. */
@@ -39,7 +49,7 @@ type DatePickerBaseProps = {
   id?: string;
   /** className applied to the outermost FieldPreset wrapper. */
   className?: string;
-  
+
   /** Number of calendar months to display. */
   numberOfMonths?: number;
   /** Navigation control style. */
@@ -54,6 +64,8 @@ type DatePickerBaseProps = {
   endMonth?: Date;
   /** Month shown on first render (uncontrolled default). */
   defaultMonth?: Date;
+  /** i18n labels to override default Vietnamese strings. */
+  labels?: DatePickerLabels;
 };
 
 type DatePickerSingleProps = DatePickerBaseProps & {
@@ -79,15 +91,19 @@ type DatePickerRangeProps = DatePickerBaseProps & {
 type DatePickerProps = DatePickerSingleProps | DatePickerRangeProps;
 
 const triggerVariants = cva(
-  "inline-flex w-full items-center justify-start rounded-lg border border-input bg-transparent font-normal whitespace-nowrap transition-colors outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-offset-1 focus-visible:ring-offset-background disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:ring-3 aria-invalid:focus-visible:ring-destructive/50 dark:bg-input/30 [&>svg:not([class*='size-'])]:size-[1.1em] [&>svg:not([class*='size-'])]:shrink-0",
+  "inline-flex w-full items-center justify-start rounded-lg border border-input bg-transparent font-normal whitespace-nowrap transition-colors outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-offset-1 focus-visible:ring-offset-background disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:ring-3 aria-invalid:focus-visible:ring-destructive/50 dark:bg-input/30 [:where(&>svg)]:size-[1.1em] [:where(&>svg)]:shrink-0",
   {
     variants: {
       size: {
         sm: "h-7 gap-1 px-2 py-0.5 text-xs",
         md: "h-8 gap-1.5 px-2.5 py-1 text-sm",
-        lg: "h-9 gap-2 px-3 py-1.5 text-sm" } },
+        lg: "h-9 gap-2 px-3 py-1.5 text-sm"
+      }
+    },
     defaultVariants: {
-      size: "md" } },
+      size: "md"
+    }
+  },
 );
 
 const fmt = (
@@ -106,10 +122,10 @@ function formatTriggerLabel(
   if (mode === "single") {
     return value
       ? fmt(
-          value,
-          { month: "short", day: "numeric", year: "numeric" },
-          localeCode,
-        )
+        value,
+        { month: "short", day: "numeric", year: "numeric" },
+        localeCode,
+      )
       : placeholder;
   }
   if (!rangeValue?.from) return placeholder;
@@ -154,7 +170,8 @@ const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
       disabledDates,
       startMonth,
       endMonth,
-      defaultMonth },
+      defaultMonth,
+      labels },
     ref,
   ) => {
     const generatedId = React.useId();
@@ -176,7 +193,9 @@ const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
     }, [open, value, rangeValue]);
 
     const defaultPlaceholder =
-      placeholder ?? (mode === "range" ? "Chọn khoảng thời gian" : "Chọn một ngày");
+      placeholder ?? (mode === "range"
+        ? (labels?.placeholderRange ?? "Pick a date range")
+        : (labels?.placeholderSingle ?? "Pick a date"));
 
     const triggerLabel = formatTriggerLabel(
       mode,
@@ -215,66 +234,66 @@ const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
               {triggerLabel}
             </span>
           </PopoverTrigger>
-          
-            <PopoverContent
-              side="bottom"
-              align="start"
-              sideOffset={4}
-              className="p-0 w-auto"
-            >
-                {mode === "single" ? (
-                  <Calendar
-                    mode="single"
-                    size={size}
-                    locale={locale}
-                    numberOfMonths={numberOfMonths}
-                    captionLayout={captionLayout}
-                    disabled={disabledDates}
-                    startMonth={startMonth}
-                    endMonth={endMonth}
-                    defaultMonth={defaultMonth ?? value}
-                    selected={tempValue}
-                    onSelect={setTempValue}
-                  />
-                ) : (
-                  <Calendar
-                    mode="range"
-                    size={size}
-                    locale={locale}
-                    numberOfMonths={numberOfMonths ?? 1}
-                    captionLayout={captionLayout}
-                    disabled={disabledDates}
-                    startMonth={startMonth}
-                    endMonth={endMonth}
-                    defaultMonth={defaultMonth ?? rangeValue?.from}
-                    selected={tempRangeValue}
-                    onSelect={setTempRangeValue}
-                  />
-                )}
-                <div className="flex items-center justify-end gap-2 px-3 pb-3 pt-1">
-                  <Button
-                    variant="outline"
-                    size={size}
-                    onClick={() => setOpen(false)}
-                  >
-                    Huỷ
-                  </Button>
-                  <Button
-                    size={size}
-                    onClick={() => {
-                      if (mode === "single") {
-                        onValueChange?.(tempValue);
-                      } else {
-                        onRangeChange?.(tempRangeValue);
-                      }
-                      setOpen(false);
-                    }}
-                  >
-                    Xác nhận
-                  </Button>
-                </div>
-            </PopoverContent>
-          
+
+          <PopoverContent
+            side="bottom"
+            align="start"
+            sideOffset={4}
+            className="p-0 w-auto"
+          >
+            {mode === "single" ? (
+              <Calendar
+                mode="single"
+                size={size}
+                locale={locale}
+                numberOfMonths={numberOfMonths}
+                captionLayout={captionLayout}
+                disabled={disabledDates}
+                startMonth={startMonth}
+                endMonth={endMonth}
+                defaultMonth={defaultMonth ?? value}
+                selected={tempValue}
+                onSelect={setTempValue}
+              />
+            ) : (
+              <Calendar
+                mode="range"
+                size={size}
+                locale={locale}
+                numberOfMonths={numberOfMonths ?? 1}
+                captionLayout={captionLayout}
+                disabled={disabledDates}
+                startMonth={startMonth}
+                endMonth={endMonth}
+                defaultMonth={defaultMonth ?? rangeValue?.from}
+                selected={tempRangeValue}
+                onSelect={setTempRangeValue}
+              />
+            )}
+            <div className="flex items-center justify-end gap-2 px-3 pb-3 pt-1">
+              <Button
+                variant="outline"
+                size={size}
+                onClick={() => setOpen(false)}
+              >
+                {labels?.cancel ?? "Cancel"}
+              </Button>
+              <Button
+                size={size}
+                onClick={() => {
+                  if (mode === "single") {
+                    onValueChange?.(tempValue);
+                  } else {
+                    onRangeChange?.(tempRangeValue);
+                  }
+                  setOpen(false);
+                }}
+              >
+                {labels?.confirm ?? "Apply"}
+              </Button>
+            </div>
+          </PopoverContent>
+
         </Popover>
       </FieldPreset>
     );

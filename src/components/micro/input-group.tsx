@@ -68,8 +68,8 @@ const inputGroupAddonVariants = cva(
     "group-data-[size=sm]/input-group:py-0.5",
     "group-data-[size=md]/input-group:py-1.5",
     "group-data-[size=lg]/input-group:py-1.5",
-    "[&>svg:not([class*='size-'])]:size-4",
-    "group-data-[size=sm]/input-group:[&>svg:not([class*='size-'])]:size-3.5",
+    "[:where(&>svg)]:size-4",
+    "group-data-[size=sm]/input-group:[:where(&>svg)]:size-3.5",
   ],
   {
     variants: {
@@ -113,8 +113,8 @@ const InputGroupText = React.forwardRef<
       ref={ref}
       className={cn(
         "flex items-center gap-2 text-muted-foreground",
-        "[&>svg]:pointer-events-none [&>svg:not([class*='size-'])]:size-4",
-        "group-data-[size=sm]/input-group:[&>svg:not([class*='size-'])]:size-3.5",
+        "[:where(&>svg)]:pointer-events-none [:where(&>svg)]:size-4",
+        "group-data-[size=sm]/input-group:[:where(&>svg)]:size-3.5",
         className,
       )}
       {...props}
@@ -132,8 +132,8 @@ const inputGroupButtonVariants = cva(
     
     "[&:not(:first-child)]:border-l [&:not(:last-child)]:border-r border-border",
     
-    "[&>svg:not([class*='size-'])]:size-4",
-    "group-data-[size=sm]/input-group:[&>svg:not([class*='size-'])]:size-3.5",
+    "[:where(&>svg)]:size-4",
+    "group-data-[size=sm]/input-group:[:where(&>svg)]:size-3.5",
   ],
   {
     variants: {

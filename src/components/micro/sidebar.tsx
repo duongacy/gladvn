@@ -129,7 +129,7 @@ const SidebarLabel = React.forwardRef<
     >
       {/* Icon container width matches collapsed sidebar width — reads CSS var from parent */}
       <div
-        className="flex shrink-0 items-center justify-center [&>svg]:size-4"
+        className="flex shrink-0 items-center justify-center [:where(&>svg)]:size-4"
         style={{ width: "calc(var(--sb-collapsed) - 16px)" }}
       >
         {icon}

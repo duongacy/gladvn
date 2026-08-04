@@ -116,7 +116,7 @@ const InputOTPSeparator = React.forwardRef<
       ref={ref}
       data-slot="input-otp-separator"
       className={cn(
-        "flex items-center text-muted-foreground [&>svg:not([class*='size-'])]:size-4 group-data-[size=sm]/otp:[&>svg:not([class*='size-'])]:size-3.5",
+        "flex items-center text-muted-foreground [:where(&>svg)]:size-4 group-data-[size=sm]/otp:[:where(&>svg)]:size-3.5",
         className,
       )}
       role="separator"

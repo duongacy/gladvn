@@ -62,7 +62,7 @@ const CheckboxIndicator = React.forwardRef<
       ref={ref}
       data-slot="checkbox-indicator"
       className={cn(
-        "grid place-content-center text-current transition-none [&>svg]:size-3.5 group-data-[size=sm]/checkbox:[&>svg]:size-3 group-data-[size=lg]/checkbox:[&>svg]:size-4",
+        "grid place-content-center text-current transition-none [:where(&>svg)]:size-3.5 group-data-[size=sm]/checkbox:[:where(&>svg)]:size-3 group-data-[size=lg]/checkbox:[:where(&>svg)]:size-4",
         className,
       )}
       {...props}

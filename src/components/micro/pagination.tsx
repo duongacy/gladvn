@@ -10,6 +10,8 @@ import * as React from "react";
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
+  ChevronsLeftIcon,
+  ChevronsRightIcon,
   MoreHorizontalIcon,
 } from "lucide-react";
 
@@ -18,9 +20,9 @@ import type { Size } from "../../lib/types";
 import { cn } from "../../lib/utils";
 
 const ellipsisSizeMap: Record<Size, { container: string; icon: string }> = {
-  sm: { container: "size-7", icon: "[&>svg:not([class*='size-'])]:size-3" },
-  md: { container: "size-9", icon: "[&>svg:not([class*='size-'])]:size-4" },
-  lg: { container: "size-11", icon: "[&>svg:not([class*='size-'])]:size-5" },
+  sm: { container: "size-7", icon: "[:where(&>svg)]:size-3" },
+  md: { container: "size-9", icon: "[:where(&>svg)]:size-4" },
+  lg: { container: "size-11", icon: "[:where(&>svg)]:size-5" },
 };
 
 /**
@@ -61,19 +63,22 @@ function PaginationItem({ ...props }: React.ComponentProps<"li">) {
 
 type PaginationLinkProps = {
   isActive?: boolean;
-} & Pick<React.ComponentProps<typeof Button>, "size"> &
+} & Pick<React.ComponentProps<typeof Button>, "size" | "iconOnly"> &
   React.ComponentProps<"a">;
 
 function PaginationLink({
   className,
   isActive,
   size = "md",
+  iconOnly,
   ...props
 }: PaginationLinkProps) {
   return (
     <Button
-      variant={isActive ? "outline" : "ghost"}
+      variant={isActive ? "solid" : "ghost"}
+      color={isActive ? "primary" : "secondary"}
       size={size}
+      iconOnly={iconOnly}
       className={className}
       nativeButton={false}
       render={
@@ -88,40 +93,74 @@ function PaginationLink({
   );
 }
 
-function PaginationPrevious({
+function PaginationFirst({
   className,
-  text = "Previous",
   size = "md",
   ...props
-}: React.ComponentProps<typeof PaginationLink> & { text?: string }) {
+}: React.ComponentProps<typeof PaginationLink>) {
+  return (
+    <PaginationLink
+      aria-label="Go to first page"
+      size={size}
+      iconOnly
+      className={className}
+      {...props}
+    >
+      <ChevronsLeftIcon aria-hidden="true" />
+    </PaginationLink>
+  );
+}
+
+function PaginationPrevious({
+  className,
+  size = "md",
+  ...props
+}: React.ComponentProps<typeof PaginationLink>) {
   return (
     <PaginationLink
       aria-label="Go to previous page"
       size={size}
-      className={cn("pl-2.5", className)}
+      iconOnly
+      className={className}
       {...props}
     >
-      <ChevronLeftIcon aria-hidden="true" data-icon="inline-start" />
-      <span className="hidden sm:block">{text}</span>
+      <ChevronLeftIcon aria-hidden="true" />
     </PaginationLink>
   );
 }
 
 function PaginationNext({
   className,
-  text = "Next",
   size = "md",
   ...props
-}: React.ComponentProps<typeof PaginationLink> & { text?: string }) {
+}: React.ComponentProps<typeof PaginationLink>) {
   return (
     <PaginationLink
       aria-label="Go to next page"
       size={size}
-      className={cn("pr-2.5", className)}
+      iconOnly
+      className={className}
       {...props}
     >
-      <span className="hidden sm:block">{text}</span>
-      <ChevronRightIcon aria-hidden="true" data-icon="inline-end" />
+      <ChevronRightIcon aria-hidden="true" />
+    </PaginationLink>
+  );
+}
+
+function PaginationLast({
+  className,
+  size = "md",
+  ...props
+}: React.ComponentProps<typeof PaginationLink>) {
+  return (
+    <PaginationLink
+      aria-label="Go to last page"
+      size={size}
+      iconOnly
+      className={className}
+      {...props}
+    >
+      <ChevronsRightIcon aria-hidden="true" />
     </PaginationLink>
   );
 }
@@ -158,6 +197,8 @@ export {
   PaginationEllipsis,
   PaginationItem,
   PaginationLink,
+  PaginationFirst,
+  PaginationPrevious,
   PaginationNext,
-  PaginationPrevious
+  PaginationLast
 };

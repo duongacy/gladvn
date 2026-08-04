@@ -45,7 +45,7 @@ const SelectValue = React.forwardRef<
 SelectValue.displayName = "SelectValue";
 
 const selectTriggerVariants = cva(
-  "inline-flex items-center justify-between rounded-lg border border-input bg-transparent text-foreground text-sm whitespace-nowrap transition-colors outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-offset-1 focus-visible:ring-offset-background disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:ring-3 aria-invalid:focus-visible:ring-destructive/50 data-placeholder:text-muted-foreground [&_[data-slot=select-value]]:line-clamp-1 [&_[data-slot=select-value]]:flex [&_[data-slot=select-value]]:items-center [&>svg]:pointer-events-none [&>svg]:shrink-0 [&>svg:not([class*='size-'])]:size-4 dark:bg-input/30 dark:aria-invalid:border-destructive/50 dark:aria-invalid:focus-visible:ring-destructive/50",
+  "inline-flex items-center justify-between rounded-lg border border-input bg-transparent text-foreground text-sm whitespace-nowrap transition-colors outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-offset-1 focus-visible:ring-offset-background disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:ring-3 aria-invalid:focus-visible:ring-destructive/50 data-placeholder:text-muted-foreground [&_[data-slot=select-value]]:line-clamp-1 [&_[data-slot=select-value]]:flex [&_[data-slot=select-value]]:items-center [:where(&>svg)]:pointer-events-none [:where(&>svg)]:shrink-0 [:where(&>svg)]:size-4 dark:bg-input/30 dark:aria-invalid:border-destructive/50 dark:aria-invalid:focus-visible:ring-destructive/50",
   {
     variants: {
       size: {
@@ -157,7 +157,7 @@ const SelectItem = React.forwardRef<
     ref={ref}
     data-slot="select-item"
     className={cn(
-      "relative flex w-full cursor-default items-center gap-1.5 rounded-md py-1 pr-8 pl-1.5 text-sm outline-hidden select-none data-highlighted:bg-accent data-highlighted:text-accent-foreground data-disabled:pointer-events-none data-disabled:opacity-50 [&>svg]:pointer-events-none [&>svg]:shrink-0 [&>svg:not([class*='size-'])]:size-4 [&>[data-slot=select-item-indicator]]:flex [&>[data-slot=select-item-indicator]]:items-center [&>[data-slot=select-item-indicator]]:gap-2",
+      "relative flex w-full cursor-default items-center gap-1.5 rounded-md py-1 pr-8 pl-1.5 text-sm outline-hidden select-none data-highlighted:bg-accent data-highlighted:text-accent-foreground data-disabled:pointer-events-none data-disabled:opacity-50 [:where(&>svg)]:pointer-events-none [:where(&>svg)]:shrink-0 [:where(&>svg)]:size-4 [&>[data-slot=select-item-indicator]]:flex [&>[data-slot=select-item-indicator]]:items-center [&>[data-slot=select-item-indicator]]:gap-2",
       className,
     )}
     {...props}
@@ -197,7 +197,7 @@ const SelectScrollUpButton = React.forwardRef<
     ref={ref}
     data-slot="select-scroll-up-button"
     className={cn(
-      "top-0 z-10 flex cursor-default items-center justify-center bg-popover py-1 [&_svg:not([class*='size-'])]:size-4",
+      "top-0 z-10 flex cursor-default items-center justify-center bg-popover py-1 [:where(&_svg)]:size-4",
       className,
     )}
     {...props}
@@ -215,7 +215,7 @@ const SelectScrollDownButton = React.forwardRef<
     ref={ref}
     data-slot="select-scroll-down-button"
     className={cn(
-      "bottom-0 z-10 flex cursor-default items-center justify-center bg-popover py-1 [&_svg:not([class*='size-'])]:size-4",
+      "bottom-0 z-10 flex cursor-default items-center justify-center bg-popover py-1 [:where(&_svg)]:size-4",
       className,
     )}
     {...props}

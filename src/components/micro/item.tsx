@@ -91,11 +91,11 @@ function Item({
 }
 
 const itemMediaVariants = cva(
-  "flex shrink-0 items-center justify-center gap-2 group-has-data-[slot=item-description]/item:translate-y-0.5 group-has-data-[slot=item-description]/item:self-start [&>svg]:pointer-events-none bg-transparent",
+  "flex shrink-0 items-center justify-center gap-2 group-has-data-[slot=item-description]/item:translate-y-0.5 group-has-data-[slot=item-description]/item:self-start [:where(&>svg)]:pointer-events-none bg-transparent",
   {
     variants: {
       variant: {
-        icon: "[&_svg:not([class*='size-'])]:size-4",
+        icon: "[:where(&_svg)]:size-4",
         image:
           "size-10 overflow-hidden rounded-sm group-data-[size=sm]/item:size-8 group-data-[size=xs]/item:size-6 [&>img]:size-full [&>img]:object-cover",
       },

@@ -140,7 +140,7 @@ function Calendar({
           {
             "text-sm group-[.calendar-sm]/calendar:text-xs group-[.calendar-lg]/calendar:text-base":
               captionLayout === "label",
-            "flex items-center gap-1 rounded-md text-sm group-[.calendar-sm]/calendar:text-xs group-[.calendar-lg]/calendar:text-base [&>svg]:size-3.5 [&>svg]:text-muted-foreground":
+            "flex items-center gap-1 rounded-md text-sm group-[.calendar-sm]/calendar:text-xs group-[.calendar-lg]/calendar:text-base [:where(&>svg)]:size-3.5 [:where(&>svg)]:text-muted-foreground":
               captionLayout !== "label",
           },
           defaultClassNames.caption_label,

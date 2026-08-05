@@ -10,6 +10,30 @@ import {
 } from '../../src/components/micro/carousel';
 
 test.describe('Carousel (Micro)', () => {
+  test('renders identically given the same props (pure component)', async ({ mount }) => {
+    const component = await mount(
+      <div className="flex gap-4">
+        <Carousel data-testid="first">
+          <CarouselContent>
+            <CarouselItem>A</CarouselItem>
+          </CarouselContent>
+        </Carousel>
+        <Carousel data-testid="second">
+          <CarouselContent>
+            <CarouselItem>A</CarouselItem>
+          </CarouselContent>
+        </Carousel>
+      </div>
+    );
+
+    const cleanHTML = (html: string) => html.replace(/id="[^"]+"/g, 'id="mocked"');
+
+    const firstHTML = await component.getByTestId('first').evaluate(el => el.innerHTML);
+    const secondHTML = await component.getByTestId('second').evaluate(el => el.innerHTML);
+
+    expect(cleanHTML(firstHTML)).toEqual(cleanHTML(secondHTML));
+  });
+
   test('root has correct ARIA attributes', async ({ mount, page }) => {
     await mount(
       <Carousel>

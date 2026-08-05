@@ -12,6 +12,36 @@ import {
 } from '../../src/components/micro/command';
 
 test.describe('Command (Micro)', () => {
+  test('renders identically given the same props (pure component)', async ({ mount }) => {
+    const component = await mount(
+      <div className="flex gap-4">
+        <Command data-testid="first">
+          <CommandInput placeholder="A" />
+          <CommandList>
+            <CommandItem>B</CommandItem>
+          </CommandList>
+        </Command>
+        <Command data-testid="second">
+          <CommandInput placeholder="A" />
+          <CommandList>
+            <CommandItem>B</CommandItem>
+          </CommandList>
+        </Command>
+      </div>
+    );
+
+    const cleanHTML = (html: string) => html
+      .replace(/id="[^"]+"/g, 'id="mocked"')
+      .replace(/aria-controls="[^"]*"/g, 'aria-controls="mocked"')
+      .replace(/for="[^"]+"/g, 'for="mocked"')
+      .replace(/aria-labelledby="[^"]+"/g, 'aria-labelledby="mocked"');
+
+    const firstHTML = await component.getByTestId('first').evaluate(el => el.innerHTML);
+    const secondHTML = await component.getByTestId('second').evaluate(el => el.innerHTML);
+
+    expect(cleanHTML(firstHTML)).toEqual(cleanHTML(secondHTML));
+  });
+
   test('filters items when typing in CommandInput', async ({ mount, page }) => {
     await mount(
       <Command className="w-64 border rounded-lg">

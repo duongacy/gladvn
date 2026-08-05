@@ -32,6 +32,7 @@ test.describe('Sheet (Micro)', () => {
 
     const cleanHTML = (html: string) => html
       .replace(/id="[^"]+"/g, 'id="mocked"')
+      .replace(/aria-controls="[^"]*"/g, 'aria-controls="mocked"')
       .replace(/aria-[a-z]+="[^"]*base-ui-[^"]*"/g, 'aria-mocked="true"');
 
     const firstHTML = await component.getByTestId('first').evaluate(el => el.innerHTML);
@@ -68,7 +69,6 @@ test.describe('Sheet (Micro)', () => {
     await trigger.click({ force: true });
     await expect(content).toBeVisible();
     await expect(page.getByText('Edit profile')).toBeVisible();
-    await page.waitForTimeout(300);
     
     // Close via close button
     await closeBtn.dispatchEvent('click');
@@ -77,7 +77,6 @@ test.describe('Sheet (Micro)', () => {
     // Open and close via Escape
     await trigger.click({ force: true });
     await expect(content).toBeVisible();
-    await page.waitForTimeout(300);
     
     await page.keyboard.press('Escape');
     await expect(content).toBeHidden();

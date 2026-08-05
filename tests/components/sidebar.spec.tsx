@@ -12,6 +12,28 @@ import { LayoutDashboard, Users, Settings } from 'lucide-react';
 
 // Test component structure defined inline in mount
 test.describe('Sidebar (Micro)', () => {
+  test('renders identically given the same props (pure component)', async ({ mount }) => {
+    const component = await mount(
+      <div className="flex gap-4">
+        <Sidebar data-testid="first">
+          <SidebarLogo icon={<div />} text="Acme" />
+        </Sidebar>
+        <Sidebar data-testid="second">
+          <SidebarLogo icon={<div />} text="Acme" />
+        </Sidebar>
+      </div>
+    );
+
+    const cleanHTML = (html: string) => html
+      .replace(/id="[^"]+"/g, 'id="mocked"')
+      .replace(/aria-controls="[^"]*"/g, 'aria-controls="mocked"');
+
+    const firstHTML = await component.getByTestId('first').evaluate(el => el.innerHTML);
+    const secondHTML = await component.getByTestId('second').evaluate(el => el.innerHTML);
+
+    expect(cleanHTML(firstHTML)).toEqual(cleanHTML(secondHTML));
+  });
+
   test('renders in expanded state by default with correct css vars', async ({ mount, page }) => {
     await mount(
       <Sidebar defaultState="expanded">

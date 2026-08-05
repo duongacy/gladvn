@@ -3,6 +3,28 @@ import * as React from 'react';
 import { ScrollArea, ScrollBar } from '../../src/components/micro/scroll-area';
 
 test.describe('ScrollArea (Micro)', () => {
+  test('renders identically given the same props (pure component)', async ({ mount }) => {
+    const component = await mount(
+      <div className="flex gap-4">
+        <ScrollArea data-testid="first">
+          <div>Content</div>
+        </ScrollArea>
+        <ScrollArea data-testid="second">
+          <div>Content</div>
+        </ScrollArea>
+      </div>
+    );
+
+    const cleanHTML = (html: string) => html
+      .replace(/id="[^"]+"/g, 'id="mocked"')
+      .replace(/aria-controls="[^"]*"/g, 'aria-controls="mocked"');
+
+    const firstHTML = await component.getByTestId('first').evaluate(el => el.innerHTML);
+    const secondHTML = await component.getByTestId('second').evaluate(el => el.innerHTML);
+
+    expect(cleanHTML(firstHTML)).toEqual(cleanHTML(secondHTML));
+  });
+
   test('renders with all structural elements', async ({ mount, page }) => {
     await mount(
       <ScrollArea className="h-[200px] w-[350px]">

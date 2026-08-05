@@ -7,6 +7,38 @@ import {
 } from '../../src/components/micro/resizable';
 
 test.describe('Resizable (Micro)', () => {
+  test('renders identically given the same props (pure component)', async ({ mount }) => {
+    const component = await mount(
+      <div className="flex gap-4">
+        <div data-testid="first">
+          <ResizablePanelGroup direction="horizontal">
+            <ResizablePanel defaultSize={50} />
+            <ResizableHandle />
+            <ResizablePanel defaultSize={50} />
+          </ResizablePanelGroup>
+        </div>
+        <div data-testid="second">
+          <ResizablePanelGroup direction="horizontal">
+            <ResizablePanel defaultSize={50} />
+            <ResizableHandle />
+            <ResizablePanel defaultSize={50} />
+          </ResizablePanelGroup>
+        </div>
+      </div>
+    );
+
+    const cleanHTML = (html: string) => html
+      .replace(/id="[^"]+"/g, 'id="mocked"')
+      .replace(/data-panel-group-id="[^"]+"/g, 'data-panel-group-id="mocked"')
+      .replace(/data-panel-id="[^"]+"/g, 'data-panel-id="mocked"')
+      .replace(/aria-controls="[^"]*"/g, 'aria-controls="mocked"');
+
+    const firstHTML = await component.getByTestId('first').evaluate(el => el.innerHTML);
+    const secondHTML = await component.getByTestId('second').evaluate(el => el.innerHTML);
+
+    expect(cleanHTML(firstHTML)).toEqual(cleanHTML(secondHTML));
+  });
+
   test('renders horizontally by default', async ({ mount, page }) => {
     await mount(
       <ResizablePanelGroup direction="horizontal" className="h-[200px] w-full">

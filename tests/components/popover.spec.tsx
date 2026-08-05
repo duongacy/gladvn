@@ -28,6 +28,7 @@ test.describe('Popover (Micro)', () => {
 
     const cleanHTML = (html: string) => html
       .replace(/id="[^"]+"/g, 'id="mocked"')
+      .replace(/aria-controls="[^"]*"/g, 'aria-controls="mocked"')
       .replace(/aria-[a-z]+="[^"]*base-ui-[^"]*"/g, 'aria-mocked="true"');
 
     const firstHTML = await component.getByTestId('first').evaluate(el => el.innerHTML);

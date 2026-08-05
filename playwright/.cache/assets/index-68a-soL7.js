@@ -1,22 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/aspect-ratio-Bs2fNRU6.js","assets/jsx-runtime-B7ZaO6Q_.js","assets/utils-BEvUJWKs.js","assets/clsx-ChV9xqsO.js","assets/empty-CC4B2Sco.js","assets/index-CO0T2jO4.js","assets/spinner-CfcNfM3z.js","assets/lucide-react-Bx1hgLrA.js","assets/skeleton-DccneWTR.js","assets/separator-BGMV3A5v.js","assets/useRenderElement-CBh4CqIk.js","assets/kbd-E58iLKlu.js","assets/label-CWZYnIUA.js","assets/avatar-CB3SCLPl.js","assets/useIsoLayoutEffect-DYGwUf-I.js","assets/useTransitionStatus-Td1Imt8w.js","assets/useAnimationFrame-BapKY_Lh.js","assets/noop-D1rYtPi8.js","assets/useTimeout-B9E2xS1v.js","assets/badge-QcHAXw0W.js","assets/index-CsFA-J_C.js","assets/button-UOcDQCdy.js","assets/useButton-DXihKi_N.js","assets/error-eXSmbXjy.js","assets/checkbox-BSuroQtQ.js","assets/createBaseUIEventDetails-BVY0zsWT.js","assets/useValueChanged-DC3oRYWc.js","assets/FieldItemContext-CkWlmw4u.js","assets/useAriaLabelledBy-BdH1_PlI.js","assets/CheckboxGroupContext-BBn5EAKH.js","assets/checkbox-preset-C9EBgzeb.js","assets/field-Brh5XK2L.js","assets/input-BP01hxBZ.js","assets/FieldsetRootContext-EBDuaG1o.js","assets/useLabelableId-BojUVp-D.js","assets/useLabel-LZt5I-6_.js","assets/utils-BWTU_UV9.js","assets/input-preset-BLkJCxqS.js","assets/field-preset-CHYlaesg.js","assets/radio-group-D9EA2aJc.js","assets/index-Bg6MWjzY.js","assets/DirectionContext-CFNfCIwa.js","assets/radio-group-preset-B0xDnv37.js","assets/slider-Bc2jWhTj.js","assets/switch-uAPaWuX3.js","assets/switch-preset-BC6-SnIj.js"])))=>i.map(i=>d[i]);
-function _mergeNamespaces(n, m) {
-  for (var i = 0; i < m.length; i++) {
-    const e = m[i];
-    if (typeof e !== 'string' && !Array.isArray(e)) { for (const k in e) {
-      if (k !== 'default' && !(k in n)) {
-        const d = Object.getOwnPropertyDescriptor(e, k);
-        if (d) {
-          Object.defineProperty(n, k, d.get ? d : {
-            enumerable: true,
-            get: () => e[k]
-          });
-        }
-      }
-    } }
-  }
-  return Object.freeze(Object.defineProperty(n, Symbol.toStringTag, { value: 'Module' }));
-}
-
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/sidebar-jpPm_miC.js","assets/utils-DpuUSH1a.js","assets/table-C6Hmc138.js","assets/lucide-react-BPXObMyy.js"])))=>i.map(i=>d[i]);
 true              &&(function polyfill() {
   const relList = document.createElement("link").relList;
   if (relList && relList.supports && relList.supports("modulepreload")) {
@@ -743,12 +725,7 @@ function requireReact () {
 }
 
 var reactExports = requireReact();
-const React = /*@__PURE__*/getDefaultExportFromCjs(reactExports);
-
-const React$1 = /*#__PURE__*/_mergeNamespaces({
-  __proto__: null,
-  default: React
-}, [reactExports]);
+const __pwReact = /*@__PURE__*/getDefaultExportFromCjs(reactExports);
 
 var client$2 = {exports: {}};
 
@@ -17593,7 +17570,7 @@ function __pwRender(value) {
       const component = v;
       let type = component.type;
       if (isJsxFragment(type))
-        type = React.Fragment;
+        type = __pwReact.Fragment;
       const props = component.props ? __pwRender(component.props) : {};
       const key = component.key ? __pwRender(component.key) : undefined;
       const { children, ...propsWithoutChildren } = props;
@@ -17602,7 +17579,7 @@ function __pwRender(value) {
       const createElementArguments = [propsWithoutChildren];
       if (children)
         createElementArguments.push(children);
-      return { result: React.createElement(type, ...createElementArguments) };
+      return { result: __pwReact.createElement(type, ...createElementArguments) };
     }
   });
 }
@@ -17622,7 +17599,7 @@ window.playwrightMount = async (component, rootElement, hooksConfig) => {
 
   const App = () => {
     /** @type {any} */
-    const [renderer, setRenderer] = React.useState(() => __pwRender(component));
+    const [renderer, setRenderer] = __pwReact.useState(() => __pwRender(component));
     entry.setRenderer = setRenderer;
     return renderer;
   };
@@ -17633,7 +17610,7 @@ window.playwrightMount = async (component, rootElement, hooksConfig) => {
       AppWrapper = () => wrapper;
   }
 
-  root.render(React.createElement(AppWrapper));
+  root.render(__pwReact.createElement(AppWrapper));
 
   for (const hook of window.__pw_hooks_after_mount || [])
     await hook({ hooksConfig });
@@ -17658,88 +17635,36 @@ window.playwrightUpdate = async (rootElement, component) => {
   entry.setRenderer(() => __pwRender(component));
 };
 
-const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_aspect_ratio_AspectRatio = () => __vitePreload(() => import('./aspect-ratio-Bs2fNRU6.js'),true              ?__vite__mapDeps([0,1,2,3]):void 0).then((mod) => mod.AspectRatio);
-const _Users_nhungneee_Desktop_github_gladvn_tests_components_lucide_react_SearchIcon = () => __vitePreload(() => import('./lucide-react-Bx1hgLrA.js'),true              ?[]:void 0).then((mod) => mod.SearchIcon);
-const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_empty_Empty = () => __vitePreload(() => import('./empty-CC4B2Sco.js'),true              ?__vite__mapDeps([4,1,5,3,2]):void 0).then((mod) => mod.Empty);
-const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_empty_EmptyHeader = () => __vitePreload(() => import('./empty-CC4B2Sco.js'),true              ?__vite__mapDeps([4,1,5,3,2]):void 0).then((mod) => mod.EmptyHeader);
-const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_empty_EmptyMedia = () => __vitePreload(() => import('./empty-CC4B2Sco.js'),true              ?__vite__mapDeps([4,1,5,3,2]):void 0).then((mod) => mod.EmptyMedia);
-const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_empty_EmptyTitle = () => __vitePreload(() => import('./empty-CC4B2Sco.js'),true              ?__vite__mapDeps([4,1,5,3,2]):void 0).then((mod) => mod.EmptyTitle);
-const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_empty_EmptyDescription = () => __vitePreload(() => import('./empty-CC4B2Sco.js'),true              ?__vite__mapDeps([4,1,5,3,2]):void 0).then((mod) => mod.EmptyDescription);
-const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_empty_EmptyContent = () => __vitePreload(() => import('./empty-CC4B2Sco.js'),true              ?__vite__mapDeps([4,1,5,3,2]):void 0).then((mod) => mod.EmptyContent);
-const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_empty_EmptyAction = () => __vitePreload(() => import('./empty-CC4B2Sco.js'),true              ?__vite__mapDeps([4,1,5,3,2]):void 0).then((mod) => mod.EmptyAction);
-const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_spinner_Spinner = () => __vitePreload(() => import('./spinner-CfcNfM3z.js'),true              ?__vite__mapDeps([6,1,5,3,7]):void 0).then((mod) => mod.Spinner);
-const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_skeleton_Skeleton = () => __vitePreload(() => import('./skeleton-DccneWTR.js'),true              ?__vite__mapDeps([8,1,2,3]):void 0).then((mod) => mod.Skeleton);
-const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_separator_Separator = () => __vitePreload(() => import('./separator-BGMV3A5v.js'),true              ?__vite__mapDeps([9,1,10,2,3]):void 0).then((mod) => mod.Separator);
-const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_kbd_Kbd = () => __vitePreload(() => import('./kbd-E58iLKlu.js'),true              ?__vite__mapDeps([11,1,2,3]):void 0).then((mod) => mod.Kbd);
-const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_kbd_KbdGroup = () => __vitePreload(() => import('./kbd-E58iLKlu.js'),true              ?__vite__mapDeps([11,1,2,3]):void 0).then((mod) => mod.KbdGroup);
-const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_label_Label = () => __vitePreload(() => import('./label-CWZYnIUA.js'),true              ?__vite__mapDeps([12,1,5,3,2]):void 0).then((mod) => mod.Label);
-const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_avatar_Avatar = () => __vitePreload(() => import('./avatar-CB3SCLPl.js'),true              ?__vite__mapDeps([13,1,10,14,15,16,17,18,2,3]):void 0).then((mod) => mod.Avatar);
-const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_avatar_AvatarImage = () => __vitePreload(() => import('./avatar-CB3SCLPl.js'),true              ?__vite__mapDeps([13,1,10,14,15,16,17,18,2,3]):void 0).then((mod) => mod.AvatarImage);
-const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_avatar_AvatarFallback = () => __vitePreload(() => import('./avatar-CB3SCLPl.js'),true              ?__vite__mapDeps([13,1,10,14,15,16,17,18,2,3]):void 0).then((mod) => mod.AvatarFallback);
-const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_avatar_AvatarBadge = () => __vitePreload(() => import('./avatar-CB3SCLPl.js'),true              ?__vite__mapDeps([13,1,10,14,15,16,17,18,2,3]):void 0).then((mod) => mod.AvatarBadge);
-const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_avatar_AvatarGroup = () => __vitePreload(() => import('./avatar-CB3SCLPl.js'),true              ?__vite__mapDeps([13,1,10,14,15,16,17,18,2,3]):void 0).then((mod) => mod.AvatarGroup);
-const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_avatar_AvatarGroupCount = () => __vitePreload(() => import('./avatar-CB3SCLPl.js'),true              ?__vite__mapDeps([13,1,10,14,15,16,17,18,2,3]):void 0).then((mod) => mod.AvatarGroupCount);
-const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_badge_Badge = () => __vitePreload(() => import('./badge-QcHAXw0W.js'),true              ?__vite__mapDeps([19,10,20,5,3,2]):void 0).then((mod) => mod.Badge);
-const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_button_Button = () => __vitePreload(() => import('./button-UOcDQCdy.js'),true              ?__vite__mapDeps([21,1,22,23,14,10,20,5,3,2]):void 0).then((mod) => mod.Button);
-const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_button_ButtonIcon = () => __vitePreload(() => import('./button-UOcDQCdy.js'),true              ?__vite__mapDeps([21,1,22,23,14,10,20,5,3,2]):void 0).then((mod) => mod.ButtonIcon);
-const _Users_nhungneee_Desktop_github_gladvn_tests_components_lucide_react_CheckIcon = () => __vitePreload(() => import('./lucide-react-Bx1hgLrA.js'),true              ?[]:void 0).then((mod) => mod.CheckIcon);
-const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_checkbox_Checkbox = () => __vitePreload(() => import('./checkbox-BSuroQtQ.js'),true              ?__vite__mapDeps([24,1,10,25,23,14,17,26,22,27,28,29,15,16,5,3,2]):void 0).then((mod) => mod.Checkbox);
-const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_checkbox_CheckboxIndicator = () => __vitePreload(() => import('./checkbox-BSuroQtQ.js'),true              ?__vite__mapDeps([24,1,10,25,23,14,17,26,22,27,28,29,15,16,5,3,2]):void 0).then((mod) => mod.CheckboxIndicator);
-const _Users_nhungneee_Desktop_github_gladvn_src_components_macro_checkbox_preset_CheckboxPreset = () => __vitePreload(() => import('./checkbox-preset-C9EBgzeb.js'),true              ?__vite__mapDeps([30,1,7,24,10,25,23,14,17,26,22,27,28,29,15,16,5,3,2,31,12,9]):void 0).then((mod) => mod.CheckboxPreset);
-const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_input_Input = () => __vitePreload(() => import('./input-BP01hxBZ.js'),true              ?__vite__mapDeps([32,1,14,10,25,23,17,33,28,34,35,36,18,16,27,15,29,5,3,2]):void 0).then((mod) => mod.Input);
-const _Users_nhungneee_Desktop_github_gladvn_src_components_macro_input_preset_InputPreset = () => __vitePreload(() => import('./input-preset-BLkJCxqS.js'),true              ?__vite__mapDeps([37,1,7,32,14,10,25,23,17,33,28,34,35,36,18,16,27,15,29,5,3,2,38,31,12,9]):void 0).then((mod) => mod.InputPreset);
-const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_radio_group_RadioGroup = () => __vitePreload(() => import('./radio-group-D9EA2aJc.js'),true              ?__vite__mapDeps([39,1,10,14,26,25,23,17,15,16,40,22,41,36,27,28,34,33,5,3,2]):void 0).then((mod) => mod.RadioGroup);
-const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_radio_group_RadioGroupItem = () => __vitePreload(() => import('./radio-group-D9EA2aJc.js'),true              ?__vite__mapDeps([39,1,10,14,26,25,23,17,15,16,40,22,41,36,27,28,34,33,5,3,2]):void 0).then((mod) => mod.RadioGroupItem);
-const _Users_nhungneee_Desktop_github_gladvn_src_components_macro_radio_group_preset_RadioGroupPreset = () => __vitePreload(() => import('./radio-group-preset-B0xDnv37.js'),true              ?__vite__mapDeps([42,1,12,5,3,2,39,10,14,26,25,23,17,15,16,40,22,41,36,27,28,34,33,38,31,7,9]):void 0).then((mod) => mod.RadioGroupPreset);
-const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_slider_Slider = () => __vitePreload(() => import('./slider-Bc2jWhTj.js'),true              ?__vite__mapDeps([43,1,25,23,14,10,17,26,36,41,35,16,34,5,3,2]):void 0).then((mod) => mod.Slider);
-const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_slider_SliderControl = () => __vitePreload(() => import('./slider-Bc2jWhTj.js'),true              ?__vite__mapDeps([43,1,25,23,14,10,17,26,36,41,35,16,34,5,3,2]):void 0).then((mod) => mod.SliderControl);
-const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_slider_SliderIndicator = () => __vitePreload(() => import('./slider-Bc2jWhTj.js'),true              ?__vite__mapDeps([43,1,25,23,14,10,17,26,36,41,35,16,34,5,3,2]):void 0).then((mod) => mod.SliderIndicator);
-const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_slider_SliderThumb = () => __vitePreload(() => import('./slider-Bc2jWhTj.js'),true              ?__vite__mapDeps([43,1,25,23,14,10,17,26,36,41,35,16,34,5,3,2]):void 0).then((mod) => mod.SliderThumb);
-const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_slider_SliderTrack = () => __vitePreload(() => import('./slider-Bc2jWhTj.js'),true              ?__vite__mapDeps([43,1,25,23,14,10,17,26,36,41,35,16,34,5,3,2]):void 0).then((mod) => mod.SliderTrack);
-const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_switch_Switch = () => __vitePreload(() => import('./switch-uAPaWuX3.js'),true              ?__vite__mapDeps([44,1,25,23,14,10,17,26,40,22,28,34,5,3,2]):void 0).then((mod) => mod.Switch);
-const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_switch_SwitchThumb = () => __vitePreload(() => import('./switch-uAPaWuX3.js'),true              ?__vite__mapDeps([44,1,25,23,14,10,17,26,40,22,28,34,5,3,2]):void 0).then((mod) => mod.SwitchThumb);
-const _Users_nhungneee_Desktop_github_gladvn_src_components_macro_switch_preset_SwitchPreset = () => __vitePreload(() => import('./switch-preset-BC6-SnIj.js'),true              ?__vite__mapDeps([45,1,31,5,3,7,12,2,9,10,44,25,23,14,17,26,40,22,28,34]):void 0).then((mod) => mod.SwitchPreset);
-__pwRegistry.initialize({ _Users_nhungneee_Desktop_github_gladvn_src_components_micro_aspect_ratio_AspectRatio,
-  _Users_nhungneee_Desktop_github_gladvn_tests_components_lucide_react_SearchIcon,
-  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_empty_Empty,
-  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_empty_EmptyHeader,
-  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_empty_EmptyMedia,
-  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_empty_EmptyTitle,
-  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_empty_EmptyDescription,
-  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_empty_EmptyContent,
-  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_empty_EmptyAction,
-  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_spinner_Spinner,
-  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_skeleton_Skeleton,
-  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_separator_Separator,
-  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_kbd_Kbd,
-  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_kbd_KbdGroup,
-  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_label_Label,
-  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_avatar_Avatar,
-  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_avatar_AvatarImage,
-  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_avatar_AvatarFallback,
-  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_avatar_AvatarBadge,
-  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_avatar_AvatarGroup,
-  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_avatar_AvatarGroupCount,
-  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_badge_Badge,
-  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_button_Button,
-  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_button_ButtonIcon,
-  _Users_nhungneee_Desktop_github_gladvn_tests_components_lucide_react_CheckIcon,
-  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_checkbox_Checkbox,
-  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_checkbox_CheckboxIndicator,
-  _Users_nhungneee_Desktop_github_gladvn_src_components_macro_checkbox_preset_CheckboxPreset,
-  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_input_Input,
-  _Users_nhungneee_Desktop_github_gladvn_src_components_macro_input_preset_InputPreset,
-  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_radio_group_RadioGroup,
-  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_radio_group_RadioGroupItem,
-  _Users_nhungneee_Desktop_github_gladvn_src_components_macro_radio_group_preset_RadioGroupPreset,
-  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_slider_Slider,
-  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_slider_SliderControl,
-  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_slider_SliderIndicator,
-  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_slider_SliderThumb,
-  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_slider_SliderTrack,
-  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_switch_Switch,
-  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_switch_SwitchThumb,
-  _Users_nhungneee_Desktop_github_gladvn_src_components_macro_switch_preset_SwitchPreset });
+const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_sidebar_Sidebar = () => __vitePreload(() => import('./sidebar-jpPm_miC.js'),true              ?__vite__mapDeps([0,1]):void 0).then((mod) => mod.Sidebar);
+const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_sidebar_SidebarLogo = () => __vitePreload(() => import('./sidebar-jpPm_miC.js'),true              ?__vite__mapDeps([0,1]):void 0).then((mod) => mod.SidebarLogo);
+const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_sidebar_SidebarLabel = () => __vitePreload(() => import('./sidebar-jpPm_miC.js'),true              ?__vite__mapDeps([0,1]):void 0).then((mod) => mod.SidebarLabel);
+const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_sidebar_SidebarMenuItemList = () => __vitePreload(() => import('./sidebar-jpPm_miC.js'),true              ?__vite__mapDeps([0,1]):void 0).then((mod) => mod.SidebarMenuItemList);
+const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_sidebar_SidebarMenuItem = () => __vitePreload(() => import('./sidebar-jpPm_miC.js'),true              ?__vite__mapDeps([0,1]):void 0).then((mod) => mod.SidebarMenuItem);
+const _Users_nhungneee_Desktop_github_gladvn_tests_components_lucide_react_LayoutDashboard = () => __vitePreload(() => import('./lucide-react-BPXObMyy.js'),true              ?[]:void 0).then((mod) => mod.LayoutDashboard);
+const _Users_nhungneee_Desktop_github_gladvn_tests_components_lucide_react_Users = () => __vitePreload(() => import('./lucide-react-BPXObMyy.js'),true              ?[]:void 0).then((mod) => mod.Users);
+const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_table_Table = () => __vitePreload(() => import('./table-C6Hmc138.js'),true              ?__vite__mapDeps([2,1,3]):void 0).then((mod) => mod.Table);
+const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_table_TableHeader = () => __vitePreload(() => import('./table-C6Hmc138.js'),true              ?__vite__mapDeps([2,1,3]):void 0).then((mod) => mod.TableHeader);
+const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_table_TableBody = () => __vitePreload(() => import('./table-C6Hmc138.js'),true              ?__vite__mapDeps([2,1,3]):void 0).then((mod) => mod.TableBody);
+const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_table_TableFooter = () => __vitePreload(() => import('./table-C6Hmc138.js'),true              ?__vite__mapDeps([2,1,3]):void 0).then((mod) => mod.TableFooter);
+const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_table_TableHead = () => __vitePreload(() => import('./table-C6Hmc138.js'),true              ?__vite__mapDeps([2,1,3]):void 0).then((mod) => mod.TableHead);
+const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_table_TableRow = () => __vitePreload(() => import('./table-C6Hmc138.js'),true              ?__vite__mapDeps([2,1,3]):void 0).then((mod) => mod.TableRow);
+const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_table_TableCell = () => __vitePreload(() => import('./table-C6Hmc138.js'),true              ?__vite__mapDeps([2,1,3]):void 0).then((mod) => mod.TableCell);
+const _Users_nhungneee_Desktop_github_gladvn_src_components_micro_table_TableCaption = () => __vitePreload(() => import('./table-C6Hmc138.js'),true              ?__vite__mapDeps([2,1,3]):void 0).then((mod) => mod.TableCaption);
+__pwRegistry.initialize({ _Users_nhungneee_Desktop_github_gladvn_src_components_micro_sidebar_Sidebar,
+  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_sidebar_SidebarLogo,
+  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_sidebar_SidebarLabel,
+  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_sidebar_SidebarMenuItemList,
+  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_sidebar_SidebarMenuItem,
+  _Users_nhungneee_Desktop_github_gladvn_tests_components_lucide_react_LayoutDashboard,
+  _Users_nhungneee_Desktop_github_gladvn_tests_components_lucide_react_Users,
+  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_table_Table,
+  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_table_TableHeader,
+  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_table_TableBody,
+  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_table_TableFooter,
+  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_table_TableHead,
+  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_table_TableRow,
+  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_table_TableCell,
+  _Users_nhungneee_Desktop_github_gladvn_src_components_micro_table_TableCaption });
 
-export { React as R, requireReactDom as a, requireReact as b, React$1 as c, getDefaultExportFromCjs as g, reactExports as r };
-//# sourceMappingURL=index-CxfbUVL5.js.map
+export { getDefaultExportFromCjs as g, reactExports as r };
+//# sourceMappingURL=index-68a-soL7.js.map

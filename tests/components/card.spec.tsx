@@ -10,6 +10,30 @@ import {
 } from '../../src/components/micro/card';
 
 test.describe('Card (Micro)', () => {
+  test('renders identically given the same props (pure component)', async ({ mount }) => {
+    const component = await mount(
+      <div className="flex gap-4">
+        <Card data-testid="first">
+          <CardHeader><CardTitle>A</CardTitle></CardHeader>
+          <CardContent>B</CardContent>
+          <CardFooter>C</CardFooter>
+        </Card>
+        <Card data-testid="second">
+          <CardHeader><CardTitle>A</CardTitle></CardHeader>
+          <CardContent>B</CardContent>
+          <CardFooter>C</CardFooter>
+        </Card>
+      </div>
+    );
+
+    const cleanHTML = (html: string) => html.replace(/id="[^"]+"/g, 'id="mocked"');
+
+    const firstHTML = await component.getByTestId('first').evaluate(el => el.innerHTML);
+    const secondHTML = await component.getByTestId('second').evaluate(el => el.innerHTML);
+
+    expect(cleanHTML(firstHTML)).toEqual(cleanHTML(secondHTML));
+  });
+
   test('renders all child components correctly', async ({ mount, page }) => {
     await mount(
       <Card>

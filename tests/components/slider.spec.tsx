@@ -146,6 +146,57 @@ test.describe('Slider (Micro)', () => {
     await expect(hiddenInput).toHaveAttribute('aria-valuenow', '50');
   });
 
+  test('increments value with ArrowRight key', async ({ mount, page }) => {
+    const component = await mount(
+      <Slider defaultValue={[50]} className="w-[200px]">
+        <SliderControl>
+          <SliderTrack>
+            <SliderIndicator />
+          </SliderTrack>
+          <SliderThumb />
+        </SliderControl>
+      </Slider>,
+    );
+
+    const slider = component.getByRole('slider');
+    await slider.focus();
+    await page.keyboard.press('ArrowRight');
+    await expect(slider).toHaveAttribute('aria-valuenow', '51');
+  });
+
+  test('decrements value with ArrowLeft key', async ({ mount, page }) => {
+    const component = await mount(
+      <Slider defaultValue={[50]} className="w-[200px]">
+        <SliderControl>
+          <SliderTrack>
+            <SliderIndicator />
+          </SliderTrack>
+          <SliderThumb />
+        </SliderControl>
+      </Slider>,
+    );
+
+    const slider = component.getByRole('slider');
+    await slider.focus();
+    await page.keyboard.press('ArrowLeft');
+    await expect(slider).toHaveAttribute('aria-valuenow', '49');
+  });
+
+  test('is focusable via keyboard Tab', async ({ mount, page }) => {
+    const component = await mount(
+      <Slider defaultValue={[50]} className="w-[200px]">
+        <SliderControl>
+          <SliderTrack>
+            <SliderIndicator />
+          </SliderTrack>
+          <SliderThumb />
+        </SliderControl>
+      </Slider>,
+    );
+
+    await page.keyboard.press('Tab');
+    await expect(component.getByRole('slider')).toBeFocused();
+  });
 });
 
 test.describe('Slider Visual Snapshots', () => {

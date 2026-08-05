@@ -4,6 +4,22 @@ import { RadioGroup, RadioGroupItem } from '../../src/components/micro/radio-gro
 import { RadioGroupPreset } from '../../src/components/macro/radio-group-preset';
 
 test.describe('RadioGroup (Micro)', () => {
+  test('renders identically given the same props (pure component)', async ({ mount }) => {
+    const component = await mount(
+      <div className="flex gap-4">
+        <RadioGroupItem value="test" size="lg" data-testid="first" />
+        <RadioGroupItem value="test" size="lg" data-testid="second" />
+      </div>
+    );
+
+    const cleanHTML = (html: string) => html.replace(/id="[^"]+"/g, 'id="mocked"').replace(/aria-[a-z]+="[^"]*base-ui-[^"]*"/g, 'aria-mocked="true"');
+
+    const firstHTML = await component.getByTestId('first').evaluate(el => el.innerHTML);
+    const secondHTML = await component.getByTestId('second').evaluate(el => el.innerHTML);
+
+    expect(cleanHTML(firstHTML)).toEqual(cleanHTML(secondHTML));
+  });
+
   test('items are unchecked by default', async ({ mount }) => {
     const component = await mount(
       <RadioGroup>
@@ -48,14 +64,20 @@ test.describe('RadioGroup (Micro)', () => {
     await expect(component.getByTestId('radio-banana')).toBeChecked();
   });
 
-  test('is disabled when RadioGroup disabled prop is set', async ({ mount }) => {
+  test('disabled radio cannot be selected on click', async ({ mount }) => {
+    let selectedValue = '';
     const component = await mount(
-      <RadioGroup disabled>
-        <RadioGroupItem value="apple" data-testid="radio-apple" />
+      <RadioGroup onValueChange={(val) => { selectedValue = val as string; }}>
+        <RadioGroupItem value="apple" disabled data-testid="radio-apple" />
       </RadioGroup>,
     );
 
-    await expect(component.getByTestId('radio-apple')).toBeDisabled();
+    const appleRadio = component.getByTestId('radio-apple');
+    await expect(appleRadio).toBeDisabled();
+    await appleRadio.evaluate((el: HTMLElement) => el.click());
+    
+    await expect(appleRadio).not.toBeChecked();
+    expect(selectedValue).toBe('');
   });
 
   test('navigates items with arrow keys', async ({ mount }) => {
@@ -129,5 +151,79 @@ test.describe('RadioGroupPreset (Macro)', () => {
     const yesRadio = component.locator('[data-slot="radio-group-item"]').first();
     await yesRadio.evaluate((el: HTMLElement) => el.click());
     expect(selected).toBe('yes');
+  });
+});
+
+test.describe('RadioGroup Visual Snapshots', () => {
+  const SIZES = ["sm", "md", "lg"] as const;
+
+  test('matches visual matrix snapshot', async ({ mount }) => {
+    const component = await mount(
+      <div className="flex flex-col gap-8 p-6 bg-background">
+        <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-wider">Sizes & States (Micro)</h3>
+        {SIZES.map((size) => (
+          <div key={size} className="flex flex-wrap gap-6 items-center">
+            <RadioGroup defaultValue="checked" className="flex flex-row gap-4">
+              <RadioGroupItem size={size} value="unchecked" />
+              <RadioGroupItem size={size} value="checked" />
+            </RadioGroup>
+            <RadioGroup defaultValue="disabled-checked" className="flex flex-row gap-4">
+              <RadioGroupItem size={size} value="disabled" disabled />
+              <RadioGroupItem size={size} value="disabled-checked" disabled />
+            </RadioGroup>
+            <RadioGroup className="flex flex-row gap-4">
+              <RadioGroupItem size={size} value="error" aria-invalid="true" />
+            </RadioGroup>
+          </div>
+        ))}
+
+        <div className="space-y-4 pt-4 border-t border-border">
+          <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-wider">Radio Group Preset (Macro)</h3>
+          
+          <div className="grid grid-cols-2 gap-8">
+            <RadioGroupPreset 
+              label="Standard Radio" 
+              description="Pick one option"
+              defaultValue="yes"
+              options={[
+                { label: "Yes", value: "yes" },
+                { label: "No", value: "no" }
+              ]} 
+            />
+            
+            <RadioGroupPreset 
+              label="Disabled Group" 
+              disabled
+              defaultValue="option1"
+              options={[
+                { label: "Option 1", value: "option1" },
+                { label: "Option 2", value: "option2" }
+              ]} 
+            />
+
+            <RadioGroupPreset 
+              label="Error State" 
+              errorMessage="You must select an option"
+              options={[
+                { label: "Valid", value: "valid" },
+                { label: "Invalid", value: "invalid" }
+              ]} 
+            />
+
+            <RadioGroupPreset 
+              label="With Disabled Option" 
+              options={[
+                { label: "Available", value: "a" },
+                { label: "Unavailable", value: "b", disabled: true }
+              ]} 
+            />
+          </div>
+        </div>
+      </div>
+    );
+
+    await expect(component).toHaveScreenshot('radio-group-matrix.png', {
+      maxDiffPixelRatio: 0.01,
+    });
   });
 });

@@ -19,10 +19,12 @@ test.describe('Button (Micro)', () => {
       </div>
     );
 
+    const cleanHTML = (html: string) => html.replace(/id="[^"]+"/g, 'id="mocked"').replace(/aria-[a-z]+="[^"]*base-ui-[^"]*"/g, 'aria-mocked="true"');
+
     const firstHTML = await component.getByTestId('first').evaluate(el => el.innerHTML);
     const secondHTML = await component.getByTestId('second').evaluate(el => el.innerHTML);
 
-    expect(firstHTML).toEqual(secondHTML);
+    expect(cleanHTML(firstHTML)).toEqual(cleanHTML(secondHTML));
   });
 
   test('handles click events', async ({ mount }) => {

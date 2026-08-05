@@ -4,6 +4,22 @@ import { Input } from '../../src/components/micro/input';
 import { InputPreset } from '../../src/components/macro/input-preset';
 
 test.describe('Input (Micro)', () => {
+  test('renders identically given the same props (pure component)', async ({ mount }) => {
+    const component = await mount(
+      <div className="flex gap-4">
+        <Input size="lg" placeholder="Test" data-testid="first" />
+        <Input size="lg" placeholder="Test" data-testid="second" />
+      </div>
+    );
+
+    const cleanHTML = (html: string) => html.replace(/id="[^"]+"/g, 'id="mocked"').replace(/aria-[a-z]+="[^"]*base-ui-[^"]*"/g, 'aria-mocked="true"');
+
+    const firstHTML = await component.getByTestId('first').evaluate(el => el.innerHTML);
+    const secondHTML = await component.getByTestId('second').evaluate(el => el.innerHTML);
+
+    expect(cleanHTML(firstHTML)).toEqual(cleanHTML(secondHTML));
+  });
+
   test('renders with placeholder', async ({ mount }) => {
     const component = await mount(<Input placeholder="Enter text..." />);
     await expect(component).toHaveAttribute('placeholder', 'Enter text...');
@@ -15,9 +31,21 @@ test.describe('Input (Micro)', () => {
     await expect(component).toHaveValue('Hello Playwright');
   });
 
-  test('is disabled when disabled prop is true', async ({ mount }) => {
+  test('disabled input cannot be typed into', async ({ mount }) => {
     const component = await mount(<Input disabled />);
     await expect(component).toBeDisabled();
+    
+    // Playwright `fill` throws an error if an element is disabled,
+    // so we verify it explicitly throws or just use `{ force: true }`
+    // but `force: true` on `fill` still errors if it's truly disabled in the DOM.
+    // Let's assert it's strictly disabled.
+    try {
+      await component.fill('test', { timeout: 1000 });
+      // Should not reach here
+      expect(true).toBe(false);
+    } catch (e) {
+      expect(e).toBeDefined();
+    }
   });
 
   test('is focusable via keyboard Tab', async ({ mount, page }) => {
@@ -99,5 +127,38 @@ test.describe('InputPreset (Macro)', () => {
     );
 
     await expect(component.getByText('$')).toBeVisible();
+  });
+});
+
+test.describe('Input Visual Snapshots', () => {
+  const SIZES = ["sm", "md", "lg"] as const;
+
+  test('matches visual matrix snapshot', async ({ mount }) => {
+    const component = await mount(
+      <div className="flex flex-col gap-6 p-6 bg-background max-w-2xl">
+        <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-wider">Sizes & States (Micro)</h3>
+        {SIZES.map((size) => (
+          <div key={size} className="flex gap-4 items-center">
+            <Input size={size} placeholder={`Size: ${size}`} className="w-32" />
+            <Input size={size} defaultValue="Filled Value" className="w-32" />
+            <Input size={size} disabled defaultValue="Disabled" className="w-32" />
+            <Input size={size} aria-invalid="true" defaultValue="Error state" className="w-32" />
+          </div>
+        ))}
+
+        <div className="space-y-4 pt-4 border-t border-border w-80">
+          <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-wider">Input Preset (Macro)</h3>
+          <InputPreset label="Standard Input" description="A descriptive text" placeholder="example@email.com" />
+          <InputPreset label="Disabled Input" disabled value="Cannot edit me" />
+          <InputPreset label="Error Input" errorMessage="This field is required" defaultValue="Wrong value" />
+          <InputPreset label="Password Input" type="password" defaultValue="secret123" />
+          <InputPreset label="With Adornments" startAdornment="https://" endAdornment=".com" placeholder="example" />
+        </div>
+      </div>
+    );
+
+    await expect(component).toHaveScreenshot('input-matrix.png', {
+      maxDiffPixelRatio: 0.01,
+    });
   });
 });

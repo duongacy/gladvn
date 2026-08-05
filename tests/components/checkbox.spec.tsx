@@ -5,6 +5,26 @@ import { Checkbox, CheckboxIndicator } from '../../src/components/micro/checkbox
 import { CheckboxPreset } from '../../src/components/macro/checkbox-preset';
 
 test.describe('Checkbox (Micro)', () => {
+  test('renders identically given the same props (pure component)', async ({ mount }) => {
+    const component = await mount(
+      <div className="flex gap-4">
+        <Checkbox size="lg" data-testid="first">
+          <CheckboxIndicator><CheckIcon /></CheckboxIndicator>
+        </Checkbox>
+        <Checkbox size="lg" data-testid="second">
+          <CheckboxIndicator><CheckIcon /></CheckboxIndicator>
+        </Checkbox>
+      </div>
+    );
+
+    const cleanHTML = (html: string) => html.replace(/id="[^"]+"/g, 'id="mocked"').replace(/aria-[a-z]+="[^"]*base-ui-[^"]*"/g, 'aria-mocked="true"');
+
+    const firstHTML = await component.getByTestId('first').evaluate(el => el.innerHTML);
+    const secondHTML = await component.getByTestId('second').evaluate(el => el.innerHTML);
+
+    expect(cleanHTML(firstHTML)).toEqual(cleanHTML(secondHTML));
+  });
+
   test('is unchecked by default', async ({ mount }) => {
     const component = await mount(
       <Checkbox>
@@ -45,14 +65,18 @@ test.describe('Checkbox (Micro)', () => {
     await expect(checkbox).not.toBeChecked();
   });
 
-  test('is disabled when disabled prop is true', async ({ mount }) => {
+  test('disabled checkbox does not toggle when clicked', async ({ mount }) => {
+    let checked = false;
     const component = await mount(
-      <Checkbox disabled>
+      <Checkbox disabled onCheckedChange={(c) => { checked = !!c; }}>
         <CheckboxIndicator><CheckIcon /></CheckboxIndicator>
       </Checkbox>,
     );
 
-    await expect(component.getByRole('checkbox')).toBeDisabled();
+    const checkbox = component.getByRole('checkbox');
+    await expect(checkbox).toBeDisabled();
+    await checkbox.evaluate((el: HTMLElement) => el.click());
+    expect(checked).toBe(false);
   });
 
   test('is focusable via keyboard Tab', async ({ mount, page }) => {
@@ -127,5 +151,46 @@ test.describe('CheckboxPreset (Macro)', () => {
     await expect(checkbox).not.toBeChecked();
     await component.locator('[data-slot="field-label"]').click();
     await expect(checkbox).toBeChecked();
+  });
+});
+
+test.describe('Checkbox Visual Snapshots', () => {
+  const SIZES = ["sm", "md", "lg"] as const;
+
+  test('matches visual matrix snapshot', async ({ mount }) => {
+    const component = await mount(
+      <div className="flex flex-col gap-6 p-6 bg-background">
+        <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-wider">Sizes & Checked States</h3>
+        {SIZES.map((size) => (
+          <div key={size} className="flex flex-wrap gap-4 items-center">
+            <Checkbox size={size} />
+            <Checkbox size={size} defaultChecked>
+              <CheckboxIndicator><CheckIcon /></CheckboxIndicator>
+            </Checkbox>
+            <Checkbox size={size} aria-invalid="true" defaultChecked>
+              <CheckboxIndicator><CheckIcon /></CheckboxIndicator>
+            </Checkbox>
+            <Checkbox size={size} disabled defaultChecked>
+              <CheckboxIndicator><CheckIcon /></CheckboxIndicator>
+            </Checkbox>
+            <Checkbox size={size} disabled />
+          </div>
+        ))}
+
+        <div className="space-y-2 pt-4 border-t border-border">
+          <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-wider">Checkbox Preset (Macro)</h3>
+          <div className="flex flex-col gap-4">
+            <CheckboxPreset label="Standard Option" description="A descriptive text" />
+            <CheckboxPreset label="Checked Option" defaultChecked />
+            <CheckboxPreset label="Disabled Option" disabled />
+            <CheckboxPreset label="Error Option" errorMessage="You must check this" />
+          </div>
+        </div>
+      </div>
+    );
+
+    await expect(component).toHaveScreenshot('checkbox-matrix.png', {
+      maxDiffPixelRatio: 0.01,
+    });
   });
 });

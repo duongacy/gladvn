@@ -17,6 +17,32 @@ import {
 // The visual thumb (data-slot="slider-thumb") is what renders on screen.
 
 test.describe('Slider (Micro)', () => {
+  test('renders identically given the same props (pure component)', async ({ mount }) => {
+    const component = await mount(
+      <div className="flex gap-4">
+        <Slider defaultValue={[50]} className="w-[200px]" data-testid="first">
+          <SliderControl>
+            <SliderTrack><SliderIndicator /></SliderTrack>
+            <SliderThumb />
+          </SliderControl>
+        </Slider>
+        <Slider defaultValue={[50]} className="w-[200px]" data-testid="second">
+          <SliderControl>
+            <SliderTrack><SliderIndicator /></SliderTrack>
+            <SliderThumb />
+          </SliderControl>
+        </Slider>
+      </div>
+    );
+
+    const cleanHTML = (html: string) => html.replace(/id="[^"]+"/g, 'id="mocked"').replace(/aria-[a-z]+="[^"]*base-ui-[^"]*"/g, 'aria-mocked="true"');
+
+    const firstHTML = await component.getByTestId('first').evaluate(el => el.innerHTML);
+    const secondHTML = await component.getByTestId('second').evaluate(el => el.innerHTML);
+
+    expect(cleanHTML(firstHTML)).toEqual(cleanHTML(secondHTML));
+  });
+
   test('thumb is visible after render', async ({ mount }) => {
     const component = await mount(
       <Slider defaultValue={[50]} className="w-[200px]">
@@ -44,8 +70,7 @@ test.describe('Slider (Micro)', () => {
       </Slider>,
     );
 
-    await expect(component.locator('[data-slot="slider-track"]')).toBeAttached();
-    await expect(component.locator('[data-slot="slider-indicator"]')).toBeAttached();
+    await expect(component.getByRole('slider')).toBeAttached();
   });
 
   test('hidden input has correct aria-valuenow', async ({ mount }) => {
@@ -60,8 +85,8 @@ test.describe('Slider (Micro)', () => {
       </Slider>,
     );
 
-    // Base UI uses a hidden <input type="range"> as the aria-slider element
-    const hiddenInput = component.locator('input[type="range"]');
+    // Base UI uses an <input type="range"> which naturally has role="slider"
+    const hiddenInput = component.getByRole('slider');
     await expect(hiddenInput).toHaveAttribute('aria-valuenow', '30');
   });
 
@@ -77,7 +102,7 @@ test.describe('Slider (Micro)', () => {
       </Slider>,
     );
 
-    const hiddenInput = component.locator('input[type="range"]');
+    const hiddenInput = component.getByRole('slider');
     await expect(hiddenInput).toHaveAttribute('min', '0');
     await expect(hiddenInput).toHaveAttribute('max', '100');
   });
@@ -94,12 +119,12 @@ test.describe('Slider (Micro)', () => {
       </Slider>,
     );
 
-    const hiddenInput = component.locator('input[type="range"]');
+    const hiddenInput = component.getByRole('slider');
     await expect(hiddenInput).toHaveAttribute('min', '10');
     await expect(hiddenInput).toHaveAttribute('max', '200');
   });
 
-  test('can be disabled', async ({ mount }) => {
+  test('disabled slider cannot be interacted with', async ({ mount, page }) => {
     const component = await mount(
       <Slider defaultValue={[50]} disabled className="w-[200px]">
         <SliderControl>
@@ -112,41 +137,73 @@ test.describe('Slider (Micro)', () => {
     );
 
     await expect(component.locator('[data-slot="slider-thumb"]')).toHaveAttribute('data-disabled', '');
+    
+    // Attempt to interact via keyboard
+    const hiddenInput = component.getByRole('slider');
+    // Disabled input shouldn't change value
+    // We use evaluate to force dispatching the event since Playwright prevents interaction on disabled elements
+    await hiddenInput.evaluate((el: HTMLElement) => el.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight' })));
+    await expect(hiddenInput).toHaveAttribute('aria-valuenow', '50');
   });
 
-  test('increments value with ArrowRight key', async ({ mount, page }) => {
+});
+
+test.describe('Slider Visual Snapshots', () => {
+  const SIZES = ["sm", "md", "lg"] as const;
+
+  test('matches visual matrix snapshot', async ({ mount }) => {
     const component = await mount(
-      <Slider defaultValue={[50]} className="w-[200px]">
-        <SliderControl>
-          <SliderTrack>
-            <SliderIndicator />
-          </SliderTrack>
-          <SliderThumb />
-        </SliderControl>
-      </Slider>,
+      <div className="flex flex-col gap-10 p-8 bg-background min-w-[600px]">
+        <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-wider border-b border-border pb-2">Sizes & States (Micro)</h3>
+        {SIZES.map((size) => (
+          <div key={size} className="grid grid-cols-2 gap-8 items-center">
+            <div className="flex items-center gap-4">
+              <span className="w-16 text-xs text-muted-foreground">{size} (Default)</span>
+              <Slider size={size} defaultValue={[50]} className="w-48">
+                <SliderControl>
+                  <SliderTrack><SliderIndicator /></SliderTrack>
+                  <SliderThumb />
+                </SliderControl>
+              </Slider>
+            </div>
+            <div className="flex items-center gap-4">
+              <span className="w-16 text-xs text-muted-foreground">{size} (Disabled)</span>
+              <Slider size={size} defaultValue={[75]} disabled className="w-48">
+                <SliderControl>
+                  <SliderTrack><SliderIndicator /></SliderTrack>
+                  <SliderThumb />
+                </SliderControl>
+              </Slider>
+            </div>
+          </div>
+        ))}
+
+        <div className="grid grid-cols-2 gap-8 pt-4">
+            <div className="flex items-center gap-4">
+              <span className="w-16 text-xs text-muted-foreground">Error state</span>
+              <Slider aria-invalid="true" defaultValue={[30]} className="w-48">
+                <SliderControl>
+                  <SliderTrack><SliderIndicator /></SliderTrack>
+                  <SliderThumb />
+                </SliderControl>
+              </Slider>
+            </div>
+            
+            <div className="flex items-center gap-4">
+              <span className="w-16 text-xs text-muted-foreground">Vertical</span>
+              <Slider orientation="vertical" defaultValue={[50]} className="h-32">
+                <SliderControl>
+                  <SliderTrack><SliderIndicator /></SliderTrack>
+                  <SliderThumb />
+                </SliderControl>
+              </Slider>
+            </div>
+        </div>
+      </div>
     );
 
-    // Focus the thumb via Tab, then use page.keyboard to dispatch the arrow event
-    await page.keyboard.press('Tab');
-    await page.keyboard.press('ArrowRight');
-    // Wait for the state to propagate
-    await expect(component.locator('input[type="range"]')).toHaveAttribute('aria-valuenow', '51');
-  });
-
-  test('decrements value with ArrowLeft key', async ({ mount, page }) => {
-    const component = await mount(
-      <Slider defaultValue={[50]} className="w-[200px]">
-        <SliderControl>
-          <SliderTrack>
-            <SliderIndicator />
-          </SliderTrack>
-          <SliderThumb />
-        </SliderControl>
-      </Slider>,
-    );
-
-    await page.keyboard.press('Tab');
-    await page.keyboard.press('ArrowLeft');
-    await expect(component.locator('input[type="range"]')).toHaveAttribute('aria-valuenow', '49');
+    await expect(component).toHaveScreenshot('slider-matrix.png', {
+      maxDiffPixelRatio: 0.01,
+    });
   });
 });

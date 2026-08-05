@@ -165,7 +165,7 @@ Bộ test PHẢI bao gồm các kiểm tra sau để bảo vệ tính thuần kh
 
 ### 1. Cùng Props → Cùng Kết quả (Idempotent Rendering)
 
-Mount component 2 lần với cùng một bộ props. Lấy `innerHTML` của cả 2. Kết quả PHẢI giống nhau 100%.
+Mount component 2 lần với cùng một bộ props. Lấy `innerHTML` của cả 2. Kết quả PHẢI giống nhau (sau khi loại bỏ các `id` sinh tự động bởi React `useId` cho mục đích A11y).
 
 ```tsx
 test('renders identically given the same props (pure component)', async ({ mount }) => {
@@ -178,14 +178,16 @@ test('renders identically given the same props (pure component)', async ({ mount
     </div>
   );
 
+  const cleanHTML = (html: string) => html.replace(/id="[^"]+"/g, 'id="mocked"').replace(/aria-[a-z]+="[^"]*base-ui-[^"]*"/g, 'aria-mocked="true"');
+  
   const firstHTML = await component.getByTestId('first').evaluate(el => el.innerHTML);
   const secondHTML = await component.getByTestId('second').evaluate(el => el.innerHTML);
 
-  expect(firstHTML).toEqual(secondHTML);
+  expect(cleanHTML(firstHTML)).toEqual(cleanHTML(secondHTML));
 });
 ```
 
-Nếu test này fail → Component có side effect nội bộ (ví dụ: random ID, Date.now(), internal counter). Đó là vi phạm kiến trúc.
+Nếu test này fail (sau khi đã loại bỏ ID a11y) → Component có side effect nội bộ (ví dụ: `Math.random()`, `Date.now()`, internal counter). Đó là vi phạm kiến trúc.
 
 ### 2. Không Tự Quản Lý State (No Internal State)
 

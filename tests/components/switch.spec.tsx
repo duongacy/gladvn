@@ -4,6 +4,22 @@ import { Switch, SwitchThumb } from '../../src/components/micro/switch';
 import { SwitchPreset } from '../../src/components/macro/switch-preset';
 
 test.describe('Switch (Micro)', () => {
+  test('renders identically given the same props (pure component)', async ({ mount }) => {
+    const component = await mount(
+      <div className="flex gap-4">
+        <Switch size="lg" data-testid="first"><SwitchThumb /></Switch>
+        <Switch size="lg" data-testid="second"><SwitchThumb /></Switch>
+      </div>
+    );
+
+    const cleanHTML = (html: string) => html.replace(/id="[^"]+"/g, 'id="mocked"').replace(/aria-[a-z]+="[^"]*base-ui-[^"]*"/g, 'aria-mocked="true"');
+
+    const firstHTML = await component.getByTestId('first').evaluate(el => el.innerHTML);
+    const secondHTML = await component.getByTestId('second').evaluate(el => el.innerHTML);
+
+    expect(cleanHTML(firstHTML)).toEqual(cleanHTML(secondHTML));
+  });
+
   test('is off by default', async ({ mount }) => {
     const component = await mount(
       <Switch>
@@ -42,9 +58,10 @@ test.describe('Switch (Micro)', () => {
     await expect(sw).toHaveAttribute('aria-checked', 'false');
   });
 
-  test('is disabled when disabled prop is true', async ({ mount }) => {
+  test('disabled switch cannot be toggled', async ({ mount }) => {
+    let checkedState: boolean | undefined;
     const component = await mount(
-      <Switch disabled>
+      <Switch disabled onCheckedChange={(c) => { checkedState = c; }}>
         <SwitchThumb />
       </Switch>,
     );
@@ -52,6 +69,10 @@ test.describe('Switch (Micro)', () => {
     // Base UI disabled switch has data-disabled attribute (not HTML disabled)
     const sw = component.locator('[data-slot="switch"]');
     await expect(sw).toHaveAttribute('data-disabled', '');
+    
+    await sw.evaluate((el: HTMLElement) => el.click());
+    await expect(sw).toHaveAttribute('aria-checked', 'false');
+    expect(checkedState).toBeUndefined();
   });
 
   test('is focusable via keyboard Tab', async ({ mount, page }) => {
@@ -137,5 +158,58 @@ test.describe('SwitchPreset (Macro)', () => {
     await expect(sw).toHaveAttribute('aria-checked', 'false');
     await component.locator('[data-slot="field-label"]').click();
     await expect(sw).toHaveAttribute('aria-checked', 'true');
+  });
+});
+
+test.describe('Switch Visual Snapshots', () => {
+  const SIZES = ["sm", "md", "lg"] as const;
+
+  test('matches visual matrix snapshot', async ({ mount }) => {
+    const component = await mount(
+      <div className="flex flex-col gap-8 p-6 bg-background">
+        <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-wider">Sizes & States (Micro)</h3>
+        {SIZES.map((size) => (
+          <div key={size} className="flex flex-wrap gap-6 items-center">
+            <Switch size={size}><SwitchThumb /></Switch>
+            <Switch size={size} defaultChecked><SwitchThumb /></Switch>
+            <Switch size={size} disabled><SwitchThumb /></Switch>
+            <Switch size={size} disabled defaultChecked><SwitchThumb /></Switch>
+            <Switch size={size} aria-invalid="true"><SwitchThumb /></Switch>
+            <Switch size={size} aria-invalid="true" defaultChecked><SwitchThumb /></Switch>
+          </div>
+        ))}
+
+        <div className="space-y-4 pt-4 border-t border-border">
+          <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-wider">Switch Preset (Macro)</h3>
+          
+          <div className="grid grid-cols-2 gap-8">
+            <SwitchPreset 
+              label="Standard Switch" 
+              description="Enable this feature"
+            />
+            
+            <SwitchPreset 
+              label="Checked Switch" 
+              defaultChecked
+            />
+
+            <SwitchPreset 
+              label="Disabled Switch" 
+              disabled
+              description="You cannot change this"
+            />
+
+            <SwitchPreset 
+              label="Error Switch" 
+              errorMessage="This feature requires attention"
+            />
+          </div>
+        </div>
+      </div>
+    );
+
+    await expect(component).toHaveScreenshot('switch-matrix.png', {
+      maxDiffPixelRatio: 0.01,
+    });
   });
 });

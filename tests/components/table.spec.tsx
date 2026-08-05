@@ -12,6 +12,28 @@ import {
 } from '../../src/components/micro/table';
 
 test.describe('Table (Micro)', () => {
+  test('renders identically given the same props (pure component)', async ({ mount }) => {
+    const component = await mount(
+      <div className="flex gap-4">
+        <Table data-testid="first">
+          <TableBody><TableRow><TableCell>Cell</TableCell></TableRow></TableBody>
+        </Table>
+        <Table data-testid="second">
+          <TableBody><TableRow><TableCell>Cell</TableCell></TableRow></TableBody>
+        </Table>
+      </div>
+    );
+
+    const cleanHTML = (html: string) => html
+      .replace(/id="[^"]+"/g, 'id="mocked"')
+      .replace(/aria-controls="[^"]*"/g, 'aria-controls="mocked"');
+
+    const firstHTML = await component.getByTestId('first').evaluate(el => el.innerHTML);
+    const secondHTML = await component.getByTestId('second').evaluate(el => el.innerHTML);
+
+    expect(cleanHTML(firstHTML)).toEqual(cleanHTML(secondHTML));
+  });
+
   test('renders all structural parts correctly', async ({ mount, page }) => {
     await mount(
       <Table>

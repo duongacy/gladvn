@@ -17,6 +17,32 @@ import {
 } from '../../src/components/micro/menubar';
 
 test.describe('Menubar (Micro)', () => {
+  test('renders identically given the same props (pure component)', async ({ mount }) => {
+    const component = await mount(
+      <div className="flex gap-4">
+        <Menubar>
+          <MenubarMenu>
+            <MenubarTrigger data-testid="first">Trigger</MenubarTrigger>
+          </MenubarMenu>
+        </Menubar>
+        <Menubar>
+          <MenubarMenu>
+            <MenubarTrigger data-testid="second">Trigger</MenubarTrigger>
+          </MenubarMenu>
+        </Menubar>
+      </div>
+    );
+
+    const cleanHTML = (html: string) => html
+      .replace(/id="[^"]+"/g, 'id="mocked"')
+      .replace(/aria-controls="[^"]*"/g, 'aria-controls="mocked"');
+
+    const firstHTML = await component.getByTestId('first').evaluate(el => el.innerHTML);
+    const secondHTML = await component.getByTestId('second').evaluate(el => el.innerHTML);
+
+    expect(cleanHTML(firstHTML)).toEqual(cleanHTML(secondHTML));
+  });
+
   test('renders and opens menus on click', async ({ mount, page }) => {
     await mount(
       <Menubar>

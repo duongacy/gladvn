@@ -12,6 +12,36 @@ import {
 } from '../../src/components/micro/navigation-menu';
 
 test.describe('NavigationMenu (Micro)', () => {
+  test('renders identically given the same props (pure component)', async ({ mount }) => {
+    const component = await mount(
+      <div className="flex gap-4">
+        <NavigationMenu data-testid="first">
+          <NavigationMenuList>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>Item</NavigationMenuTrigger>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
+        <NavigationMenu data-testid="second">
+          <NavigationMenuList>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>Item</NavigationMenuTrigger>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
+      </div>
+    );
+
+    const cleanHTML = (html: string) => html
+      .replace(/id="[^"]+"/g, 'id="mocked"')
+      .replace(/aria-controls="[^"]*"/g, 'aria-controls="mocked"');
+
+    const firstHTML = await component.getByTestId('first').evaluate(el => el.innerHTML);
+    const secondHTML = await component.getByTestId('second').evaluate(el => el.innerHTML);
+
+    expect(cleanHTML(firstHTML)).toEqual(cleanHTML(secondHTML));
+  });
+
   test('renders menu and opens content on interaction', async ({ mount, page }) => {
     await mount(
       <NavigationMenu>

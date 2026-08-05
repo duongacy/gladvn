@@ -27,9 +27,8 @@ test.describe('Switch (Micro)', () => {
       </Switch>,
     );
 
-    // Base UI Switch renders as <span role="switch"> which may not be Playwright-clickable
-    // directly because of zero-size ::after pseudo-element hit-test. Use data-slot selector.
-    const sw = component.locator('[data-slot="switch"]');
+    // Base UI Switch renders as <button role="switch"> or similar. Use semantic getByRole selector.
+    const sw = component.getByRole('switch');
     await expect(sw).toHaveAttribute('aria-checked', 'false');
   });
 
@@ -40,7 +39,7 @@ test.describe('Switch (Micro)', () => {
       </Switch>,
     );
 
-    const sw = component.locator('[data-slot="switch"]');
+    const sw = component.getByRole('switch');
     await sw.evaluate((el: HTMLElement) => el.click());
     await expect(sw).toHaveAttribute('aria-checked', 'true');
   });
@@ -52,7 +51,7 @@ test.describe('Switch (Micro)', () => {
       </Switch>,
     );
 
-    const sw = component.locator('[data-slot="switch"]');
+    const sw = component.getByRole('switch');
     await expect(sw).toHaveAttribute('aria-checked', 'true');
     await sw.evaluate((el: HTMLElement) => el.click());
     await expect(sw).toHaveAttribute('aria-checked', 'false');
@@ -67,7 +66,7 @@ test.describe('Switch (Micro)', () => {
     );
 
     // Base UI disabled switch has data-disabled attribute (not HTML disabled)
-    const sw = component.locator('[data-slot="switch"]');
+    const sw = component.getByRole('switch');
     await expect(sw).toHaveAttribute('data-disabled', '');
     
     await sw.evaluate((el: HTMLElement) => el.click());
@@ -83,7 +82,7 @@ test.describe('Switch (Micro)', () => {
     );
 
     await page.keyboard.press('Tab');
-    await expect(component.locator('[data-slot="switch"]')).toBeFocused();
+    await expect(component.getByRole('switch')).toBeFocused();
   });
 
   test('can be toggled with keyboard Space', async ({ mount }) => {
@@ -93,7 +92,7 @@ test.describe('Switch (Micro)', () => {
       </Switch>,
     );
 
-    const sw = component.locator('[data-slot="switch"]');
+    const sw = component.getByRole('switch');
     await sw.focus();
     await sw.press(' ');
     await expect(sw).toHaveAttribute('aria-checked', 'true');
@@ -107,7 +106,7 @@ test.describe('Switch (Micro)', () => {
       </Switch>,
     );
 
-    const sw = component.locator('[data-slot="switch"]');
+    const sw = component.getByRole('switch');
     await sw.evaluate((el: HTMLElement) => el.click());
     expect(checkedState).toBe(true);
   });
@@ -154,7 +153,7 @@ test.describe('SwitchPreset (Macro)', () => {
   test('clicking label toggles the switch', async ({ mount }) => {
     const component = await mount(<SwitchPreset label="Enable alerts" />);
 
-    const sw = component.locator('[data-slot="switch"]');
+    const sw = component.getByRole('switch');
     await expect(sw).toHaveAttribute('aria-checked', 'false');
     await component.locator('[data-slot="field-label"]').click();
     await expect(sw).toHaveAttribute('aria-checked', 'true');

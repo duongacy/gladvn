@@ -4,7 +4,7 @@ import { ToggleGroup, ToggleGroupItem } from '../../src/components/micro/toggle-
 
 test.describe('ToggleGroup (Micro)', () => {
   test('renders identically given the same props (pure component)', async ({ mount }) => {
-    const props = { type: 'single', defaultValue: 'a' } as const;
+    const props = { defaultValue: ['a'] } as const;
 
     const component = await mount(
       <div className="flex gap-4">
@@ -26,9 +26,9 @@ test.describe('ToggleGroup (Micro)', () => {
   });
 
   test('toggles selection when an item is clicked in single mode', async ({ mount }) => {
-    let selected = '';
+    let selected: string[] = [];
     const component = await mount(
-      <ToggleGroup type="single" onValueChange={(v) => selected = v as string}>
+      <ToggleGroup onValueChange={(v) => selected = v}>
         <ToggleGroupItem value="bold" aria-label="Bold"><BoldIcon /></ToggleGroupItem>
         <ToggleGroupItem value="italic" aria-label="Italic"><ItalicIcon /></ToggleGroupItem>
       </ToggleGroup>
@@ -50,7 +50,7 @@ test.describe('ToggleGroup (Micro)', () => {
 
   test('supports keyboard navigation via Arrow keys', async ({ mount, page }) => {
     const component = await mount(
-      <ToggleGroup type="single">
+      <ToggleGroup>
         <ToggleGroupItem value="bold" aria-label="Bold"><BoldIcon /></ToggleGroupItem>
         <ToggleGroupItem value="italic" aria-label="Italic"><ItalicIcon /></ToggleGroupItem>
       </ToggleGroup>
@@ -73,7 +73,7 @@ test.describe('ToggleGroup Visual Snapshots', () => {
       <div className="flex flex-col gap-12 p-8 bg-background">
         <div className="space-y-4">
           <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-wider">Horizontal (Spacing = 0)</h3>
-          <ToggleGroup type="multiple" spacing={0} defaultValue={['bold']}>
+          <ToggleGroup multiple spacing={0} defaultValue={['bold']}>
             <ToggleGroupItem value="bold" aria-label="Toggle bold">
               <BoldIcon />
             </ToggleGroupItem>
@@ -88,7 +88,7 @@ test.describe('ToggleGroup Visual Snapshots', () => {
 
         <div className="space-y-4">
           <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-wider">Horizontal (Spacing = 2)</h3>
-          <ToggleGroup type="multiple" spacing={2} defaultValue={['italic']}>
+          <ToggleGroup multiple spacing={2} defaultValue={['italic']}>
             <ToggleGroupItem value="bold" aria-label="Toggle bold">
               <BoldIcon />
             </ToggleGroupItem>
@@ -103,7 +103,7 @@ test.describe('ToggleGroup Visual Snapshots', () => {
 
         <div className="space-y-4">
           <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-wider">Vertical (Spacing = 0)</h3>
-          <ToggleGroup type="single" orientation="vertical" spacing={0} defaultValue="underline">
+          <ToggleGroup orientation="vertical" spacing={0} defaultValue={['underline']}>
             <ToggleGroupItem value="bold" aria-label="Toggle bold">
               <BoldIcon />
             </ToggleGroupItem>

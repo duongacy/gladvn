@@ -9,6 +9,34 @@ import {
 import { MinusIcon } from 'lucide-react';
 
 test.describe('InputOTP (Micro)', () => {
+  test('renders identically given the same props (pure component)', async ({ mount }) => {
+    const component = await mount(
+      <div className="flex gap-4">
+        <InputOTP maxLength={2} data-testid="first">
+          <InputOTPGroup>
+            <InputOTPSlot index={0} />
+            <InputOTPSlot index={1} />
+          </InputOTPGroup>
+        </InputOTP>
+        <InputOTP maxLength={2} data-testid="second">
+          <InputOTPGroup>
+            <InputOTPSlot index={0} />
+            <InputOTPSlot index={1} />
+          </InputOTPGroup>
+        </InputOTP>
+      </div>
+    );
+
+    const cleanHTML = (html: string) => html
+      .replace(/id="[^"]+"/g, 'id="mocked"')
+      .replace(/data-input-otp-id="[^"]+"/g, 'data-input-otp-id="mocked"');
+
+    const firstHTML = await component.getByTestId('first').evaluate(el => el.innerHTML);
+    const secondHTML = await component.getByTestId('second').evaluate(el => el.innerHTML);
+
+    expect(cleanHTML(firstHTML)).toEqual(cleanHTML(secondHTML));
+  });
+
   test('renders correct number of slots and separator', async ({ mount, page }) => {
     await mount(
       <InputOTP maxLength={6}>

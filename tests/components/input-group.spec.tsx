@@ -11,6 +11,26 @@ import {
 import { SearchIcon, SendIcon } from 'lucide-react';
 
 test.describe('InputGroup (Micro)', () => {
+  test('renders identically given the same props (pure component)', async ({ mount }) => {
+    const component = await mount(
+      <div className="flex gap-4">
+        <InputGroup data-testid="first">
+          <InputGroupInput placeholder="A" />
+        </InputGroup>
+        <InputGroup data-testid="second">
+          <InputGroupInput placeholder="A" />
+        </InputGroup>
+      </div>
+    );
+
+    const cleanHTML = (html: string) => html.replace(/id="[^"]+"/g, 'id="mocked"');
+
+    const firstHTML = await component.getByTestId('first').evaluate(el => el.innerHTML);
+    const secondHTML = await component.getByTestId('second').evaluate(el => el.innerHTML);
+
+    expect(cleanHTML(firstHTML)).toEqual(cleanHTML(secondHTML));
+  });
+
   test('renders with all components correctly', async ({ mount, page }) => {
     await mount(
       <InputGroup size="md">

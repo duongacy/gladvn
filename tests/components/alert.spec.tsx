@@ -36,6 +36,25 @@ test.describe('Alert (Micro)', () => {
     await expect(page.locator('[data-slot="alert-action"]')).toBeVisible();
     await expect(page.getByRole('button', { name: 'Retry' })).toBeVisible();
   });
+
+  test('renders identically given the same props (pure component)', async ({ mount }) => {
+    const props = { color: "destructive", size: "lg", children: "Content" } as const;
+    const component = await mount(
+      <div className="flex gap-4">
+        <Alert {...props} data-testid="first" />
+        <Alert {...props} data-testid="second" />
+      </div>
+    );
+
+    const cleanHTML = (html: string) => html
+      .replace(/id="[^"]+"/g, 'id="mocked"')
+      .replace(/aria-[a-z]+="[^"]*base-ui-[^"]*"/g, 'aria-mocked="true"');
+
+    const firstHTML = await component.getByTestId('first').evaluate(el => el.innerHTML);
+    const secondHTML = await component.getByTestId('second').evaluate(el => el.innerHTML);
+
+    expect(cleanHTML(firstHTML)).toEqual(cleanHTML(secondHTML));
+  });
 });
 
 test.describe('Alert Visual Snapshots', () => {

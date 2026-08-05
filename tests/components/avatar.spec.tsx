@@ -29,6 +29,19 @@ test.describe('Avatar (Micro)', () => {
 
     expect(cleanHTML(firstHTML)).toEqual(cleanHTML(secondHTML));
   });
+
+  test('renders image and fallback correctly', async ({ mount, page }) => {
+    // If we don't provide an image, the fallback should be visible
+    await mount(
+      <Avatar size="lg">
+        <AvatarFallback>CN</AvatarFallback>
+      </Avatar>
+    );
+
+    const fallback = page.locator('[data-slot="avatar-fallback"]');
+    await expect(fallback).toHaveText('CN');
+    await expect(fallback).toBeVisible();
+  });
 });
 
 test.describe('Avatar Visual Snapshots', () => {

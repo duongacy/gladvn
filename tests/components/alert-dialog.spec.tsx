@@ -72,23 +72,20 @@ test.describe('AlertDialog (Micro)', () => {
     await trigger.click({ force: true });
     await expect(content).toBeVisible();
     await expect(page.getByText('Are you absolutely sure?')).toBeVisible();
-    await page.waitForTimeout(200);
     
-    await cancelBtn.dispatchEvent('click');
+    await cancelBtn.evaluate(el => (el as HTMLElement).click());
     await expect(content).toBeHidden();
 
     // Open and close via Action
     await trigger.click({ force: true });
     await expect(content).toBeVisible();
-    await page.waitForTimeout(200);
     
-    await actionBtn.dispatchEvent('click');
+    await actionBtn.evaluate(el => (el as HTMLElement).click());
     await expect(content).toBeHidden();
 
     // Open and close via Escape
     await trigger.click({ force: true });
     await expect(content).toBeVisible();
-    await page.waitForTimeout(200);
 
     await page.keyboard.press('Escape');
     await expect(content).toBeHidden();

@@ -23,13 +23,15 @@ test.describe('AspectRatio (Micro)', () => {
     expect(cleanHTML(firstHTML)).toEqual(cleanHTML(secondHTML));
   });
 
-  test('applies the ratio as a CSS custom property', async ({ mount }) => {
+  test('maintains the specified aspect ratio structurally', async ({ mount }) => {
     const component = await mount(
-      <AspectRatio ratio={2} />
+      <AspectRatio ratio={2} data-testid="aspect">
+        <div>Content</div>
+      </AspectRatio>
     );
 
-    const style = await component.evaluate(el => el.getAttribute('style'));
-    expect(style).toContain('--ratio: 2');
+    const ratioValue = await component.evaluate(el => el.style.getPropertyValue('--ratio'));
+    expect(ratioValue).toBe('2');
   });
 });
 

@@ -120,6 +120,35 @@ test.describe('Accordion (Micro)', () => {
     await expect(trigger2).toHaveAttribute('aria-expanded', 'false');
     await expect(content2).toBeHidden();
   });
+
+  test('renders identically given the same props (pure component)', async ({ mount }) => {
+    const component = await mount(
+      <div className="flex gap-4">
+        <Accordion className="w-80" data-testid="first">
+          <AccordionItem value="item-1">
+            <AccordionTrigger>Is it accessible?</AccordionTrigger>
+            <AccordionContent>Yes.</AccordionContent>
+          </AccordionItem>
+        </Accordion>
+        <Accordion className="w-80" data-testid="second">
+          <AccordionItem value="item-1">
+            <AccordionTrigger>Is it accessible?</AccordionTrigger>
+            <AccordionContent>Yes.</AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
+    );
+
+    const cleanHTML = (html: string) => 
+      html
+        .replace(/id="[^"]+"/g, 'id="mocked"')
+        .replace(/aria-[a-z]+="[^"]*base-ui-[^"]*"/g, 'aria-mocked="true"');
+    
+    const firstHTML = await component.getByTestId('first').evaluate(el => el.innerHTML);
+    const secondHTML = await component.getByTestId('second').evaluate(el => el.innerHTML);
+
+    expect(cleanHTML(firstHTML)).toEqual(cleanHTML(secondHTML));
+  });
 });
 
 test.describe('Accordion Visual Snapshots', () => {

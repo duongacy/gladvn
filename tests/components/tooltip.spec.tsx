@@ -28,6 +28,7 @@ test.describe('Tooltip (Micro)', () => {
 
     const cleanHTML = (html: string) => html
       .replace(/id="[^"]+"/g, 'id="mocked"')
+      .replace(/aria-controls="[^"]*"/g, 'aria-controls="mocked"')
       .replace(/aria-[a-z]+="[^"]*base-ui-[^"]*"/g, 'aria-mocked="true"');
 
     const firstHTML = await component.getByTestId('first').evaluate(el => el.innerHTML);
@@ -52,7 +53,6 @@ test.describe('Tooltip (Micro)', () => {
     await expect(tooltip).toBeHidden();
 
     await trigger.hover();
-    await page.waitForTimeout(50);
     await expect(tooltip).toBeVisible();
     await expect(trigger).toHaveAttribute('data-popup-open', '');
 
@@ -80,7 +80,6 @@ test.describe('Tooltip (Micro)', () => {
     // Keyboard focus
     await page.keyboard.press('Tab');
     await expect(trigger).toBeFocused();
-    await page.waitForTimeout(50);
     await expect(tooltip).toBeVisible();
 
     // Press escape

@@ -17,6 +17,28 @@ import {
 import { Button } from '../../src/components/micro/button';
 
 test.describe('DropdownMenu (Micro)', () => {
+  test('renders identically given the same props (pure component)', async ({ mount }) => {
+    const component = await mount(
+      <div className="flex gap-4">
+        <DropdownMenu>
+          <DropdownMenuTrigger data-testid="first">Trigger</DropdownMenuTrigger>
+        </DropdownMenu>
+        <DropdownMenu>
+          <DropdownMenuTrigger data-testid="second">Trigger</DropdownMenuTrigger>
+        </DropdownMenu>
+      </div>
+    );
+
+    const cleanHTML = (html: string) => html
+      .replace(/id="[^"]+"/g, 'id="mocked"')
+      .replace(/aria-controls="[^"]*"/g, 'aria-controls="mocked"');
+
+    const firstHTML = await component.getByTestId('first').evaluate(el => el.innerHTML);
+    const secondHTML = await component.getByTestId('second').evaluate(el => el.innerHTML);
+
+    expect(cleanHTML(firstHTML)).toEqual(cleanHTML(secondHTML));
+  });
+
   test('opens on click and displays items', async ({ mount, page }) => {
     await mount(
       <DropdownMenu>

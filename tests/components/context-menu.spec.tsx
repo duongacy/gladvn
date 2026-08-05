@@ -16,6 +16,28 @@ import {
 } from '../../src/components/micro/context-menu';
 
 test.describe('ContextMenu (Micro)', () => {
+  test('renders identically given the same props (pure component)', async ({ mount }) => {
+    const component = await mount(
+      <div className="flex gap-4">
+        <ContextMenu>
+          <ContextMenuTrigger data-testid="first">Trigger</ContextMenuTrigger>
+        </ContextMenu>
+        <ContextMenu>
+          <ContextMenuTrigger data-testid="second">Trigger</ContextMenuTrigger>
+        </ContextMenu>
+      </div>
+    );
+
+    const cleanHTML = (html: string) => html
+      .replace(/id="[^"]+"/g, 'id="mocked"')
+      .replace(/aria-controls="[^"]*"/g, 'aria-controls="mocked"');
+
+    const firstHTML = await component.getByTestId('first').evaluate(el => el.innerHTML);
+    const secondHTML = await component.getByTestId('second').evaluate(el => el.innerHTML);
+
+    expect(cleanHTML(firstHTML)).toEqual(cleanHTML(secondHTML));
+  });
+
   test('opens on right click and displays items', async ({ mount, page }) => {
     await mount(
       <ContextMenu>

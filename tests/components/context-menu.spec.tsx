@@ -82,9 +82,15 @@ test.describe('ContextMenu (Micro)', () => {
     const trigger = page.locator('[data-slot="context-menu-trigger"]');
     await trigger.click({ button: 'right', force: true });
 
+    const content = page.locator('[data-slot="context-menu-content"]');
+    await expect(content).toBeVisible();
+
     const item1 = page.getByRole('menuitem', { name: 'Item 1' });
     const item2 = page.getByRole('menuitem', { name: 'Item 2' });
     const item3 = page.getByRole('menuitem', { name: 'Item 3' });
+
+    // Focus menu content before pressing arrows to ensure events are captured
+    await content.focus();
 
     // Press ArrowDown to focus first item
     await page.keyboard.press('ArrowDown');

@@ -8,7 +8,7 @@ export { useIsMobile } from "./hooks/use-mobile";
 // Components
 export * from "./components/micro/accordion";
 export * from "./components/micro/alert";
-export * from "./components/micro/alert-dialog";
+export * from "./components/micro/confirm";
 export * from "./components/micro/aspect-ratio";
 export * from "./components/micro/avatar";
 export * from "./components/micro/badge";

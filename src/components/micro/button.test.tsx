@@ -105,7 +105,7 @@ describe("Button", () => {
 
   it("[3C.1-09] [P1] supports polymorphism via render prop (Base UI 'render' pattern)", () => {
     
-    render(<Button render={<a href="/home" />}>Link Button</Button>);
+    render(<Button render={<a href="/home" />} nativeButton={false}>Link Button</Button>);
     const link = screen.getByText("Link Button");
     
     expect(link).toBeInTheDocument();

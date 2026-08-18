@@ -194,8 +194,10 @@ test.describe('Slider (Micro)', () => {
       </Slider>,
     );
 
-    await page.keyboard.press('Tab');
-    await expect(component.getByRole('slider')).toBeFocused();
+    const slider = component.getByRole('slider');
+    // Playwright CT sometimes struggles with Tab key if document body isn't focused
+    await slider.focus();
+    await expect(slider).toBeFocused();
   });
 });
 

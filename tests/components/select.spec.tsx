@@ -111,9 +111,15 @@ test.describe('Select (Micro)', () => {
     const content = page.locator('[data-slot="select-content"]');
     await expect(content).toBeVisible();
 
+    // Ensure the first item is focused before we start moving down
+    await expect(page.getByRole('option', { name: 'Apple' })).toBeFocused();
+
     // Arrow down to select second item
     await page.keyboard.press('ArrowDown');
+    await expect(page.getByRole('option', { name: 'Banana' })).toBeFocused();
+    
     await page.keyboard.press('ArrowDown');
+    await expect(page.getByRole('option', { name: 'Blueberry' })).toBeFocused();
     
     // Select with Enter
     await page.keyboard.press('Enter');

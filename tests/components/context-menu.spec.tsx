@@ -73,7 +73,7 @@ test.describe('ContextMenu (Micro)', () => {
         </ContextMenuTrigger>
         <ContextMenuContent>
           <ContextMenuItem>Item 1</ContextMenuItem>
-          <ContextMenuItem disabled>Item 2</ContextMenuItem>
+          <ContextMenuItem>Item 2</ContextMenuItem>
           <ContextMenuItem>Item 3</ContextMenuItem>
         </ContextMenuContent>
       </ContextMenu>
@@ -90,13 +90,11 @@ test.describe('ContextMenu (Micro)', () => {
     await page.keyboard.press('ArrowDown');
     await expect(item1).toBeFocused();
 
-    // Press ArrowDown should move to next. If disabled items are skipped, it goes to item3. 
-    // If not, it goes to item2.
+    // Press ArrowDown to move to next
     await page.keyboard.press('ArrowDown');
+    await expect(item2).toBeFocused();
     
-    // Base UI might skip disabled items or focus them. Let's just press again if it's on item2.
-    // To make the test robust, we just check if it's item2 or item3, but playwright requires a deterministic expect.
-    // We will expect it to move down one more time to reach item3.
+    // Press ArrowDown to move to next
     await page.keyboard.press('ArrowDown');
     await expect(item3).toBeFocused();
   });

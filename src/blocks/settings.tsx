@@ -1,4 +1,5 @@
 import { InfoIcon, TrashIcon } from "lucide-react";
+import { useState } from "react";
 import { InputPreset } from "../components/macro/input-preset";
 import { RadioGroupPreset } from "../components/macro/radio-group-preset";
 import { SelectPreset } from "../components/macro/select-preset";
@@ -6,13 +7,14 @@ import { SliderPreset } from "../components/macro/slider-preset";
 import { SwitchPreset } from "../components/macro/switch-preset";
 import { TextareaPreset } from "../components/macro/textarea-preset";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/micro/accordion";
-import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "../components/micro/alert-dialog";
+import { ConfirmPreset } from "../components/macro/confirm-preset";
 import { Button } from "../components/micro/button";
 import { Separator } from "../components/micro/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/micro/tabs";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "../components/micro/tooltip";
 
 export default function SettingsBlock() {
+  const [isDeleteOpen, setIsDeleteOpen] = useState(false);
   return (
     <div className="container max-w-4xl py-10 px-4 md:px-6 mx-auto">
       <div className="space-y-0.5 mb-6">
@@ -169,28 +171,19 @@ export default function SettingsBlock() {
                 <p className="text-sm text-muted-foreground">Permanently delete your account and all associated data. This action cannot be undone.</p>
               </div>
 
-              <AlertDialog>
-                <AlertDialogTrigger
-                  render={
-                    <Button color="destructive">
-                      <TrashIcon className="size-4 mr-2" /> Delete Account
-                    </Button>
-                  }
-                />
-                <AlertDialogContent>
-                  <AlertDialogHeader>
-                    <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-                    <AlertDialogDescription>
-                      This action cannot be undone. This will permanently delete your
-                      account and remove your data from our servers.
-                    </AlertDialogDescription>
-                  </AlertDialogHeader>
-                  <AlertDialogFooter>
-                    <AlertDialogCancel>Cancel</AlertDialogCancel>
-                    <AlertDialogAction color="destructive">Yes, delete account</AlertDialogAction>
-                  </AlertDialogFooter>
-                </AlertDialogContent>
-              </AlertDialog>
+              <Button color="destructive" onClick={() => setIsDeleteOpen(true)}>
+                <TrashIcon className="size-4 mr-2" /> Delete Account
+              </Button>
+              <ConfirmPreset
+                open={isDeleteOpen}
+                title="Are you absolutely sure?"
+                description="This action cannot be undone. This will permanently delete your account and remove your data from our servers."
+                noLabel="Cancel"
+                yesLabel="Yes, delete account"
+                yesColor="destructive"
+                onNo={() => setIsDeleteOpen(false)}
+                onYes={() => setIsDeleteOpen(false)}
+              />
             </div>
           </TabsContent>
         </div>

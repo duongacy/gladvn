@@ -64,9 +64,9 @@ export const COMPONENTS = [
     hasSize: true,
   },
   {
-    id: "alert-dialog",
+    id: "confirm",
     category: "Phản hồi & Lớp phủ",
-    label: "Alert Dialog",
+    label: "Confirm",
     hasMicro: true,
     hasMacro: true,
     status: "stable",

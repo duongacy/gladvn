@@ -54,7 +54,7 @@ export function FeatureGridSection({ className }: { className?: string }) {
                 {t("/* Macro biết con mình là gì → gắn class chính xác */", "/* Macro knows its children → attaches exact classes */")}
               </span>
               <br />
-              <span className="text-foreground">{"<AlertDialogFooter>"}</span>
+              <span className="text-foreground">{"<ConfirmFooter>"}</span>
               <br />
               <span className="pl-4">
                 {t('<Button variant="ghost">Trợ giúp</Button>', '<Button variant="ghost">Help</Button>')}
@@ -65,7 +65,7 @@ export function FeatureGridSection({ className }: { className?: string }) {
               </span>
               <br />
               <span className="text-foreground">
-                {"</AlertDialogFooter>"}
+                {"</ConfirmFooter>"}
               </span>
             </CodeBlock>
 
@@ -74,7 +74,7 @@ export function FeatureGridSection({ className }: { className?: string }) {
                 {t("/* Micro không biết con mình là gì → phải đoán bằng CSS */", "/* Micro doesn't know its children → relies on CSS hacks */")}
               </span>
               <br />
-              <span className="text-foreground">{"<AlertDialogFooter"}</span>
+              <span className="text-foreground">{"<ConfirmFooter"}</span>
               <br />
               <span className="pl-4 text-destructive font-bold line-through">
                 {'className="[&>*:last-child]:ml-auto"'}
@@ -85,7 +85,7 @@ export function FeatureGridSection({ className }: { className?: string }) {
               <span className="pl-4">{"{children}"}</span>
               <br />
               <span className="text-foreground">
-                {"</AlertDialogFooter>"}
+                {"</ConfirmFooter>"}
               </span>
             </CodeBlock>
           </div>

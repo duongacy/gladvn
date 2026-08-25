@@ -69,7 +69,7 @@ const AccordionContent = React.forwardRef<
     className="overflow-hidden text-sm h-(--accordion-panel-height) transition-[height] duration-200 ease-out data-starting-style:h-0 data-ending-style:h-0"
     {...props}
   >
-    <div className={cn("pb-4 pt-0", className)}>{children}</div>
+    <div className={cn("pb-4", className)}>{children}</div>
   </AccordionPrimitive.Panel>
 ));
 AccordionContent.displayName = "AccordionContent";

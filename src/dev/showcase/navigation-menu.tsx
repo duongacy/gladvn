@@ -110,8 +110,8 @@ function NavigationMenuMicroShowcase() {
         <NavigationMenuContent>
           <ul className="grid w-100 gap-3 p-4 md:w-125 md:grid-cols-2 lg:w-150 ">
             <ListItem
-              title="Alert Dialog"
-              href="/docs/primitives/alert-dialog"
+              title="Confirm"
+              href="/docs/primitives/confirm"
             >
               A modal dialog that interrupts the user with
               important content and expects a response.
@@ -201,8 +201,8 @@ function NavigationMenuMicroShowcase() {
                   <NavigationMenuContent>
                     <ul className="grid w-100 gap-3 p-4 md:w-125 md:grid-cols-2 lg:w-150 ">
                       <ListItem
-                        title="Alert Dialog"
-                        href="/docs/primitives/alert-dialog"
+                        title="Confirm"
+                        href="/docs/primitives/confirm"
                       >
                         A modal dialog that interrupts the user with important
                         content and expects a response.

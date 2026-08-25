@@ -141,7 +141,7 @@ test.describe('NavigationMenu Visual Snapshots', () => {
               <NavigationMenuTrigger>Components</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                  <li><NavigationMenuLink href="/alert-dialog">Alert Dialog</NavigationMenuLink></li>
+                  <li><NavigationMenuLink href="/confirm">Alert Dialog</NavigationMenuLink></li>
                   <li><NavigationMenuLink href="/hover-card">Hover Card</NavigationMenuLink></li>
                 </ul>
               </NavigationMenuContent>

@@ -25,7 +25,7 @@ function useResizableExamples() {
           "Drag the handle to resize panels horizontally."
         ),
         microCode: `<ResizablePanelGroup
-  orientation="horizontal"
+  direction="horizontal"
   className="max-w-md rounded-xl border border-border bg-card"
 >
   <ResizablePanel defaultSize={50}>
@@ -46,7 +46,7 @@ function useResizableExamples() {
 </ResizablePanelGroup>`,
         microPreview: (
           <ResizablePanelGroup
-            orientation="horizontal"
+            direction="horizontal"
             className="max-w-md rounded-xl border border-border bg-card"
           >
             <ResizablePanel defaultSize={50}>
@@ -66,11 +66,11 @@ function useResizableExamples() {
       {
         title: "Vertical Split",
         description: t(
-          'orientation="vertical" chia bảng theo chiều dọc.',
-          'orientation="vertical" splits panels vertically.'
+          'direction="vertical" chia bảng theo chiều dọc.',
+          'direction="vertical" splits panels vertically.'
         ),
         microCode: `<ResizablePanelGroup
-  orientation="vertical"
+  direction="vertical"
   className="max-w-md rounded-xl border border-border bg-card"
 >
   <ResizablePanel defaultSize={50}>
@@ -89,7 +89,7 @@ function useResizableExamples() {
 </ResizablePanelGroup>`,
         microPreview: (
           <ResizablePanelGroup
-            orientation="vertical"
+            direction="vertical"
             className="max-w-md rounded-xl border border-border bg-card"
           >
             <ResizablePanel defaultSize={50}>
@@ -115,7 +115,7 @@ function useResizableExamples() {
         microCode: `<ResizableHandle withHandle />`,
         microPreview: (
           <ResizablePanelGroup
-            orientation="horizontal"
+            direction="horizontal"
             className="rounded-xl border border-border bg-card"
           >
             <ResizablePanel defaultSize={50}>
@@ -141,7 +141,7 @@ function useResizableExamples() {
         microCode: `<ResizableHandle />`,
         microPreview: (
           <ResizablePanelGroup
-            orientation="horizontal"
+            direction="horizontal"
             className="rounded-xl border border-border bg-card"
           >
             <ResizablePanel defaultSize={50}>
@@ -165,7 +165,7 @@ function useResizableExamples() {
           "Complex layout with nested resizable groups."
         ),
         microCode: `<ResizablePanelGroup
-  orientation="horizontal"
+  direction="horizontal"
   className="max-w-md rounded-xl border border-border bg-card"
 >
   <ResizablePanel defaultSize={25} minSize={15}>
@@ -175,7 +175,7 @@ function useResizableExamples() {
   </ResizablePanel>
   <ResizableHandle />
   <ResizablePanel defaultSize={75}>
-    <ResizablePanelGroup orientation="vertical">
+    <ResizablePanelGroup direction="vertical">
       <ResizablePanel defaultSize={25} minSize={20}>
         <div className="flex h-full items-center justify-center p-6">
           <span className="font-semibold text-sm">
@@ -196,7 +196,7 @@ function useResizableExamples() {
 </ResizablePanelGroup>`,
         microPreview: (
           <ResizablePanelGroup
-            orientation="horizontal"
+            direction="horizontal"
             className="max-w-md rounded-xl border border-border bg-card"
           >
             <ResizablePanel defaultSize={25} minSize={15}>
@@ -206,7 +206,7 @@ function useResizableExamples() {
             </ResizablePanel>
             <ResizableHandle />
             <ResizablePanel defaultSize={75}>
-              <ResizablePanelGroup orientation="vertical">
+              <ResizablePanelGroup direction="vertical">
                 <ResizablePanel defaultSize={25} minSize={20}>
                   <div className="flex h-full items-center justify-center p-6">
                     <span className="font-semibold text-sm">Top Bar</span>

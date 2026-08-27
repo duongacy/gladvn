@@ -42,7 +42,7 @@ test.describe('Select (Micro)', () => {
     let selectedValue = '';
     
     await mount(
-      <Select onValueChange={(v) => { selectedValue = v; }}>
+      <Select onValueChange={(v) => { selectedValue = v as string; }}>
         <SelectTrigger className="w-[180px]">
           <SelectValue placeholder="Select a fruit" />
         </SelectTrigger>

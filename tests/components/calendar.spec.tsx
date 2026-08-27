@@ -87,8 +87,6 @@ test.describe('Calendar (Micro)', () => {
         defaultMonth={new Date(2025, 0, 1)}
         startMonth={new Date(2020, 0, 1)}
         endMonth={new Date(2030, 11, 31)}
-        fromYear={2020}
-        toYear={2030}
         captionLayout="dropdown"
       />
     );

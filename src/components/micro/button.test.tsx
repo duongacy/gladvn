@@ -44,7 +44,7 @@ describe("Button", () => {
     render(<Button iconOnly>Icon</Button>);
     const button = screen.getByRole("button", { name: "Icon" });
     
-    expect(button).toHaveAttribute("data-icon", "true");
+    expect(button).toHaveClass("aspect-square");
   });
 
   it("[3C.1-05] [P1] fires onClick event when clicked", async () => {

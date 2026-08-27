@@ -54,7 +54,7 @@ test.describe('Resizable (Micro)', () => {
 
     const group = page.locator('[data-slot="resizable-panel-group"]');
     await expect(group).toBeVisible();
-    await expect(group).toHaveAttribute('direction', 'horizontal');
+    await expect(group).toHaveAttribute('data-panel-group-direction', 'horizontal');
 
 
     const panels = page.locator('[data-slot="resizable-panel"]');
@@ -80,7 +80,7 @@ test.describe('Resizable (Micro)', () => {
 
     const group = page.locator('[data-slot="resizable-panel-group"]');
     await expect(group).toBeVisible();
-    await expect(group).toHaveAttribute('direction', 'vertical');
+    await expect(group).toHaveAttribute('data-panel-group-direction', 'vertical');
     
 
     // Check orientation class applied via aria attribute in tailwind

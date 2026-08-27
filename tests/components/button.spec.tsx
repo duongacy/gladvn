@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/experimental-ct-react';
 import { SearchIcon } from 'lucide-react';
 
-import { Button, ButtonIcon } from '../../src/components/micro/button';
+import { Button } from '../../src/components/micro/button';
 
 test.describe('Button (Micro)', () => {
   test('renders children correctly', async ({ mount }) => {
@@ -85,14 +85,13 @@ test.describe('Button (Micro)', () => {
     await expect(component).toContainText('Search');
   });
 
-  test('renders icon-only button with data-icon attribute and is perfectly square', async ({ mount }) => {
+  test('renders icon-only button without text content', async ({ mount }) => {
     const component = await mount(
       <Button iconOnly aria-label="Search">
-        <ButtonIcon><SearchIcon /></ButtonIcon>
+        <SearchIcon />
       </Button>,
     );
 
-    await expect(component).toHaveAttribute('data-icon', 'true');
     await expect(component).toHaveAttribute('aria-label', 'Search');
   });
 });
@@ -125,8 +124,8 @@ test.describe('Button Visual Snapshots', () => {
             <Button size="md">Medium</Button>
             <Button size="lg">Large</Button>
             <Button disabled>Disabled State</Button>
-            <Button iconOnly aria-label="Search"><ButtonIcon><SearchIcon /></ButtonIcon></Button>
-            <Button><ButtonIcon><SearchIcon /></ButtonIcon> With Icon</Button>
+            <Button iconOnly aria-label="Search"><SearchIcon /></Button>
+            <Button><SearchIcon /> With Icon</Button>
           </div>
         </div>
       </div>

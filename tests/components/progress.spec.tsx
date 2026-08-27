@@ -60,7 +60,7 @@ test.describe('Progress (Micro)', () => {
 
   test('omits aria-valuenow when in indeterminate state (value is undefined)', async ({ mount, page }) => {
     await mount(
-      <Progress aria-label="Loading">
+      <Progress aria-label="Loading" value={null}>
         <ProgressTrack>
           <ProgressIndicator />
         </ProgressTrack>
@@ -78,7 +78,7 @@ test.describe('Progress (Micro)', () => {
 test.describe('Progress Visual Snapshots', () => {
   const SIZES = ['sm', 'md', 'lg'] as const;
   const COLORS = ['primary', 'destructive', 'success', 'warning', 'muted'] as const;
-  const VALUES = [0, 50, 100, undefined] as const;
+  const VALUES = [0, 50, 100, null] as const;
 
   test('matches visual matrix snapshot', async ({ mount }) => {
     const component = await mount(
@@ -93,7 +93,7 @@ test.describe('Progress Visual Snapshots', () => {
                 
                 <div className="flex flex-wrap gap-6 items-start">
                   {VALUES.map((value) => {
-                    const stateLabel = value === undefined ? 'indeterminate' : `${value}%`;
+                    const stateLabel = value === null ? 'indeterminate' : `${value}%`;
                     
                     return (
                       <div key={`${size}-${color}-${value}`} className="w-48 flex flex-col gap-2">

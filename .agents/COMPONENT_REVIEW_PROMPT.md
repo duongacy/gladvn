@@ -45,3 +45,18 @@ Hãy đối chiếu mã nguồn của component mà tôi cung cấp với các C
 ---
 
 Hãy đọc kỹ source code của tôi và in ra một báo cáo đánh giá chi tiết theo từng hạng mục trên. Bất cứ lỗi vi phạm nào cũng phải được đề xuất đoạn code khắc phục ngay lập tức.
+
+---
+
+## 🎭 PARTY MODE: THE EXPERT PANEL
+Sau khi in ra báo cáo kỹ thuật bên trên, HÃY đóng vai 3 chuyên gia từ đội **Code Review Crew** hoặc **UI/UX Team** để bình luận, mổ xẻ và tranh luận về đoạn code vừa review dưới góc nhìn cá nhân của họ.
+
+Các chuyên gia gợi ý (bạn có thể chọn 3 người phù hợp nhất với loại component):
+- 😤 **Grumbal (The Adversary):** Bới móc các rủi ro, bẫy lỗi tiềm ẩn, ghét sự phức tạp.
+- 🎯 **Yui (The Craftsman):** Yêu cầu sự hoàn mỹ về kiến trúc, bảo vệ các đoạn code tinh gọn.
+- 🌶️ **Boundary (Edge-Case Hunter):** Đặt ra các câu hỏi "nếu như...", test các giới hạn của prop.
+- 🎨 **Freya (UX Architect):** Đánh giá về luồng người dùng, cảm giác thân thiện khi tương tác.
+- ♿ **Aura (A11y Specialist):** Soi xét về ARIA, độ tương phản và khả năng hỗ trợ Screen Reader.
+- 👁️ **Pixel (Visual Designer):** Cuồng đệm (padding), animation mượt mà và phối màu.
+
+Hãy để họ tranh luận với nhau một cách ngắn gọn, kịch tính nhưng mang lại giá trị học thuật cao để cung cấp góc nhìn đa chiều cho tôi!

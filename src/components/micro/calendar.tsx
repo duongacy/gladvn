@@ -113,12 +113,12 @@ function Calendar({
         ),
         button_previous: cn(
           buttonVariants({ variant: buttonVariant, color: "secondary", size }),
-          "p-0 aspect-square select-none pointer-events-auto aria-disabled:opacity-50",
+          "p-0 aspect-square select-none pointer-events-auto aria-disabled:pointer-events-none aria-disabled:opacity-50",
           defaultClassNames.button_previous,
         ),
         button_next: cn(
           buttonVariants({ variant: buttonVariant, color: "secondary", size }),
-          "p-0 aspect-square select-none pointer-events-auto aria-disabled:opacity-50",
+          "p-0 aspect-square select-none pointer-events-auto aria-disabled:pointer-events-none aria-disabled:opacity-50",
           defaultClassNames.button_next,
         ),
         month_caption: cn(
@@ -354,8 +354,6 @@ function CalendarDayButton({
         "hover:bg-accent hover:text-accent-foreground",
         
         "focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-offset-1 focus-visible:ring-offset-background",
-        
-        "active:translate-y-px",
         
         "disabled:pointer-events-none disabled:opacity-50",
         

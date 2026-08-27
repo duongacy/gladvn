@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Download, Mail, Plus } from "lucide-react";
 
-import { Button, ButtonIcon } from "../../components/micro/button";
+import { Button } from "../../components/micro/button";
 import { Spinner } from "../../components/micro/spinner";
 import { useDevContext, useI18n } from "../components/dev-context";
 import {
@@ -130,22 +130,22 @@ function useButtonExamples() {
         ),
         microCode: `<div className="flex flex-wrap items-center gap-4">
   <Button variant="outline">
-    <ButtonIcon render={<Mail />} />
+    <Mail />
     Login with Email
   </Button>
   <Button>
-    <ButtonIcon render={<Download />} />
+    <Download />
     Download
   </Button>
 </div>`,
         microPreview: (
           <div className="flex flex-wrap items-center gap-4">
             <Button size={globalSize} variant="outline">
-              <ButtonIcon render={<Mail />} />
+              <Mail />
               Login with Email
             </Button>
             <Button size={globalSize}>
-              <ButtonIcon render={<Download />} />
+              <Download />
               Download
             </Button>
           </div>
@@ -159,25 +159,25 @@ function useButtonExamples() {
         ),
         microCode: `<div className="flex flex-wrap items-center gap-4">
   <Button variant="outline" iconOnly>
-    <ButtonIcon render={<Plus />} />
+    <Plus />
   </Button>
   <Button variant="ghost" iconOnly>
-    <ButtonIcon render={<Mail />} />
+    <Mail />
   </Button>
   <Button variant="soft" iconOnly>
-    <ButtonIcon render={<Download />} />
+    <Download />
   </Button>
 </div>`,
         microPreview: (
           <div className="flex flex-wrap items-center gap-4">
             <Button size={globalSize} variant="outline" iconOnly>
-              <ButtonIcon render={<Plus />} />
+              <Plus />
             </Button>
             <Button size={globalSize} variant="ghost" iconOnly>
-              <ButtonIcon render={<Mail />} />
+              <Mail />
             </Button>
             <Button size={globalSize} variant="soft" iconOnly>
-              <ButtonIcon render={<Download />} />
+              <Download />
             </Button>
           </div>
         ),

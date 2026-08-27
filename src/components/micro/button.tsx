@@ -8,8 +8,6 @@
 import * as React from "react";
 
 import { Button as ButtonPrimitive } from "@base-ui/react/button";
-import { mergeProps } from "@base-ui/react/merge-props";
-import { useRender } from "@base-ui/react/use-render";
 import { type VariantProps, cva } from "class-variance-authority";
 
 import { cn } from "../../lib/utils";
@@ -33,7 +31,7 @@ import { cn } from "../../lib/utils";
  */
 
 const buttonVariants = cva(
-  "group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-border text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:ring-3 focus-visible:ring-offset-1 focus-visible:ring-offset-background active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:ring-3 aria-invalid:focus-visible:ring-destructive/50 dark:aria-invalid:border-destructive/50 dark:aria-invalid:focus-visible:ring-destructive/50",
+  "group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-border text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:ring-3 focus-visible:ring-offset-1 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0",
   {
     variants: {
       
@@ -58,9 +56,13 @@ const buttonVariants = cva(
       },
 
       size: {
-        sm: "h-7 gap-1 px-3 text-xs data-[icon=true]:w-7 data-[icon=true]:px-0",
-        md: "h-8 gap-1.5 px-3.5 data-[icon=true]:w-8 data-[icon=true]:px-0",
-        lg: "h-9 gap-2 px-4 data-[icon=true]:w-9 data-[icon=true]:px-0",
+        sm: "h-7 gap-1 px-3 text-xs [:where(&_svg)]:size-3.5",
+        md: "h-8 gap-1.5 px-3.5 [:where(&_svg)]:size-4",
+        lg: "h-9 gap-2 px-4 [:where(&_svg)]:size-5",
+      },
+
+      iconOnly: {
+        true: "aspect-square px-0",
       },
     },
 
@@ -290,10 +292,10 @@ const buttonVariants = cva(
  * @example
  * <Button variant="solid" color="primary">Click me</Button>
  */
-export interface ButtonProps
-  extends ButtonPrimitive.Props, VariantProps<typeof buttonVariants> {
-  iconOnly?: boolean;
-}
+export type ButtonProps = ButtonPrimitive.Props &
+  VariantProps<typeof buttonVariants> & {
+    iconOnly?: boolean;
+  };
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
@@ -314,8 +316,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         data-slot="button"
         data-color={color}
         data-variant={variant}
-        {...(iconOnly && { "data-icon": "true" })}
-        className={cn(buttonVariants({ variant, color, size, className }))}
+        className={cn(buttonVariants({ variant, color, size, iconOnly, className }))}
         {...props}
       >
         {children}
@@ -325,29 +326,4 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 );
 Button.displayName = "Button";
 
-export type ButtonIconProps = useRender.ComponentProps<"span">;
-
-const ButtonIcon = React.forwardRef<HTMLSpanElement, ButtonIconProps>(
-  function ButtonIcon({ className, render, ...props }, ref) {
-    return useRender({
-      render,
-      defaultTagName: "span",
-      props: mergeProps<"span">(
-        {
-          ref,
-          className: cn(
-            "inline-flex items-center justify-center shrink-0 transition-transform",
-            "size-4 group-data-[size=sm]/button:size-3.5 group-data-[size=lg]/button:size-5",
-            "[&>svg]:size-full [&>svg]:pointer-events-none",
-            className,
-          ),
-          "data-slot": "button-icon",
-        } as React.ComponentProps<"span">,
-        props,
-      ),
-    });
-  },
-);
-ButtonIcon.displayName = "ButtonIcon";
-
-export { Button, ButtonIcon, buttonVariants };
+export { Button, buttonVariants };

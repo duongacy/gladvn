@@ -90,10 +90,10 @@ const AlertDescription = React.forwardRef<
       data-slot="alert-description"
       className={cn(
         "text-balance text-muted-foreground md:text-pretty leading-relaxed",
-        "group-data-[color=info]/alert:text-info/90",
-        "group-data-[color=destructive]/alert:text-destructive/90",
-        "group-data-[color=success]/alert:text-success/90",
-        "group-data-[color=warning]/alert:text-warning/90",
+        "group-data-[color=info]/alert:text-info",
+        "group-data-[color=destructive]/alert:text-destructive",
+        "group-data-[color=success]/alert:text-success",
+        "group-data-[color=warning]/alert:text-warning",
         className,
       )}
       {...props}

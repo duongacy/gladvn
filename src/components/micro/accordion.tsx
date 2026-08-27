@@ -32,7 +32,7 @@ const AccordionItem = React.forwardRef<
   <AccordionPrimitive.Item
     ref={ref}
     data-slot="accordion-item"
-    className={cn("not-last:border-b not-last:border-border", className)}
+    className={className}
     {...props}
   />
 ));

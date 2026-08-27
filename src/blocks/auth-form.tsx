@@ -1,13 +1,16 @@
-import * as React from "react";
 import { useState } from "react";
 import { CheckboxPreset } from "../components/macro/checkbox-preset";
 import { InputPreset } from "../components/macro/input-preset";
 import { Button } from "../components/micro/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/micro/card";
+import { Field, FieldContent, FieldLabel, FieldError } from "../components/micro/field";
+import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput } from "../components/micro/input-group";
+import { EyeIcon, EyeOffIcon } from "lucide-react";
 
 export default function AuthCardBlock() {
   const [isLoading, setIsLoading] = useState(false);
   const [mode, setMode] = useState<"login" | "register">("login");
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,22 +39,41 @@ export default function AuthCardBlock() {
 
             <InputPreset id="email" name="email" type="email" label="Email" placeholder="m@example.com" required />
 
-            <InputPreset
-              id="password"
-              name="password"
-              type="password"
-              label={
-                <div className="flex items-center justify-between gap-1">
-                  <span>Password</span>
-                  {mode === "login" && (
-                    <Button variant="link" color="primary" className="h-auto p-0 text-xs">
-                      Forgot password?
-                    </Button>
-                  )}
+            <Field className="w-full">
+              <div className="flex items-center justify-between w-full">
+                <FieldLabel htmlFor="password">Password</FieldLabel>
+                {mode === "login" && (
+                  <Button variant="link" color="primary" className="h-auto p-0 text-[13px] font-medium" tabIndex={-1}>
+                    Forgot password?
+                  </Button>
+                )}
+              </div>
+              <FieldContent>
+                <div className="@container/input-group w-full">
+                  <InputGroup className="w-full">
+                    <InputGroupInput
+                      id="password"
+                      name="password"
+                      type={showPassword ? "text" : "password"}
+                      required
+                    />
+                    <InputGroupAddon align="end">
+                      <InputGroupButton
+                        type="button"
+                        variant="ghost"
+                        icon
+                        onClick={() => setShowPassword((prev) => !prev)}
+                        aria-label={showPassword ? "Hide password" : "Show password"}
+                        aria-pressed={showPassword}
+                        className="text-muted-foreground hover:text-foreground"
+                      >
+                        {showPassword ? <EyeOffIcon className="size-4" /> : <EyeIcon className="size-4" />}
+                      </InputGroupButton>
+                    </InputGroupAddon>
+                  </InputGroup>
                 </div>
-              }
-              required
-            />
+              </FieldContent>
+            </Field>
 
             {mode === "register" && (
               <CheckboxPreset

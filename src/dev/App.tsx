@@ -60,7 +60,7 @@ const componentCategories = [
   "Khác",
 ];
 
-const blockCategories = ["Dashboard", "Cài đặt", "Xác thực"];
+const blockCategories = ["Dashboard", "Cài đặt", "Xác thực", "Bảng giá"];
 
 const categoryTranslations: Record<string, string> = {
   "Bố cục & Cấu trúc": "Layout",
@@ -72,6 +72,7 @@ const categoryTranslations: Record<string, string> = {
   Dashboard: "Dashboard",
   "Cài đặt": "Settings",
   "Xác thực": "Authentication",
+  "Bảng giá": "Pricing",
 };
 
 const labelTranslations: Record<string, string> = {
@@ -79,6 +80,7 @@ const labelTranslations: Record<string, string> = {
   "Form Đăng nhập": "Login Form",
   "Khôi phục Mật khẩu": "Password Reset",
   "Đăng nhập (Chia màn hình)": "Login (Split Layout)",
+  "Giao diện Bảng giá": "Pricing Layout",
 };
 
 function ComponentViewer({ id }: { id: string }) {
@@ -86,17 +88,15 @@ function ComponentViewer({ id }: { id: string }) {
   if (!compDef) return null;
   const Comp = components[id];
   return (
-    <div className="mt-2">
-      <Suspense
-        fallback={
-          <div className="p-12 text-center text-muted-foreground animate-pulse">
-            Loading...
-          </div>
-        }
-      >
-        {Comp && <Comp />}
-      </Suspense>
-    </div>
+    <Suspense
+      fallback={
+        <div className="p-12 text-center text-muted-foreground animate-pulse">
+          Loading...
+        </div>
+      }
+    >
+      {Comp && <Comp />}
+    </Suspense>
   );
 }
 
@@ -562,10 +562,8 @@ export default function App() {
 
         {/* Main */}
         <main className="flex-1 min-w-0 px-3 md:px-6 py-6 md:py-8">
-          <div className="pb-24">
-            {active === "overview" && <OverviewSection />}
-            {active !== "overview" && <ComponentViewer id={active} />}
-          </div>
+          {active === "overview" && <OverviewSection />}
+          {active !== "overview" && <ComponentViewer id={active} />}
         </main>
       </div>
 

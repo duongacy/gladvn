@@ -524,4 +524,12 @@ export const COMPONENTS = [
     hasMacro: false,
     status: "new",
   },
+  {
+    id: "pricing-block",
+    category: "Bảng giá",
+    label: "Giao diện Bảng giá",
+    hasMicro: false,
+    hasMacro: false,
+    status: "new",
+  },
 ];

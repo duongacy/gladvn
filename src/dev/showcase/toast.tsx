@@ -1,115 +1,115 @@
+import React from "react";
 import { toast } from "sonner";
 
 import { Button } from "../../components/micro/button";
-import { useI18n } from "../../dev/components/dev-context";
-import { useDevContext } from "../../dev/components/dev-context";
+import { useI18n, useDevContext } from "../components/dev-context";
 import {
+  ConfigurableShowcase,
+  ShowcaseDocs,
   DocsH3,
   DocsP,
-  Showcase,
-  ShowcaseDocs,
-  ShowcaseExample,
-} from "../../dev/components/showcase";
-import { type Size } from "../../lib/types";
+} from "../components/showcase";
 
-function ToastMicroShowcase({ globalSize }: { globalSize: Size }) {
+function useToastExamples() {
   const t = useI18n();
-  return (
-    <div className="space-y-10">
-      <ShowcaseExample
-        title="Toast Notifications"
-        description={t(
+  const { size: globalSize } = useDevContext();
+
+  return React.useMemo(
+    () => [
+      {
+        title: "Toast Notifications",
+        description: t(
           "Nhấp để kích hoạt các loại toast khác nhau.",
-          "Click to trigger different types of toasts.",
-        )}
-        code={`<div className="flex flex-wrap gap-3">
-    <Button
-      variant="outline"
-      onClick={() => {
-        toast("Event created", {
-          description:
-            "Sunday, December 03, 2023 at 9:00 AM",
-          action: {
-            label: "Undo",
-            onClick: () => console.log("Undo") } })
-      }}
-    >
-      Show Toast
-    </Button>
-    <Button
-      variant="outline"
-      color="success"
-      onClick={() => {
-        toast.success("Profile updated successfully")
-      }}
-    >
-      Success Toast
-    </Button>
-    <Button
-      variant="outline"
-      color="destructive"
-      onClick={() => {
-        toast.error("Failed to update profile")
-      }}
-    >
-      Error Toast
-    </Button>
-  </div>`}
-        preview={
-          <>
-            <div className="flex flex-wrap gap-3">
-              <Button
-                variant="outline"
-                size={globalSize}
-                onClick={() => {
-                  toast("Event created", {
-                    description: "Sunday, December 03, 2023 at 9:00 AM",
-                    action: {
-                      label: "Undo",
-                      onClick: () => console.log("Undo"),
-                    },
-                  });
-                }}
-              >
-                Show Toast
-              </Button>
-              <Button
-                variant="outline"
-                color="success"
-                size={globalSize}
-                onClick={() => {
-                  toast.success("Profile updated successfully");
-                }}
-              >
-                Success Toast
-              </Button>
-              <Button
-                variant="outline"
-                color="destructive"
-                size={globalSize}
-                onClick={() => {
-                  toast.error("Failed to update profile");
-                }}
-              >
-                Error Toast
-              </Button>
-            </div>
-          </>
-        }
-      />
-    </div>
+          "Click to trigger different types of toasts."
+        ),
+        microCode: `<div className="flex flex-wrap gap-3">
+  <Button
+    variant="outline"
+    onClick={() => {
+      toast("Event created", {
+        description:
+          "Sunday, December 03, 2023 at 9:00 AM",
+        action: {
+          label: "Undo",
+          onClick: () => console.log("Undo") } })
+    }}
+  >
+    Show Toast
+  </Button>
+  <Button
+    variant="outline"
+    color="success"
+    onClick={() => {
+      toast.success("Profile updated successfully")
+    }}
+  >
+    Success Toast
+  </Button>
+  <Button
+    variant="outline"
+    color="destructive"
+    onClick={() => {
+      toast.error("Failed to update profile")
+    }}
+  >
+    Error Toast
+  </Button>
+</div>`,
+        microPreview: (
+          <div className="flex flex-wrap gap-3">
+            <Button
+              variant="outline"
+              size={globalSize}
+              onClick={() => {
+                toast("Event created", {
+                  description: "Sunday, December 03, 2023 at 9:00 AM",
+                  action: {
+                    label: "Undo",
+                    onClick: () => console.log("Undo"),
+                  },
+                });
+              }}
+            >
+              Show Toast
+            </Button>
+            <Button
+              variant="outline"
+              color="success"
+              size={globalSize}
+              onClick={() => {
+                toast.success("Profile updated successfully");
+              }}
+            >
+              Success Toast
+            </Button>
+            <Button
+              variant="outline"
+              color="destructive"
+              size={globalSize}
+              onClick={() => {
+                toast.error("Failed to update profile");
+              }}
+            >
+              Error Toast
+            </Button>
+          </div>
+        ),
+      },
+    ],
+    [t, globalSize]
   );
 }
 
 export default function ToastShowcase() {
   const t = useI18n();
-  const { size: globalSize } = useDevContext();
+  const examples = useToastExamples();
+
   return (
-    <Showcase
+    <ConfigurableShowcase
       title="Toast"
       description={t(
         "Một thông báo ngắn gọn được hiển thị tạm thời.",
-        "A brief message that is displayed temporarily.",
+        "A brief message that is displayed temporarily."
       )}
       guideline={
         <ShowcaseDocs>
@@ -117,12 +117,12 @@ export default function ToastShowcase() {
           <DocsP>
             {t(
               "Sử dụng để hiển thị các thông báo nhanh cho người dùng.",
-              "Use to display quick notifications to users.",
+              "Use to display quick notifications to users."
             )}
           </DocsP>
         </ShowcaseDocs>
       }
-      micro={{ content: <ToastMicroShowcase globalSize={globalSize} /> }}
+      examples={examples}
     />
   );
 }

@@ -97,13 +97,13 @@ export function DashboardPreview({ className }: { className?: string }) {
 
                 <SelectContent>
                   <SelectItem value="zinc">
-                    {t("Zinc (Mặc định)", "Zinc (Default)")}
+                    {t("Zinc", "Zinc (Default)")}
                   </SelectItem>
                   <SelectItem value="slate">
-                    {t("Slate (Xanh xám)", "Slate (Blue-gray)")}
+                    {t("Slate", "Slate (Blue-gray)")}
                   </SelectItem>
                   <SelectItem value="neutral">
-                    {t("Neutral (Trung tính)", "Neutral (Gray)")}
+                    {t("Neutral", "Neutral (Gray)")}
                   </SelectItem>
                 </SelectContent>
 

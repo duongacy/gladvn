@@ -7,7 +7,7 @@ export default function AuthSplitBlockShowcase() {
   return (
     <BlockViewer
       blockId="auth-split"
-      title={t("Bố cục chia đôi (Split Auth)", "Auth Split Layout")}
+      title={t("Bố cục chia đôi", "Auth Split Layout")}
       description={t("Trang xác thực chia màn hình với khu vực hình ảnh hoặc thương hiệu.", "A split-screen authentication page with an image or branding area.")}
       codeString={codeString}
     />

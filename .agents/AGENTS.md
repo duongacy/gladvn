@@ -221,3 +221,13 @@ When executing batch updates (e.g. processing multiple files in chunks), you MUS
 4. **Iteration 4 (Formatting & Indent)**: Ensure correct formatting and indentation (e.g. running Prettier).
 5. **Iteration 5 (Final Polish)**: Conduct a final cross-review for safety and edge cases.
 - **Commit Rule**: After EVERY batch is completed and reviewed 5 times, you MUST commit the changes to version control but DO NOT push. Continue this process until the entire task is done.
+
+## 34. Translation Format Prohibition
+
+- **No Bilingual Parentheses in Translations**: You MUST NOT use bilingual string duplication inside `t()` translations (e.g., `t("Tiêu chuẩn (Standard)", "Standard")`). The project already supports multi-language formats via the `t` function. 
+- **Correct Format**: Only provide the localized string in its respective argument (e.g., `t("Tiêu chuẩn", "Standard")`).
+
+## 35. Verification Before Reporting
+
+- **Strict Import Checks**: Before concluding a task or reporting back to the user, you MUST verify that there are no missing imports and no unused/redundant imports in the files you modified.
+- **Build Success Requirement**: You MUST run a build or type check (e.g., `npm run build` or `npx tsc`) and ensure it completes successfully without errors BEFORE reporting back to the user. Do not present code as finished if the build is broken.

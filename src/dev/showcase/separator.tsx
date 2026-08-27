@@ -1,142 +1,139 @@
+import React from "react";
+
 import { Separator } from "../../components/micro/separator";
-import { useI18n } from "../../dev/components/dev-context";
+import { useI18n } from "../components/dev-context";
 import {
-  DocsCode,
+  ConfigurableShowcase,
+  ShowcaseDocs,
   DocsH3,
   DocsLi,
   DocsP,
   DocsUl,
-  Showcase,
-  ShowcaseDocs,
-  ShowcaseExample,
-} from "../../dev/components/showcase";
+  DocsCode,
+} from "../components/showcase";
 
-function SeparatorMicroShowcase() {
+function useSeparatorExamples() {
   const t = useI18n();
-  return (
-    <div className="space-y-10">
-      <ShowcaseExample
-        title={t("Ngang (Horizontal)", "Horizontal")}
-        description={t(
+
+  return React.useMemo(
+    () => [
+      {
+        title: t("Ngang", "Horizontal"),
+        description: t(
           "Sử dụng để phân tách các khối nội dung từ trên xuống dưới.",
-          "Used to separate content blocks from top to bottom.",
-        )}
-        code={`<div className="w-full max-w-sm rounded-lg border border-border bg-card p-6">
-    <div className="space-y-1">
-      <h4 className="text-sm font-medium leading-none">
-        Gladvn UI
-      </h4>
-      <p className="text-sm text-muted-foreground">
-        Open-source UI Component library.
-      </p>
-    </div>
-    <Separator className="my-4" />
-    <div className="text-sm text-muted-foreground">
-      Last updated: Today
-    </div>
-  </div>`}
-        preview={
-          <>
-            <div className="w-full max-w-sm rounded-lg border border-border bg-card p-6">
-              <div className="space-y-1">
-                <h4 className="text-sm font-medium leading-none">Gladvn UI</h4>
-                <p className="text-sm text-muted-foreground">
-                  Open-source UI Component library.
-                </p>
-              </div>
-              <Separator className="my-4" />
-              <div className="text-sm text-muted-foreground">
-                Last updated: Today
-              </div>
+          "Used to separate content blocks from top to bottom."
+        ),
+        microCode: `<div className="w-full max-w-sm rounded-lg border border-border bg-card p-6">
+  <div className="space-y-1">
+    <h4 className="text-sm font-medium leading-none">
+      Gladvn UI
+    </h4>
+    <p className="text-sm text-muted-foreground">
+      Open-source UI Component library.
+    </p>
+  </div>
+  <Separator className="my-4" />
+  <div className="text-sm text-muted-foreground">
+    Last updated: Today
+  </div>
+</div>`,
+        microPreview: (
+          <div className="w-full max-w-sm rounded-lg border border-border bg-card p-6">
+            <div className="space-y-1">
+              <h4 className="text-sm font-medium leading-none">Gladvn UI</h4>
+              <p className="text-sm text-muted-foreground">
+                Open-source UI Component library.
+              </p>
             </div>
-          </>
-        }
-      />
-
-      <ShowcaseExample
-        title={t("Dọc (Vertical)", "Vertical")}
-        description={t(
+            <Separator className="my-4" />
+            <div className="text-sm text-muted-foreground">
+              Last updated: Today
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: t("Dọc", "Vertical"),
+        description: t(
           "Sử dụng để phân tách các mục nằm ngang (như menu, thanh công cụ).",
-          "Used to separate horizontal items (like menus, toolbars).",
-        )}
-        code={`<div className="flex h-5 items-center space-x-4 text-sm">
-    <div className="font-medium hover:underline cursor-pointer">
-      Blog
-    </div>
-    <Separator orientation="vertical" className="h-5" />
-    <div className="font-medium hover:underline cursor-pointer">
-      Tài liệu
-    </div>
-    <Separator orientation="vertical" className="h-5" />
-    <div className="font-medium hover:underline cursor-pointer">
-      Mã nguồn
-    </div>
-  </div>`}
-        preview={
-          <>
-            <div className="flex h-5 items-center space-x-4 text-sm">
-              <div className="font-medium hover:underline cursor-pointer">
-                Blog
-              </div>
-              <Separator orientation="vertical" className="h-5" />
-              <div className="font-medium hover:underline cursor-pointer">
-                Tài liệu
-              </div>
-              <Separator orientation="vertical" className="h-5" />
-              <div className="font-medium hover:underline cursor-pointer">
-                Mã nguồn
-              </div>
+          "Used to separate horizontal items (like menus, toolbars)."
+        ),
+        microCode: `<div className="flex h-5 items-center space-x-4 text-sm">
+  <div className="font-medium hover:underline cursor-pointer">
+    Blog
+  </div>
+  <Separator orientation="vertical" className="h-5" />
+  <div className="font-medium hover:underline cursor-pointer">
+    Tài liệu
+  </div>
+  <Separator orientation="vertical" className="h-5" />
+  <div className="font-medium hover:underline cursor-pointer">
+    Mã nguồn
+  </div>
+</div>`,
+        microPreview: (
+          <div className="flex h-5 items-center space-x-4 text-sm">
+            <div className="font-medium hover:underline cursor-pointer">
+              Blog
             </div>
-          </>
-        }
-      />
-      <ShowcaseExample
-        title="Decorative vs Semantic"
-        description={t(
+            <Separator orientation="vertical" className="h-5" />
+            <div className="font-medium hover:underline cursor-pointer">
+              Tài liệu
+            </div>
+            <Separator orientation="vertical" className="h-5" />
+            <div className="font-medium hover:underline cursor-pointer">
+              Mã nguồn
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: "Decorative vs Semantic",
+        description: t(
           'Semantic (mặc định) được screen reader đọc. Truyền aria-hidden="true" khi Separator chỉ mang tính trang trí thuần.',
-          'Semantic (default) is read by screen readers. Pass aria-hidden="true" when the Separator is purely decorative.',
-        )}
-        code={`{/* Semantic — recognized by screen reader */}
-  <Separator />
+          'Semantic (default) is read by screen readers. Pass aria-hidden="true" when the Separator is purely decorative.'
+        ),
+        microCode: `{/* Semantic — recognized by screen reader */}
+<Separator />
 
-  {/* Decorative — purely visual line */}
-  <Separator aria-hidden="true" />`}
-        preview={
-          <>
-            <div className="flex flex-col gap-6 w-full max-w-sm">
-              <div>
-                <p className="text-xs text-muted-foreground mb-2">
-                  Semantic (default — recognized by screen reader)
-                </p>
-                <Separator />
-              </div>
-              <div>
-                <p className="text-xs text-muted-foreground mb-2">
-                  Decorative —{" "}
-                  <code className="text-xs">aria-hidden="true"</code>
-                </p>
-                <Separator aria-hidden="true" />
-              </div>
+{/* Decorative — purely visual line */}
+<Separator aria-hidden="true" />`,
+        microPreview: (
+          <div className="flex flex-col gap-6 w-full max-w-sm">
+            <div>
+              <p className="text-xs text-muted-foreground mb-2">
+                Semantic (default — recognized by screen reader)
+              </p>
+              <Separator />
             </div>
-          </>
-        }
-      />
-    </div>
+            <div>
+              <p className="text-xs text-muted-foreground mb-2">
+                Decorative — <code className="text-xs">aria-hidden="true"</code>
+              </p>
+              <Separator aria-hidden="true" />
+            </div>
+          </div>
+        ),
+      },
+    ],
+    [t]
   );
 }
 
 export default function SeparatorShowcase() {
   const t = useI18n();
+  const examples = useSeparatorExamples();
+
   return (
-    <Showcase
+    <ConfigurableShowcase
       title="Separator"
       description={t(
         "Thành phần phân cách trực quan hoặc ngữ nghĩa giữa các khối nội dung (Đường kẻ).",
-        "A visual or semantic separator between content blocks (Line).",
+        "A visual or semantic separator between content blocks (Line)."
       )}
       guideline={
         <ShowcaseDocs>
-          <DocsH3>{t("Separator (Phân cách)", "Separator")}</DocsH3>
+          <DocsH3>Separator</DocsH3>
           <DocsP>
             {t(
               <>
@@ -149,7 +146,7 @@ export default function SeparatorShowcase() {
                 because it is essentially just an interface dividing line. The
                 default is horizontal line (
                 <DocsCode>orientation="horizontal"</DocsCode>).
-              </>,
+              </>
             )}
           </DocsP>
 
@@ -157,13 +154,13 @@ export default function SeparatorShowcase() {
             <h4 className="mb-2 text-sm font-semibold text-amber-900 dark:text-amber-400">
               {t(
                 "⚠️ Lưu ý quan trọng về Layout (Auto Layout/Flexbox)",
-                "⚠️ Important Note on Layout (Auto Layout/Flexbox)",
+                "⚠️ Important Note on Layout (Auto Layout/Flexbox)"
               )}
             </h4>
             <p className="mb-3 text-sm text-amber-900/90 dark:text-amber-200/90">
               {t(
                 'Separator rất "nhạy cảm" với cấu trúc flex bên ngoài. Nếu bạn thấy đường kẻ "biến mất" (kích thước bị bóp về 0px), hãy chú ý:',
-                'Separator is highly "sensitive" to the outer flex structure. If you see the line "disappear" (size squeezed to 0px), please note:',
+                'Separator is highly "sensitive" to the outer flex structure. If you see the line "disappear" (size squeezed to 0px), please note:'
               )}
             </p>
             <DocsUl className="mb-0 text-sm text-amber-900/90 dark:text-amber-200/90">
@@ -210,7 +207,7 @@ export default function SeparatorShowcase() {
                       flex-1
                     </DocsCode>{" "}
                     if necessary.
-                  </>,
+                  </>
                 )}
               </DocsLi>
               <DocsLi>
@@ -259,14 +256,14 @@ export default function SeparatorShowcase() {
                       self-stretch
                     </DocsCode>
                     ).
-                  </>,
+                  </>
                 )}
               </DocsLi>
             </DocsUl>
           </div>
         </ShowcaseDocs>
       }
-      micro={{ content: <SeparatorMicroShowcase /> }}
+      examples={examples}
     />
   );
 }

@@ -7,7 +7,7 @@ export default function SettingsBlockShowcase() {
   return (
     <BlockViewer
       blockId="settings"
-      title={t("Bố cục cài đặt (Settings)", "Settings Layout")}
+      title={t("Bố cục cài đặt", "Settings Layout")}
       description={t("Trang cài đặt dựa trên tab dọc với nhiều điều khiển đầu vào.", "A vertical tabs-based settings page with various input controls.")}
       codeString={codeString}
     />

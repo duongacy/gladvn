@@ -10,7 +10,7 @@ export default function DashboardBlockShowcase() {
     <div className="space-y-8">
       <BlockViewer
         blockId="dashboard"
-        title={t("Bảng điều khiển (Dashboard)", "Dashboard")}
+        title={t("Bảng điều khiển", "Dashboard")}
         description={t("Một bố cục bảng điều khiển đầy đủ tính năng.", "A full-featured dashboard layout with a responsive sidebar, header, and data visualizations.")}
         codeString={codeString}
       />
@@ -22,7 +22,7 @@ export default function DashboardBlockShowcase() {
           </div>
           <h3 className="text-xl font-bold text-foreground flex items-center gap-2 relative z-10">
             <InfoIcon className="size-5 text-info" />
-            {t("Triết lý lắp ghép (Composition)", "Composition Philosophy")}
+            {t("Triết lý lắp ghép", "Composition Philosophy")}
           </h3>
           <div className="text-muted-foreground leading-relaxed space-y-4 relative z-10">
             <p>
@@ -76,7 +76,7 @@ export default function DashboardBlockShowcase() {
             </p>
             <p>
               {t("Đừng rơi vào bẫy ", "Don't fall into the ")}
-              <strong>{t("Premature Abstraction (Trừu tượng hoá quá sớm)", "Premature Abstraction")}</strong> trap.
+              <strong>{t("Premature Abstraction", "Premature Abstraction")}</strong> trap.
               {t("Hãy tự hỏi:", "Ask yourself:")}
             </p>
             <ul className="list-disc list-inside space-y-2 ml-2 font-medium text-foreground/80">
@@ -95,7 +95,7 @@ export default function DashboardBlockShowcase() {
             </ul>
             <p>
               {t("Viết code dài trong một file không xấu, nếu nó ", "Writing long code in a single file isn't bad, as long as it is ")}
-              <strong>{t("minh bạch và dễ theo dõi (transparent)", "transparent and easy to follow")}</strong>. {t("Chỉ tách component khi bạn thực sự cần tái sử dụng nó ở nhiều nơi.", "Only split a component when you genuinely need to reuse it in multiple places.")}
+              <strong>{t("minh bạch và dễ theo dõi", "transparent and easy to follow")}</strong>. {t("Chỉ tách component khi bạn thực sự cần tái sử dụng nó ở nhiều nơi.", "Only split a component when you genuinely need to reuse it in multiple places.")}
             </p>
           </div>
         </div>

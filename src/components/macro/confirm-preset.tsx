@@ -44,6 +44,8 @@ export type ConfirmPresetProps = {
   loadingLabel?: string;
   /** Dialog size. @default "sm" */
   size?: Size;
+  /** Optional custom content rendered below the header. */
+  children?: React.ReactNode;
 };
 
 /**
@@ -80,6 +82,7 @@ const ConfirmPreset = React.forwardRef<HTMLDivElement, ConfirmPresetProps>(
       isLoading = false,
       loadingLabel = "Processing...",
       size = "sm",
+      children,
     },
     ref,
   ) => {
@@ -107,6 +110,12 @@ const ConfirmPreset = React.forwardRef<HTMLDivElement, ConfirmPresetProps>(
               <ConfirmDescription>{description}</ConfirmDescription>
             )}
           </ConfirmHeader>
+
+          {children && (
+            <div className="px-4 pb-4">
+              {children}
+            </div>
+          )}
 
           <ConfirmFooter className="shrink-0 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
             <Button

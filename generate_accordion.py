@@ -1,4 +1,10 @@
-import React from "react";
+import re
+
+with open("src/dev/showcase/accordion.tsx", "r") as f:
+    content = f.read()
+
+# I will just write the new file completely.
+new_content = """import React from "react";
 import {
   Accordion,
   AccordionContent,
@@ -8,14 +14,36 @@ import {
 import { AccordionPreset } from "../../components/macro/accordion-preset";
 import { useI18n } from "../components/dev-context";
 import { 
-  ConfigurableShowcase, 
+  ExampleGrid, 
+  Showcase, 
   ShowcaseDocs, 
-  DocsP
+  DocsP, 
+  ShowcaseExample, 
+  ShowcaseExample2 
 } from "../components/showcase";
+
+const faqItems = [
+  {
+    q: "Does it support Accessibility (a11y)?",
+    a: "Yes it does. The component complies with WAI-ARIA standards. Keyboard navigation and screen readers are fully supported.",
+  },
+  {
+    q: "Is it styled?",
+    a: "Yes. The default style is beautiful and matches other components' aesthetic. You can override every token via CSS variables.",
+  },
+  {
+    q: "Is it animated?",
+    a: "Fully animated. Smooth opening and closing.",
+  },
+  {
+    q: "Có lồng nhau (nest) được không?",
+    a: "Yes. You can nest accordion components inside each other to create multi-level collapsible sections.",
+  },
+];
 
 function useAccordionExamples() {
   const t = useI18n();
-  return React.useMemo(() => [
+  return [
     {
       title: t("Mở đơn", "Single Expand"),
       description: t(
@@ -23,7 +51,7 @@ function useAccordionExamples() {
         "Only one item is allowed open at a time (default)."
       ),
       macroCode: `<AccordionPreset
-    className="divide-y divide-border"
+    className="w-full divide-y divide-border"
     defaultValue={["faq-1"]}
     items={[
       {
@@ -45,7 +73,7 @@ function useAccordionExamples() {
   />`,
       macroPreview: (
         <AccordionPreset
-          className="divide-y divide-border"
+          className="w-full divide-y divide-border"
           defaultValue={["faq-1"]}
           items={[
             {
@@ -67,7 +95,7 @@ function useAccordionExamples() {
         />
       ),
       microCode: `<Accordion
-    className="divide-y divide-border"
+    className="w-full divide-y divide-border"
     defaultValue={["faq-1"]}
   >
     <AccordionItem value="faq-1">
@@ -91,7 +119,7 @@ function useAccordionExamples() {
   </Accordion>`,
       microPreview: (
         <Accordion
-          className="divide-y divide-border"
+          className="w-full divide-y divide-border"
           defaultValue={["faq-1"]}
         >
           <AccordionItem value="faq-1">
@@ -122,7 +150,7 @@ function useAccordionExamples() {
         "Allows multiple items to be open at the same time."
       ),
       macroCode: `<AccordionPreset
-    className="divide-y divide-border"
+    className="w-full divide-y divide-border"
     multiple
     defaultValue={["faq-1", "faq-2"]}
     items={[
@@ -145,7 +173,7 @@ function useAccordionExamples() {
   />`,
       macroPreview: (
         <AccordionPreset
-          className="divide-y divide-border"
+          className="w-full divide-y divide-border"
           multiple
           defaultValue={["faq-1", "faq-2"]}
           items={[
@@ -168,7 +196,7 @@ function useAccordionExamples() {
         />
       ),
       microCode: `<Accordion
-    className="divide-y divide-border"
+    className="w-full divide-y divide-border"
     multiple
     defaultValue={["faq-1", "faq-2"]}
   >
@@ -193,7 +221,7 @@ function useAccordionExamples() {
   </Accordion>`,
       microPreview: (
         <Accordion
-          className="divide-y divide-border"
+          className="w-full divide-y divide-border"
           multiple
           defaultValue={["faq-1", "faq-2"]}
         >
@@ -225,7 +253,7 @@ function useAccordionExamples() {
         "Individual items can be disabled while other items remain interactive."
       ),
       macroCode: `<AccordionPreset
-    className="divide-y divide-border"
+    className="w-full divide-y divide-border"
     items={[
       {
         value: "enabled-1",
@@ -247,7 +275,7 @@ function useAccordionExamples() {
   />`,
       macroPreview: (
         <AccordionPreset
-          className="divide-y divide-border"
+          className="w-full divide-y divide-border"
           items={[
             {
               value: "enabled-1",
@@ -268,7 +296,7 @@ function useAccordionExamples() {
           ]}
         />
       ),
-      microCode: `<Accordion className="divide-y divide-border">
+      microCode: `<Accordion className="w-full divide-y divide-border">
     <AccordionItem value="enabled-1">
       <AccordionTrigger>Available Feature</AccordionTrigger>
       <AccordionContent>
@@ -289,7 +317,7 @@ function useAccordionExamples() {
     </AccordionItem>
   </Accordion>`,
       microPreview: (
-        <Accordion className="divide-y divide-border">
+        <Accordion className="w-full divide-y divide-border">
           <AccordionItem value="enabled-1">
             <AccordionTrigger>Available Feature</AccordionTrigger>
             <AccordionContent>
@@ -318,7 +346,7 @@ function useAccordionExamples() {
         "Render React Nodes inside content."
       ),
       macroCode: `<AccordionPreset
-    className="divide-y divide-border"
+    className="w-full divide-y divide-border"
     items={[
       {
         value: "profile",
@@ -338,7 +366,7 @@ function useAccordionExamples() {
   />`,
       macroPreview: (
         <AccordionPreset
-          className="divide-y divide-border"
+          className="w-full divide-y divide-border"
           items={[
             {
               value: "profile",
@@ -366,14 +394,14 @@ function useAccordionExamples() {
         "Inner content can contain another Accordion to create multi-level structures."
       ),
       macroCode: `<AccordionPreset
-    className="divide-y divide-border"
+    className="w-full divide-y divide-border"
     items={[
       {
         value: "getting-started",
         title: "Getting Started",
         content: (
           <AccordionPreset
-            className="divide-y divide-border"
+            className="w-full divide-y divide-border"
             items={[
               {
                 value: "installation",
@@ -389,7 +417,7 @@ function useAccordionExamples() {
         title: "Advanced Usage",
         content: (
           <AccordionPreset
-            className="divide-y divide-border"
+            className="w-full divide-y divide-border"
             items={[
               {
                 value: "controlled",
@@ -404,14 +432,14 @@ function useAccordionExamples() {
   />`,
       macroPreview: (
         <AccordionPreset
-          className="divide-y divide-border"
+          className="w-full divide-y divide-border"
           items={[
             {
               value: "getting-started",
               title: "Getting Started",
               content: (
                 <AccordionPreset
-                  className="divide-y divide-border"
+                  className="w-full divide-y divide-border"
                   items={[
                     {
                       value: "installation",
@@ -427,7 +455,7 @@ function useAccordionExamples() {
               title: "Advanced Usage",
               content: (
                 <AccordionPreset
-                  className="divide-y divide-border"
+                  className="w-full divide-y divide-border"
                   items={[
                     {
                       value: "controlled",
@@ -441,7 +469,7 @@ function useAccordionExamples() {
           ]}
         />
       ),
-      microCode: `<Accordion className="divide-y divide-border">
+      microCode: `<Accordion className="w-full divide-y divide-border">
     <AccordionItem value="getting-started">
       <AccordionTrigger>Getting Started</AccordionTrigger>
       <AccordionContent>
@@ -470,7 +498,7 @@ function useAccordionExamples() {
     </AccordionItem>
   </Accordion>`,
       microPreview: (
-        <Accordion className="divide-y divide-border">
+        <Accordion className="w-full divide-y divide-border">
           <AccordionItem value="getting-started">
             <AccordionTrigger>Getting Started</AccordionTrigger>
             <AccordionContent>
@@ -500,14 +528,39 @@ function useAccordionExamples() {
         </Accordion>
       )
     }
-  ], [t]);
+  ];
+}
+
+function AccordionMacroShowcase() {
+  const examples = useAccordionExamples();
+  return (
+    <div className="space-y-10">
+      <ExampleGrid>
+        {examples.map((example, i) => (
+          <ShowcaseExample2 key={i} mode="macro" {...example} />
+        ))}
+      </ExampleGrid>
+    </div>
+  );
+}
+
+function AccordionMicroShowcase() {
+  const examples = useAccordionExamples();
+  return (
+    <div className="space-y-10">
+      <ExampleGrid>
+        {examples.map((example, i) => (
+          <ShowcaseExample2 key={i} mode="micro" {...example} />
+        ))}
+      </ExampleGrid>
+    </div>
+  );
 }
 
 export default function AccordionShowcase() {
   const t = useI18n();
-  const examples = useAccordionExamples();
   return (
-    <ConfigurableShowcase
+    <Showcase
       title="Accordion"
       description={t(
         "Một tập hợp các tiêu đề tương tác được xếp chồng theo chiều dọc, mỗi tiêu đề sẽ hiển thị một phần nội dung khi nhấn vào.",
@@ -523,7 +576,13 @@ export default function AccordionShowcase() {
           </DocsP>
         </ShowcaseDocs>
       }
-      examples={examples}
+      micro={{ content: <AccordionMicroShowcase /> }}
+      macro={{ content: <AccordionMacroShowcase /> }}
     />
   );
 }
+"""
+
+with open("src/dev/showcase/accordion.tsx", "w") as f:
+    f.write(new_content)
+

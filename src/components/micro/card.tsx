@@ -50,9 +50,9 @@ const CardHeader = React.forwardRef<
 ));
 CardHeader.displayName = "CardHeader";
 
-const CardTitle = React.forwardRef<HTMLDivElement, React.ComponentProps<"div">>(
+const CardTitle = React.forwardRef<HTMLHeadingElement, React.ComponentProps<"h3">>(
   ({ className, ...props }, ref) => (
-    <div
+    <h3
       ref={ref}
       data-slot="card-title"
       className={cn(
@@ -66,10 +66,10 @@ const CardTitle = React.forwardRef<HTMLDivElement, React.ComponentProps<"div">>(
 CardTitle.displayName = "CardTitle";
 
 const CardDescription = React.forwardRef<
-  HTMLDivElement,
-  React.ComponentProps<"div">
+  HTMLParagraphElement,
+  React.ComponentProps<"p">
 >(({ className, ...props }, ref) => (
-  <div
+  <p
     ref={ref}
     data-slot="card-description"
     className={cn(

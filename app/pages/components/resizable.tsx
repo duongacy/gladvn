@@ -19,7 +19,7 @@ function useResizableExamples() {
   return React.useMemo(
     () => [
       {
-        title: "Horizontal Split",
+        title: t("Chia ngang", "Horizontal Split"),
         description: t(
           "Kéo tay cầm để thay đổi kích thước bảng theo chiều ngang.",
           "Drag the handle to resize panels horizontally."
@@ -30,17 +30,13 @@ function useResizableExamples() {
 >
   <ResizablePanel defaultSize={50}>
     <div className="flex h-50 items-center justify-center p-6">
-      <span className="font-semibold text-sm">
-        Sidebar
-      </span>
+      <span className="font-semibold text-sm">Sidebar</span>
     </div>
   </ResizablePanel>
   <ResizableHandle withHandle />
   <ResizablePanel defaultSize={50}>
     <div className="flex h-full items-center justify-center p-6">
-      <span className="font-semibold text-sm">
-        Content
-      </span>
+      <span className="font-semibold text-sm">Content</span>
     </div>
   </ResizablePanel>
 </ResizablePanelGroup>`,
@@ -64,7 +60,7 @@ function useResizableExamples() {
         ),
       },
       {
-        title: "Vertical Split",
+        title: t("Chia dọc", "Vertical Split"),
         description: t(
           'direction="vertical" chia bảng theo chiều dọc.',
           'direction="vertical" splits panels vertically.'
@@ -81,9 +77,7 @@ function useResizableExamples() {
   <ResizableHandle withHandle />
   <ResizablePanel defaultSize={50}>
     <div className="flex h-30 items-center justify-center p-6">
-      <span className="font-semibold text-sm">
-        Bottom
-      </span>
+      <span className="font-semibold text-sm">Bottom</span>
     </div>
   </ResizablePanel>
 </ResizablePanelGroup>`,
@@ -107,59 +101,7 @@ function useResizableExamples() {
         ),
       },
       {
-        title: "With Handle Grip",
-        description: t(
-          "withHandle hiển thị thanh tay cầm trực quan ở giữa divider.",
-          "withHandle displays a visual handle grip in the middle of the divider."
-        ),
-        microCode: `<ResizableHandle withHandle />`,
-        microPreview: (
-          <ResizablePanelGroup
-            direction="horizontal"
-            className="rounded-xl border border-border bg-card"
-          >
-            <ResizablePanel defaultSize={50}>
-              <div className="flex h-30 items-center justify-center p-4">
-                <span className="text-sm font-medium">Panel A</span>
-              </div>
-            </ResizablePanel>
-            <ResizableHandle withHandle />
-            <ResizablePanel defaultSize={50}>
-              <div className="flex h-full items-center justify-center p-4">
-                <span className="text-sm font-medium">Panel B</span>
-              </div>
-            </ResizablePanel>
-          </ResizablePanelGroup>
-        ),
-      },
-      {
-        title: "Plain Divider",
-        description: t(
-          "Bỏ withHandle để chỉ hiển thị đường phân cách mỏng, không có visual grip.",
-          "Omit withHandle to only display a thin divider line, without a visual grip."
-        ),
-        microCode: `<ResizableHandle />`,
-        microPreview: (
-          <ResizablePanelGroup
-            direction="horizontal"
-            className="rounded-xl border border-border bg-card"
-          >
-            <ResizablePanel defaultSize={50}>
-              <div className="flex h-30 items-center justify-center p-4">
-                <span className="text-sm font-medium">Panel A</span>
-              </div>
-            </ResizablePanel>
-            <ResizableHandle />
-            <ResizablePanel defaultSize={50}>
-              <div className="flex h-full items-center justify-center p-4">
-                <span className="text-sm font-medium">Panel B</span>
-              </div>
-            </ResizablePanel>
-          </ResizablePanelGroup>
-        ),
-      },
-      {
-        title: "Nested Layout",
+        title: t("Bố cục lồng nhau", "Nested Layout"),
         description: t(
           "Bố cục phức tạp với các nhóm có thể thay đổi kích thước lồng nhau.",
           "Complex layout with nested resizable groups."
@@ -178,17 +120,13 @@ function useResizableExamples() {
     <ResizablePanelGroup direction="vertical">
       <ResizablePanel defaultSize={25} minSize={20}>
         <div className="flex h-full items-center justify-center p-6">
-          <span className="font-semibold text-sm">
-            Top Bar
-          </span>
+          <span className="font-semibold text-sm">Top Bar</span>
         </div>
       </ResizablePanel>
       <ResizableHandle />
       <ResizablePanel defaultSize={75}>
         <div className="flex h-full items-center justify-center p-6">
-          <span className="font-semibold text-sm">
-            Main Content
-          </span>
+          <span className="font-semibold text-sm">Main Content</span>
         </div>
       </ResizablePanel>
     </ResizablePanelGroup>
@@ -215,7 +153,7 @@ function useResizableExamples() {
                 <ResizableHandle />
                 <ResizablePanel defaultSize={75}>
                   <div className="flex h-full items-center justify-center p-6">
-                    <span className="font-semibold text-sm">Content chính</span>
+                    <span className="font-semibold text-sm">Main Content</span>
                   </div>
                 </ResizablePanel>
               </ResizablePanelGroup>

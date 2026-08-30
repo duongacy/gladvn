@@ -17,604 +17,294 @@ import {
 } from "~app/components/showcase";
 import { cn } from "@/lib/utils";
 
+const SLIDES = [
+  { id: 1, bg: "bg-linear-to-tr from-violet-500 to-purple-500" },
+  { id: 2, bg: "bg-linear-to-tr from-pink-500 to-rose-500" },
+  { id: 3, bg: "bg-linear-to-tr from-blue-500 to-cyan-500" },
+  { id: 4, bg: "bg-linear-to-tr from-emerald-500 to-teal-500" },
+];
+
+const HERO_SLIDES = [
+  {
+    id: 1,
+    bg: "bg-linear-to-tr from-violet-500 to-purple-500",
+    title: "Modern Interface",
+    desc: "Crafting beautiful interfaces with Tailwind.",
+  },
+  {
+    id: 2,
+    bg: "bg-linear-to-tr from-pink-500 to-rose-500",
+    title: "Smooth Interactions",
+    desc: "Fluid animations and micro-interactions.",
+  },
+  {
+    id: 3,
+    bg: "bg-linear-to-tr from-blue-500 to-cyan-500",
+    title: "Accessible by Default",
+    desc: "Keyboard navigation out of the box.",
+  },
+];
+
 function useCarouselExamples() {
   const t = useI18n();
 
-  return React.useMemo(
-    () => {
-      const SLIDES = [
-        {
-          id: 1,
-          title: t("Giao diện Hiện đại", "Modern Interface"),
-          desc: t(
-            "Thiết kế giao diện tuyệt đẹp với tailwind.",
-            "Crafting beautiful interfaces with tailwind."
-          ),
-          bg: "bg-linear-to-tr from-violet-500 to-purple-500",
-        },
-        {
-          id: 2,
-          title: t("Tương tác Mượt mà", "Smooth Interactions"),
-          desc: t(
-            "Hiệu ứng chuyển động và tương tác vi mô mượt mà.",
-            "Fluid animations and micro-interactions."
-          ),
-          bg: "bg-linear-to-tr from-pink-500 to-rose-500",
-        },
-        {
-          id: 3,
-          title: t("Dễ tuỳ chỉnh", "Easily Customizable"),
-          desc: t(
-            "Dễ dàng điều chỉnh theo thương hiệu của bạn.",
-            "Easily adapt to your brand."
-          ),
-          bg: "bg-linear-to-tr from-blue-500 to-cyan-500",
-        },
-        {
-          id: 4,
-          title: t("Mặc định Accessible", "Accessible by Default"),
-          desc: t(
-            "Hỗ trợ điều hướng bằng bàn phím ngay lập tức.",
-            "Keyboard navigation out of the box."
-          ),
-          bg: "bg-linear-to-tr from-emerald-500 to-teal-500",
-        },
-        {
-          id: 5,
-          title: t("Hỗ trợ Dark Mode", "Dark Mode Support"),
-          desc: t(
-            "Giao diện tuyệt đẹp trên cả chế độ tối và sáng.",
-            "Looks stunning on dark and light mode."
-          ),
-          bg: "bg-linear-to-tr from-amber-500 to-orange-500",
-        },
-      ];
+  return React.useMemo(() => [
 
-      return [
-        {
-          title: t("Tiêu chuẩn", "Standard"),
-          description: t(
-            "Băng chuyền cơ bản nhất với cầu trượt.",
-            "The most basic carousel with a slider."
-          ),
-          macroCode: `<CarouselPreset
+    {
+      title: t("Tiêu chuẩn", "Standard"),
+      description: t(
+        "Băng chuyền cơ bản với mũi tên và dấu chấm điều hướng.",
+        "Basic carousel with arrow and dot navigation."
+      ),
+      macroCode: `<CarouselPreset
   items={[
     {
-      id: "std-1",
+      id: 1,
       content: (
-        <div className="p-1 border border-border rounded-xl">
-          <div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg">
-            <span className="text-4xl font-semibold">1</span>
-          </div>
+        <div className="flex aspect-square items-center justify-center rounded-lg bg-linear-to-tr from-violet-500 to-purple-500 text-4xl font-bold text-white">
+          1
         </div>
       ),
     },
     {
-      id: "std-2",
+      id: 2,
       content: (
-        <div className="p-1 border border-border rounded-xl">
-          <div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg">
-            <span className="text-4xl font-semibold">2</span>
-          </div>
+        <div className="flex aspect-square items-center justify-center rounded-lg bg-linear-to-tr from-pink-500 to-rose-500 text-4xl font-bold text-white">
+          2
         </div>
       ),
     },
     {
-      id: "std-3",
+      id: 3,
       content: (
-        <div className="p-1 border border-border rounded-xl">
-          <div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg">
-            <span className="text-4xl font-semibold">3</span>
-          </div>
+        <div className="flex aspect-square items-center justify-center rounded-lg bg-linear-to-tr from-blue-500 to-cyan-500 text-4xl font-bold text-white">
+          3
         </div>
       ),
     },
   ]}
 />`,
-          macroPreview: (
-            <div className="w-full max-w-sm px-12">
-              <CarouselPreset
-                items={[
-                  {
-                    id: "std-1",
-                    content: (
-                      <div className="p-1 border border-border rounded-xl">
-                        <div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg">
-                          <span className="text-4xl font-semibold">1</span>
-                        </div>
-                      </div>
-                    ),
-                  },
-                  {
-                    id: "std-2",
-                    content: (
-                      <div className="p-1 border border-border rounded-xl">
-                        <div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg">
-                          <span className="text-4xl font-semibold">2</span>
-                        </div>
-                      </div>
-                    ),
-                  },
-                  {
-                    id: "std-3",
-                    content: (
-                      <div className="p-1 border border-border rounded-xl">
-                        <div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg">
-                          <span className="text-4xl font-semibold">3</span>
-                        </div>
-                      </div>
-                    ),
-                  },
-                ]}
-              />
+      macroPreview: (
+        <div className="w-full max-w-sm px-12">
+          <CarouselPreset
+            items={SLIDES.map((s) => ({
+              id: s.id,
+              content: (
+                <div
+                  className={cn(
+                    "flex aspect-square items-center justify-center rounded-lg text-4xl font-bold text-white",
+                    s.bg
+                  )}
+                >
+                  {s.id}
+                </div>
+              ),
+            }))}
+          />
+        </div>
+      ),
+      microCode: `<Carousel>
+  <CarouselContent className="-ml-4">
+    <CarouselItem className="pl-4">
+      <div className="flex aspect-square items-center justify-center rounded-lg bg-linear-to-tr from-violet-500 to-purple-500 text-4xl font-bold text-white">
+        1
+      </div>
+    </CarouselItem>
+    <CarouselItem className="pl-4">
+      <div className="flex aspect-square items-center justify-center rounded-lg bg-linear-to-tr from-pink-500 to-rose-500 text-4xl font-bold text-white">
+        2
+      </div>
+    </CarouselItem>
+    <CarouselItem className="pl-4">
+      <div className="flex aspect-square items-center justify-center rounded-lg bg-linear-to-tr from-blue-500 to-cyan-500 text-4xl font-bold text-white">
+        3
+      </div>
+    </CarouselItem>
+  </CarouselContent>
+  <CarouselPrevious className="absolute -left-12 top-1/2 -translate-y-1/2" />
+  <CarouselNext className="absolute -right-12 top-1/2 -translate-y-1/2" />
+  <div className="mt-4 flex justify-center">
+    <CarouselDots />
+  </div>
+</Carousel>`,
+      microPreview: (
+        <div className="w-full max-w-sm px-12">
+          <Carousel>
+            <CarouselContent className="-ml-4">
+              {SLIDES.map((s) => (
+                <CarouselItem key={s.id} className="pl-4">
+                  <div
+                    className={cn(
+                      "flex aspect-square items-center justify-center rounded-lg text-4xl font-bold text-white",
+                      s.bg
+                    )}
+                  >
+                    {s.id}
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="absolute -left-12 top-1/2 -translate-y-1/2" />
+            <CarouselNext className="absolute -right-12 top-1/2 -translate-y-1/2" />
+            <div className="mt-4 flex justify-center">
+              <CarouselDots />
             </div>
-          ),
-        },
-        {
-          title: t("Thư viện ảnh", "Image Gallery"),
-          description: t(
-            "Sử dụng hình ảnh thực làm nội dung slide.",
-            "Use real images as slide content."
-          ),
-          macroCode: `<CarouselPreset
+          </Carousel>
+        </div>
+      ),
+    },
+
+    {
+      title: t("Nhiều phần tử", "Multiple Items"),
+      description: t(
+        "Nhiều thẻ hiển thị trên cùng một lượt cuộn.",
+        "Multiple cards visible per scroll."
+      ),
+      macroCode: `<CarouselPreset
+  opts={{ align: "start" }}
+  itemClassName="md:basis-1/2 lg:basis-1/3"
   items={[
     {
-      id: "img-1",
+      id: 1,
       content: (
-        <img
-          src="https://images.unsplash.com/photo-1707343843437-caacff5cfa74?q=80&w=600&h=400&auto=format&fit=crop"
-          alt="Slide 1"
-          className="rounded-xl object-cover"
-        />
-      ),
-    },
-    {
-      id: "img-2",
-      content: (
-        <img
-          src="https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?q=80&w=600&h=400&auto=format&fit=crop"
-          alt="Slide 2"
-          className="rounded-xl object-cover"
-        />
-      ),
-    },
-    {
-      id: "img-3",
-      content: (
-        <img
-          src="https://images.unsplash.com/photo-1707343843437-caacff5cfa74?q=80&w=600&h=400&auto=format&fit=crop"
-          alt="Slide 3"
-          className="rounded-xl object-cover"
-        />
+        <div className="p-1">
+          <Card>
+            <CardContent className="flex aspect-video items-center justify-center text-2xl font-bold text-muted-foreground/30">
+              01
+            </CardContent>
+          </Card>
+        </div>
       ),
     },
   ]}
 />`,
-          macroPreview: (
-            <div className="w-full max-w-sm px-12">
-              <CarouselPreset
-                items={[
-                  {
-                    id: "img-1",
-                    content: (
-                      <img
-                        src="https://images.unsplash.com/photo-1707343843437-caacff5cfa74?q=80&w=600&h=400&auto=format&fit=crop"
-                        alt="Slide 1"
-                        className="rounded-xl object-cover"
-                      />
-                    ),
-                  },
-                  {
-                    id: "img-2",
-                    content: (
-                      <img
-                        src="https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?q=80&w=600&h=400&auto=format&fit=crop"
-                        alt="Slide 2"
-                        className="rounded-xl object-cover"
-                      />
-                    ),
-                  },
-                  {
-                    id: "img-3",
-                    content: (
-                      <img
-                        src="https://images.unsplash.com/photo-1707343843437-caacff5cfa74?q=80&w=600&h=400&auto=format&fit=crop"
-                        alt="Slide 3"
-                        className="rounded-xl object-cover"
-                      />
-                    ),
-                  },
-                ]}
-              />
+      macroPreview: (
+        <div className="w-full px-12">
+          <CarouselPreset
+            opts={{ align: "start" }}
+            itemClassName="md:basis-1/2 lg:basis-1/3"
+            items={Array.from({ length: 6 }, (_, i) => ({
+              id: i,
+              content: (
+                <div className="p-1">
+                  <Card>
+                    <CardContent className="flex aspect-video items-center justify-center text-2xl font-bold text-muted-foreground/30">
+                      0{i + 1}
+                    </CardContent>
+                  </Card>
+                </div>
+              ),
+            }))}
+          />
+        </div>
+      ),
+      microCode: `<Carousel opts={{ align: "start" }}>
+  <CarouselContent className="-ml-4">
+    {items.map((item) => (
+      <CarouselItem key={item.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
+        <div className="p-1">
+          <Card>
+            <CardContent className="flex aspect-video items-center justify-center text-2xl font-bold text-muted-foreground/30">
+              {item.label}
+            </CardContent>
+          </Card>
+        </div>
+      </CarouselItem>
+    ))}
+  </CarouselContent>
+  <CarouselPrevious className="absolute -left-12 top-1/2 -translate-y-1/2" />
+  <CarouselNext className="absolute -right-12 top-1/2 -translate-y-1/2" />
+  <div className="mt-4 flex justify-center">
+    <CarouselDots />
+  </div>
+</Carousel>`,
+      microPreview: (
+        <div className="w-full px-12">
+          <Carousel opts={{ align: "start" }}>
+            <CarouselContent className="-ml-4">
+              {Array.from({ length: 6 }, (_, i) => (
+                <CarouselItem key={i} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                  <div className="p-1">
+                    <Card>
+                      <CardContent className="flex aspect-video items-center justify-center text-2xl font-bold text-muted-foreground/30">
+                        0{i + 1}
+                      </CardContent>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="absolute -left-12 top-1/2 -translate-y-1/2" />
+            <CarouselNext className="absolute -right-12 top-1/2 -translate-y-1/2" />
+            <div className="mt-4 flex justify-center">
+              <CarouselDots />
             </div>
-          ),
-        },
-        {
-          title: t("Vòng lặp vô hạn", "Loop Enabled"),
-          description: t(
-            "Chỉ hiển thị dấu chấm (ẩn mũi tên).",
-            "Show dots only (hide arrows)."
-          ),
-          macroCode: `<CarouselPreset
+          </Carousel>
+        </div>
+      ),
+    },
+
+    {
+      title: t("Ảnh bìa Hero", "Hero Banner"),
+      description: t(
+        "Mũi tên và dấu chấm nằm đè lên slide, hiện khi hover.",
+        "Arrows and dots overlaid on the slide, visible on hover."
+      ),
+      microCode: `<Carousel
   opts={{ loop: true }}
-  showArrows={false}
-  items={[
-    {
-      id: "loop-1",
-      content: (
-        <div className="p-1 border border-border rounded-xl">
-          <div className="flex aspect-square items-center justify-center p-6 bg-linear-to-tr from-violet-500 to-purple-500 rounded-lg text-white">
-            <span className="text-4xl font-semibold">1</span>
-          </div>
-        </div>
-      ),
-    },
-    {
-      id: "loop-2",
-      content: (
-        <div className="p-1 border border-border rounded-xl">
-          <div className="flex aspect-square items-center justify-center p-6 bg-linear-to-tr from-pink-500 to-rose-500 rounded-lg text-white">
-            <span className="text-4xl font-semibold">2</span>
-          </div>
-        </div>
-      ),
-    },
-    {
-      id: "loop-3",
-      content: (
-        <div className="p-1 border border-border rounded-xl">
-          <div className="flex aspect-square items-center justify-center p-6 bg-linear-to-tr from-blue-500 to-cyan-500 rounded-lg text-white">
-            <span className="text-4xl font-semibold">3</span>
-          </div>
-        </div>
-      ),
-    },
-  ]}
-/>`,
-          macroPreview: (
-            <div className="w-full max-w-sm">
-              <CarouselPreset
-                opts={{ loop: true }}
-                showArrows={false}
-                items={[
-                  {
-                    id: "loop-1",
-                    content: (
-                      <div className="p-1 border border-border rounded-xl">
-                        <div className="flex aspect-square items-center justify-center p-6 bg-linear-to-tr from-violet-500 to-purple-500 rounded-lg text-white">
-                          <span className="text-4xl font-semibold">1</span>
-                        </div>
-                      </div>
-                    ),
-                  },
-                  {
-                    id: "loop-2",
-                    content: (
-                      <div className="p-1 border border-border rounded-xl">
-                        <div className="flex aspect-square items-center justify-center p-6 bg-linear-to-tr from-pink-500 to-rose-500 rounded-lg text-white">
-                          <span className="text-4xl font-semibold">2</span>
-                        </div>
-                      </div>
-                    ),
-                  },
-                  {
-                    id: "loop-3",
-                    content: (
-                      <div className="p-1 border border-border rounded-xl">
-                        <div className="flex aspect-square items-center justify-center p-6 bg-linear-to-tr from-blue-500 to-cyan-500 rounded-lg text-white">
-                          <span className="text-4xl font-semibold">3</span>
-                        </div>
-                      </div>
-                    ),
-                  },
-                ]}
-              />
-            </div>
-          ),
-        },
-        {
-          title: t("Chỉ mũi tên", "Arrows Only"),
-          description: t(
-            "Mũi tên điều hướng không có dấu chấm.",
-            "Navigation arrows without dots."
-          ),
-          macroCode: `<CarouselPreset
-  showDots={false}
-  items={[
-    {
-      id: "arr-1",
-      content: (
-        <div className="p-1 border border-border rounded-xl">
-          <div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg">
-            <span className="text-4xl font-semibold">A</span>
-          </div>
-        </div>
-      ),
-    },
-    {
-      id: "arr-2",
-      content: (
-        <div className="p-1 border border-border rounded-xl">
-          <div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg">
-            <span className="text-4xl font-semibold">B</span>
-          </div>
-        </div>
-      ),
-    },
-    {
-      id: "arr-3",
-      content: (
-        <div className="p-1 border border-border rounded-xl">
-          <div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg">
-            <span className="text-4xl font-semibold">C</span>
-          </div>
-        </div>
-      ),
-    },
-  ]}
-/>`,
-          macroPreview: (
-            <div className="w-full max-w-sm px-12">
-              <CarouselPreset
-                showDots={false}
-                items={[
-                  {
-                    id: "arr-1",
-                    content: (
-                      <div className="p-1 border border-border rounded-xl">
-                        <div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg">
-                          <span className="text-4xl font-semibold">A</span>
-                        </div>
-                      </div>
-                    ),
-                  },
-                  {
-                    id: "arr-2",
-                    content: (
-                      <div className="p-1 border border-border rounded-xl">
-                        <div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg">
-                          <span className="text-4xl font-semibold">B</span>
-                        </div>
-                      </div>
-                    ),
-                  },
-                  {
-                    id: "arr-3",
-                    content: (
-                      <div className="p-1 border border-border rounded-xl">
-                        <div className="flex aspect-square items-center justify-center p-6 bg-muted/20 rounded-lg">
-                          <span className="text-4xl font-semibold">C</span>
-                        </div>
-                      </div>
-                    ),
-                  },
-                ]}
-              />
-            </div>
-          ),
-        },
-        {
-          title: t("Theo chiều dọc", "Vertical Orientation"),
-          description: t(
-            "Băng chuyền cuộn theo chiều dọc.",
-            "Carousel scrolling vertically."
-          ),
-          macroCode: `<CarouselPreset
-  className="w-full"
-  orientation="vertical"
-  contentClassName="h-75"
-  itemClassName="basis-[250px]"
-  items={[
-    {
-      id: "v1",
-      content: (
-        <div className="h-full w-full border border-border rounded-xl flex items-center justify-center bg-muted/20 text-4xl font-semibold">
-          A
-        </div>
-      ),
-    },
-    {
-      id: "v2",
-      content: (
-        <div className="h-full w-full border border-border rounded-xl flex items-center justify-center bg-muted/20 text-4xl font-semibold">
-          B
-        </div>
-      ),
-    },
-    {
-      id: "v3",
-      content: (
-        <div className="h-full w-full border border-border rounded-xl flex items-center justify-center bg-muted/20 text-4xl font-semibold">
-          C
-        </div>
-      ),
-    },
-  ]}
-/>`,
-          macroPreview: (
-            <div className="w-full max-w-sm px-12 py-12 flex justify-center">
-              <CarouselPreset
-                className="w-full"
-                orientation="vertical"
-                contentClassName="h-75"
-                itemClassName="basis-[250px]"
-                items={[
-                  {
-                    id: "v1",
-                    content: (
-                      <div className="h-full w-full border border-border rounded-xl flex items-center justify-center bg-muted/20 text-4xl font-semibold">
-                        A
-                      </div>
-                    ),
-                  },
-                  {
-                    id: "v2",
-                    content: (
-                      <div className="h-full w-full border border-border rounded-xl flex items-center justify-center bg-muted/20 text-4xl font-semibold">
-                        B
-                      </div>
-                    ),
-                  },
-                  {
-                    id: "v3",
-                    content: (
-                      <div className="h-full w-full border border-border rounded-xl flex items-center justify-center bg-muted/20 text-4xl font-semibold">
-                        C
-                      </div>
-                    ),
-                  },
-                ]}
-              />
-            </div>
-          ),
-        },
-        {
-          title: t("Ảnh bìa Hero", "Hero Banner (Overlay Navigation)"),
-          description: t(
-            "Mũi tên kính mờ nằm đè trên Banner, chỉ hiện khi hover. Dấu chấm nằm sát mép dưới.",
-            "Frosted glass arrows overlaid on the Banner, appearing only on hover. Dots are placed near the bottom edge."
-          ),
-          microCode: `<Carousel
-  opts={{ loop: true }}
-  className="group relative w-full overflow-hidden rounded-2xl shadow-xl"
+  className="group relative w-full overflow-hidden rounded-2xl"
 >
   <CarouselContent className="-ml-4">
-    <CarouselItem className="pl-4">...</CarouselItem>
+    <CarouselItem className="pl-4">
+      <div className="flex aspect-[21/9] items-center justify-center bg-linear-to-tr from-violet-500 to-purple-500">
+        <h3 className="text-3xl font-bold text-white">Slide 1</h3>
+      </div>
+    </CarouselItem>
   </CarouselContent>
+
   <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-between p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-    <CarouselPrevious className="pointer-events-auto bg-background/50 backdrop-blur-md" />
-    <CarouselNext className="pointer-events-auto bg-background/50 backdrop-blur-md" />
+    <CarouselPrevious className="pointer-events-auto border-white/20 bg-background/30 text-white backdrop-blur-md hover:bg-background/50" />
+    <CarouselNext className="pointer-events-auto border-white/20 bg-background/30 text-white backdrop-blur-md hover:bg-background/50" />
   </div>
+
   <div className="absolute bottom-4 left-0 right-0 z-10">
     <CarouselDots className="[&>[data-slot=carousel-dot][data-active]]:bg-white [&>[data-slot=carousel-dot]]:bg-white/40" />
   </div>
 </Carousel>`,
-          microPreview: (
-            <div className="mx-auto w-full max-w-4xl">
-              <Carousel
-                opts={{ loop: true }}
-                className="group relative w-full overflow-hidden rounded-2xl shadow-xl border border-border/50"
-              >
-                <CarouselContent className="-ml-4">
-                  {SLIDES.map((slide) => (
-                    <CarouselItem key={slide.id} className="pl-4">
-                      <div
-                        className={cn(
-                          "flex aspect-[21/9] flex-col items-center justify-center p-6 text-center text-white",
-                          slide.bg
-                        )}
-                      >
-                        <h3 className="mb-2 text-3xl font-bold tracking-tight sm:text-5xl">
-                          {slide.title}
-                        </h3>
-                        <p className="max-w-md text-sm text-white/80 sm:text-lg">
-                          {slide.desc}
-                        </p>
-                      </div>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-between p-4 transition-opacity duration-300 sm:p-6 opacity-0 group-hover:opacity-100">
-                  <CarouselPrevious className="pointer-events-auto backdrop-blur-md bg-background/30 hover:bg-background/50 border-white/20 text-white" />
-                  <CarouselNext className="pointer-events-auto backdrop-blur-md bg-background/30 hover:bg-background/50 border-white/20 text-white" />
-                </div>
-                <div className="absolute bottom-4 left-0 right-0 z-10">
-                  <CarouselDots className="[&>[data-slot=carousel-dot][data-active]]:bg-white [&>[data-slot=carousel-dot]]:bg-white/40 hover:[&>[data-slot=carousel-dot]]:bg-white/60" />
-                </div>
-              </Carousel>
+      microPreview: (
+        <div className="mx-auto w-full max-w-4xl">
+          <Carousel
+            opts={{ loop: true }}
+            className="group relative w-full overflow-hidden rounded-2xl border border-border/50"
+          >
+            <CarouselContent className="-ml-4">
+              {HERO_SLIDES.map((slide) => (
+                <CarouselItem key={slide.id} className="pl-4">
+                  <div
+                    className={cn(
+                      "flex aspect-[21/9] flex-col items-center justify-center gap-2 text-white",
+                      slide.bg
+                    )}
+                  >
+                    <h3 className="text-3xl font-bold">{slide.title}</h3>
+                    <p className="text-sm text-white/80">{slide.desc}</p>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-between p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <CarouselPrevious className="pointer-events-auto border-white/20 bg-background/30 text-white backdrop-blur-md hover:bg-background/50" />
+              <CarouselNext className="pointer-events-auto border-white/20 bg-background/30 text-white backdrop-blur-md hover:bg-background/50" />
             </div>
-          ),
-        },
-        {
-          title: t("Nhiều phần tử trên 1 slide", "Multiple items per slide"),
-          description: t(
-            "Hiển thị nhiều Card (vd: basis-1/2, lg:basis-1/3) trên cùng một Slide của Băng chuyền.",
-            "Display multiple Cards (e.g., basis-1/2, lg:basis-1/3) on the same Carousel slide."
-          ),
-          microCode: `<div className="mx-auto w-full max-w-5xl px-12">
-  <Carousel
-    opts={{ align: "start" }}
-    className="w-full relative"
-  >
-    <CarouselContent className="-ml-4">
-      {Array.from({ length: 10 }).map((_, index) => (
-        <CarouselItem
-          key={index}
-          className="pl-4 md:basis-1/2 lg:basis-1/3"
-        >
-          <div className="p-1">
-            <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-              <div className="aspect-4/3 bg-muted flex items-center justify-center relative group">
-                <span className="text-4xl font-black text-muted-foreground/30 transition-transform duration-500 group-hover:scale-110">
-                  0{index + 1}
-                </span>
-                <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex items-end p-4">
-                  <span className="text-white font-medium">
-                    View Item {index + 1}
-                  </span>
-                </div>
-              </div>
-              <CardContent className="p-4">
-                <div className="text-sm font-medium text-muted-foreground mb-1">
-                  Category
-                </div>
-                <h4 className="font-semibold text-lg leading-none">
-                  Featured Item {index + 1}
-                </h4>
-              </CardContent>
-            </Card>
-          </div>
-        </CarouselItem>
-      ))}
-    </CarouselContent>
-    <CarouselPrevious className="absolute -left-12 top-1/2 -translate-y-1/2 border-border shadow-sm hover:bg-accent" />
-    <CarouselNext className="absolute -right-12 top-1/2 -translate-y-1/2 border-border shadow-sm hover:bg-accent" />
-  </Carousel>
-</div>`,
-          microPreview: (
-            <div className="mx-auto w-full max-w-5xl px-12">
-              <Carousel opts={{ align: "start" }} className="w-full relative">
-                <CarouselContent className="-ml-4">
-                  {Array.from({ length: 10 }).map((_, index) => (
-                    <CarouselItem
-                      key={index}
-                      className="pl-4 md:basis-1/2 lg:basis-1/3"
-                    >
-                      <div className="p-1">
-                        <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                          <div className="aspect-4/3 bg-muted flex items-center justify-center relative group">
-                            <span className="text-4xl font-black text-muted-foreground/30 transition-transform duration-500 group-hover:scale-110">
-                              0{index + 1}
-                            </span>
-                            <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex items-end p-4">
-                              <span className="text-white font-medium">
-                                View Item {index + 1}
-                              </span>
-                            </div>
-                          </div>
-                          <CardContent className="p-4">
-                            <div className="text-sm font-medium text-muted-foreground mb-1">
-                              Category
-                            </div>
-                            <h4 className="font-semibold text-lg leading-none">
-                              Featured Item {index + 1}
-                            </h4>
-                          </CardContent>
-                        </Card>
-                      </div>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious className="absolute -left-12 top-1/2 -translate-y-1/2 border-border shadow-sm hover:bg-accent" />
-                <CarouselNext className="absolute -right-12 top-1/2 -translate-y-1/2 border-border shadow-sm hover:bg-accent" />
-              </Carousel>
+            <div className="absolute bottom-4 left-0 right-0 z-10">
+              <CarouselDots className="[&>[data-slot=carousel-dot][data-active]]:bg-white [&>[data-slot=carousel-dot]]:bg-white/40" />
             </div>
-          ),
-        },
-      ];
+          </Carousel>
+        </div>
+      ),
     },
-    [t]
-  );
+
+  ], [t]);
 }
 
 export default function CarouselShowcase() {
@@ -625,15 +315,15 @@ export default function CarouselShowcase() {
     <ConfigurableShowcase
       title="Carousel"
       description={t(
-        "Băng chuyền vuốt chuyển động cao cấp được xây dựng bằng Embla.",
-        "Premium swipe-animated carousel built with Embla."
+        "Băng chuyền vuốt cao cấp được xây dựng bằng Embla.",
+        "Premium swipe carousel built with Embla."
       )}
       guideline={
         <ShowcaseDocs>
           <DocsP>
             {t(
-              "Dùng để duyệt qua một tập hợp các nội dung (như hình ảnh, thẻ bài, hoặc biểu ngữ) theo dạng trượt ngang hoặc dọc. Thích hợp cho không gian hiển thị giới hạn cần hiển thị nhiều mục.",
-              "Use to browse through a collection of content (like images, cards, or banners) by swiping horizontally or vertically. Suitable for limited display spaces that need to show multiple items."
+              "Dùng để duyệt qua một tập hợp nội dung (hình ảnh, thẻ bài, biểu ngữ) theo dạng trượt ngang. Thích hợp cho không gian hiển thị giới hạn cần hiển thị nhiều mục.",
+              "Use to browse through a collection of content (images, cards, banners) by swiping horizontally. Suitable for limited display spaces that need to show multiple items."
             )}
           </DocsP>
         </ShowcaseDocs>

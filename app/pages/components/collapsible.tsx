@@ -41,7 +41,7 @@ function useCollapsibleExamples() {
           />
         }
       >
-        <ChevronsUpDown className="h-4 w-4" />
+        <ChevronsUpDown className="h-4 w-4" aria-hidden="true" />
         <span className="sr-only">Toggle</span>
       </CollapsibleTrigger>
     </div>
@@ -76,7 +76,7 @@ function useCollapsibleExamples() {
                     />
                   }
                 >
-                  <ChevronsUpDown className="h-4 w-4" />
+                  <ChevronsUpDown className="h-4 w-4" aria-hidden="true" />
                   <span className="sr-only">Toggle</span>
                 </CollapsibleTrigger>
               </div>
@@ -98,81 +98,6 @@ function useCollapsibleExamples() {
         ),
       },
       {
-        title: t("Mở mặc định", "Default Open"),
-        description: t(
-          "Bắt đầu ở trạng thái mở rộng bằng cách truyền defaultOpen.",
-          "Starts in an expanded state by passing defaultOpen."
-        ),
-        microCode: `<div className="w-full sm:w-[350px]">
-  <Collapsible defaultOpen className="space-y-2">
-    <div className="flex items-center justify-between space-x-4 px-4">
-      <h4 className="text-sm font-semibold">
-        Recent activity
-      </h4>
-      <CollapsibleTrigger
-        render={
-          <Button
-            variant="ghost"
-            size="sm"
-            className="w-9 p-0"
-          />
-        }
-      >
-        <ChevronsUpDown className="h-4 w-4" />
-        <span className="sr-only">Toggle</span>
-      </CollapsibleTrigger>
-    </div>
-    <div className="rounded-md border border-border bg-muted/50 px-4 py-3 font-mono text-sm">
-      Pushed to main
-    </div>
-    <CollapsibleContent>
-      <div className="flex flex-col gap-2">
-        <div className="rounded-md border border-border bg-muted/50 px-4 py-3 font-mono text-sm">
-          Merged PR #42
-        </div>
-        <div className="rounded-md border border-border bg-muted/50 px-4 py-3 font-mono text-sm">
-          Opened issue #43
-        </div>
-      </div>
-    </CollapsibleContent>
-  </Collapsible>
-</div>`,
-        microPreview: (
-          <div className="w-full sm:w-[350px]">
-            <Collapsible defaultOpen className="space-y-2">
-              <div className="flex items-center justify-between space-x-4 px-4">
-                <h4 className="text-sm font-semibold">Recent activity</h4>
-                <CollapsibleTrigger
-                  render={
-                    <Button
-                      variant="ghost"
-                      size={globalSize}
-                      className="w-9 p-0"
-                    />
-                  }
-                >
-                  <ChevronsUpDown className="h-4 w-4" />
-                  <span className="sr-only">Toggle</span>
-                </CollapsibleTrigger>
-              </div>
-              <div className="rounded-md border border-border bg-muted/50 px-4 py-3 font-mono text-sm">
-                Pushed to main
-              </div>
-              <CollapsibleContent>
-                <div className="flex flex-col gap-2">
-                  <div className="rounded-md border border-border bg-muted/50 px-4 py-3 font-mono text-sm">
-                    Merged PR #42
-                  </div>
-                  <div className="rounded-md border border-border bg-muted/50 px-4 py-3 font-mono text-sm">
-                    Opened issue #43
-                  </div>
-                </div>
-              </CollapsibleContent>
-            </Collapsible>
-          </div>
-        ),
-      },
-      {
         title: t("Vô hiệu hóa", "Disabled"),
         description: t(
           "Không thể tương tác để thay đổi trạng thái đóng/mở.",
@@ -180,10 +105,8 @@ function useCollapsibleExamples() {
         ),
         microCode: `<div className="w-full sm:w-[350px]">
   <Collapsible disabled className="space-y-2">
-    <div className="flex items-center justify-between space-x-4 px-4 opacity-50">
-      <h4 className="text-sm font-semibold">
-        Archived Repositories
-      </h4>
+    <div className="flex items-center justify-between space-x-4 px-4">
+      <h4 className="text-sm font-semibold">Archived Repositories</h4>
       <CollapsibleTrigger
         render={
           <Button
@@ -193,16 +116,16 @@ function useCollapsibleExamples() {
           />
         }
       >
-        <ChevronsUpDown className="h-4 w-4" />
+        <ChevronsUpDown className="h-4 w-4" aria-hidden="true" />
         <span className="sr-only">Toggle</span>
       </CollapsibleTrigger>
     </div>
-    <div className="rounded-md border border-border bg-muted/50 px-4 py-3 font-mono text-sm opacity-50">
+    <div className="rounded-md border border-border bg-muted/50 px-4 py-3 font-mono text-sm">
       @radix-ui/react-toolbar
     </div>
     <CollapsibleContent>
       <div className="flex flex-col gap-2">
-        <div className="rounded-md border border-border bg-muted/50 px-4 py-3 font-mono text-sm opacity-50">
+        <div className="rounded-md border border-border bg-muted/50 px-4 py-3 font-mono text-sm">
           @radix-ui/react-popover
         </div>
       </div>
@@ -212,7 +135,7 @@ function useCollapsibleExamples() {
         microPreview: (
           <div className="w-full sm:w-[350px]">
             <Collapsible disabled className="space-y-2">
-              <div className="flex items-center justify-between space-x-4 px-4 opacity-50">
+              <div className="flex items-center justify-between space-x-4 px-4">
                 <h4 className="text-sm font-semibold">Archived Repositories</h4>
                 <CollapsibleTrigger
                   render={
@@ -223,16 +146,16 @@ function useCollapsibleExamples() {
                     />
                   }
                 >
-                  <ChevronsUpDown className="h-4 w-4" />
+                  <ChevronsUpDown className="h-4 w-4" aria-hidden="true" />
                   <span className="sr-only">Toggle</span>
                 </CollapsibleTrigger>
               </div>
-              <div className="rounded-md border border-border bg-muted/50 px-4 py-3 font-mono text-sm opacity-50">
+              <div className="rounded-md border border-border bg-muted/50 px-4 py-3 font-mono text-sm">
                 @radix-ui/react-toolbar
               </div>
               <CollapsibleContent>
                 <div className="flex flex-col gap-2">
-                  <div className="rounded-md border border-border bg-muted/50 px-4 py-3 font-mono text-sm opacity-50">
+                  <div className="rounded-md border border-border bg-muted/50 px-4 py-3 font-mono text-sm">
                     @radix-ui/react-popover
                   </div>
                 </div>

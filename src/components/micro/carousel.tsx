@@ -1,10 +1,3 @@
-/**
- * ✅ AUDITED & REFACTORED
- * - Design System Compliant (22 Commandments)
- * - WCAG AAA/AA
- * - Form Control Parity
- * - CSS Delegated Logic
- */
 "use client";
 
 import * as React from "react";
@@ -234,7 +227,7 @@ const CarouselPrevious = React.forwardRef<
       onClick={scrollPrev}
       {...props}
     >
-      <ChevronLeftIcon className="size-4" />
+      <ChevronLeftIcon className="size-4" aria-hidden="true" />
       <span className="sr-only">Previous slide</span>
     </button>
   );
@@ -257,7 +250,7 @@ const CarouselNext = React.forwardRef<
       onClick={scrollNext}
       {...props}
     >
-      <ChevronRightIcon className="size-4" />
+      <ChevronRightIcon className="size-4" aria-hidden="true" />
       <span className="sr-only">Next slide</span>
     </button>
   );
@@ -317,7 +310,7 @@ const CarouselDots = React.forwardRef<
           aria-label={`Go to slide ${index + 1}`}
           aria-current={index === selectedIndex ? "true" : "false"}
           className={cn(
-            "size-2 rounded-full transition-all duration-300",
+            "size-2 rounded-full transition-all duration-300 motion-reduce:transition-none",
             "bg-primary/20 hover:bg-primary/40 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none focus-visible:ring-offset-2 focus-visible:ring-offset-background",
             "data-active:w-6 data-active:bg-primary",
           )}

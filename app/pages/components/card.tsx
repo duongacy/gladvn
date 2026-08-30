@@ -23,7 +23,6 @@ function useCardExamples() {
 
   return React.useMemo(
     () => [
-      // 1. Macro mẫu mực đầy đủ props + Micro giải phẫu
       {
         title: t("Tiêu chuẩn", "Standard"),
         description: t(
@@ -92,7 +91,6 @@ function useCardExamples() {
 </div>`,
       },
 
-      // 2. Micro-only — Header tuỳ biến phức tạp (Macro gạch ngang)
       {
         title: t("Header tuỳ biến", "Custom Header"),
         description: t(
@@ -147,7 +145,6 @@ function useCardExamples() {
         ),
       },
 
-      // 3. Micro-only — full-bleed content với p-0 trên CardContent (Macro gạch ngang)
       {
         title: t("Nội dung full-bleed", "Full-bleed Content"),
         description: t(

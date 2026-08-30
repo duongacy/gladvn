@@ -41,7 +41,6 @@ function useAccordionExamples() {
   const t = useI18n();
   return React.useMemo(() => [
 
-    // 1. Macro mẫu mực + Micro giải phẫu
     {
       title: t("Mở đơn", "Single Expand"),
       description: t(
@@ -114,7 +113,6 @@ function useAccordionExamples() {
       ),
     },
 
-    // 2. Mở nhiều mục — Macro + Micro
     {
       title: t("Mở nhiều mục", "Multiple Expand"),
       description: t(
@@ -191,7 +189,6 @@ function useAccordionExamples() {
       ),
     },
 
-    // 3. Micro-only — className trên AccordionItem cụ thể (Macro gạch ngang)
     {
       title: t("Item nổi bật", "Highlighted Item"),
       description: t(
@@ -242,7 +239,6 @@ function useAccordionExamples() {
       ),
     },
 
-    // 4. Micro-only — Content full-bleed p-0 (Macro gạch ngang)
     {
       title: t("Content full-bleed", "Full-bleed Content"),
       description: t(

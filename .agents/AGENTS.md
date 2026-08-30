@@ -239,3 +239,9 @@ When executing batch updates (e.g. processing multiple files in chunks), you MUS
 - **Zero New Features**: The Micro code MUST NOT introduce any new content, different data, or different functionality compared to the Macro. Same title, same description, same content, same footer — everything must be identical. Only the implementation structure changes (from preset props to manual slot composition).
 - **Why**: The entire point of the Micro tab is to teach the developer *how the Macro works internally*. If the Micro tab shows a different use case, it destroys the mental model and confuses the developer. They should be able to look at Macro and Micro side-by-side and say "so *that's* what the Macro compiles down to."
 - **Deconstructed Wrappers**: If the Macro internally uses layout containers (e.g., `<div className="@container/card size-full">`), those wrappers MUST also appear in the Micro code. Do not hide the internal scaffolding — exposing it is the entire purpose.
+
+## 37. Zero Inline Comments Policy
+
+- **No Explanatory Comments in Code**: You MUST NOT add inline explanatory comments (e.g., `// 1. Macro mẫu mực...`, `// Mũi tên lơ lửng...`) directly into the `.tsx` source code files or inside the stringified `code` props of showcases.
+- **Self-Documenting Code**: The code must speak for itself. Explanations belong strictly in the `title` and `description` props of `<ExampleSection>`, or in the `<ShowcaseDocs>` guideline section.
+- **Why**: Adding pedagogical comments inside the code violates the "neutral description" rule, clutters the raw output, and creates a preachy tone that annoys developers when they copy-paste the code.

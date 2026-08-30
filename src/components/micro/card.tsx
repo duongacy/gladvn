@@ -29,7 +29,6 @@ const Card = React.forwardRef<
     data-size={size}
     className={cn(
       "group/card flex flex-col overflow-hidden rounded-xl bg-card text-sm text-card-foreground ring-1 ring-foreground/10",
-      "p-6 gap-5 data-[size=sm]:p-4 data-[size=sm]:gap-4 data-[size=lg]:p-8 data-[size=lg]:gap-6",
       className,
     )}
     {...props}
@@ -44,7 +43,10 @@ const CardHeader = React.forwardRef<
   <div
     ref={ref}
     data-slot="card-header"
-    className={cn("flex flex-col gap-1.5", className)}
+    className={cn(
+      "flex flex-col gap-1.5 p-6 group-data-[size=sm]/card:p-4 group-data-[size=lg]/card:p-8",
+      className,
+    )}
     {...props}
   />
 ));
@@ -89,7 +91,15 @@ const CardContent = React.forwardRef<
   HTMLDivElement,
   React.ComponentProps<"div">
 >(({ className, ...props }, ref) => (
-  <div ref={ref} data-slot="card-content" className={className} {...props} />
+  <div 
+    ref={ref} 
+    data-slot="card-content" 
+    className={cn(
+      "p-6 pt-0 group-data-[size=sm]/card:p-4 group-data-[size=sm]/card:pt-0 group-data-[size=lg]/card:p-8 group-data-[size=lg]/card:pt-0",
+      className
+    )} 
+    {...props} 
+  />
 ));
 CardContent.displayName = "CardContent";
 
@@ -100,7 +110,10 @@ const CardFooter = React.forwardRef<
   <div
     ref={ref}
     data-slot="card-footer"
-    className={cn("flex items-center gap-2", className)}
+    className={cn(
+      "flex items-center gap-2 p-6 pt-0 group-data-[size=sm]/card:p-4 group-data-[size=sm]/card:pt-0 group-data-[size=lg]/card:p-8 group-data-[size=lg]/card:pt-0", 
+      className
+    )}
     {...props}
   />
 ));

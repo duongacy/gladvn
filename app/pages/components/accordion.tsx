@@ -13,493 +13,288 @@ import {
   DocsP
 } from "~app/components/showcase";
 
+const FAQ_ITEMS = [
+  {
+    value: "faq-1",
+    title: "Does it support Accessibility (a11y)?",
+    content: "Yes it does. The component complies with WAI-ARIA standards. Keyboard navigation and screen readers are fully supported.",
+  },
+  {
+    value: "faq-2",
+    title: "Is it styled?",
+    content: "Yes. The default style is beautiful and matches other components' aesthetic. You can override every token via CSS variables.",
+  },
+  {
+    value: "faq-3",
+    title: "Is it animated?",
+    content: "Fully animated. Smooth opening and closing.",
+  },
+  {
+    value: "faq-4",
+    title: "Premium Feature (Locked)",
+    content: "This content is hidden behind a premium plan.",
+    disabled: true,
+  },
+];
+
 function useAccordionExamples() {
   const t = useI18n();
   return React.useMemo(() => [
+
+    // 1. Macro mẫu mực + Micro giải phẫu
     {
       title: t("Mở đơn", "Single Expand"),
       description: t(
-        "Chỉ một mục được phép mở tại một thời điểm (mặc định).",
-        "Only one item is allowed open at a time (default)."
+        "Chỉ một mục được phép mở tại một thời điểm.",
+        "Only one item can be open at a time."
       ),
       macroCode: `<AccordionPreset
-    className="divide-y divide-border"
-    defaultValue={["faq-1"]}
-    items={[
-      {
-        value: "faq-1",
-        title: "Does it support Accessibility (a11y)?",
-        content: "Yes it does. The component complies with WAI-ARIA standards. Keyboard navigation and screen readers are fully supported."
-      },
-      {
-        value: "faq-2",
-        title: "Is it styled?",
-        content: "Yes. The default style is beautiful and matches other components' aesthetic. You can override every token via CSS variables."
-      },
-      {
-        value: "faq-3",
-        title: "Is it animated?",
-        content: "Fully animated. Smooth opening and closing."
-      },
-    ]}
-  />`,
+  className="divide-y divide-border"
+  defaultValue={["faq-1"]}
+  items={[
+    {
+      value: "faq-1",
+      title: "Does it support Accessibility (a11y)?",
+      content: "Yes it does. The component complies with WAI-ARIA standards. Keyboard navigation and screen readers are fully supported."
+    },
+    {
+      value: "faq-2",
+      title: "Is it styled?",
+      content: "Yes. The default style is beautiful and matches other components' aesthetic. You can override every token via CSS variables."
+    },
+    {
+      value: "faq-3",
+      title: "Is it animated?",
+      content: "Fully animated. Smooth opening and closing."
+    },
+  ]}
+/>`,
       macroPreview: (
         <AccordionPreset
           className="divide-y divide-border"
           defaultValue={["faq-1"]}
-          items={[
-            {
-              value: "faq-1",
-              title: "Does it support Accessibility (a11y)?",
-              content: "Yes it does. The component complies with WAI-ARIA standards. Keyboard navigation and screen readers are fully supported.",
-            },
-            {
-              value: "faq-2",
-              title: "Is it styled?",
-              content: "Yes. The default style is beautiful and matches other components' aesthetic. You can override every token via CSS variables.",
-            },
-            {
-              value: "faq-3",
-              title: "Is it animated?",
-              content: "Fully animated. Smooth opening and closing.",
-            },
-          ]}
+          items={FAQ_ITEMS}
         />
       ),
       microCode: `<Accordion
-    className="divide-y divide-border"
-    defaultValue={["faq-1"]}
-  >
-    <AccordionItem value="faq-1">
-      <AccordionTrigger>Does it support Accessibility (a11y)?</AccordionTrigger>
-      <AccordionContent>
-        Yes it does. The component complies with WAI-ARIA standards. Keyboard navigation and screen readers are fully supported.
-      </AccordionContent>
-    </AccordionItem>
-    <AccordionItem value="faq-2">
-      <AccordionTrigger>Is it styled?</AccordionTrigger>
-      <AccordionContent>
-        Yes. The default style is beautiful and matches other components' aesthetic. You can override every token via CSS variables.
-      </AccordionContent>
-    </AccordionItem>
-    <AccordionItem value="faq-3">
-      <AccordionTrigger>Is it animated?</AccordionTrigger>
-      <AccordionContent>
-        Fully animated. Smooth opening and closing.
-      </AccordionContent>
-    </AccordionItem>
-  </Accordion>`,
+  className="divide-y divide-border"
+  defaultValue={["faq-1"]}
+>
+  <AccordionItem value="faq-1">
+    <AccordionTrigger>Does it support Accessibility (a11y)?</AccordionTrigger>
+    <AccordionContent>
+      Yes it does. The component complies with WAI-ARIA standards. Keyboard navigation and screen readers are fully supported.
+    </AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="faq-2">
+    <AccordionTrigger>Is it styled?</AccordionTrigger>
+    <AccordionContent>
+      Yes. The default style is beautiful and matches other components' aesthetic. You can override every token via CSS variables.
+    </AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="faq-3">
+    <AccordionTrigger>Is it animated?</AccordionTrigger>
+    <AccordionContent>
+      Fully animated. Smooth opening and closing.
+    </AccordionContent>
+  </AccordionItem>
+</Accordion>`,
       microPreview: (
         <Accordion
           className="divide-y divide-border"
           defaultValue={["faq-1"]}
         >
-          <AccordionItem value="faq-1">
-            <AccordionTrigger>Does it support Accessibility (a11y)?</AccordionTrigger>
-            <AccordionContent>
-              Yes it does. The component complies with WAI-ARIA standards. Keyboard navigation and screen readers are fully supported.
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="faq-2">
-            <AccordionTrigger>Is it styled?</AccordionTrigger>
-            <AccordionContent>
-              Yes. The default style is beautiful and matches other components' aesthetic. You can override every token via CSS variables.
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="faq-3">
-            <AccordionTrigger>Is it animated?</AccordionTrigger>
-            <AccordionContent>
-              Fully animated. Smooth opening and closing.
-            </AccordionContent>
-          </AccordionItem>
+          {FAQ_ITEMS.map((item) => (
+            <AccordionItem key={item.value} value={item.value}>
+              <AccordionTrigger>{item.title}</AccordionTrigger>
+              <AccordionContent>{item.content}</AccordionContent>
+            </AccordionItem>
+          ))}
         </Accordion>
-      )
+      ),
     },
+
+    // 2. Mở nhiều mục — Macro + Micro
     {
       title: t("Mở nhiều mục", "Multiple Expand"),
       description: t(
-        "Cho phép nhiều mục được mở cùng một lúc.",
-        "Allows multiple items to be open at the same time."
+        "Nhiều mục được mở cùng một lúc.",
+        "Multiple items can be open simultaneously."
       ),
       macroCode: `<AccordionPreset
-    className="divide-y divide-border"
-    multiple
-    defaultValue={["faq-1", "faq-2"]}
-    items={[
-      {
-        value: "faq-1",
-        title: "Does it support Accessibility (a11y)?",
-        content: "Yes it does. The component complies with WAI-ARIA standards. Keyboard navigation and screen readers are fully supported."
-      },
-      {
-        value: "faq-2",
-        title: "Is it styled?",
-        content: "Yes. The default style is beautiful and matches other components' aesthetic. You can override every token via CSS variables."
-      },
-      {
-        value: "faq-3",
-        title: "Is it animated?",
-        content: "Fully animated. Smooth opening and closing."
-      },
-    ]}
-  />`,
+  className="divide-y divide-border"
+  multiple
+  defaultValue={["faq-1", "faq-2"]}
+  items={[
+    {
+      value: "faq-1",
+      title: "Does it support Accessibility (a11y)?",
+      content: "Yes it does. The component complies with WAI-ARIA standards. Keyboard navigation and screen readers are fully supported."
+    },
+    {
+      value: "faq-2",
+      title: "Is it styled?",
+      content: "Yes. The default style is beautiful and matches other components' aesthetic. You can override every token via CSS variables."
+    },
+    {
+      value: "faq-3",
+      title: "Is it animated?",
+      content: "Fully animated. Smooth opening and closing."
+    },
+  ]}
+/>`,
       macroPreview: (
         <AccordionPreset
           className="divide-y divide-border"
           multiple
           defaultValue={["faq-1", "faq-2"]}
-          items={[
-            {
-              value: "faq-1",
-              title: "Does it support Accessibility (a11y)?",
-              content: "Yes it does. The component complies with WAI-ARIA standards. Keyboard navigation and screen readers are fully supported.",
-            },
-            {
-              value: "faq-2",
-              title: "Is it styled?",
-              content: "Yes. The default style is beautiful and matches other components' aesthetic. You can override every token via CSS variables.",
-            },
-            {
-              value: "faq-3",
-              title: "Is it animated?",
-              content: "Fully animated. Smooth opening and closing.",
-            },
-          ]}
+          items={FAQ_ITEMS}
         />
       ),
       microCode: `<Accordion
-    className="divide-y divide-border"
-    multiple
-    defaultValue={["faq-1", "faq-2"]}
-  >
-    <AccordionItem value="faq-1">
-      <AccordionTrigger>Does it support Accessibility (a11y)?</AccordionTrigger>
-      <AccordionContent>
-        Yes it does. The component complies with WAI-ARIA standards. Keyboard navigation and screen readers are fully supported.
-      </AccordionContent>
-    </AccordionItem>
-    <AccordionItem value="faq-2">
-      <AccordionTrigger>Is it styled?</AccordionTrigger>
-      <AccordionContent>
-        Yes. The default style is beautiful and matches other components' aesthetic. You can override every token via CSS variables.
-      </AccordionContent>
-    </AccordionItem>
-    <AccordionItem value="faq-3">
-      <AccordionTrigger>Is it animated?</AccordionTrigger>
-      <AccordionContent>
-        Fully animated. Smooth opening and closing.
-      </AccordionContent>
-    </AccordionItem>
-  </Accordion>`,
+  className="divide-y divide-border"
+  multiple
+  defaultValue={["faq-1", "faq-2"]}
+>
+  <AccordionItem value="faq-1">
+    <AccordionTrigger>Does it support Accessibility (a11y)?</AccordionTrigger>
+    <AccordionContent>
+      Yes it does. The component complies with WAI-ARIA standards. Keyboard navigation and screen readers are fully supported.
+    </AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="faq-2">
+    <AccordionTrigger>Is it styled?</AccordionTrigger>
+    <AccordionContent>
+      Yes. The default style is beautiful and matches other components' aesthetic. You can override every token via CSS variables.
+    </AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="faq-3">
+    <AccordionTrigger>Is it animated?</AccordionTrigger>
+    <AccordionContent>
+      Fully animated. Smooth opening and closing.
+    </AccordionContent>
+  </AccordionItem>
+</Accordion>`,
       microPreview: (
         <Accordion
           className="divide-y divide-border"
           multiple
           defaultValue={["faq-1", "faq-2"]}
         >
-          <AccordionItem value="faq-1">
-            <AccordionTrigger>Does it support Accessibility (a11y)?</AccordionTrigger>
-            <AccordionContent>
-              Yes it does. The component complies with WAI-ARIA standards. Keyboard navigation and screen readers are fully supported.
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="faq-2">
-            <AccordionTrigger>Is it styled?</AccordionTrigger>
-            <AccordionContent>
-              Yes. The default style is beautiful and matches other components' aesthetic. You can override every token via CSS variables.
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="faq-3">
-            <AccordionTrigger>Is it animated?</AccordionTrigger>
-            <AccordionContent>
-              Fully animated. Smooth opening and closing.
-            </AccordionContent>
-          </AccordionItem>
+          {FAQ_ITEMS.map((item) => (
+            <AccordionItem key={item.value} value={item.value}>
+              <AccordionTrigger>{item.title}</AccordionTrigger>
+              <AccordionContent>{item.content}</AccordionContent>
+            </AccordionItem>
+          ))}
         </Accordion>
-      )
-    },
-    {
-      title: t("Vô hiệu hoá", "Disabled"),
-      description: t(
-        "Các mục có thể bị vô hiệu hóa độc lập trong khi các mục khác vẫn hoạt động.",
-        "Individual items can be disabled while other items remain interactive."
       ),
-      macroCode: `<AccordionPreset
-    className="divide-y divide-border"
-    items={[
-      {
-        value: "enabled-1",
-        title: "Available Feature",
-        content: "This feature is available and can be expanded normally."
-      },
-      {
-        value: "disabled-1",
-        title: "Premium Feature (Locked)",
-        content: "This content is hidden behind a premium plan.",
-        disabled: true
-      },
-      {
-        value: "enabled-2",
-        title: "Another Feature",
-        content: "This is another available feature you can interact with freely."
-      },
-    ]}
-  />`,
-      macroPreview: (
-        <AccordionPreset
-          className="divide-y divide-border"
-          items={[
-            {
-              value: "enabled-1",
-              title: "Available Feature",
-              content: "This feature is available and can be expanded normally.",
-            },
-            {
-              value: "disabled-1",
-              title: "Premium Feature (Locked)",
-              content: "This content is hidden behind a premium plan.",
-              disabled: true,
-            },
-            {
-              value: "enabled-2",
-              title: "Another Feature",
-              content: "This is another available feature you can interact with freely.",
-            },
-          ]}
-        />
+    },
+
+    // 3. Micro-only — className trên AccordionItem cụ thể (Macro gạch ngang)
+    {
+      title: t("Item nổi bật", "Highlighted Item"),
+      description: t(
+        "Một AccordionItem có background riêng để nổi bật.",
+        "A specific AccordionItem with its own background to stand out."
       ),
       microCode: `<Accordion className="divide-y divide-border">
-    <AccordionItem value="enabled-1">
-      <AccordionTrigger>Available Feature</AccordionTrigger>
-      <AccordionContent>
-        This feature is available and can be expanded normally.
-      </AccordionContent>
-    </AccordionItem>
-    <AccordionItem value="disabled-1" disabled>
-      <AccordionTrigger>Premium Feature (Locked)</AccordionTrigger>
-      <AccordionContent>
-        This content is hidden behind a premium plan.
-      </AccordionContent>
-    </AccordionItem>
-    <AccordionItem value="enabled-2">
-      <AccordionTrigger>Another Feature</AccordionTrigger>
-      <AccordionContent>
-        This is another available feature you can interact with freely.
-      </AccordionContent>
-    </AccordionItem>
-  </Accordion>`,
+  <AccordionItem value="featured" className="rounded-lg bg-primary/5 px-2">
+    <AccordionTrigger>Featured Plan</AccordionTrigger>
+    <AccordionContent>
+      This is our most popular plan. Includes all features plus priority support.
+    </AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="basic">
+    <AccordionTrigger>Basic Plan</AccordionTrigger>
+    <AccordionContent>
+      Entry-level features for individuals and small teams.
+    </AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="free">
+    <AccordionTrigger>Free Tier</AccordionTrigger>
+    <AccordionContent>
+      Limited usage with community support only.
+    </AccordionContent>
+  </AccordionItem>
+</Accordion>`,
       microPreview: (
         <Accordion className="divide-y divide-border">
-          <AccordionItem value="enabled-1">
-            <AccordionTrigger>Available Feature</AccordionTrigger>
+          <AccordionItem value="featured" className="rounded-lg bg-primary/5 px-2">
+            <AccordionTrigger>Featured Plan</AccordionTrigger>
             <AccordionContent>
-              This feature is available and can be expanded normally.
+              This is our most popular plan. Includes all features plus priority support.
             </AccordionContent>
           </AccordionItem>
-          <AccordionItem value="disabled-1" disabled>
-            <AccordionTrigger>Premium Feature (Locked)</AccordionTrigger>
+          <AccordionItem value="basic">
+            <AccordionTrigger>Basic Plan</AccordionTrigger>
             <AccordionContent>
-              This content is hidden behind a premium plan.
+              Entry-level features for individuals and small teams.
             </AccordionContent>
           </AccordionItem>
-          <AccordionItem value="enabled-2">
-            <AccordionTrigger>Another Feature</AccordionTrigger>
+          <AccordionItem value="free">
+            <AccordionTrigger>Free Tier</AccordionTrigger>
             <AccordionContent>
-              This is another available feature you can interact with freely.
+              Limited usage with community support only.
             </AccordionContent>
           </AccordionItem>
         </Accordion>
-      )
-    },
-    {
-      title: t("Nội dung phức tạp", "Complex Content"),
-      description: t(
-        "Render các React Node bên trong nội dung.",
-        "Render React Nodes inside content."
       ),
-      macroCode: `<AccordionPreset
-    className="divide-y divide-border"
-    items={[
-      {
-        value: "profile",
-        title: "User Profile Settings",
-        content: (
-          <div className="flex flex-col items-start gap-3">
-            <p className="text-sm">
-              Update your personal information and
-              preferences.
-            </p>
-            <button className="rounded-md bg-primary px-3 py-1.5 text-sm font-medium text-primary-foreground">
-              Edit Profile
-            </button>
-          </div>
-        ) },
-    ]}
-  />`,
-      macroPreview: (
-        <AccordionPreset
-          className="divide-y divide-border"
-          items={[
-            {
-              value: "profile",
-              title: "User Profile Settings",
-              content: (
-                <div className="flex flex-col items-start gap-3">
-                  <p className="text-sm">
-                    Update your personal information and preferences.
-                  </p>
-                  <button className="rounded-md bg-primary px-3 py-1.5 text-sm font-medium text-primary-foreground">
-                    Edit Profile
-                  </button>
+    },
+
+    // 4. Micro-only — Content full-bleed p-0 (Macro gạch ngang)
+    {
+      title: t("Content full-bleed", "Full-bleed Content"),
+      description: t(
+        "AccordionContent không có padding để chứa danh sách tràn viền.",
+        "AccordionContent with no padding for a full-bleed list."
+      ),
+      microCode: `<Accordion className="divide-y divide-border" defaultValue={["activity"]}>
+  <AccordionItem value="activity">
+    <AccordionTrigger>Recent Activity</AccordionTrigger>
+    <AccordionContent className="p-0">
+      <div className="divide-y divide-border">
+        <div className="flex items-center justify-between px-6 py-3">
+          <span className="text-sm">New signup</span>
+          <span className="text-xs text-muted-foreground">2 min ago</span>
+        </div>
+        <div className="flex items-center justify-between px-6 py-3">
+          <span className="text-sm">Plan upgraded</span>
+          <span className="text-xs text-muted-foreground">1 hr ago</span>
+        </div>
+        <div className="flex items-center justify-between px-6 py-3">
+          <span className="text-sm">Invoice paid</span>
+          <span className="text-xs text-muted-foreground">Yesterday</span>
+        </div>
+      </div>
+    </AccordionContent>
+  </AccordionItem>
+</Accordion>`,
+      microPreview: (
+        <Accordion className="divide-y divide-border" defaultValue={["activity"]}>
+          <AccordionItem value="activity">
+            <AccordionTrigger>Recent Activity</AccordionTrigger>
+            <AccordionContent className="p-0">
+              <div className="divide-y divide-border">
+                <div className="flex items-center justify-between px-6 py-3">
+                  <span className="text-sm">New signup</span>
+                  <span className="text-xs text-muted-foreground">2 min ago</span>
                 </div>
-              ),
-            },
-          ]}
-        />
+                <div className="flex items-center justify-between px-6 py-3">
+                  <span className="text-sm">Plan upgraded</span>
+                  <span className="text-xs text-muted-foreground">1 hr ago</span>
+                </div>
+                <div className="flex items-center justify-between px-6 py-3">
+                  <span className="text-sm">Invoice paid</span>
+                  <span className="text-xs text-muted-foreground">Yesterday</span>
+                </div>
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
       ),
-      // No micro counterpart intentionally to test asymmetric cases or because Macro is opinionated
     },
-    {
-      title: t("Accordion lồng nhau", "Nested Accordions"),
-      description: t(
-        "Nội dung bên trong có thể chứa một Accordion khác để tạo cấu trúc nhiều cấp.",
-        "Inner content can contain another Accordion to create multi-level structures."
-      ),
-      macroCode: `<AccordionPreset
-    className="divide-y divide-border"
-    items={[
-      {
-        value: "getting-started",
-        title: "Getting Started",
-        content: (
-          <AccordionPreset
-            className="divide-y divide-border"
-            items={[
-              {
-                value: "installation",
-                title: "Installation",
-                content: "Run npm install to add the component to your project."
-              },
-            ]}
-          />
-        )
-      },
-      {
-        value: "advanced",
-        title: "Advanced Usage",
-        content: (
-          <AccordionPreset
-            className="divide-y divide-border"
-            items={[
-              {
-                value: "controlled",
-                title: "Controlled Mode",
-                content: "Use the value and onValueChange props to control which items are open."
-              },
-            ]}
-          />
-        )
-      },
-    ]}
-  />`,
-      macroPreview: (
-        <AccordionPreset
-          className="divide-y divide-border"
-          items={[
-            {
-              value: "getting-started",
-              title: "Getting Started",
-              content: (
-                <AccordionPreset
-                  className="divide-y divide-border"
-                  items={[
-                    {
-                      value: "installation",
-                      title: "Installation",
-                      content: "Run npm install to add the component to your project.",
-                    },
-                  ]}
-                />
-              ),
-            },
-            {
-              value: "advanced",
-              title: "Advanced Usage",
-              content: (
-                <AccordionPreset
-                  className="divide-y divide-border"
-                  items={[
-                    {
-                      value: "controlled",
-                      title: "Controlled Mode",
-                      content: "Use the value and onValueChange props to control which items are open.",
-                    },
-                  ]}
-                />
-              ),
-            },
-          ]}
-        />
-      ),
-      microCode: `<Accordion className="divide-y divide-border">
-    <AccordionItem value="getting-started">
-      <AccordionTrigger>Getting Started</AccordionTrigger>
-      <AccordionContent>
-        <Accordion>
-          <AccordionItem value="installation">
-            <AccordionTrigger>Installation</AccordionTrigger>
-            <AccordionContent>
-              Run npm install to add the component to your project.
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-      </AccordionContent>
-    </AccordionItem>
-    <AccordionItem value="advanced">
-      <AccordionTrigger>Advanced Usage</AccordionTrigger>
-      <AccordionContent>
-        <Accordion>
-          <AccordionItem value="controlled">
-            <AccordionTrigger>Controlled Mode</AccordionTrigger>
-            <AccordionContent>
-              Use the value and onValueChange props to control which items are open.
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-      </AccordionContent>
-    </AccordionItem>
-  </Accordion>`,
-      microPreview: (
-        <Accordion className="divide-y divide-border">
-          <AccordionItem value="getting-started">
-            <AccordionTrigger>Getting Started</AccordionTrigger>
-            <AccordionContent>
-              <Accordion>
-                <AccordionItem value="installation">
-                  <AccordionTrigger>Installation</AccordionTrigger>
-                  <AccordionContent>
-                    Run npm install to add the component to your project.
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="advanced">
-            <AccordionTrigger>Advanced Usage</AccordionTrigger>
-            <AccordionContent>
-              <Accordion>
-                <AccordionItem value="controlled">
-                  <AccordionTrigger>Controlled Mode</AccordionTrigger>
-                  <AccordionContent>
-                    Use the value and onValueChange props to control which items are open.
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-      )
-    }
+
   ], [t]);
 }
 

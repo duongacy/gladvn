@@ -505,6 +505,7 @@ function UnifiedShowcaseExample({
   const preview = macroPreview || microPreview;
   const hasMacroCode = !!macroCode;
   const hasMicroCode = !!microCode;
+  // Show code tabs section only when there is at least one code string
   const hasAnyCode = hasMacroCode || hasMicroCode;
 
   if (!preview) return null;
@@ -531,16 +532,28 @@ function UnifiedShowcaseExample({
             <TabsTrigger value="preview" className="text-xs px-3 py-1">
               Preview
             </TabsTrigger>
-            {hasMacroCode && (
-              <TabsTrigger value="macro-code" className="text-xs px-3 py-1">
-                Macro Code
-              </TabsTrigger>
-            )}
-            {hasMicroCode && (
-              <TabsTrigger value="micro-code" className="text-xs px-3 py-1">
-                Micro Code
-              </TabsTrigger>
-            )}
+            {/* Macro Code tab — always shown; disabled + strikethrough when no macroCode */}
+            <TabsTrigger
+              value="macro-code"
+              disabled={!hasMacroCode}
+              className={cn(
+                "text-xs px-3 py-1",
+                !hasMacroCode && "line-through opacity-40 cursor-not-allowed"
+              )}
+            >
+              Macro
+            </TabsTrigger>
+            {/* Micro Code tab — always shown; disabled + strikethrough when no microCode */}
+            <TabsTrigger
+              value="micro-code"
+              disabled={!hasMicroCode}
+              className={cn(
+                "text-xs px-3 py-1",
+                !hasMicroCode && "line-through opacity-40 cursor-not-allowed"
+              )}
+            >
+              Micro
+            </TabsTrigger>
           </TabsList>
         )}
       </div>

@@ -232,3 +232,10 @@ When executing batch updates (e.g. processing multiple files in chunks), you MUS
 
 - **Strict Import Checks**: Before concluding a task or reporting back to the user, you MUST verify that there are no missing imports and no unused/redundant imports in the files you modified.
 - **Build Success Requirement**: You MUST run a build or type check (e.g., `npm run build` or `npx tsc`) and ensure it completes successfully without errors BEFORE reporting back to the user. Do not present code as finished if the build is broken.
+
+## 36. Micro Showcase = Anatomical Deconstruction of Macro
+
+- **Single Source of Truth**: When a showcase page contains BOTH a Macro example AND a Micro example for the **same feature**, the Micro section MUST be a 1:1 anatomical deconstruction of the Macro — it reveals exactly how the Macro is assembled under the hood using the raw Micro primitives.
+- **Zero New Features**: The Micro code MUST NOT introduce any new content, different data, or different functionality compared to the Macro. Same title, same description, same content, same footer — everything must be identical. Only the implementation structure changes (from preset props to manual slot composition).
+- **Why**: The entire point of the Micro tab is to teach the developer *how the Macro works internally*. If the Micro tab shows a different use case, it destroys the mental model and confuses the developer. They should be able to look at Macro and Micro side-by-side and say "so *that's* what the Macro compiles down to."
+- **Deconstructed Wrappers**: If the Macro internally uses layout containers (e.g., `<div className="@container/card size-full">`), those wrappers MUST also appear in the Micro code. Do not hide the internal scaffolding — exposing it is the entire purpose.

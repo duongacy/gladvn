@@ -50,9 +50,13 @@ const CardHeader = React.forwardRef<
 ));
 CardHeader.displayName = "CardHeader";
 
-const CardTitle = React.forwardRef<HTMLHeadingElement, React.ComponentProps<"h3">>(
-  ({ className, ...props }, ref) => (
-    <h3
+type CardTitleProps = React.HTMLAttributes<HTMLHeadingElement> & {
+  as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+};
+
+const CardTitle = React.forwardRef<HTMLHeadingElement, CardTitleProps>(
+  ({ className, as: Tag = "h3", ...props }, ref) => (
+    <Tag
       ref={ref}
       data-slot="card-title"
       className={cn(
@@ -96,7 +100,7 @@ const CardFooter = React.forwardRef<
   <div
     ref={ref}
     data-slot="card-footer"
-    className={cn("flex items-center", className)}
+    className={cn("flex items-center gap-2", className)}
     {...props}
   />
 ));

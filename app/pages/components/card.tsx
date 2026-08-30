@@ -70,7 +70,7 @@ function useCardExamples() {
       </div>
     </form>
   </CardContent>
-  <CardFooter className="flex justify-between">
+  <CardFooter className="justify-between">
     <Button variant="outline">Cancel</Button>
     <Button>Deploy</Button>
   </CardFooter>
@@ -99,7 +99,7 @@ function useCardExamples() {
                 </div>
               </form>
             </CardContent>
-            <CardFooter className="flex justify-between">
+            <CardFooter className="justify-between">
               <Button variant="outline" size={globalSize}>
                 Cancel
               </Button>
@@ -438,6 +438,44 @@ function useCardExamples() {
                   +201 since last hour
                 </p>
               </CardContent>
+            </Card>
+          </div>
+        ),
+      },
+      {
+        title: t("Heading Hierarchy (as prop)", "Heading Hierarchy (as prop)"),
+        description: t(
+          "Dùng prop `as` để tuỳ chỉnh cấp heading của CardTitle, đảm bảo đúng cấu trúc HTML ngữ nghĩa trong từng ngữ cảnh trang.",
+          "Use the `as` prop to customise the heading level of CardTitle, ensuring correct semantic HTML hierarchy for each page context."
+        ),
+        microCode: `{/* Default: renders as <h3> */}
+<Card className="w-full max-w-sm">
+  <CardHeader>
+    <CardTitle>Default heading (h3)</CardTitle>
+    <CardDescription>This renders as an h3 by default.</CardDescription>
+  </CardHeader>
+</Card>
+
+{/* Inside a section already scoped to h2 */}
+<Card className="w-full max-w-sm">
+  <CardHeader>
+    <CardTitle as="h4">Nested heading (h4)</CardTitle>
+    <CardDescription>Use as="h4" when the page already has h2 and h3 above.</CardDescription>
+  </CardHeader>
+</Card>`,
+        microPreview: (
+          <div className="flex flex-col gap-4 w-full max-w-sm">
+            <Card size={globalSize}>
+              <CardHeader>
+                <CardTitle>Default heading (h3)</CardTitle>
+                <CardDescription>This renders as an h3 by default.</CardDescription>
+              </CardHeader>
+            </Card>
+            <Card size={globalSize}>
+              <CardHeader>
+                <CardTitle as="h4">Nested heading (h4)</CardTitle>
+                <CardDescription>Use as="h4" when the page already has h2 and h3 above.</CardDescription>
+              </CardHeader>
             </Card>
           </div>
         ),

@@ -149,7 +149,7 @@ function useAspectRatioExamples() {
           className="rounded-xl overflow-hidden bg-muted border border-border"
         >
           <div className="w-full h-full flex flex-col items-center justify-center gap-2 text-muted-foreground">
-            <PlayCircle className="size-12 stroke-[1.5]" />
+            <PlayCircle className="size-12 stroke-[1.5]" aria-hidden="true" />
             <span className="font-medium">Video Player Placeholder</span>
           </div>
         </AspectRatio>
@@ -198,6 +198,7 @@ function useAspectRatioExamples() {
               strokeWidth="1.5"
               strokeLinecap="round"
               strokeLinejoin="round"
+              aria-hidden="true"
             >
               <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6" />
               <line x1="8" y1="2" x2="8" y2="18" />

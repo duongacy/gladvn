@@ -16,6 +16,7 @@ const external = [
 export default defineConfig(({ command }) => ({
   resolve: {
     alias: {
+      "~app": resolve(__dirname, "./app"),
       "@": resolve(__dirname, "./src"),
     },
   },

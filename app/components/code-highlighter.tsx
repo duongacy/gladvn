@@ -1,0 +1,82 @@
+import { useEffect, useRef, useState } from "react";
+import { cn } from "@/lib/utils";
+
+import { type Highlighter, createHighlighter } from "shiki";
+
+let highlighterPromise: Promise<Highlighter> | null = null;
+
+function getHighlighter() {
+  if (!highlighterPromise) {
+    highlighterPromise = createHighlighter({
+      themes: ["github-light", "github-dark"],
+      langs: ["tsx"],
+    });
+  }
+  return highlighterPromise;
+}
+
+export function CodeHighlighter({
+  code,
+  language = "tsx",
+  className,
+}: {
+  code: string;
+  language?: "tsx" | "ts" | "css";
+  className?: string;
+}) {
+  const [html, setHtml] = useState<string | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    getHighlighter().then((highlighter) => {
+      if (cancelled) return;
+
+      const result = highlighter.codeToHtml(code, {
+        lang: language,
+        themes: {
+          light: "github-light",
+          dark: "github-dark",
+        },
+        defaultColor: false,
+      });
+
+      setHtml(result);
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [code, language]);
+
+  if (!html) {
+    return (
+      <div className={cn("overflow-x-auto text-[13px] leading-relaxed font-mono", className)}>
+        <pre className="!bg-transparent !p-0 !m-0 whitespace-pre-wrap break-words">
+          <code className="text-muted-foreground">Loading...</code>
+        </pre>
+      </div>
+    );
+  }
+
+  return (
+    <>
+      <style>{`
+        html.dark .shiki,
+        html.dark .shiki span {
+          color: var(--shiki-dark) !important;
+          background-color: var(--shiki-dark-bg) !important;
+          font-style: var(--shiki-dark-font-style) !important;
+          font-weight: var(--shiki-dark-font-weight) !important;
+          text-decoration: var(--shiki-dark-text-decoration) !important;
+        }
+      `}</style>
+      <div
+        ref={containerRef}
+        className={cn("code-highlighter overflow-x-auto text-[13px] leading-relaxed", className)}
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
+    </>
+  );
+}

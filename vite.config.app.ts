@@ -3,12 +3,13 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import { resolve } from "path";
 import * as fs from "fs";
+import * as path from "path";
 
 function seoPlugin() {
   return {
     name: "vite-plugin-seo",
     closeBundle() {
-      const dataPath = resolve(__dirname, "./src/dev/data.ts");
+      const dataPath = path.resolve(__dirname, "app/config/data.ts");
       const sitemapPath = resolve(__dirname, "./dist-app/sitemap.xml");
       const indexPath = resolve(__dirname, "./dist-app/index.html");
       const distPath = resolve(__dirname, "./dist-app");
@@ -55,6 +56,7 @@ function seoPlugin() {
 export default defineConfig({
   resolve: {
     alias: {
+      "~app": resolve(__dirname, "./app"),
       "@": resolve(__dirname, "./src"),
     },
   },

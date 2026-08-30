@@ -228,7 +228,7 @@ async function main() {
     }
   }
 
-  const blocksDir = path.join(srcDir, 'blocks');
+  const blocksDir = path.join(srcDir, 'components', 'blocks');
   let availableBlocks = [];
   
   if (fs.existsSync(blocksDir)) {
@@ -311,7 +311,7 @@ async function main() {
 
     const block = blockMatches[0];
     const sourcePath = path.join(blocksDir, block);
-    const targetPath = path.join(destPath, 'blocks', block);
+    const targetPath = path.join(destPath, 'components', 'blocks', block);
     const targetDir = path.dirname(targetPath);
     if (!fs.existsSync(targetDir)) {
       fs.mkdirSync(targetDir, { recursive: true });
@@ -382,7 +382,7 @@ async function main() {
     }
 
     // Copy core directories (excluding test files)
-    const coreDirs = ['hooks', 'lib', 'styles', 'components', 'blocks'];
+    const coreDirs = ['hooks', 'lib', 'styles', 'components'];
     for (const dir of coreDirs) {
       const sourceDir = path.join(srcDir, dir);
       const targetDir = path.join(destPath, dir);
@@ -411,7 +411,7 @@ async function main() {
       }
     }
 
-    console.log(`\x1b[32m✔ Copied core files and all components (lib, hooks, styles, components, blocks)\x1b[0m`);
+    console.log(`\x1b[32m✔ Copied core files and all components (lib, hooks, styles, components including blocks)\x1b[0m`);
 
     // Step 2. Inject CSS (tokens.css MUST come before gladvn.css)
     if (cssFilePath && fs.existsSync(cssFilePath)) {

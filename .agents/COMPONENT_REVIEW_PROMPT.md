@@ -99,6 +99,18 @@ Hãy đọc kỹ source code của tôi và in ra một báo cáo đánh giá ch
 
 ---
 
+## 🚦 DONE GATE — BẮT BUỘC TRƯỚC KHI KẾT THÚC BÁO CÁO
+
+Đây là checkpoint cuối cùng. Trước khi in báo cáo kết thúc và chạy Party Mode, AI **BẮT BUỘC** phải tự xác nhận đã hoàn thành ĐỦ các bước sau. Nếu bất kỳ ô nào chưa tick → **KHÔNG được kết thúc báo cáo**, phải quay lại thực hiện bước còn thiếu trước.
+
+- [ ] **Micro component:** Đã tìm, đọc và review file `src/components/micro/[component].tsx` theo **Checklist 1–6**
+- [ ] **Macro component:** Đã kiểm tra sự tồn tại của `src/components/macro/[component]-preset.tsx`. Nếu có → đã review. Nếu không có → đã ghi nhận là N/A.
+- [ ] **Showcase file:** Đã tìm và đọc file `app/pages/components/[component].tsx` (hoặc đường dẫn tương đương)
+- [ ] **Showcase review:** Đã review showcase theo **Checklist 7** (tất cả 7 tiêu chí)
+- [ ] **Party Mode:** Đã chạy với 3 chuyên gia phù hợp với loại component
+
+---
+
 ## 🎭 PARTY MODE: THE EXPERT PANEL
 
 Sau khi in ra báo cáo kỹ thuật bên trên, HÃY đóng vai 3 chuyên gia từ đội **Code Review Crew** hoặc **UI/UX Team** để bình luận, mổ xẻ và tranh luận về đoạn code vừa review dưới góc nhìn cá nhân của họ.

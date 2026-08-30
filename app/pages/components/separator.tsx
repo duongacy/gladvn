@@ -93,11 +93,20 @@ function useSeparatorExamples() {
           'Semantic (mặc định) được screen reader đọc. Truyền aria-hidden="true" khi Separator chỉ mang tính trang trí thuần.',
           'Semantic (default) is read by screen readers. Pass aria-hidden="true" when the Separator is purely decorative.'
         ),
-        microCode: `{/* Semantic — recognized by screen reader */}
-<Separator />
-
-{/* Decorative — purely visual line */}
-<Separator aria-hidden="true" />`,
+        microCode: `<div className="flex flex-col gap-6 w-full max-w-sm">
+  <div>
+    <p className="text-xs text-muted-foreground mb-2">
+      Semantic (default — recognized by screen reader)
+    </p>
+    <Separator />
+  </div>
+  <div>
+    <p className="text-xs text-muted-foreground mb-2">
+      Decorative — <code className="text-xs">aria-hidden="true"</code>
+    </p>
+    <Separator aria-hidden="true" />
+  </div>
+</div>`,
         microPreview: (
           <div className="flex flex-col gap-6 w-full max-w-sm">
             <div>

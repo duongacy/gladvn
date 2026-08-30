@@ -9,42 +9,12 @@ import {
   DocsCode,
 } from "~app/components/showcase";
 
-function VerticalList() {
-  const items = Array.from({ length: 20 }).map((_, i) => `Option ${i + 1}`);
-  return (
-    <div className="p-4">
-      <h4 className="mb-4 text-sm font-medium leading-none">System settings</h4>
-      {items.map((label) => (
-        <div
-          key={label}
-          className="text-sm py-3 border-b border-b-border last:border-0 hover:bg-muted/50 cursor-pointer"
-        >
-          {label}
-        </div>
-      ))}
-    </div>
-  );
-}
+const VERTICAL_ITEMS = Array.from({ length: 20 }).map((_, i) => `Option ${i + 1}`);
 
-function HorizontalList() {
-  const works = Array.from({ length: 5 }).map((_, i) => ({
-    title: `Artwork ${i + 1}`,
-    artist: `Artist ${i + 1}`,
-  }));
-  return (
-    <div className="flex w-max space-x-4 p-4">
-      {works.map((w) => (
-        <div key={w.title} className="w-[150px] shrink-0">
-          <div className="overflow-hidden rounded-md bg-muted aspect-[3/4] mb-2 flex items-center justify-center">
-            <span className="text-xs text-muted-foreground">Cover</span>
-          </div>
-          <p className="text-sm font-medium">{w.title}</p>
-          <p className="text-xs text-muted-foreground">{w.artist}</p>
-        </div>
-      ))}
-    </div>
-  );
-}
+const HORIZONTAL_WORKS = Array.from({ length: 5 }).map((_, i) => ({
+  title: `Artwork ${i + 1}`,
+  artist: `Artist ${i + 1}`,
+}));
 
 function useScrollAreaExamples() {
   const t = useI18n();
@@ -59,24 +29,27 @@ function useScrollAreaExamples() {
         ),
         microCode: `<ScrollArea className="h-72 w-full max-w-sm rounded-xl border border-border bg-card">
   <div className="p-4">
-    <h4 className="mb-4 text-sm font-medium leading-none">
-      System settings
-    </h4>
-    <div className="text-sm py-3 border-b border-b-border hover:bg-muted/50 cursor-pointer">
-      Option 1
-    </div>
-    <div className="text-sm py-3 border-b border-b-border hover:bg-muted/50 cursor-pointer">
-      Option 2
-    </div>
-    <div className="text-sm py-3 border-b border-b-border hover:bg-muted/50 cursor-pointer">
-      Option 3
-    </div>
-    {/* ... */}
+    <h4 className="mb-4 text-sm font-medium leading-none">System settings</h4>
+    <div className="text-sm py-3 border-b border-b-border hover:bg-muted/50 cursor-pointer">Option 1</div>
+    <div className="text-sm py-3 border-b border-b-border hover:bg-muted/50 cursor-pointer">Option 2</div>
+    <div className="text-sm py-3 border-b border-b-border hover:bg-muted/50 cursor-pointer">Option 3</div>
+    <div className="text-sm py-3 border-b border-b-border hover:bg-muted/50 cursor-pointer">Option 4</div>
+    <div className="text-sm py-3 border-b border-b-border hover:bg-muted/50 cursor-pointer">Option 5</div>
   </div>
 </ScrollArea>`,
         microPreview: (
           <ScrollArea className="h-72 w-full max-w-sm rounded-xl border border-border bg-card">
-            <VerticalList />
+            <div className="p-4">
+              <h4 className="mb-4 text-sm font-medium leading-none">System settings</h4>
+              {VERTICAL_ITEMS.map((label) => (
+                <div
+                  key={label}
+                  className="text-sm py-3 border-b border-b-border last:border-0 hover:bg-muted/50 cursor-pointer"
+                >
+                  {label}
+                </div>
+              ))}
+            </div>
           </ScrollArea>
         ),
       },
@@ -86,27 +59,39 @@ function useScrollAreaExamples() {
           "Trình bày danh sách phần tử nằm ngang (thường dùng cho ảnh, card).",
           "Presents a horizontal list of elements (commonly used for images, cards)."
         ),
-        microCode: `<ScrollArea className="w-full max-w-sm whitespace-nowrap rounded-xl border border-border bg-card p-4">
-  <div className="flex w-max space-x-4">
+        microCode: `<ScrollArea className="w-full max-w-sm whitespace-nowrap rounded-xl border border-border bg-card">
+  <div className="flex w-max space-x-4 p-4">
     <div className="w-[150px] shrink-0">
-      <div className="aspect-[3/4] rounded-md bg-muted" />
-      <p className="text-sm font-medium mt-2">
-        Artwork 1
-      </p>
+      <div className="aspect-[3/4] rounded-md bg-muted mb-2" />
+      <p className="text-sm font-medium">Artwork 1</p>
+      <p className="text-xs text-muted-foreground">Artist 1</p>
     </div>
     <div className="w-[150px] shrink-0">
-      <div className="aspect-[3/4] rounded-md bg-muted" />
-      <p className="text-sm font-medium mt-2">
-        Artwork 2
-      </p>
+      <div className="aspect-[3/4] rounded-md bg-muted mb-2" />
+      <p className="text-sm font-medium">Artwork 2</p>
+      <p className="text-xs text-muted-foreground">Artist 2</p>
     </div>
-    {/* ... */}
+    <div className="w-[150px] shrink-0">
+      <div className="aspect-[3/4] rounded-md bg-muted mb-2" />
+      <p className="text-sm font-medium">Artwork 3</p>
+      <p className="text-xs text-muted-foreground">Artist 3</p>
+    </div>
   </div>
   <ScrollBar orientation="horizontal" />
 </ScrollArea>`,
         microPreview: (
           <ScrollArea className="w-full max-w-sm whitespace-nowrap rounded-xl border border-border bg-card">
-            <HorizontalList />
+            <div className="flex w-max space-x-4 p-4">
+              {HORIZONTAL_WORKS.map((w) => (
+                <div key={w.title} className="w-[150px] shrink-0">
+                  <div className="overflow-hidden rounded-md bg-muted aspect-[3/4] mb-2 flex items-center justify-center">
+                    <span className="text-xs text-muted-foreground">Cover</span>
+                  </div>
+                  <p className="text-sm font-medium">{w.title}</p>
+                  <p className="text-xs text-muted-foreground">{w.artist}</p>
+                </div>
+              ))}
+            </div>
             <ScrollBar orientation="horizontal" />
           </ScrollArea>
         ),

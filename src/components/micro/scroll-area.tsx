@@ -1,23 +1,9 @@
-/**
- * ✅ AUDITED & REFACTORED
- * - Design System Compliant (22 Commandments)
- * - WCAG AAA/AA
- * - Form Control Parity
- * - CSS Delegated Logic
- */
 "use client";
 
 import { ScrollArea as ScrollAreaPrimitive } from "@base-ui/react/scroll-area";
 
 import { cn } from "../../lib/utils";
 
-/**
- * @description Augments native scroll functionality for custom, cross-browser styling.
- * @example
- * <ScrollArea className="h-50 w-[350px]">
- *   Jokester began sneaking into the castle in the middle of the night.
- * </ScrollArea>
- */
 function ScrollArea({
   className,
   children,
@@ -52,7 +38,7 @@ function ScrollBar({
       data-orientation={orientation}
       orientation={orientation}
       className={cn(
-        "flex touch-none p-px transition-colors select-none data-horizontal:h-2.5 data-horizontal:flex-col data-horizontal:border-t data-horizontal:border-t-transparent data-vertical:h-full data-vertical:w-2.5 data-vertical:border-l data-vertical:border-l-transparent",
+        "flex touch-none p-px transition-colors motion-reduce:transition-none select-none data-horizontal:h-2.5 data-horizontal:flex-col data-horizontal:border-t data-horizontal:border-t-transparent data-vertical:h-full data-vertical:w-2.5 data-vertical:border-l data-vertical:border-l-transparent",
         className,
       )}
       {...props}

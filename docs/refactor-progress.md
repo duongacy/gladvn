@@ -13,13 +13,13 @@ Tiến độ review và chuẩn hoá các components theo `AGENTS.md`.
 - [x] AspectRatio
 - [x] Header (Layout)
 - [x] ThemeProvider (Micro)
+- [x] Alert
+- [x] Avatar
+- [x] Badge
 
 ## ⏳ Chờ xử lý (To-do)
 > Sẽ bốc dần từng batch từ `src/components/micro/`
 
-- [ ] Alert
-- [ ] Avatar
-- [ ] Badge
 - [ ] Button
 - [ ] Calendar
 - [ ] Chart

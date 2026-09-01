@@ -128,6 +128,7 @@ const AlertIcon = React.forwardRef<HTMLDivElement, AlertIconProps>(
       props: mergeProps<"div">(
         {
           ref,
+          "aria-hidden": true,
           className: cn(
             "text-current",
             "size-4 group-data-[size=sm]/alert:size-3.5 group-data-[size=lg]/alert:size-5",

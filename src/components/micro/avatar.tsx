@@ -134,6 +134,13 @@ const AvatarGroupCount = React.forwardRef<
 });
 AvatarGroupCount.displayName = "AvatarGroupCount";
 
+export type AvatarProps = AvatarPrimitive.Root.Props & { size?: Size };
+export type AvatarImageProps = AvatarPrimitive.Image.Props;
+export type AvatarFallbackProps = AvatarPrimitive.Fallback.Props;
+export type AvatarBadgeProps = React.ComponentProps<"span">;
+export type AvatarGroupProps = React.ComponentProps<"div">;
+export type AvatarGroupCountProps = React.ComponentProps<"div"> & { size?: Size };
+
 export {
   Avatar,
   AvatarBadge,

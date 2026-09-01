@@ -46,10 +46,10 @@ const AlertPreset = React.forwardRef<HTMLDivElement, AlertPresetProps>(
 
     if (!isOpen) return null;
 
-    const handleDismiss = () => {
+    const handleDismiss = React.useCallback(() => {
       setIsOpen(false);
       onDismiss?.();
-    };
+    }, [onDismiss]);
 
     return (
       <Alert
@@ -87,7 +87,7 @@ const AlertPreset = React.forwardRef<HTMLDivElement, AlertPresetProps>(
             aria-label="Dismiss alert"
             iconOnly
           >
-            <XIcon className="size-3.5 group-data-[size=sm]/alert:size-3 group-data-[size=lg]/alert:size-4" />
+            <XIcon aria-hidden="true" className="size-3.5 group-data-[size=sm]/alert:size-3 group-data-[size=lg]/alert:size-4" />
           </Button>
         )}
       </Alert>

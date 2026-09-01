@@ -37,6 +37,7 @@ const AvatarPreset = React.forwardRef<
       <AvatarFallback>{generatedFallback}</AvatarFallback>
       {status && (
         <AvatarBadge
+          aria-label={status}
           className={cn(
             "absolute z-10 right-0 bottom-0",
             {

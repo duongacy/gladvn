@@ -187,8 +187,9 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
       props: mergeProps<"span">(
         {
           ref,
+          "data-slot": "badge",
           className: cn(badgeVariants({ variant, color }), className),
-        },
+        } as React.ComponentProps<"span">,
         props,
       ),
       render,

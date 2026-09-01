@@ -689,9 +689,13 @@ async function main() {
 
           const fullCmd = `${pm} ${installCmd} ${depsToInstall.join(" ")}`;
           
-          console.log(`\n\x1b[36mInstalling missing dependencies using ${pm}...\x1b[0m`);
-          execSync(fullCmd, { stdio: "inherit", cwd: process.cwd() });
-          console.log(`\x1b[32m✔ Dependencies installed successfully!\x1b[0m`);
+          if (process.env.TEST_ENV === 'true') {
+            console.log(`\n\x1b[90m⏭  Skipping dependency installation in test environment.\x1b[0m`);
+          } else {
+            console.log(`\n\x1b[36mInstalling missing dependencies using ${pm}...\x1b[0m`);
+            execSync(fullCmd, { stdio: "inherit", cwd: process.cwd() });
+            console.log(`\x1b[32m✔ Dependencies installed successfully!\x1b[0m`);
+          }
         } else {
           console.log(`\n\x1b[90m⏭  All required dependencies are already installed.\x1b[0m`);
         }

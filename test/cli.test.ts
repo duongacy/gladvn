@@ -30,6 +30,7 @@ describe('CLI Integration', () => {
     return execSync(`node ${cliPath} ${args}`, {
       cwd: tempDir,
       input,
+      env: { ...process.env, TEST_ENV: 'true' },
       encoding: 'utf-8',
       stdio: ['pipe', 'pipe', 'pipe'],
     });

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { MenuIcon, MoonIcon, SearchIcon, SunIcon, XIcon } from "lucide-react";
 import { Button } from "@/components/micro/button";
 import { ToggleGroup, ToggleGroupItem } from "@/components/micro/toggle-group";
@@ -6,14 +6,13 @@ import { GladvnLogo } from "~app/components/GladvnLogo";
 import { useTheme } from "@/components/micro/theme-provider";
 import { cn } from "@/lib/utils";
 import { blockCategories } from "~app/config/data";
+import { useDevContext, useI18n } from "~app/components/dev-context";
 
 interface HeaderProps {
   active: string;
   setActive: (id: string) => void;
   isMobileMenuOpen: boolean;
-  setIsMobileMenuOpen: (open: boolean) => void;
-  language: "vi" | "en";
-  setLanguage: (lang: "vi" | "en") => void;
+  toggleMobileMenu: () => void;
   setCmdOpen: (open: boolean) => void;
   activeComponent: any;
 }
@@ -22,13 +21,44 @@ export function Header({
   active,
   setActive,
   isMobileMenuOpen,
-  setIsMobileMenuOpen,
-  language,
-  setLanguage,
+  toggleMobileMenu,
   setCmdOpen,
   activeComponent,
 }: HeaderProps) {
   const theme = useTheme();
+  const { language, setLanguage } = useDevContext();
+  const t = useI18n();
+
+  const handleGoToOverview = useCallback(() => {
+    setActive("overview");
+  }, [setActive]);
+
+  const handleGoToComponents = useCallback(() => {
+    if (
+      active === "overview" ||
+      blockCategories.includes(activeComponent?.category || "")
+    ) {
+      setActive("accordion");
+    }
+  }, [active, activeComponent?.category, setActive]);
+
+  const handleGoToBlocks = useCallback(() => {
+    if (!blockCategories.includes(activeComponent?.category || "")) {
+      setActive("dashboard-block");
+    }
+  }, [activeComponent?.category, setActive]);
+
+  const handleOpenSearch = useCallback(() => {
+    setCmdOpen(true);
+  }, [setCmdOpen]);
+
+  const handleToggleTheme = useCallback(() => {
+    theme?.toggleMode();
+  }, [theme]);
+
+  const handleLanguageChange = useCallback((v: string[]) => {
+    if (v && v.length > 0) setLanguage(v[0] as "vi" | "en");
+  }, [setLanguage]);
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-md">
@@ -36,9 +66,9 @@ export function Header({
         {/* Left — Logo + version */}
         <div className="flex items-center gap-3">
           <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            onClick={toggleMobileMenu}
             className="md:hidden -ml-2 p-1.5 rounded-md hover:bg-muted text-muted-foreground transition-colors"
-            aria-label="Bật/tắt menu"
+            aria-label={t("Bật/tắt menu", "Toggle menu")}
           >
             {isMobileMenuOpen ? (
               <XIcon className="size-5" />
@@ -57,26 +87,17 @@ export function Header({
         {/* Center — Navigation Tabs & Search */}
         <div className="flex-1 justify-center gap-6 hidden md:flex items-center mx-4">
           <button
-            onClick={() => setActive("overview")}
-            className={cn("text-[14px] font-medium transition-colors", {
+            onClick={handleGoToOverview}
+            className={cn("text-sm font-medium transition-colors", {
               "text-foreground": active === "overview",
-              "text-muted-foreground hover:text-foreground": !(
-                active === "overview"
-              ),
+              "text-muted-foreground hover:text-foreground": active !== "overview",
             })}
           >
-            {language === "en" ? "Overview" : "Tổng quan"}
+            {t("Tổng quan", "Overview")}
           </button>
           <button
-            onClick={() => {
-              if (
-                active === "overview" ||
-                blockCategories.includes(activeComponent?.category || "")
-              ) {
-                setActive("accordion");
-              }
-            }}
-            className={cn("text-[14px] font-medium transition-colors", {
+            onClick={handleGoToComponents}
+            className={cn("text-sm font-medium transition-colors", {
               "text-foreground":
                 active !== "overview" &&
                 !blockCategories.includes(activeComponent?.category || ""),
@@ -86,17 +107,11 @@ export function Header({
               ),
             })}
           >
-            Components
+            {t("Thành phần", "Components")}
           </button>
           <button
-            onClick={() => {
-              if (
-                !blockCategories.includes(activeComponent?.category || "")
-              ) {
-                setActive("dashboard-block");
-              }
-            }}
-            className={cn("text-[14px] font-medium transition-colors", {
+            onClick={handleGoToBlocks}
+            className={cn("text-sm font-medium transition-colors", {
               "text-foreground": blockCategories.includes(
                 activeComponent?.category || "",
               ),
@@ -104,20 +119,20 @@ export function Header({
                 !blockCategories.includes(activeComponent?.category || ""),
             })}
           >
-            Blocks
+            {t("Khối", "Blocks")}
           </button>
 
           <div className="mx-2 h-4 w-px bg-border/50"></div>
 
           <button
             id="cmd-search-trigger"
-            onClick={() => setCmdOpen(true)}
+            onClick={handleOpenSearch}
             className="flex h-8 items-center gap-2 px-3 rounded-md border border-border bg-muted/30 text-[13px] text-muted-foreground hover:bg-muted/60 transition-colors w-56"
-            aria-label="Tìm component (⌘K)"
+            aria-label={t("Tìm component (⌘K)", "Search components (⌘K)")}
           >
             <SearchIcon className="size-3.5 shrink-0" />
             <span className="flex-1 text-left">
-              {language === "en" ? "Search..." : "Tìm kiếm..."}
+              {t("Tìm kiếm...", "Search...")}
             </span>
             <kbd className="text-[10px] bg-background border border-border/80 rounded px-1.5 py-0.5 font-sans leading-none">
               ⌘K
@@ -155,40 +170,40 @@ export function Header({
           <Button
             variant="ghost"
             iconOnly
-            onClick={() =>
-              theme?.setMode(theme.mode === "light" ? "dark" : "light")
-            }
+            onClick={handleToggleTheme}
             className="text-muted-foreground hover:text-foreground relative"
           >
-            <SunIcon className="size-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-            <MoonIcon className="absolute size-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-            <span className="sr-only">Đổi giao diện</span>
+            <SunIcon className="size-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+            <MoonIcon className="absolute size-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+            <span className="sr-only">{t("Đổi giao diện", "Toggle theme")}</span>
           </Button>
 
           <ToggleGroup
             value={[language]}
-            onValueChange={(v) => {
-              if (v && v.length > 0) setLanguage(v[0] as "vi" | "en");
-            }}
+            onValueChange={handleLanguageChange}
             size="sm"
             variant="default"
             spacing={2}
-            className="flex items-center gap-1 justify-end shrink-0 w-[88px]"
+            className="flex items-center gap-1 justify-end shrink-0 w-22"
           >
             <ToggleGroupItem
               value="vi"
               className={cn(
                 "w-10 h-8 p-0 flex items-center justify-center transition-opacity duration-300",
-                language === "vi"
-                  ? "opacity-100"
-                  : "opacity-50 hover:opacity-80",
+                {
+                  "opacity-100": language === "vi",
+                  "opacity-50 hover:opacity-80": language !== "vi",
+                }
               )}
               aria-label="Tiếng Việt"
             >
               <span
                 className={cn(
-                  "inline-block transition-transform duration-300 overflow-hidden rounded-[2px] shadow-sm",
-                  language === "vi" ? "scale-110" : "scale-75",
+                  "inline-block transition-transform duration-300 overflow-hidden rounded-xs shadow-sm",
+                  {
+                    "scale-110": language === "vi",
+                    "scale-75": language !== "vi",
+                  }
                 )}
               >
                 <img
@@ -202,16 +217,20 @@ export function Header({
               value="en"
               className={cn(
                 "w-10 h-8 p-0 flex items-center justify-center transition-opacity duration-300",
-                language === "en"
-                  ? "opacity-100"
-                  : "opacity-50 hover:opacity-80",
+                {
+                  "opacity-100": language === "en",
+                  "opacity-50 hover:opacity-80": language !== "en",
+                }
               )}
               aria-label="English"
             >
               <span
                 className={cn(
-                  "inline-block transition-transform duration-300 overflow-hidden rounded-[2px] shadow-sm",
-                  language === "en" ? "scale-110" : "scale-75",
+                  "inline-block transition-transform duration-300 overflow-hidden rounded-xs shadow-sm",
+                  {
+                    "scale-110": language === "en",
+                    "scale-75": language !== "en",
+                  }
                 )}
               >
                 <img

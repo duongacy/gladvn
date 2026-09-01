@@ -168,9 +168,7 @@ export default function App() {
         active={active}
         setActive={setActive}
         isMobileMenuOpen={isMobileMenuOpen}
-        setIsMobileMenuOpen={setIsMobileMenuOpen}
-        language={language}
-        setLanguage={setLanguage}
+        toggleMobileMenu={() => setIsMobileMenuOpen((prev) => !prev)}
         setCmdOpen={setCmdOpen}
         activeComponent={activeComponent}
       />

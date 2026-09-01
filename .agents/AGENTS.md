@@ -245,3 +245,30 @@ When executing batch updates (e.g. processing multiple files in chunks), you MUS
 - **No Explanatory Comments in Code**: You MUST NOT add inline explanatory comments (e.g., `// 1. Macro mẫu mực...`, `// Mũi tên lơ lửng...`) directly into the `.tsx` source code files or inside the stringified `code` props of showcases.
 - **Self-Documenting Code**: The code must speak for itself. Explanations belong strictly in the `title` and `description` props of `<ExampleSection>`, or in the `<ShowcaseDocs>` guideline section.
 - **Why**: Adding pedagogical comments inside the code violates the "neutral description" rule, clutters the raw output, and creates a preachy tone that annoys developers when they copy-paste the code.
+
+## 38. No Arbitrary Tailwind Values When Standard Tokens Exist
+
+- **Standard Tokens First**: ALWAYS prefer Tailwind's built-in design tokens over arbitrary `[...]` values. Only use arbitrary values as a last resort when no standard token maps to the required value.
+  - **Good**: `text-sm` (14px), `rounded-xs` (2px), `size-5` (20px/1.25rem), `w-22` (88px), `z-50`, `duration-200`
+  - **Bad**: `text-[14px]`, `rounded-[2px]`, `size-[1.2rem]`, `w-[88px]`, `z-[9999]`, `duration-[200ms]`
+- **When arbitrary is permitted**: Use `[...]` only when the desired value falls between standard steps and the visual difference is intentional and meaningful (e.g., a brand-specific pixel value with no Tailwind equivalent).
+- **Why**: Arbitrary values break static analysis, defeat Tailwind's tree-shaking, and undermine the visual consistency enforced by the design token system. They also make global design changes (e.g., updating a spacing scale) much harder.
+
+## 39. No Inline Closure Functions in JSX Event Handlers
+
+- **Extract to Named Handlers**: NEVER define closures (`() => ...`) directly inside JSX event handler props (e.g., `onClick`, `onValueChange`, `onChange`) in component bodies. All event handlers MUST be extracted into named functions defined above the `return` statement.
+- **Required Pattern**: Use `useCallback` for any handler that is passed as a prop to a child component, to maintain a stable reference and prevent unnecessary re-renders.
+  ```tsx
+  // ✅ Good — extracted, named, memoized
+  const handleOpenSearch = useCallback(() => {
+    setCmdOpen(true);
+  }, [setCmdOpen]);
+  // ...
+  <button onClick={handleOpenSearch}>
+
+  // ❌ Bad — inline closure in JSX
+  <button onClick={() => setCmdOpen(true)}>
+  ```
+- **Exception**: Simple one-liner wrappers that add zero logic on top of a prop (e.g., `onClick={toggleMobileMenu}`) should be passed **directly** without an intermediate `useCallback` wrapper, as the wrapper itself becomes redundant noise.
+- **Why**: Inline closures create a new function reference on every render, making `React.memo` and `useCallback` optimizations on child components ineffective. Extracting handlers also improves readability and makes the JSX template easier to scan.
+

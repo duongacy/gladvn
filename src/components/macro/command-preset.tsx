@@ -52,7 +52,9 @@ function CommandDialog({
             <DialogTitle>{title}</DialogTitle>
             <DialogDescription>{description}</DialogDescription>
           </DialogHeader>
-          {children}
+          <Command className="[&_[data-slot=command-input-wrapper]_div]:border-none [&_[data-slot=command-input-wrapper]_div]:bg-transparent [&_[data-slot=command-input-wrapper]]:border-b [&_[data-slot=command-input-wrapper]]:border-border">
+            {children}
+          </Command>
         </DialogContent>
       
     </Dialog>

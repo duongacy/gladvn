@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { Download, Mail, Plus } from "lucide-react";
 
 import { Button } from "@/components/micro/button";
@@ -13,10 +13,13 @@ import { Size } from "@/lib/types";
 
 function LoadingButtonPreview({ globalSize }: { globalSize: Size }) {
   const [isSending, setIsSending] = useState(false);
-  const handleSend = () => {
+
+  const handleSendDone = useCallback(() => setIsSending(false), []);
+  const handleSend = useCallback(() => {
     setIsSending(true);
-    setTimeout(() => setIsSending(false), 1500);
-  };
+    setTimeout(handleSendDone, 1500);
+  }, [handleSendDone]);
+
   return (
     <div className="flex flex-col gap-3 w-full max-w-xs mx-auto">
       <Button
@@ -26,7 +29,7 @@ function LoadingButtonPreview({ globalSize }: { globalSize: Size }) {
         disabled={isSending}
         onClick={handleSend}
       >
-        {isSending && <Spinner />}
+        {isSending && <Spinner aria-hidden="true" />}
         {isSending ? "Sending..." : "Send Message"}
       </Button>
       <Button size={globalSize} variant="outline" className="w-full">
@@ -38,10 +41,13 @@ function LoadingButtonPreview({ globalSize }: { globalSize: Size }) {
 
 function DestructiveButtonPreview({ globalSize }: { globalSize: Size }) {
   const [isDeleting, setIsDeleting] = useState(false);
-  const handleDelete = () => {
+
+  const handleDeleteDone = useCallback(() => setIsDeleting(false), []);
+  const handleDelete = useCallback(() => {
     setIsDeleting(true);
-    setTimeout(() => setIsDeleting(false), 1500);
-  };
+    setTimeout(handleDeleteDone, 1500);
+  }, [handleDeleteDone]);
+
   return (
     <div className="w-full max-w-xs mx-auto rounded-lg border border-destructive/20 bg-destructive/5 p-4 flex flex-col gap-2">
       <p className="text-sm font-medium">Delete Workspace</p>
@@ -55,7 +61,7 @@ function DestructiveButtonPreview({ globalSize }: { globalSize: Size }) {
         disabled={isDeleting}
         onClick={handleDelete}
       >
-        {isDeleting && <Spinner />}
+        {isDeleting && <Spinner aria-hidden="true" />}
         {isDeleting ? "Deleting..." : "Delete Permanently"}
       </Button>
     </div>
@@ -141,11 +147,11 @@ function useButtonExamples() {
         microPreview: (
           <div className="flex flex-wrap items-center gap-4">
             <Button size={globalSize} variant="outline">
-              <Mail />
+              <Mail aria-hidden="true" />
               Login with Email
             </Button>
             <Button size={globalSize}>
-              <Download />
+              <Download aria-hidden="true" />
               Download
             </Button>
           </div>
@@ -171,13 +177,13 @@ function useButtonExamples() {
         microPreview: (
           <div className="flex flex-wrap items-center gap-4">
             <Button size={globalSize} variant="outline" iconOnly>
-              <Plus />
+              <Plus aria-hidden="true" />
             </Button>
             <Button size={globalSize} variant="ghost" iconOnly>
-              <Mail />
+              <Mail aria-hidden="true" />
             </Button>
             <Button size={globalSize} variant="soft" iconOnly>
-              <Download />
+              <Download aria-hidden="true" />
             </Button>
           </div>
         ),

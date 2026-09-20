@@ -1,10 +1,3 @@
-/**
- * ✅ AUDITED & REFACTORED
- * - Design System Compliant (20 Commandments)
- * - WCAG AAA/AA
- * - Form Control Parity
- * - CSS Delegated Logic
- */
 import * as React from "react";
 
 import { Button as ButtonPrimitive } from "@base-ui/react/button";
@@ -12,26 +5,8 @@ import { type VariantProps, cva } from "class-variance-authority";
 
 import { cn } from "../../lib/utils";
 
-/**
- * variant = visual style (HOW it looks)
- *   solid   → filled background (opaque)
- *   outline → border only, transparent bg
- *   ghost   → no border, transparent bg
- *   soft    → low-opacity tinted background
- *   link    → looks like a hyperlink
- *
- * color = semantic color token (WHAT it means)
- *   primary     → primary action
- *   secondary   → alternative / neutral
- *   destructive → danger / delete
- *   warning     → caution
- *   success     → confirm / done
- *   info        → information
- *   tertiary    → extra / beta
- */
-
 const buttonVariants = cva(
-  "group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-border text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:ring-3 focus-visible:ring-offset-1 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0",
+  "group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-border text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:ring-3 focus-visible:ring-offset-1 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 [:where(&_svg)]:pointer-events-none [:where(&_svg)]:shrink-0",
   {
     variants: {
       
@@ -287,11 +262,6 @@ const buttonVariants = cva(
   },
 );
 
-/**
- * @description Displays a button or a component that looks like a button.
- * @example
- * <Button variant="solid" color="primary">Click me</Button>
- */
 export type ButtonProps = ButtonPrimitive.Props &
   VariantProps<typeof buttonVariants> & {
     iconOnly?: boolean;

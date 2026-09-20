@@ -67,8 +67,8 @@ function DateRangeMacroPreview({ globalSize }: { globalSize: Size }) {
       mode="range"
       size={globalSize}
       label="Date Range"
-      rangeValue={rangeDate}
-      onRangeChange={setRangeDate}
+      value={rangeDate}
+      onValueChange={setRangeDate}
     />
   );
 }
@@ -172,8 +172,8 @@ function RangeDropdownMacroPreview({ globalSize }: { globalSize: Size }) {
       numberOfMonths={2}
       startMonth={new Date(2020, 0)}
       endMonth={new Date(2030, 11)}
-      rangeValue={rangeDate}
-      onRangeChange={setRangeDate}
+      value={rangeDate}
+      onValueChange={setRangeDate}
     />
   );
 }
@@ -265,8 +265,8 @@ function useCalendarExamples() {
 <DatePicker className="w-64"
   mode="range"
   label="Date Range"
-  rangeValue={range}
-  onRangeChange={setRange}
+  value={range}
+  onValueChange={setRange}
 />`,
         macroPreview: <DateRangeMacroPreview globalSize={globalSize} />,
         microCode: `const [date, setDate] = React.useState<DateRange | undefined>({

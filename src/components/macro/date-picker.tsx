@@ -81,11 +81,9 @@ type DatePickerSingleProps = DatePickerBaseProps & {
 type DatePickerRangeProps = DatePickerBaseProps & {
   mode: "range";
   /** Controlled selected date range (range mode). */
-  rangeValue?: DateRange;
-  /** Called when the user changes the date range (range mode). */
-  onRangeChange?: (range: DateRange | undefined) => void;
-  value?: never;
-  onValueChange?: never;
+  value?: DateRange;
+  /** Called when the user changes the selected value. */
+  onValueChange?: (range: DateRange | undefined) => void;
 };
 
 type DatePickerProps = DatePickerSingleProps | DatePickerRangeProps;
@@ -143,18 +141,13 @@ function formatTriggerLabel(
   return `${fromStr} – ${toStr}`;
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Component
-// ─────────────────────────────────────────────────────────────────────────────
 
 const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
   (
     {
       mode = "single",
-      value,
+      value: valueProp,
       onValueChange,
-      rangeValue,
-      onRangeChange,
       size = "md",
       placeholder,
       disabled,
@@ -178,19 +171,23 @@ const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
     const triggerId = id ?? generatedId;
     const isInvalid = !!errorMessage;
 
-    const [open, setOpen] = React.useState(false);
-    const [tempValue, setTempValue] = React.useState<Date | undefined>(value);
-    const [tempRangeValue, setTempRangeValue] = React.useState<
-      DateRange | undefined
-    >(rangeValue);
+    const singleValue = mode === "single" ? (valueProp as Date | undefined) : undefined;
+    const rangeValue = mode === "range" ? (valueProp as DateRange | undefined) : undefined;
 
-    // Sync temp state when popover opens
+    const [open, setOpen] = React.useState(false);
+    const [tempValue, setTempValue] = React.useState<Date | undefined>(singleValue);
+    const [tempRange, setTempRange] = React.useState<DateRange | undefined>(rangeValue);
+
+    // Sync temp state only when the popover opens.
+    // Intentionally excludes singleValue/rangeValue from deps — resetting an
+    // in-progress user selection when the controlled value changes mid-session
+    // would cause a jarring UX.
     React.useEffect(() => {
-      if (open) {
-        setTempValue(value);
-        setTempRangeValue(rangeValue);
-      }
-    }, [open, value, rangeValue]);
+      if (!open) return;
+      setTempValue(singleValue);
+      setTempRange(rangeValue);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [open]);
 
     const defaultPlaceholder =
       placeholder ?? (mode === "range"
@@ -199,14 +196,25 @@ const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
 
     const triggerLabel = formatTriggerLabel(
       mode,
-      value,
+      singleValue,
       rangeValue,
       defaultPlaceholder,
       locale?.code,
     );
 
     const hasValue =
-      mode === "single" ? !!value : !!(rangeValue?.from ?? rangeValue?.to);
+      mode === "single" ? !!singleValue : !!(rangeValue?.from ?? rangeValue?.to);
+
+    const handleCancel = React.useCallback(() => setOpen(false), []);
+
+    const handleConfirm = React.useCallback(() => {
+      if (mode === "single") {
+        (onValueChange as ((date: Date | undefined) => void) | undefined)?.(tempValue);
+      } else {
+        (onValueChange as ((range: DateRange | undefined) => void) | undefined)?.(tempRange);
+      }
+      setOpen(false);
+    }, [mode, onValueChange, tempValue, tempRange]);
 
     return (
       <FieldPreset
@@ -229,7 +237,7 @@ const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
               "text-muted-foreground": !hasValue,
             })}
           >
-            <CalendarIcon />
+            <CalendarIcon aria-hidden="true" />
             <span className="flex-1 truncate text-left min-w-0">
               {triggerLabel}
             </span>
@@ -251,7 +259,7 @@ const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
                 disabled={disabledDates}
                 startMonth={startMonth}
                 endMonth={endMonth}
-                defaultMonth={defaultMonth ?? value}
+                defaultMonth={defaultMonth ?? singleValue}
                 selected={tempValue}
                 onSelect={setTempValue}
               />
@@ -260,34 +268,27 @@ const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
                 mode="range"
                 size={size}
                 locale={locale}
-                numberOfMonths={numberOfMonths ?? 1}
+                numberOfMonths={numberOfMonths ?? 2}
                 captionLayout={captionLayout}
                 disabled={disabledDates}
                 startMonth={startMonth}
                 endMonth={endMonth}
                 defaultMonth={defaultMonth ?? rangeValue?.from}
-                selected={tempRangeValue}
-                onSelect={setTempRangeValue}
+                selected={tempRange}
+                onSelect={setTempRange}
               />
             )}
             <div className="flex items-center justify-end gap-2 px-3 pb-3 pt-1">
               <Button
                 variant="outline"
                 size={size}
-                onClick={() => setOpen(false)}
+                onClick={handleCancel}
               >
                 {labels?.cancel ?? "Cancel"}
               </Button>
               <Button
                 size={size}
-                onClick={() => {
-                  if (mode === "single") {
-                    onValueChange?.(tempValue);
-                  } else {
-                    onRangeChange?.(tempRangeValue);
-                  }
-                  setOpen(false);
-                }}
+                onClick={handleConfirm}
               >
                 {labels?.confirm ?? "Apply"}
               </Button>

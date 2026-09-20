@@ -16,12 +16,12 @@ Tiến độ review và chuẩn hoá các components theo `AGENTS.md`.
 - [x] Alert
 - [x] Avatar
 - [x] Badge
+- [x] Button
+- [x] Calendar
 
 ## ⏳ Chờ xử lý (To-do)
 > Sẽ bốc dần từng batch từ `src/components/micro/`
 
-- [ ] Button
-- [ ] Calendar
 - [ ] Chart
 - [ ] Checkbox
 - [ ] Combobox

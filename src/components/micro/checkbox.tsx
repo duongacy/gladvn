@@ -1,10 +1,3 @@
-/**
- * ✅ AUDITED & REFACTORED
- * - Design System Compliant (20 Commandments)
- * - WCAG AAA/AA
- * - Form Control Parity
- * - CSS Delegated Logic
- */
 "use client";
 
 import * as React from "react";
@@ -28,15 +21,9 @@ const checkboxVariants = cva(
   },
 );
 
-/**
- * @description A control that allows the user to toggle between checked and not checked.
- * @example
- * <Checkbox id="terms" />
- * <label htmlFor="terms">Accept terms</label>
- */
 const Checkbox = React.forwardRef<
   React.ComponentRef<typeof CheckboxPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root> &
+  React.ComponentProps<typeof CheckboxPrimitive.Root> &
     Omit<VariantProps<typeof checkboxVariants>, "size"> & {
       size?: Size;
     }
@@ -62,7 +49,7 @@ const CheckboxIndicator = React.forwardRef<
       ref={ref}
       data-slot="checkbox-indicator"
       className={cn(
-        "grid place-content-center text-current transition-none [&>svg]:size-3.5 group-data-[size=sm]/checkbox:[&>svg]:size-3 group-data-[size=lg]/checkbox:[&>svg]:size-4",
+        "grid place-content-center text-current transition-none [:where(&>svg)]:size-3.5 group-data-[size=sm]/checkbox:[:where(&>svg)]:size-3 group-data-[size=lg]/checkbox:[:where(&>svg)]:size-4",
         className,
       )}
       {...props}

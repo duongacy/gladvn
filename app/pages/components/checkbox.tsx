@@ -34,9 +34,9 @@ function CheckboxFormPreview({ globalSize }: { globalSize: Size }) {
     defaultValues: { mobile: false },
   });
 
-  function onSubmit(values: FormValues) {
+  const onSubmit = React.useCallback((values: FormValues) => {
     alert(JSON.stringify(values, null, 2));
-  }
+  }, []);
 
   return (
     <form
@@ -99,7 +99,7 @@ function useCheckboxExamples() {
         microCode: `<div className="flex items-center gap-3">
   <Checkbox id="cb-micro-default">
     <CheckboxIndicator>
-      <Check />
+      <Check className="size-4" aria-hidden="true" />
     </CheckboxIndicator>
   </Checkbox>
   <Label
@@ -113,7 +113,7 @@ function useCheckboxExamples() {
           <div className="flex items-center gap-3">
             <Checkbox id="cb-micro-default" size={globalSize}>
               <CheckboxIndicator>
-                <Check className="size-4" />
+                <Check className="size-4" aria-hidden="true" />
               </CheckboxIndicator>
             </Checkbox>
             <Label
@@ -150,12 +150,13 @@ function useCheckboxExamples() {
         microCode: `<Field
   className="flex flex-row items-start gap-3"
   data-invalid={true}
+  data-size="md"
 >
-  <div className="flex items-center text-sm leading-snug group-data-[size=sm]/field:text-xs">
+  <div className="flex items-center text-sm leading-snug group-data-[size=sm]/field:text-xs group-data-[size=lg]/field:text-base">
     &#8203;
     <Checkbox id="cb-err-micro" aria-invalid={true}>
       <CheckboxIndicator>
-        <Check />
+        <Check className="size-4" aria-hidden="true" />
       </CheckboxIndicator>
     </Checkbox>
   </div>
@@ -175,11 +176,11 @@ function useCheckboxExamples() {
             data-invalid={true}
             data-size={globalSize}
           >
-            <div className="flex items-center text-sm leading-snug group-data-[size=sm]/field:text-xs">
+            <div className="flex items-center text-sm leading-snug group-data-[size=sm]/field:text-xs group-data-[size=lg]/field:text-base">
               &#8203;
               <Checkbox id="cb-err-micro" size={globalSize} aria-invalid={true}>
                 <CheckboxIndicator>
-                  <Check className="size-4" />
+                  <Check className="size-4" aria-hidden="true" />
                 </CheckboxIndicator>
               </Checkbox>
             </div>
@@ -276,12 +277,12 @@ function useCheckboxExamples() {
           "Lắp ráp thủ công các thành phần Field khi cần layout phức tạp.",
           "Manually assemble Field components for complex layouts."
         ),
-        microCode: `<Field className="flex items-start gap-3">
-  <div className="flex items-center text-sm leading-snug group-data-[size=sm]/field:text-xs">
+        microCode: `<Field className="flex items-start gap-3" data-size="md">
+  <div className="flex items-center text-sm leading-snug group-data-[size=sm]/field:text-xs group-data-[size=lg]/field:text-base">
     &#8203;
     <Checkbox id="cb-field-micro">
       <CheckboxIndicator>
-        <Check />
+        <Check className="size-4" aria-hidden="true" />
       </CheckboxIndicator>
     </Checkbox>
   </div>
@@ -299,11 +300,11 @@ function useCheckboxExamples() {
 </Field>`,
         microPreview: (
           <Field className="flex items-start gap-3" data-size={globalSize}>
-            <div className="flex items-center text-sm leading-snug group-data-[size=sm]/field:text-xs">
+            <div className="flex items-center text-sm leading-snug group-data-[size=sm]/field:text-xs group-data-[size=lg]/field:text-base">
               &#8203;
               <Checkbox id="cb-field-micro" size={globalSize}>
                 <CheckboxIndicator>
-                  <Check className="size-4" />
+                  <Check className="size-4" aria-hidden="true" />
                 </CheckboxIndicator>
               </Checkbox>
             </div>
@@ -328,7 +329,7 @@ function useCheckboxExamples() {
         microCode: `<div className="flex items-center gap-3">
   <Checkbox id="cb-custom-icon">
     <CheckboxIndicator>
-      <Minus />
+      <Minus className="size-4" aria-hidden="true" />
     </CheckboxIndicator>
   </Checkbox>
   <Label
@@ -342,7 +343,7 @@ function useCheckboxExamples() {
           <div className="flex items-center gap-3">
             <Checkbox id="cb-custom-icon" size={globalSize}>
               <CheckboxIndicator>
-                <Minus className="size-4" />
+                <Minus className="size-4" aria-hidden="true" />
               </CheckboxIndicator>
             </Checkbox>
             <Label

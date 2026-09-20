@@ -9,7 +9,7 @@ import {
   Field,
   FieldDescription,
   FieldError,
-  FieldLabel
+  FieldLabel,
 } from "../../components/micro/field";
 import { type Size } from "../../lib/types";
 import { cn } from "../../lib/utils";
@@ -18,7 +18,6 @@ export type CheckboxPresetProps = Omit<
   React.ComponentProps<typeof Checkbox>,
   "className" | "size"
 > & {
-  
   className?: string;
   label?: React.ReactNode;
   description?: React.ReactNode;
@@ -45,7 +44,16 @@ const CheckboxPreset = React.forwardRef<
     ref,
   ) => {
     const generatedId = React.useId();
-    const inputId = id || generatedId;
+    const inputId = id ?? generatedId;
+    const descriptionId = `${inputId}-desc`;
+    const errorId = `${inputId}-error`;
+
+    const describedBy = [
+      description ? descriptionId : undefined,
+      showError && errorMessage ? errorId : undefined,
+    ]
+      .filter(Boolean)
+      .join(" ");
 
     return (
       <Field
@@ -58,11 +66,12 @@ const CheckboxPreset = React.forwardRef<
             ref={ref}
             id={inputId}
             aria-invalid={!!errorMessage}
+            aria-describedby={describedBy || undefined}
             size={size}
             {...checkboxProps}
           >
             <CheckboxIndicator>
-              <CheckIcon />
+              <CheckIcon aria-hidden="true" focusable="false" />
             </CheckboxIndicator>
           </Checkbox>
         </div>
@@ -75,8 +84,14 @@ const CheckboxPreset = React.forwardRef<
               {label}
             </FieldLabel>
           )}
-          {description && <FieldDescription>{description}</FieldDescription>}
-          {showError && errorMessage && <FieldError>{errorMessage}</FieldError>}
+          {description && (
+            <FieldDescription id={descriptionId}>
+              {description}
+            </FieldDescription>
+          )}
+          {showError && errorMessage && (
+            <FieldError id={errorId}>{errorMessage}</FieldError>
+          )}
         </div>
       </Field>
     );

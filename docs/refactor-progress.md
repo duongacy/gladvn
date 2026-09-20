@@ -19,12 +19,12 @@ Tiến độ review và chuẩn hoá các components theo `AGENTS.md`.
 - [x] Button
 - [x] Calendar
 - [x] DatePicker (Macro)
+- [x] Checkbox + CheckboxPreset — v0.2.56
 
 ## ⏳ Chờ xử lý (To-do)
 > Sẽ bốc dần từng batch từ `src/components/micro/`
 
 - [ ] Chart
-- [ ] Checkbox
 - [ ] Combobox
 - [ ] Command
 - [ ] Confirm

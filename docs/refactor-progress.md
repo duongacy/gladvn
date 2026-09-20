@@ -18,6 +18,7 @@ Tiến độ review và chuẩn hoá các components theo `AGENTS.md`.
 - [x] Badge
 - [x] Button
 - [x] Calendar
+- [x] DatePicker (Macro)
 
 ## ⏳ Chờ xử lý (To-do)
 > Sẽ bốc dần từng batch từ `src/components/micro/`

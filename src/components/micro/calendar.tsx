@@ -1,10 +1,3 @@
-/**
- * ✅ AUDITED
- * - Design System Compliant (22 Commandments)
- * - WCAG AAA/AA
- * - Form Control Parity
- * - CSS Delegated Logic
- */
 "use client";
 
 import * as React from "react";
@@ -65,11 +58,6 @@ const calendarVariants = cva(
   },
 );
 
-/**
- * @description A date field component that allows users to enter and edit date.
- * @example
- * <Calendar mode="single" selected={date} onSelect={setDate} />
- */
 function Calendar({
   className,
   classNames,
@@ -140,7 +128,7 @@ function Calendar({
           {
             "text-sm group-[.calendar-sm]/calendar:text-xs group-[.calendar-lg]/calendar:text-base":
               captionLayout === "label",
-            "flex items-center gap-1 rounded-md text-sm group-[.calendar-sm]/calendar:text-xs group-[.calendar-lg]/calendar:text-base [&>svg]:size-3.5 [&>svg]:text-muted-foreground":
+            "flex items-center gap-1 rounded-md text-sm group-[.calendar-sm]/calendar:text-xs group-[.calendar-lg]/calendar:text-base [:where(&>svg)]:size-3.5 [:where(&>svg)]:text-muted-foreground":
               captionLayout !== "label",
           },
           defaultClassNames.caption_label,
@@ -265,6 +253,7 @@ function Calendar({
           if (orientation === "left") {
             return (
               <ChevronLeftIcon
+                aria-hidden="true"
                 className={cn(
                   "size-5 group-[.calendar-sm]/calendar:size-4 group-[.calendar-lg]/calendar:size-6 rtl:rotate-180",
                   className,
@@ -278,6 +267,7 @@ function Calendar({
           if (orientation === "right") {
             return (
               <ChevronRightIcon
+                aria-hidden="true"
                 className={cn(
                   "size-5 group-[.calendar-sm]/calendar:size-4 group-[.calendar-lg]/calendar:size-6 rtl:rotate-180",
                   className,
@@ -290,6 +280,7 @@ function Calendar({
 
           return (
             <ChevronDownIcon
+              aria-hidden="true"
               className={cn(sizeClasses, className)}
               strokeWidth={2.5}
               {...props}
@@ -324,6 +315,7 @@ function CalendarDayButton({
 }: React.ComponentProps<typeof DayButton> & { locale?: Partial<Locale> }) {
   const defaultClassNames = getDefaultClassNames();
 
+  // Required: react-day-picker does not imperatively focus DayButton — manual ref is the only path.
   const ref = React.useRef<HTMLButtonElement>(null);
   React.useEffect(() => {
     if (modifiers.focused) ref.current?.focus();

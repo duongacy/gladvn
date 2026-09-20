@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { type DateRange } from "react-day-picker";
 
 import { DatePicker } from "@/components/macro/date-picker";
@@ -94,13 +94,17 @@ function MultipleDatesPreview({ globalSize }: { globalSize: Size }) {
 }
 
 function DisabledDatesPreview({ globalSize }: { globalSize: Size }) {
+  const isPastDate = useCallback(
+    (date: Date) => date < new Date(2026, 10, 15),
+    []
+  );
   return (
     <div className="border border-border rounded-xl inline-block bg-card p-3">
       <Calendar
         size={globalSize}
         mode="single"
-        disabled={(date) => date < new Date(2026, 5, 15)}
-        defaultMonth={new Date(2026, 5, 15)}
+        disabled={isPastDate}
+        defaultMonth={new Date(2026, 10, 15)}
         className="w-full"
       />
     </div>
@@ -240,12 +244,14 @@ function useCalendarExamples() {
         macroPreview: <SingleDateMacroPreview globalSize={globalSize} />,
         microCode: `const [date, setDate] = React.useState<Date | undefined>(new Date())
 
-<Calendar
-  mode="single"
-  selected={date}
-  onSelect={setDate}
-  className="rounded-xl border border-border shadow"
-/>`,
+<div className="border border-border rounded-xl inline-block bg-card p-3">
+  <Calendar
+    mode="single"
+    selected={date}
+    onSelect={setDate}
+    className="w-full"
+  />
+</div>`,
         microPreview: <SingleDatePreview globalSize={globalSize} />,
       },
       {
@@ -265,15 +271,17 @@ function useCalendarExamples() {
         macroPreview: <DateRangeMacroPreview globalSize={globalSize} />,
         microCode: `const [date, setDate] = React.useState<DateRange | undefined>({
   from: new Date(2026, 5, 15),
-  to: new Date(2026, 5, 25) 
+  to: new Date(2026, 5, 25)
 })
 
-<Calendar
-  mode="range"
-  selected={date}
-  onSelect={setDate}
-  className="rounded-xl border border-border shadow"
-/>`,
+<div className="border border-border rounded-xl inline-block bg-card p-3">
+  <Calendar
+    mode="range"
+    selected={date}
+    onSelect={setDate}
+    className="w-full"
+  />
+</div>`,
         microPreview: <DateRangePreview globalSize={globalSize} />,
       },
       {
@@ -307,11 +315,13 @@ function useCalendarExamples() {
             <RangeDropdownMacroPreview globalSize={globalSize} />
           </div>
         ),
-        microCode: `<Calendar
-  mode="single"
-  captionLayout="dropdown"
-  className="rounded-xl border border-border shadow"
-/>`,
+        microCode: `<div className="border border-border rounded-xl inline-block bg-card p-3">
+  <Calendar
+    mode="single"
+    captionLayout="dropdown"
+    className="w-full"
+  />
+</div>`,
         microPreview: <NavigationPreview globalSize={globalSize} />,
       },
       {
@@ -322,12 +332,14 @@ function useCalendarExamples() {
         ),
         microCode: `const [dates, setDates] = React.useState<Date[] | undefined>([])
 
-<Calendar
-  mode="multiple"
-  selected={dates}
-  onSelect={setDates}
-  className="rounded-xl border border-border shadow"
-/>`,
+<div className="border border-border rounded-xl inline-block bg-card p-3">
+  <Calendar
+    mode="multiple"
+    selected={dates}
+    onSelect={setDates}
+    className="w-full"
+  />
+</div>`,
         microPreview: <MultipleDatesPreview globalSize={globalSize} />,
       },
       {
@@ -336,11 +348,13 @@ function useCalendarExamples() {
           "Vô hiệu hóa chọn ngày (VD: ngày trong quá khứ).",
           "Disable date selection (e.g., past dates)."
         ),
-        microCode: `<Calendar
-  mode="single"
-  disabled={(date) => date < new Date()}
-  className="rounded-xl border border-border shadow"
-/>`,
+        microCode: `<div className="border border-border rounded-xl inline-block bg-card p-3">
+  <Calendar
+    mode="single"
+    disabled={(date) => date < new Date()}
+    className="w-full"
+  />
+</div>`,
         microPreview: <DisabledDatesPreview globalSize={globalSize} />,
       },
       {
@@ -349,13 +363,15 @@ function useCalendarExamples() {
           "Hiển thị 2 tháng liền kề (numberOfMonths=2) thường dùng cho Date Range.",
           "Displays 2 adjacent months (numberOfMonths=2), typically used for Date Range."
         ),
-        microCode: `<Calendar
-  mode="range"
-  selected={date}
-  onSelect={setDate}
-  numberOfMonths={2}
-  className="rounded-xl border border-border shadow"
-/>`,
+        microCode: `<div className="border border-border rounded-xl inline-block bg-card p-3 overflow-x-auto max-w-full">
+  <Calendar
+    mode="range"
+    selected={date}
+    onSelect={setDate}
+    numberOfMonths={2}
+    className="w-full"
+  />
+</div>`,
         microPreview: <TwoMonthsPreview globalSize={globalSize} />,
       },
       {

@@ -12,6 +12,7 @@ import {
   ComboboxChips,
   ComboboxChipsInput,
   ComboboxClear,
+  ComboboxCollection,
   ComboboxContent,
   ComboboxEmpty,
   ComboboxGroup,
@@ -42,12 +43,47 @@ import {
   DocsP,
 } from "~app/components/showcase";
 import { type Size } from "@/lib/types";
+import { cn } from "@/lib/utils";
 
+const sizeHeightClasses: Record<Size, string> = {
+  sm: "h-7",
+  md: "h-8",
+  lg: "h-9",
+};
+
+const frameworkOptions = [
+  { value: "react", label: "React" },
+  { value: "vue", label: "Vue" },
+  { value: "angular", label: "Angular" },
+  { value: "svelte", label: "Svelte" },
+];
 const frontendFrameworks = ["react", "vue", "svelte"];
 const backendFrameworks = ["express", "nest"];
 const allFrameworks = [...frontendFrameworks, ...backendFrameworks];
-const tagItems = ["bug", "feature", "enhancement", "docs"];
-const engineItems = ["v8", "spidermonkey"];
+const backendFrameworkOptions = [
+  { value: "express", label: "Express" },
+  { value: "nestjs", label: "NestJS" },
+];
+const allFrameworkOptions = [...frameworkOptions, ...backendFrameworkOptions];
+const tagOptions = [
+  { value: "bug", label: "Bug" },
+  { value: "feature", label: "Feature" },
+  { value: "enhancement", label: "Enhancement" },
+  { value: "docs", label: "Documentation" },
+];
+const engineOptions = [
+  { value: "v8", label: "V8 (Chrome)" },
+  { value: "spidermonkey", label: "SpiderMonkey (Firefox)" },
+];
+const timezoneOptions = Array.from({ length: 50 }).map((_, i) => ({
+  value: `utc${i - 12}`,
+  label: `UTC ${i - 12 > 0 ? "+" : ""}${i - 12}:00`,
+}));
+const teamOptions = [
+  { value: "engineering", label: "Engineering" },
+  { value: "design", label: "Design" },
+];
+const regionOptions = [{ value: "ap", label: "Asia Pacific" }];
 
 const formSchema = z.object({
   framework: z.string().min(1, "Please select a framework."),
@@ -55,17 +91,18 @@ const formSchema = z.object({
 type FormValues = z.infer<typeof formSchema>;
 
 function ComboboxFormPreview({ globalSize }: { globalSize: Size }) {
-  const t = useI18n();
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: { framework: "" },
   });
 
+  const handleFormSubmit = React.useCallback(
+    form.handleSubmit((v) => alert(JSON.stringify(v))),
+    [form.handleSubmit],
+  );
+
   return (
-    <form
-      onSubmit={form.handleSubmit((v) => alert(JSON.stringify(v)))}
-      className="w-full space-y-6"
-    >
+    <form onSubmit={handleFormSubmit} className="w-full space-y-6">
       <Controller
         control={form.control}
         name="framework"
@@ -96,6 +133,32 @@ function ComboboxFormPreview({ globalSize }: { globalSize: Size }) {
   );
 }
 
+
+function FilteringComboboxPreview({ globalSize }: { globalSize: Size }) {
+  const [inputValue, setInputValue] = React.useState("");
+  const filteredOptions = React.useMemo(
+    () =>
+      frameworkOptions.filter((o) =>
+        o.label.toLowerCase().includes(inputValue.toLowerCase())
+      ),
+    [inputValue],
+  );
+  return (
+    <ComboboxPreset
+      className="w-full"
+      size={globalSize}
+      label="Framework"
+      description="Type to filter — the library never filters implicitly."
+      placeholder="Type to filter..."
+      emptyText="No match."
+      options={filteredOptions}
+      inputValue={inputValue}
+      onInputValueChange={setInputValue}
+    />
+  );
+}
+
+
 function useComboboxExamples() {
   const t = useI18n();
   const { size: globalSize } = useDevContext();
@@ -113,7 +176,6 @@ function useComboboxExamples() {
   label="Framework"
   description="Supports thousands of records without lag."
   placeholder="Select framework..."
-  searchPlaceholder="Search framework..."
   emptyText="No framework found."
   options={[
     { value: "react", label: "React" },
@@ -129,46 +191,40 @@ function useComboboxExamples() {
             label="Framework"
             description="Supports thousands of records without lag."
             placeholder="Select framework..."
-            searchPlaceholder="Search framework..."
             emptyText="No framework found."
-            options={[
-              { value: "react", label: "React" },
-              { value: "vue", label: "Vue" },
-              { value: "angular", label: "Angular" },
-              { value: "svelte", label: "Svelte" },
-            ]}
+            options={frameworkOptions}
           />
         ),
         microCode: `<Field className="w-full">
-  <FieldLabel>Search Framework</FieldLabel>
+  <FieldLabel htmlFor="combobox-standard">Framework</FieldLabel>
   <FieldContent>
-    <Combobox items={["react", "vue", "svelte", "express", "nest"]}>
+    <Combobox
+      items={frameworkOptions}
+      filter={null}
+      itemToStringLabel={(val) => frameworkOptions.find((o) => o.value === val)?.label ?? String(val ?? "")}
+    >
       <ComboboxAnchor className="w-full">
         <InputGroup className="w-full">
           <ComboboxInput
-            placeholder="Search framework..."
+            id="combobox-standard"
+            placeholder="Select framework..."
             render={<InputGroupInput />}
           />
-          <InputGroupAddon align="end">
-            <ComboboxTrigger className="flex h-full cursor-default items-center justify-center px-2.5 outline-none group-has-data-[slot=combobox-clear]/input-group:hidden disabled:cursor-not-allowed disabled:opacity-50" />
+          <InputGroupAddon align="end" className="h-full py-0 gap-0.5 pr-1">
+            <ComboboxTrigger className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden" />
             <ComboboxClear />
           </InputGroupAddon>
         </InputGroup>
       </ComboboxAnchor>
       <ComboboxContent>
-        <ComboboxEmpty>Not found.</ComboboxEmpty>
+        <ComboboxEmpty>No framework found.</ComboboxEmpty>
         <ComboboxList>
           <ComboboxGroup>
             <ComboboxLabel>Frontend</ComboboxLabel>
             <ComboboxItem value="react">React</ComboboxItem>
             <ComboboxItem value="vue">Vue</ComboboxItem>
+            <ComboboxItem value="angular">Angular</ComboboxItem>
             <ComboboxItem value="svelte">Svelte</ComboboxItem>
-          </ComboboxGroup>
-          <ComboboxSeparator />
-          <ComboboxGroup>
-            <ComboboxLabel>Backend</ComboboxLabel>
-            <ComboboxItem value="express">Express</ComboboxItem>
-            <ComboboxItem value="nest">NestJS</ComboboxItem>
           </ComboboxGroup>
         </ComboboxList>
       </ComboboxContent>
@@ -177,35 +233,130 @@ function useComboboxExamples() {
 </Field>`,
         microPreview: (
           <Field size={globalSize} className="w-full">
-            <FieldLabel>Search Framework</FieldLabel>
+            <FieldLabel htmlFor="combobox-standard-preview">Framework</FieldLabel>
             <FieldContent>
-              <Combobox items={allFrameworks}>
+              <Combobox
+                items={frameworkOptions}
+                filter={null}
+                itemToStringLabel={(val) => frameworkOptions.find((o) => o.value === val)?.label ?? String(val ?? "")}
+              >
                 <ComboboxAnchor className="w-full">
-                  <InputGroup size={globalSize} className="w-full">
+                  <InputGroup size={globalSize} className={cn("w-full", sizeHeightClasses[globalSize])}>
                     <ComboboxInput
-                      placeholder="Search framework..."
+                      id="combobox-standard-preview"
+                      placeholder="Select framework..."
                       render={<InputGroupInput />}
                     />
-                    <InputGroupAddon align="end">
-                      <ComboboxTrigger className="flex h-full cursor-default items-center justify-center px-2.5 outline-none group-has-data-[slot=combobox-clear]/input-group:hidden disabled:cursor-not-allowed disabled:opacity-50" />
+                    <InputGroupAddon align="end" className="h-full py-0 gap-0.5 pr-1">
+                      <ComboboxTrigger className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden disabled:cursor-not-allowed disabled:opacity-50" />
                       <ComboboxClear />
                     </InputGroupAddon>
                   </InputGroup>
                 </ComboboxAnchor>
                 <ComboboxContent>
-                  <ComboboxEmpty>Not found.</ComboboxEmpty>
+                  <ComboboxEmpty>No framework found.</ComboboxEmpty>
                   <ComboboxList>
                     <ComboboxGroup>
                       <ComboboxLabel>Frontend</ComboboxLabel>
                       <ComboboxItem value="react">React</ComboboxItem>
                       <ComboboxItem value="vue">Vue</ComboboxItem>
+                      <ComboboxItem value="angular">Angular</ComboboxItem>
+                      <ComboboxItem value="svelte">Svelte</ComboboxItem>
+                    </ComboboxGroup>
+                  </ComboboxList>
+                </ComboboxContent>
+              </Combobox>
+            </FieldContent>
+          </Field>
+        ),
+      },
+      {
+        title: t("Nhóm & Ngăn cách", "Grouped with Separator"),
+        description: t(
+          "Nhóm các lựa chọn liên quan với ComboboxLabel và phân cách nhóm bằng ComboboxSeparator.",
+          "Groups related options with ComboboxLabel and separates groups using ComboboxSeparator."
+        ),
+        microCode: `<Field className="w-full">
+  <FieldLabel htmlFor="combobox-grouped">Framework</FieldLabel>
+  <FieldContent>
+    <Combobox
+      items={allFrameworkOptions}
+      filter={null}
+      itemToStringLabel={(val) => allFrameworkOptions.find((o) => o.value === val)?.label ?? String(val ?? "")}
+    >
+      <ComboboxAnchor className="w-full">
+        <InputGroup className="w-full">
+          <ComboboxInput
+            id="combobox-grouped"
+            placeholder="Select framework..."
+            render={<InputGroupInput />}
+          />
+          <InputGroupAddon align="end" className="h-full py-0 gap-0.5 pr-1">
+            <ComboboxTrigger className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden" />
+            <ComboboxClear />
+          </InputGroupAddon>
+        </InputGroup>
+      </ComboboxAnchor>
+      <ComboboxContent>
+        <ComboboxEmpty>No framework found.</ComboboxEmpty>
+        <ComboboxList>
+          <ComboboxGroup>
+            <ComboboxLabel>Frontend</ComboboxLabel>
+            <ComboboxItem value="react">React</ComboboxItem>
+            <ComboboxItem value="vue">Vue</ComboboxItem>
+            <ComboboxItem value="angular">Angular</ComboboxItem>
+            <ComboboxItem value="svelte">Svelte</ComboboxItem>
+          </ComboboxGroup>
+          <ComboboxSeparator />
+          <ComboboxGroup>
+            <ComboboxLabel>Backend</ComboboxLabel>
+            <ComboboxItem value="express">Express</ComboboxItem>
+            <ComboboxItem value="nestjs">NestJS</ComboboxItem>
+          </ComboboxGroup>
+        </ComboboxList>
+      </ComboboxContent>
+    </Combobox>
+  </FieldContent>
+</Field>`,
+        microPreview: (
+          <Field size={globalSize} className="w-full">
+            <FieldLabel htmlFor="combobox-grouped-preview">Framework</FieldLabel>
+            <FieldContent>
+              <Combobox
+                items={allFrameworkOptions}
+                filter={null}
+                itemToStringLabel={(val) =>
+                  allFrameworkOptions.find((o) => o.value === val)?.label ?? String(val ?? "")
+                }
+              >
+                <ComboboxAnchor className="w-full">
+                  <InputGroup size={globalSize} className={cn("w-full", sizeHeightClasses[globalSize])}>
+                    <ComboboxInput
+                      id="combobox-grouped-preview"
+                      placeholder="Select framework..."
+                      render={<InputGroupInput />}
+                    />
+                    <InputGroupAddon align="end" className="h-full py-0 gap-0.5 pr-1">
+                      <ComboboxTrigger className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden" />
+                      <ComboboxClear />
+                    </InputGroupAddon>
+                  </InputGroup>
+                </ComboboxAnchor>
+                <ComboboxContent>
+                  <ComboboxEmpty>No framework found.</ComboboxEmpty>
+                  <ComboboxList>
+                    <ComboboxGroup>
+                      <ComboboxLabel>Frontend</ComboboxLabel>
+                      <ComboboxItem value="react">React</ComboboxItem>
+                      <ComboboxItem value="vue">Vue</ComboboxItem>
+                      <ComboboxItem value="angular">Angular</ComboboxItem>
                       <ComboboxItem value="svelte">Svelte</ComboboxItem>
                     </ComboboxGroup>
                     <ComboboxSeparator />
                     <ComboboxGroup>
                       <ComboboxLabel>Backend</ComboboxLabel>
                       <ComboboxItem value="express">Express</ComboboxItem>
-                      <ComboboxItem value="nest">NestJS</ComboboxItem>
+                      <ComboboxItem value="nestjs">NestJS</ComboboxItem>
                     </ComboboxGroup>
                   </ComboboxList>
                 </ComboboxContent>
@@ -223,12 +374,36 @@ function useComboboxExamples() {
         microCode: `<Field className="w-full">
   <FieldLabel>Assign Tags</FieldLabel>
   <FieldContent>
-    <Combobox items={tagItems} multiple>
-      <ComboboxChips>
-        <ComboboxChip value="bug">Bug</ComboboxChip>
-        <ComboboxChip value="feature">Feature</ComboboxChip>
-        <ComboboxChipsInput placeholder="Add tag..." />
-      </ComboboxChips>
+    <Combobox
+      items={tagOptions}
+      multiple
+      defaultValue={["bug", "feature"]}
+      filter={null}
+      itemToStringLabel={(val) => tagOptions.find((o) => o.value === val)?.label ?? String(val ?? "")}
+    >
+      <ComboboxAnchor className="w-full">
+        <ComboboxChips>
+          <ComboboxValue>
+            {(values: string[]) => (
+              <React.Fragment>
+                {values.map((tag) => {
+                  const opt = tagOptions.find((t) => t.value === tag);
+                  return (
+                    <ComboboxChip
+                      key={tag}
+                      value={tag}
+                      removeLabel={\`Remove \${opt?.label ?? tag}\`}
+                    >
+                      {opt?.label ?? tag}
+                    </ComboboxChip>
+                  );
+                })}
+                <ComboboxChipsInput placeholder={values.length > 0 ? "" : "Add tag..."} />
+              </React.Fragment>
+            )}
+          </ComboboxValue>
+        </ComboboxChips>
+      </ComboboxAnchor>
       <ComboboxContent>
         <ComboboxEmpty>Tag not found.</ComboboxEmpty>
         <ComboboxList>
@@ -246,12 +421,36 @@ function useComboboxExamples() {
           <Field size={globalSize} className="w-full">
             <FieldLabel>Assign Tags</FieldLabel>
             <FieldContent>
-              <Combobox items={tagItems} multiple>
-                <ComboboxChips size={globalSize}>
-                  <ComboboxChip value="bug">Bug</ComboboxChip>
-                  <ComboboxChip value="feature">Feature</ComboboxChip>
-                  <ComboboxChipsInput placeholder="Add tag..." />
-                </ComboboxChips>
+              <Combobox
+                items={tagOptions}
+                multiple
+                defaultValue={["bug", "feature"]}
+                filter={null}
+                itemToStringLabel={(val) => tagOptions.find((o) => o.value === val)?.label ?? String(val ?? "")}
+              >
+                <ComboboxAnchor className="w-full">
+                  <ComboboxChips size={globalSize}>
+                    <ComboboxValue>
+                      {(values: string[]) => (
+                        <React.Fragment>
+                          {values.map((tag) => {
+                            const opt = tagOptions.find((t) => t.value === tag);
+                            return (
+                              <ComboboxChip
+                                key={tag}
+                                value={tag}
+                                removeLabel={`Remove ${opt?.label ?? tag}`}
+                              >
+                                {opt?.label ?? tag}
+                              </ComboboxChip>
+                            );
+                          })}
+                          <ComboboxChipsInput placeholder={values.length > 0 ? "" : "Add tag..."} />
+                        </React.Fragment>
+                      )}
+                    </ComboboxValue>
+                  </ComboboxChips>
+                </ComboboxAnchor>
                 <ComboboxContent>
                   <ComboboxEmpty>Tag not found.</ComboboxEmpty>
                   <ComboboxList>
@@ -279,11 +478,8 @@ function useComboboxExamples() {
   className="w-full"
   label="Timezone"
   placeholder="Select timezone..."
-  searchPlaceholder="Search timezone..."
   emptyText="Timezone not found."
-  options={Array.from({ length: 50 }).map((_, i) => ({
-    value: \`utc\${i - 12}\`,
-    label: \`UTC \${i - 12 > 0 ? "+" : ""}\${i - 12}:00\` }))}
+  options={timezoneOptions}
 />`,
         macroPreview: (
           <ComboboxPreset
@@ -291,34 +487,33 @@ function useComboboxExamples() {
             size={globalSize}
             label="Timezone"
             placeholder="Select timezone..."
-            searchPlaceholder="Search timezone..."
             emptyText="Timezone not found."
-            options={Array.from({ length: 50 }).map((_, i) => ({
-              value: `utc${i - 12}`,
-              label: `UTC ${i - 12 > 0 ? "+" : ""}${i - 12}:00`,
-            }))}
+            options={timezoneOptions}
           />
         ),
         microCode: `<Field className="w-full">
-  <FieldLabel>Timezone</FieldLabel>
+  <FieldLabel htmlFor="combobox-timezone">Timezone</FieldLabel>
   <FieldContent>
     <Combobox
-      items={Array.from({ length: 50 }).map((_, i) => \`utc\${i - 12}\`)}
+      items={timezoneOptions}
+      filter={null}
+      itemToStringLabel={(val) => timezoneOptions.find((o) => o.value === val)?.label ?? String(val ?? "")}
     >
       <ComboboxAnchor className="w-full">
         <InputGroup className="w-full">
-          <ComboboxInput placeholder="Select timezone..." render={<InputGroupInput />} />
-          <InputGroupAddon align="end">
-            <ComboboxTrigger className="flex h-full cursor-default items-center justify-center px-2.5 outline-none disabled:opacity-50" />
+          <ComboboxInput id="combobox-timezone" placeholder="Select timezone..." render={<InputGroupInput />} />
+          <InputGroupAddon align="end" className="h-full py-0 gap-0.5 pr-1">
+            <ComboboxTrigger className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden disabled:opacity-50" />
             <ComboboxClear />
           </InputGroupAddon>
         </InputGroup>
       </ComboboxAnchor>
       <ComboboxContent>
+        <ComboboxEmpty>Timezone not found.</ComboboxEmpty>
         <ComboboxList>
-          {Array.from({ length: 50 }).map((_, i) => (
-            <ComboboxItem key={i} value={\`utc\${i - 12}\`}>
-              UTC {i - 12 > 0 ? "+" : ""}{i - 12}:00
+          {timezoneOptions.map((opt) => (
+            <ComboboxItem key={opt.value} value={opt.value}>
+              {opt.label}
             </ComboboxItem>
           ))}
         </ComboboxList>
@@ -328,31 +523,115 @@ function useComboboxExamples() {
 </Field>`,
         microPreview: (
           <Field size={globalSize} className="w-full">
-            <FieldLabel>Timezone</FieldLabel>
+            <FieldLabel htmlFor="combobox-timezone-preview">Timezone</FieldLabel>
             <FieldContent>
               <Combobox
-                items={Array.from({ length: 50 }).map((_, i) => `utc${i - 12}`)}
+                items={timezoneOptions}
+                filter={null}
+                itemToStringLabel={(val) => timezoneOptions.find((o) => o.value === val)?.label ?? String(val ?? "")}
               >
                 <ComboboxAnchor className="w-full">
-                  <InputGroup size={globalSize} className="w-full">
+                  <InputGroup size={globalSize} className={cn("w-full", sizeHeightClasses[globalSize])}>
                     <ComboboxInput
+                      id="combobox-timezone-preview"
                       placeholder="Select timezone..."
                       render={<InputGroupInput />}
                     />
-                    <InputGroupAddon align="end">
-                      <ComboboxTrigger className="flex h-full cursor-default items-center justify-center px-2.5 outline-none group-has-data-[slot=combobox-clear]/input-group:hidden disabled:cursor-not-allowed disabled:opacity-50" />
+                    <InputGroupAddon align="end" className="h-full py-0 gap-0.5 pr-1">
+                      <ComboboxTrigger className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden disabled:cursor-not-allowed disabled:opacity-50" />
                       <ComboboxClear />
                     </InputGroupAddon>
                   </InputGroup>
                 </ComboboxAnchor>
                 <ComboboxContent>
+                  <ComboboxEmpty>Timezone not found.</ComboboxEmpty>
                   <ComboboxList>
-                    {Array.from({ length: 50 }).map((_, i) => (
-                      <ComboboxItem key={i} value={`utc${i - 12}`}>
-                        UTC {i - 12 > 0 ? "+" : ""}
-                        {i - 12}:00
+                    {timezoneOptions.map((opt) => (
+                      <ComboboxItem key={opt.value} value={opt.value}>
+                        {opt.label}
                       </ComboboxItem>
                     ))}
+                  </ComboboxList>
+                </ComboboxContent>
+              </Combobox>
+            </FieldContent>
+          </Field>
+        ),
+      },
+      {
+        title: t("Render Hướng Dữ liệu", "Data-Driven Rendering"),
+        description: t(
+          "Dùng ComboboxCollection để render items từ mảng dữ liệu — Base UI tự động áp dụng filter.",
+          "Use ComboboxCollection to render items from a data array — Base UI automatically applies filtering."
+        ),
+        microCode: `<Field className="w-full">
+  <FieldLabel htmlFor="combobox-collection">Framework</FieldLabel>
+  <FieldContent>
+    <Combobox
+      items={frameworkOptions}
+      itemToStringLabel={(val) => frameworkOptions.find((o) => o.value === val)?.label ?? String(val ?? "")}
+    >
+      <ComboboxAnchor className="w-full">
+        <InputGroup className="w-full">
+          <ComboboxInput
+            id="combobox-collection"
+            placeholder="Search framework..."
+            render={<InputGroupInput />}
+          />
+          <InputGroupAddon align="end" className="h-full py-0 gap-0.5 pr-1">
+            <ComboboxTrigger className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden" />
+            <ComboboxClear />
+          </InputGroupAddon>
+        </InputGroup>
+      </ComboboxAnchor>
+      <ComboboxContent>
+        <ComboboxEmpty>No framework found.</ComboboxEmpty>
+        <ComboboxList>
+          <ComboboxCollection>
+            {(item) => (
+              <ComboboxItem key={item.value} value={item.value}>
+                {item.label}
+              </ComboboxItem>
+            )}
+          </ComboboxCollection>
+        </ComboboxList>
+      </ComboboxContent>
+    </Combobox>
+  </FieldContent>
+</Field>`,
+        microPreview: (
+          <Field size={globalSize} className="w-full">
+            <FieldLabel htmlFor="combobox-collection-preview">Framework</FieldLabel>
+            <FieldContent>
+              <Combobox
+                items={frameworkOptions}
+                itemToStringLabel={(val) =>
+                  frameworkOptions.find((o) => o.value === val)?.label ?? String(val ?? "")
+                }
+              >
+                <ComboboxAnchor className="w-full">
+                  <InputGroup size={globalSize} className={cn("w-full", sizeHeightClasses[globalSize])}>
+                    <ComboboxInput
+                      id="combobox-collection-preview"
+                      placeholder="Search framework..."
+                      render={<InputGroupInput />}
+                    />
+                    <InputGroupAddon align="end" className="h-full py-0 gap-0.5 pr-1">
+                      <ComboboxTrigger className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden" />
+                      <ComboboxClear />
+                    </InputGroupAddon>
+                  </InputGroup>
+                </ComboboxAnchor>
+                <ComboboxContent>
+                  <ComboboxEmpty>No framework found.</ComboboxEmpty>
+                  <ComboboxList>
+                    <ComboboxCollection>
+                      {(item: { value: string; label: string }) => (
+                        <ComboboxItem key={item.value} value={item.value}>
+                          {item.label}
+                        </ComboboxItem>
+                      )}
+                    </ComboboxCollection>
                   </ComboboxList>
                 </ComboboxContent>
               </Combobox>
@@ -366,79 +645,87 @@ function useComboboxExamples() {
           "Báo lỗi hoặc gắn trạng thái invalid.",
           "Shows an error or sets invalid state."
         ),
-        macroCode: `<div className="w-full flex flex-col gap-6">
-  <ComboboxPreset
-    label="Region (Error)"
-    placeholder="Select region..."
-    options={[{ value: "ap", label: "Asia Pacific" }]}
-    errorMessage="Region is required."
-  />
-</div>`,
+        macroCode: `<ComboboxPreset
+  className="w-full"
+  label="Region (Error)"
+  placeholder="Select region..."
+  options={[{ value: "ap", label: "Asia Pacific" }]}
+  errorMessage="Region is required."
+/>`,
         macroPreview: (
-          <div className="w-full flex flex-col gap-6">
-            <ComboboxPreset
-              size={globalSize}
-              label="Region (Error)"
-              placeholder="Select region..."
-              options={[{ value: "ap", label: "Asia Pacific" }]}
-              errorMessage="Region is required."
-            />
-          </div>
+          <ComboboxPreset
+            size={globalSize}
+            className="w-full"
+            label="Region (Error)"
+            placeholder="Select region..."
+            options={regionOptions}
+            errorMessage="Region is required."
+          />
         ),
-        microCode: `<Field data-invalid={true} className="w-full">
-  <FieldLabel>Discount Code</FieldLabel>
+        microCode: `<Field error className="w-full">
+  <FieldLabel htmlFor="combobox-error">Region (Error)</FieldLabel>
   <FieldContent>
-    <Combobox items={["sale20", "sale50"]}>
+    <Combobox
+      items={regionOptions}
+      filter={null}
+      itemToStringLabel={(val) => regionOptions.find((o) => o.value === val)?.label ?? String(val ?? "")}
+    >
       <ComboboxAnchor className="w-full">
         <InputGroup className="w-full">
           <ComboboxInput
-            placeholder="Enter code..."
+            id="combobox-error"
+            placeholder="Select region..."
             aria-invalid={true}
+            aria-describedby="combobox-error-msg"
             render={<InputGroupInput />}
           />
-          <InputGroupAddon align="end">
-            <ComboboxTrigger className="flex h-full cursor-default items-center justify-center px-2.5 outline-none group-has-data-[slot=combobox-clear]/input-group:hidden disabled:cursor-not-allowed disabled:opacity-50" />
+          <InputGroupAddon align="end" className="h-full py-0 gap-0.5 pr-1">
+            <ComboboxTrigger className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden" />
             <ComboboxClear />
           </InputGroupAddon>
         </InputGroup>
       </ComboboxAnchor>
       <ComboboxContent>
         <ComboboxList>
-          <ComboboxItem value="sale20">20% off</ComboboxItem>
+          <ComboboxItem value="ap">Asia Pacific</ComboboxItem>
         </ComboboxList>
       </ComboboxContent>
     </Combobox>
   </FieldContent>
-  <FieldError>This code has expired.</FieldError>
+  <FieldError id="combobox-error-msg">Region is required.</FieldError>
 </Field>`,
         microPreview: (
-          <Field size={globalSize} data-invalid={true} className="w-full">
-            <FieldLabel>Discount Code</FieldLabel>
+          <Field size={globalSize} error className="w-full">
+            <FieldLabel htmlFor="combobox-error-preview">Region (Error)</FieldLabel>
             <FieldContent>
-              <Combobox items={["sale20", "sale50"]}>
+              <Combobox
+                items={regionOptions}
+                filter={null}
+                itemToStringLabel={(val) => regionOptions.find((o) => o.value === val)?.label ?? String(val ?? "")}
+              >
                 <ComboboxAnchor className="w-full">
-                  <InputGroup size={globalSize} className="w-full">
+                  <InputGroup size={globalSize} className={cn("w-full", sizeHeightClasses[globalSize])}>
                     <ComboboxInput
-                      placeholder="Enter code..."
+                      id="combobox-error-preview"
+                      placeholder="Select region..."
                       aria-invalid={true}
+                      aria-describedby="combobox-error-preview-msg"
                       render={<InputGroupInput />}
                     />
-                    <InputGroupAddon align="end">
-                      <ComboboxTrigger className="flex h-full cursor-default items-center justify-center px-2.5 outline-none group-has-data-[slot=combobox-clear]/input-group:hidden disabled:cursor-not-allowed disabled:opacity-50" />
+                    <InputGroupAddon align="end" className="h-full py-0 gap-0.5 pr-1">
+                      <ComboboxTrigger className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden disabled:cursor-not-allowed disabled:opacity-50" />
                       <ComboboxClear />
                     </InputGroupAddon>
                   </InputGroup>
                 </ComboboxAnchor>
                 <ComboboxContent>
-                  <ComboboxEmpty>Code not found.</ComboboxEmpty>
                   <ComboboxList>
-                    <ComboboxItem value="sale20">20% off</ComboboxItem>
-                    <ComboboxItem value="sale50">50% off</ComboboxItem>
+                    <ComboboxItem value="ap">Asia Pacific</ComboboxItem>
                   </ComboboxList>
                 </ComboboxContent>
               </Combobox>
             </FieldContent>
-            <FieldError>This code has expired.</FieldError>
+            <FieldError id="combobox-error-preview-msg">Region is required.</FieldError>
           </Field>
         ),
       },
@@ -467,60 +754,71 @@ function useComboboxExamples() {
             label="Team"
             description="You do not have permission to change teams in this project."
             placeholder="Select team..."
-            options={[
-              { value: "engineering", label: "Engineering" },
-              { value: "design", label: "Design" },
-            ]}
+            options={teamOptions}
             value="engineering"
             disabled
           />
         ),
         microCode: `<Field className="w-full">
-  <FieldLabel>Search (Disabled)</FieldLabel>
+  <FieldLabel htmlFor="combobox-disabled">Team</FieldLabel>
   <FieldContent>
-    <Combobox items={["react"]}>
+    <Combobox
+      items={teamOptions}
+      filter={null}
+      value="engineering"
+      itemToStringLabel={(val) => teamOptions.find((o) => o.value === val)?.label ?? String(val ?? "")}
+    >
       <ComboboxAnchor className="w-full">
         <InputGroup className="w-full">
           <ComboboxInput
-            placeholder="Search..."
+            id="combobox-disabled"
+            placeholder="Select team..."
             disabled
             render={<InputGroupInput disabled />}
           />
-          <InputGroupAddon align="end">
-            <ComboboxTrigger disabled />
+          <InputGroupAddon align="end" className="h-full py-0 gap-0.5 pr-1">
+            <ComboboxTrigger
+              className="disabled:cursor-not-allowed disabled:opacity-50"
+              disabled
+            />
           </InputGroupAddon>
         </InputGroup>
       </ComboboxAnchor>
     </Combobox>
   </FieldContent>
+  <FieldDescription>You do not have permission to change teams in this project.</FieldDescription>
 </Field>`,
         microPreview: (
           <Field size={globalSize} className="w-full">
-            <FieldLabel>Search (Disabled)</FieldLabel>
+            <FieldLabel htmlFor="combobox-disabled-preview">Team</FieldLabel>
             <FieldContent>
-              <Combobox items={["react"]}>
+              <Combobox
+                items={teamOptions}
+                filter={null}
+                value="engineering"
+                itemToStringLabel={(val) => teamOptions.find((o) => o.value === val)?.label ?? String(val ?? "")}
+              >
                 <ComboboxAnchor className="w-full">
-                  <InputGroup size={globalSize} className="w-full">
+                  <InputGroup size={globalSize} className={cn("w-full", sizeHeightClasses[globalSize])}>
                     <ComboboxInput
-                      placeholder="Search..."
+                      id="combobox-disabled-preview"
+                      placeholder="Select team..."
                       disabled
                       render={<InputGroupInput disabled />}
                     />
-                    <InputGroupAddon align="end">
+                    <InputGroupAddon align="end" className="h-full py-0 gap-0.5 pr-1">
                       <ComboboxTrigger
-                        className="flex h-full cursor-default items-center justify-center px-2.5 outline-none group-has-data-[slot=combobox-clear]/input-group:hidden disabled:cursor-not-allowed disabled:opacity-50"
+                        className="disabled:cursor-not-allowed disabled:opacity-50"
                         disabled
                       />
                     </InputGroupAddon>
                   </InputGroup>
                 </ComboboxAnchor>
-                <ComboboxContent>
-                  <ComboboxList>
-                    <ComboboxItem value="react">React</ComboboxItem>
-                  </ComboboxList>
-                </ComboboxContent>
               </Combobox>
             </FieldContent>
+            <FieldDescription>
+              You do not have permission to change teams in this project.
+            </FieldDescription>
           </Field>
         ),
       },
@@ -533,8 +831,12 @@ function useComboboxExamples() {
         microCode: `<Field className="w-full">
   <FieldLabel>Select Engine</FieldLabel>
   <FieldContent>
-    <Combobox items={engineItems}>
-      <ComboboxTrigger className="w-full justify-between flex items-center border border-border rounded-md p-2 hover:bg-accent">
+    <Combobox
+      items={engineOptions}
+      filter={null}
+      itemToStringLabel={(val) => engineOptions.find((o) => o.value === val)?.label ?? String(val ?? "")}
+    >
+      <ComboboxTrigger className="w-full">
         <ComboboxValue placeholder="Select an engine" />
       </ComboboxTrigger>
       <ComboboxContent>
@@ -548,6 +850,7 @@ function useComboboxExamples() {
         </div>
         <ComboboxList>
           <ComboboxItem value="v8">V8 (Chrome)</ComboboxItem>
+          <ComboboxItem value="spidermonkey">SpiderMonkey (Firefox)</ComboboxItem>
         </ComboboxList>
       </ComboboxContent>
     </Combobox>
@@ -557,13 +860,17 @@ function useComboboxExamples() {
           <Field size={globalSize} className="w-full">
             <FieldLabel>Select Engine</FieldLabel>
             <FieldContent>
-              <Combobox items={engineItems}>
-                <ComboboxTrigger className="w-full justify-between flex items-center border border-border rounded-md p-2 hover:bg-accent focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">
+              <Combobox
+                items={engineOptions}
+                filter={null}
+                itemToStringLabel={(val) => engineOptions.find((o) => o.value === val)?.label ?? String(val ?? "")}
+              >
+                <ComboboxTrigger size={globalSize} className="w-full">
                   <ComboboxValue placeholder="Select an engine" />
                 </ComboboxTrigger>
                 <ComboboxContent>
                   <div className="p-1">
-                    <InputGroup size={globalSize} className="w-full">
+                    <InputGroup size={globalSize} className={cn("w-full", sizeHeightClasses[globalSize])}>
                       <ComboboxInput
                         placeholder="Search engine..."
                         render={<InputGroupInput />}

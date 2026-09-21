@@ -4,24 +4,33 @@ import * as React from "react";
 
 import {
   Combobox,
+  ComboboxChip,
+  ComboboxChips,
+  ComboboxChipsInput,
   ComboboxClear,
   ComboboxContent,
   ComboboxEmpty,
   ComboboxGroup,
-  ComboboxInput,
   ComboboxItem,
   ComboboxList,
-
   ComboboxTrigger,
-  useComboboxContext
+  useComboboxContext,
 } from "../../components/micro/combobox";
+import { Combobox as ComboboxPrimitive } from "@base-ui/react";
 import {
   InputGroup,
   InputGroupAddon,
-  InputGroupInput
+  InputGroupInput,
 } from "../../components/micro/input-group";
+import {
+  Field,
+  FieldContent,
+  FieldDescription,
+  FieldError,
+  FieldLabel,
+} from "../../components/micro/field";
 import { type Size } from "../../lib/types";
-import { FieldPreset } from "./field-preset";
+import { cn } from "../../lib/utils";
 
 export interface ComboboxOption {
   label: string;
@@ -29,11 +38,9 @@ export interface ComboboxOption {
   disabled?: boolean;
 }
 
-export interface ComboboxPresetProps {
+interface ComboboxPresetBaseProps {
   options: ComboboxOption[];
-  value?: string;
   defaultValue?: string;
-  onValueChange?: (value: string | null) => void;
   placeholder?: string;
   searchPlaceholder?: string;
   emptyText?: string;
@@ -45,7 +52,25 @@ export interface ComboboxPresetProps {
   showError?: boolean;
   id?: string;
   size?: Size;
+  inputValue?: string;
+  onInputValueChange?: (value: string) => void;
 }
+
+type ComboboxPresetSingleProps = ComboboxPresetBaseProps & {
+  multiple?: false;
+  value?: string | null;
+  onValueChange?: (value: string | null) => void;
+};
+
+type ComboboxPresetMultipleProps = ComboboxPresetBaseProps & {
+  multiple: true;
+  value?: string[];
+  onValueChange?: (value: string[]) => void;
+};
+
+export type ComboboxPresetProps =
+  | ComboboxPresetSingleProps
+  | ComboboxPresetMultipleProps;
 
 const ComboboxPreset = React.forwardRef<HTMLInputElement, ComboboxPresetProps>(
   (
@@ -64,64 +89,85 @@ const ComboboxPreset = React.forwardRef<HTMLInputElement, ComboboxPresetProps>(
       errorMessage,
       showError = true,
       id,
-      size = "md" },
+      size = "md",
+      multiple,
+      inputValue,
+      onInputValueChange,
+    },
     ref,
   ) => {
     const generatedId = React.useId();
     const inputId = id || generatedId;
+    const descriptionId = description ? `${inputId}-description` : undefined;
+    const errorId = errorMessage ? `${inputId}-error` : undefined;
 
-    const itemValues = React.useMemo(
-      () => options.map((o) => o.value),
-      [options],
-    );
-    const hasValue = value !== undefined ? !!value : !!defaultValue;
+    const ariaDescribedBy =
+      [descriptionId, errorId].filter(Boolean).join(" ") || undefined;
 
     return (
-      <FieldPreset
-        size={size}
-        label={label}
-        description={description}
-        errorMessage={errorMessage}
-        showError={showError}
+      <Field
         className={className}
+        error={!!errorMessage}
+        size={size}
         orientation="vertical"
-        htmlFor={inputId}
       >
-        <Combobox
-          items={itemValues}
-          value={value}
-          defaultValue={defaultValue}
-          onValueChange={onValueChange}
-          disabled={disabled}
-        >
-          <ComboboxPresetInner
-            ref={ref}
-            inputId={inputId}
-            size={size}
-            placeholder={placeholder || searchPlaceholder}
-            aria-invalid={!!errorMessage || undefined}
+        {label && <FieldLabel htmlFor={inputId}>{label}</FieldLabel>}
+        <FieldContent>
+          <Combobox
+            items={options}
+            filter={null}
+            itemToStringLabel={(val) =>
+              options.find((o) => o.value === val)?.label ??
+              (typeof val === "string" ? val : String(val ?? ""))
+            }
+            value={value as never}
+            defaultValue={defaultValue as never}
+            onValueChange={onValueChange as never}
             disabled={disabled}
-          />
-          
+            multiple={multiple as never}
+            inputValue={inputValue}
+            onInputValueChange={onInputValueChange}
+          >
+            <ComboboxPresetInner
+              ref={ref}
+              inputId={inputId}
+              size={size}
+              placeholder={placeholder || searchPlaceholder}
+              ariaInvalid={!!errorMessage || undefined}
+              ariaDescribedBy={ariaDescribedBy}
+              disabled={disabled}
+              multiple={!!multiple}
+              options={options}
+              value={value}
+            />
+
             <ComboboxContent>
-                <ComboboxEmpty>{emptyText}</ComboboxEmpty>
-                <ComboboxList>
-                  <ComboboxGroup>
-                    {options.map((option) => (
-                      <ComboboxItem
-                        key={option.value}
-                        value={option.value}
-                        disabled={option.disabled}
-                      >
-                        {option.label}
-                      </ComboboxItem>
-                    ))}
-                  </ComboboxGroup>
-                </ComboboxList>
+              <ComboboxEmpty>{emptyText}</ComboboxEmpty>
+              <ComboboxList>
+                <ComboboxGroup>
+                  {options.map((option) => (
+                    <ComboboxItem
+                      key={option.value}
+                      value={option.value}
+                      disabled={option.disabled}
+                    >
+                      {option.label}
+                    </ComboboxItem>
+                  ))}
+                </ComboboxGroup>
+              </ComboboxList>
             </ComboboxContent>
-          
-        </Combobox>
-      </FieldPreset>
+          </Combobox>
+        </FieldContent>
+        {description && (
+          <FieldDescription id={descriptionId}>
+            {description}
+          </FieldDescription>
+        )}
+        {showError && errorMessage && (
+          <FieldError id={errorId}>{errorMessage}</FieldError>
+        )}
+      </Field>
     );
   },
 );
@@ -133,38 +179,107 @@ const ComboboxPresetInner = React.forwardRef<
   HTMLInputElement,
   {
     inputId: string;
-    size: "sm" | "md" | "lg";
+    size: Size;
     placeholder?: string;
-    "aria-invalid"?: boolean;
+    ariaInvalid?: boolean;
+    ariaDescribedBy?: string;
     disabled?: boolean;
+    multiple: boolean;
+    options: ComboboxOption[];
+    value?: string | string[] | null;
   }
 >(
   (
-    { inputId, size, placeholder, "aria-invalid": ariaInvalid, disabled },
+    {
+      inputId,
+      size,
+      placeholder,
+      ariaInvalid,
+      ariaDescribedBy,
+      disabled,
+      multiple,
+      options,
+      value,
+    },
     ref,
   ) => {
     const { setAnchor } = useComboboxContext();
 
+    if (multiple) {
+      return (
+        <ComboboxChips
+          ref={(node: HTMLDivElement | null) => {
+            setAnchor(node);
+            if (typeof ref === "function") ref(null);
+            else if (ref) ref.current = null;
+          }}
+          size={size}
+          className="w-full"
+        >
+          <ComboboxPrimitive.Value>
+            {(values: string[]) => (
+              <React.Fragment>
+                {(values ?? []).map((v) => {
+                  const opt = options.find((o) => o.value === v);
+                  return (
+                    <ComboboxChip
+                      key={v}
+                      value={v}
+                      removeLabel={`Remove ${opt?.label ?? v}`}
+                    >
+                      {opt?.label ?? v}
+                    </ComboboxChip>
+                  );
+                })}
+                <ComboboxChipsInput
+                  id={inputId}
+                  placeholder={(values ?? []).length > 0 ? "" : placeholder}
+                  aria-invalid={ariaInvalid}
+                  aria-describedby={ariaDescribedBy}
+                  disabled={disabled}
+                />
+              </React.Fragment>
+            )}
+          </ComboboxPrimitive.Value>
+        </ComboboxChips>
+      );
+    }
+
+    const inputGroupSizeClasses: Record<Size, string> = {
+      sm: "h-7",
+      md: "h-8",
+      lg: "h-9",
+    };
+
     return (
-      <div className="@container/input-group w-full">
-        <InputGroup ref={setAnchor} size={size} className="w-full">
-          <ComboboxInput
-            ref={ref}
-            id={inputId}
-            placeholder={placeholder}
-            aria-invalid={ariaInvalid}
-            render={<InputGroupInput disabled={disabled} />}
+      <InputGroup
+        ref={setAnchor}
+        size={size}
+        className={cn("w-full", inputGroupSizeClasses[size])}
+      >
+        <ComboboxPrimitive.Input
+          ref={ref}
+          id={inputId}
+          placeholder={placeholder}
+          aria-invalid={ariaInvalid}
+          aria-describedby={ariaDescribedBy}
+          render={<InputGroupInput disabled={disabled} />}
+        />
+        <InputGroupAddon align="end" className="h-full py-0 gap-0.5 pr-1">
+          {/*
+            ComboboxClear exposes data-visible when it has a value to clear.
+            We use group-has-[[data-slot=combobox-clear][data-visible]] to hide Chevron
+            when Clear is visible — no manual hasValue tracking needed.
+          */}
+          <ComboboxTrigger
+            className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden"
+            disabled={disabled}
           />
-          <InputGroupAddon align="end">
-            <ComboboxTrigger
-              className="flex h-full cursor-default items-center justify-center px-2.5 outline-none group-has-data-[slot=combobox-clear]/input-group:hidden disabled:cursor-not-allowed disabled:opacity-50"
-              disabled={disabled}
-            />
-            <ComboboxClear disabled={disabled} />
-          </InputGroupAddon>
-        </InputGroup>
-      </div>
+          <ComboboxClear disabled={disabled} />
+        </InputGroupAddon>
+      </InputGroup>
     );
   },
 );
 ComboboxPresetInner.displayName = "ComboboxPresetInner";
+

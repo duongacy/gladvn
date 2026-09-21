@@ -268,3 +268,138 @@ test.describe('Combobox Visual Snapshots', () => {
     });
   });
 });
+
+// ============================================================
+// D1: filter={null} — library must NOT self-filter options
+// ============================================================
+test.describe('Combobox — No Implicit Filtering', () => {
+  test('filter={null} renders all options regardless of input text', async ({ mount, page }) => {
+    const component = await mount(
+      <Combobox items={MOCK_ITEMS} filter={null} defaultOpen>
+        <InputGroup>
+          <ComboboxInput id="test-filter-input" />
+        </InputGroup>
+        <ComboboxContent>
+          <ComboboxEmpty>No results.</ComboboxEmpty>
+          <ComboboxList>
+            {MOCK_ITEMS.map((item) => (
+              <ComboboxItem key={item.id} value={item.label}>
+                {item.label}
+              </ComboboxItem>
+            ))}
+          </ComboboxList>
+        </ComboboxContent>
+      </Combobox>
+    );
+
+    const input = component.locator('#test-filter-input');
+    await input.fill('xyz'); // text that matches nothing
+
+    // All 3 items must still be visible — library must not filter them out
+    await expect(page.getByRole('option', { name: 'Apple' })).toBeVisible();
+    await expect(page.getByRole('option', { name: 'Banana' })).toBeVisible();
+    await expect(page.getByRole('option', { name: 'Cherry' })).toBeVisible();
+
+    // EmptyState must NOT appear
+    await expect(page.getByText('No results.')).not.toBeVisible();
+  });
+});
+
+// ============================================================
+// D2: Multi-select onValueChange returns string[]
+// ============================================================
+test.describe('Combobox — Multi-select API', () => {
+  test('multiple mode fires onValueChange with string[]', async ({ mount, page }) => {
+    const values: string[][] = [];
+
+    await mount(
+      <Combobox
+        items={MOCK_ITEMS}
+        multiple
+        filter={null}
+        defaultOpen
+        onValueChange={(v) => values.push(v as string[])}
+      >
+        <ComboboxChips>
+          <ComboboxChipsInput id="multi-input" placeholder="Pick items..." />
+        </ComboboxChips>
+        <ComboboxContent>
+          <ComboboxList>
+            {MOCK_ITEMS.map((item) => (
+              <ComboboxItem key={item.id} value={item.label}>
+                {item.label}
+              </ComboboxItem>
+            ))}
+          </ComboboxList>
+        </ComboboxContent>
+      </Combobox>
+    );
+
+    await page.getByRole('option', { name: 'Apple' }).click();
+    await page.getByRole('option', { name: 'Banana' }).click();
+
+    // After 2 selections, last value should be an array with 2 entries
+    expect(values[values.length - 1]).toEqual(expect.arrayContaining(['Apple', 'Banana']));
+    expect(Array.isArray(values[values.length - 1])).toBe(true);
+  });
+});
+
+// ============================================================
+// D3: aria-describedby links input to error message
+// ============================================================
+test.describe('Combobox — A11y: aria-describedby', () => {
+  test('input aria-describedby links to error element id', async ({ mount }) => {
+    const component = await mount(
+      <div>
+        <Combobox items={MOCK_ITEMS} filter={null}>
+          <InputGroup>
+            <ComboboxInput
+              id="a11y-input"
+              aria-invalid={true}
+              aria-describedby="a11y-error"
+            />
+          </InputGroup>
+          <ComboboxContent>
+            <ComboboxList>
+              {MOCK_ITEMS.map((item) => (
+                <ComboboxItem key={item.id} value={item.label}>{item.label}</ComboboxItem>
+              ))}
+            </ComboboxList>
+          </ComboboxContent>
+        </Combobox>
+        <div id="a11y-error" role="alert">Field is required.</div>
+      </div>
+    );
+
+    const input = component.locator('#a11y-input');
+    await expect(input).toHaveAttribute('aria-describedby', 'a11y-error');
+    await expect(input).toHaveAttribute('aria-invalid', 'true');
+  });
+});
+
+// ============================================================
+// D4: ChipRemove has accessible aria-label
+// ============================================================
+test.describe('Combobox — A11y: ChipRemove aria-label', () => {
+  test('chip remove button has descriptive aria-label', async ({ mount }) => {
+    const component = await mount(
+      <Combobox items={MOCK_ITEMS} multiple filter={null} defaultValue={['Apple']}>
+        <ComboboxChips>
+          <ComboboxChip value="Apple" removeLabel="Remove Apple">Apple</ComboboxChip>
+          <ComboboxChipsInput placeholder="Add..." />
+        </ComboboxChips>
+        <ComboboxContent>
+          <ComboboxList>
+            {MOCK_ITEMS.map((item) => (
+              <ComboboxItem key={item.id} value={item.label}>{item.label}</ComboboxItem>
+            ))}
+          </ComboboxList>
+        </ComboboxContent>
+      </Combobox>
+    );
+
+    const removeButton = component.getByRole('button', { name: 'Remove Apple' });
+    await expect(removeButton).toBeVisible();
+    await expect(removeButton).toHaveAttribute('aria-label', 'Remove Apple');
+  });
+});

@@ -61,6 +61,8 @@ const DialogPreset = React.forwardRef<HTMLDivElement, DialogPresetProps>(
               }
             )}
           >
+            {!title && <DialogTitle className="sr-only">Dialog</DialogTitle>}
+
             {(title || description) && (
               <DialogHeader className="shrink-0 p-4 pb-0">
                 {title && <DialogTitle>{title}</DialogTitle>}
@@ -91,7 +93,7 @@ const DialogPreset = React.forwardRef<HTMLDivElement, DialogPresetProps>(
                   />
                 }
               >
-                <XIcon />
+                <XIcon aria-hidden="true" />
                 <span className="sr-only">Close</span>
               </DialogClose>
             )}

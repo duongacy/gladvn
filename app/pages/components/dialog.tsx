@@ -27,13 +27,6 @@ function useDialogExamples() {
   const t = useI18n();
   const { size: globalSize } = useDevContext();
 
-  const contentClass =
-    globalSize === "sm"
-      ? "sm:max-w-md"
-      : globalSize === "md"
-        ? "sm:max-w-lg"
-        : "sm:max-w-xl";
-
   return React.useMemo(
     () => [
       {
@@ -79,15 +72,17 @@ function useDialogExamples() {
   <DialogTrigger
     render={<Button variant="outline">Upgrade Plan</Button>}
   />
-  <DialogContent className="sm:max-w-md">
-    <DialogHeader>
+  <DialogContent className="sm:max-w-lg flex flex-col gap-0 p-0 overflow-hidden">
+    <DialogHeader className="shrink-0 p-4 pb-0">
       <DialogTitle>Update Subscription</DialogTitle>
       <DialogDescription>
         Are you sure you want to upgrade your plan to
         Pro? This will charge your card immediately.
       </DialogDescription>
     </DialogHeader>
-    <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
+    <div className="flex-1 min-h-0 overflow-y-auto p-4">
+    </div>
+    <DialogFooter className="shrink-0 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
       <DialogClose render={<Button variant="ghost" />}>
         Cancel
       </DialogClose>
@@ -112,15 +107,25 @@ function useDialogExamples() {
                 </Button>
               }
             />
-            <DialogContent className={contentClass}>
-              <DialogHeader>
+            <DialogContent
+              className={cn(
+                "flex flex-col gap-0 p-0 overflow-hidden",
+                {
+                  "sm:max-w-md": globalSize === "sm",
+                  "sm:max-w-lg": globalSize === "md",
+                  "sm:max-w-xl": globalSize === "lg",
+                }
+              )}
+            >
+              <DialogHeader className="shrink-0 p-4 pb-0">
                 <DialogTitle>Update Subscription</DialogTitle>
                 <DialogDescription>
                   Are you sure you want to upgrade your plan to Pro? This will
                   charge your card immediately.
                 </DialogDescription>
               </DialogHeader>
-              <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
+              <div className="flex-1 min-h-0 overflow-y-auto p-4"></div>
+              <DialogFooter className="shrink-0 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
                 <DialogClose render={<Button variant="ghost" size={globalSize} />}>
                   Cancel
                 </DialogClose>
@@ -212,24 +217,26 @@ function useDialogExamples() {
   <DialogTrigger
     render={<Button variant="outline">Edit profile</Button>}
   />
-  <DialogContent className="sm:max-w-md">
-    <DialogHeader>
+  <DialogContent className="sm:max-w-lg flex flex-col gap-0 p-0 overflow-hidden">
+    <DialogHeader className="shrink-0 p-4 pb-0">
       <DialogTitle>Edit profile</DialogTitle>
       <DialogDescription>
         Make changes to your profile here. Click save when you're done.
       </DialogDescription>
     </DialogHeader>
-    <div className="grid gap-4 py-4">
-      <div className="grid grid-cols-4 items-center gap-4">
-        <Label htmlFor="name" className="text-right">Name</Label>
-        <Input id="name" defaultValue="Pedro Duarte" className="col-span-3" />
-      </div>
-      <div className="grid grid-cols-4 items-center gap-4">
-        <Label htmlFor="username" className="text-right">Username</Label>
-        <Input id="username" defaultValue="@peduarte" className="col-span-3" />
+    <div className="flex-1 min-h-0 overflow-y-auto p-4">
+      <div className="grid gap-4 py-4">
+        <div className="grid grid-cols-4 items-center gap-4">
+          <Label htmlFor="name" className="text-right">Name</Label>
+          <Input id="name" defaultValue="Pedro Duarte" className="col-span-3" />
+        </div>
+        <div className="grid grid-cols-4 items-center gap-4">
+          <Label htmlFor="username" className="text-right">Username</Label>
+          <Input id="username" defaultValue="@peduarte" className="col-span-3" />
+        </div>
       </div>
     </div>
-    <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
+    <DialogFooter className="shrink-0 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
       <Button type="submit">Save changes</Button>
     </DialogFooter>
     <DialogClose
@@ -251,37 +258,48 @@ function useDialogExamples() {
                 </Button>
               }
             />
-            <DialogContent className={contentClass}>
-              <DialogHeader>
+            <DialogContent
+              className={cn(
+                "flex flex-col gap-0 p-0 overflow-hidden",
+                {
+                  "sm:max-w-md": globalSize === "sm",
+                  "sm:max-w-lg": globalSize === "md",
+                  "sm:max-w-xl": globalSize === "lg",
+                }
+              )}
+            >
+              <DialogHeader className="shrink-0 p-4 pb-0">
                 <DialogTitle>Edit profile</DialogTitle>
                 <DialogDescription>
                   Make changes to your profile here. Click save when you're
                   done.
                 </DialogDescription>
               </DialogHeader>
-              <div className="grid gap-4 py-4">
-                <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="name" className="text-right">
-                    Name
-                  </Label>
-                  <Input
-                    id="name"
-                    defaultValue="Pedro Duarte"
-                    className="col-span-3"
-                  />
-                </div>
-                <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="username" className="text-right">
-                    Username
-                  </Label>
-                  <Input
-                    id="username"
-                    defaultValue="@peduarte"
-                    className="col-span-3"
-                  />
+              <div className="flex-1 min-h-0 overflow-y-auto p-4">
+                <div className="grid gap-4 py-4">
+                  <div className="grid grid-cols-4 items-center gap-4">
+                    <Label htmlFor="name" className="text-right">
+                      Name
+                    </Label>
+                    <Input
+                      id="name"
+                      defaultValue="Pedro Duarte"
+                      className="col-span-3"
+                    />
+                  </div>
+                  <div className="grid grid-cols-4 items-center gap-4">
+                    <Label htmlFor="username" className="text-right">
+                      Username
+                    </Label>
+                    <Input
+                      id="username"
+                      defaultValue="@peduarte"
+                      className="col-span-3"
+                    />
+                  </div>
                 </div>
               </div>
-              <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
+              <DialogFooter className="shrink-0 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
                 <Button type="submit" size={globalSize}>
                   Save changes
                 </Button>
@@ -355,17 +373,19 @@ function useDialogExamples() {
   <DialogTrigger
     render={<Button variant="outline">View Terms</Button>}
   />
-  <DialogContent className="sm:max-w-md">
-    <DialogHeader>
+  <DialogContent className="sm:max-w-lg flex flex-col gap-0 p-0 overflow-hidden">
+    <DialogHeader className="shrink-0 p-4 pb-0">
       <DialogTitle>Terms of Service</DialogTitle>
       <DialogDescription>
         You must accept the new terms to continue using the application.
       </DialogDescription>
     </DialogHeader>
-    <p className="text-sm text-muted-foreground">
-      By selecting accept, you agree to our Terms of Service and Privacy Policy.
-    </p>
-    <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
+    <div className="flex-1 min-h-0 overflow-y-auto p-4">
+      <p className="text-sm text-muted-foreground">
+        By selecting accept, you agree to our Terms of Service and Privacy Policy.
+      </p>
+    </div>
+    <DialogFooter className="shrink-0 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
       <DialogClose render={<Button variant="outline" />}>
         Decline
       </DialogClose>
@@ -382,17 +402,28 @@ function useDialogExamples() {
                 </Button>
               }
             />
-            <DialogContent className={contentClass}>
-              <DialogHeader>
+            <DialogContent
+              className={cn(
+                "flex flex-col gap-0 p-0 overflow-hidden",
+                {
+                  "sm:max-w-md": globalSize === "sm",
+                  "sm:max-w-lg": globalSize === "md",
+                  "sm:max-w-xl": globalSize === "lg",
+                }
+              )}
+            >
+              <DialogHeader className="shrink-0 p-4 pb-0">
                 <DialogTitle>Terms of Service</DialogTitle>
                 <DialogDescription>
                   You must accept the new terms to continue using the application.
                 </DialogDescription>
               </DialogHeader>
-              <p className="text-sm text-muted-foreground">
-                By selecting accept, you agree to our Terms of Service and Privacy Policy.
-              </p>
-              <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
+              <div className="flex-1 min-h-0 overflow-y-auto p-4">
+                <p className="text-sm text-muted-foreground">
+                  By selecting accept, you agree to our Terms of Service and Privacy Policy.
+                </p>
+              </div>
+              <DialogFooter className="shrink-0 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
                 <DialogClose render={<Button variant="outline" size={globalSize} />}>
                   Decline
                 </DialogClose>
@@ -441,19 +472,21 @@ function useDialogExamples() {
   <DialogTrigger
     render={<Button variant="outline">View Report</Button>}
   />
-  <DialogContent className="sm:max-w-lg">
-    <DialogHeader>
+  <DialogContent className="sm:max-w-lg flex flex-col gap-0 p-0 overflow-hidden">
+    <DialogHeader className="shrink-0 p-4 pb-0">
       <DialogTitle>Detailed Report</DialogTitle>
       <DialogDescription>
         Monthly analysis and performance overview.
       </DialogDescription>
     </DialogHeader>
-    <div className="flex h-50 items-center justify-center rounded-md border border-border border-dashed bg-muted/20">
-      <span className="text-sm text-muted-foreground">
-        Large Content Area
-      </span>
+    <div className="flex-1 min-h-0 overflow-y-auto p-4">
+      <div className="flex h-50 items-center justify-center rounded-md border border-border border-dashed bg-muted/20">
+        <span className="text-sm text-muted-foreground">
+          Large Content Area
+        </span>
+      </div>
     </div>
-    <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
+    <DialogFooter className="shrink-0 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
       <Button>Download PDF</Button>
     </DialogFooter>
     <DialogClose
@@ -475,19 +508,30 @@ function useDialogExamples() {
                 </Button>
               }
             />
-            <DialogContent className={contentClass}>
-              <DialogHeader>
+            <DialogContent
+              className={cn(
+                "flex flex-col gap-0 p-0 overflow-hidden",
+                {
+                  "sm:max-w-md": globalSize === "sm",
+                  "sm:max-w-lg": globalSize === "md",
+                  "sm:max-w-xl": globalSize === "lg",
+                }
+              )}
+            >
+              <DialogHeader className="shrink-0 p-4 pb-0">
                 <DialogTitle>Detailed Report</DialogTitle>
                 <DialogDescription>
                   Monthly analysis and performance overview.
                 </DialogDescription>
               </DialogHeader>
-              <div className="flex h-50 items-center justify-center rounded-md border border-border border-dashed bg-muted/20">
-                <span className="text-sm text-muted-foreground">
-                  Large Content Area
-                </span>
+              <div className="flex-1 min-h-0 overflow-y-auto p-4">
+                <div className="flex h-50 items-center justify-center rounded-md border border-border border-dashed bg-muted/20">
+                  <span className="text-sm text-muted-foreground">
+                    Large Content Area
+                  </span>
+                </div>
               </div>
-              <DialogFooter className="-mx-4 -mb-4 mt-4 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
+              <DialogFooter className="shrink-0 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
                 <Button size={globalSize}>Download PDF</Button>
               </DialogFooter>
               <DialogClose
@@ -572,7 +616,7 @@ function useDialogExamples() {
   <DialogTrigger
     render={<Button variant="outline">View Long Content</Button>}
   />
-  <DialogContent className="sm:max-w-md flex flex-col gap-0 p-0 overflow-hidden">
+  <DialogContent className="sm:max-w-lg flex flex-col gap-0 p-0 overflow-hidden">
     <DialogHeader className="shrink-0 p-4 pb-0">
       <DialogTitle>Terms & Conditions</DialogTitle>
       <DialogDescription>
@@ -622,8 +666,12 @@ function useDialogExamples() {
             />
             <DialogContent
               className={cn(
-                contentClass,
-                "flex flex-col gap-0 p-0 overflow-hidden"
+                "flex flex-col gap-0 p-0 overflow-hidden",
+                {
+                  "sm:max-w-md": globalSize === "sm",
+                  "sm:max-w-lg": globalSize === "md",
+                  "sm:max-w-xl": globalSize === "lg",
+                }
               )}
             >
               <DialogHeader className="shrink-0 p-4 pb-0">
@@ -672,7 +720,7 @@ function useDialogExamples() {
         ),
       },
     ],
-    [globalSize, contentClass, t]
+    [globalSize, t]
   );
 }
 

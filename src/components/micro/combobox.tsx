@@ -141,6 +141,10 @@ const comboboxTriggerSizes: Record<Size, string> = {
   lg: "h-9 gap-2 px-3 py-1.5 text-sm",
 };
 
+/**
+ * Standalone Select-style trigger button.
+ * Always wrap children with <ComboboxValue>.
+ */
 function ComboboxTrigger({
   className,
   children,
@@ -149,34 +153,49 @@ function ComboboxTrigger({
 }: ComboboxTriggerProps) {
   useComboboxSizeContext("ComboboxTrigger");
 
-  const isStandalone = children !== undefined;
-
   return (
     <ComboboxPrimitive.Trigger
       data-slot="combobox-trigger"
       className={cn(
-        isStandalone
-          ? cn(
-            "inline-flex w-full items-center justify-between rounded-lg border border-input bg-transparent text-foreground whitespace-nowrap transition-colors outline-none select-none hover:bg-accent/50 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive dark:bg-input/30 [:where(&>svg)]:pointer-events-none [:where(&>svg)]:shrink-0 [:where(&>svg)]:size-4 [&_[data-slot=combobox-value]]:line-clamp-1 [&_[data-slot=combobox-value]]:flex [&_[data-slot=combobox-value]]:items-center data-placeholder:text-muted-foreground",
-            comboboxTriggerSizes[size],
-          )
-          : cn(
-            // Embedded inside InputGroup — no default size, all via :where() context
-            "flex shrink-0 items-center justify-center rounded-sm text-muted-foreground outline-none transition-colors hover:text-foreground disabled:cursor-not-allowed disabled:opacity-50 [:where(&>svg)]:size-4",
-            // ── Contextual Sizing (specificity = 0) ─────────────────────────
-            // sm
-            "[:where([data-slot=combobox][data-size=sm]_&)]:size-5.5",
-            "[:where([data-slot=combobox][data-size=sm]_&>svg)]:size-3.5",
-            // md
-            "[:where([data-slot=combobox][data-size=md]_&)]:size-6.5",
-            // lg
-            "[:where([data-slot=combobox][data-size=lg]_&)]:size-7",
-          ),
+        "inline-flex w-full items-center justify-between rounded-lg border border-input bg-transparent text-foreground whitespace-nowrap transition-colors outline-none select-none hover:bg-accent/50 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-offset-1 focus-visible:ring-offset-background disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:ring-3 aria-invalid:focus-visible:ring-destructive/50 dark:bg-input/30 dark:aria-invalid:border-destructive/50 dark:aria-invalid:focus-visible:ring-destructive/50 [:where(&>svg)]:pointer-events-none [:where(&>svg)]:shrink-0 [:where(&>svg)]:size-4 [&_[data-slot=combobox-value]]:line-clamp-1 [&_[data-slot=combobox-value]]:flex [&_[data-slot=combobox-value]]:items-center data-placeholder:text-muted-foreground",
+        comboboxTriggerSizes[size],
         className,
       )}
       {...props}
     >
       {children}
+      <ChevronDownIcon aria-hidden="true" focusable="false" className="pointer-events-none size-4" />
+    </ComboboxPrimitive.Trigger>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// ComboboxDropdownIcon
+// ---------------------------------------------------------------------------
+
+/**
+ * Embedded chevron icon trigger for use inside InputGroup addons.
+ * Does NOT accept children — use ComboboxTrigger for standalone buttons.
+ */
+type ComboboxDropdownIconProps = Omit<ComboboxPrimitive.Trigger.Props, "children">;
+
+function ComboboxDropdownIcon({ className, ...props }: ComboboxDropdownIconProps) {
+  useComboboxSizeContext("ComboboxDropdownIcon");
+
+  return (
+    <ComboboxPrimitive.Trigger
+      data-slot="combobox-dropdown-icon"
+      className={cn(
+        "flex shrink-0 items-center justify-center rounded-sm text-muted-foreground outline-none transition-colors hover:text-foreground disabled:cursor-not-allowed disabled:opacity-50 [:where(&>svg)]:size-4",
+        // ── Contextual Sizing via parent data-size (specificity = 0) ────────
+        "[:where([data-slot=combobox][data-size=sm]_&)]:size-5.5",
+        "[:where([data-slot=combobox][data-size=sm]_&>svg)]:size-3.5",
+        "[:where([data-slot=combobox][data-size=md]_&)]:size-6.5",
+        "[:where([data-slot=combobox][data-size=lg]_&)]:size-7",
+        className,
+      )}
+      {...props}
+    >
       <ChevronDownIcon aria-hidden="true" focusable="false" className="pointer-events-none size-4" />
     </ComboboxPrimitive.Trigger>
   );
@@ -233,11 +252,13 @@ function ComboboxInput({ className, size = "md", ...props }: ComboboxInputProps)
       className={cn(
         "flex w-full rounded-md border border-input bg-transparent shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
         comboboxInputSizes[size],
-        "group-data-[slot=input-group]/input-group:border-0",
-        "group-data-[slot=input-group]/input-group:shadow-none",
-        "group-data-[slot=input-group]/input-group:h-auto",
-        "group-data-[slot=input-group]/input-group:rounded-none",
-        "group-data-[slot=input-group]/input-group:focus-visible:ring-0",
+        // When inside InputGroup — strip standalone styles so InputGroup's border/focus ring takes over
+        "[[data-slot=input-group]_&]:border-0",
+        "[[data-slot=input-group]_&]:shadow-none",
+        "[[data-slot=input-group]_&]:rounded-none",
+        "[[data-slot=input-group]_&]:h-auto",
+        "[[data-slot=input-group]_&]:focus-visible:ring-0",
+        "[[data-slot=input-group]_&]:focus-visible:outline-none",
         className,
       )}
       {...props}
@@ -428,7 +449,7 @@ function ComboboxSeparator({
 // ---------------------------------------------------------------------------
 
 const comboboxChipsVariants = cva(
-  "group/combobox-chips flex flex-wrap items-center gap-1 rounded-lg border border-input bg-transparent bg-clip-padding transition-colors focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/50 has-aria-invalid:border-destructive has-aria-invalid:focus-within:ring-3 has-aria-invalid:focus-within:ring-destructive/20 has-[[data-slot=combobox-chip]]:px-1 dark:bg-input/30 dark:has-aria-invalid:border-destructive/50 dark:has-aria-invalid:focus-within:ring-destructive/40 has-disabled:opacity-50 has-disabled:cursor-not-allowed has-disabled:pointer-events-none",
+  "group/combobox-chips flex flex-wrap items-center gap-1 rounded-lg border border-input bg-transparent bg-clip-padding transition-colors focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/50 focus-within:ring-offset-1 focus-within:ring-offset-background has-aria-invalid:border-destructive has-aria-invalid:focus-within:ring-3 has-aria-invalid:focus-within:ring-destructive/20 has-[[data-slot=combobox-chip]]:px-1 dark:bg-input/30 dark:has-aria-invalid:border-destructive/50 dark:has-aria-invalid:focus-within:ring-destructive/40 has-disabled:opacity-50 has-disabled:cursor-not-allowed has-disabled:pointer-events-none",
   {
     variants: {
       size: {
@@ -566,6 +587,7 @@ export {
   ComboboxClear,
   ComboboxCollection,
   ComboboxContent,
+  ComboboxDropdownIcon,
   ComboboxEmpty,
   ComboboxGroup,
   ComboboxInput,

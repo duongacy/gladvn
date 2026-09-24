@@ -14,6 +14,7 @@ import {
   ComboboxClear,
   ComboboxCollection,
   ComboboxContent,
+  ComboboxDropdownIcon,
   ComboboxEmpty,
   ComboboxGroup,
   ComboboxInput,
@@ -211,7 +212,7 @@ function useComboboxExamples() {
             render={<InputGroupInput />}
           />
           <InputGroupAddon align="end" className="h-full py-0 gap-0.5 pr-1">
-            <ComboboxTrigger className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden" />
+            <ComboboxDropdownIcon className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden" />
             <ComboboxClear />
           </InputGroupAddon>
         </InputGroup>
@@ -248,7 +249,7 @@ function useComboboxExamples() {
                       render={<InputGroupInput />}
                     />
                     <InputGroupAddon align="end" className="h-full py-0 gap-0.5 pr-1">
-                      <ComboboxTrigger className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden disabled:cursor-not-allowed disabled:opacity-50" />
+                    <ComboboxDropdownIcon className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden" />
                       <ComboboxClear />
                     </InputGroupAddon>
                   </InputGroup>
@@ -292,7 +293,7 @@ function useComboboxExamples() {
             render={<InputGroupInput />}
           />
           <InputGroupAddon align="end" className="h-full py-0 gap-0.5 pr-1">
-            <ComboboxTrigger className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden" />
+            <ComboboxDropdownIcon className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden" />
             <ComboboxClear />
           </InputGroupAddon>
         </InputGroup>
@@ -337,7 +338,7 @@ function useComboboxExamples() {
                       render={<InputGroupInput />}
                     />
                     <InputGroupAddon align="end" className="h-full py-0 gap-0.5 pr-1">
-                      <ComboboxTrigger className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden" />
+                    <ComboboxDropdownIcon className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden" />
                       <ComboboxClear />
                     </InputGroupAddon>
                   </InputGroup>
@@ -503,7 +504,7 @@ function useComboboxExamples() {
         <InputGroup className="w-full">
           <ComboboxInput id="combobox-timezone" placeholder="Select timezone..." render={<InputGroupInput />} />
           <InputGroupAddon align="end" className="h-full py-0 gap-0.5 pr-1">
-            <ComboboxTrigger className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden disabled:opacity-50" />
+            <ComboboxDropdownIcon className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden" />
             <ComboboxClear />
           </InputGroupAddon>
         </InputGroup>
@@ -538,7 +539,7 @@ function useComboboxExamples() {
                       render={<InputGroupInput />}
                     />
                     <InputGroupAddon align="end" className="h-full py-0 gap-0.5 pr-1">
-                      <ComboboxTrigger className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden disabled:cursor-not-allowed disabled:opacity-50" />
+                    <ComboboxDropdownIcon className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden" />
                       <ComboboxClear />
                     </InputGroupAddon>
                   </InputGroup>
@@ -579,7 +580,7 @@ function useComboboxExamples() {
             render={<InputGroupInput />}
           />
           <InputGroupAddon align="end" className="h-full py-0 gap-0.5 pr-1">
-            <ComboboxTrigger className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden" />
+            <ComboboxDropdownIcon className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden" />
             <ComboboxClear />
           </InputGroupAddon>
         </InputGroup>
@@ -617,7 +618,7 @@ function useComboboxExamples() {
                       render={<InputGroupInput />}
                     />
                     <InputGroupAddon align="end" className="h-full py-0 gap-0.5 pr-1">
-                      <ComboboxTrigger className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden" />
+                    <ComboboxDropdownIcon className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden" />
                       <ComboboxClear />
                     </InputGroupAddon>
                   </InputGroup>
@@ -680,7 +681,7 @@ function useComboboxExamples() {
             render={<InputGroupInput />}
           />
           <InputGroupAddon align="end" className="h-full py-0 gap-0.5 pr-1">
-            <ComboboxTrigger className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden" />
+            <ComboboxDropdownIcon className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden" />
             <ComboboxClear />
           </InputGroupAddon>
         </InputGroup>
@@ -713,7 +714,7 @@ function useComboboxExamples() {
                       render={<InputGroupInput />}
                     />
                     <InputGroupAddon align="end" className="h-full py-0 gap-0.5 pr-1">
-                      <ComboboxTrigger className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden disabled:cursor-not-allowed disabled:opacity-50" />
+                    <ComboboxDropdownIcon className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden" />
                       <ComboboxClear />
                     </InputGroupAddon>
                   </InputGroup>
@@ -777,10 +778,7 @@ function useComboboxExamples() {
             render={<InputGroupInput disabled />}
           />
           <InputGroupAddon align="end" className="h-full py-0 gap-0.5 pr-1">
-            <ComboboxTrigger
-              className="disabled:cursor-not-allowed disabled:opacity-50"
-              disabled
-            />
+            <ComboboxDropdownIcon disabled />
           </InputGroupAddon>
         </InputGroup>
       </ComboboxAnchor>
@@ -807,10 +805,7 @@ function useComboboxExamples() {
                       render={<InputGroupInput disabled />}
                     />
                     <InputGroupAddon align="end" className="h-full py-0 gap-0.5 pr-1">
-                      <ComboboxTrigger
-                        className="disabled:cursor-not-allowed disabled:opacity-50"
-                        disabled
-                      />
+                      <ComboboxDropdownIcon disabled />
                     </InputGroupAddon>
                   </InputGroup>
                 </ComboboxAnchor>

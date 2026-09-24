@@ -8,12 +8,13 @@ import {
   ComboboxChips,
   ComboboxChipsInput,
   ComboboxClear,
+  ComboboxCollection,
   ComboboxContent,
+  ComboboxDropdownIcon,
   ComboboxEmpty,
   ComboboxGroup,
   ComboboxItem,
   ComboboxList,
-  ComboboxTrigger,
   useComboboxContext,
 } from "../../components/micro/combobox";
 import { Combobox as ComboboxPrimitive } from "@base-ui/react";
@@ -144,15 +145,17 @@ const ComboboxPreset = React.forwardRef<HTMLInputElement, ComboboxPresetProps>(
               <ComboboxEmpty>{emptyText}</ComboboxEmpty>
               <ComboboxList>
                 <ComboboxGroup>
-                  {options.map((option) => (
-                    <ComboboxItem
-                      key={option.value}
-                      value={option.value}
-                      disabled={option.disabled}
-                    >
-                      {option.label}
-                    </ComboboxItem>
-                  ))}
+                  <ComboboxCollection>
+                    {(option: ComboboxOption) => (
+                      <ComboboxItem
+                        key={option.value}
+                        value={option.value}
+                        disabled={option.disabled}
+                      >
+                        {option.label}
+                      </ComboboxItem>
+                    )}
+                  </ComboboxCollection>
                 </ComboboxGroup>
               </ComboboxList>
             </ComboboxContent>
@@ -264,7 +267,7 @@ const ComboboxPresetInner = React.forwardRef<
             We use group-has-[[data-slot=combobox-clear][data-visible]] to hide Chevron
             when Clear is visible — no manual hasValue tracking needed.
           */}
-          <ComboboxTrigger
+          <ComboboxDropdownIcon
             className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden"
             disabled={disabled}
           />

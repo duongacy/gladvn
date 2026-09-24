@@ -25,23 +25,22 @@ Tiến độ review và chuẩn hoá các components theo `AGENTS.md`.
 - [x] Field
 - [x] InputGroup
 - [x] InputOTP
+- [x] Confirm
+- [x] RadioGroup
+- [x] Migrate `.agents/prompts/full-sonnet-prompts.md`
 
 ## ⏳ Chờ xử lý (To-do)
 > Sẽ bốc dần từng batch từ `src/components/micro/`
 
 - [ ] Chart
 - [ ] Command
-- [x] Confirm
 - [ ] ContextMenu
 
 - [ ] Direction
 - [ ] Drawer
 - [ ] DropdownMenu
 - [ ] Empty
-- [ ] Field
 - [ ] HoverCard
-- [ ] InputGroup
-- [ ] InputOTP
 - [ ] Input
 - [ ] Item
 - [ ] Kbd
@@ -51,7 +50,6 @@ Tiến độ review và chuẩn hoá các components theo `AGENTS.md`.
 - [ ] Pagination
 - [ ] Popover
 - [ ] Progress
-- [ ] RadioGroup
 - [ ] Select
 - [ ] Sheet
 - [ ] Sidebar

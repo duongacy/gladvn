@@ -1,45 +1,54 @@
-import { PaletteIcon } from "lucide-react";
-import { ColorSwatch } from "~app/components/showcase";
-import { COLORS } from "~app/config/data";
-import { Container } from "~app/components/Container";
+import { COLORS, COLOR_INFO } from "~app/config/data";
+import { cn } from "@/lib/utils";
 import { useI18n } from "~app/components/dev-context";
+
+const bgColorMap: Record<(typeof COLORS)[number], string> = {
+  primary: "bg-primary",
+  secondary: "bg-secondary",
+  destructive: "bg-destructive",
+  warning: "bg-warning",
+  success: "bg-success",
+  info: "bg-info",
+  tertiary: "bg-tertiary",
+};
 
 export function ColorPaletteSection({ className }: { className?: string }) {
   const t = useI18n();
   return (
-    <Container as="section" className={className}>
-      <div className="rounded-[2.5rem] border border-border bg-card/30 p-10 md:p-16 shadow-xl relative overflow-hidden group">
-        <div className="absolute -top-10 -right-10 p-8 opacity-5 pointer-events-none group-hover:rotate-12 group-hover:scale-125 transition-all duration-1000">
-          <PaletteIcon className="size-64 md:size-100" />
-        </div>
+    <section className={cn("w-full", className)}>
+      <h2 className="font-serif text-4xl sm:text-5xl font-black mb-8 text-foreground tracking-tighter leading-tight">
+        {t("Appendix: OKLCH Color Space", "Appendix: OKLCH Color Space")}
+      </h2>
+      <p className="text-lg leading-[1.8] text-muted-foreground mb-10">
+        {t(
+          "Mọi token màu sắc được tính toán trên không gian OKLCH, đảm bảo chuyển sắc mượt mà và duy trì tỷ lệ tương phản WCAG AA/AAA trên cả hai giao diện sáng/tối mà không cần định nghĩa thủ công từng dải màu.",
+          "All color tokens are calculated in the OKLCH space, ensuring smooth gradients and maintaining WCAG AA/AAA contrast ratios on both light/dark themes without manually defining every color scale."
+        )}
+      </p>
 
-        <div className="relative z-10 max-w-3xl mb-14 space-y-5">
-          <h3 className="text-3xl md:text-5xl font-extrabold tracking-tight">
-            {t("Không gian màu OKLCH", "OKLCH Color Space")}
-          </h3>
-          <p className="text-muted-foreground text-xl leading-relaxed">
-            {t(
-              "Mọi token màu sắc được tính trên không gian OKLCH — chuyển sắc mượt, tương phản đạt WCAG AA/AAA trên mọi theme mà không cần định nghĩa thủ công từng dải màu.",
-              "All color tokens are calculated in the OKLCH space — smooth gradients, WCAG AA/AAA contrast on all themes without manually defining every color scale."
-            )}
-          </p>
-        </div>
-
-        <div className="relative z-10 flex flex-wrap gap-6 md:gap-8 justify-center">
-          {COLORS.map((c, i) => (
-            <div
-              key={c}
-              className="animate-fade-up"
-              style={{
-                animationDelay: `${i * 50}ms`,
-                animationFillMode: "both"
-              }}
-            >
-              <ColorSwatch color={c} />
-            </div>
-          ))}
-        </div>
+      {/* Render an academic-looking table for the color palette */}
+      <div className="overflow-x-auto">
+        <table className="w-full text-left text-sm border-collapse">
+          <thead>
+            <tr className="border-b-2 border-foreground">
+              <th className="py-3 font-semibold text-foreground w-32">{t("Mẫu", "Sample")}</th>
+              <th className="py-3 font-semibold text-foreground">{t("Token CSS", "CSS Token")}</th>
+              <th className="py-3 font-semibold text-foreground">{t("Mục đích sử dụng", "Intended Use")}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {COLORS.map((c) => (
+              <tr key={c} className="border-b border-border">
+                <td className="py-3">
+                  <div className={cn("w-12 h-6", bgColorMap[c])} />
+                </td>
+                <td className="py-3 font-mono text-muted-foreground">var(--{c})</td>
+                <td className="py-3 capitalize text-muted-foreground">{COLOR_INFO[c].label}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
-    </Container>
+    </section>
   );
 }

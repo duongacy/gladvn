@@ -9,23 +9,27 @@ import { TragediesSection } from "./overview-components/TragediesSection";
 
 export default function OverviewSection() {
   return (
-    <div className="space-y-24 overflow-hidden pb-24 font-sans">
+    <div className="w-full max-w-4xl mx-auto px-6 pt-32 pb-24 space-y-24 font-sans overflow-x-hidden">
       <HeroSection />
 
       <DashboardPreview />
 
+      <div className="h-[6px] w-full bg-foreground" />
       <PrinciplesSection />
 
-      <section className="container max-w-6xl mx-auto space-y-12 px-4">
-        <ArchitectureSection />
+      <div className="h-[6px] w-full bg-foreground" />
+      <ArchitectureSection />
 
-        <TragediesSection />
+      <div className="h-[6px] w-full bg-foreground" />
+      <TragediesSection />
 
-        <FeatureGridSection />
-      </section>
+      <div className="h-[6px] w-full bg-foreground" />
+      <FeatureGridSection />
 
+      <div className="h-[6px] w-full bg-foreground" />
       <ColorPaletteSection />
 
+      <div className="h-[6px] w-full bg-foreground" />
       <FooterCTA />
     </div>
   );

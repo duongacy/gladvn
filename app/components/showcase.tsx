@@ -4,13 +4,47 @@ import { BookOpenIcon, CheckIcon, CopyIcon } from "lucide-react";
 import { useI18n } from "~app/components/dev-context";
 
 import { Button } from "@/components/micro/button";
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/components/micro/tabs";
 import { CodeHighlighter } from "~app/components/code-highlighter";
+
+function CustomTabsList({ children, className }: { children: React.ReactNode; className?: string }) {
+  return (
+    <div className={cn("flex w-fit items-center", className)}>
+      {children}
+    </div>
+  );
+}
+
+function CustomTabsTrigger({
+  active,
+  onClick,
+  disabled,
+  children,
+  className,
+}: {
+  active: boolean;
+  onClick: () => void;
+  disabled?: boolean;
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <button
+      type="button"
+      disabled={disabled}
+      onClick={onClick}
+      className={cn(
+        "flex h-8 items-center justify-center px-4 text-xs font-medium transition-all border -ml-[1px] first:ml-0",
+        active
+          ? "bg-foreground text-background border-foreground relative z-10"
+          : "bg-background text-muted-foreground border-border hover:bg-muted/50 hover:text-foreground relative z-0",
+        disabled && "opacity-40 cursor-not-allowed",
+        className
+      )}
+    >
+      {children}
+    </button>
+  );
+}
 import { COLORS, COLOR_INFO } from "~app/config/data";
 import { type Size } from "@/lib/types";
 import { cn } from "@/lib/utils";
@@ -50,7 +84,7 @@ export function SectionHeader({
 export function ShowcaseDocs({ children, className }: { children: React.ReactNode; className?: string }) {
   const t = useI18n();
   return (
-    <div className={cn("overflow-hidden rounded-2xl border border-amber-500/20 bg-amber-500/5 shadow-sm", className)}>
+    <div className={cn("overflow-hidden rounded-none border border-amber-500/20 bg-amber-500/5", className)}>
       <div className="flex items-center gap-2 border-b border-amber-500/20 bg-amber-500/10 px-6 py-3.5">
         <BookOpenIcon className="size-4 text-amber-700 dark:text-amber-500" />
         <h3 className="text-sm font-semibold text-amber-900 dark:text-amber-200">
@@ -135,11 +169,7 @@ export function ShowcaseExample({
   };
 
   return (
-    <Tabs
-      value={activeTab}
-      onValueChange={handleTabChange}
-      className="flex w-full flex-col gap-3"
-    >
+    <div className="flex w-full flex-col gap-3">
       <div className="flex items-start justify-between gap-4">
         <div className="flex flex-col gap-0.5">
           {title && (
@@ -152,39 +182,38 @@ export function ShowcaseExample({
           )}
         </div>
         {hasCode && (
-          <TabsList className="h-8 shrink-0">
-            <TabsTrigger value="preview" className="text-xs px-3 py-1">
+          <CustomTabsList>
+            <CustomTabsTrigger active={activeTab === "preview"} onClick={() => handleTabChange("preview")}>
               Preview
-            </TabsTrigger>
-            <TabsTrigger value="code" className="text-xs px-3 py-1">
+            </CustomTabsTrigger>
+            <CustomTabsTrigger active={activeTab === "code"} onClick={() => handleTabChange("code")}>
               Code
-            </TabsTrigger>
-          </TabsList>
+            </CustomTabsTrigger>
+          </CustomTabsList>
         )}
       </div>
 
       <div className="relative w-full">
-        <TabsContent value="preview" className="mt-0 outline-none">
+        <div hidden={activeTab !== "preview"} className="mt-0 outline-none w-full">
           <div
             className={cn(
-              "relative min-h-30 w-full rounded-2xl bg-muted/30 dark:bg-muted/20 p-4 sm:p-6",
+              "relative min-h-30 w-full rounded-none border border-border bg-muted/30 dark:bg-muted/20 p-4 sm:p-6",
               className,
             )}
           >
 
             <div className="relative z-10 w-full">{preview}</div>
           </div>
-        </TabsContent>
+        </div>
 
         {hasCode && (
-          <TabsContent value="code" className="mt-0 outline-none">
-            <div className="relative rounded-2xl bg-muted/30 dark:bg-muted/20 p-4 text-foreground overflow-clip group/code">
+          <div hidden={activeTab !== "code"} className="mt-0 outline-none w-full">
+            <div className="relative rounded-none border border-border bg-muted/30 dark:bg-muted/20 p-4 text-foreground overflow-clip group/code">
               <CodeHighlighter code={code} />
               <Button
                 size="sm"
                 iconOnly
-                variant="soft"
-                className="absolute top-4 right-4 z-10 bg-background/80 backdrop-blur-sm text-muted-foreground hover:text-foreground shadow-sm"
+                className="absolute top-4 right-4 z-10 bg-background/80 backdrop-blur-sm text-muted-foreground hover:text-foreground border border-border"
                 onClick={copyToClipboard}
               >
                 {copied ? (
@@ -194,10 +223,10 @@ export function ShowcaseExample({
                 )}
               </Button>
             </div>
-          </TabsContent>
+          </div>
         )}
       </div>
-    </Tabs>
+    </div>
   );
 }
 
@@ -265,10 +294,10 @@ const bgColorMap: Record<(typeof COLORS)[number], string> = {
 export function ColorSwatch({ color, className }: { color: (typeof COLORS)[number]; className?: string }) {
   const info = COLOR_INFO[color];
   return (
-    <div className={cn("flex flex-col items-center gap-3 p-3.5 sm:p-5 rounded-[2rem] bg-background/40 border border-border/50 shadow-sm backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/30 group", className)}>
+    <div className={cn("flex flex-col items-center gap-3 p-3.5 sm:p-5 rounded-none bg-background/40 border border-border/50 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-primary group", className)}>
       <div
         className={cn(
-          "h-12 w-12 sm:h-16 sm:w-16 rounded-2xl border border-border shadow-inner transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 group-hover:rounded-[2rem]",
+          "h-12 w-12 sm:h-16 sm:w-16 rounded-none border border-border transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 group-hover:rounded-none",
           bgColorMap[color],
         )}
       />
@@ -309,6 +338,8 @@ export function Showcase({
   const t = useI18n();
   const hasTabs = !!micro && !!macro;
 
+  const [activeRootTab, setActiveRootTab] = useState<"macro" | "micro">("macro");
+
   const [exampleStates, setExampleStates] = useState<Record<string, string>>({});
   const setExampleState = (id: string, state: string) => {
     setExampleStates(prev => ({ ...prev, [id]: state }));
@@ -344,30 +375,27 @@ export function Showcase({
 
         <div className="w-full">
           {hasTabs ? (
-            <Tabs
-              defaultValue="macro"
-              className="flex w-full flex-col gap-6"
-            >
-              <TabsList>
+            <div className="flex w-full flex-col gap-6">
+              <CustomTabsList>
                 {macro && (
-                  <TabsTrigger value="macro" className="px-4 py-1.5">
+                  <CustomTabsTrigger active={activeRootTab === "macro"} onClick={() => setActiveRootTab("macro")}>
                     Macro
-                  </TabsTrigger>
+                  </CustomTabsTrigger>
                 )}
                 {micro && (
-                  <TabsTrigger value="micro" className="px-4 py-1.5">
+                  <CustomTabsTrigger active={activeRootTab === "micro"} onClick={() => setActiveRootTab("micro")}>
                     Micro
-                  </TabsTrigger>
+                  </CustomTabsTrigger>
                 )}
-              </TabsList>
+              </CustomTabsList>
 
-              <TabsContent value="macro" className="mt-0 focus-visible:outline-none">
+              <div hidden={activeRootTab !== "macro"} className="mt-0 outline-none w-full">
                 {renderTabContent(macro)}
-              </TabsContent>
-              <TabsContent value="micro" className="mt-0 focus-visible:outline-none">
+              </div>
+              <div hidden={activeRootTab !== "micro"} className="mt-0 outline-none w-full">
                 {renderTabContent(micro)}
-              </TabsContent>
-            </Tabs>
+              </div>
+            </div>
           ) : (
             <div className="w-full pt-4">{renderTabContent(macro || micro)}</div>
           )}
@@ -388,17 +416,16 @@ export function SizeToggle({
 }) {
   const sizes: Size[] = ["sm", "md", "lg"];
   return (
-    <div className={cn("flex h-8 items-center rounded-md border border-border bg-muted/50 p-1", className)}>
+    <div className={cn("flex w-fit items-center", className)}>
       {sizes.map((size) => (
         <button
           key={size}
           onClick={() => onValueChange(size)}
           className={cn(
-            "flex items-center justify-center rounded-sm px-2.5 text-xs font-mono font-medium transition-all",
-            {
-              "bg-background text-foreground shadow-sm": value === size,
-              "text-muted-foreground hover:bg-muted hover:text-foreground": value !== size,
-            }
+            "flex h-8 items-center justify-center px-3.5 text-xs font-mono font-medium transition-all border -ml-[1px] first:ml-0",
+            value === size 
+              ? "bg-foreground text-background border-foreground relative z-10" 
+              : "bg-background text-muted-foreground border-border hover:bg-muted/50 hover:text-foreground relative z-0"
           )}
         >
           {size}
@@ -511,11 +538,7 @@ function UnifiedShowcaseExample({
   if (!preview) return null;
 
   return (
-    <Tabs
-      value={activeTab}
-      onValueChange={handleTabChange}
-      className="flex w-full flex-col gap-3"
-    >
+    <div className="flex w-full flex-col gap-3">
       <div className="flex items-start justify-between gap-4">
         <div className="flex flex-col gap-0.5">
           {title && (
@@ -528,57 +551,50 @@ function UnifiedShowcaseExample({
           )}
         </div>
         {hasAnyCode && (
-          <TabsList className="h-8 shrink-0">
-            <TabsTrigger value="preview" className="text-xs px-3 py-1">
+          <CustomTabsList>
+            <CustomTabsTrigger active={activeTab === "preview"} onClick={() => handleTabChange("preview")}>
               Preview
-            </TabsTrigger>
-            {/* Macro Code tab — always shown; disabled + strikethrough when no macroCode */}
-            <TabsTrigger
-              value="macro-code"
+            </CustomTabsTrigger>
+            <CustomTabsTrigger 
+              active={activeTab === "macro-code"} 
+              onClick={() => handleTabChange("macro-code")}
               disabled={!hasMacroCode}
-              className={cn(
-                "text-xs px-3 py-1",
-                !hasMacroCode && "line-through opacity-40 cursor-not-allowed"
-              )}
+              className={cn(!hasMacroCode && "line-through")}
             >
               Macro
-            </TabsTrigger>
-            {/* Micro Code tab — always shown; disabled + strikethrough when no microCode */}
-            <TabsTrigger
-              value="micro-code"
+            </CustomTabsTrigger>
+            <CustomTabsTrigger 
+              active={activeTab === "micro-code"} 
+              onClick={() => handleTabChange("micro-code")}
               disabled={!hasMicroCode}
-              className={cn(
-                "text-xs px-3 py-1",
-                !hasMicroCode && "line-through opacity-40 cursor-not-allowed"
-              )}
+              className={cn(!hasMicroCode && "line-through")}
             >
               Micro
-            </TabsTrigger>
-          </TabsList>
+            </CustomTabsTrigger>
+          </CustomTabsList>
         )}
       </div>
 
       <div className="relative w-full">
-        <TabsContent value="preview" className="mt-0 outline-none">
+        <div hidden={activeTab !== "preview"} className="mt-0 outline-none w-full">
           <div
             className={cn(
-              "relative min-h-30 w-full rounded-2xl bg-muted/30 dark:bg-muted/20 p-4 sm:p-6",
+              "relative min-h-30 w-full rounded-none border border-border bg-muted/30 dark:bg-muted/20 p-4 sm:p-6",
               className,
             )}
           >
             <div className="relative z-10 w-full">{preview}</div>
           </div>
-        </TabsContent>
+        </div>
 
         {hasMacroCode && (
-          <TabsContent value="macro-code" className="mt-0 outline-none">
-            <div className="relative rounded-2xl bg-muted/30 dark:bg-muted/20 p-4 text-foreground overflow-clip group/code">
+          <div hidden={activeTab !== "macro-code"} className="mt-0 outline-none w-full">
+            <div className="relative rounded-none border border-border bg-muted/30 dark:bg-muted/20 p-4 text-foreground overflow-clip group/code">
               <CodeHighlighter code={macroCode} />
               <Button
                 size="sm"
                 iconOnly
-                variant="soft"
-                className="absolute top-4 right-4 z-10 bg-background/80 backdrop-blur-sm text-muted-foreground hover:text-foreground shadow-sm"
+                className="absolute top-4 right-4 z-10 bg-background/80 backdrop-blur-sm text-muted-foreground hover:text-foreground border border-border"
                 onClick={() => copyToClipboard(macroCode)}
               >
                 {copiedCode === macroCode ? (
@@ -588,18 +604,17 @@ function UnifiedShowcaseExample({
                 )}
               </Button>
             </div>
-          </TabsContent>
+          </div>
         )}
 
         {hasMicroCode && (
-          <TabsContent value="micro-code" className="mt-0 outline-none">
-            <div className="relative rounded-2xl bg-muted/30 dark:bg-muted/20 p-4 text-foreground overflow-clip group/code">
+          <div hidden={activeTab !== "micro-code"} className="mt-0 outline-none w-full">
+            <div className="relative rounded-none border border-border bg-muted/30 dark:bg-muted/20 p-4 text-foreground overflow-clip group/code">
               <CodeHighlighter code={microCode} />
               <Button
                 size="sm"
                 iconOnly
-                variant="soft"
-                className="absolute top-4 right-4 z-10 bg-background/80 backdrop-blur-sm text-muted-foreground hover:text-foreground shadow-sm"
+                className="absolute top-4 right-4 z-10 bg-background/80 backdrop-blur-sm text-muted-foreground hover:text-foreground border border-border"
                 onClick={() => copyToClipboard(microCode)}
               >
                 {copiedCode === microCode ? (
@@ -609,9 +624,9 @@ function UnifiedShowcaseExample({
                 )}
               </Button>
             </div>
-          </TabsContent>
+          </div>
         )}
       </div>
-    </Tabs>
+    </div>
   );
 }

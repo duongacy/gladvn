@@ -1,176 +1,57 @@
-import { CheckIcon, CopyIcon, SparklesIcon } from "lucide-react";
-import { useState } from "react";
-import { Container } from "~app/components/Container";
+import { cn } from "@/lib/utils";
 import { useI18n } from "~app/components/dev-context";
 import { STATS } from "~app/config/data";
 
 export function PrinciplesSection({ className }: { className?: string }) {
-  const [copied, setCopied] = useState(false);
   const t = useI18n();
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText("npx gladvn init");
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
   return (
-    <div className={className}>
-      <Container as="section" className="border-y border-y-border bg-muted/5 py-12 relative overflow-hidden">
-        <div className="absolute inset-0 bg-linear-to-r from-transparent via-primary/5 to-transparent animate-[pulse_4s_ease-in-out_infinite]" />
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 divide-x-0 md:divide-x relative z-10">
-          {STATS.map((s) => (
-            <div
-              key={s.label}
-              className="flex flex-col items-center justify-center text-center space-y-2 group"
-            >
-              <div className="text-4xl md:text-5xl font-black tracking-tighter text-foreground group-hover:text-primary group-hover:scale-110 transition-all duration-300">
-                {s.value}
-              </div>
-              <div className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-muted-foreground">
-                {s.label}
-              </div>
-            </div>
-          ))}
-        </div>
-      </Container>
+    <section className={cn("w-full", className)}>
+      <h2 className="font-serif text-4xl sm:text-5xl font-black mb-8 text-foreground tracking-tighter leading-tight">
+        {t("Kiến trúc tường minh. Làm chủ mọi giao diện.", "Explicit architecture. Master any interface.")}
+      </h2>
+      <p className="text-lg leading-[1.8] text-muted-foreground mb-12">
+        {t(
+          "Sự phức tạp thường biến các dự án thành những mớ bòng bong. gladvn định hình source code thành các tầng chuyên biệt, giúp bạn nắm rõ từng dòng code và tác động của nó. Tối đa khả năng mở rộng, giảm thiểu rủi ro.",
+          "Complexity often turns projects into unmanageable messes. gladvn shapes source code into specialized layers, helping you understand every line of code and its impact. Maximize scalability, minimize risk."
+        )}
+      </p>
 
-      <Container as="section" className="space-y-12 mt-24">
-        <div className="text-center max-w-2xl mx-auto space-y-4">
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">
-            {t(
-              <>
-                Kiến trúc tường minh.<br className="hidden md:block" /> Làm chủ mọi giao diện.
-              </>,
-              <>
-                Explicit architecture.<br className="hidden md:block" /> Master any interface.
-              </>
-            )}
-          </h2>
-          <p className="text-muted-foreground text-lg">
-            {t(
-              <>
-                Sự phức tạp thường biến các dự án thành những mớ bòng bong. gladvn định hình source code thành{" "}
-                <strong className="text-foreground">các tầng chuyên biệt</strong>
-                {", "}giúp bạn nắm rõ từng dòng code và tác động của nó.
-                <br className="hidden md:block" />
-                <span className="text-foreground font-medium">Tối đa khả năng mở rộng, giảm thiểu rủi ro.</span>
-              </>,
-              <>
-                Complexity often turns projects into unmanageable messes. gladvn shapes source code into{" "}
-                <strong className="text-foreground">specialized layers</strong>
-                {", "}helping you understand every line of code and its impact.
-                <br className="hidden md:block" />
-                <span className="text-foreground font-medium">Maximize scalability, minimize risk.</span>
-              </>
-            )}
-          </p>
-        </div>
+      {/* Grid of stats acting as a data table header */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 border-y border-border py-10">
+        {STATS.map((s) => (
+          <div key={s.label} className="flex flex-col">
+            <span className="font-serif text-4xl font-bold text-foreground mb-2">{s.value}</span>
+            <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">{s.label}</span>
+          </div>
+        ))}
+      </div>
 
-        <div
-          id="ownership-section"
-          className="mb-12 rounded-[2.5rem] border-2 border-primary/50 bg-primary/5 p-4 sm:p-6 md:p-12 flex flex-col gap-10 group overflow-hidden relative hover:bg-primary/10 transition-colors duration-500 shadow-2xl shadow-primary/10"
-        >
-          <div className="flex flex-col md:flex-row items-start gap-6 md:gap-8">
-            <div className="relative z-10 flex-1 space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary text-primary-foreground text-sm font-bold uppercase tracking-wider shadow-lg shadow-primary/20">
-                <SparklesIcon className="size-4" /> {t("Sự khác biệt cốt lõi", "The Core Difference")}
-              </div>
-              <h3 className="text-3xl md:text-5xl font-extrabold tracking-tight">
-                {t("Sở hữu Code, Không sở hữu Nợ Kỹ Thuật", "Own the Code, Not the Tech-Debt")}
-              </h3>
-              <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl">
-                {t(
-                  <>
-                    Mô hình copy-paste mang lại quyền sở hữu code, nhưng thường đi kèm các file khổng lồ và cấu trúc CSS lộn xộn. gladvn thay đổi hoàn toàn điều đó bằng việc cung cấp thư mục{" "}
-                    <code className="text-sm bg-primary/20 text-primary px-1.5 py-0.5 rounded">
-                      src/components
-                    </code>{" "}
-                    được chuẩn hoá tuyệt đối bởi{" "}
-                    <strong className="text-foreground">
-                      22 nguyên tắc kiến trúc nghiêm ngặt (22 Commandments).
-                    </strong>{" "}
-                    Không Magic CSS. Không nội suy chuỗi. Minh bạch đến mức cực đoan.
-                  </>,
-                  <>
-                    The copy-paste model provides code ownership, but often entails bloated files and messy CSS architecture. gladvn changes this entirely by delivering a{" "}
-                    <code className="text-sm bg-primary/20 text-primary px-1.5 py-0.5 rounded">
-                      src/components
-                    </code>{" "}
-                    folder strictly standardized by{" "}
-                    <strong className="text-foreground">
-                      22 rigorous architectural commandments.
-                    </strong>{" "}
-                    Absolutely no "Magic CSS". No string interpolation. Radically transparent.
-                  </>
-                )}
-              </p>
-
-              <div className="flex items-center gap-4 pt-2">
-                <button
-                  onClick={handleCopy}
-                  className="bg-background/80 hover:bg-background border-border backdrop-blur-md px-6 py-4 rounded-2xl border hover:border-primary/50 transition-colors font-mono text-sm shadow-inner flex items-center gap-4 cursor-pointer group/copy"
-                >
-                  <span className="text-primary font-bold">~</span>
-                  <span>npx gladvn init</span>
-                  <div className="ml-4 text-muted-foreground group-hover/copy:text-primary transition-colors">
-                    {copied ? (
-                      <CheckIcon className="size-4 text-success" />
-                    ) : (
-                      <CopyIcon className="size-4" />
-                    )}
-                  </div>
-                </button>
-              </div>
-            </div>
-
-            <div className="relative z-10 w-full md:w-1/3 flex flex-col gap-4">
-              <div className="p-3 sm:p-5 rounded-2xl border border-success/30 bg-success/10 shadow-sm flex items-start gap-4 transform group-hover:-translate-x-2 transition-transform">
-                <div className="bg-success text-success-foreground p-2 rounded-full mt-1">
-                  <CheckIcon className="size-4" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-success text-lg">
-                    {t("Toàn bộ Component & Hook", "All Components & Hooks")}
-                  </h4>
-                  <p className="text-xs text-success/80 mt-1">
-                    {t(
-                      <>
-                        Nằm gọn trong{" "}
-                        <code className="opacity-80">
-                          src/components/micro/ & macro/
-                        </code>
-                      </>,
-                      <>
-                        Neatly placed inside{" "}
-                        <code className="opacity-80">
-                          src/components/micro/ & macro/
-                        </code>
-                      </>
-                    )}
-                  </p>
-                </div>
-              </div>
-              <div className="p-3 sm:p-5 rounded-2xl border border-success/30 bg-success/10 shadow-sm flex items-start gap-4 transform group-hover:translate-x-2 transition-transform">
-                <div className="bg-success text-success-foreground p-2 rounded-full mt-1">
-                  <CheckIcon className="size-4" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-success text-lg">
-                    {t("CSS Token & Theme Config", "CSS Tokens & Theme Config")}
-                  </h4>
-                  <p className="text-xs text-success/80 mt-1">
-                    {t(
-                      "OKLCH color tokens, dark/light mode — đẹp ngay từ đầu",
-                      "OKLCH color tokens, dark/light mode — beautiful out of the box"
-                    )}
-                  </p>
-                </div>
-              </div>
+      <div className="space-y-6">
+        <h3 className="font-serif text-2xl md:text-3xl font-bold text-foreground">
+          {t("Sở hữu Code, Không sở hữu Nợ Kỹ Thuật", "Own the Code, Not the Tech-Debt")}
+        </h3>
+        <p className="text-lg leading-[1.8] text-muted-foreground">
+          {t(
+            <>Mô hình copy-paste mang lại quyền sở hữu code, nhưng thường đi kèm các file khổng lồ và cấu trúc CSS lộn xộn. gladvn thay đổi hoàn toàn điều đó bằng việc cung cấp thư mục <code className="font-mono text-sm bg-muted/50 px-1.5 py-0.5">src/components</code> được chuẩn hoá tuyệt đối bởi <strong>22 nguyên tắc kiến trúc nghiêm ngặt (22 Commandments)</strong>. Không Magic CSS. Không nội suy chuỗi. Minh bạch đến mức cực đoan.</>,
+            <>The copy-paste model provides code ownership, but often entails bloated files and messy CSS architecture. gladvn changes this entirely by delivering a <code className="font-mono text-sm bg-muted/50 px-1.5 py-0.5">src/components</code> folder strictly standardized by <strong>22 rigorous architectural commandments</strong>. Absolutely no "Magic CSS". No string interpolation. Radically transparent.</>
+          )}
+        </p>
+        
+        {/* Terminal block disguised as a paper figure */}
+        <figure className="mt-8">
+          <figcaption className="font-mono text-xs text-muted-foreground mb-2">
+            {t("CLI Initialization", "CLI Initialization")}
+          </figcaption>
+          <div className="bg-muted/10 border border-border p-6 font-mono text-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <span className="text-foreground font-semibold">~ npx gladvn init</span>
+            <div className="flex gap-4 text-xs text-muted-foreground">
+              <span>[✓] Components & Hooks</span>
+              <span>[✓] CSS Tokens</span>
             </div>
           </div>
-        </div>
-      </Container>
-    </div>
+        </figure>
+      </div>
+    </section>
   );
 }

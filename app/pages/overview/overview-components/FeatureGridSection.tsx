@@ -1,672 +1,167 @@
-import {
-  AccessibilityIcon,
-  ArrowRightIcon,
-  BlocksIcon,
-  BoxIcon,
-  ComponentIcon,
-  CopyIcon,
-  DatabaseIcon,
-  LayersIcon,
-  PaintbrushIcon,
-  PaletteIcon,
-  ShieldCheckIcon,
-  SlidersHorizontalIcon,
-  SparklesIcon
-} from "lucide-react";
-import { Button } from "@/components/micro/button";
+import { cn } from "@/lib/utils";
 import { useI18n } from "~app/components/dev-context";
-import { CodeBlock } from "./CodeBlock";
 
 export function FeatureGridSection({ className }: { className?: string }) {
   const t = useI18n();
+
+  const FEATURES = [
+    {
+      title: t("Defensive Context", "Defensive Context"),
+      desc: t(
+        <>Sử dụng React Context nghiêm ngặt. Nếu một phần tử con (như <code>SelectContent</code>) bị đặt sai vị trí bên ngoài phần tử cha (<code>SelectRoot</code>), hệ thống sẽ chủ động ném cảnh báo thay vì render sai lệch.</>,
+        <>Enforces strict React Context boundaries. If a child element (like <code>SelectContent</code>) is misplaced outside its parent (<code>SelectRoot</code>), the system proactively throws a warning instead of rendering incorrectly.</>
+      ),
+      example: (
+        <div className="mt-3 p-3 bg-muted/10 border border-border font-mono text-sm space-y-1">
+          <div className="text-destructive font-semibold">Error: SelectContent must be used within a SelectRoot</div>
+          <div className="text-muted-foreground opacity-70 text-xs">
+            at SelectContent (src/components/micro/select.tsx:102)
+          </div>
+        </div>
+      )
+    },
+    {
+      title: t("Strict Layout Delegation", "Strict Layout Delegation"),
+      desc: t(
+        <>Micro component tuyệt đối không chứa class định hình layout (như <code>w-full</code>, <code>margin</code>). Việc dàn trang được delegate hoàn toàn cho tầng Macro hoặc Container bên ngoài.</>,
+        <>Micro components strictly forbid layout-defining classes (like <code>w-full</code>, <code>margin</code>). Layout composition is fully delegated to the Macro layer or external Containers.</>
+      ),
+      example: (
+        <div className="mt-3 p-3 bg-muted/10 border border-border font-mono text-sm space-y-1 overflow-x-auto">
+          <div className="text-muted-foreground text-xs mb-2">{"// Tầng Macro quyết định layout cho các Micro con"}</div>
+          <div className="text-foreground">{"<ConfirmFooter>"}</div>
+          <div className="text-foreground pl-4">{"<Button variant=\"ghost\">Hủy</Button>"}</div>
+          <div className="text-foreground pl-4 font-bold border-b border-dashed border-foreground inline-block">{"<Button className=\"ml-auto\">Xác nhận</Button>"}</div>
+          <div className="text-foreground">{"</ConfirmFooter>"}</div>
+        </div>
+      )
+    },
+    {
+      title: t("Zero-Specificity với :where()", "Zero-Specificity with :where()"),
+      desc: t(
+        <>Sử dụng pseudo-class <code>:where()</code> để ép Specificity của các style nội tại (như kích thước icon) về 0. Cho phép Tailwind đè style từ bên ngoài mà không bao giờ cần dùng <code>!important</code>.</>,
+        <>Utilizes the <code>:where()</code> pseudo-class to reduce the Specificity of internal styles (like icon sizes) to 0. Allows external Tailwind overrides without ever needing <code>!important</code>.</>
+      ),
+      example: (
+        <div className="mt-3 grid sm:grid-cols-2 gap-3 font-mono text-sm">
+          <div className="p-3 border border-border bg-muted/5 text-destructive line-through opacity-70">
+            [&gt;svg]:w-4
+          </div>
+          <div className="p-3 border border-border bg-muted/10 text-foreground font-semibold">
+            [:where(&amp;&gt;svg)]:w-4
+          </div>
+        </div>
+      )
+    },
+    {
+      title: t("Style Encapsulation", "Style Encapsulation"),
+      desc: t(
+        <>Style của component không rò rỉ. Muốn override phải thông qua <code>data-slot</code> — một public contract tường minh.</>,
+        <>Component styles do not leak. Customization requires <code>data-slot</code> — an explicit public contract.</>
+      ),
+      example: (
+        <div className="mt-3 grid sm:grid-cols-2 gap-3 font-mono text-sm">
+          <div className="p-3 border border-border bg-muted/5 text-destructive line-through opacity-70">
+            [&gt;div&gt;span]:text-red-500
+          </div>
+          <div className="p-3 border border-border bg-muted/10 text-foreground font-semibold">
+            [&amp;_[data-slot=icon]]:text-red-500
+          </div>
+        </div>
+      )
+    },
+    {
+      title: t("Variant × Color Independence", "Variant × Color Independence"),
+      desc: t(
+        <>Variant (solid, outline...) và Color (primary, warning...) là hai trục vuông góc. Có thể tự do mix mà không làm phình codebase.</>,
+        <>Variant (solid, outline...) and Color (primary, warning...) are orthogonal axes. Combination does not bloat the codebase.</>
+      ),
+      example: (
+        <div className="mt-3 p-3 bg-muted/10 border border-border font-mono text-sm space-y-1 overflow-x-auto">
+           <div className="text-foreground">{"<Button variant=\"outline\" color=\"primary\" />"}</div>
+           <div className="text-foreground">{"<Button variant=\"outline\" color=\"destructive\" />"}</div>
+        </div>
+      )
+    },
+    {
+      title: t("Zero-prop Defaults", "Zero-prop Defaults"),
+      desc: t(
+        <>Component render hợp lệ ngay cả khi không truyền prop. Giảm tải cognitive load cho lập trình viên.</>,
+        <>Components render validly even with no props. Reduces cognitive load for developers.</>
+      ),
+      example: (
+        <div className="mt-3 p-3 bg-muted/10 border border-border font-mono text-sm space-y-2 overflow-x-auto">
+          <div className="text-foreground font-semibold">{"<Button>Click Me</Button>"}</div>
+          <div className="text-muted-foreground line-through opacity-70">{"<Button variant=\"solid\" color=\"primary\" size=\"md\">Click Me</Button>"}</div>
+        </div>
+      )
+    },
+    {
+      title: t("Polymorphism", "Polymorphism"),
+      desc: t(
+        <>Sử dụng <code>render</code> prop thay vì <code>asChild</code> để thay đổi gốc DOM một cách triệt để.</>,
+        <>Use the <code>render</code> prop instead of <code>asChild</code> for absolute DOM root substitution.</>
+      ),
+      example: (
+        <div className="mt-3 grid sm:grid-cols-2 gap-3 font-mono text-sm">
+          <div className="p-3 border border-border bg-muted/5 text-destructive line-through opacity-70 overflow-x-auto">
+            {"<Button asChild><Link/></Button>"}
+          </div>
+          <div className="p-3 border border-border bg-muted/10 text-foreground font-semibold overflow-x-auto">
+            {"<Button render={<Link />} />"}
+          </div>
+        </div>
+      )
+    },
+    {
+      title: t("Explicit State Contract", "Explicit State Contract"),
+      desc: t(
+        <>State được expose qua <code>data-[state]</code>, cho phép định nghĩa CSS trực tiếp mà không cần imperative hooks.</>,
+        <>State is exposed via <code>data-[state]</code>, allowing direct CSS definition without imperative hooks.</>
+      ),
+      example: (
+        <div className="mt-3 p-3 bg-muted/10 border border-border font-mono text-sm space-y-1">
+          <div className="text-foreground font-semibold">{"data-[state=open]:rotate-180"}</div>
+          <div className="text-foreground font-semibold">{"data-disabled:opacity-50"}</div>
+          <div className="text-destructive line-through opacity-70 border-t border-border mt-2 pt-2">{"ref.current.isOpen ? 'rotate-180' : ''"}</div>
+        </div>
+      )
+    }
+  ];
+
   return (
-    <div className={className}>
-      <div className="columns-1 md:columns-2 gap-6">
+    <section className={cn("w-full", className)}>
+      <h2 className="font-serif text-4xl sm:text-5xl font-black mb-8 text-foreground tracking-tighter leading-tight">
+        {t("3. Methodology Specifications", "3. Methodology Specifications")}
+      </h2>
+      <p className="text-lg leading-[1.8] text-muted-foreground mb-10">
+        {t(
+          "Các đặc điểm kỹ thuật đảm bảo tính nhất quán của hệ thống Gladvn.",
+          "Technical specifications ensuring the consistency of the Gladvn system."
+        )}
+      </p>
 
-        <div className="break-inside-avoid mb-6 rounded-[2rem] border border-border bg-card/20 p-4 md:p-10 flex flex-col justify-between group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
-          <div className="absolute -top-10 -right-10 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:-rotate-12 duration-700">
-            <BlocksIcon className="w-80 h-80" />
-          </div>
-          <div className="relative z-10 space-y-4 mb-10">
-            <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">
-              {t("Luật chơi Micro/Macro", "The Micro/Macro rules")}
-            </h3>
-            <p className="text-muted-foreground max-w-lg text-lg leading-relaxed">
-              {t(
-                <>
-                  Micro chỉ là những mảnh Lego thuần túy — đẹp nhưng vô tri. Macro mới là người chỉ huy — sắp xếp các mảnh Lego thành giao diện hoàn chỉnh.
-                  <strong className="text-foreground block mt-2">
-                    Micro không bao giờ được phép tự tiện lo chuyện layout (margin, width). Việc đó là của Macro!
-                  </strong>
-                </>,
-                <>
-                  Micro components are just pure Lego pieces — beautiful but dumb. Macros are the commanders — assembling Lego pieces into complete interfaces.
-                  <strong className="text-foreground block mt-2">
-                    Micro components are never allowed to handle layout (margin, width) on their own. That's the Macro's job!
-                  </strong>
-                </>
-              )}
-            </p>
-          </div>
-          <div className="relative z-10 mt-auto pt-6 space-y-3">
-            <CodeBlock type="success" title={t("Đúng — Để Macro lo layout:", "Correct — Let Macro handle the layout:")}>
-              <span className="text-success/80">
-                {t("/* Macro biết con mình là gì → gắn class chính xác */", "/* Macro knows its children → attaches exact classes */")}
-              </span>
-              <br />
-              <span className="text-foreground">{"<ConfirmFooter>"}</span>
-              <br />
-              <span className="pl-4">
-                {t('<Button variant="ghost">Trợ giúp</Button>', '<Button variant="ghost">Help</Button>')}
-              </span>
-              <br />
-              <span className="pl-4 text-success font-bold">
-                {t('<Button className="ml-auto">Xác nhận</Button>', '<Button className="ml-auto">Confirm</Button>')}
-              </span>
-              <br />
-              <span className="text-foreground">
-                {"</ConfirmFooter>"}
-              </span>
-            </CodeBlock>
+      <ul className="space-y-12">
+        {FEATURES.map((feat, i) => (
+          <li key={i} className="pl-6 border-l-2 border-muted">
+            <h4 className="font-semibold text-foreground text-lg mb-1">{feat.title}</h4>
+            <p className="text-muted-foreground leading-relaxed">{feat.desc}</p>
+            {feat.example}
+          </li>
+        ))}
+      </ul>
 
-            <CodeBlock type="destructive" title={t("Sai — Micro tự đoán layout:", "Wrong — Micro guesses the layout:")}>
-              <span className="text-destructive/80">
-                {t("/* Micro không biết con mình là gì → phải đoán bằng CSS */", "/* Micro doesn't know its children → relies on CSS hacks */")}
-              </span>
-              <br />
-              <span className="text-foreground">{"<ConfirmFooter"}</span>
-              <br />
-              <span className="pl-4 text-destructive font-bold line-through">
-                {'className="[&>*:last-child]:ml-auto"'}
-              </span>
-              <br />
-              <span className="text-foreground">{">"}</span>
-              <br />
-              <span className="pl-4">{"{children}"}</span>
-              <br />
-              <span className="text-foreground">
-                {"</ConfirmFooter>"}
-              </span>
-            </CodeBlock>
-          </div>
-        </div>
-
-
-        <div className="break-inside-avoid mb-6 rounded-[2rem] border border-border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
-          <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
-            <ShieldCheckIcon className="w-56 h-56" />
-          </div>
-          <div className="relative z-10 space-y-4">
-            <h3 className="text-2xl font-extrabold tracking-tight">
-              {t("Style Encapsulation", "Style Encapsulation")}
-            </h3>
-            <p className="text-muted-foreground text-base leading-relaxed">
-              {t(
-                <>
-                  Style của mỗi component không rò rỉ ra ngoài. Muốn tuỳ chỉnh thì
-                  dùng <code>data-slot</code> — contract rõ ràng, có sẵn.{" "}
-                  <strong className="text-foreground">
-                    Refactor bên trong mà không ảnh hưởng bên ngoài.
-                  </strong>
-                </>,
-                <>
-                  Component styles don't leak out. If you want to customize, use <code>data-slot</code> — a clear, built-in contract.{" "}
-                  <strong className="text-foreground">
-                    Refactor the inside without breaking the outside.
-                  </strong>
-                </>
-              )}
-            </p>
-          </div>
-          <div className="relative z-10 mt-auto pt-6 space-y-3">
-            <div className="p-3 rounded-xl border border-destructive/20 bg-destructive/5 text-xs font-mono shadow-sm flex items-center">
-              <span className="text-destructive font-bold mr-3 text-lg">
-                ❌
-              </span>
-              <span className="opacity-80 line-through">
-                {"[&>div>span]:color"}
-              </span>
-            </div>
-            <div className="p-3 rounded-xl border border-success/20 bg-success/5 text-xs font-mono shadow-sm flex items-center">
-              <span className="text-success font-bold mr-3 text-lg">✅</span>
-              <span className="text-foreground font-medium">
-                data-[slot=icon]:color
-              </span>
-            </div>
-          </div>
-        </div>
-
-
-        <div className="break-inside-avoid mb-6 rounded-[2rem] border border-border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
-          <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:-rotate-12 duration-700">
-            <SlidersHorizontalIcon className="w-80 h-80" />
-          </div>
-          <div className="relative z-10 space-y-4">
-            <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">
-              {t("Variant × Color", "Variant × Color")}
-            </h3>
-            <p className="text-muted-foreground text-lg leading-relaxed max-w-lg">
-              {t(
-                "Variant (solid, outline, ghost...) và Color (primary, destructive...) là hai trục độc lập. Kết hợp tự do mà class không phình ra.",
-                "Variant (solid, outline, ghost...) and Color (primary, destructive...) are two independent axes. Combine them freely without class explosion."
-              )}
-            </p>
-          </div>
-          <div className="relative z-10 mt-auto pt-8 grid sm:grid-cols-2 gap-4">
-            <div className="p-3 sm:p-5 rounded-2xl border border-border bg-background/60 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow">
-              <strong className="flex items-center gap-2 text-foreground text-base mb-2">
-                <BoxIcon className="size-4 text-muted-foreground" /> {t("Trục Variant", "Variant Axis")}
-              </strong>
-              <span className="text-sm text-muted-foreground leading-relaxed">
-                {t("solid, outline, ghost, soft. Quyết định cách component trông như thế nào.", "solid, outline, ghost, soft. Determines how the component looks.")}
-              </span>
-            </div>
-            <div className="p-3 sm:p-5 rounded-2xl border border-border bg-background/60 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow">
-              <strong className="flex items-center gap-2 text-foreground text-base mb-2">
-                <PaintbrushIcon className="size-4 text-muted-foreground" /> {t("Trục Color", "Color Axis")}
-              </strong>
-              <span className="text-sm text-muted-foreground leading-relaxed">
-                {t("primary, secondary, destructive. Quyết định bảng màu của component.", "primary, secondary, destructive. Determines the component's color palette.")}
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div className="break-inside-avoid mb-6 rounded-[2rem] border border-border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
-          <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:-rotate-12 duration-700">
-            <ComponentIcon className="w-80 h-80" />
-          </div>
-          <div className="relative z-10 space-y-4">
-            <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">
-              {t("Zero-prop Defaults", "Zero-prop Defaults")}
-            </h3>
-            <p className="text-muted-foreground text-lg leading-relaxed max-w-lg">
-              {t(
-                <>
-                  Đặt component vào mà không truyền prop nào — vẫn chạy đẹp, vẫn
-                  đúng behavior.{" "}
-                  <strong className="text-foreground">
-                    Không phải tra docs mỗi lần dùng.
-                  </strong>
-                </>,
-                <>
-                  Drop a component in without passing any props — it still looks great and
-                  behaves correctly.{" "}
-                  <strong className="text-foreground">
-                    No need to check the docs every time you use it.
-                  </strong>
-                </>
-              )}
-            </p>
-          </div>
-          <div className="relative z-10 mt-auto pt-8 flex flex-col gap-4">
-            <div className="flex items-center justify-between gap-4 p-4 rounded-xl border border-success/20 bg-success/5 shadow-sm">
-              <Button>{t("Click Me", "Click Me")}</Button>
-              <span className="text-[11px] sm:text-xs font-mono text-success font-medium">
-                {t("<Button>Click Me</Button>", "<Button>Click Me</Button>")}
-              </span>
-            </div>
-            <div className="flex items-center justify-between gap-4 p-4 rounded-xl border border-destructive/20 bg-destructive/5 shadow-sm opacity-60">
-              <Button size="md" color="primary">
-                {t("Click Me", "Click Me")}
-              </Button>
-              <span className="text-[11px] sm:text-xs font-mono text-destructive font-medium line-through">
-                {'<Button size="md" color="primary">...'}
-              </span>
-            </div>
-          </div>
-        </div>
-
-
-        <div className="break-inside-avoid mb-6 rounded-[2rem] border border-border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
-          <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
-            <LayersIcon className="w-56 h-56" />
-          </div>
-          <div className="relative z-10 space-y-4">
-            <h3 className="text-2xl font-extrabold tracking-tight">
-              {t("Headless + Style", "Headless + Style")}
-            </h3>
-            <p className="text-muted-foreground text-base leading-relaxed">
-              {t(
-                <>
-                  Keyboard, focus, ARIA — Base UI lo hết. Micro component chỉ thêm
-                  lớp style lên trên, không tự viết logic tương tác.{" "}
-                  <strong className="text-foreground">
-                    Behavior đúng sẵn, không cần test lại.
-                  </strong>
-                </>,
-                <>
-                  Keyboard, focus, ARIA — Base UI handles it all. Micro components only add
-                  a styling layer on top, without writing interactive logic themselves.{" "}
-                  <strong className="text-foreground">
-                    Behaviors are correct out of the box, no re-testing needed.
-                  </strong>
-                </>
-              )}
-            </p>
-          </div>
-          <div className="relative z-10 mt-auto pt-8">
-            <div className="p-4 rounded-xl bg-foreground/5 border border-border/50 text-[11px] sm:text-xs font-mono shadow-inner space-y-1">
-              <div className="text-muted-foreground">
-
-              </div>
-              <div>
-                <span className="text-primary">{"<Base UI Select>"}</span>
-                <span className="text-muted-foreground"> ← behavior</span>
-              </div>
-              <div className="pl-4">
-                <span className="text-success">{"<SelectTrigger>"}</span>
-                <span className="text-muted-foreground"> ← style only</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="break-inside-avoid mb-6 rounded-[2rem] border border-border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
-          <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:-rotate-12 duration-700">
-            <PaletteIcon className="w-56 h-56" />
-          </div>
-          <div className="relative z-10 space-y-4">
-            <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">
-              {t("CSS Token", "CSS Tokens")}
-            </h3>
-            <p className="text-muted-foreground text-lg leading-relaxed max-w-lg">
-              {t(
-                <>
-                  Không component nào hardcode màu hay spacing. Tất cả đều tham
-                  chiếu từ hệ thống token chung.{" "}
-                  <strong className="text-foreground">
-                    Đổi một token — cả app cập nhật.
-                  </strong>
-                </>,
-                <>
-                  No component hardcodes colors or spacing. Everything references a
-                  shared token system.{" "}
-                  <strong className="text-foreground">
-                    Change a single token — the whole app updates.
-                  </strong>
-                </>
-              )}
-            </p>
-          </div>
-          <div className="relative z-10 mt-auto pt-8 grid sm:grid-cols-2 gap-4">
-            <div className="p-4 rounded-xl border border-success/20 bg-success/5 shadow-sm">
-              <div className="text-success font-semibold mb-2 text-sm">
-                ✅ {t("Token", "Token")}
-              </div>
-              <div className="text-[11px] font-mono text-success/80">
-                oklch(var(--primary))
-              </div>
-            </div>
-            <div className="p-4 rounded-xl border border-destructive/20 bg-destructive/5 shadow-sm opacity-60">
-              <div className="text-destructive font-semibold mb-2 text-sm">
-                ❌ {t("Hardcode", "Hardcode")}
-              </div>
-              <div className="text-[11px] font-mono text-destructive/80 line-through">
-                #2563eb
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <div className="break-inside-avoid mb-6 rounded-[2rem] border border-border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
-          <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:-rotate-12 duration-700">
-            <CopyIcon className="w-56 h-56" />
-          </div>
-          <div className="relative z-10 space-y-4">
-            <h3 className="text-2xl font-extrabold tracking-tight">
-              {t("Polymorphism", "Polymorphism")}
-            </h3>
-            <p className="text-muted-foreground text-base leading-relaxed">
-              {t(
-                <>
-                  Dùng <code>render</code> prop để đổi thẻ HTML root — ví dụ biến
-                  Button thành Link. Không cần prop <code>as</code> hay tạo
-                  wrapper lồng nhau.
-                </>,
-                <>
-                  Use the <code>render</code> prop to change the root HTML tag — e.g. turning a
-                  Button into a Link. No need for an <code>as</code> prop or nested wrappers.
-                </>
-              )}
-            </p>
-          </div>
-          <div className="relative z-10 mt-auto pt-6 space-y-3">
-            <div className="p-3 rounded-xl border border-success/20 bg-success/5 text-[11px] font-mono shadow-sm flex items-center">
-              <span className="text-success font-bold mr-3 text-lg">✅</span>
-              <span className="text-success/90">
-                &lt;Button render=&#123;&lt;Link/&gt;&#125;&gt;
-              </span>
-            </div>
-            <div className="p-3 rounded-xl border border-destructive/20 bg-destructive/5 text-[11px] font-mono shadow-sm flex items-center opacity-70">
-              <span className="text-destructive font-bold mr-3 text-lg">
-                ❌
-              </span>
-              <span className="text-destructive/80 line-through">
-                &lt;Button as="a" href="/"&gt;
-              </span>
-            </div>
-          </div>
-        </div>
-
-
-        <div className="break-inside-avoid mb-6 rounded-[2rem] border border-border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
-          <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
-            <BoxIcon className="w-56 h-56" />
-          </div>
-          <div className="relative z-10 space-y-4">
-            <h3 className="text-2xl font-extrabold tracking-tight">
-              {t("Stateless Primitive", "Stateless Primitive")}
-            </h3>
-            <p className="text-muted-foreground text-base leading-relaxed">
-              {t(
-                <>
-                  Micro component không chứa <code>useState</code> hay{" "}
-                  <code>useEffect</code>. State nằm ở Headless UI hoặc Macro.{" "}
-                  <strong className="text-foreground">
-                    Component càng đơn giản, càng ít bug.
-                  </strong>
-                </>,
-                <>
-                  Micro components don't contain <code>useState</code> or{" "}
-                  <code>useEffect</code>. State lives in Headless UI or Macros.{" "}
-                  <strong className="text-foreground">
-                    The simpler the component, the fewer the bugs.
-                  </strong>
-                </>
-              )}
-            </p>
-          </div>
-          <div className="relative z-10 mt-auto pt-6 space-y-3">
-            <div className="p-3 rounded-xl border border-success/20 bg-success/5 text-[11px] font-mono shadow-sm flex items-center">
-              <span className="text-success font-bold mr-3 text-lg">✅</span>
-              <span className="text-success/90">
-                {"function Button({ ...props })"}
-              </span>
-            </div>
-            <div className="p-3 rounded-xl border border-destructive/20 bg-destructive/5 text-[11px] font-mono shadow-sm flex items-center opacity-70">
-              <span className="text-destructive font-bold mr-3 text-lg">
-                ❌
-              </span>
-              <span className="text-destructive/80 line-through">
-                {"const [open, setOpen] = useState()"}
-              </span>
-            </div>
-          </div>
-        </div>
-
-
-        <div className="break-inside-avoid mb-6 rounded-[2rem] border border-border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
-          <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:-rotate-12 duration-700">
-            <AccessibilityIcon className="w-56 h-56" />
-          </div>
-          <div className="relative z-10 space-y-4">
-            <h3 className="text-2xl font-extrabold tracking-tight">
-              {t("Accessibility", "Accessibility")}
-            </h3>
-            <p className="text-muted-foreground text-base leading-relaxed">
-              {t(
-                <>
-                  Semantic HTML, <code>aria-describedby</code> cho form, icon
-                  trang trí tự ẩn khỏi screen reader.{" "}
-                  <strong className="text-foreground">
-                    Chuẩn WCAG — không cần nghĩ thêm.
-                  </strong>
-                </>,
-                <>
-                  Semantic HTML, <code>aria-describedby</code> for forms, decorative icons
-                  hide themselves from screen readers.{" "}
-                  <strong className="text-foreground">
-                    WCAG compliant — without a second thought.
-                  </strong>
-                </>
-              )}
-            </p>
-          </div>
-          <div className="relative z-10 mt-auto pt-6 space-y-3">
-            <div className="p-3 rounded-xl border border-success/20 bg-success/5 text-[11px] font-mono shadow-sm flex items-center">
-              <span className="text-success font-bold mr-3 text-lg">✅</span>
-              <span className="text-success/90">
-                &lt;svg aria-hidden="true" /&gt;
-              </span>
-            </div>
-            <div className="p-3 rounded-xl border border-destructive/20 bg-destructive/5 text-[11px] font-mono shadow-sm flex items-center opacity-70">
-              <span className="text-destructive font-bold mr-3 text-lg">
-                ❌
-              </span>
-              <span className="text-destructive/80 line-through">
-                &lt;div role="button"&gt;
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div className="break-inside-avoid mb-6 rounded-[2rem] border border-border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
-          <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
-            <DatabaseIcon className="w-56 h-56" />
-          </div>
-          <div className="relative z-10 space-y-4">
-            <h3 className="text-2xl font-extrabold tracking-tight">
-              {t("Explicit State Contract", "Explicit State Contract")}
-            </h3>
-            <p className="text-muted-foreground text-base leading-relaxed">
-              {t(
-                <>
-                  Component công khai trạng thái qua <code>data-attributes</code>,
-                  không phải qua imperative ref. Bạn style và animate trực tiếp
-                  trên từng trạng thái, không cần JavaScript.{" "}
-                  <strong className="text-foreground">
-                    State là public API — tường minh và ổn định.
-                  </strong>
-                </>,
-                <>
-                  Components expose their state via <code>data-attributes</code>,
-                  not through imperative refs. You style and animate directly
-                  on each state, no JavaScript needed.{" "}
-                  <strong className="text-foreground">
-                    State is a public API — explicit and stable.
-                  </strong>
-                </>
-              )}
-            </p>
-          </div>
-          <div className="relative z-10 mt-auto pt-8">
-            <div className="p-4 rounded-xl bg-foreground/5 border border-border/50 text-[11px] sm:text-xs font-mono shadow-inner space-y-2">
-              <div>
-                <span className="text-success">data-[state=open]</span>
-                <span className="text-muted-foreground">:rotate-180</span>
-              </div>
-              <div>
-                <span className="text-success">data-disabled</span>
-                <span className="text-muted-foreground">:opacity-50</span>
-              </div>
-              <div className="pt-1 border-t border-border/30">
-                <span className="text-destructive/60 line-through">
-                  ref.current.isOpen
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="break-inside-avoid mb-6 rounded-[2rem] border border-border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
-          <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
-            <SlidersHorizontalIcon className="w-56 h-56" />
-          </div>
-          <div className="relative z-10 space-y-4">
-            <h3 className="text-2xl font-extrabold tracking-tight">
-              {t("3-Layer Source Ownership", "3-Layer Source Ownership")}
-            </h3>
-            <p className="text-muted-foreground text-base leading-relaxed">
-              {t(
-                <>
-                  Source được phân tầng: <code>micro/</code> (primitive không có
-                  layout cứng nhắc), <code>macro/</code> (preset lắp ráp có chủ
-                  đích), <code>index.css</code> (token toàn hệ thống).{" "}
-                  <strong className="text-foreground">
-                    Sửa ở tầng nào chỉ ảnh hưởng đến tầng đó.
-                  </strong>
-                </>,
-                <>
-                  Source code is layered: <code>micro/</code> (primitives without rigid layouts), <code>macro/</code> (purpose-built presets), <code>index.css</code> (global tokens).{" "}
-                  <strong className="text-foreground">
-                    Changes in one layer only affect that layer.
-                  </strong>
-                </>
-              )}
-            </p>
-          </div>
-          <div className="relative z-10 mt-auto pt-6 space-y-2">
-            <div className="p-3 rounded-xl border border-border bg-background/60 text-[11px] font-mono flex items-center gap-3">
-              <span className="text-destructive font-bold">CSS</span>
-              <span className="text-muted-foreground">
-                {t("index.css — token toàn cục", "index.css — global tokens")}
-              </span>
-            </div>
-            <div className="p-3 rounded-xl border border-border bg-background/60 text-[11px] font-mono flex items-center gap-3">
-              <span className="text-warning font-bold">Macro</span>
-              <span className="text-muted-foreground">
-                {t("macro/ — preset lắp ráp", "macro/ — purpose-built presets")}
-              </span>
-            </div>
-            <div className="p-3 rounded-xl border border-border bg-background/60 text-[11px] font-mono flex items-center gap-3">
-              <span className="text-success font-bold">Micro</span>
-              <span className="text-muted-foreground">
-                {t("micro/ — primitive thuần", "micro/ — pure primitives")}
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div className="break-inside-avoid mb-6 rounded-[2rem] border border-border bg-card/20 p-4 md:p-10 flex flex-col group overflow-hidden relative hover:bg-card/40 transition-colors duration-500">
-          <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-all pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
-            <BlocksIcon className="w-56 h-56" />
-          </div>
-          <div className="relative z-10 space-y-4">
-            <h3 className="text-2xl font-extrabold tracking-tight">
-              {t("Pure Composition", "Pure Composition")}
-            </h3>
-            <p className="text-muted-foreground text-base leading-relaxed">
-              {t(
-                <>
-                  Design component theo dạng lắp ghép (ví dụ: Root, Trigger,
-                  Content) thay vì ôm đồm nhận vào một mảng data rồi tự{" "}
-                  <code>map()</code> bên trong.
-                </>,
-                <>
-                  Design components as building blocks (e.g., Root, Trigger, Content)
-                  instead of dumping an array of data and doing an internal{" "}
-                  <code>map()</code>.
-                </>
-              )}
-            </p>
-          </div>
-          <div className="relative z-10 mt-auto pt-6 space-y-3">
-            <div className="p-3 rounded-xl border border-success/20 bg-success/5 text-[11px] font-mono shadow-sm flex items-center">
-              <span className="text-success font-bold mr-3 text-lg">✅</span>
-              <span className="text-success/90">
-                &lt;Select&gt;
-                <br />
-                &nbsp;&nbsp;&lt;SelectTrigger/&gt;
-                <br />
-                &nbsp;&nbsp;&lt;SelectContent/&gt;
-                <br />
-                &lt;/Select&gt;
-              </span>
-            </div>
-            <div className="p-3 rounded-xl border border-destructive/20 bg-destructive/5 text-[11px] font-mono shadow-sm flex items-center opacity-70">
-              <span className="text-destructive font-bold mr-3 text-lg">
-                ❌
-              </span>
-              <span className="text-destructive/80 line-through">
-                &lt;Select items=&#123;[...]&#125; /&gt;
-              </span>
-            </div>
-          </div>
-        </div>
-
+      <div className="mt-16 pt-16 border-t border-border">
+        <h3 className="font-serif text-2xl font-bold text-foreground mb-4">
+          {t("Ghi chú về Scoped Theme Tunnel", "Note on Scoped Theme Tunnel")}
+        </h3>
+        <p className="text-lg leading-[1.8] text-muted-foreground">
+          {t(
+            <>Các phần tử thoát khỏi cây DOM (Portals) như Tooltip và Dialog thường mất ngữ cảnh giao diện. Gladvn sử dụng <strong>Zero-Portal API</strong> để truyền tải (tunnel) chủ đề trực tiếp vào các thành phần nội dung (<code className="bg-muted px-1">Content</code>), loại bỏ nhu cầu bọc bằng <code className="bg-muted px-1">ThemeWrapper</code>.</>,
+            <>Elements escaping the DOM tree (Portals) like Tooltips and Dialogs often lose theme context. Gladvn utilizes the <strong>Zero-Portal API</strong> to tunnel themes directly into content components (<code className="bg-muted px-1">Content</code>), eliminating the need for a <code className="bg-muted px-1">ThemeWrapper</code>.</>
+          )}
+        </p>
       </div>
-
-      <section className="mt-16 mb-16">
-        <div className="rounded-[2.5rem] border border-warning/30 bg-warning/5 p-10 md:p-16 shadow-xl relative overflow-hidden group">
-          <div className="absolute -top-10 -right-10 p-8 opacity-10 pointer-events-none group-hover:rotate-12 group-hover:scale-125 transition-all duration-1000 text-warning">
-            <SparklesIcon className="size-64 md:size-100" />
-          </div>
-
-          <div className="relative z-10 max-w-3xl mb-14 space-y-5">
-            <h3 className="text-3xl md:text-5xl font-extrabold tracking-tight text-warning">
-              {t("Scoped Theme Tunnel", "Scoped Theme Tunnel")}
-            </h3>
-            <p className="text-muted-foreground text-xl leading-relaxed">
-              {t(
-                <>
-                  Tooltip hay Dialog thường bị <strong className="text-foreground">mất theme cục bộ (Dark/Light)</strong> khi nhảy ra ngoài DOM tree qua Portal.
-                </>,
-                <>
-                  Tooltips and Dialogs often <strong className="text-foreground">lose their local theme (Dark/Light)</strong> when escaping the DOM tree via Portals.
-                </>
-              )}
-            </p>
-            <p className="text-muted-foreground text-xl leading-relaxed">
-              {t(
-                <>
-                  Nhờ <strong>Zero-Portal API</strong>, khả năng giữ theme đã được nhúng sẵn vào các <code className="text-sm bg-warning/20 text-warning px-1.5 py-0.5 rounded">*Content</code> (VD: <code className="text-sm bg-warning/20 text-warning px-1.5 py-0.5 rounded">DialogContent</code>). Mọi thứ hoạt động trơn tru tự động, bạn không cần phải import hay bọc <code className="text-sm bg-warning/20 text-warning px-1.5 py-0.5 rounded">ThemeWrapper</code> thủ công nữa!
-                </>,
-                <>
-                  Thanks to the <strong>Zero-Portal API</strong>, theme-preserving capabilities are embedded directly into <code className="text-sm bg-warning/20 text-warning px-1.5 py-0.5 rounded">*Content</code> components (e.g., <code className="text-sm bg-warning/20 text-warning px-1.5 py-0.5 rounded">DialogContent</code>). Everything works smoothly and automatically, no need to manually import or wrap with <code className="text-sm bg-warning/20 text-warning px-1.5 py-0.5 rounded">ThemeWrapper</code> anymore!
-                </>
-              )}
-            </p>
-          </div>
-
-          <div className="relative z-10 grid sm:grid-cols-2 gap-6 max-w-3xl">
-            <div className="p-6 rounded-2xl border border-success/30 bg-success/10 shadow-sm flex flex-col gap-2">
-              <div className="text-success font-semibold text-lg flex items-center gap-2">
-                ✅ gladvn
-              </div>
-              <p className="text-success/80 text-sm leading-relaxed">
-                {t(
-                  <>
-                    Tooltip, Dialog trong dark section luôn đúng màu — kể cả khi
-                    Portal render ra{" "}
-                    <code className="opacity-80">document.body</code>.
-                  </>,
-                  <>
-                    Tooltips and Dialogs inside dark sections always have the correct color — even when
-                    Portals render them to{" "}
-                    <code className="opacity-80">document.body</code>.
-                  </>
-                )}
-              </p>
-            </div>
-            <div className="p-6 rounded-2xl border border-destructive/30 bg-destructive/10 shadow-sm opacity-80 flex flex-col gap-2">
-              <div className="text-destructive font-semibold text-lg flex items-center gap-2">
-                ❌ {t("Thư viện khác", "Other libraries")}
-              </div>
-              <p className="text-destructive/80 text-sm leading-relaxed">
-                {t(
-                  'Tooltip, Dialog "trắng lạc quẻ" — mất theme khi vượt Portal.',
-                  'Tooltips and Dialogs look out of place — losing themes when crossing Portals.'
-                )}
-              </p>
-            </div>
-          </div>
-
-          <div className="relative z-10 mt-10">
-            <Button
-              render={<a href="/dialog" />}
-              nativeButton={false}
-              variant="outline"
-              color="warning"
-              className="gap-2 font-bold px-6 py-5 rounded-xl border-warning/30 bg-warning/10 hover:bg-warning/20 shadow-sm"
-            >
-              {t("Xem demo thực tế", "See live demo")}
-              <ArrowRightIcon className="size-4" />
-            </Button>
-          </div>
-        </div>
-      </section>
-    </div>
+    </section>
   );
 }

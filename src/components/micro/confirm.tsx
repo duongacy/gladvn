@@ -4,25 +4,28 @@ import * as React from "react";
 
 import { AlertDialog as AlertDialogPrimitive } from "@base-ui/react/alert-dialog";
 
-import { Button } from "../../components/micro/button";
-import { type Size } from "../../lib/types";
 import { cn } from "../../lib/utils";
 import { ThemeWrapper } from "./theme-provider";
 
 /**
  * @description A modal dialog that interrupts the user with important content and expects a response.
- * @requires ConfirmTrigger, ConfirmContent, ConfirmHeader, ConfirmFooter
+ * @requires ConfirmContent, ConfirmHeader, ConfirmFooter
  * @example
  * <Confirm>
- *   <ConfirmTrigger>Open</ConfirmTrigger>
  *   <ConfirmContent>
  *     <ConfirmHeader><ConfirmTitle>Are you sure?</ConfirmTitle></ConfirmHeader>
- *     <ConfirmFooter><ConfirmNo>Cancel</ConfirmNo><ConfirmYes>Continue</ConfirmYes></ConfirmFooter>
+ *     <ConfirmFooter>...</ConfirmFooter>
  *   </ConfirmContent>
  * </Confirm>
  */
 function Confirm({ ...props }: AlertDialogPrimitive.Root.Props) {
   return <AlertDialogPrimitive.Root data-slot="confirm" {...props} />;
+}
+
+function ConfirmTrigger({
+  ...props
+}: AlertDialogPrimitive.Trigger.Props) {
+  return <AlertDialogPrimitive.Trigger data-slot="confirm-trigger" {...props} />;
 }
 
 function ConfirmOverlay({
@@ -45,26 +48,23 @@ const ConfirmContent = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Popup> & {
     container?: React.ComponentProps<typeof AlertDialogPrimitive.Portal>["container"];
-    size?: Size;
   }
->(({ className, container, size = "md", ...props }, ref) => (
+>(({ className, children, container, ...props }, ref) => (
   <AlertDialogPrimitive.Portal container={container}>
     <ThemeWrapper>
       <ConfirmOverlay />
       <AlertDialogPrimitive.Popup
         ref={ref}
         data-slot="confirm-content"
-        data-size={size}
         className={cn(
-          "group/confirm-content fixed top-1/2 left-1/2 z-50 grid w-full -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl bg-popover p-4 text-popover-foreground ring-1 ring-foreground/10 duration-100 outline-none",
-          "data-[size=sm]:max-w-xs",
-          "data-[size=md]:max-w-xs data-[size=md]:sm:max-w-sm",
-          "data-[size=lg]:max-w-sm data-[size=lg]:sm:max-w-md",
+          "fixed top-1/2 left-1/2 z-50 grid w-full -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl bg-popover p-4 text-popover-foreground ring-1 ring-foreground/10 duration-100 outline-none",
           "data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
           className,
         )}
         {...props}
-      />
+      >
+        {children}
+      </AlertDialogPrimitive.Popup>
     </ThemeWrapper>
   </AlertDialogPrimitive.Portal>
 ));
@@ -108,7 +108,6 @@ function ConfirmMedia({
       data-slot="confirm-media"
       className={cn(
         "inline-flex size-10 items-center justify-center [:where(&>svg)]:size-6",
-        "group-data-[size=lg]/confirm-content:size-12",
         className,
       )}
       {...props}
@@ -123,11 +122,7 @@ function ConfirmTitle({
   return (
     <AlertDialogPrimitive.Title
       data-slot="confirm-title"
-      className={cn(
-        "font-heading text-base font-medium",
-        "group-data-[size=lg]/confirm-content:text-lg",
-        className,
-      )}
+      className={cn("font-heading text-base font-medium", className)}
       {...props}
     />
   );
@@ -140,11 +135,7 @@ function ConfirmDescription({
   return (
     <AlertDialogPrimitive.Description
       data-slot="confirm-description"
-      className={cn(
-        "text-sm text-balance text-muted-foreground md:text-pretty",
-        "group-data-[size=lg]/confirm-content:text-base",
-        className,
-      )}
+      className={cn("text-sm text-balance text-muted-foreground md:text-pretty", className)}
       {...props}
     />
   );
@@ -159,4 +150,5 @@ export {
   ConfirmMedia,
   ConfirmOverlay,
   ConfirmTitle,
+  ConfirmTrigger,
 };

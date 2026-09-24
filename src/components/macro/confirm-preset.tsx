@@ -9,21 +9,25 @@ import {
   ConfirmDescription,
   ConfirmFooter,
   ConfirmHeader,
+  ConfirmMedia,
   ConfirmTitle,
+  ConfirmTrigger,
 } from "../../components/micro/confirm";
 import type { Color, Size, Variant } from "../../lib/types";
-import { cn } from "../../lib/utils";
 
 export type ConfirmPresetProps = {
-  open: boolean;
+  /** If provided, renders a trigger element that opens the dialog declaratively (no need to manage `open` state). */
+  trigger?: React.ReactElement;
+  /** Controlled open state. Required when `trigger` is not provided. */
+  open?: boolean;
   /** Dialog title. @default "Are you sure?" */
   title?: React.ReactNode;
   /** Optional description rendered below the title. */
   description?: React.ReactNode;
-  /** Called when the user clicks the yes button. */
-  onYes: () => void;
-  /** Called when the user clicks the no button (or closes the dialog). */
-  onNo: () => void;
+  /** Called when the user confirms. */
+  onYes?: () => void;
+  /** Called when the user cancels or closes the dialog (including ESC key). */
+  onNo?: () => void;
   /** Label for the yes button. @default "Confirm" */
   yesLabel?: string;
   /** Label for the no button. @default "Cancel" */
@@ -42,31 +46,37 @@ export type ConfirmPresetProps = {
   isLoading?: boolean;
   /** Label shown on the yes button while loading. @default "Processing..." */
   loadingLabel?: string;
-  /** Dialog size. @default "sm" */
+  /** Dialog size — delegates to ConfirmContent which handles child scaling via CSS Context. @default "sm" */
   size?: Size;
-  /** Optional custom content rendered below the header. */
+  /** Optional custom content rendered below the header (e.g. a confirmation input). */
   children?: React.ReactNode;
 };
 
 /**
- * @description A pre-composed confirmation dialog. Pair with `useConfirm` for
- * a promise-based API:
+ * @description A pre-composed confirmation dialog.
  *
+ * **Declarative mode** (trigger-based, no state needed):
  * ```tsx
- * const { isOpen, ask, confirm, cancel } = useConfirm();
+ * <ConfirmPreset
+ *   trigger={<Button color="destructive">Delete</Button>}
+ *   title="Are you sure?"
+ *   onYes={() => deleteItem()}
+ * />
+ * ```
  *
- * const handleDelete = async () => {
- *   const ok = await ask();
- *   if (!ok) return;
- *   await deleteItem();
- * };
- *
- * <ConfirmPreset open={isOpen} onYes={yes} onNo={no} title="…" />
+ * **Imperative mode** (controlled via `useConfirm` hook):
+ * ```tsx
+ * const { isOpen, ask, yes, no } = useConfirm();
+ * <button onClick={async () => { const ok = await ask(); if (ok) await deleteItem(); }}>
+ *   Delete
+ * </button>
+ * <ConfirmPreset open={isOpen} onYes={yes} onNo={no} title="Are you sure?" />
  * ```
  */
 const ConfirmPreset = React.forwardRef<HTMLDivElement, ConfirmPresetProps>(
   (
     {
+      trigger,
       open,
       title = "Are you sure?",
       description,
@@ -89,35 +99,27 @@ const ConfirmPreset = React.forwardRef<HTMLDivElement, ConfirmPresetProps>(
     return (
       <Confirm
         open={open}
+        onOpenChange={(val) => {
+          // Catches ESC key and backdrop dismiss to prevent dangling promises
+          if (!val) onNo?.();
+        }}
       >
-        <ConfirmContent
-          ref={ref}
-          className={cn(
-            "flex flex-col gap-0 p-0 overflow-hidden",
-            {
-              "sm:max-w-md": size === "sm",
-              "sm:max-w-lg": size === "md",
-              "sm:max-w-xl": size === "lg",
-            }
-          )}
-        >
-          <ConfirmHeader className="shrink-0 p-4">
-            <div className="flex items-center gap-3">
-              {icon && <div className="shrink-0">{icon}</div>}
-              <ConfirmTitle>{title}</ConfirmTitle>
-            </div>
+        {trigger && <ConfirmTrigger render={trigger} />}
+
+        {/* size prop delegated to ConfirmContent — CSS Context handles child scaling */}
+        <ConfirmContent ref={ref} size={size}>
+          <ConfirmHeader>
+            {icon && <ConfirmMedia>{icon}</ConfirmMedia>}
+            <ConfirmTitle>{title}</ConfirmTitle>
             {description && (
               <ConfirmDescription>{description}</ConfirmDescription>
             )}
           </ConfirmHeader>
 
-          {children && (
-            <div className="px-4 pb-4">
-              {children}
-            </div>
-          )}
+          {children && <div className="px-0">{children}</div>}
 
-          <ConfirmFooter className="shrink-0 rounded-b-xl border-t border-t-border bg-muted/50 p-4">
+          <ConfirmFooter>
+            {/* Cancel renders first → receives auto-focus, preventing accidental confirmation */}
             <Button
               variant={noVariant}
               color={noColor}

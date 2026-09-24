@@ -26,8 +26,8 @@ export function HeroSection({ className }: { className?: string }) {
           <CodeIcon className="w-3.5 h-3.5 text-primary" />
           <span className="text-muted-foreground">
             {t(
-              "Copy code · Tuỳ biến tự do · Không lock-in",
-              "Copy code · Fully customizable · No lock-in"
+              "Zero-Specificity · Defensive Context · AI-Native",
+              "Zero-Specificity · Defensive Context · AI-Native"
             )}
           </span>
         </div>
@@ -37,10 +37,10 @@ export function HeroSection({ className }: { className?: string }) {
           style={{ animationDelay: "100ms", animationFillMode: "both" }}
         >
           <span className="block text-foreground drop-shadow-sm">
-            {t("Tinh tế. Đẳng cấp.", "Elegant. Premium.")}
+            {t("Copy code thì dễ.", "Copying code is easy.")}
           </span>
           <span className="block mt-2 bg-linear-to-r leading-[1.2] from-primary via-info to-primary bg-[length:200%_auto] bg-clip-text text-transparent animate-[spin_8s_linear_infinite] [animation-name:gradient] [animation-duration:8s] [animation-timing-function:linear] [animation-iteration-count:infinite]">
-            {t("Không giới hạn.", "Limitless.")}
+            {t("Giữ code không nát mới khó.", "Keeping it clean is hard.")}
           </span>
         </h1>
 
@@ -50,26 +50,12 @@ export function HeroSection({ className }: { className?: string }) {
         >
           {t(
             <>
-              Phần lớn component library giữ code trong node_modules — bạn dùng
-              được nhưng không sửa được. gladvn copy thẳng vào{" "}
-              <code className="text-sm bg-primary/20 text-primary px-1.5 py-0.5 rounded">
-                src/
-              </code>{" "}
-              của bạn.{" "}
-              <strong className="text-foreground">
-                Đọc được, sửa được, xóa được.
-              </strong>
+              Việc copy-paste code UI (như Shadcn) thường dẫn đến một hệ thống không thể bảo trì sau 6 tháng. gladvn giải quyết triệt để vấn đề này bằng một kiến trúc cực đoan:{" "}
+              <strong className="text-foreground">Phân tầng Micro/Macro, Zero-Specificity CSS, và Phòng thủ ngữ cảnh (Defensive Context).</strong>
             </>,
             <>
-              Most component libraries keep code in node_modules — you can use them
-              but can't modify them. gladvn copies components directly into your{" "}
-              <code className="text-sm bg-primary/20 text-primary px-1.5 py-0.5 rounded">
-                src/
-              </code>{" "}
-              directory.{" "}
-              <strong className="text-foreground">
-                Read it, edit it, delete it.
-              </strong>
+              Copy-pasting UI code (like Shadcn) often leads to an unmaintainable system after 6 months. gladvn completely solves this with a radical architecture:{" "}
+              <strong className="text-foreground">Micro/Macro separation, Zero-Specificity CSS, and Defensive Context.</strong>
             </>
           )}
         </p>
@@ -79,8 +65,8 @@ export function HeroSection({ className }: { className?: string }) {
           style={{ animationDelay: "300ms", animationFillMode: "both" }}
         >
           {t(
-            `"Thư viện này sinh ra để giúp bạn code nhanh hơn, sống nhàn hơn — đừng tự làm khó mình."`,
-            `"This library was born to help you code faster and live easier — don't make it hard on yourself."`
+            `"Một thư viện UI không yêu cầu học thuộc Docs để đè CSS, và cảnh báo thẳng vào console nếu component bị ráp sai."`,
+            `"A UI library that requires no memorization of docs to override CSS, and throws console warnings if components are misassembled."`
           )}
         </div>
       </Container>

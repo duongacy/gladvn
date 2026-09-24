@@ -74,36 +74,34 @@ export function PrinciplesSection({ className }: { className?: string }) {
           <div className="flex flex-col md:flex-row items-start gap-6 md:gap-8">
             <div className="relative z-10 flex-1 space-y-6">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary text-primary-foreground text-sm font-bold uppercase tracking-wider shadow-lg shadow-primary/20">
-                <SparklesIcon className="size-4" /> {t("Sự khác biệt", "The Key Difference")}
+                <SparklesIcon className="size-4" /> {t("Sự khác biệt cốt lõi", "The Core Difference")}
               </div>
               <h3 className="text-3xl md:text-5xl font-extrabold tracking-tight">
-                {t("Code là của bạn, 100%", "The code is 100% yours")}
+                {t("Sở hữu Code, Không sở hữu Nợ Kỹ Thuật", "Own the Code, Not the Tech-Debt")}
               </h3>
               <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl">
                 {t(
                   <>
-                    Chạy một lệnh — toàn bộ component, hook, style, context được
-                    copy thẳng vào thư mục{" "}
+                    Mô hình copy-paste mang lại quyền sở hữu code, nhưng thường đi kèm các file khổng lồ và cấu trúc CSS lộn xộn. gladvn thay đổi hoàn toàn điều đó bằng việc cung cấp thư mục{" "}
                     <code className="text-sm bg-primary/20 text-primary px-1.5 py-0.5 rounded">
-                      src/
+                      src/components
                     </code>{" "}
-                    của bạn.{" "}
+                    được chuẩn hoá tuyệt đối bởi{" "}
                     <strong className="text-foreground">
-                      Không qua node_modules. Không phụ thuộc vào ai.
+                      22 nguyên tắc kiến trúc nghiêm ngặt (22 Commandments).
                     </strong>{" "}
-                    Đọc được, sửa được, xoá được từng dòng.
+                    Không Magic CSS. Không nội suy chuỗi. Minh bạch đến mức cực đoan.
                   </>,
                   <>
-                    Run a single command — every component, hook, style, and context is
-                    copied directly into your{" "}
+                    The copy-paste model provides code ownership, but often entails bloated files and messy CSS architecture. gladvn changes this entirely by delivering a{" "}
                     <code className="text-sm bg-primary/20 text-primary px-1.5 py-0.5 rounded">
-                      src/
+                      src/components
                     </code>{" "}
-                    directory.{" "}
+                    folder strictly standardized by{" "}
                     <strong className="text-foreground">
-                      No node_modules. Zero external dependencies.
+                      22 rigorous architectural commandments.
                     </strong>{" "}
-                    You can read, modify, or delete every single line of code.
+                    Absolutely no "Magic CSS". No string interpolation. Radically transparent.
                   </>
                 )}
               </p>

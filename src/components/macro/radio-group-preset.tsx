@@ -50,10 +50,6 @@ const RadioGroupPreset = React.forwardRef<
   ) => {
     const generatedId = React.useId();
     const inputId = id || generatedId;
-    const textSizeClass = cn({
-      "text-xs": size === "sm",
-      "text-sm": size === "md",
-      "text-base": size === "lg" });
 
     return (
       <FieldPreset
@@ -68,40 +64,35 @@ const RadioGroupPreset = React.forwardRef<
         <RadioGroup
           ref={ref}
           id={inputId}
+          size={size}
           className={cn("flex", {
             "flex-col gap-2": orientation === "vertical",
-            "flex-row gap-4 flex-wrap": orientation !== "vertical" })}
+            "flex-row gap-4 flex-wrap": orientation !== "vertical",
+          })}
           aria-invalid={!!errorMessage}
           {...radioGroupProps}
         >
           {options.map((option) => (
             <div key={option.value} className="flex items-start gap-3">
-              <div
-                className={cn("flex items-center leading-snug", textSizeClass)}
-              >
+              <div className="flex items-center leading-snug">
                 &#8203;
                 <RadioGroupItem
                   value={option.value}
                   id={`${inputId}-${option.value}`}
                   disabled={option.disabled}
-                  size={size}
                 />
               </div>
               <div className="flex flex-col gap-1">
                 <Label
                   htmlFor={`${inputId}-${option.value}`}
-                  className={cn(
-                    "font-normal cursor-pointer leading-snug",
-                    textSizeClass,
-                    { "opacity-50 cursor-not-allowed": option.disabled },
-                  )}
+                  className={cn("font-normal cursor-pointer leading-snug", {
+                    "opacity-50 cursor-not-allowed": option.disabled,
+                  })}
                 >
                   {option.label}
                 </Label>
                 {option.description && (
-                  <p className={cn("text-muted-foreground", textSizeClass)}>
-                    {option.description}
-                  </p>
+                  <p className="text-muted-foreground">{option.description}</p>
                 )}
               </div>
             </div>

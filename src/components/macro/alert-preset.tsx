@@ -82,12 +82,12 @@ const AlertPreset = React.forwardRef<HTMLDivElement, AlertPresetProps>(
             variant="ghost"
             color={color as React.ComponentProps<typeof Button>["color"]}
             size="sm"
-            className="absolute right-1 top-1 p-0 size-6 group-data-[size=sm]/alert:size-5 group-data-[size=lg]/alert:size-7"
+            className="absolute right-1 top-1 p-0 size-6 data-[size=sm]:size-5 data-[size=lg]:size-7"
             onClick={handleDismiss}
             aria-label="Dismiss alert"
             iconOnly
           >
-            <XIcon aria-hidden="true" className="size-3.5 group-data-[size=sm]/alert:size-3 group-data-[size=lg]/alert:size-4" />
+            <XIcon aria-hidden="true" className="size-3.5 data-[size=sm]:size-3 data-[size=lg]:size-4" />
           </Button>
         )}
       </Alert>

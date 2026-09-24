@@ -4,7 +4,7 @@ import {
   Info,
   TriangleAlert,
   XCircle,
-  X,
+  XIcon,
 } from "lucide-react";
 
 import { AlertPreset } from "@/components/macro/alert-preset";
@@ -50,26 +50,27 @@ function useAlertExamples() {
             icon={<Info />}
           />
         ),
-        microCode: `<Alert className="flex items-start">
-  <AlertIcon
-    render={<Info />}
-    className="mt-0.5 shrink-0"
-  />
-  <div className="flex-1 space-y-0.5">
-    <AlertTitle>Attention!</AlertTitle>
-    <AlertDescription>
-      You can add components to your project using the CLI.
-    </AlertDescription>
+        microCode: `<Alert className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start">
+  <div className="flex flex-1 items-start gap-3">
+    <AlertIcon render={<Info />} className="mt-0.5 shrink-0" />
+    <div className="flex-1 space-y-0.5">
+      <AlertTitle>New update available</AlertTitle>
+      <AlertDescription>
+        Version 2.0.4 is ready to download.
+      </AlertDescription>
+    </div>
   </div>
 </Alert>`,
         microPreview: (
-          <Alert size={globalSize} className="flex items-start">
-            <AlertIcon render={<Info />} className="mt-0.5 shrink-0" />
-            <div className="flex-1 space-y-0.5">
-              <AlertTitle>Attention!</AlertTitle>
-              <AlertDescription>
-                You can add components to your project using the CLI.
-              </AlertDescription>
+          <Alert size={globalSize} className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start">
+            <div className="flex flex-1 items-start gap-3">
+              <AlertIcon render={<Info />} className="mt-0.5 shrink-0" />
+              <div className="flex-1 space-y-0.5">
+                <AlertTitle>New update available</AlertTitle>
+                <AlertDescription>
+                  Version 2.0.4 is ready to download.
+                </AlertDescription>
+              </div>
             </div>
           </Alert>
         ),
@@ -97,50 +98,52 @@ function useAlertExamples() {
             dismissible
           />
         ),
-        microCode: `<Alert color="info" className="flex items-start relative">
-  <AlertIcon
-    render={<Info />}
-    className="mt-0.5 shrink-0"
-  />
-  <div className="flex-1 space-y-0.5 pr-8">
-    <AlertTitle>New feature</AlertTitle>
-    <AlertDescription>
-      Explore our brand new dashboard statistics page.
-    </AlertDescription>
+        microCode: `<Alert color="warning" className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start pr-8 data-[size=sm]:pr-7 data-[size=lg]:pr-10">
+  <div className="flex flex-1 items-start gap-3">
+    <AlertIcon render={<TriangleAlert />} className="mt-0.5 shrink-0" />
+    <div className="flex-1 space-y-0.5">
+      <AlertTitle>Session expiring soon</AlertTitle>
+      <AlertDescription>
+        Your session will expire in 5 minutes.
+      </AlertDescription>
+    </div>
   </div>
-  <AlertAction className="absolute right-1 top-1">
-    <Button
-      variant="ghost"
-      size="sm"
-      className="size-6 p-0 group-data-[size=sm]/alert:size-5 group-data-[size=lg]/alert:size-7"
-    >
-      <X className="size-3.5 group-data-[size=sm]/alert:size-3 group-data-[size=lg]/alert:size-4" />
-    </Button>
-  </AlertAction>
+  <Button
+    variant="ghost"
+    color="warning"
+    size="sm"
+    className="absolute right-1 top-1 p-0 size-6 data-[size=sm]:size-5 data-[size=lg]:size-7"
+    aria-label="Dismiss alert"
+    iconOnly
+  >
+    <XIcon aria-hidden="true" className="size-3.5 data-[size=sm]:size-3 data-[size=lg]:size-4" />
+  </Button>
 </Alert>`,
         microPreview: (
           <Alert
-            color="info"
+            color="warning"
             size={globalSize}
-            className="flex items-start relative"
+            className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start pr-8 data-[size=sm]:pr-7 data-[size=lg]:pr-10"
           >
-            <AlertIcon render={<Info />} className="mt-0.5 shrink-0" />
-            <div className="flex-1 space-y-0.5 pr-8">
-              <AlertTitle>New feature</AlertTitle>
-              <AlertDescription>
-                Explore our brand new dashboard statistics page.
-              </AlertDescription>
+            <div className="flex flex-1 items-start gap-3">
+              <AlertIcon render={<TriangleAlert />} className="mt-0.5 shrink-0" />
+              <div className="flex-1 space-y-0.5">
+                <AlertTitle>Session expiring soon</AlertTitle>
+                <AlertDescription>
+                  Your session will expire in 5 minutes.
+                </AlertDescription>
+              </div>
             </div>
-            <AlertAction className="absolute right-1 top-1">
-              <Button
-                variant="ghost"
-                size={globalSize}
-                className="size-6 p-0 group-data-[size=sm]/alert:size-5 group-data-[size=lg]/alert:size-7"
-                iconOnly
-              >
-                <X className="size-3.5 group-data-[size=sm]/alert:size-3 group-data-[size=lg]/alert:size-4" />
-              </Button>
-            </AlertAction>
+            <Button
+              variant="ghost"
+              color="warning"
+              size="sm"
+              className="absolute right-1 top-1 p-0 size-6 data-[size=sm]:size-5 data-[size=lg]:size-7"
+              aria-label="Dismiss alert"
+              iconOnly
+            >
+              <XIcon aria-hidden="true" className="size-3.5 data-[size=sm]:size-3 data-[size=lg]:size-4" />
+            </Button>
           </Alert>
         ),
       },
@@ -151,112 +154,98 @@ function useAlertExamples() {
           "Each color conveys a different level of urgency or meaning."
         ),
         microCode: `<div className="flex flex-col gap-4 w-full">
-  <Alert color="info" className="flex items-start">
-    <AlertIcon
-      render={<Info />}
-      className="mt-0.5 shrink-0"
-    />
-    <div className="flex-1 space-y-0.5">
-      <AlertTitle>New update available</AlertTitle>
-      <AlertDescription>
-        Version 2.0.4 is ready to download.
-      </AlertDescription>
+  <Alert color="info" className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start">
+    <div className="flex flex-1 items-start gap-3">
+      <AlertIcon render={<Info />} className="mt-0.5 shrink-0" />
+      <div className="flex-1 space-y-0.5">
+        <AlertTitle>New update available</AlertTitle>
+        <AlertDescription>
+          Version 2.0.4 is ready to download.
+        </AlertDescription>
+      </div>
     </div>
   </Alert>
 
-  <Alert color="success" className="flex items-start">
-    <AlertIcon
-      render={<CheckCircle2 />}
-      className="mt-0.5 shrink-0"
-    />
-    <div className="flex-1 space-y-0.5">
-      <AlertTitle>Saved successfully</AlertTitle>
-      <AlertDescription>
-        Your changes have been synced to the cloud.
-      </AlertDescription>
+  <Alert color="success" className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start">
+    <div className="flex flex-1 items-start gap-3">
+      <AlertIcon render={<CheckCircle2 />} className="mt-0.5 shrink-0" />
+      <div className="flex-1 space-y-0.5">
+        <AlertTitle>Saved successfully</AlertTitle>
+        <AlertDescription>
+          Your changes have been synced to the cloud.
+        </AlertDescription>
+      </div>
     </div>
   </Alert>
 
-  <Alert color="warning" className="flex items-start">
-    <AlertIcon
-      render={<TriangleAlert />}
-      className="mt-0.5 shrink-0"
-    />
-    <div className="flex-1 space-y-0.5">
-      <AlertTitle>Session expiring soon</AlertTitle>
-      <AlertDescription>
-        Your session will expire in 5 minutes.
-      </AlertDescription>
+  <Alert color="warning" className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start">
+    <div className="flex flex-1 items-start gap-3">
+      <AlertIcon render={<TriangleAlert />} className="mt-0.5 shrink-0" />
+      <div className="flex-1 space-y-0.5">
+        <AlertTitle>Session expiring soon</AlertTitle>
+        <AlertDescription>
+          Your session will expire in 5 minutes.
+        </AlertDescription>
+      </div>
     </div>
   </Alert>
 
-  <Alert color="destructive" className="flex items-start">
-    <AlertIcon
-      render={<XCircle />}
-      className="mt-0.5 shrink-0"
-    />
-    <div className="flex-1 space-y-0.5">
-      <AlertTitle>Connection failed</AlertTitle>
-      <AlertDescription>
-        Cannot connect to the database.
-      </AlertDescription>
+  <Alert color="destructive" className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start">
+    <div className="flex flex-1 items-start gap-3">
+      <AlertIcon render={<XCircle />} className="mt-0.5 shrink-0" />
+      <div className="flex-1 space-y-0.5">
+        <AlertTitle>Connection failed</AlertTitle>
+        <AlertDescription>
+          Cannot connect to the database.
+        </AlertDescription>
+      </div>
     </div>
   </Alert>
 </div>`,
         microPreview: (
           <div className="flex flex-col gap-4 w-full">
-            <Alert color="info" size={globalSize} className="flex items-start">
-              <AlertIcon render={<Info />} className="mt-0.5 shrink-0" />
-              <div className="flex-1 space-y-0.5">
-                <AlertTitle>New update available</AlertTitle>
-                <AlertDescription>
-                  Version 2.0.4 is ready to download.
-                </AlertDescription>
+            <Alert color="info" size={globalSize} className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start">
+              <div className="flex flex-1 items-start gap-3">
+                <AlertIcon render={<Info />} className="mt-0.5 shrink-0" />
+                <div className="flex-1 space-y-0.5">
+                  <AlertTitle>New update available</AlertTitle>
+                  <AlertDescription>
+                    Version 2.0.4 is ready to download.
+                  </AlertDescription>
+                </div>
               </div>
             </Alert>
-            <Alert
-              color="success"
-              size={globalSize}
-              className="flex items-start"
-            >
-              <AlertIcon
-                render={<CheckCircle2 />}
-                className="mt-0.5 shrink-0"
-              />
-              <div className="flex-1 space-y-0.5">
-                <AlertTitle>Saved successfully</AlertTitle>
-                <AlertDescription>
-                  Your changes have been synced to the cloud.
-                </AlertDescription>
+            <Alert color="success" size={globalSize} className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start">
+              <div className="flex flex-1 items-start gap-3">
+                <AlertIcon render={<CheckCircle2 />} className="mt-0.5 shrink-0" />
+                <div className="flex-1 space-y-0.5">
+                  <AlertTitle>Saved successfully</AlertTitle>
+                  <AlertDescription>
+                    Your changes have been synced to the cloud.
+                  </AlertDescription>
+                </div>
               </div>
             </Alert>
-            <Alert
-              color="warning"
-              size={globalSize}
-              className="flex items-start"
-            >
-              <AlertIcon
-                render={<TriangleAlert />}
-                className="mt-0.5 shrink-0"
-              />
-              <div className="flex-1 space-y-0.5">
-                <AlertTitle>Session expiring soon</AlertTitle>
-                <AlertDescription>
-                  Your session will expire in 5 minutes.
-                </AlertDescription>
+            <Alert color="warning" size={globalSize} className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start">
+              <div className="flex flex-1 items-start gap-3">
+                <AlertIcon render={<TriangleAlert />} className="mt-0.5 shrink-0" />
+                <div className="flex-1 space-y-0.5">
+                  <AlertTitle>Session expiring soon</AlertTitle>
+                  <AlertDescription>
+                    Your session will expire in 5 minutes.
+                  </AlertDescription>
+                </div>
               </div>
             </Alert>
-            <Alert
-              color="destructive"
-              size={globalSize}
-              className="flex items-start"
-            >
-              <AlertIcon render={<XCircle />} className="mt-0.5 shrink-0" />
-              <div className="flex-1 space-y-0.5">
-                <AlertTitle>Connection failed</AlertTitle>
-                <AlertDescription>
-                  Cannot connect to the database.
-                </AlertDescription>
+            <Alert color="destructive" size={globalSize} className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start">
+              <div className="flex flex-1 items-start gap-3">
+                <AlertIcon render={<XCircle />} className="mt-0.5 shrink-0" />
+                <div className="flex-1 space-y-0.5">
+                  <AlertTitle>Connection failed</AlertTitle>
+                  <AlertDescription>
+                    Cannot connect to the database.
+                  </AlertDescription>
+                </div>
               </div>
             </Alert>
           </div>
@@ -275,11 +264,7 @@ function useAlertExamples() {
     icon={<CheckCircle2 />}
     dismissible
     action={
-      <Button
-        size="sm"
-        variant="outline"
-        className="h-7 px-2 text-xs"
-      >
+      <Button size="sm" variant="outline" className="h-7 px-2 text-xs">
         View receipt
       </Button>
     }
@@ -298,11 +283,7 @@ function useAlertExamples() {
               icon={<CheckCircle2 />}
               dismissible
               action={
-                <Button
-                  size={globalSize}
-                  variant="outline"
-                  className="h-7 px-2 text-xs"
-                >
+                <Button size={globalSize} variant="outline" className="h-7 px-2 text-xs">
                   View receipt
                 </Button>
               }
@@ -313,6 +294,64 @@ function useAlertExamples() {
             </AlertPreset>
           </div>
         ),
+        microCode: `<div className="w-full max-w-xl">
+  <Alert color="success" className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start pr-8 data-[size=sm]:pr-7 data-[size=lg]:pr-10">
+    <div className="flex flex-1 items-start gap-3">
+      <AlertIcon render={<CheckCircle2 />} className="mt-0.5 shrink-0" />
+      <div className="flex-1 space-y-0.5">
+        <AlertTitle>Payment successful</AlertTitle>
+        <p className="text-sm mt-1 text-success/90">
+          Your invoice #1234 has been fully paid.
+        </p>
+      </div>
+    </div>
+    <AlertAction className="shrink-0 @sm/alert:ml-4">
+      <Button size="sm" variant="outline" className="h-7 px-2 text-xs">
+        View receipt
+      </Button>
+    </AlertAction>
+    <Button
+      variant="ghost"
+      color="success"
+      size="sm"
+      className="absolute right-1 top-1 p-0 size-6 data-[size=sm]:size-5 data-[size=lg]:size-7"
+      aria-label="Dismiss alert"
+      iconOnly
+    >
+      <XIcon aria-hidden="true" className="size-3.5 data-[size=sm]:size-3 data-[size=lg]:size-4" />
+    </Button>
+  </Alert>
+</div>`,
+        microPreview: (
+          <div className="w-full max-w-xl">
+            <Alert color="success" size={globalSize} className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start pr-8 data-[size=sm]:pr-7 data-[size=lg]:pr-10">
+              <div className="flex flex-1 items-start gap-3">
+                <AlertIcon render={<CheckCircle2 />} className="mt-0.5 shrink-0" />
+                <div className="flex-1 space-y-0.5">
+                  <AlertTitle>Payment successful</AlertTitle>
+                  <p className="text-sm mt-1 text-success/90">
+                    Your invoice #1234 has been fully paid.
+                  </p>
+                </div>
+              </div>
+              <AlertAction className="shrink-0 @sm/alert:ml-4">
+                <Button size={globalSize} variant="outline" className="h-7 px-2 text-xs">
+                  View receipt
+                </Button>
+              </AlertAction>
+              <Button
+                variant="ghost"
+                color="success"
+                size="sm"
+                className="absolute right-1 top-1 p-0 size-6 data-[size=sm]:size-5 data-[size=lg]:size-7"
+                aria-label="Dismiss alert"
+                iconOnly
+              >
+                <XIcon aria-hidden="true" className="size-3.5 data-[size=sm]:size-3 data-[size=lg]:size-4" />
+              </Button>
+            </Alert>
+          </div>
+        ),
       },
       {
         title: t("Tối giản", "Minimal"),
@@ -321,45 +360,49 @@ function useAlertExamples() {
           "Alert with only description content, without a title."
         ),
         microCode: `<div className="flex flex-col gap-4 w-full">
-  <Alert color="info" className="flex items-start">
-    <AlertIcon
-      render={<Info />}
-      className="mt-0.5 shrink-0"
-    />
-    <AlertDescription className="flex-1">
-      You can add components to your project using the CLI.
-    </AlertDescription>
+  <Alert color="info" className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start">
+    <div className="flex flex-1 items-start gap-3">
+      <AlertIcon render={<Info />} className="mt-0.5 shrink-0" />
+      <div className="flex-1 space-y-0.5">
+        <AlertDescription>
+          You can add components to your project using the CLI.
+        </AlertDescription>
+      </div>
+    </div>
   </Alert>
-  <Alert color="warning" className="flex items-start">
-    <AlertIcon
-      render={<TriangleAlert />}
-      className="mt-0.5 shrink-0"
-    />
-    <AlertDescription className="flex-1">
-      Your trial will expire in 3 days.
-    </AlertDescription>
+  
+  <Alert color="warning" className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start">
+    <div className="flex flex-1 items-start gap-3">
+      <AlertIcon render={<TriangleAlert />} className="mt-0.5 shrink-0" />
+      <div className="flex-1 space-y-0.5">
+        <AlertDescription>
+          Your trial will expire in 3 days.
+        </AlertDescription>
+      </div>
+    </div>
   </Alert>
 </div>`,
         microPreview: (
           <div className="flex flex-col gap-4 w-full">
-            <Alert color="info" size={globalSize} className="flex items-start">
-              <AlertIcon render={<Info />} className="mt-0.5 shrink-0" />
-              <AlertDescription className="flex-1">
-                You can add components to your project using the CLI.
-              </AlertDescription>
+            <Alert color="info" size={globalSize} className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start">
+              <div className="flex flex-1 items-start gap-3">
+                <AlertIcon render={<Info />} className="mt-0.5 shrink-0" />
+                <div className="flex-1 space-y-0.5">
+                  <AlertDescription>
+                    You can add components to your project using the CLI.
+                  </AlertDescription>
+                </div>
+              </div>
             </Alert>
-            <Alert
-              color="warning"
-              size={globalSize}
-              className="flex items-start"
-            >
-              <AlertIcon
-                render={<TriangleAlert />}
-                className="mt-0.5 shrink-0"
-              />
-              <AlertDescription className="flex-1">
-                Your trial will expire in 3 days.
-              </AlertDescription>
+            <Alert color="warning" size={globalSize} className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start">
+              <div className="flex flex-1 items-start gap-3">
+                <AlertIcon render={<TriangleAlert />} className="mt-0.5 shrink-0" />
+                <div className="flex-1 space-y-0.5">
+                  <AlertDescription>
+                    Your trial will expire in 3 days.
+                  </AlertDescription>
+                </div>
+              </div>
             </Alert>
           </div>
         ),
@@ -371,43 +414,48 @@ function useAlertExamples() {
           "Simple alert without an icon — natural layout."
         ),
         microCode: `<div className="flex flex-col gap-4 w-full">
-  <Alert color="success" className="flex flex-col gap-0.5">
-    <AlertTitle>Payment successful</AlertTitle>
-    <AlertDescription>
-      Your invoice #1234 has been fully paid.
-    </AlertDescription>
+  <Alert color="success" className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start">
+    <div className="flex flex-1 items-start gap-3">
+      <div className="flex-1 space-y-0.5">
+        <AlertTitle>Payment successful</AlertTitle>
+        <AlertDescription>
+          Your invoice #1234 has been fully paid.
+        </AlertDescription>
+      </div>
+    </div>
   </Alert>
-  <Alert
-    color="destructive"
-    className="flex flex-col gap-0.5"
-  >
-    <AlertTitle>Account locked</AlertTitle>
-    <AlertDescription>
-      Please contact support to unlock your account.
-    </AlertDescription>
+  <Alert color="destructive" className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start">
+    <div className="flex flex-1 items-start gap-3">
+      <div className="flex-1 space-y-0.5">
+        <AlertTitle>Account locked</AlertTitle>
+        <AlertDescription>
+          Please contact support to unlock your account.
+        </AlertDescription>
+      </div>
+    </div>
   </Alert>
 </div>`,
         microPreview: (
           <div className="flex flex-col gap-4 w-full">
-            <Alert
-              color="success"
-              size={globalSize}
-              className="flex flex-col gap-0.5"
-            >
-              <AlertTitle>Payment successful</AlertTitle>
-              <AlertDescription>
-                Your invoice #1234 has been fully paid.
-              </AlertDescription>
+            <Alert color="success" size={globalSize} className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start">
+              <div className="flex flex-1 items-start gap-3">
+                <div className="flex-1 space-y-0.5">
+                  <AlertTitle>Payment successful</AlertTitle>
+                  <AlertDescription>
+                    Your invoice #1234 has been fully paid.
+                  </AlertDescription>
+                </div>
+              </div>
             </Alert>
-            <Alert
-              color="destructive"
-              size={globalSize}
-              className="flex flex-col gap-0.5"
-            >
-              <AlertTitle>Account locked</AlertTitle>
-              <AlertDescription>
-                Please contact support to unlock your account.
-              </AlertDescription>
+            <Alert color="destructive" size={globalSize} className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start">
+              <div className="flex flex-1 items-start gap-3">
+                <div className="flex-1 space-y-0.5">
+                  <AlertTitle>Account locked</AlertTitle>
+                  <AlertDescription>
+                    Please contact support to unlock your account.
+                  </AlertDescription>
+                </div>
+              </div>
             </Alert>
           </div>
         ),

@@ -4,6 +4,8 @@
  * - WCAG AAA/AA
  * - Form Control Parity
  * - CSS Delegated Logic
+ * - Zero-Specificity Contextual Sizing (:where)
+ * - Defensive Context (AlertContext)
  */
 import * as React from "react";
 
@@ -13,8 +15,20 @@ import { type VariantProps, cva } from "class-variance-authority";
 
 import { cn } from "../../lib/utils";
 
+const AlertContext = React.createContext(false);
+
+function useAlertContext(componentName: string) {
+  const isInsideAlert = React.useContext(AlertContext);
+  if (process.env.NODE_ENV !== "production" && !isInsideAlert) {
+    console.warn(
+      `[gladvn] <${componentName}> phải được dùng bên trong <Alert>. ` +
+        `Nếu dùng bên ngoài, contextual sizing sẽ không hoạt động.`,
+    );
+  }
+}
+
 const alertVariants = cva(
-  "group/alert relative rounded-lg border border-border text-left bg-card text-card-foreground",
+  "relative rounded-lg border border-border text-left bg-card text-card-foreground",
   {
     variants: {
       color: {
@@ -36,7 +50,7 @@ const alertVariants = cva(
  * @description Displays a callout for user attention.
  * @requires AlertTitle, AlertDescription
  * @example
- * <Alert variant="destructive">
+ * <Alert color="destructive">
  *   <AlertTitle>Error</AlertTitle>
  *   <AlertDescription>Something went wrong.</AlertDescription>
  * </Alert>
@@ -45,7 +59,7 @@ export type AlertProps = Omit<React.ComponentProps<"div">, "color"> &
   VariantProps<typeof alertVariants>;
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
-  { className, color = "info", size = "md", ...props },
+  { className, color = "info", size = "md", children, ...props },
   ref,
 ) {
   return (
@@ -57,7 +71,9 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
       role="alert"
       className={cn(alertVariants({ color, size }), className)}
       {...props}
-    />
+    >
+      <AlertContext value={true}>{children}</AlertContext>
+    </div>
   );
 });
 Alert.displayName = "Alert";
@@ -66,6 +82,7 @@ export type AlertTitleProps = React.ComponentProps<"div">;
 
 const AlertTitle = React.forwardRef<HTMLDivElement, AlertTitleProps>(
   function AlertTitle({ className, ...props }, ref) {
+    useAlertContext("AlertTitle");
     return (
       <div
         ref={ref}
@@ -84,16 +101,17 @@ const AlertDescription = React.forwardRef<
   HTMLDivElement,
   AlertDescriptionProps
 >(function AlertDescription({ className, ...props }, ref) {
+  useAlertContext("AlertDescription");
   return (
     <div
       ref={ref}
       data-slot="alert-description"
       className={cn(
         "text-balance text-muted-foreground md:text-pretty leading-relaxed",
-        "group-data-[color=info]/alert:text-info",
-        "group-data-[color=destructive]/alert:text-destructive",
-        "group-data-[color=success]/alert:text-success",
-        "group-data-[color=warning]/alert:text-warning",
+        "[:where([data-slot=alert][data-color=info]_&)]:text-info",
+        "[:where([data-slot=alert][data-color=destructive]_&)]:text-destructive",
+        "[:where([data-slot=alert][data-color=success]_&)]:text-success",
+        "[:where([data-slot=alert][data-color=warning]_&)]:text-warning",
         className,
       )}
       {...props}
@@ -106,6 +124,7 @@ export type AlertActionProps = React.ComponentProps<"div">;
 
 const AlertAction = React.forwardRef<HTMLDivElement, AlertActionProps>(
   function AlertAction({ className, ...props }, ref) {
+    useAlertContext("AlertAction");
     return (
       <div
         ref={ref}
@@ -122,6 +141,7 @@ export type AlertIconProps = useRender.ComponentProps<"div">;
 
 const AlertIcon = React.forwardRef<HTMLDivElement, AlertIconProps>(
   function AlertIcon({ className, render, ...props }, ref) {
+    useAlertContext("AlertIcon");
     return useRender({
       render,
       defaultTagName: "div",
@@ -131,7 +151,9 @@ const AlertIcon = React.forwardRef<HTMLDivElement, AlertIconProps>(
           "aria-hidden": true,
           className: cn(
             "text-current",
-            "size-4 group-data-[size=sm]/alert:size-3.5 group-data-[size=lg]/alert:size-5",
+            "[:where([data-slot=alert][data-size=sm]_&)]:size-3.5",
+            "[:where([data-slot=alert][data-size=md]_&)]:size-4",
+            "[:where([data-slot=alert][data-size=lg]_&)]:size-5",
             className,
           ),
           "data-slot": "alert-icon",

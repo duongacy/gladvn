@@ -6,10 +6,13 @@ import { Combobox as ComboboxPrimitive } from "@base-ui/react";
 import { type VariantProps, cva } from "class-variance-authority";
 import { CheckIcon, ChevronDownIcon, XIcon } from "lucide-react";
 
-
 import { cn } from "../../lib/utils";
 import { type Size } from "../../lib/types";
 import { ThemeWrapper } from "./theme-provider";
+
+// ---------------------------------------------------------------------------
+// Anchor Context (existing — do NOT change public API)
+// ---------------------------------------------------------------------------
 
 const ComboboxContext = React.createContext<{
   anchor: HTMLElement | null;
@@ -19,11 +22,34 @@ const ComboboxContext = React.createContext<{
   setAnchor: () => { },
 });
 
+// ---------------------------------------------------------------------------
+// Defensive Size Context (new)
+// ---------------------------------------------------------------------------
+
+const ComboboxSizeContext = React.createContext(false);
+
+function useComboboxSizeContext(componentName: string) {
+  const isInsideCombobox = React.useContext(ComboboxSizeContext);
+  if (!isInsideCombobox && process.env.NODE_ENV !== "production") {
+    console.warn(
+      `[gladvn] <${componentName}> phải được dùng bên trong <Combobox>.`,
+    );
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Combobox (Root)
+// ---------------------------------------------------------------------------
+
 function Combobox<Value = unknown, Multiple extends boolean | undefined = false>({
   items,
   itemToStringLabel,
+  children,
+  // We forward data-size via a separate prop so the Root element carries it
+  size = "md",
+  className,
   ...props
-}: ComboboxPrimitive.Root.Props<Value, Multiple>) {
+}: ComboboxPrimitive.Root.Props<Value, Multiple> & { size?: Size; className?: string }) {
   const [anchor, setAnchor] = React.useState<HTMLElement | null>(null);
   const ctxValue = React.useMemo(() => ({ anchor, setAnchor }), [anchor]);
 
@@ -64,20 +90,46 @@ function Combobox<Value = unknown, Multiple extends boolean | undefined = false>
     };
   }, [items, itemToStringLabel]);
 
+  // Extract HTML/data attrs that should live on the wrapper div, not the headless primitive.
+  // ComboboxPrimitive.Root does not render a DOM element itself — it only outputs a
+  // hidden <input> for form values. We therefore need a real <div> wrapper to carry
+  // data-slot, data-size, className, and forwarded attrs like data-testid.
+  const {
+    "data-testid": dataTestId,
+    ...primitiveProps
+  } = props as typeof props & { "data-testid"?: string };
+
   return (
     <ComboboxContext.Provider value={ctxValue}>
-      <ComboboxPrimitive.Root
-        items={items}
-        itemToStringLabel={resolvedItemToStringLabel}
-        {...props}
-      />
+      <div
+        data-slot="combobox"
+        data-size={size}
+        data-testid={dataTestId}
+        className={className}
+      >
+        <ComboboxPrimitive.Root
+          items={items}
+          itemToStringLabel={resolvedItemToStringLabel}
+          {...primitiveProps}
+        >
+          <ComboboxSizeContext value={true}>{children}</ComboboxSizeContext>
+        </ComboboxPrimitive.Root>
+      </div>
     </ComboboxContext.Provider>
   );
 }
 
+// ---------------------------------------------------------------------------
+// ComboboxValue
+// ---------------------------------------------------------------------------
+
 function ComboboxValue({ ...props }: ComboboxPrimitive.Value.Props) {
   return <ComboboxPrimitive.Value data-slot="combobox-value" {...props} />;
 }
+
+// ---------------------------------------------------------------------------
+// ComboboxTrigger
+// ---------------------------------------------------------------------------
 
 export type ComboboxTriggerProps = ComboboxPrimitive.Trigger.Props & {
   size?: Size;
@@ -95,6 +147,8 @@ function ComboboxTrigger({
   size = "md",
   ...props
 }: ComboboxTriggerProps) {
+  useComboboxSizeContext("ComboboxTrigger");
+
   const isStandalone = children !== undefined;
 
   return (
@@ -107,8 +161,16 @@ function ComboboxTrigger({
             comboboxTriggerSizes[size],
           )
           : cn(
+            // Embedded inside InputGroup — no default size, all via :where() context
             "flex shrink-0 items-center justify-center rounded-sm text-muted-foreground outline-none transition-colors hover:text-foreground disabled:cursor-not-allowed disabled:opacity-50 [:where(&>svg)]:size-4",
-            "size-6.5 group-data-[size=sm]/input-group:size-5.5 group-data-[size=sm]/input-group:[&>svg]:size-3.5 group-data-[size=md]/input-group:size-6.5 group-data-[size=lg]/input-group:size-7",
+            // ── Contextual Sizing (specificity = 0) ─────────────────────────
+            // sm
+            "[:where([data-slot=combobox][data-size=sm]_&)]:size-5.5",
+            "[:where([data-slot=combobox][data-size=sm]_&>svg)]:size-3.5",
+            // md
+            "[:where([data-slot=combobox][data-size=md]_&)]:size-6.5",
+            // lg
+            "[:where([data-slot=combobox][data-size=lg]_&)]:size-7",
           ),
         className,
       )}
@@ -120,13 +182,27 @@ function ComboboxTrigger({
   );
 }
 
+// ---------------------------------------------------------------------------
+// ComboboxClear
+// ---------------------------------------------------------------------------
+
 function ComboboxClear({ className, ...props }: ComboboxPrimitive.Clear.Props) {
+  useComboboxSizeContext("ComboboxClear");
+
   return (
     <ComboboxPrimitive.Clear
       data-slot="combobox-clear"
       className={cn(
+        // No default size — all via :where() context
         "flex shrink-0 items-center justify-center rounded-sm text-muted-foreground outline-none transition-colors hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 [:where(&>svg)]:size-4",
-        "size-6.5 group-data-[size=sm]/input-group:size-5.5 group-data-[size=sm]/input-group:[&>svg]:size-3.5 group-data-[size=md]/input-group:size-6.5 group-data-[size=lg]/input-group:size-7",
+        // ── Contextual Sizing (specificity = 0) ──────────────────────────────
+        // sm
+        "[:where([data-slot=combobox][data-size=sm]_&)]:size-5.5",
+        "[:where([data-slot=combobox][data-size=sm]_&>svg)]:size-3.5",
+        // md
+        "[:where([data-slot=combobox][data-size=md]_&)]:size-6.5",
+        // lg
+        "[:where([data-slot=combobox][data-size=lg]_&)]:size-7",
         className,
       )}
       {...props}
@@ -135,6 +211,10 @@ function ComboboxClear({ className, ...props }: ComboboxPrimitive.Clear.Props) {
     </ComboboxPrimitive.Clear>
   );
 }
+
+// ---------------------------------------------------------------------------
+// ComboboxInput
+// ---------------------------------------------------------------------------
 
 export type ComboboxInputProps = Omit<ComboboxPrimitive.Input.Props, "size"> & {
   size?: Size;
@@ -164,6 +244,10 @@ function ComboboxInput({ className, size = "md", ...props }: ComboboxInputProps)
     />
   );
 }
+
+// ---------------------------------------------------------------------------
+// ComboboxContent
+// ---------------------------------------------------------------------------
 
 const ComboboxContent = React.forwardRef<
   HTMLDivElement,
@@ -217,6 +301,10 @@ const ComboboxContent = React.forwardRef<
 );
 ComboboxContent.displayName = "ComboboxContent";
 
+// ---------------------------------------------------------------------------
+// ComboboxList
+// ---------------------------------------------------------------------------
+
 function ComboboxList({ className, ...props }: ComboboxPrimitive.List.Props) {
   return (
     <ComboboxPrimitive.List
@@ -229,6 +317,10 @@ function ComboboxList({ className, ...props }: ComboboxPrimitive.List.Props) {
     />
   );
 }
+
+// ---------------------------------------------------------------------------
+// ComboboxItem
+// ---------------------------------------------------------------------------
 
 function ComboboxItem({
   className,
@@ -256,6 +348,10 @@ function ComboboxItem({
   );
 }
 
+// ---------------------------------------------------------------------------
+// ComboboxGroup
+// ---------------------------------------------------------------------------
+
 function ComboboxGroup({ className, ...props }: ComboboxPrimitive.Group.Props) {
   return (
     <ComboboxPrimitive.Group
@@ -265,6 +361,10 @@ function ComboboxGroup({ className, ...props }: ComboboxPrimitive.Group.Props) {
     />
   );
 }
+
+// ---------------------------------------------------------------------------
+// ComboboxLabel
+// ---------------------------------------------------------------------------
 
 function ComboboxLabel({
   className,
@@ -279,11 +379,19 @@ function ComboboxLabel({
   );
 }
 
+// ---------------------------------------------------------------------------
+// ComboboxCollection
+// ---------------------------------------------------------------------------
+
 function ComboboxCollection({ ...props }: ComboboxPrimitive.Collection.Props) {
   return (
     <ComboboxPrimitive.Collection data-slot="combobox-collection" {...props} />
   );
 }
+
+// ---------------------------------------------------------------------------
+// ComboboxEmpty
+// ---------------------------------------------------------------------------
 
 function ComboboxEmpty({ className, ...props }: ComboboxPrimitive.Empty.Props) {
   return (
@@ -298,6 +406,10 @@ function ComboboxEmpty({ className, ...props }: ComboboxPrimitive.Empty.Props) {
   );
 }
 
+// ---------------------------------------------------------------------------
+// ComboboxSeparator
+// ---------------------------------------------------------------------------
+
 function ComboboxSeparator({
   className,
   ...props
@@ -310,6 +422,10 @@ function ComboboxSeparator({
     />
   );
 }
+
+// ---------------------------------------------------------------------------
+// ComboboxChips
+// ---------------------------------------------------------------------------
 
 const comboboxChipsVariants = cva(
   "group/combobox-chips flex flex-wrap items-center gap-1 rounded-lg border border-input bg-transparent bg-clip-padding transition-colors focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/50 has-aria-invalid:border-destructive has-aria-invalid:focus-within:ring-3 has-aria-invalid:focus-within:ring-destructive/20 has-[[data-slot=combobox-chip]]:px-1 dark:bg-input/30 dark:has-aria-invalid:border-destructive/50 dark:has-aria-invalid:focus-within:ring-destructive/40 has-disabled:opacity-50 has-disabled:cursor-not-allowed has-disabled:pointer-events-none",
@@ -339,6 +455,10 @@ function ComboboxChips({
     />
   );
 }
+
+// ---------------------------------------------------------------------------
+// ComboboxChip
+// ---------------------------------------------------------------------------
 
 function ComboboxChip<T = unknown>({
   className,
@@ -378,6 +498,10 @@ function ComboboxChip<T = unknown>({
   );
 }
 
+// ---------------------------------------------------------------------------
+// ComboboxChipsInput
+// ---------------------------------------------------------------------------
+
 function ComboboxChipsInput({
   className,
   ...props
@@ -397,6 +521,10 @@ function ComboboxChipsInput({
   );
 }
 
+// ---------------------------------------------------------------------------
+// useComboboxContext (anchor context — public API, unchanged)
+// ---------------------------------------------------------------------------
+
 function useComboboxContext() {
   const context = React.useContext(ComboboxContext);
   if (context.setAnchor === undefined) {
@@ -404,6 +532,10 @@ function useComboboxContext() {
   }
   return context;
 }
+
+// ---------------------------------------------------------------------------
+// ComboboxAnchor
+// ---------------------------------------------------------------------------
 
 const ComboboxAnchor = React.forwardRef<
   HTMLDivElement,
@@ -443,5 +575,5 @@ export {
   ComboboxSeparator,
   ComboboxTrigger,
   ComboboxValue,
-  useComboboxContext
+  useComboboxContext,
 };

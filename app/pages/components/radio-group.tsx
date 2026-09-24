@@ -7,12 +7,14 @@ import { RadioGroupPreset } from "@/components/macro/radio-group-preset";
 import { Button } from "@/components/micro/button";
 import { Field, FieldError, FieldLabel } from "@/components/micro/field";
 import { Label } from "@/components/micro/label";
-import { RadioGroup, RadioGroupItem } from "@/components/micro/radio-group";
+import {
+  RadioGroup,
+  RadioGroupIndicator,
+  RadioGroupItem,
+} from "@/components/micro/radio-group";
 import { useDevContext, useI18n } from "~app/components/dev-context";
 import {
   ConfigurableShowcase,
-  ShowcaseDocs,
-  DocsP,
 } from "~app/components/showcase";
 import { type Size } from "@/lib/types";
 
@@ -22,7 +24,6 @@ const formSchema = z.object({
 type FormValues = z.infer<typeof formSchema>;
 
 function RadioGroupForm({ size }: { size: Size }) {
-  const t = useI18n();
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: { notify: "" },
@@ -143,20 +144,21 @@ function useRadioGroupExamples() {
         microPreview: (
           <RadioGroup
             defaultValue="comfortable"
+            size={globalSize}
             className="flex flex-col gap-2 w-full"
           >
             <div className="flex items-center gap-3">
-              <RadioGroupItem size={globalSize} value="default" id="rg-m-1" />
+              <RadioGroupItem value="default" id="rg-m-1">
+                <RadioGroupIndicator />
+              </RadioGroupItem>
               <Label htmlFor="rg-m-1" className="cursor-pointer font-normal">
                 Default
               </Label>
             </div>
             <div className="flex items-center gap-3">
-              <RadioGroupItem
-                size={globalSize}
-                value="comfortable"
-                id="rg-m-2"
-              />
+              <RadioGroupItem value="comfortable" id="rg-m-2">
+                <RadioGroupIndicator />
+              </RadioGroupItem>
               <Label htmlFor="rg-m-2" className="cursor-pointer font-normal">
                 Comfortable
               </Label>
@@ -204,7 +206,9 @@ function useRadioGroupExamples() {
         value="monthly"
         id="plan-1"
         aria-invalid={true}
-      />
+      >
+        <RadioGroupIndicator />
+      </RadioGroupItem>
       <FieldLabel
         htmlFor="plan-1"
         className="font-normal cursor-pointer"
@@ -217,7 +221,9 @@ function useRadioGroupExamples() {
         value="yearly"
         id="plan-2"
         aria-invalid={true}
-      />
+      >
+        <RadioGroupIndicator />
+      </RadioGroupItem>
       <FieldLabel
         htmlFor="plan-2"
         className="font-normal cursor-pointer"
@@ -232,16 +238,18 @@ function useRadioGroupExamples() {
           <Field size={globalSize} data-invalid={true} className="w-full gap-4">
             <FieldLabel>Your plan</FieldLabel>
             <RadioGroup
+              size={globalSize}
               defaultValue="monthly"
               className="flex flex-col gap-2"
             >
               <Field orientation="horizontal" size={globalSize}>
                 <RadioGroupItem
-                  size={globalSize}
                   value="monthly"
                   id="plan-1"
                   aria-invalid={true}
-                />
+                >
+                  <RadioGroupIndicator />
+                </RadioGroupItem>
                 <FieldLabel
                   htmlFor="plan-1"
                   className="font-normal cursor-pointer"
@@ -251,11 +259,12 @@ function useRadioGroupExamples() {
               </Field>
               <Field orientation="horizontal" size={globalSize}>
                 <RadioGroupItem
-                  size={globalSize}
                   value="yearly"
                   id="plan-2"
                   aria-invalid={true}
-                />
+                >
+                  <RadioGroupIndicator />
+                </RadioGroupItem>
                 <FieldLabel
                   htmlFor="plan-2"
                   className="font-normal cursor-pointer"
@@ -354,7 +363,9 @@ function useRadioGroupExamples() {
     className="flex items-center gap-6"
   >
     <div className="flex items-center gap-2">
-      <RadioGroupItem value="s" id="rg-s" />
+      <RadioGroupItem value="s" id="rg-s">
+        <RadioGroupIndicator />
+      </RadioGroupItem>
       <Label
         htmlFor="rg-s"
         className="cursor-pointer font-normal"
@@ -363,7 +374,9 @@ function useRadioGroupExamples() {
       </Label>
     </div>
     <div className="flex items-center gap-2">
-      <RadioGroupItem value="m" id="rg-m" />
+      <RadioGroupItem value="m" id="rg-m">
+        <RadioGroupIndicator />
+      </RadioGroupItem>
       <Label
         htmlFor="rg-m"
         className="cursor-pointer font-normal"
@@ -372,7 +385,9 @@ function useRadioGroupExamples() {
       </Label>
     </div>
     <div className="flex items-center gap-2">
-      <RadioGroupItem value="l" id="rg-l" />
+      <RadioGroupItem value="l" id="rg-l">
+        <RadioGroupIndicator />
+      </RadioGroupItem>
       <Label
         htmlFor="rg-l"
         className="cursor-pointer font-normal"
@@ -385,21 +400,31 @@ function useRadioGroupExamples() {
         microPreview: (
           <div className="space-y-3 w-full">
             <Label className="block text-muted-foreground">Size</Label>
-            <RadioGroup defaultValue="m" className="flex items-center gap-6">
+            <RadioGroup
+              defaultValue="m"
+              size={globalSize}
+              className="flex items-center gap-6"
+            >
               <div className="flex items-center gap-2">
-                <RadioGroupItem size={globalSize} value="s" id="rg-s" />
+                <RadioGroupItem value="s" id="rg-s">
+                  <RadioGroupIndicator />
+                </RadioGroupItem>
                 <Label htmlFor="rg-s" className="cursor-pointer font-normal">
                   S
                 </Label>
               </div>
               <div className="flex items-center gap-2">
-                <RadioGroupItem size={globalSize} value="m" id="rg-m" />
+                <RadioGroupItem value="m" id="rg-m">
+                  <RadioGroupIndicator />
+                </RadioGroupItem>
                 <Label htmlFor="rg-m" className="cursor-pointer font-normal">
                   M
                 </Label>
               </div>
               <div className="flex items-center gap-2">
-                <RadioGroupItem size={globalSize} value="l" id="rg-l" />
+                <RadioGroupItem value="l" id="rg-l">
+                  <RadioGroupIndicator />
+                </RadioGroupItem>
                 <Label htmlFor="rg-l" className="cursor-pointer font-normal">
                   L
                 </Label>
@@ -446,6 +471,7 @@ function useRadioGroupExamples() {
         microPreview: (
           <RadioGroup
             defaultValue="card-2"
+            size={globalSize}
             className="grid grid-cols-2 gap-4 w-full"
           >
             <Label

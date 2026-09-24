@@ -14,6 +14,7 @@ import {
   ConfirmTrigger,
 } from "../../components/micro/confirm";
 import type { Color, Size, Variant } from "../../lib/types";
+import { cn } from "../../lib/utils";
 
 export type ConfirmPresetProps = {
   /** If provided, renders a trigger element that opens the dialog declaratively (no need to manage `open` state). */
@@ -116,7 +117,7 @@ const ConfirmPreset = React.forwardRef<HTMLDivElement, ConfirmPresetProps>(
             )}
           </ConfirmHeader>
 
-          {children && <div className="px-0">{children}</div>}
+          {children}
 
           <ConfirmFooter>
             {/* Cancel renders first → receives auto-focus, preventing accidental confirmation */}

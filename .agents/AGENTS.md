@@ -1,6 +1,6 @@
 # Showcase Development Standards
 
-When creating or modifying showcase files in `src/dev/showcase/*.tsx`, you MUST STRICTLY adhere to the following standards to ensure consistency across the component library.
+When creating or modifying showcase files in `app/pages/components/*.tsx`, you MUST STRICTLY adhere to the following standards to ensure consistency across the component library.
 
 ## 1. File Structure and Imports
 
@@ -109,7 +109,7 @@ Whenever the user requests to pair program on a specific component, you MUST pro
 
 1. **Micro Component**: Audit and refactor the primitive component based on all design rules (e.g., no magic CSS, pure composition, correct data-attributes).
 2. **Macro Component (Preset)**: Audit the preset. If a Macro component does not exist but is necessary for handling opinionated layouts or complex state, CREATE IT.
-3. **Showcases (Both Modes)**: Ensure the showcase files (`src/dev/showcase/[component].tsx` and `src/dev/showcase/macro/[component].tsx` if applicable) are updated to correctly demonstrate the component. Ensure Micro showcases explicitly demonstrate Pure Composition (e.g., manually applying Flexbox).
+3. **Showcases (Both Modes)**: Ensure the showcase files (`app/pages/components/[component].tsx` and `app/pages/components/macro/[component].tsx` if applicable) are updated to correctly demonstrate the component. Ensure Micro showcases explicitly demonstrate Pure Composition (e.g., manually applying Flexbox).
 
 ## 16. Accessibility (a11y) & ARIA Strictness
 

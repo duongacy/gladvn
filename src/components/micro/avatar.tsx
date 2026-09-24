@@ -1,9 +1,11 @@
 /**
  * ✅ AUDITED & REFACTORED
- * - Design System Compliant (20 Commandments)
+ * - Design System Compliant (22 Commandments)
  * - WCAG AAA/AA
  * - Form Control Parity
  * - CSS Delegated Logic
+ * - Zero-Specificity Contextual Sizing (:where)
+ * - Defensive Context (AvatarContext)
  */
 "use client";
 
@@ -13,6 +15,18 @@ import { Avatar as AvatarPrimitive } from "@base-ui/react/avatar";
 
 import { type Size } from "../../lib/types";
 import { cn } from "../../lib/utils";
+
+const AvatarContext = React.createContext(false);
+
+function useAvatarContext(componentName: string) {
+  const isInsideAvatar = React.useContext(AvatarContext);
+  if (process.env.NODE_ENV !== "production" && !isInsideAvatar) {
+    console.warn(
+      `[gladvn] <${componentName}> phải được dùng bên trong <Avatar>. ` +
+        `Nếu dùng bên ngoài, contextual sizing sẽ không hoạt động.`,
+    );
+  }
+}
 
 /**
  * @description An image element with a fallback for representing the user.
@@ -26,19 +40,24 @@ import { cn } from "../../lib/utils";
 const Avatar = React.forwardRef<
   React.ComponentRef<typeof AvatarPrimitive.Root>,
   AvatarPrimitive.Root.Props & { size?: Size }
->(({ className, size = "md", ...props }, ref) => {
+>(({ className, size = "md", children, ...props }, ref) => {
   return (
     <AvatarPrimitive.Root
       ref={ref}
       data-slot="avatar"
       data-size={size}
       className={cn(
-        "group/avatar relative flex size-8 shrink-0 rounded-full select-none after:absolute after:inset-0 after:rounded-full after:border after:border-border after:mix-blend-darken data-[size=lg]:size-10 data-[size=sm]:size-6 dark:after:mix-blend-lighten",
+        "relative flex shrink-0 rounded-full select-none after:absolute after:inset-0 after:rounded-full after:border after:border-border after:mix-blend-darken dark:after:mix-blend-lighten",
+        "[:where([data-slot=avatar][data-size=sm]_&)]:size-6",
+        "[:where([data-slot=avatar][data-size=md]_&)]:size-8",
+        "[:where([data-slot=avatar][data-size=lg]_&)]:size-10",
         "group-data-[slot=avatar-group]/avatar-group:ring-2 group-data-[slot=avatar-group]/avatar-group:ring-background",
         className,
       )}
       {...props}
-    />
+    >
+      <AvatarContext value={true}>{children}</AvatarContext>
+    </AvatarPrimitive.Root>
   );
 });
 Avatar.displayName = "Avatar";
@@ -47,6 +66,7 @@ const AvatarImage = React.forwardRef<
   React.ComponentRef<typeof AvatarPrimitive.Image>,
   AvatarPrimitive.Image.Props
 >(({ className, ...props }, ref) => {
+  useAvatarContext("AvatarImage");
   return (
     <AvatarPrimitive.Image
       ref={ref}
@@ -65,12 +85,16 @@ const AvatarFallback = React.forwardRef<
   React.ComponentRef<typeof AvatarPrimitive.Fallback>,
   AvatarPrimitive.Fallback.Props
 >(({ className, ...props }, ref) => {
+  useAvatarContext("AvatarFallback");
   return (
     <AvatarPrimitive.Fallback
       ref={ref}
       data-slot="avatar-fallback"
       className={cn(
-        "flex size-full items-center justify-center rounded-full bg-muted text-sm text-muted-foreground group-data-[size=sm]/avatar:text-xs group-data-[size=lg]/avatar:text-base",
+        "flex size-full items-center justify-center rounded-full bg-muted text-muted-foreground",
+        "[:where([data-slot=avatar][data-size=sm]_&)]:text-xs",
+        "[:where([data-slot=avatar][data-size=md]_&)]:text-sm",
+        "[:where([data-slot=avatar][data-size=lg]_&)]:text-base",
         className,
       )}
       {...props}
@@ -83,15 +107,16 @@ const AvatarBadge = React.forwardRef<
   HTMLSpanElement,
   React.ComponentProps<"span">
 >(({ className, ...props }, ref) => {
+  useAvatarContext("AvatarBadge");
   return (
     <span
       ref={ref}
       data-slot="avatar-badge"
       className={cn(
         "rounded-full bg-primary ring-2 ring-background",
-        "group-data-[size=sm]/avatar:size-2",
-        "group-data-[size=md]/avatar:size-2.5",
-        "group-data-[size=lg]/avatar:size-3",
+        "[:where([data-slot=avatar][data-size=sm]_&)]:size-2",
+        "[:where([data-slot=avatar][data-size=md]_&)]:size-2.5",
+        "[:where([data-slot=avatar][data-size=lg]_&)]:size-3",
         className,
       )}
       {...props}
@@ -125,7 +150,10 @@ const AvatarGroupCount = React.forwardRef<
       data-slot="avatar-group-count"
       data-size={size}
       className={cn(
-        "relative flex size-8 shrink-0 items-center justify-center rounded-full bg-muted text-sm text-muted-foreground ring-2 ring-background data-[size=lg]:size-10 data-[size=sm]:size-6",
+        "relative flex shrink-0 items-center justify-center rounded-full bg-muted text-muted-foreground ring-2 ring-background",
+        "data-[size=sm]:size-6 data-[size=sm]:text-xs",
+        "data-[size=md]:size-8 data-[size=md]:text-sm",
+        "data-[size=lg]:size-10 data-[size=lg]:text-base",
         className,
       )}
       {...props}
@@ -147,5 +175,5 @@ export {
   AvatarFallback,
   AvatarGroup,
   AvatarGroupCount,
-  AvatarImage
+  AvatarImage,
 };

@@ -30,7 +30,6 @@ import {
   FieldLabel,
 } from "../../components/micro/field";
 import { type Size } from "../../lib/types";
-import { cn } from "../../lib/utils";
 
 export interface ComboboxOption {
   label: string;
@@ -245,17 +244,11 @@ const ComboboxPresetInner = React.forwardRef<
       );
     }
 
-    const inputGroupSizeClasses: Record<Size, string> = {
-      sm: "h-7",
-      md: "h-8",
-      lg: "h-9",
-    };
-
     return (
       <InputGroup
         ref={setAnchor}
         size={size}
-        className={cn("w-full", inputGroupSizeClasses[size])}
+        className="w-full"
       >
         <ComboboxPrimitive.Input
           ref={ref}

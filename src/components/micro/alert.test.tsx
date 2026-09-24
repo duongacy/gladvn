@@ -72,3 +72,62 @@ describe("Alert", () => {
     expect(screen.getByTestId("alert-lg")).toHaveAttribute("data-size", "lg");
   });
 });
+
+import { afterEach, beforeEach, vi } from "vitest";
+
+describe("Alert - Defensive Context", () => {
+  let consoleWarnMock: ReturnType<typeof vi.spyOn>;
+
+  beforeEach(() => {
+    consoleWarnMock = vi.spyOn(console, "warn").mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    consoleWarnMock.mockRestore();
+  });
+
+  it("✅ KHÔNG warn khi tất cả thẻ con nằm bên trong <Alert>", () => {
+    render(
+      <Alert>
+        <AlertIcon render={<InfoIcon />} />
+        <AlertTitle>Title</AlertTitle>
+        <AlertDescription>Description</AlertDescription>
+        <AlertAction>Action</AlertAction>
+      </Alert>,
+    );
+    expect(consoleWarnMock).not.toHaveBeenCalled();
+  });
+
+  it("🚨 PHẢI warn khi <AlertTitle> dùng ngoài <Alert>", () => {
+    render(<AlertTitle>test</AlertTitle>);
+    expect(consoleWarnMock).toHaveBeenCalledWith(
+      expect.stringContaining("[gladvn] <AlertTitle> phải được dùng bên trong"),
+    );
+  });
+
+  it("🚨 PHẢI warn khi <AlertDescription> dùng ngoài <Alert>", () => {
+    render(<AlertDescription>test</AlertDescription>);
+    expect(consoleWarnMock).toHaveBeenCalledWith(
+      expect.stringContaining("[gladvn] <AlertDescription> phải được dùng bên trong"),
+    );
+  });
+
+  it("🚨 PHẢI warn khi <AlertIcon> dùng ngoài <Alert>", () => {
+    render(<AlertIcon render={<InfoIcon />} />);
+    expect(consoleWarnMock).toHaveBeenCalledWith(
+      expect.stringContaining("[gladvn] <AlertIcon> phải được dùng bên trong"),
+    );
+  });
+
+  it("🚨 PHẢI warn khi <AlertAction> dùng ngoài <Alert>", () => {
+    render(<AlertAction>test</AlertAction>);
+    expect(consoleWarnMock).toHaveBeenCalledWith(
+      expect.stringContaining("[gladvn] <AlertAction> phải được dùng bên trong"),
+    );
+  });
+
+  it("✅ Root có data-size đúng trên DOM", () => {
+    const { getByTestId } = render(<Alert size="lg" data-testid="root" />);
+    expect(getByTestId("root")).toHaveAttribute("data-size", "lg");
+  });
+});

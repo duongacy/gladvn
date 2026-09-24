@@ -22,6 +22,9 @@ Tiến độ review và chuẩn hoá các components theo `AGENTS.md`.
 - [x] Checkbox + CheckboxPreset — v0.2.56
 - [x] Combobox + ComboboxPreset — v0.2.57
 - [x] Dialog + DialogPreset — v0.2.58
+- [x] Field
+- [x] InputGroup
+- [x] InputOTP
 
 ## ⏳ Chờ xử lý (To-do)
 > Sẽ bốc dần từng batch từ `src/components/micro/`

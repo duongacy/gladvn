@@ -25,6 +25,7 @@ import {
   DocsP,
 } from "~app/components/showcase";
 import { type Size } from "@/lib/types";
+import { cn } from "@/lib/utils";
 
 function DestructiveMacroPreview({ globalSize }: { globalSize: Size }) {
   const [open, setOpen] = useState(false);
@@ -176,7 +177,7 @@ function BasicMicroPreview({ globalSize }: { globalSize: Size }) {
         Open Blank Dialog
       </Button>
       <Confirm open={open} onOpenChange={setOpen}>
-        <ConfirmContent size={globalSize}>
+        <ConfirmContent className={cn("w-full max-w-[calc(100%-2rem)]", {"sm:max-w-sm": globalSize === "sm", "sm:max-w-md": globalSize === "md", "sm:max-w-lg": globalSize === "lg"})}>
           <ConfirmHeader>
             <ConfirmTitle>Primitive Structure</ConfirmTitle>
             <ConfirmDescription>
@@ -205,7 +206,7 @@ function CustomLayoutMicroPreview({ globalSize }: { globalSize: Size }) {
         Custom Interface
       </Button>
       <Confirm open={open} onOpenChange={setOpen}>
-        <ConfirmContent size={globalSize} className="border-warning/50">
+        <ConfirmContent className={cn("w-full max-w-[calc(100%-2rem)] border-warning/50", {"sm:max-w-sm": globalSize === "sm", "sm:max-w-md": globalSize === "md", "sm:max-w-lg": globalSize === "lg"})}>
           <div className="flex flex-col-reverse items-center justify-center gap-4 py-4 sm:flex-row">
             <div className="size-16 rounded-lg bg-warning/20 border border-warning shrink-0" />
             <ConfirmHeader className="sm:text-left">
@@ -234,7 +235,7 @@ function MediaMicroPreview({ globalSize }: { globalSize: Size }) {
         With Media
       </Button>
       <Confirm open={open} onOpenChange={setOpen}>
-        <ConfirmContent size={globalSize}>
+        <ConfirmContent className={cn("w-full max-w-[calc(100%-2rem)]", {"sm:max-w-sm": globalSize === "sm", "sm:max-w-md": globalSize === "md", "sm:max-w-lg": globalSize === "lg"})}>
           <div className="flex flex-col gap-1.5 sm:flex-row sm:gap-4">
             <ConfirmMedia className="mx-auto mb-2 shrink-0 sm:mx-0 sm:mb-0">
               <ShieldAlertIcon className="text-warning" />
@@ -268,7 +269,7 @@ function CloseMicroPreview({ globalSize }: { globalSize: Size }) {
         Dialog With X Button
       </Button>
       <Confirm open={open} onOpenChange={setOpen}>
-        <ConfirmContent size={globalSize}>
+        <ConfirmContent className={cn("w-full max-w-[calc(100%-2rem)]", {"sm:max-w-sm": globalSize === "sm", "sm:max-w-md": globalSize === "md", "sm:max-w-lg": globalSize === "lg"})}>
           <button
             type="button"
             onClick={() => setOpen(false)}
@@ -305,7 +306,7 @@ function ActionColorMicroPreview({ globalSize }: { globalSize: Size }) {
         Delete Account
       </Button>
       <Confirm open={open} onOpenChange={setOpen}>
-        <ConfirmContent size={globalSize}>
+        <ConfirmContent className={cn("w-full max-w-[calc(100%-2rem)]", {"sm:max-w-sm": globalSize === "sm", "sm:max-w-md": globalSize === "md", "sm:max-w-lg": globalSize === "lg"})}>
           <div className="flex flex-col gap-1.5 sm:flex-row sm:gap-4">
             <ConfirmMedia className="mx-auto mb-2 shrink-0 sm:mx-0 sm:mb-0">
               <TrashIcon className="text-destructive" />
@@ -339,7 +340,7 @@ function ActionVariantsMicroPreview({ globalSize }: { globalSize: Size }) {
         Custom Variants
       </Button>
       <Confirm open={open} onOpenChange={setOpen}>
-        <ConfirmContent size={globalSize}>
+        <ConfirmContent className={cn("w-full max-w-[calc(100%-2rem)]", {"sm:max-w-sm": globalSize === "sm", "sm:max-w-md": globalSize === "md", "sm:max-w-lg": globalSize === "lg"})}>
           <div className="flex flex-col gap-1.5 sm:flex-row sm:gap-4">
             <ConfirmMedia className="mx-auto mb-2 shrink-0 sm:mx-0 sm:mb-0">
               <LogOutIcon />

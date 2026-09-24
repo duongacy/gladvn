@@ -5,6 +5,7 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/micro/card";
@@ -65,7 +66,7 @@ function useCardExamples() {
           </CardPreset>
         ),
         microCode: `<div className="@container/card size-full">
-  <Card className="size-full">
+  <Card size="md" className="size-full">
     <CardHeader>
       <CardTitle>Account settings</CardTitle>
       <CardDescription>
@@ -89,6 +90,33 @@ function useCardExamples() {
     </CardFooter>
   </Card>
 </div>`,
+        microPreview: (
+          <div className="@container/card size-full">
+            <Card size={globalSize} className="size-full">
+              <CardHeader>
+                <CardTitle>Account settings</CardTitle>
+                <CardDescription>
+                  Manage settings and preferences for your account.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="grid gap-4">
+                  <div className="flex flex-col space-y-1.5">
+                    <Label htmlFor="card-name" size={globalSize}>Name</Label>
+                    <Input id="card-name" placeholder="Enter your name" size={globalSize} />
+                  </div>
+                  <div className="flex flex-col space-y-1.5">
+                    <Label htmlFor="card-email" size={globalSize}>Email</Label>
+                    <Input id="card-email" type="email" placeholder="hello@example.com" size={globalSize} />
+                  </div>
+                </div>
+              </CardContent>
+              <CardFooter>
+                <Button size={globalSize}>Save changes</Button>
+              </CardFooter>
+            </Card>
+          </div>
+        ),
       },
 
       {
@@ -97,51 +125,55 @@ function useCardExamples() {
           "Bố trí badge, nút action và layout tuỳ biến bên trong Header.",
           "Compose badges, action buttons, and custom layouts inside the Header."
         ),
-        microCode: `<Card>
-  <CardHeader className="border-b border-border bg-muted/40">
-    <CardTitle>Team Members</CardTitle>
-    <CardDescription>Manage your team and permissions.</CardDescription>
-  </CardHeader>
-  <CardContent className="divide-y divide-border">
-    <div className="flex items-center gap-3 py-3">
-      <div className="flex size-8 items-center justify-center rounded-full bg-primary/20 text-xs font-bold">JD</div>
-      <div>
-        <p className="text-sm font-medium">Jane Doe</p>
-        <p className="text-xs text-muted-foreground">Admin</p>
+        microCode: `<div className="@container/card size-full">
+  <Card size="md" className="size-full">
+    <CardHeader className="border-b border-border bg-muted/40">
+      <CardTitle>Team Members</CardTitle>
+      <CardDescription>Manage your team and permissions.</CardDescription>
+    </CardHeader>
+    <CardContent className="divide-y divide-border">
+      <div className="flex items-center gap-3 py-3">
+        <div className="flex size-8 items-center justify-center rounded-full bg-primary/20 text-xs font-bold">JD</div>
+        <div>
+          <p className="text-sm font-medium">Jane Doe</p>
+          <p className="text-xs text-muted-foreground">Admin</p>
+        </div>
       </div>
-    </div>
-    <div className="flex items-center gap-3 py-3">
-      <div className="flex size-8 items-center justify-center rounded-full bg-secondary/40 text-xs font-bold">TN</div>
-      <div>
-        <p className="text-sm font-medium">Trung Nguyen</p>
-        <p className="text-xs text-muted-foreground">Editor</p>
+      <div className="flex items-center gap-3 py-3">
+        <div className="flex size-8 items-center justify-center rounded-full bg-secondary/40 text-xs font-bold">TN</div>
+        <div>
+          <p className="text-sm font-medium">Trung Nguyen</p>
+          <p className="text-xs text-muted-foreground">Editor</p>
+        </div>
       </div>
-    </div>
-  </CardContent>
-</Card>`,
+    </CardContent>
+  </Card>
+</div>`,
         microPreview: (
-          <Card size={globalSize}>
-            <CardHeader className="border-b border-border bg-muted/40">
-              <CardTitle>Team Members</CardTitle>
-              <CardDescription>Manage your team and permissions.</CardDescription>
-            </CardHeader>
-            <CardContent className="divide-y divide-border">
-              <div className="flex items-center gap-3 py-3">
-                <div className="flex size-8 items-center justify-center rounded-full bg-primary/20 text-xs font-bold">JD</div>
-                <div>
-                  <p className="text-sm font-medium">Jane Doe</p>
-                  <p className="text-xs text-muted-foreground">Admin</p>
+          <div className="@container/card size-full">
+            <Card size={globalSize} className="size-full">
+              <CardHeader className="border-b border-border bg-muted/40">
+                <CardTitle>Team Members</CardTitle>
+                <CardDescription>Manage your team and permissions.</CardDescription>
+              </CardHeader>
+              <CardContent className="divide-y divide-border">
+                <div className="flex items-center gap-3 py-3">
+                  <div className="flex size-8 items-center justify-center rounded-full bg-primary/20 text-xs font-bold">JD</div>
+                  <div>
+                    <p className="text-sm font-medium">Jane Doe</p>
+                    <p className="text-xs text-muted-foreground">Admin</p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-center gap-3 py-3">
-                <div className="flex size-8 items-center justify-center rounded-full bg-secondary/40 text-xs font-bold">TN</div>
-                <div>
-                  <p className="text-sm font-medium">Trung Nguyen</p>
-                  <p className="text-xs text-muted-foreground">Editor</p>
+                <div className="flex items-center gap-3 py-3">
+                  <div className="flex size-8 items-center justify-center rounded-full bg-secondary/40 text-xs font-bold">TN</div>
+                  <div>
+                    <p className="text-sm font-medium">Trung Nguyen</p>
+                    <p className="text-xs text-muted-foreground">Editor</p>
+                  </div>
                 </div>
-              </div>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+          </div>
         ),
       },
 
@@ -151,51 +183,55 @@ function useCardExamples() {
           "Danh sách không có padding bên trong card.",
           "A borderless list inside a card without inner padding."
         ),
-        microCode: `<Card>
-  <CardHeader>
-    <CardTitle>Recent Activity</CardTitle>
-    <CardDescription>Last 24 hours</CardDescription>
-  </CardHeader>
-  <CardContent className="p-0">
-    <div className="divide-y divide-border">
-      <div className="flex items-center justify-between px-6 py-3">
-        <span className="text-sm">New signups</span>
-        <span className="text-sm font-semibold">+24</span>
+        microCode: `<div className="@container/card size-full">
+  <Card size="md" className="size-full">
+    <CardHeader>
+      <CardTitle>Recent Activity</CardTitle>
+      <CardDescription>Last 24 hours</CardDescription>
+    </CardHeader>
+    <CardContent className="p-0">
+      <div className="divide-y divide-border">
+        <div className="flex items-center justify-between px-6 py-3">
+          <span className="text-sm">New signups</span>
+          <span className="text-sm font-semibold">+24</span>
+        </div>
+        <div className="flex items-center justify-between px-6 py-3">
+          <span className="text-sm">Revenue</span>
+          <span className="text-sm font-semibold text-success">$1,420</span>
+        </div>
+        <div className="flex items-center justify-between px-6 py-3">
+          <span className="text-sm">Churn</span>
+          <span className="text-sm font-semibold text-destructive">-3</span>
+        </div>
       </div>
-      <div className="flex items-center justify-between px-6 py-3">
-        <span className="text-sm">Revenue</span>
-        <span className="text-sm font-semibold text-success">$1,420</span>
-      </div>
-      <div className="flex items-center justify-between px-6 py-3">
-        <span className="text-sm">Churn</span>
-        <span className="text-sm font-semibold text-destructive">-3</span>
-      </div>
-    </div>
-  </CardContent>
-</Card>`,
+    </CardContent>
+  </Card>
+</div>`,
         microPreview: (
-          <Card size={globalSize}>
-            <CardHeader>
-              <CardTitle>Recent Activity</CardTitle>
-              <CardDescription>Last 24 hours</CardDescription>
-            </CardHeader>
-            <CardContent className="p-0">
-              <div className="divide-y divide-border">
-                <div className="flex items-center justify-between px-6 py-3">
-                  <span className="text-sm">New signups</span>
-                  <span className="text-sm font-semibold">+24</span>
+          <div className="@container/card size-full">
+            <Card size={globalSize} className="size-full">
+              <CardHeader>
+                <CardTitle>Recent Activity</CardTitle>
+                <CardDescription>Last 24 hours</CardDescription>
+              </CardHeader>
+              <CardContent className="p-0">
+                <div className="divide-y divide-border">
+                  <div className="flex items-center justify-between px-6 py-3">
+                    <span className="text-sm">New signups</span>
+                    <span className="text-sm font-semibold">+24</span>
+                  </div>
+                  <div className="flex items-center justify-between px-6 py-3">
+                    <span className="text-sm">Revenue</span>
+                    <span className="text-sm font-semibold text-success">$1,420</span>
+                  </div>
+                  <div className="flex items-center justify-between px-6 py-3">
+                    <span className="text-sm">Churn</span>
+                    <span className="text-sm font-semibold text-destructive">-3</span>
+                  </div>
                 </div>
-                <div className="flex items-center justify-between px-6 py-3">
-                  <span className="text-sm">Revenue</span>
-                  <span className="text-sm font-semibold text-success">$1,420</span>
-                </div>
-                <div className="flex items-center justify-between px-6 py-3">
-                  <span className="text-sm">Churn</span>
-                  <span className="text-sm font-semibold text-destructive">-3</span>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+          </div>
         ),
       },
     ],

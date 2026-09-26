@@ -7,8 +7,8 @@ test.describe('RadioGroup (Micro)', () => {
   test('renders identically given the same props (pure component)', async ({ mount }) => {
     const component = await mount(
       <div className="flex gap-4">
-        <RadioGroupItem value="test" size="lg" data-testid="first" />
-        <RadioGroupItem value="test" size="lg" data-testid="second" />
+        <RadioGroupItem value="test" data-testid="first" />
+        <RadioGroupItem value="test" data-testid="second" />
       </div>
     );
 
@@ -164,15 +164,15 @@ test.describe('RadioGroup Visual Snapshots', () => {
         {SIZES.map((size) => (
           <div key={size} className="flex flex-wrap gap-6 items-center">
             <RadioGroup defaultValue="checked" className="flex flex-row gap-4">
-              <RadioGroupItem size={size} value="unchecked" />
-              <RadioGroupItem size={size} value="checked" />
+              <RadioGroupItem value="unchecked" />
+              <RadioGroupItem value="checked" />
             </RadioGroup>
             <RadioGroup defaultValue="disabled-checked" className="flex flex-row gap-4">
-              <RadioGroupItem size={size} value="disabled" disabled />
-              <RadioGroupItem size={size} value="disabled-checked" disabled />
+              <RadioGroupItem value="disabled" disabled />
+              <RadioGroupItem value="disabled-checked" disabled />
             </RadioGroup>
             <RadioGroup className="flex flex-row gap-4">
-              <RadioGroupItem size={size} value="error" aria-invalid="true" />
+              <RadioGroupItem value="error" aria-invalid="true" />
             </RadioGroup>
           </div>
         ))}

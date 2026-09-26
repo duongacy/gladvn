@@ -112,7 +112,7 @@ function Item({
         children: (
           <ItemContext.Provider value={true}>{children}</ItemContext.Provider>
         ),
-      },
+      } as React.ComponentProps<"div">,
       props,
     ),
     render,

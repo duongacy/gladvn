@@ -225,13 +225,13 @@ const CommandItem = React.forwardRef<
       className={cn(
         "group/command-item relative flex cursor-default select-none items-center outline-hidden",
         // States
-        "data-disabled:pointer-events-none data-disabled:opacity-50",
+        "aria-disabled:pointer-events-none aria-disabled:opacity-50",
         "hover:bg-accent hover:text-accent-foreground",
-        "data-selected:bg-accent data-selected:text-accent-foreground",
+        "aria-selected:bg-accent aria-selected:text-accent-foreground",
         // Icon styling via :where() — zero specificity, overrideable by consumer
         // Rule 7 exception: querying SVGs directly is permitted for icon-hosting components
         "[:where(&>svg)]:pointer-events-none [:where(&>svg)]:shrink-0 [:where(&>svg)]:opacity-70",
-        "data-selected:[:where(&>svg)]:opacity-100",
+        "aria-selected:[:where(&>svg)]:opacity-100",
         "hover:[:where(&>svg)]:opacity-100",
         // Base (md)
         "gap-2 rounded-sm px-2 py-1.5 text-sm",
@@ -264,8 +264,8 @@ const CommandShortcut = React.forwardRef<
     data-slot="command-shortcut"
     className={cn(
       "ml-auto text-xs tracking-widest text-muted-foreground",
-      // cmdk uses data-selected attribute on the parent item
-      "group-data-selected/command-item:text-foreground",
+      // cmdk uses aria-selected attribute on the parent item
+      "group-aria-selected/command-item:text-foreground",
       className,
     )}
     {...props}

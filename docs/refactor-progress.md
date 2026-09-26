@@ -3,39 +3,40 @@
 Tiến độ review và chuẩn hoá các components theo `AGENTS.md`.
 
 ## 🟢 Đã hoàn thành (Done)
-- [x] Separator
-- [x] Resizable
-- [x] ScrollArea
-- [x] Collapsible
-- [x] Carousel
-- [x] Card
-- [x] Accordion
-- [x] AspectRatio
-- [x] Header (Layout)
-- [x] ThemeProvider (Micro)
-- [x] Alert
-- [x] Avatar
-- [x] Badge
-- [x] Button
-- [x] Calendar
-- [x] DatePicker (Macro)
-- [x] Checkbox + CheckboxPreset — v0.2.56
-- [x] Combobox + ComboboxPreset — v0.2.57
-- [x] Dialog + DialogPreset — v0.2.58
-- [x] Field
-- [x] InputGroup
-- [x] InputOTP
-- [x] Confirm
-- [x] RadioGroup
-- [x] Migrate `.agents/prompts/full-sonnet-prompts.md`
+
+- [X] Separator
+- [X] Resizable
+- [X] ScrollArea
+- [X] Collapsible
+- [X] Carousel
+- [X] Card
+- [X] Accordion
+- [X] AspectRatio
+- [X] Header (Layout)
+- [X] ThemeProvider (Micro)
+- [X] Alert
+- [X] Avatar
+- [X] Badge
+- [X] Button
+- [X] Calendar
+- [X] DatePicker (Macro)
+- [X] Checkbox + CheckboxPreset — v0.2.56
+- [X] Combobox + ComboboxPreset — v0.2.57
+- [X] Dialog + DialogPreset — v0.2.58
+- [X] Field
+- [X] InputGroup
+- [X] InputOTP
+- [X] Confirm
+- [X] RadioGroup
+- [X] Migrate `.agents/prompts/full-sonnet-prompts.md`
 
 ## ⏳ Chờ xử lý (To-do)
+
 > Sẽ bốc dần từng batch từ `src/components/micro/`
 
 - [ ] Chart
-- [ ] Command
+- [X] Command
 - [ ] ContextMenu
-
 - [ ] Direction
 - [ ] Drawer
 - [ ] DropdownMenu

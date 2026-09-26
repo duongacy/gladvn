@@ -48,9 +48,9 @@ const Avatar = React.forwardRef<
       data-size={size}
       className={cn(
         "relative flex shrink-0 rounded-full select-none after:absolute after:inset-0 after:rounded-full after:border after:border-border after:mix-blend-darken dark:after:mix-blend-lighten",
-        "[:where([data-slot=avatar][data-size=sm]_&)]:size-6",
-        "[:where([data-slot=avatar][data-size=md]_&)]:size-8",
-        "[:where([data-slot=avatar][data-size=lg]_&)]:size-10",
+        "data-[size=sm]:size-6",
+        "data-[size=md]:size-8",
+        "data-[size=lg]:size-10",
         "group-data-[slot=avatar-group]/avatar-group:ring-2 group-data-[slot=avatar-group]/avatar-group:ring-background",
         className,
       )}

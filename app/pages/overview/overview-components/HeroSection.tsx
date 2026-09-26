@@ -1,5 +1,4 @@
 import { cn } from "@/lib/utils";
-import { Container } from "~app/components/Container";
 import { useI18n } from "~app/components/dev-context";
 
 export function HeroSection({ className }: { className?: string }) {
@@ -11,8 +10,8 @@ export function HeroSection({ className }: { className?: string }) {
         {/* Tagline — font mono, raw */}
         <p className="font-mono text-xs font-semibold uppercase tracking-widest text-foreground mb-8">
           {t(
-            "Zero-Specificity · Defensive Context · AI-Native",
-            "Zero-Specificity · Defensive Context · AI-Native"
+            "Intentional Specificity · Defensive Context · AI-Native",
+            "Intentional Specificity · Defensive Context · AI-Native"
           )}
         </p>
 
@@ -30,12 +29,12 @@ export function HeroSection({ className }: { className?: string }) {
         <p className="text-lg md:text-xl leading-[1.8] text-foreground mb-10">
           {t(
             <>
-              Việc copy-paste code UI (như Shadcn) thường dẫn đến một hệ thống không thể bảo trì sau 6 tháng. gladvn giải quyết triệt để vấn đề này bằng một kiến trúc cực đoan:{" "}
-              <strong>Phân tầng Micro/Macro, Zero-Specificity CSS, và Phòng thủ ngữ cảnh (Defensive Context).</strong>
+              Việc copy-paste code UI (như Shadcn) thường dẫn đến một hệ thống không thể bảo trì chỉ sau vài tháng. gladvn giải quyết triệt để vấn đề này bằng một kiến trúc cực đoan:{" "}
+              <strong>Phân tầng Micro/Macro, Intentional Specificity, và Phòng thủ ngữ cảnh (Defensive Context).</strong>
             </>,
             <>
-              Copy-pasting UI code (like Shadcn) often leads to an unmaintainable system after 6 months. gladvn completely solves this with a radical architecture:{" "}
-              <strong>Micro/Macro separation, Zero-Specificity CSS, and Defensive Context.</strong>
+              Copy-pasting UI code (like Shadcn) often leads to an unmaintainable system in just a few months. gladvn completely solves this with a radical architecture:{" "}
+              <strong>Micro/Macro separation, Intentional Specificity, and Defensive Context.</strong>
             </>
           )}
         </p>

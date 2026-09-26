@@ -7,7 +7,7 @@ export function TragediesSection({ className }: { className?: string }) {
   return (
     <section className={cn("w-full", className)}>
       <h2 className="font-serif text-4xl sm:text-5xl font-black mb-8 text-foreground tracking-tighter leading-tight">
-        {t("2. Practical Traps", "2. Practical Traps")}
+        {t("Practical Traps", "Practical Traps")}
       </h2>
       <p className="text-lg leading-[1.8] text-muted-foreground mb-10">
         {t(
@@ -20,7 +20,7 @@ export function TragediesSection({ className }: { className?: string }) {
         {/* Tragedy 1 */}
         <div>
           <h3 className="font-serif text-2xl font-semibold text-foreground mb-3">
-            {t("2.1. Quái vật God Component", "2.1. The God Component Monster")}
+            {t("Quái vật God Component", "The God Component Monster")}
           </h3>
           <div className="text-lg leading-[1.8] text-muted-foreground space-y-4">
             <p>
@@ -47,7 +47,7 @@ export function TragediesSection({ className }: { className?: string }) {
         {/* Tragedy 2 */}
         <div>
           <h3 className="font-serif text-2xl font-semibold text-foreground mb-3">
-            {t("2.2. Locked State", "2.2. Locked State")}
+            {t("Locked State", "Locked State")}
           </h3>
           <div className="text-lg leading-[1.8] text-muted-foreground space-y-4">
             <p>
@@ -68,7 +68,7 @@ export function TragediesSection({ className }: { className?: string }) {
         {/* Tragedy 3 */}
         <div>
           <h3 className="font-serif text-2xl font-semibold text-foreground mb-3">
-            {t("2.3. The 'Forcing It' Syndrome", "2.3. The 'Forcing It' Syndrome")}
+            {t("The 'Forcing It' Syndrome", "The 'Forcing It' Syndrome")}
           </h3>
           <div className="text-lg leading-[1.8] text-muted-foreground space-y-4">
             <p>

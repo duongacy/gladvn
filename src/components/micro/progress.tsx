@@ -52,16 +52,11 @@ function Progress({
 function ProgressTrack({ className, ...props }: ProgressPrimitive.Track.Props) {
   const { size } = React.useContext(ProgressContext);
 
-  const sizeClasses: Partial<Record<Size, string>> = {
-    sm: "h-1",
-    md: "h-1.5",
-    lg: "h-2",
-  };
 
   return (
     <ProgressPrimitive.Track
       className={cn(
-        "relative flex w-full items-center overflow-x-hidden rounded-full bg-muted",
+        "relative flex items-center overflow-x-hidden rounded-full bg-muted",
         {
           "h-1": size === "sm",
           "h-1.5": size === "md",
@@ -104,15 +99,17 @@ function ProgressIndicator({
 
 function ProgressLabel({ className, ...props }: ProgressPrimitive.Label.Props) {
   const { size } = React.useContext(ProgressContext);
-  const textSizes = {
-    sm: "text-xs",
-    md: "text-sm",
-    lg: "text-base",
-  };
-
   return (
     <ProgressPrimitive.Label
-      className={cn(textSizes[size], "font-medium", className)}
+      className={cn(
+        {
+          "text-xs": size === "sm",
+          "text-sm": size === "md",
+          "text-base": size === "lg",
+        },
+        "font-medium",
+        className,
+      )}
       data-slot="progress-label"
       {...props}
     />
@@ -121,17 +118,15 @@ function ProgressLabel({ className, ...props }: ProgressPrimitive.Label.Props) {
 
 function ProgressValue({ className, ...props }: ProgressPrimitive.Value.Props) {
   const { size } = React.useContext(ProgressContext);
-  const textSizes = {
-    sm: "text-xs",
-    md: "text-sm",
-    lg: "text-base",
-  };
-
   return (
     <ProgressPrimitive.Value
       className={cn(
         "ml-auto text-muted-foreground tabular-nums",
-        textSizes[size],
+        {
+          "text-xs": size === "sm",
+          "text-sm": size === "md",
+          "text-base": size === "lg",
+        },
         className,
       )}
       data-slot="progress-value"

@@ -72,7 +72,7 @@ const ConfirmContent = React.forwardRef<
         data-slot="confirm-content"
         data-size={size}
         className={cn(
-          "group/confirm-content fixed top-1/2 left-1/2 z-50 grid w-full -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl bg-popover p-4 text-popover-foreground ring-1 ring-foreground/10 duration-100 outline-none",
+          "group/confirm-content fixed top-1/2 left-1/2 z-50 grid -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl bg-popover p-4 text-popover-foreground ring-1 ring-foreground/10 duration-100 outline-none",
           "data-[size=sm]:max-w-xs",
           "data-[size=md]:max-w-xs data-[size=md]:sm:max-w-sm",
           "data-[size=lg]:max-w-sm data-[size=lg]:sm:max-w-md",

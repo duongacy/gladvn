@@ -17,11 +17,7 @@ import { Button } from "../../components/micro/button";
 import type { Size } from "../../lib/types";
 import { cn } from "../../lib/utils";
 
-const ellipsisSizeMap: Record<Size, { container: string; icon: string }> = {
-  sm: { container: "size-7", icon: "[&>svg:not([class*='size-'])]:size-3" },
-  md: { container: "size-9", icon: "[&>svg:not([class*='size-'])]:size-4" },
-  lg: { container: "size-11", icon: "[&>svg:not([class*='size-'])]:size-5" },
-};
+
 
 /**
  * @description Pagination with page navigation, next and previous links.
@@ -34,7 +30,7 @@ function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
       aria-label="pagination"
       data-slot="pagination"
       className={cn(
-        "group/pagination mx-auto flex w-full justify-center",
+        "group/pagination mx-auto flex justify-center",
         className,
       )}
       {...props}
@@ -133,15 +129,17 @@ function PaginationEllipsis({
   size = "md",
   ...props
 }: PaginationEllipsisProps) {
-  const { container, icon } = ellipsisSizeMap[size];
   return (
     <span
       aria-hidden
       data-slot="pagination-ellipsis"
       className={cn(
         "flex items-center justify-center",
-        container,
-        icon,
+        {
+          "size-7 [&>svg:not([class*='size-'])]:size-3": size === "sm",
+          "size-9 [&>svg:not([class*='size-'])]:size-4": size === "md",
+          "size-11 [&>svg:not([class*='size-'])]:size-5": size === "lg",
+        },
         className,
       )}
       {...props}

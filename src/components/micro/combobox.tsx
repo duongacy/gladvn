@@ -135,11 +135,7 @@ export type ComboboxTriggerProps = ComboboxPrimitive.Trigger.Props & {
   size?: Size;
 };
 
-const comboboxTriggerSizes: Record<Size, string> = {
-  sm: "h-7 gap-1 px-2 py-0.5 text-xs",
-  md: "h-8 gap-1.5 px-2.5 py-1 text-sm",
-  lg: "h-9 gap-2 px-3 py-1.5 text-sm",
-};
+
 
 /**
  * Standalone Select-style trigger button.
@@ -157,8 +153,12 @@ function ComboboxTrigger({
     <ComboboxPrimitive.Trigger
       data-slot="combobox-trigger"
       className={cn(
-        "inline-flex w-full items-center justify-between rounded-lg border border-input bg-transparent text-foreground whitespace-nowrap transition-colors outline-none select-none hover:bg-accent/50 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-offset-1 focus-visible:ring-offset-background disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:ring-3 aria-invalid:focus-visible:ring-destructive/50 dark:bg-input/30 dark:aria-invalid:border-destructive/50 dark:aria-invalid:focus-visible:ring-destructive/50 [:where(&>svg)]:pointer-events-none [:where(&>svg)]:shrink-0 [:where(&>svg)]:size-4 [&_[data-slot=combobox-value]]:line-clamp-1 [&_[data-slot=combobox-value]]:flex [&_[data-slot=combobox-value]]:items-center data-placeholder:text-muted-foreground",
-        comboboxTriggerSizes[size],
+        "inline-flex items-center justify-between rounded-lg border border-input bg-transparent text-foreground whitespace-nowrap transition-colors outline-none select-none hover:bg-accent/50 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-offset-1 focus-visible:ring-offset-background disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:ring-3 aria-invalid:focus-visible:ring-destructive/50 dark:bg-input/30 dark:aria-invalid:border-destructive/50 dark:aria-invalid:focus-visible:ring-destructive/50 [:where(&>svg)]:pointer-events-none [:where(&>svg)]:shrink-0 [:where(&>svg)]:size-4 [&_[data-slot=combobox-value]]:line-clamp-1 [&_[data-slot=combobox-value]]:flex [&_[data-slot=combobox-value]]:items-center data-placeholder:text-muted-foreground",
+        {
+          "h-7 gap-1 px-2 py-0.5 text-xs": size === "sm",
+          "h-8 gap-1.5 px-2.5 py-1 text-sm": size === "md",
+          "h-9 gap-2 px-3 py-1.5 text-sm": size === "lg",
+        },
         className,
       )}
       {...props}
@@ -239,11 +239,7 @@ export type ComboboxInputProps = Omit<ComboboxPrimitive.Input.Props, "size"> & {
   size?: Size;
 };
 
-const comboboxInputSizes: Record<Size, string> = {
-  sm: "h-7 px-2 py-0.5 text-xs",
-  md: "h-8 px-2.5 py-1 text-sm",
-  lg: "h-9 px-3 py-1.5 text-sm",
-};
+
 
 function ComboboxInput({ className, size = "md", ...props }: ComboboxInputProps) {
   return (
@@ -251,14 +247,18 @@ function ComboboxInput({ className, size = "md", ...props }: ComboboxInputProps)
       data-slot="combobox-input"
       className={cn(
         "flex w-full rounded-md border border-input bg-transparent shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
-        comboboxInputSizes[size],
+        {
+          "h-7 px-2 py-0.5 text-xs": size === "sm",
+          "h-8 px-2.5 py-1 text-sm": size === "md",
+          "h-9 px-3 py-1.5 text-sm": size === "lg",
+        },
         // When inside InputGroup — strip standalone styles so InputGroup's border/focus ring takes over
-        "[[data-slot=input-group]_&]:border-0",
-        "[[data-slot=input-group]_&]:shadow-none",
-        "[[data-slot=input-group]_&]:rounded-none",
-        "[[data-slot=input-group]_&]:h-auto",
-        "[[data-slot=input-group]_&]:focus-visible:ring-0",
-        "[[data-slot=input-group]_&]:focus-visible:outline-none",
+        "in-data-[slot=input-group]:border-0",
+        "in-data-[slot=input-group]:shadow-none",
+        "in-data-[slot=input-group]:rounded-none",
+        "in-data-[slot=input-group]:h-auto",
+        "in-data-[slot=input-group]:focus-visible:ring-0",
+        "in-data-[slot=input-group]:focus-visible:outline-none",
         className,
       )}
       {...props}

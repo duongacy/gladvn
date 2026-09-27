@@ -29,7 +29,7 @@ const Empty = React.forwardRef<
     ref={ref}
     data-slot="empty"
     className={cn(
-      "flex w-full min-w-0 flex-1 flex-col items-center justify-center gap-4 rounded-xl border-dashed p-6 text-center text-balance",
+      "flex min-w-0 flex-1 flex-col items-center justify-center gap-4 rounded-xl border-dashed p-6 text-center text-balance",
       className,
     )}
     {...props}
@@ -113,7 +113,7 @@ const EmptyContent = React.forwardRef<
     ref={ref}
     data-slot="empty-content"
     className={cn(
-      "flex w-full max-w-sm min-w-0 flex-col items-center gap-2.5 text-sm text-balance",
+      "flex max-w-sm min-w-0 flex-col items-center gap-2.5 text-sm text-balance",
       className,
     )}
     {...props}

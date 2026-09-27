@@ -19,10 +19,10 @@ const Table = React.forwardRef<HTMLDivElement, React.ComponentProps<"div">>(
       <div
         ref={ref}
         data-slot="table-container"
-        className={cn("group/table relative w-full overflow-auto", className)}
+        className={cn("group/table relative overflow-auto", className)}
         {...props}
       >
-        <table data-slot="table" className="w-full caption-bottom text-sm">
+        <table data-slot="table" className="caption-bottom text-sm">
           {children}
         </table>
       </div>

@@ -38,7 +38,7 @@ function getDropdownLabel(
   const isMonth = options?.length === 12;
   if (isMonth && selected.value !== undefined) {
     return new Date(2000, Number(selected.value), 1).toLocaleString(
-      locale?.code ?? "en-US",
+      locale?.code,
       { month: "short" },
     );
   }
@@ -84,16 +84,16 @@ function Calendar({
       locale={locale}
       formatters={{
         formatMonthDropdown: (month) =>
-          month.toLocaleString(locale?.code ?? "en-US", { month: "long" }),
+          month.toLocaleString(locale?.code, { month: "long" }),
         ...formatters,
       }}
       classNames={{
         root: cn("w-fit", defaultClassNames.root),
         months: cn(
-          "relative flex flex-col gap-4 md:flex-row",
+          "relative flex flex-col gap-4 sm:flex-row",
           defaultClassNames.months,
         ),
-        month: cn("flex w-full flex-col gap-4", defaultClassNames.month),
+        month: cn("flex flex-col gap-4", defaultClassNames.month),
         nav: cn(
           "absolute inset-x-0 top-0 flex items-center justify-between pointer-events-none",
           "h-8 group-[.calendar-sm]/calendar:h-7 group-[.calendar-lg]/calendar:h-9",
@@ -110,7 +110,7 @@ function Calendar({
           defaultClassNames.button_next,
         ),
         month_caption: cn(
-          "flex w-full items-center justify-center",
+          "flex items-center justify-center",
           "h-8 px-8 group-[.calendar-sm]/calendar:h-7 group-[.calendar-sm]/calendar:px-7 group-[.calendar-lg]/calendar:h-9 group-[.calendar-lg]/calendar:px-9",
           defaultClassNames.month_caption,
         ),
@@ -133,13 +133,13 @@ function Calendar({
           },
           defaultClassNames.caption_label,
         ),
-        month_grid: cn("w-full border-collapse", defaultClassNames.month_grid),
+        month_grid: cn("border-collapse", defaultClassNames.month_grid),
         weekdays: cn("flex gap-1", defaultClassNames.weekdays),
         weekday: cn(
           "flex-1 rounded-md text-xs font-medium text-muted-foreground select-none group-[.calendar-sm]/calendar:text-[10px] group-[.calendar-lg]/calendar:text-sm",
           defaultClassNames.weekday,
         ),
-        week: cn("mt-2 flex w-full gap-1", defaultClassNames.week),
+        week: cn("mt-2 flex gap-1", defaultClassNames.week),
         week_number_header: cn(
           "w-7 group-[.calendar-sm]/calendar:w-6 group-[.calendar-lg]/calendar:w-8 select-none",
           defaultClassNames.week_number_header,
@@ -149,7 +149,7 @@ function Calendar({
           defaultClassNames.week_number,
         ),
         day: cn(
-          "group/day relative aspect-square h-full w-full rounded-md p-0 text-center select-none",
+          "group/day relative aspect-square h-full rounded-md p-0 text-center select-none",
           defaultClassNames.day,
         ),
         day_button: cn(defaultClassNames.day_button),
@@ -226,7 +226,7 @@ function Calendar({
                   if (isMonth && option.value !== undefined) {
                     const monthDate = new Date(2000, Number(option.value), 1);
                     shortLabel = monthDate.toLocaleString(
-                      locale?.code ?? "en-US",
+                      locale?.code,
                       {
                         month: "short",
                       },
@@ -248,16 +248,12 @@ function Calendar({
         },
         Chevron: ({ className, orientation, ...props }) => {
           const sizeClasses =
-            "size-4 group-[.calendar-sm]/calendar:size-3.5 group-[.calendar-lg]/calendar:size-5";
-
+            "size-5 group-[.calendar-sm]/calendar:size-4 group-[.calendar-lg]/calendar:size-6";
           if (orientation === "left") {
             return (
               <ChevronLeftIcon
                 aria-hidden="true"
-                className={cn(
-                  "size-5 group-[.calendar-sm]/calendar:size-4 group-[.calendar-lg]/calendar:size-6 rtl:rotate-180",
-                  className,
-                )}
+                className={cn(sizeClasses, "rtl:rotate-180", className)}
                 strokeWidth={3}
                 {...props}
               />
@@ -268,10 +264,7 @@ function Calendar({
             return (
               <ChevronRightIcon
                 aria-hidden="true"
-                className={cn(
-                  "size-5 group-[.calendar-sm]/calendar:size-4 group-[.calendar-lg]/calendar:size-6 rtl:rotate-180",
-                  className,
-                )}
+                className={cn(sizeClasses, "rtl:rotate-180", className)}
                 strokeWidth={3}
                 {...props}
               />

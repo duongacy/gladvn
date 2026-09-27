@@ -46,7 +46,7 @@ const RadioGroup = React.forwardRef<
       ref={ref}
       data-slot="radio-group"
       data-size={size}
-      className={cn("grid gap-2", className)}
+      className={cn("group/radio-group grid gap-2", className)}
       {...props}
     >
       <RadioGroupContext value={true}>{children}</RadioGroupContext>
@@ -86,17 +86,17 @@ const RadioGroupItem = React.forwardRef<
         "data-checked:border-primary data-checked:bg-primary data-checked:text-primary-foreground dark:data-checked:bg-primary",
         // ── Contextual Sizing (specificity = 0) ──────────────────────────────
         // sm
-        "[:where([data-slot=radio-group][data-size=sm]_&)]:size-3.5",
-        "[:where([data-slot=radio-group][data-size=sm]_&)]:after:-inset-x-2.5",
-        "[:where([data-slot=radio-group][data-size=sm]_&)]:after:-inset-y-2.5",
+        "group-data-[size=sm]/radio-group:size-3.5",
+        "group-data-[size=sm]/radio-group:after:-inset-x-2.5",
+        "group-data-[size=sm]/radio-group:after:-inset-y-2.5",
         // md
-        "[:where([data-slot=radio-group][data-size=md]_&)]:size-4",
-        "[:where([data-slot=radio-group][data-size=md]_&)]:after:-inset-x-3",
-        "[:where([data-slot=radio-group][data-size=md]_&)]:after:-inset-y-2",
+        "group-data-[size=md]/radio-group:size-4",
+        "group-data-[size=md]/radio-group:after:-inset-x-3",
+        "group-data-[size=md]/radio-group:after:-inset-y-2",
         // lg
-        "[:where([data-slot=radio-group][data-size=lg]_&)]:size-5",
-        "[:where([data-slot=radio-group][data-size=lg]_&)]:after:-inset-x-4",
-        "[:where([data-slot=radio-group][data-size=lg]_&)]:after:-inset-y-3",
+        "group-data-[size=lg]/radio-group:size-5",
+        "group-data-[size=lg]/radio-group:after:-inset-x-4",
+        "group-data-[size=lg]/radio-group:after:-inset-y-3",
         className,
       )}
       {...props}
@@ -126,11 +126,11 @@ const RadioGroupIndicator = React.forwardRef<
         "flex items-center justify-center",
         // ── Contextual Sizing (specificity = 0) ──────────────────────────────
         // sm
-        "[:where([data-slot=radio-group][data-size=sm]_&)]:size-3.5",
+        "group-data-[size=sm]/radio-group:size-3.5",
         // md
-        "[:where([data-slot=radio-group][data-size=md]_&)]:size-4",
+        "group-data-[size=md]/radio-group:size-4",
         // lg
-        "[:where([data-slot=radio-group][data-size=lg]_&)]:size-5",
+        "group-data-[size=lg]/radio-group:size-5",
         className,
       )}
       {...props}
@@ -142,11 +142,11 @@ const RadioGroupIndicator = React.forwardRef<
             "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-foreground",
             // ── Contextual Dot Sizing (specificity = 0) ──────────────────────
             // sm
-            "[:where([data-slot=radio-group][data-size=sm]_&)]:size-1.5",
+            "group-data-[size=sm]/radio-group:size-1.5",
             // md
-            "[:where([data-slot=radio-group][data-size=md]_&)]:size-2",
+            "group-data-[size=md]/radio-group:size-2",
             // lg
-            "[:where([data-slot=radio-group][data-size=lg]_&)]:size-2.5",
+            "group-data-[size=lg]/radio-group:size-2.5",
           )}
         />
       )}

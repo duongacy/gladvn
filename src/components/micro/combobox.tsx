@@ -105,7 +105,7 @@ function Combobox<Value = unknown, Multiple extends boolean | undefined = false>
         data-slot="combobox"
         data-size={size}
         data-testid={dataTestId}
-        className={className}
+        className={cn("group/combobox", className)}
       >
         <ComboboxPrimitive.Root
           items={items}
@@ -188,10 +188,10 @@ function ComboboxDropdownIcon({ className, ...props }: ComboboxDropdownIconProps
       className={cn(
         "flex shrink-0 items-center justify-center rounded-sm text-muted-foreground outline-none transition-colors hover:text-foreground disabled:cursor-not-allowed disabled:opacity-50 [:where(&>svg)]:size-4",
         // ── Contextual Sizing via parent data-size (specificity = 0) ────────
-        "[:where([data-slot=combobox][data-size=sm]_&)]:size-5.5",
-        "[:where([data-slot=combobox][data-size=sm]_&>svg)]:size-3.5",
-        "[:where([data-slot=combobox][data-size=md]_&)]:size-6.5",
-        "[:where([data-slot=combobox][data-size=lg]_&)]:size-7",
+        "group-data-[size=sm]/combobox:size-5.5",
+        "group-data-[size=sm]/combobox:[:where(&>svg)]:size-3.5",
+        "group-data-[size=md]/combobox:size-6.5",
+        "group-data-[size=lg]/combobox:size-7",
         className,
       )}
       {...props}
@@ -216,12 +216,12 @@ function ComboboxClear({ className, ...props }: ComboboxPrimitive.Clear.Props) {
         "flex shrink-0 items-center justify-center rounded-sm text-muted-foreground outline-none transition-colors hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 [:where(&>svg)]:size-4",
         // ── Contextual Sizing (specificity = 0) ──────────────────────────────
         // sm
-        "[:where([data-slot=combobox][data-size=sm]_&)]:size-5.5",
-        "[:where([data-slot=combobox][data-size=sm]_&>svg)]:size-3.5",
+        "group-data-[size=sm]/combobox:size-5.5",
+        "group-data-[size=sm]/combobox:[:where(&>svg)]:size-3.5",
         // md
-        "[:where([data-slot=combobox][data-size=md]_&)]:size-6.5",
+        "group-data-[size=md]/combobox:size-6.5",
         // lg
-        "[:where([data-slot=combobox][data-size=lg]_&)]:size-7",
+        "group-data-[size=lg]/combobox:size-7",
         className,
       )}
       {...props}

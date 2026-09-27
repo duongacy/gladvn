@@ -35,10 +35,10 @@ function useInputOTPContext(componentName: string) {
 // ---------------------------------------------------------------------------
 
 const inputOTPVariants = cva(
-  // ⚠️ ZERO-SPECIFICITY TRAP: Removed group/otp and text-xs/text-sm.
+  // ⚠️ ZERO-SPECIFICITY TRAP: text-xs/text-sm removed.
   // Children define their own text size via :where() selectors.
   // min-h is structural (on root only), safe to keep.
-  "cn-input-otp inline-flex items-center has-disabled:opacity-50 has-disabled:cursor-not-allowed has-disabled:pointer-events-none",
+  "group/otp cn-input-otp inline-flex items-center has-disabled:opacity-50 has-disabled:cursor-not-allowed has-disabled:pointer-events-none",
   {
     variants: {
       size: {
@@ -138,9 +138,9 @@ const InputOTPSlot = React.forwardRef<
         "data-active:aria-invalid:border-destructive data-active:aria-invalid:ring-3 data-active:aria-invalid:ring-destructive/50",
         "dark:bg-input/30 dark:data-active:aria-invalid:ring-destructive/50",
         // ── Contextual Sizing (specificity = 0) ──────────────────────────
-        "[:where([data-slot=otp][data-size=sm]_&)]:size-7",
-        "[:where([data-slot=otp][data-size=md]_&)]:size-8",
-        "[:where([data-slot=otp][data-size=lg]_&)]:size-9",
+        "group-data-[size=sm]/otp:size-7",
+        "group-data-[size=md]/otp:size-8",
+        "group-data-[size=lg]/otp:size-9",
         className,
       )}
       {...props}
@@ -172,9 +172,9 @@ const InputOTPSeparator = React.forwardRef<
       className={cn(
         "flex items-center text-muted-foreground",
         // Icon sizing via :where() — overrideable by consumer
-        "[:where([data-slot=otp][data-size=sm]_&>svg)]:size-3.5",
-        "[:where([data-slot=otp][data-size=md]_&>svg)]:size-4",
-        "[:where([data-slot=otp][data-size=lg]_&>svg)]:size-4",
+        "group-data-[size=sm]/otp:[:where(&>svg)]:size-3.5",
+        "group-data-[size=md]/otp:[:where(&>svg)]:size-4",
+        "group-data-[size=lg]/otp:[:where(&>svg)]:size-4",
         className,
       )}
       role="separator"

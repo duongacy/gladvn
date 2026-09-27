@@ -72,7 +72,7 @@ const ConfirmContent = React.forwardRef<
         data-slot="confirm-content"
         data-size={size}
         className={cn(
-          "fixed top-1/2 left-1/2 z-50 grid w-full -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl bg-popover p-4 text-popover-foreground ring-1 ring-foreground/10 duration-100 outline-none",
+          "group/confirm-content fixed top-1/2 left-1/2 z-50 grid w-full -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl bg-popover p-4 text-popover-foreground ring-1 ring-foreground/10 duration-100 outline-none",
           "data-[size=sm]:max-w-xs",
           "data-[size=md]:max-w-xs data-[size=md]:sm:max-w-sm",
           "data-[size=lg]:max-w-sm data-[size=lg]:sm:max-w-md",
@@ -129,9 +129,9 @@ function ConfirmMedia({
       data-slot="confirm-media"
       className={cn(
         "inline-flex items-center justify-center [:where(&>svg)]:size-6",
-        "[:where([data-slot=confirm-content][data-size=sm]_&)]:size-8",
-        "[:where([data-slot=confirm-content][data-size=md]_&)]:size-10",
-        "[:where([data-slot=confirm-content][data-size=lg]_&)]:size-12",
+        "group-data-[size=sm]/confirm-content:size-8",
+        "group-data-[size=md]/confirm-content:size-10",
+        "group-data-[size=lg]/confirm-content:size-12",
         className,
       )}
       {...props}
@@ -149,9 +149,9 @@ function ConfirmTitle({
       data-slot="confirm-title"
       className={cn(
         "font-heading font-medium",
-        "[:where([data-slot=confirm-content][data-size=sm]_&)]:text-sm",
-        "[:where([data-slot=confirm-content][data-size=md]_&)]:text-base",
-        "[:where([data-slot=confirm-content][data-size=lg]_&)]:text-lg",
+        "group-data-[size=sm]/confirm-content:text-sm",
+        "group-data-[size=md]/confirm-content:text-base",
+        "group-data-[size=lg]/confirm-content:text-lg",
         className,
       )}
       {...props}
@@ -169,9 +169,9 @@ function ConfirmDescription({
       data-slot="confirm-description"
       className={cn(
         "text-balance text-muted-foreground md:text-pretty",
-        "[:where([data-slot=confirm-content][data-size=sm]_&)]:text-xs",
-        "[:where([data-slot=confirm-content][data-size=md]_&)]:text-sm",
-        "[:where([data-slot=confirm-content][data-size=lg]_&)]:text-base",
+        "group-data-[size=sm]/confirm-content:text-xs",
+        "group-data-[size=md]/confirm-content:text-sm",
+        "group-data-[size=lg]/confirm-content:text-base",
         className,
       )}
       {...props}

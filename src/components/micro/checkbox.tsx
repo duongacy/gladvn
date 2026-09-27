@@ -39,7 +39,7 @@ const Checkbox = React.forwardRef<
       data-size={size}
       className={cn(
         // Layout & appearance — no size values here
-        "peer relative flex shrink-0 items-center justify-center rounded-sm border border-input transition-colors outline-none",
+        "group/checkbox peer relative flex shrink-0 items-center justify-center rounded-sm border border-input transition-colors outline-none",
         // Hit area via ::after pseudo-element
         "after:absolute after:content-['']",
         // Focus-visible ring
@@ -54,17 +54,17 @@ const Checkbox = React.forwardRef<
         "data-checked:border-primary data-checked:bg-primary data-checked:text-primary-foreground dark:data-checked:bg-primary",
         // ── Contextual Sizing (specificity = 0) ──────────────────────────────
         // sm
-        "[:where([data-slot=checkbox][data-size=sm]_&)]:size-3.5",
-        "[:where([data-slot=checkbox][data-size=sm]_&)]:after:-inset-x-2.5",
-        "[:where([data-slot=checkbox][data-size=sm]_&)]:after:-inset-y-2.5",
+        "group-data-[size=sm]/checkbox:size-3.5",
+        "group-data-[size=sm]/checkbox:after:-inset-x-2.5",
+        "group-data-[size=sm]/checkbox:after:-inset-y-2.5",
         // md
-        "[:where([data-slot=checkbox][data-size=md]_&)]:size-4",
-        "[:where([data-slot=checkbox][data-size=md]_&)]:after:-inset-x-3",
-        "[:where([data-slot=checkbox][data-size=md]_&)]:after:-inset-y-2",
+        "group-data-[size=md]/checkbox:size-4",
+        "group-data-[size=md]/checkbox:after:-inset-x-3",
+        "group-data-[size=md]/checkbox:after:-inset-y-2",
         // lg
-        "[:where([data-slot=checkbox][data-size=lg]_&)]:size-5",
-        "[:where([data-slot=checkbox][data-size=lg]_&)]:after:-inset-x-4",
-        "[:where([data-slot=checkbox][data-size=lg]_&)]:after:-inset-y-3",
+        "group-data-[size=lg]/checkbox:size-5",
+        "group-data-[size=lg]/checkbox:after:-inset-x-4",
+        "group-data-[size=lg]/checkbox:after:-inset-y-3",
         className,
       )}
       {...props}
@@ -94,11 +94,11 @@ const CheckboxIndicator = React.forwardRef<
         "grid place-content-center text-current transition-none",
         // ── Contextual Icon Sizing (specificity = 0) ─────────────────────────
         // sm
-        "[:where([data-slot=checkbox][data-size=sm]_&>svg)]:size-3",
+        "group-data-[size=sm]/checkbox:[:where(&>svg)]:size-3",
         // md
-        "[:where([data-slot=checkbox][data-size=md]_&>svg)]:size-3.5",
+        "group-data-[size=md]/checkbox:[:where(&>svg)]:size-3.5",
         // lg
-        "[:where([data-slot=checkbox][data-size=lg]_&>svg)]:size-4",
+        "group-data-[size=lg]/checkbox:[:where(&>svg)]:size-4",
         className,
       )}
       {...props}

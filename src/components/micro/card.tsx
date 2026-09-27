@@ -42,7 +42,7 @@ const Card = React.forwardRef<
     data-slot="card"
     data-size={size}
     className={cn(
-      "flex flex-col overflow-hidden rounded-xl bg-card text-card-foreground ring-1 ring-foreground/10",
+      "group/card flex flex-col overflow-hidden rounded-xl bg-card text-card-foreground ring-1 ring-foreground/10",
       className,
     )}
     {...props}
@@ -63,9 +63,9 @@ const CardHeader = React.forwardRef<
       data-slot="card-header"
       className={cn(
         "flex flex-col gap-1.5",
-        "[:where([data-slot=card][data-size=sm]_&)]:p-4",
-        "[:where([data-slot=card][data-size=md]_&)]:p-6",
-        "[:where([data-slot=card][data-size=lg]_&)]:p-8",
+        "group-data-[size=sm]/card:p-4",
+        "group-data-[size=md]/card:p-6",
+        "group-data-[size=lg]/card:p-8",
         className,
       )}
       {...props}
@@ -87,9 +87,9 @@ const CardTitle = React.forwardRef<HTMLHeadingElement, CardTitleProps>(
         data-slot="card-title"
         className={cn(
           "font-heading leading-snug font-medium",
-          "[:where([data-slot=card][data-size=sm]_&)]:text-sm",
-          "[:where([data-slot=card][data-size=md]_&)]:text-base",
-          "[:where([data-slot=card][data-size=lg]_&)]:text-lg",
+          "group-data-[size=sm]/card:text-sm",
+          "group-data-[size=md]/card:text-base",
+          "group-data-[size=lg]/card:text-lg",
           className,
         )}
         {...props}
@@ -110,9 +110,9 @@ const CardDescription = React.forwardRef<
       data-slot="card-description"
       className={cn(
         "text-muted-foreground",
-        "[:where([data-slot=card][data-size=sm]_&)]:text-xs",
-        "[:where([data-slot=card][data-size=md]_&)]:text-sm",
-        "[:where([data-slot=card][data-size=lg]_&)]:text-base",
+        "group-data-[size=sm]/card:text-xs",
+        "group-data-[size=md]/card:text-sm",
+        "group-data-[size=lg]/card:text-base",
         className,
       )}
       {...props}
@@ -131,12 +131,12 @@ const CardContent = React.forwardRef<
       ref={ref}
       data-slot="card-content"
       className={cn(
-        "[:where([data-slot=card][data-size=sm]_&)]:p-4",
-        "[:where([data-slot=card][data-size=sm]_&)]:pt-0",
-        "[:where([data-slot=card][data-size=md]_&)]:p-6",
-        "[:where([data-slot=card][data-size=md]_&)]:pt-0",
-        "[:where([data-slot=card][data-size=lg]_&)]:p-8",
-        "[:where([data-slot=card][data-size=lg]_&)]:pt-0",
+        "group-data-[size=sm]/card:p-4",
+        "group-data-[size=sm]/card:pt-0",
+        "group-data-[size=md]/card:p-6",
+        "group-data-[size=md]/card:pt-0",
+        "group-data-[size=lg]/card:p-8",
+        "group-data-[size=lg]/card:pt-0",
         className,
       )}
       {...props}
@@ -156,12 +156,12 @@ const CardFooter = React.forwardRef<
       data-slot="card-footer"
       className={cn(
         "flex items-center gap-2",
-        "[:where([data-slot=card][data-size=sm]_&)]:p-4",
-        "[:where([data-slot=card][data-size=sm]_&)]:pt-0",
-        "[:where([data-slot=card][data-size=md]_&)]:p-6",
-        "[:where([data-slot=card][data-size=md]_&)]:pt-0",
-        "[:where([data-slot=card][data-size=lg]_&)]:p-8",
-        "[:where([data-slot=card][data-size=lg]_&)]:pt-0",
+        "group-data-[size=sm]/card:p-4",
+        "group-data-[size=sm]/card:pt-0",
+        "group-data-[size=md]/card:p-6",
+        "group-data-[size=md]/card:pt-0",
+        "group-data-[size=lg]/card:p-8",
+        "group-data-[size=lg]/card:pt-0",
         className,
       )}
       {...props}

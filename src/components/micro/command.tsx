@@ -106,9 +106,9 @@ const CommandInput = React.forwardRef<
             className={cn(
               "size-4 opacity-50",
               // Icon sizing via :where() — zero specificity, overrideable
-              "[:where([data-slot=command][data-size=sm]_&)]:size-4",
-              "[:where([data-slot=command][data-size=md]_&)]:size-4",
-              "[:where([data-slot=command][data-size=lg]_&)]:size-5",
+              "group-data-[size=sm]/command:size-4",
+              "group-data-[size=md]/command:size-4",
+              "group-data-[size=lg]/command:size-5",
             )}
           />
         </InputGroupAddon>
@@ -238,13 +238,13 @@ const CommandItem = React.forwardRef<
         "[:where(&>svg)]:size-4",
         // sm
         "group-data-[size=sm]/command:gap-1.5 group-data-[size=sm]/command:rounded-sm group-data-[size=sm]/command:px-2 group-data-[size=sm]/command:py-1 group-data-[size=sm]/command:text-xs",
-        "[:where([data-slot=command][data-size=sm]_&>svg)]:size-3.5",
+        "group-data-[size=sm]/command:[:where(&>svg)]:size-3.5",
         // md
         "group-data-[size=md]/command:gap-2 group-data-[size=md]/command:rounded-sm group-data-[size=md]/command:px-2 group-data-[size=md]/command:py-1.5 group-data-[size=md]/command:text-sm",
-        "[:where([data-slot=command][data-size=md]_&>svg)]:size-4",
+        "group-data-[size=md]/command:[:where(&>svg)]:size-4",
         // lg
         "group-data-[size=lg]/command:gap-3 group-data-[size=lg]/command:rounded-md group-data-[size=lg]/command:px-3 group-data-[size=lg]/command:py-2.5 group-data-[size=lg]/command:text-base",
-        "[:where([data-slot=command][data-size=lg]_&>svg)]:size-5",
+        "group-data-[size=lg]/command:[:where(&>svg)]:size-5",
         className,
       )}
       {...props}

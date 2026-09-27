@@ -88,7 +88,7 @@ const FieldGroup = React.forwardRef<
 });
 FieldGroup.displayName = "FieldGroup";
 
-const fieldVariants = cva("flex min-w-fit", {
+const fieldVariants = cva("group/field flex min-w-fit", {
   variants: {
     orientation: {
       vertical: "flex-col [&>.sr-only]:w-auto",
@@ -188,9 +188,9 @@ const FieldLabel = React.forwardRef<
         "peer/field-label flex w-fit gap-2 leading-snug",
         "data-[disabled=true]:opacity-50",
         // ── Contextual Sizing (specificity = 0) ──────────────────────────
-        "[:where([data-slot=field][data-size=sm]_&)]:text-xs",
-        "[:where([data-slot=field][data-size=md]_&)]:text-sm",
-        "[:where([data-slot=field][data-size=lg]_&)]:text-base",
+        "group-data-[size=sm]/field:text-xs",
+        "group-data-[size=md]/field:text-sm",
+        "group-data-[size=lg]/field:text-base",
         className,
       )}
       {...props}
@@ -212,9 +212,9 @@ const FieldTitle = React.forwardRef<
         "flex w-fit items-center gap-2 font-medium",
         "data-[disabled=true]:opacity-50",
         // ── Contextual Sizing (specificity = 0) ──────────────────────────
-        "[:where([data-slot=field][data-size=sm]_&)]:text-xs",
-        "[:where([data-slot=field][data-size=md]_&)]:text-sm",
-        "[:where([data-slot=field][data-size=lg]_&)]:text-base",
+        "group-data-[size=sm]/field:text-xs",
+        "group-data-[size=md]/field:text-sm",
+        "group-data-[size=lg]/field:text-base",
         className,
       )}
       {...props}
@@ -234,13 +234,13 @@ const FieldDescription = React.forwardRef<
       data-slot="field-description"
       className={cn(
         "text-left leading-normal font-normal text-muted-foreground",
-        "[:where([data-slot=field][data-orientation=horizontal]_&)]:text-balance",
+        "group-data-[orientation=horizontal]/field:text-balance",
         "[[data-variant=legend]+&]:-mt-1.5 last:mt-0 nth-last-2:-mt-1",
         "[&>a]:underline [&>a]:underline-offset-4 [&>a:hover]:text-primary",
         // ── Contextual Sizing (specificity = 0) ──────────────────────────
-        "[:where([data-slot=field][data-size=sm]_&)]:text-xs",
-        "[:where([data-slot=field][data-size=md]_&)]:text-sm",
-        "[:where([data-slot=field][data-size=lg]_&)]:text-base",
+        "group-data-[size=sm]/field:text-xs",
+        "group-data-[size=md]/field:text-sm",
+        "group-data-[size=lg]/field:text-base",
         className,
       )}
       {...props}
@@ -262,9 +262,9 @@ const FieldSeparator = React.forwardRef<
       className={cn(
         "relative -my-2 h-5 group-data-[variant=outline]/field-group:-mb-2",
         // ── Contextual Sizing (specificity = 0) ──────────────────────────
-        "[:where([data-slot=field][data-size=sm]_&)]:text-xs",
-        "[:where([data-slot=field][data-size=md]_&)]:text-sm",
-        "[:where([data-slot=field][data-size=lg]_&)]:text-base",
+        "group-data-[size=sm]/field:text-xs",
+        "group-data-[size=md]/field:text-sm",
+        "group-data-[size=lg]/field:text-base",
         className,
       )}
       {...props}
@@ -330,12 +330,12 @@ const FieldError = React.forwardRef<
       className={cn(
         "font-medium text-destructive flex items-start gap-1.5 animate-in fade-in-0 slide-in-from-top-1",
         // ── Contextual Sizing (specificity = 0) ──────────────────────────
-        "[:where([data-slot=field][data-size=sm]_&)]:text-xs",
-        "[:where([data-slot=field][data-size=md]_&)]:text-sm",
-        "[:where([data-slot=field][data-size=lg]_&)]:text-base",
-        "[:where([data-slot=field][data-size=sm]_&_svg)]:size-3.5",
-        "[:where([data-slot=field][data-size=md]_&_svg)]:size-4",
-        "[:where([data-slot=field][data-size=lg]_&_svg)]:size-5",
+        "group-data-[size=sm]/field:text-xs",
+        "group-data-[size=md]/field:text-sm",
+        "group-data-[size=lg]/field:text-base",
+        "group-data-[size=sm]/field:[:where(&_svg)]:size-3.5",
+        "group-data-[size=md]/field:[:where(&_svg)]:size-4",
+        "group-data-[size=lg]/field:[:where(&_svg)]:size-5",
         className,
       )}
       {...props}

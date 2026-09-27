@@ -34,7 +34,7 @@ function useInputGroupContext(componentName: string) {
 
 const inputGroupVariants = cva(
   [
-    "relative flex min-w-0 items-center overflow-hidden rounded-lg border border-input transition-colors outline-none",
+    "group/input-group relative flex min-w-0 items-center overflow-hidden rounded-lg border border-input transition-colors outline-none",
 
     "has-disabled:bg-input/50 has-disabled:opacity-50 has-disabled:cursor-not-allowed dark:has-disabled:bg-input/80",
 
@@ -96,14 +96,14 @@ const inputGroupAddonVariants = cva(
     "flex h-auto cursor-text items-center justify-center gap-2 font-medium text-muted-foreground select-none",
     "group-has-[[data-slot][aria-invalid=true]]/input-group:text-destructive",
     // ── Contextual Sizing (specificity = 0) ──────────────────────────────
-    "[:where([data-slot=input-group][data-size=sm]_&)]:py-0.5",
-    "[:where([data-slot=input-group][data-size=md]_&)]:py-1.5",
-    "[:where([data-slot=input-group][data-size=lg]_&)]:py-1.5",
+    "group-data-[size=sm]/input-group:py-0.5",
+    "group-data-[size=md]/input-group:py-1.5",
+    "group-data-[size=lg]/input-group:py-1.5",
     // Icon sizing via :where() — overrideable by consumer
     "[:where(&>svg)]:pointer-events-none",
-    "[:where([data-slot=input-group][data-size=sm]_&>svg)]:size-3.5",
-    "[:where([data-slot=input-group][data-size=md]_&>svg)]:size-4",
-    "[:where([data-slot=input-group][data-size=lg]_&>svg)]:size-4",
+    "group-data-[size=sm]/input-group:[:where(&>svg)]:size-3.5",
+    "group-data-[size=md]/input-group:[:where(&>svg)]:size-4",
+    "group-data-[size=lg]/input-group:[:where(&>svg)]:size-4",
   ],
   {
     variants: {
@@ -155,9 +155,9 @@ const InputGroupText = React.forwardRef<
         "flex items-center gap-2 text-muted-foreground",
         // Icon sizing via :where() — overrideable by consumer
         "[:where(&>svg)]:pointer-events-none",
-        "[:where([data-slot=input-group][data-size=sm]_&>svg)]:size-3.5",
-        "[:where([data-slot=input-group][data-size=md]_&>svg)]:size-4",
-        "[:where([data-slot=input-group][data-size=lg]_&>svg)]:size-4",
+        "group-data-[size=sm]/input-group:[:where(&>svg)]:size-3.5",
+        "group-data-[size=md]/input-group:[:where(&>svg)]:size-4",
+        "group-data-[size=lg]/input-group:[:where(&>svg)]:size-4",
         className,
       )}
       {...props}
@@ -180,9 +180,9 @@ const inputGroupButtonVariants = cva(
     "[&:not(:first-child)]:border-l [&:not(:last-child)]:border-r border-border",
 
     // Icon sizing via :where() — overrideable by consumer
-    "[:where([data-slot=input-group][data-size=sm]_&>svg)]:size-3.5",
-    "[:where([data-slot=input-group][data-size=md]_&>svg)]:size-4",
-    "[:where([data-slot=input-group][data-size=lg]_&>svg)]:size-4",
+    "group-data-[size=sm]/input-group:[:where(&>svg)]:size-3.5",
+    "group-data-[size=md]/input-group:[:where(&>svg)]:size-4",
+    "group-data-[size=lg]/input-group:[:where(&>svg)]:size-4",
   ],
   {
     variants: {
@@ -197,18 +197,18 @@ const inputGroupButtonVariants = cva(
       icon: {
         true: [
           // ── Contextual Sizing (specificity = 0) ──────────────────────
-          "[:where([data-slot=input-group][data-size=sm]_&)]:w-7",
-          "[:where([data-slot=input-group][data-size=md]_&)]:w-8",
-          "[:where([data-slot=input-group][data-size=lg]_&)]:w-9",
+          "group-data-[size=sm]/input-group:w-7",
+          "group-data-[size=md]/input-group:w-8",
+          "group-data-[size=lg]/input-group:w-9",
         ],
         false: [
           // ── Contextual Sizing (specificity = 0) ──────────────────────
-          "[:where([data-slot=input-group][data-size=sm]_&)]:px-2",
-          "[:where([data-slot=input-group][data-size=sm]_&)]:text-xs",
-          "[:where([data-slot=input-group][data-size=md]_&)]:px-2.5",
-          "[:where([data-slot=input-group][data-size=md]_&)]:text-sm",
-          "[:where([data-slot=input-group][data-size=lg]_&)]:px-3",
-          "[:where([data-slot=input-group][data-size=lg]_&)]:text-sm",
+          "group-data-[size=sm]/input-group:px-2",
+          "group-data-[size=sm]/input-group:text-xs",
+          "group-data-[size=md]/input-group:px-2.5",
+          "group-data-[size=md]/input-group:text-sm",
+          "group-data-[size=lg]/input-group:px-3",
+          "group-data-[size=lg]/input-group:text-sm",
         ],
       },
     },
@@ -254,15 +254,15 @@ const InputGroupInput = React.forwardRef<
       className={cn(
         "min-w-0 flex-1 bg-transparent outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed",
         // ── Contextual Sizing (specificity = 0) ──────────────────────────
-        "[:where([data-slot=input-group][data-size=sm]_&)]:px-2",
-        "[:where([data-slot=input-group][data-size=sm]_&)]:py-0.5",
-        "[:where([data-slot=input-group][data-size=sm]_&)]:text-xs",
-        "[:where([data-slot=input-group][data-size=md]_&)]:px-2.5",
-        "[:where([data-slot=input-group][data-size=md]_&)]:py-1",
-        "[:where([data-slot=input-group][data-size=md]_&)]:text-sm",
-        "[:where([data-slot=input-group][data-size=lg]_&)]:px-3",
-        "[:where([data-slot=input-group][data-size=lg]_&)]:py-1.5",
-        "[:where([data-slot=input-group][data-size=lg]_&)]:text-sm",
+        "group-data-[size=sm]/input-group:px-2",
+        "group-data-[size=sm]/input-group:py-0.5",
+        "group-data-[size=sm]/input-group:text-xs",
+        "group-data-[size=md]/input-group:px-2.5",
+        "group-data-[size=md]/input-group:py-1",
+        "group-data-[size=md]/input-group:text-sm",
+        "group-data-[size=lg]/input-group:px-3",
+        "group-data-[size=lg]/input-group:py-1.5",
+        "group-data-[size=lg]/input-group:text-sm",
         className,
       )}
       {...props}
@@ -287,12 +287,12 @@ const InputGroupTextarea = React.forwardRef<
       className={cn(
         "min-w-0 flex-1 resize-none bg-transparent py-2 outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed",
         // ── Contextual Sizing (specificity = 0) ──────────────────────────
-        "[:where([data-slot=input-group][data-size=sm]_&)]:px-2",
-        "[:where([data-slot=input-group][data-size=sm]_&)]:text-xs",
-        "[:where([data-slot=input-group][data-size=md]_&)]:px-2.5",
-        "[:where([data-slot=input-group][data-size=md]_&)]:text-sm",
-        "[:where([data-slot=input-group][data-size=lg]_&)]:px-3",
-        "[:where([data-slot=input-group][data-size=lg]_&)]:text-sm",
+        "group-data-[size=sm]/input-group:px-2",
+        "group-data-[size=sm]/input-group:text-xs",
+        "group-data-[size=md]/input-group:px-2.5",
+        "group-data-[size=md]/input-group:text-sm",
+        "group-data-[size=lg]/input-group:px-3",
+        "group-data-[size=lg]/input-group:text-sm",
         className,
       )}
       {...props}

@@ -28,7 +28,7 @@ function useAlertContext(componentName: string) {
 }
 
 const alertVariants = cva(
-  "relative rounded-lg border border-border text-left bg-card text-card-foreground",
+  "group/alert relative rounded-lg border border-border text-left bg-card text-card-foreground",
   {
     variants: {
       color: {
@@ -108,10 +108,10 @@ const AlertDescription = React.forwardRef<
       data-slot="alert-description"
       className={cn(
         "text-balance text-muted-foreground md:text-pretty leading-relaxed",
-        "[:where([data-slot=alert][data-color=info]_&)]:text-info",
-        "[:where([data-slot=alert][data-color=destructive]_&)]:text-destructive",
-        "[:where([data-slot=alert][data-color=success]_&)]:text-success",
-        "[:where([data-slot=alert][data-color=warning]_&)]:text-warning",
+        "group-data-[color=info]/alert:text-info",
+        "group-data-[color=destructive]/alert:text-destructive",
+        "group-data-[color=success]/alert:text-success",
+        "group-data-[color=warning]/alert:text-warning",
         className,
       )}
       {...props}
@@ -151,9 +151,9 @@ const AlertIcon = React.forwardRef<HTMLDivElement, AlertIconProps>(
           "aria-hidden": true,
           className: cn(
             "text-current",
-            "[:where([data-slot=alert][data-size=sm]_&)]:size-3.5",
-            "[:where([data-slot=alert][data-size=md]_&)]:size-4",
-            "[:where([data-slot=alert][data-size=lg]_&)]:size-5",
+            "group-data-[size=sm]/alert:size-3.5",
+            "group-data-[size=md]/alert:size-4",
+            "group-data-[size=lg]/alert:size-5",
             className,
           ),
           "data-slot": "alert-icon",

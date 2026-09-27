@@ -47,7 +47,7 @@ const Avatar = React.forwardRef<
       data-slot="avatar"
       data-size={size}
       className={cn(
-        "relative flex shrink-0 rounded-full select-none after:absolute after:inset-0 after:rounded-full after:border after:border-border after:mix-blend-darken dark:after:mix-blend-lighten",
+        "group/avatar relative flex shrink-0 rounded-full select-none after:absolute after:inset-0 after:rounded-full after:border after:border-border after:mix-blend-darken dark:after:mix-blend-lighten",
         "data-[size=sm]:size-6",
         "data-[size=md]:size-8",
         "data-[size=lg]:size-10",
@@ -92,9 +92,9 @@ const AvatarFallback = React.forwardRef<
       data-slot="avatar-fallback"
       className={cn(
         "flex size-full items-center justify-center rounded-full bg-muted text-muted-foreground",
-        "[:where([data-slot=avatar][data-size=sm]_&)]:text-xs",
-        "[:where([data-slot=avatar][data-size=md]_&)]:text-sm",
-        "[:where([data-slot=avatar][data-size=lg]_&)]:text-base",
+        "group-data-[size=sm]/avatar:text-xs",
+        "group-data-[size=md]/avatar:text-sm",
+        "group-data-[size=lg]/avatar:text-base",
         className,
       )}
       {...props}
@@ -114,9 +114,9 @@ const AvatarBadge = React.forwardRef<
       data-slot="avatar-badge"
       className={cn(
         "rounded-full bg-primary ring-2 ring-background",
-        "[:where([data-slot=avatar][data-size=sm]_&)]:size-2",
-        "[:where([data-slot=avatar][data-size=md]_&)]:size-2.5",
-        "[:where([data-slot=avatar][data-size=lg]_&)]:size-3",
+        "group-data-[size=sm]/avatar:size-2",
+        "group-data-[size=md]/avatar:size-2.5",
+        "group-data-[size=lg]/avatar:size-3",
         className,
       )}
       {...props}

@@ -75,7 +75,7 @@ function ItemSeparator({
 // ---------------------------------------------------------------------------
 
 const itemVariants = cva(
-  "flex w-full flex-wrap items-center rounded-lg border text-sm transition-colors duration-100 outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:ring-offset-1 focus-visible:ring-offset-background [&_a]:transition-colors [&_a]:hover:bg-muted border-transparent",
+  "group/item flex w-full flex-wrap items-center rounded-lg border text-sm transition-colors duration-100 outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:ring-offset-1 focus-visible:ring-offset-background [&_a]:transition-colors [&_a]:hover:bg-muted border-transparent",
   {
     variants: {
       variant: {
@@ -158,9 +158,9 @@ function ItemMedia({
         itemMediaVariants({ variant, className }),
         // ── Contextual Sizing for image variant (specificity = 0) ──────────
         variant === "image" && [
-          "[:where([data-slot=item][data-size=sm]_&)]:size-8",
-          "[:where([data-slot=item][data-size=md]_&)]:size-10",
-          "[:where([data-slot=item][data-size=lg]_&)]:size-12",
+          "group-data-[size=sm]/item:size-8",
+          "group-data-[size=md]/item:size-10",
+          "group-data-[size=lg]/item:size-12",
         ],
       )}
       {...props}
@@ -181,9 +181,9 @@ function ItemContent({ className, ...props }: React.ComponentProps<"div">) {
         // ⚠️ ZERO-SPECIFICITY TRAP: Removed hardcoded `gap-1` from base.
         "flex flex-1 flex-col [&+[data-slot=item-content]]:flex-none",
         // ── Contextual Sizing (specificity = 0) ──────────────────────────
-        "[:where([data-slot=item][data-size=sm]_&)]:gap-0.5",
-        "[:where([data-slot=item][data-size=md]_&)]:gap-1",
-        "[:where([data-slot=item][data-size=lg]_&)]:gap-1.5",
+        "group-data-[size=sm]/item:gap-0.5",
+        "group-data-[size=md]/item:gap-1",
+        "group-data-[size=lg]/item:gap-1.5",
         className,
       )}
       {...props}
@@ -203,9 +203,9 @@ function ItemTitle({ className, ...props }: React.ComponentProps<"div">) {
       className={cn(
         "line-clamp-1 flex w-fit items-center gap-2 leading-snug font-medium underline-offset-4",
         // ── Contextual Sizing (specificity = 0) ──────────────────────────
-        "[:where([data-slot=item][data-size=sm]_&)]:text-xs",
-        "[:where([data-slot=item][data-size=md]_&)]:text-sm",
-        "[:where([data-slot=item][data-size=lg]_&)]:text-base",
+        "group-data-[size=sm]/item:text-xs",
+        "group-data-[size=md]/item:text-sm",
+        "group-data-[size=lg]/item:text-base",
         className,
       )}
       {...props}
@@ -226,9 +226,9 @@ function ItemDescription({ className, ...props }: React.ComponentProps<"p">) {
         // ⚠️ ZERO-SPECIFICITY TRAP: Removed hardcoded `text-sm` from base.
         "line-clamp-2 text-left leading-normal font-normal text-muted-foreground [&>a]:underline [&>a]:underline-offset-4 [&>a:hover]:text-primary",
         // ── Contextual Sizing (specificity = 0) ──────────────────────────
-        "[:where([data-slot=item][data-size=sm]_&)]:text-xs",
-        "[:where([data-slot=item][data-size=md]_&)]:text-sm",
-        "[:where([data-slot=item][data-size=lg]_&)]:text-base",
+        "group-data-[size=sm]/item:text-xs",
+        "group-data-[size=md]/item:text-sm",
+        "group-data-[size=lg]/item:text-base",
         className,
       )}
       {...props}

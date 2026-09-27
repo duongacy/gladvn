@@ -75,8 +75,6 @@ const CommandInput = React.forwardRef<
         "group-data-[size=sm]/command:p-1",
         "group-data-[size=md]/command:p-2",
         "group-data-[size=lg]/command:p-3",
-        // Dialog context: add bottom border separator
-        "[[data-slot=dialog-content]_&]:border-b [[data-slot=dialog-content]_&]:border-border",
       )}
     >
       <InputGroup
@@ -87,8 +85,6 @@ const CommandInput = React.forwardRef<
           "group-data-[size=sm]/command:h-8",
           "group-data-[size=md]/command:h-10",
           "group-data-[size=lg]/command:h-11",
-          // Dialog context: strip standalone styles
-          "[[data-slot=dialog-content]_&]:border-none [[data-slot=dialog-content]_&]:bg-transparent [[data-slot=dialog-content]_&]:shadow-none",
         )}
       >
         {/* Icon LEFT-aligned — standard search UX convention */}

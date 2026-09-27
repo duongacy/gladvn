@@ -27,6 +27,7 @@ export function CommandMenu({
     <CommandDialog
       open={cmdOpen}
       onOpenChange={setCmdOpen}
+      className="w-full max-w-3xl"
       title={language === "en" ? "Search components" : "Tìm component"}
       description={
         language === "en"

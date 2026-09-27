@@ -30,7 +30,7 @@ export function HeroSection({ className }: { className?: string }) {
           {t(
             <>
               Việc copy-paste code UI (như Shadcn) thường dẫn đến một hệ thống không thể bảo trì chỉ sau vài tháng. gladvn giải quyết triệt để vấn đề này bằng một kiến trúc cực đoan:{" "}
-              <strong>Phân tầng Micro/Macro, Intentional Specificity, và Phòng thủ ngữ cảnh (Defensive Context).</strong>
+              <strong>Phân tầng Micro/Macro, Intentional Specificity, và Defensive Context.</strong>
             </>,
             <>
               Copy-pasting UI code (like Shadcn) often leads to an unmaintainable system in just a few months. gladvn completely solves this with a radical architecture:{" "}

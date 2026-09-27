@@ -170,7 +170,7 @@ export function CustomComplexFilter() {
         {/* SHADCN / Monolith */}
         <div className="space-y-4">
            <h3 className="font-bold text-xl text-foreground">
-              {t("Các thư viện khác (Kiến trúc Cục gạch)", "Other Libraries (Monolithic Block)")}
+              {t("Các thư viện khác (Kiến trúc Monolith)", "Other Libraries (Monolithic Block)")}
            </h3>
            <p className="text-muted-foreground min-h-[5.5rem]">
               {t("Nhận về một file 200 dòng nhồi nhét cả giao diện lẫn logic. Bạn muốn chế cháo thêm một cái avatar vào menu? Chúc may mắn, vì bạn rất dễ làm gãy luôn tính năng điều hướng bằng bàn phím (keyboard navigation) của nó!", "You get a 200-line file stuffing both UI and logic. Want to hack an avatar into the menu? Good luck, you'll likely break its keyboard navigation in the process!")}
@@ -188,7 +188,7 @@ export function CustomComplexFilter() {
               {t("Kiến trúc GLADVN (Micro & Macro)", "GLADVN Architecture (Micro & Macro)")}
            </h3>
            <p className="text-muted-foreground min-h-[5.5rem]">
-              {t("Chẻ component ra làm 2 tầng để xoá bỏ cấu trúc nguyên khối (Monolith). Macro (Mì ăn liền) đã bọc sẵn logic, gọi 1 dòng là chạy. Micro (Lắp Lego) bóc tách toàn bộ phần nhìn, dùng để tự do xếp hình khi gặp giao diện dị biệt.", "Splits components into 2 layers to break the Monolithic structure. Macro (Instant Noodles) wraps logic for 1-line plug & play. Micro (Lego Bricks) extracts pure UI, letting you freely assemble weird designs without breaking logic.")}
+              {t("Chẻ component ra làm 2 tầng để xoá bỏ cấu trúc Monolith. Macro (Preset) đã bọc sẵn logic, gọi 1 dòng là chạy. Micro (Primitive) bóc tách toàn bộ phần nhìn, dùng để tự do xếp hình khi gặp giao diện dị biệt.", "Splits components into 2 layers to break the Monolithic structure. Macro (Instant Noodles) wraps logic for 1-line plug & play. Micro (Lego Bricks) extracts pure UI, letting you freely assemble weird designs without breaking logic.")}
            </p>
            
            <div className="space-y-6 w-full">

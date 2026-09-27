@@ -68,7 +68,7 @@ export function TragediesSection({ className }: { className?: string }) {
         {/* Tragedy 3 */}
         <div>
           <h3 className="font-serif text-2xl font-semibold text-foreground mb-3">
-            {t("The 'Forcing It' Syndrome", "The 'Forcing It' Syndrome")}
+            {t("Hội chứng Forcing It", "The 'Forcing It' Syndrome")}
           </h3>
           <div className="text-lg leading-[1.8] text-muted-foreground space-y-4">
             <p>

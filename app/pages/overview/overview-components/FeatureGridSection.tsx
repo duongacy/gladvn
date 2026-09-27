@@ -28,7 +28,7 @@ export function FeatureGridSection({ className }: { className?: string }) {
       ),
       example: (
         <div className="mt-3 p-3 bg-muted/10 border border-border font-mono text-sm space-y-1 overflow-x-auto">
-          <div className="text-muted-foreground text-xs mb-2">{"// Tầng Macro quyết định layout cho các Micro con"}</div>
+          <div className="text-muted-foreground text-xs mb-2">{"// Macro layer determines layout for Micro children"}</div>
           <div className="text-foreground">{"<ConfirmFooter>"}</div>
           <div className="text-foreground pl-4">{"<Button variant=\"ghost\">Hủy</Button>"}</div>
           <div className="text-foreground pl-4 font-bold border-b border-dashed border-foreground inline-block">{"<Button className=\"ml-auto\">Xác nhận</Button>"}</div>

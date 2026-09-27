@@ -43,7 +43,7 @@ describe("Combobox - Defensive Context", () => {
   });
 
   // ─────────────────────────────────────────────────────────────────────────
-  // Sad Path — từng thẻ con dùng độc lập ngoài Context
+  // Sad Path — individual children used independently outside Context
   //
   // Base UI throws its own error AFTER our warn fires. We:
   //  1. Assert our console.warn fires with the gladvn message.

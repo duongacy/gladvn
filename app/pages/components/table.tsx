@@ -134,7 +134,7 @@ function useTableExamples() {
         ),
         microCode: `const [invoiceSort, setInvoiceSort] = React.useState<"asc" | "desc" | "none">("asc")
 
-// Tính toán sortedData dựa trên invoiceSort ở đây...
+// Calculate sortedData based on invoiceSort here...
 
 return (
 <Table>

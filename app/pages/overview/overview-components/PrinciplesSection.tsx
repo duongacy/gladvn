@@ -33,7 +33,7 @@ export function PrinciplesSection({ className }: { className?: string }) {
         </h3>
         <p className="text-lg leading-[1.8] text-muted-foreground">
           {t(
-            <>Mô hình copy-paste mang lại quyền sở hữu code, nhưng thường đi kèm các file khổng lồ và cấu trúc CSS lộn xộn. gladvn thay đổi hoàn toàn điều đó bằng việc cung cấp thư mục <code className="font-mono text-sm bg-muted/50 px-1.5 py-0.5">src/components</code> được chuẩn hoá tuyệt đối bởi <strong>22 nguyên tắc kiến trúc nghiêm ngặt (22 Commandments)</strong>. Không Magic CSS. Không nội suy chuỗi. Minh bạch đến mức cực đoan.</>,
+            <>Mô hình copy-paste mang lại quyền sở hữu code, nhưng thường đi kèm các file khổng lồ và cấu trúc CSS lộn xộn. gladvn thay đổi hoàn toàn điều đó bằng việc cung cấp thư mục <code className="font-mono text-sm bg-muted/50 px-1.5 py-0.5">src/components</code> được chuẩn hoá tuyệt đối bởi <strong>22 nguyên tắc kiến trúc nghiêm ngặt</strong>. Không Magic CSS. Không nội suy chuỗi. Minh bạch đến mức cực đoan.</>,
             <>The copy-paste model provides code ownership, but often entails bloated files and messy CSS architecture. gladvn changes this entirely by delivering a <code className="font-mono text-sm bg-muted/50 px-1.5 py-0.5">src/components</code> folder strictly standardized by <strong>22 rigorous architectural commandments</strong>. Absolutely no "Magic CSS". No string interpolation. Radically transparent.</>
           )}
         </p>
@@ -59,7 +59,7 @@ export function PrinciplesSection({ className }: { className?: string }) {
           </h3>
           <p className="text-lg leading-[1.8] text-muted-foreground">
             {t(
-              <>Dễ dàng tuỳ biến, nhưng khó để "vô tình" phá vỡ. Các giá trị cấu trúc (Padding, Gap, Layout) được bảo vệ chặt chẽ bởi độ ưu tiên của <strong>group-data</strong> modifiers. Khi bạn muốn bẻ cong luật lệ, hệ thống không khoá chết bạn, nhưng buộc bạn phải khai báo tường minh (<code className="font-mono text-sm bg-muted/50 px-1.5 py-0.5 whitespace-nowrap">group-data-[size=sm]/comp:pl-10</code>). Một "Gờ giảm tốc nhận thức" (Cognitive Speedbump) hoàn hảo để bảo vệ Design System khỏi sự cẩu thả.</>,
+              <>Dễ dàng tuỳ biến, nhưng khó để "vô tình" phá vỡ. Các giá trị cấu trúc (Padding, Gap, Layout) được bảo vệ chặt chẽ bởi độ ưu tiên của <strong>group-data</strong> modifiers. Khi bạn muốn bẻ cong luật lệ, hệ thống không khoá chết bạn, nhưng buộc bạn phải khai báo tường minh (<code className="font-mono text-sm bg-muted/50 px-1.5 py-0.5 whitespace-nowrap">group-data-[size=sm]/comp:pl-10</code>). Một Cognitive Speedbump (gờ giảm tốc nhận thức) hoàn hảo để bảo vệ Design System khỏi sự cẩu thả.</>,
               <>Easy to customize, hard to break accidentally. Structural values (Padding, Gap, Layout) are strictly protected by the specificity of <strong>group-data</strong> modifiers. When you want to bend the rules, the system doesn't lock you out, but forces you to declare it explicitly (<code className="font-mono text-sm bg-muted/50 px-1.5 py-0.5 whitespace-nowrap">group-data-[size=sm]/comp:pl-10</code>). A perfect "Cognitive Speedbump" to protect your Design System from careless overrides.</>
             )}
           </p>

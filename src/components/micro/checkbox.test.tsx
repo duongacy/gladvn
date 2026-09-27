@@ -40,7 +40,7 @@ describe("Checkbox - Defensive Context", () => {
   });
 
   // ─────────────────────────────────────────────────────────────────────────
-  // Sad Path — dùng độc lập ngoài Context
+  // Sad Path — used independently outside Context
   //
   // Base UI throws its own error AFTER our warn fires. We:
   //  1. Assert our console.warn fires with the gladvn message.

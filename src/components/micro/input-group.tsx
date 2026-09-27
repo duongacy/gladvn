@@ -97,8 +97,11 @@ const inputGroupAddonVariants = cva(
     "group-has-[[data-slot][aria-invalid=true]]/input-group:text-destructive",
     // ── Contextual Sizing (specificity = 0) ──────────────────────────────
     "group-data-[size=sm]/input-group:py-0.5",
+    "group-data-[size=sm]/input-group:text-xs",
     "group-data-[size=md]/input-group:py-1.5",
+    "group-data-[size=md]/input-group:text-sm",
     "group-data-[size=lg]/input-group:py-1.5",
+    "group-data-[size=lg]/input-group:text-sm",
     // Icon sizing via :where() — overrideable by consumer
     "[:where(&>svg)]:pointer-events-none",
     "group-data-[size=sm]/input-group:[:where(&>svg)]:size-3.5",
@@ -153,6 +156,10 @@ const InputGroupText = React.forwardRef<
       ref={ref}
       className={cn(
         "flex items-center gap-2 text-muted-foreground",
+        // ── Contextual Sizing (specificity = 0) ──────────────────────────
+        "group-data-[size=sm]/input-group:text-xs",
+        "group-data-[size=md]/input-group:text-sm",
+        "group-data-[size=lg]/input-group:text-sm",
         // Icon sizing via :where() — overrideable by consumer
         "[:where(&>svg)]:pointer-events-none",
         "group-data-[size=sm]/input-group:[:where(&>svg)]:size-3.5",

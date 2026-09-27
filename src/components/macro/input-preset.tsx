@@ -64,9 +64,9 @@ export const InputPreset = React.forwardRef<HTMLInputElement, InputPresetProps>(
         className="text-muted-foreground hover:text-foreground"
       >
         {showPassword ? (
-          <EyeOffIcon className="size-4" />
+          <EyeOffIcon />
         ) : (
-          <EyeIcon className="size-4" />
+          <EyeIcon />
         )}
       </InputGroupButton>
     ) : null;
@@ -97,8 +97,8 @@ export const InputPreset = React.forwardRef<HTMLInputElement, InputPresetProps>(
         htmlFor={inputId}
       >
         {hasAdornments ? (
-          <div className="@container/input-group w-full">
-            <InputGroup size={size} className="w-full">
+          <div className="@container/input-group">
+            <InputGroup size={size}>
               {startAdornment && (
                 <InputGroupAddon align="start">
                   {typeof startAdornment === "string" ? (

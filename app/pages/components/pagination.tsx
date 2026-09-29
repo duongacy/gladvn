@@ -30,6 +30,7 @@ function usePaginationExamples() {
 
 return (
   <PaginationPreset
+    size="md"
     currentPage={currentPage}
     totalPages={10}
     onPageChange={setCurrentPage}
@@ -50,7 +51,7 @@ return (
           "Tự động thêm dấu ba chấm (ellipsis) khi số trang lớn.",
           "Automatically adds ellipses when the number of pages is large."
         ),
-        macroCode: `<PaginationPreset currentPage={50} totalPages={100} />`,
+        macroCode: `<PaginationPreset size="md" currentPage={50} totalPages={100} />`,
         macroPreview: (
           <PaginationPreset
             currentPage={50}
@@ -65,7 +66,7 @@ return (
           "Nút Previous tự động bị mờ đi.",
           "The Previous button is automatically dimmed."
         ),
-        macroCode: `<PaginationPreset currentPage={1} totalPages={5} />`,
+        macroCode: `<PaginationPreset size="md" currentPage={1} totalPages={5} />`,
         macroPreview: (
           <PaginationPreset
             currentPage={1}
@@ -80,7 +81,7 @@ return (
           "Nút Next tự động bị mờ đi.",
           "The Next button is automatically dimmed."
         ),
-        macroCode: `<PaginationPreset currentPage={5} totalPages={5} />`,
+        macroCode: `<PaginationPreset size="md" currentPage={5} totalPages={5} />`,
         macroPreview: (
           <PaginationPreset
             currentPage={5}
@@ -98,24 +99,24 @@ return (
         microCode: `<Pagination>
   <PaginationContent>
     <PaginationItem>
-      <PaginationPrevious href="#" />
+      <PaginationPrevious href="#" size="md" />
     </PaginationItem>
     <PaginationItem>
-      <PaginationLink href="#">1</PaginationLink>
+      <PaginationLink href="#" size="md">1</PaginationLink>
     </PaginationItem>
     <PaginationItem>
-      <PaginationLink href="#" isActive>
+      <PaginationLink href="#" size="md" isActive>
         2
       </PaginationLink>
     </PaginationItem>
     <PaginationItem>
-      <PaginationLink href="#">3</PaginationLink>
+      <PaginationLink href="#" size="md">3</PaginationLink>
     </PaginationItem>
     <PaginationItem>
-      <PaginationEllipsis />
+      <PaginationEllipsis size="md" />
     </PaginationItem>
     <PaginationItem>
-      <PaginationNext href="#" />
+      <PaginationNext href="#" size="md" />
     </PaginationItem>
   </PaginationContent>
 </Pagination>`,
@@ -141,7 +142,7 @@ return (
                 </PaginationLink>
               </PaginationItem>
               <PaginationItem>
-                <PaginationEllipsis />
+                <PaginationEllipsis size={globalSize} />
               </PaginationItem>
               <PaginationItem>
                 <PaginationNext href="#" size={globalSize} />

@@ -97,31 +97,29 @@ export const InputPreset = React.forwardRef<HTMLInputElement, InputPresetProps>(
         htmlFor={inputId}
       >
         {hasAdornments ? (
-          <div className="@container/input-group">
-            <InputGroup size={size}>
-              {startAdornment && (
-                <InputGroupAddon align="start">
-                  {typeof startAdornment === "string" ? (
-                    <InputGroupText>{startAdornment}</InputGroupText>
-                  ) : (
-                    startAdornment
-                  )}
-                </InputGroupAddon>
-              )}
-              <InputGroupInput
-                ref={ref}
-                id={inputId}
-                aria-invalid={isInvalid}
-                type={actualType}
-                {...(props as React.ComponentPropsWithoutRef<"input">)}
-              />
-              {combinedEndAdornment && (
-                <InputGroupAddon align="end">
-                  {combinedEndAdornment}
-                </InputGroupAddon>
-              )}
-            </InputGroup>
-          </div>
+          <InputGroup size={size}>
+            {startAdornment && (
+              <InputGroupAddon align="start">
+                {typeof startAdornment === "string" ? (
+                  <InputGroupText>{startAdornment}</InputGroupText>
+                ) : (
+                  startAdornment
+                )}
+              </InputGroupAddon>
+            )}
+            <InputGroupInput
+              ref={ref}
+              id={inputId}
+              aria-invalid={isInvalid}
+              type={actualType}
+              {...(props as React.ComponentPropsWithoutRef<"input">)}
+            />
+            {combinedEndAdornment && (
+              <InputGroupAddon align="end">
+                {combinedEndAdornment}
+              </InputGroupAddon>
+            )}
+          </InputGroup>
         ) : (
           <Input
             ref={ref}

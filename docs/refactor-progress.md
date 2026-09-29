@@ -29,6 +29,8 @@ Tiến độ review và chuẩn hoá các components theo `AGENTS.md`.
 - [X] Confirm
 - [X] RadioGroup
 - [X] Migrate `.agents/prompts/full-sonnet-prompts.md`
+- [X] Input + InputPreset
+- [X] Pagination + PaginationPreset
 
 ## ⏳ Chờ xử lý (To-do)
 
@@ -42,13 +44,11 @@ Tiến độ review và chuẩn hoá các components theo `AGENTS.md`.
 - [ ] DropdownMenu
 - [ ] Empty
 - [ ] HoverCard
-- [ ] Input
 - [ ] Item
 - [ ] Kbd
 - [ ] Label
 - [ ] Menubar
 - [ ] NavigationMenu
-- [ ] Pagination
 - [ ] Popover
 - [ ] Progress
 - [ ] Select

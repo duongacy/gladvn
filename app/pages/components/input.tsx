@@ -35,7 +35,7 @@ function useInputExamples() {
           "Thẻ input đơn giản không có nhãn.",
           "Simple input tag without a label."
         ),
-        microCode: `<Input placeholder="Enter email address..." className="w-full" />`,
+        microCode: `<Input size="md" placeholder="Enter email address..." className="w-full" />`,
         microPreview: (
           <Input
             size={globalSize}
@@ -51,6 +51,7 @@ function useInputExamples() {
           "Complete text input field with label and description."
         ),
         macroCode: `<InputPreset
+  size="md"
   label="Username"
   description="This will be your public display name."
   placeholder="johndoe"
@@ -65,7 +66,7 @@ function useInputExamples() {
             className="w-full"
           />
         ),
-        microCode: `<Field className="w-full">
+        microCode: `<Field size="md" className="w-full">
   <FieldLabel htmlFor="tf-input">Email</FieldLabel>
   <FieldDescription>
     We will never share your email.
@@ -73,6 +74,7 @@ function useInputExamples() {
   <FieldContent>
     <Input
       id="tf-input"
+      size="md"
       placeholder="you@example.com"
     />
   </FieldContent>
@@ -98,6 +100,7 @@ function useInputExamples() {
           "Display error message and red border on error."
         ),
         macroCode: `<InputPreset
+  size="md"
   label="Password"
   type="password"
   placeholder="Enter password..."
@@ -114,11 +117,12 @@ function useInputExamples() {
             className="w-full"
           />
         ),
-        microCode: `<Field className="w-full">
+        microCode: `<Field size="md" className="w-full">
   <FieldLabel htmlFor="tf-error">Username</FieldLabel>
   <FieldContent>
     <Input
       id="tf-error"
+      size="md"
       defaultValue="admin!@#"
       aria-invalid="true"
     />
@@ -151,6 +155,7 @@ function useInputExamples() {
           "Supports components attached to the beginning or end of the input."
         ),
         macroCode: `<InputPreset
+  size="md"
   label="Website URL"
   type="url"
   placeholder="example"
@@ -169,10 +174,10 @@ function useInputExamples() {
             className="w-full"
           />
         ),
-        microCode: `<Field className="w-full">
+        microCode: `<Field size="md" className="w-full">
   <FieldLabel htmlFor="tf-group">Profile Page</FieldLabel>
   <FieldContent>
-    <InputGroup>
+    <InputGroup size="md">
       <InputGroupAddon>
         <LinkIcon className="size-4 text-muted-foreground" />
       </InputGroupAddon>
@@ -270,7 +275,7 @@ function useInputExamples() {
           "Input có hỗ trợ style gốc cho type file.",
           "Input supports native styling for type file."
         ),
-        microCode: `<Input type="file" className="w-full pt-0.5" />`,
+        microCode: `<Input size="md" type="file" className="w-full pt-0.5" />`,
         microPreview: (
           <Input size={globalSize} type="file" className="w-full pt-0.5" />
         ),
@@ -282,6 +287,7 @@ function useInputExamples() {
           "State that cannot be interacted with."
         ),
         macroCode: `<InputPreset
+  size="md"
   label="Project Name"
   description="Project name cannot be changed after creation."
   defaultValue="my-awesome-project"
@@ -298,7 +304,7 @@ function useInputExamples() {
             className="w-full"
           />
         ),
-        microCode: `<Input disabled defaultValue="Read-only" className="w-full" />`,
+        microCode: `<Input size="md" disabled defaultValue="Read-only" className="w-full" />`,
         microPreview: (
           <Input
             size={globalSize}

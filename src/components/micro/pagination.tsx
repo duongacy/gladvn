@@ -23,9 +23,13 @@ import { cn } from "../../lib/utils";
  * @description Pagination with page navigation, next and previous links.
  * @requires PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious
  */
-function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
+const Pagination = React.forwardRef<
+  HTMLElement,
+  React.ComponentProps<"nav">
+>(function Pagination({ className, ...props }, ref) {
   return (
     <nav
+      ref={ref}
       role="navigation"
       aria-label="pagination"
       data-slot="pagination"
@@ -36,7 +40,8 @@ function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
       {...props}
     />
   );
-}
+});
+Pagination.displayName = "Pagination";
 
 function PaginationContent({
   className,
@@ -136,9 +141,9 @@ function PaginationEllipsis({
       className={cn(
         "flex items-center justify-center",
         {
-          "size-7 [&>svg:not([class*='size-'])]:size-3": size === "sm",
-          "size-9 [&>svg:not([class*='size-'])]:size-4": size === "md",
-          "size-11 [&>svg:not([class*='size-'])]:size-5": size === "lg",
+          "size-7 [:where(&>svg)]:size-3": size === "sm",
+          "size-9 [:where(&>svg)]:size-4": size === "md",
+          "size-11 [:where(&>svg)]:size-5": size === "lg",
         },
         className,
       )}

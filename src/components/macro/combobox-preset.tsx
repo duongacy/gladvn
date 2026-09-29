@@ -13,11 +13,13 @@ import {
   ComboboxDropdownIcon,
   ComboboxEmpty,
   ComboboxGroup,
+  ComboboxInput,
   ComboboxItem,
   ComboboxList,
+  ComboboxValue,
   useComboboxContext,
 } from "../../components/micro/combobox";
-import { Combobox as ComboboxPrimitive } from "@base-ui/react";
+
 import {
   InputGroup,
   InputGroupAddon,
@@ -218,7 +220,7 @@ const ComboboxPresetInner = React.forwardRef<
           size={size}
           className="w-full"
         >
-          <ComboboxPrimitive.Value>
+          <ComboboxValue>
             {(values: string[]) => (
               <React.Fragment>
                 {(values ?? []).map((v) => {
@@ -242,7 +244,7 @@ const ComboboxPresetInner = React.forwardRef<
                 />
               </React.Fragment>
             )}
-          </ComboboxPrimitive.Value>
+          </ComboboxValue>
         </ComboboxChips>
       );
     }
@@ -253,7 +255,7 @@ const ComboboxPresetInner = React.forwardRef<
         size={size}
         className="w-full"
       >
-        <ComboboxPrimitive.Input
+        <ComboboxInput
           ref={ref}
           id={inputId}
           placeholder={placeholder}

@@ -44,13 +44,6 @@ import {
   DocsP,
 } from "~app/components/showcase";
 import { type Size } from "@/lib/types";
-import { cn } from "@/lib/utils";
-
-const sizeHeightClasses: Record<Size, string> = {
-  sm: "h-7",
-  md: "h-8",
-  lg: "h-9",
-};
 
 const frameworkOptions = [
   { value: "react", label: "React" },
@@ -205,7 +198,7 @@ function useComboboxExamples() {
       itemToStringLabel={(val) => frameworkOptions.find((o) => o.value === val)?.label ?? String(val ?? "")}
     >
       <ComboboxAnchor className="w-full">
-        <InputGroup className="w-full">
+        <InputGroup size="md" className="w-full">
           <ComboboxInput
             id="combobox-standard"
             placeholder="Select framework..."
@@ -242,7 +235,7 @@ function useComboboxExamples() {
                 itemToStringLabel={(val) => frameworkOptions.find((o) => o.value === val)?.label ?? String(val ?? "")}
               >
                 <ComboboxAnchor className="w-full">
-                  <InputGroup size={globalSize} className={cn("w-full", sizeHeightClasses[globalSize])}>
+                  <InputGroup size={globalSize} className="w-full">
                     <ComboboxInput
                       id="combobox-standard-preview"
                       placeholder="Select framework..."
@@ -286,7 +279,7 @@ function useComboboxExamples() {
       itemToStringLabel={(val) => allFrameworkOptions.find((o) => o.value === val)?.label ?? String(val ?? "")}
     >
       <ComboboxAnchor className="w-full">
-        <InputGroup className="w-full">
+        <InputGroup size="md" className="w-full">
           <ComboboxInput
             id="combobox-grouped"
             placeholder="Select framework..."
@@ -331,7 +324,7 @@ function useComboboxExamples() {
                 }
               >
                 <ComboboxAnchor className="w-full">
-                  <InputGroup size={globalSize} className={cn("w-full", sizeHeightClasses[globalSize])}>
+                  <InputGroup size={globalSize} className="w-full">
                     <ComboboxInput
                       id="combobox-grouped-preview"
                       placeholder="Select framework..."
@@ -383,7 +376,7 @@ function useComboboxExamples() {
       itemToStringLabel={(val) => tagOptions.find((o) => o.value === val)?.label ?? String(val ?? "")}
     >
       <ComboboxAnchor className="w-full">
-        <ComboboxChips>
+        <ComboboxChips size="md">
           <ComboboxValue>
             {(values: string[]) => (
               <React.Fragment>
@@ -501,7 +494,7 @@ function useComboboxExamples() {
       itemToStringLabel={(val) => timezoneOptions.find((o) => o.value === val)?.label ?? String(val ?? "")}
     >
       <ComboboxAnchor className="w-full">
-        <InputGroup className="w-full">
+        <InputGroup size="md" className="w-full">
           <ComboboxInput id="combobox-timezone" placeholder="Select timezone..." render={<InputGroupInput />} />
           <InputGroupAddon align="end" className="h-full py-0 gap-0.5 pr-1">
             <ComboboxDropdownIcon className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden" />
@@ -532,7 +525,7 @@ function useComboboxExamples() {
                 itemToStringLabel={(val) => timezoneOptions.find((o) => o.value === val)?.label ?? String(val ?? "")}
               >
                 <ComboboxAnchor className="w-full">
-                  <InputGroup size={globalSize} className={cn("w-full", sizeHeightClasses[globalSize])}>
+                  <InputGroup size={globalSize} className="w-full">
                     <ComboboxInput
                       id="combobox-timezone-preview"
                       placeholder="Select timezone..."
@@ -573,7 +566,7 @@ function useComboboxExamples() {
       itemToStringLabel={(val) => frameworkOptions.find((o) => o.value === val)?.label ?? String(val ?? "")}
     >
       <ComboboxAnchor className="w-full">
-        <InputGroup className="w-full">
+        <InputGroup size="md" className="w-full">
           <ComboboxInput
             id="combobox-collection"
             placeholder="Search framework..."
@@ -611,7 +604,7 @@ function useComboboxExamples() {
                 }
               >
                 <ComboboxAnchor className="w-full">
-                  <InputGroup size={globalSize} className={cn("w-full", sizeHeightClasses[globalSize])}>
+                  <InputGroup size={globalSize} className="w-full">
                     <ComboboxInput
                       id="combobox-collection-preview"
                       placeholder="Search framework..."
@@ -672,7 +665,7 @@ function useComboboxExamples() {
       itemToStringLabel={(val) => regionOptions.find((o) => o.value === val)?.label ?? String(val ?? "")}
     >
       <ComboboxAnchor className="w-full">
-        <InputGroup className="w-full">
+        <InputGroup size="md" className="w-full">
           <ComboboxInput
             id="combobox-error"
             placeholder="Select region..."
@@ -705,7 +698,7 @@ function useComboboxExamples() {
                 itemToStringLabel={(val) => regionOptions.find((o) => o.value === val)?.label ?? String(val ?? "")}
               >
                 <ComboboxAnchor className="w-full">
-                  <InputGroup size={globalSize} className={cn("w-full", sizeHeightClasses[globalSize])}>
+                  <InputGroup size={globalSize} className="w-full">
                     <ComboboxInput
                       id="combobox-error-preview"
                       placeholder="Select region..."
@@ -770,7 +763,7 @@ function useComboboxExamples() {
       itemToStringLabel={(val) => teamOptions.find((o) => o.value === val)?.label ?? String(val ?? "")}
     >
       <ComboboxAnchor className="w-full">
-        <InputGroup className="w-full">
+        <InputGroup size="md" className="w-full">
           <ComboboxInput
             id="combobox-disabled"
             placeholder="Select team..."
@@ -797,7 +790,7 @@ function useComboboxExamples() {
                 itemToStringLabel={(val) => teamOptions.find((o) => o.value === val)?.label ?? String(val ?? "")}
               >
                 <ComboboxAnchor className="w-full">
-                  <InputGroup size={globalSize} className={cn("w-full", sizeHeightClasses[globalSize])}>
+                  <InputGroup size={globalSize} className="w-full">
                     <ComboboxInput
                       id="combobox-disabled-preview"
                       placeholder="Select team..."
@@ -831,12 +824,12 @@ function useComboboxExamples() {
       filter={null}
       itemToStringLabel={(val) => engineOptions.find((o) => o.value === val)?.label ?? String(val ?? "")}
     >
-      <ComboboxTrigger className="w-full">
+      <ComboboxTrigger size="md" className="w-full">
         <ComboboxValue placeholder="Select an engine" />
       </ComboboxTrigger>
       <ComboboxContent>
         <div className="p-1">
-          <InputGroup className="w-full">
+          <InputGroup size="md" className="w-full">
             <ComboboxInput
               placeholder="Search engine..."
               render={<InputGroupInput />}
@@ -865,7 +858,7 @@ function useComboboxExamples() {
                 </ComboboxTrigger>
                 <ComboboxContent>
                   <div className="p-1">
-                    <InputGroup size={globalSize} className={cn("w-full", sizeHeightClasses[globalSize])}>
+                    <InputGroup size={globalSize} className="w-full">
                       <ComboboxInput
                         placeholder="Search engine..."
                         render={<InputGroupInput />}

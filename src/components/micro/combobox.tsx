@@ -3,7 +3,6 @@
 import * as React from "react";
 
 import { Combobox as ComboboxPrimitive } from "@base-ui/react";
-import { type VariantProps, cva } from "class-variance-authority";
 import { CheckIcon, ChevronDownIcon, XIcon } from "lucide-react";
 
 import { cn } from "../../lib/utils";
@@ -53,43 +52,6 @@ function Combobox<Value = unknown, Multiple extends boolean | undefined = false>
   const [anchor, setAnchor] = React.useState<HTMLElement | null>(null);
   const ctxValue = React.useMemo(() => ({ anchor, setAnchor }), [anchor]);
 
-  const resolvedItemToStringLabel = React.useMemo(() => {
-    if (itemToStringLabel !== undefined) return itemToStringLabel;
-    if (!items) return undefined;
-    return (val: Value) => {
-      if (val == null) return "";
-      if (typeof val === "object") {
-        if ("label" in (val as Record<string, unknown>) && (val as Record<string, unknown>).label != null) {
-          return String((val as Record<string, unknown>).label);
-        }
-        if ("value" in (val as Record<string, unknown>) && (val as Record<string, unknown>).value != null) {
-          return String((val as Record<string, unknown>).value);
-        }
-      }
-      if (Array.isArray(items)) {
-        const flat = (items as unknown[]).flatMap((item) =>
-          item && typeof item === "object" && "items" in item && Array.isArray((item as Record<string, unknown>).items)
-            ? ((item as Record<string, unknown>).items as unknown[])
-            : item
-        );
-        const match = flat.find((item) =>
-          item && typeof item === "object"
-            ? (item as Record<string, unknown>).value === val || (item as Record<string, unknown>).id === val
-            : item === val
-        );
-        if (match && typeof match === "object" && "label" in match && (match as Record<string, unknown>).label != null) {
-          return String((match as Record<string, unknown>).label);
-        }
-      } else if (typeof items === "object" && items !== null) {
-        const map = items as unknown as Record<string, unknown>;
-        if (map[String(val)] != null) {
-          return String(map[String(val)]);
-        }
-      }
-      return String(val ?? "");
-    };
-  }, [items, itemToStringLabel]);
-
   // Extract HTML/data attrs that should live on the wrapper div, not the headless primitive.
   // ComboboxPrimitive.Root does not render a DOM element itself — it only outputs a
   // hidden <input> for form values. We therefore need a real <div> wrapper to carry
@@ -109,7 +71,7 @@ function Combobox<Value = unknown, Multiple extends boolean | undefined = false>
       >
         <ComboboxPrimitive.Root
           items={items}
-          itemToStringLabel={resolvedItemToStringLabel}
+          itemToStringLabel={itemToStringLabel}
           {...primitiveProps}
         >
           <ComboboxSizeContext value={true}>{children}</ComboboxSizeContext>
@@ -448,30 +410,23 @@ function ComboboxSeparator({
 // ComboboxChips
 // ---------------------------------------------------------------------------
 
-const comboboxChipsVariants = cva(
-  "group/combobox-chips flex flex-wrap items-center gap-1 rounded-lg border border-input bg-transparent bg-clip-padding transition-colors focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/50 focus-within:ring-offset-1 focus-within:ring-offset-background has-aria-invalid:border-destructive has-aria-invalid:focus-within:ring-3 has-aria-invalid:focus-within:ring-destructive/20 has-[[data-slot=combobox-chip]]:px-1 dark:bg-input/30 dark:has-aria-invalid:border-destructive/50 dark:has-aria-invalid:focus-within:ring-destructive/40 has-disabled:opacity-50 has-disabled:cursor-not-allowed has-disabled:pointer-events-none",
-  {
-    variants: {
-      size: {
-        sm: "chips-sm min-h-7 px-2 py-0.5 text-xs",
-        md: "chips-md min-h-8 px-2.5 py-1 text-sm",
-        lg: "chips-lg min-h-9 px-3 py-1 text-sm",
-      },
-    },
-  },
-);
-
 function ComboboxChips({
   className,
   size = "md",
   ...props
 }: React.ComponentPropsWithRef<typeof ComboboxPrimitive.Chips> &
-  ComboboxPrimitive.Chips.Props &
-  VariantProps<typeof comboboxChipsVariants>) {
+  ComboboxPrimitive.Chips.Props & { size?: Size }) {
   return (
     <ComboboxPrimitive.Chips
       data-slot="combobox-chips"
-      className={cn(comboboxChipsVariants({ size }), className)}
+      data-size={size}
+      className={cn(
+        "group/combobox-chips flex flex-wrap items-center gap-1 rounded-lg border border-input bg-transparent bg-clip-padding transition-colors focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/50 focus-within:ring-offset-1 focus-within:ring-offset-background has-aria-invalid:border-destructive has-aria-invalid:focus-within:ring-3 has-aria-invalid:focus-within:ring-destructive/20 has-[[data-slot=combobox-chip]]:px-1 dark:bg-input/30 dark:has-aria-invalid:border-destructive/50 dark:has-aria-invalid:focus-within:ring-destructive/40 has-disabled:opacity-50 has-disabled:cursor-not-allowed has-disabled:pointer-events-none",
+        "data-[size=sm]:min-h-7 data-[size=sm]:px-2 data-[size=sm]:py-0.5 data-[size=sm]:text-xs",
+        "data-[size=md]:min-h-8 data-[size=md]:px-2.5 data-[size=md]:py-1 data-[size=md]:text-sm",
+        "data-[size=lg]:min-h-9 data-[size=lg]:px-3 data-[size=lg]:py-1 data-[size=lg]:text-sm",
+        className,
+      )}
       {...props}
     />
   );
@@ -499,8 +454,8 @@ function ComboboxChip<T = unknown>({
       className={cn(
         "flex w-fit items-center justify-center gap-1 rounded-sm bg-muted px-1.5 font-medium whitespace-nowrap text-foreground has-disabled:pointer-events-none has-disabled:cursor-not-allowed has-disabled:opacity-50 has-data-[slot=combobox-chip-remove]:pr-0",
         "h-5 text-xs",
-        "group-[.chips-sm]/combobox-chips:h-4 group-[.chips-sm]/combobox-chips:text-[10px]",
-        "group-[.chips-lg]/combobox-chips:h-6 group-[.chips-lg]/combobox-chips:text-sm",
+        "group-data-[size=sm]/combobox-chips:h-4 group-data-[size=sm]/combobox-chips:text-[10px]",
+        "group-data-[size=lg]/combobox-chips:h-6 group-data-[size=lg]/combobox-chips:text-sm",
         className,
       )}
       {...props}
@@ -533,8 +488,8 @@ function ComboboxChipsInput({
       className={cn(
         "min-w-16 flex-1 outline-none bg-transparent disabled:opacity-100 disabled:cursor-not-allowed disabled:pointer-events-none",
         "h-5",
-        "group-[.chips-sm]/combobox-chips:h-4",
-        "group-[.chips-lg]/combobox-chips:h-6",
+        "group-data-[size=sm]/combobox-chips:h-4",
+        "group-data-[size=lg]/combobox-chips:h-6",
         className,
       )}
       {...props}

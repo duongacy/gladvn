@@ -23,14 +23,16 @@ function useToggleExamples() {
           "Variant mặc định — không viền, chỉ đổi nền khi pressed.",
           "Default variant — no border, only changes background when pressed."
         ),
-        microCode: `<Toggle aria-label="Toggle italic">
-  <ItalicIcon />
-  Italic
-</Toggle>
-<Toggle aria-label="Toggle bold">
-  <BoldIcon />
-  Bold
-</Toggle>`,
+        microCode: `<div className="flex gap-2">
+  <Toggle aria-label="Toggle italic">
+    <ItalicIcon />
+    Italic
+  </Toggle>
+  <Toggle aria-label="Toggle bold">
+    <BoldIcon />
+    Bold
+  </Toggle>
+</div>`,
         microPreview: (
           <div className="flex gap-2">
             <Toggle aria-label="Toggle italic" size={globalSize}>
@@ -50,14 +52,16 @@ function useToggleExamples() {
           'variant="outline" thêm viền border-input xung quanh toggle.',
           'variant="outline" adds a border-input around the toggle.'
         ),
-        microCode: `<Toggle variant="outline" aria-label="Toggle italic">
-  <ItalicIcon />
-  Italic
-</Toggle>
-<Toggle variant="outline" aria-label="Toggle underline">
-  <UnderlineIcon />
-  Underline
-</Toggle>`,
+        microCode: `<div className="flex gap-2">
+  <Toggle variant="outline" aria-label="Toggle italic">
+    <ItalicIcon />
+    Italic
+  </Toggle>
+  <Toggle variant="outline" aria-label="Toggle underline">
+    <UnderlineIcon />
+    Underline
+  </Toggle>
+</div>`,
         microPreview: (
           <div className="flex gap-2">
             <Toggle
@@ -85,15 +89,17 @@ function useToggleExamples() {
           "Toggle chỉ có icon — luôn truyền aria-label để đảm bảo a11y.",
           "Toggle with icon only — always pass aria-label to ensure a11y."
         ),
-        microCode: `<Toggle aria-label="Toggle italic">
-  <ItalicIcon />
-</Toggle>
-<Toggle aria-label="Toggle bold">
-  <BoldIcon />
-</Toggle>
-<Toggle variant="outline" aria-label="Toggle underline">
-  <UnderlineIcon />
-</Toggle>`,
+        microCode: `<div className="flex gap-2">
+  <Toggle aria-label="Toggle italic">
+    <ItalicIcon />
+  </Toggle>
+  <Toggle aria-label="Toggle bold">
+    <BoldIcon />
+  </Toggle>
+  <Toggle variant="outline" aria-label="Toggle underline">
+    <UnderlineIcon />
+  </Toggle>
+</div>`,
         microPreview: (
           <div className="flex gap-2">
             <Toggle aria-label="Toggle italic" size={globalSize}>
@@ -118,18 +124,20 @@ function useToggleExamples() {
           "Toggle bị vô hiệu hóa — không thể tương tác, hiển thị mờ.",
           "Disabled toggle — cannot be interacted with, displayed as faded."
         ),
-        microCode: `<Toggle disabled aria-label="Toggle italic">
-  <ItalicIcon />
-  Italic
-</Toggle>
-<Toggle
-  variant="outline"
-  disabled
-  aria-label="Toggle bold"
->
-  <BoldIcon />
-  Bold
-</Toggle>`,
+        microCode: `<div className="flex gap-2">
+  <Toggle disabled aria-label="Toggle italic">
+    <ItalicIcon />
+    Italic
+  </Toggle>
+  <Toggle
+    variant="outline"
+    disabled
+    aria-label="Toggle bold"
+  >
+    <BoldIcon />
+    Bold
+  </Toggle>
+</div>`,
         microPreview: (
           <div className="flex gap-2">
             <Toggle disabled aria-label="Toggle italic" size={globalSize}>

@@ -1,9 +1,16 @@
 export * from "./components/macro/accordion-preset";
+export * from "./components/macro/alert-preset";
 export * from "./components/macro/avatar-preset";
 export * from "./components/macro/breadcrumb-preset";
+export * from "./components/macro/card-preset";
 export * from "./components/macro/carousel-preset";
 export * from "./components/macro/checkbox-preset";
 export * from "./components/macro/combobox-preset";
+export * from "./components/macro/command-preset";
+export * from "./components/macro/confirm-preset";
+export * from "./components/macro/date-picker";
+export * from "./components/macro/dialog-preset";
+export * from "./components/macro/empty-preset";
 export * from "./components/macro/field-preset";
 export * from "./components/macro/input-otp-preset";
 export * from "./components/macro/input-preset";
@@ -15,3 +22,4 @@ export * from "./components/macro/slider-preset";
 export * from "./components/macro/switch-preset";
 export * from "./components/macro/tabs-preset";
 export * from "./components/macro/textarea-preset";
+

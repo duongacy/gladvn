@@ -13,7 +13,7 @@ import { Toggle as TogglePrimitive } from "@base-ui/react/toggle";
 import { ToggleGroup as ToggleGroupPrimitive } from "@base-ui/react/toggle-group";
 import { type VariantProps } from "class-variance-authority";
 
-import { toggleVariants } from "../../components/micro/toggle";
+import { toggleVariants } from "./toggle";
 import { cn } from "../../lib/utils";
 
 type ToggleGroupContextValue = VariantProps<typeof toggleVariants> & {
@@ -45,50 +45,57 @@ type ToggleGroupItemProps = TogglePrimitive.Props &
  *   <ToggleGroupItem value="a">A</ToggleGroupItem>
  * </ToggleGroup>
  */
-function ToggleGroup({
-  className,
-  variant,
-  size,
-
-  spacing = 2,
-  orientation = "horizontal",
-  children,
-  ...props
-}: ToggleGroupProps) {
-  return (
-    <ToggleGroupPrimitive
-      data-slot="toggle-group"
-      data-variant={variant}
-      data-size={size}
-      data-spacing={spacing}
-      data-orientation={orientation}
-      style={{ "--gap": spacing } as React.CSSProperties}
-      className={cn(
-        "group/toggle-group flex w-fit items-center rounded-lg data-[size=sm]:rounded-md data-vertical:flex-col data-vertical:items-stretch",
-        className,
-      )}
-      {...props}
-    >
-      <ToggleGroupContext.Provider
-        value={{ variant, size, spacing, orientation }}
+const ToggleGroup = React.forwardRef<HTMLDivElement, ToggleGroupProps>(
+  function ToggleGroup(
+    {
+      className,
+      variant,
+      size,
+      spacing = 2,
+      orientation = "horizontal",
+      children,
+      ...props
+    },
+    ref,
+  ) {
+    return (
+      <ToggleGroupPrimitive
+        ref={ref}
+        data-slot="toggle-group"
+        data-variant={variant}
+        data-size={size}
+        data-spacing={spacing}
+        data-orientation={orientation}
+        className={cn(
+          "group/toggle-group flex w-fit items-center rounded-lg data-[size=sm]:rounded-md data-vertical:flex-col data-vertical:items-stretch",
+          "gap-2 data-[spacing=0]:gap-0 data-[spacing=1]:gap-1 data-[spacing=2]:gap-2 data-[spacing=3]:gap-3 data-[spacing=4]:gap-4",
+          className,
+        )}
+        {...props}
       >
-        {children}
-      </ToggleGroupContext.Provider>
-    </ToggleGroupPrimitive>
-  );
-}
+        <ToggleGroupContext.Provider
+          value={{ variant, size, spacing, orientation }}
+        >
+          {children}
+        </ToggleGroupContext.Provider>
+      </ToggleGroupPrimitive>
+    );
+  },
+);
+ToggleGroup.displayName = "ToggleGroup";
 
-function ToggleGroupItem({
-  className,
-  children,
-  variant,
-  size = "md",
-  ...props
-}: ToggleGroupItemProps) {
+const ToggleGroupItem = React.forwardRef<
+  HTMLButtonElement,
+  ToggleGroupItemProps
+>(function ToggleGroupItem(
+  { className, children, variant, size = "md", ...props },
+  ref,
+) {
   const context = React.useContext(ToggleGroupContext);
 
   return (
     <TogglePrimitive
+      ref={ref}
       data-slot="toggle-group-item"
       data-variant={context.variant ?? variant}
       data-size={context.size ?? size}
@@ -106,6 +113,9 @@ function ToggleGroupItem({
       {children}
     </TogglePrimitive>
   );
-}
+});
+ToggleGroupItem.displayName = "ToggleGroupItem";
 
 export { ToggleGroup, ToggleGroupItem };
+export type { ToggleGroupProps, ToggleGroupItemProps };
+

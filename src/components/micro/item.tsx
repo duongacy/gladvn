@@ -135,7 +135,7 @@ const itemMediaVariants = cva(
   {
     variants: {
       variant: {
-        icon: "[&_svg:not([class*='size-'])]:size-4",
+        icon: "[:where(&_svg)]:size-4",
         image:
           // ⚠️ size-10 removed from base — moved entirely into :where() below
           "overflow-hidden rounded-sm [&>img]:size-full [&>img]:object-cover",

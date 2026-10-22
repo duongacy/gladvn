@@ -55,7 +55,7 @@ const emptyMediaVariants = cva(
   {
     variants: {
       variant: {
-        icon: "flex size-8 shrink-0 items-center justify-center rounded-lg bg-muted text-foreground **:[svg:not([class*='size-'])]:size-4",
+        icon: "flex size-8 shrink-0 items-center justify-center rounded-lg bg-muted text-foreground [:where(&_svg)]:size-4",
       },
     },
   },

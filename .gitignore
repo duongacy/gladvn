@@ -12,6 +12,8 @@ test-results/
 
 # Temp files
 tmp-shadcn/
+_bmad-output/
+package/
 
 # IDE
 .vscode/
@@ -27,5 +29,3 @@ npm-debug.log*
 .vercel
 .env*
 .npmrc
-
-test-results/

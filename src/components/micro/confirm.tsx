@@ -35,18 +35,21 @@ function Confirm({ ...props }: AlertDialogPrimitive.Root.Props) {
   return <AlertDialogPrimitive.Root data-slot="confirm" {...props} />;
 }
 
-function ConfirmTrigger({
-  ...props
-}: AlertDialogPrimitive.Trigger.Props) {
-  return <AlertDialogPrimitive.Trigger data-slot="confirm-trigger" {...props} />;
-}
+const ConfirmTrigger = React.forwardRef<
+  React.ComponentRef<typeof AlertDialogPrimitive.Trigger>,
+  AlertDialogPrimitive.Trigger.Props
+>(function ConfirmTrigger(props, ref) {
+  return <AlertDialogPrimitive.Trigger ref={ref} data-slot="confirm-trigger" {...props} />;
+});
+ConfirmTrigger.displayName = "ConfirmTrigger";
 
-function ConfirmOverlay({
-  className,
-  ...props
-}: AlertDialogPrimitive.Backdrop.Props) {
+const ConfirmOverlay = React.forwardRef<
+  React.ComponentRef<typeof AlertDialogPrimitive.Backdrop>,
+  AlertDialogPrimitive.Backdrop.Props
+>(function ConfirmOverlay({ className, ...props }, ref) {
   return (
     <AlertDialogPrimitive.Backdrop
+      ref={ref}
       data-slot="confirm-overlay"
       className={cn(
         "fixed inset-0 isolate z-50 bg-black/10 duration-100 supports-backdrop-filter:backdrop-blur-xs data-open:animate-in data-open:fade-in-0 data-closed:animate-out data-closed:fade-out-0",
@@ -55,7 +58,8 @@ function ConfirmOverlay({
       {...props}
     />
   );
-}
+});
+ConfirmOverlay.displayName = "ConfirmOverlay";
 
 const ConfirmContent = React.forwardRef<
   HTMLDivElement,

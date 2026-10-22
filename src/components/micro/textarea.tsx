@@ -25,12 +25,10 @@ const textareaVariants = cva(
   },
 );
 
-export interface TextareaProps
-  extends
-    React.ComponentPropsWithoutRef<"textarea">,
-    Omit<VariantProps<typeof textareaVariants>, "size"> {
-  size?: Size;
-}
+export type TextareaProps = React.ComponentPropsWithoutRef<"textarea"> &
+  Omit<VariantProps<typeof textareaVariants>, "size"> & {
+    size?: Size;
+  };
 
 /**
  * @description Displays a form textarea.
@@ -43,6 +41,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
       <textarea
         ref={ref}
         data-slot="textarea"
+        data-size={size}
         className={cn(textareaVariants({ size, className }))}
         {...props}
       />

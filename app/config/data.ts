@@ -485,6 +485,14 @@ export const COMPONENTS = [
     hasSize: true,
   },
   {
+    id: "theme-provider",
+    category: "Bố cục & Cấu trúc",
+    label: "Theme Provider",
+    hasMicro: true,
+    hasMacro: false,
+    status: "stable",
+  },
+  {
     id: "dashboard-block",
     category: "Dashboard",
     label: "Dashboard",

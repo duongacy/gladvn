@@ -1,5 +1,11 @@
 import React from "react";
-import { ShieldIcon, WrenchIcon } from "lucide-react";
+
+import { useDevContext, useI18n } from "~app/components/dev-context";
+import {
+  ConfigurableShowcase,
+  DocsP,
+  ShowcaseDocs,
+} from "~app/components/showcase";
 
 import { InputOTPPreset } from "@/components/macro/input-otp-preset";
 import {
@@ -14,12 +20,6 @@ import {
   InputOTPSeparator,
   InputOTPSlot,
 } from "@/components/micro/input-otp";
-import { useDevContext, useI18n } from "~app/components/dev-context";
-import {
-  ConfigurableShowcase,
-  ShowcaseDocs,
-  DocsP,
-} from "~app/components/showcase";
 
 function useInputOTPExamples() {
   const t = useI18n();
@@ -31,7 +31,7 @@ function useInputOTPExamples() {
         title: t("Cơ bản", "Primitive"),
         description: t(
           "Mã 6 chữ số liền mạch không có dấu phân cách.",
-          "Contiguous 6-digit code without separators."
+          "Contiguous 6-digit code without separators.",
         ),
         microCode: `<Field size="md">
   <FieldLabel htmlFor="otp-basic">PIN Code</FieldLabel>
@@ -52,7 +52,10 @@ function useInputOTPExamples() {
               <InputOTP id="tf-otp-0" size={globalSize} maxLength={6}>
                 <InputOTPGroup>
                   {Array.from({ length: 6 }).map((_, index) => (
-                    <InputOTPSlot key={`tf-otp-0-slot-${index}`} index={index} />
+                    <InputOTPSlot
+                      key={`tf-otp-0-slot-${index}`}
+                      index={index}
+                    />
                   ))}
                 </InputOTPGroup>
               </InputOTP>
@@ -64,7 +67,7 @@ function useInputOTPExamples() {
         title: t("Tiêu chuẩn", "Standard (2 groups)"),
         description: t(
           "Chia mã 6 số thành 2 nhóm (mỗi nhóm 3 số) cách nhau bởi dấu gạch ngang.",
-          "Divide the 6-digit code into 2 groups (3 digits each) separated by a dash."
+          "Divide the 6-digit code into 2 groups (3 digits each) separated by a dash.",
         ),
         macroCode: `<InputOTPPreset
   groups={[3, 3]}
@@ -86,7 +89,7 @@ function useInputOTPExamples() {
         title: t("Phân tách thủ công", "Manual Separation"),
         description: t(
           "Tự chèn InputOTPSeparator vào giữa các nhóm.",
-          "Manually insert InputOTPSeparator between groups."
+          "Manually insert InputOTPSeparator between groups.",
         ),
         microCode: `<Field size="md">
   <FieldLabel htmlFor="otp-sep">Security Code</FieldLabel>
@@ -137,7 +140,7 @@ function useInputOTPExamples() {
         title: t("Trạng thái Lỗi", "Error State"),
         description: t(
           "Hiển thị viền đỏ và thông báo lỗi khi nhập sai mã.",
-          "Display red border and error message when wrong code is entered."
+          "Display red border and error message when wrong code is entered.",
         ),
         macroCode: `<InputOTPPreset
   groups={[3, 3]}
@@ -190,7 +193,7 @@ function useInputOTPExamples() {
         title: t("Khóa / Bất hoạt", "Disabled"),
         description: t(
           "Người dùng không thể nhập mã khi ở trạng thái này.",
-          "User cannot input code in this state."
+          "User cannot input code in this state.",
         ),
         macroCode: `<InputOTPPreset
   groups={[4]}
@@ -229,12 +232,7 @@ function useInputOTPExamples() {
           <Field className="w-full" size={globalSize}>
             <FieldLabel htmlFor="tf-otp-d">OTP Code</FieldLabel>
             <FieldContent>
-              <InputOTP
-                id="tf-otp-d"
-                size={globalSize}
-                maxLength={4}
-                disabled
-              >
+              <InputOTP id="tf-otp-d" size={globalSize} maxLength={4} disabled>
                 <InputOTPGroup>
                   {Array.from({ length: 4 }).map((_, index) => (
                     <InputOTPSlot
@@ -252,7 +250,7 @@ function useInputOTPExamples() {
         title: t("Tuỳ biến Nhóm & Dấu phân cách", "Custom Group & Separator"),
         description: t(
           "Dùng mảng groups tuỳ ý và đổi icon phân cách.",
-          "Use arbitrary groups array and change separator icon."
+          "Use arbitrary groups array and change separator icon.",
         ),
         macroCode: `<InputOTPPreset
   groups={[2, 2, 2]}
@@ -279,7 +277,7 @@ function useInputOTPExamples() {
         ),
       },
     ],
-    [t, globalSize]
+    [t, globalSize],
   );
 }
 
@@ -291,15 +289,15 @@ export default function InputOTPShowcase() {
     <ConfigurableShowcase
       title="Input OTP"
       description={t(
-        "Trường nhập mật khẩu một lần (One-Time Password) có khả năng tự động tách chữ số và paste.",
-        "One-Time Password input field capable of automatically splitting digits and handling paste."
+        "Trường nhập mã xác thực một lần có khả năng tự động tách chữ số và dán nhanh.",
+        "One-Time Password input field capable of automatically splitting digits and handling paste.",
       )}
       guideline={
         <ShowcaseDocs>
           <DocsP>
             {t(
               "Dùng để nhập các đoạn mã có chiều dài cố định như OTP, PIN code, 2FA.",
-              "Used to input fixed-length codes such as OTP, PIN codes, 2FA."
+              "Used to input fixed-length codes such as OTP, PIN codes, 2FA.",
             )}
           </DocsP>
         </ShowcaseDocs>

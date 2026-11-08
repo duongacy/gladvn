@@ -1,7 +1,10 @@
 import React from "react";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import * as z from "zod";
+import { useDevContext, useI18n } from "~app/components/dev-context";
+import { ConfigurableShowcase } from "~app/components/showcase";
 
 import { SelectPreset } from "@/components/macro/select-preset";
 import { Button } from "@/components/micro/button";
@@ -24,12 +27,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/micro/select";
-import { useI18n, useDevContext } from "~app/components/dev-context";
-import {
-  ConfigurableShowcase,
-  ShowcaseDocs,
-  DocsP,
-} from "~app/components/showcase";
 import { type Size } from "@/lib/types";
 
 const formSchema = z.object({
@@ -38,7 +35,6 @@ const formSchema = z.object({
 type FormValues = z.infer<typeof formSchema>;
 
 function SelectForm({ size }: { size: Size }) {
-  const t = useI18n();
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: { language: "" },
@@ -118,7 +114,7 @@ function useSelectExamples() {
         title: t("Tiêu chuẩn", "Standard"),
         description: t(
           "Trình thả xuống cơ bản với mảng options.",
-          "Basic dropdown with options array."
+          "Basic dropdown with options array.",
         ),
         macroCode: `<SelectPreset
   className="w-full"
@@ -200,7 +196,7 @@ function useSelectExamples() {
         title: t("Trạng thái Lỗi", "Error State"),
         description: t(
           "Báo lỗi khi form submit mà user chưa chọn hoặc tạo trạng thái lỗi thủ công.",
-          "Shows error when form is submitted without selection or creates a manual error state."
+          "Shows error when form is submitted without selection or creates a manual error state.",
         ),
         macroCode: `<div className="w-full flex flex-col gap-6">
   <SelectPreset
@@ -265,7 +261,7 @@ function useSelectExamples() {
         title: t("Khóa / Bất hoạt", "Disabled"),
         description: t(
           "Người dùng không thể mở danh sách.",
-          "Users cannot open the list."
+          "Users cannot open the list.",
         ),
         macroCode: `<SelectPreset
   className="w-full"
@@ -338,7 +334,7 @@ function useSelectExamples() {
         title: t("Nhãn phức tạp", "Custom Label"),
         description: t(
           "Truyền React Node vào Label để tạo giao diện phong phú.",
-          "Pass a React Node to Label to create rich interfaces."
+          "Pass a React Node to Label to create rich interfaces.",
         ),
         macroCode: `<SelectPreset
   label={
@@ -377,7 +373,7 @@ function useSelectExamples() {
         title: t("Phân nhóm", "Grouped"),
         description: t(
           "Sử dụng SelectGroup, SelectLabel và SelectSeparator.",
-          "Use SelectGroup, SelectLabel and SelectSeparator."
+          "Use SelectGroup, SelectLabel and SelectSeparator.",
         ),
         microCode: `<Field className="w-full">
   <FieldLabel>Fruit</FieldLabel>
@@ -454,13 +450,13 @@ function useSelectExamples() {
         title: t("Tích hợp React Hook Form", "React Hook Form Integration"),
         description: t(
           "Sử dụng Controller để bắt giá trị.",
-          "Use Controller to capture the value."
+          "Use Controller to capture the value.",
         ),
         macroCode: rhfCode,
         macroPreview: <SelectForm size={globalSize} />,
       },
     ],
-    [t, globalSize]
+    [t, globalSize],
   );
 }
 
@@ -473,7 +469,7 @@ export default function SelectShowcase() {
       title="Select"
       description={t(
         "Thành phần điều khiển hiển thị danh sách các tùy chọn thả xuống để người dùng chọn.",
-        "A control that displays a list of dropdown options for the user to choose from."
+        "A control that displays a list of dropdown options for the user to choose from.",
       )}
       examples={examples}
     />

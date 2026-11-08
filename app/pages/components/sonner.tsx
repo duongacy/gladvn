@@ -1,28 +1,148 @@
+import React, { useCallback } from "react";
+
 import { toast } from "sonner";
-import { Button } from "@/components/micro/button";
-import { Toaster } from "@/components/micro/sonner";
-import { useI18n, useDevContext } from "~app/components/dev-context";
+import { useDevContext, useI18n } from "~app/components/dev-context";
 import {
   ConfigurableShowcase,
-  ShowcaseDocs,
-  DocsP,
   DocsCode,
+  DocsP,
+  ShowcaseDocs,
 } from "~app/components/showcase";
-import React from "react";
+
+import { Button } from "@/components/micro/button";
+import { Toaster } from "@/components/micro/sonner";
 
 const mockSave = () =>
   new Promise<{ name: string }>((resolve) =>
-    setTimeout(() => resolve({ name: "Sonner" }), 1500)
+    setTimeout(() => resolve({ name: "Sonner" }), 1500),
   );
 
 const mockFail = () =>
   new Promise<void>((_, reject) =>
-    setTimeout(() => reject(new Error("Server error")), 1500)
+    setTimeout(() => reject(new Error("Server error")), 1500),
   );
 
 function useSonnerExamples() {
   const t = useI18n();
   const { size: globalSize } = useDevContext();
+
+  const handleDefaultToast = useCallback(() => {
+    toast("Event created", {
+      description: "Sunday, December 03, 2023 at 9:00 AM",
+      action: {
+        label: "Undo",
+        onClick: () => console.log("Undo"),
+      },
+    });
+  }, []);
+
+  const handleSuccessToast = useCallback(() => {
+    toast.success("Successfully saved!");
+  }, []);
+
+  const handleErrorToast = useCallback(() => {
+    toast.error("An error occurred.");
+  }, []);
+
+  const handleWarningToast = useCallback(() => {
+    toast.warning("Connection is unstable.");
+  }, []);
+
+  const handleInfoToast = useCallback(() => {
+    toast.info("Update is available.");
+  }, []);
+
+  const handleFileDeletedToast = useCallback(() => {
+    toast("File deleted", {
+      description: "draft-v2.docx has been moved to trash.",
+      action: {
+        label: "Undo",
+        onClick: () => console.log("Undo delete"),
+      },
+      cancel: {
+        label: "Dismiss",
+        onClick: () => {},
+      },
+    });
+  }, []);
+
+  const handleSuccessWithDescToast = useCallback(() => {
+    toast.success("Profile updated", {
+      description: "Your changes have been saved successfully.",
+    });
+  }, []);
+
+  const handlePromiseSuccess = useCallback(() => {
+    toast.promise(mockSave(), {
+      loading: "Saving...",
+      success: (data) => `Successfully saved ${data.name}!`,
+      error: "Failed to save!",
+    });
+  }, []);
+
+  const handlePromiseError = useCallback(() => {
+    toast.promise(mockFail(), {
+      loading: "Sending request...",
+      success: "Request successful!",
+      error: "Request failed!",
+    });
+  }, []);
+
+  const handleLoadingToSuccess = useCallback(() => {
+    const id = toast.loading("Processing...");
+    setTimeout(() => toast.success("Done!", { id }), 2000);
+  }, []);
+
+  const handleLoadingToError = useCallback(() => {
+    const id = toast.loading("Loading data...");
+    setTimeout(() => toast.error("Connection lost!", { id }), 2000);
+  }, []);
+
+  const handleDismissAll = useCallback(() => {
+    toast.dismiss();
+  }, []);
+
+  const handleTopLeft = useCallback(() => {
+    toast("Toast: top-left", {
+      description: 'position="top-left"',
+      position: "top-left",
+    });
+  }, []);
+
+  const handleTopCenter = useCallback(() => {
+    toast("Toast: top-center", {
+      description: 'position="top-center"',
+      position: "top-center",
+    });
+  }, []);
+
+  const handleTopRight = useCallback(() => {
+    toast("Toast: top-right", {
+      description: 'position="top-right"',
+      position: "top-right",
+    });
+  }, []);
+
+  const handleBottomLeft = useCallback(() => {
+    toast("Toast: bottom-left", {
+      description: 'position="bottom-left"',
+      position: "bottom-left",
+    });
+  }, []);
+
+  const handleBottomCenter = useCallback(() => {
+    toast("Toast: bottom-center", {
+      description: 'position="bottom-center"',
+      position: "bottom-center",
+    });
+  }, []);
+
+  const handleBottomRight = useCallback(() => {
+    toast("Toast: bottom-right", {
+      description: 'position="bottom-right"',
+      position: "bottom-right",
+    });
+  }, []);
 
   return React.useMemo(
     () => [
@@ -30,17 +150,15 @@ function useSonnerExamples() {
         title: t("Loại Toast", "Toast Types"),
         description: t(
           "Năm loại toast cơ bản: default, success, error, warning, info.",
-          "Five basic toast types: default, success, error, warning, info."
+          "Five basic toast types: default, success, error, warning, info.",
         ),
         microCode: `import { toast } from "sonner";
 
-// Default
 toast("Event created", {
   description: "Sunday, December 03, 2023 at 9:00 AM",
   action: { label: "Undo", onClick: () => console.log("Undo") }
 });
 
-// Typed variants
 toast.success("Successfully saved!");
 toast.error("An error occurred.");
 toast.warning("Connection is unstable.");
@@ -50,15 +168,7 @@ toast.info("Update is available.");`,
             <Button
               variant="outline"
               size={globalSize}
-              onClick={() =>
-                toast("Event created", {
-                  description: "Sunday, December 03, 2023 at 9:00 AM",
-                  action: {
-                    label: "Undo",
-                    onClick: () => console.log("Undo"),
-                  },
-                })
-              }
+              onClick={handleDefaultToast}
             >
               Default
             </Button>
@@ -66,7 +176,7 @@ toast.info("Update is available.");`,
               variant="outline"
               size={globalSize}
               color="success"
-              onClick={() => toast.success("Successfully saved!")}
+              onClick={handleSuccessToast}
             >
               Success
             </Button>
@@ -74,7 +184,7 @@ toast.info("Update is available.");`,
               variant="outline"
               size={globalSize}
               color="destructive"
-              onClick={() => toast.error("An error occurred.")}
+              onClick={handleErrorToast}
             >
               Error
             </Button>
@@ -82,7 +192,7 @@ toast.info("Update is available.");`,
               variant="outline"
               size={globalSize}
               color="warning"
-              onClick={() => toast.warning("Connection is unstable.")}
+              onClick={handleWarningToast}
             >
               Warning
             </Button>
@@ -90,7 +200,7 @@ toast.info("Update is available.");`,
               variant="outline"
               size={globalSize}
               color="info"
-              onClick={() => toast.info("Update is available.")}
+              onClick={handleInfoToast}
             >
               Info
             </Button>
@@ -101,7 +211,7 @@ toast.info("Update is available.");`,
         title: t("Mô tả & Action Button", "Description & Action Button"),
         description: t(
           "Toast kèm description phụ và action button — pattern phổ biến cho undo/redo, navigation.",
-          "Toast with a secondary description and action button — a common pattern for undo/redo, navigation."
+          "Toast with a secondary description and action button — a common pattern for undo/redo, navigation.",
         ),
         microCode: `toast("File deleted", {
   description: "draft-v2.docx has been moved to trash.",
@@ -119,30 +229,14 @@ toast.info("Update is available.");`,
             <Button
               variant="outline"
               size={globalSize}
-              onClick={() =>
-                toast("File deleted", {
-                  description: "draft-v2.docx has been moved to trash.",
-                  action: {
-                    label: "Undo",
-                    onClick: () => console.log("Undo delete"),
-                  },
-                  cancel: {
-                    label: "Dismiss",
-                    onClick: () => {},
-                  },
-                })
-              }
+              onClick={handleFileDeletedToast}
             >
               File Deleted (with Action)
             </Button>
             <Button
               variant="outline"
               size={globalSize}
-              onClick={() =>
-                toast.success("Profile updated", {
-                  description: "Your changes have been saved successfully.",
-                })
-              }
+              onClick={handleSuccessWithDescToast}
             >
               Success with Description
             </Button>
@@ -153,7 +247,7 @@ toast.info("Update is available.");`,
         title: t("Promise — Thành công", "Promise — Success"),
         description: t(
           "toast.promise() tự quản lý trạng thái loading → success/error theo kết quả của Promise.",
-          "toast.promise() automatically manages loading → success/error states based on the Promise result."
+          "toast.promise() automatically manages loading → success/error states based on the Promise result.",
         ),
         microCode: `const saveData = () =>
   new Promise<{ name: string }>((resolve) =>
@@ -169,13 +263,7 @@ toast.promise(saveData(), {
           <Button
             variant="outline"
             size={globalSize}
-            onClick={() =>
-              toast.promise(mockSave(), {
-                loading: "Saving...",
-                success: (data) => `Successfully saved ${data.name}!`,
-                error: "Failed to save!",
-              })
-            }
+            onClick={handlePromiseSuccess}
           >
             Promise (Success)
           </Button>
@@ -185,7 +273,7 @@ toast.promise(saveData(), {
         title: t("Promise — Thất bại", "Promise — Error"),
         description: t(
           "Promise bị reject sẽ tự chuyển sang trạng thái error toast.",
-          "A rejected Promise will automatically switch to an error toast state."
+          "A rejected Promise will automatically switch to an error toast state.",
         ),
         microCode: `const failRequest = () =>
   new Promise<void>((_, reject) =>
@@ -202,13 +290,7 @@ toast.promise(failRequest(), {
             variant="outline"
             size={globalSize}
             color="destructive"
-            onClick={() =>
-              toast.promise(mockFail(), {
-                loading: "Sending request...",
-                success: "Request successful!",
-                error: "Request failed!",
-              })
-            }
+            onClick={handlePromiseError}
           >
             Promise (Error)
           </Button>
@@ -217,8 +299,8 @@ toast.promise(failRequest(), {
       {
         title: "Loading & Dismiss",
         description: t(
-          "toast.loading() tạo toast thủ công, sau đó dùng toast.success/error(id) để cập nhật, hoặc toast.dismiss(id) để huỷ.",
-          "toast.loading() manually creates a toast, then use toast.success/error(id) to update, or toast.dismiss(id) to dismiss."
+          "Sử dụng toast.loading để tạo thông báo thủ công, sau đó cập nhật kết quả hoặc đóng thông báo theo định danh.",
+          "toast.loading() manually creates a toast, then use toast.success/error(id) to update, or toast.dismiss(id) to dismiss.",
         ),
         microCode: `const toastId = toast.loading("Processing...");
 
@@ -232,23 +314,14 @@ toast.dismiss(toastId);`,
             <Button
               variant="outline"
               size={globalSize}
-              onClick={() => {
-                const id = toast.loading("Processing...");
-                setTimeout(() => toast.success("Done!", { id }), 2000);
-              }}
+              onClick={handleLoadingToSuccess}
             >
               Loading → Success (2s)
             </Button>
             <Button
               variant="outline"
               size={globalSize}
-              onClick={() => {
-                const id = toast.loading("Loading data...");
-                setTimeout(
-                  () => toast.error("Connection lost!", { id }),
-                  2000
-                );
-              }}
+              onClick={handleLoadingToError}
             >
               Loading → Error (2s)
             </Button>
@@ -256,7 +329,7 @@ toast.dismiss(toastId);`,
               variant="outline"
               size={globalSize}
               color="destructive"
-              onClick={() => toast.dismiss()}
+              onClick={handleDismissAll}
             >
               Dismiss All
             </Button>
@@ -267,11 +340,9 @@ toast.dismiss(toastId);`,
         title: "Position",
         description: t(
           "Toaster nhận prop position để xác định vị trí hiển thị — cấu hình một lần ở root layout. Nhấn vào từng vùng để xem toast xuất hiện ở đâu.",
-          "Toaster accepts a position prop to determine the display location — configure once at the root layout. Click each area to see where the toast appears."
+          "Toaster accepts a position prop to determine the display location — configure once at the root layout. Click each area to see where the toast appears.",
         ),
-        microCode: `<Toaster position="bottom-right" /> 
-trí hỗ trợ: 
-"bottom-left" | "bottom-center" | "bottom-right"`,
+        microCode: `<Toaster position="bottom-right" />`,
         microPreview: (
           <div className="w-full max-w-sm">
             <p className="mb-3 text-xs text-muted-foreground">
@@ -283,12 +354,7 @@ trí hỗ trợ:
                 variant="outline"
                 size={globalSize}
                 className="text-xs"
-                onClick={() =>
-                  toast("Toast: top-left", {
-                    description: 'position="top-left"',
-                    position: "top-left",
-                  })
-                }
+                onClick={handleTopLeft}
               >
                 top-left
               </Button>
@@ -296,12 +362,7 @@ trí hỗ trợ:
                 variant="outline"
                 size={globalSize}
                 className="text-xs"
-                onClick={() =>
-                  toast("Toast: top-center", {
-                    description: 'position="top-center"',
-                    position: "top-center",
-                  })
-                }
+                onClick={handleTopCenter}
               >
                 top-center
               </Button>
@@ -309,12 +370,7 @@ trí hỗ trợ:
                 variant="outline"
                 size={globalSize}
                 className="text-xs"
-                onClick={() =>
-                  toast("Toast: top-right", {
-                    description: 'position="top-right"',
-                    position: "top-right",
-                  })
-                }
+                onClick={handleTopRight}
               >
                 top-right
               </Button>
@@ -322,12 +378,7 @@ trí hỗ trợ:
                 variant="outline"
                 size={globalSize}
                 className="text-xs"
-                onClick={() =>
-                  toast("Toast: bottom-left", {
-                    description: 'position="bottom-left"',
-                    position: "bottom-left",
-                  })
-                }
+                onClick={handleBottomLeft}
               >
                 bottom-left
               </Button>
@@ -335,12 +386,7 @@ trí hỗ trợ:
                 variant="outline"
                 size={globalSize}
                 className="text-xs"
-                onClick={() =>
-                  toast("Toast: bottom-center", {
-                    description: 'position="bottom-center"',
-                    position: "bottom-center",
-                  })
-                }
+                onClick={handleBottomCenter}
               >
                 bottom-center
               </Button>
@@ -348,12 +394,7 @@ trí hỗ trợ:
                 variant="outline"
                 size={globalSize}
                 className="text-xs"
-                onClick={() =>
-                  toast("Toast: bottom-right", {
-                    description: 'position="bottom-right"',
-                    position: "bottom-right",
-                  })
-                }
+                onClick={handleBottomRight}
               >
                 bottom-right
               </Button>
@@ -362,7 +403,7 @@ trí hỗ trợ:
         ),
       },
     ],
-    [t, globalSize]
+    [t, globalSize],
   );
 }
 
@@ -377,7 +418,7 @@ export default function SonnerShowcase() {
         title="Sonner"
         description={t(
           "Hệ thống thông báo toast nhẹ, đẹp, và linh hoạt — tích hợp với design system qua CSS Variables.",
-          "Lightweight, beautiful, and flexible toast notification system — integrated with the design system via CSS Variables."
+          "Lightweight, beautiful, and flexible toast notification system — integrated with the design system via CSS Variables.",
         )}
         guideline={
           <ShowcaseDocs>
@@ -386,17 +427,17 @@ export default function SonnerShowcase() {
                 <>
                   <DocsCode>Toaster</DocsCode> là wrapper của thư viện{" "}
                   <DocsCode>sonner</DocsCode>, được tích hợp với design system
-                  qua CSS Variables — màu sắc của toast tự động đồng bộ với theme
-                  (light/dark) và các token màu (success, destructive, warning,
-                  info).
+                  qua CSS Variables — màu sắc của toast tự động đồng bộ với
+                  theme (light/dark) và các token màu (success, destructive,
+                  warning, info).
                 </>,
                 <>
                   <DocsCode>Toaster</DocsCode> is a wrapper for the{" "}
-                  <DocsCode>sonner</DocsCode> library, integrated with the design
-                  system via CSS Variables — toast colors automatically sync with
-                  the theme (light/dark) and color tokens (success, destructive,
-                  warning, info).
-                </>
+                  <DocsCode>sonner</DocsCode> library, integrated with the
+                  design system via CSS Variables — toast colors automatically
+                  sync with the theme (light/dark) and color tokens (success,
+                  destructive, warning, info).
+                </>,
               )}
             </DocsP>
             <DocsP>
@@ -414,7 +455,7 @@ export default function SonnerShowcase() {
                   <DocsCode>sonner</DocsCode> anywhere in the application.{" "}
                   <DocsCode>toast.promise()</DocsCode> is very useful for async
                   operations — automatically manages loading → success/error.
-                </>
+                </>,
               )}
             </DocsP>
           </ShowcaseDocs>

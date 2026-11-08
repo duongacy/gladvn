@@ -1,5 +1,13 @@
 import React from "react";
+
 import { CheckIcon, HeartIcon, MoreVerticalIcon, UserIcon } from "lucide-react";
+import { useDevContext, useI18n } from "~app/components/dev-context";
+import {
+  ConfigurableShowcase,
+  DocsH3,
+  DocsP,
+  ShowcaseDocs,
+} from "~app/components/showcase";
 
 import { Button } from "@/components/micro/button";
 import {
@@ -14,13 +22,6 @@ import {
   ItemSeparator,
   ItemTitle,
 } from "@/components/micro/item";
-import { useI18n, useDevContext } from "~app/components/dev-context";
-import {
-  ConfigurableShowcase,
-  ShowcaseDocs,
-  DocsH3,
-  DocsP,
-} from "~app/components/showcase";
 
 function useItemExamples() {
   const t = useI18n();
@@ -32,7 +33,7 @@ function useItemExamples() {
         title: t("Nội dung cơ bản", "Basic Content"),
         description: t(
           "Item cơ bản với tiêu đề và mô tả.",
-          "Basic item with title and description."
+          "Basic item with title and description.",
         ),
         microCode: `<Item className="w-full">
   <ItemContent>
@@ -55,7 +56,10 @@ function useItemExamples() {
       },
       {
         title: t("Có hình ảnh", "With Media"),
-        description: t("Item kèm icon hoặc avatar.", "Item with icon or avatar."),
+        description: t(
+          "Item kèm icon hoặc avatar.",
+          "Item with icon or avatar.",
+        ),
         microCode: `<Item className="w-full">
   <ItemMedia className="bg-primary/10 text-primary rounded-md p-2">
     <UserIcon className="size-4" />
@@ -81,7 +85,7 @@ function useItemExamples() {
         title: t("Variants", "Variants"),
         description: t(
           "Các variant khác nhau: outline, muted.",
-          "Different variants: outline, muted."
+          "Different variants: outline, muted.",
         ),
         microCode: `<div className="flex flex-col gap-3 w-full">
   <Item variant="outline">
@@ -114,7 +118,7 @@ function useItemExamples() {
         title: t("Loại hình ảnh", "Media Type"),
         description: t(
           "ItemMedia hỗ trợ các variant riêng: icon và image.",
-          "ItemMedia supports specific variants: icon and image."
+          "ItemMedia supports specific variants: icon and image.",
         ),
         microCode: `<div className="flex flex-col gap-3 w-full">
   <Item>
@@ -140,10 +144,7 @@ function useItemExamples() {
         microPreview: (
           <div className="flex flex-col gap-3 w-full">
             <Item size={globalSize}>
-              <ItemMedia
-                variant="icon"
-                className="bg-primary/10 text-primary"
-              >
+              <ItemMedia variant="icon" className="bg-primary/10 text-primary">
                 <CheckIcon className="size-4" />
               </ItemMedia>
               <ItemContent>
@@ -164,8 +165,8 @@ function useItemExamples() {
       {
         title: t("Kèm nút thao tác", "With Actions"),
         description: t(
-          "Item có các nút hành động ở cuối (ItemActions).",
-          "Item has action buttons at the end (ItemActions)."
+          "Item có các nút hành động ở cuối.",
+          "Item has action buttons at the end (ItemActions).",
         ),
         microCode: `<Item className="w-full">
   <ItemContent>
@@ -218,7 +219,7 @@ function useItemExamples() {
         title: t("Nhóm Item", "Item Group"),
         description: t(
           "Nhóm các Item và phân cách bằng ItemSeparator.",
-          "Group Items and separate with ItemSeparator."
+          "Group Items and separate with ItemSeparator.",
         ),
         microCode: `<ItemGroup className="w-full max-w-sm mx-auto">
   <Item>
@@ -269,7 +270,7 @@ function useItemExamples() {
         title: t("Có Header và Footer", "With Header and Footer"),
         description: t(
           "Item phức tạp với ItemHeader và ItemFooter.",
-          "Complex Item with ItemHeader and ItemFooter."
+          "Complex Item with ItemHeader and ItemFooter.",
         ),
         microCode: `<Item className="w-full max-w-sm mx-auto flex-col items-start gap-2">
   <ItemHeader className="text-xs text-muted-foreground">
@@ -300,7 +301,7 @@ function useItemExamples() {
         ),
       },
     ],
-    [t, globalSize]
+    [t, globalSize],
   );
 }
 
@@ -313,7 +314,7 @@ export default function ItemShowcase() {
       title={t("Mục danh sách", "Item")}
       description={t(
         "Container linh hoạt cho danh sách hoặc khối nội dung có cấu trúc.",
-        "Flexible container for lists or structured content blocks."
+        "Flexible container for lists or structured content blocks.",
       )}
       guideline={
         <ShowcaseDocs>
@@ -321,7 +322,7 @@ export default function ItemShowcase() {
           <DocsP>
             {t(
               "Sử dụng để tạo danh sách hoặc khối nội dung có icon, tiêu đề, mô tả và hành động.",
-              "Use to create lists or content blocks with an icon, title, description, and actions."
+              "Use to create lists or content blocks with an icon, title, description, and actions.",
             )}
           </DocsP>
         </ShowcaseDocs>

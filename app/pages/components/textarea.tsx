@@ -1,4 +1,11 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
+
+import { useDevContext, useI18n } from "~app/components/dev-context";
+import {
+  ConfigurableShowcase,
+  DocsP,
+  ShowcaseDocs,
+} from "~app/components/showcase";
 
 import { TextareaPreset } from "@/components/macro/textarea-preset";
 import {
@@ -14,19 +21,18 @@ import {
   InputGroupTextarea,
 } from "@/components/micro/input-group";
 import { Textarea } from "@/components/micro/textarea";
-import { useDevContext, useI18n } from "~app/components/dev-context";
-import {
-  ConfigurableShowcase,
-  ShowcaseDocs,
-  DocsP,
-} from "~app/components/showcase";
-import { type Size } from "@/lib/types";
 
 function useTextareaExamples() {
   const t = useI18n();
   const { size: globalSize } = useDevContext();
   const [bio, setBio] = useState("");
   const maxLength = 280;
+  const handleBioChange = useCallback(
+    (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+      setBio(e.target.value);
+    },
+    [],
+  );
 
   return React.useMemo(
     () => [
@@ -34,7 +40,7 @@ function useTextareaExamples() {
         title: t("Tiêu chuẩn", "Standard"),
         description: t(
           "Trường văn bản nhiều dòng với nhãn và mô tả.",
-          "Multi-line text field with label and description."
+          "Multi-line text field with label and description.",
         ),
         macroCode: `<TextareaPreset
   label="Feedback"
@@ -69,7 +75,7 @@ function useTextareaExamples() {
         title: t("Lỗi xác thực", "Validation Error"),
         description: t(
           "Hiển thị thông báo lỗi khi đầu vào không hợp lệ.",
-          "Displays an error message when input is invalid."
+          "Displays an error message when input is invalid.",
         ),
         macroCode: `<TextareaPreset
   label="Complaint"
@@ -128,9 +134,16 @@ function useTextareaExamples() {
         title: t("Giới hạn ký tự", "Character Count"),
         description: t(
           "Sử dụng React state và slot description để đếm ngược số ký tự.",
-          "Use React state and description slot to countdown characters."
+          "Use React state and description slot to countdown characters.",
         ),
-        macroCode: `const [bio, setBio] = useState(""); const maxLength = 280;
+        macroCode: `const [bio, setBio] = useState("");
+const maxLength = 280;
+const handleBioChange = useCallback(
+  (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setBio(e.target.value);
+  },
+  []
+);
 return (
 <TextareaPreset
   label="Biography"
@@ -150,7 +163,7 @@ return (
   }
   placeholder="I'm a developer who loves..."
   value={bio}
-  onChange={(e) => setBio(e.target.value)}
+  onChange={handleBioChange}
   maxLength={maxLength}
   errorMessage={
     bio.length > maxLength
@@ -176,7 +189,7 @@ return (
             }
             placeholder="I'm a developer who loves..."
             value={bio}
-            onChange={(e) => setBio(e.target.value)}
+            onChange={handleBioChange}
             maxLength={maxLength}
             errorMessage={
               bio.length > maxLength
@@ -193,7 +206,7 @@ return (
         title: t("Khóa / Bất hoạt", "Disabled"),
         description: t(
           "Trường văn bản không thể tương tác.",
-          "The text field is not interactive."
+          "The text field is not interactive.",
         ),
         macroCode: `<TextareaPreset
   label="Archive Notes"
@@ -219,7 +232,7 @@ return (
         title: t("Thực tế sử dụng", "Real-world Form"),
         description: t(
           "Bố cục thực tế trong một form hoàn chỉnh.",
-          "Realistic layout in a complete form."
+          "Realistic layout in a complete form.",
         ),
         macroCode: `<div className="w-full max-w-lg rounded-xl border border-border bg-card p-5 shadow-sm">
   <h3 className="mb-4 font-semibold">
@@ -251,7 +264,7 @@ return (
         title: t("Auto Resize", "Auto Resize"),
         description: t(
           "Giãn chiều cao tự động nhờ class field-sizing-content (nếu trình duyệt hỗ trợ).",
-          "Auto-expand height using field-sizing-content class (if supported by browser)."
+          "Auto-expand height using field-sizing-content class (if supported by browser).",
         ),
         microCode: `<Textarea
 placeholder="Type multiple lines to see it auto-expand..."
@@ -271,7 +284,7 @@ className="w-full"
         title: "InputGroup + Textarea",
         description: t(
           "Textarea bên trong InputGroup với Addon. Sử dụng InputGroupTextarea.",
-          "Textarea inside InputGroup with Addon. Uses InputGroupTextarea."
+          "Textarea inside InputGroup with Addon. Uses InputGroupTextarea.",
         ),
         microCode: `<Field className="w-full">
   <FieldLabel htmlFor="tf-group-textarea">
@@ -309,7 +322,7 @@ className="w-full"
         ),
       },
     ],
-    [t, globalSize, bio]
+    [t, globalSize, bio, handleBioChange],
   );
 }
 
@@ -322,14 +335,14 @@ export default function TextareaShowcase() {
       title="Textarea"
       description={t(
         "Trường văn bản nhiều dòng dành cho nội dung dài, phản hồi hoặc mô tả.",
-        "A multi-line text field for long content, feedback, or descriptions."
+        "A multi-line text field for long content, feedback, or descriptions.",
       )}
       guideline={
         <ShowcaseDocs>
           <DocsP>
             {t(
               "Sử dụng khi bạn mong muốn người dùng nhập vào một văn bản dài hơn một dòng (ví dụ: mô tả, phản hồi, địa chỉ).",
-              "Use when you expect the user to input text longer than a single line (e.g., description, feedback, address)."
+              "Use when you expect the user to input text longer than a single line (e.g., description, feedback, address).",
             )}
           </DocsP>
         </ShowcaseDocs>

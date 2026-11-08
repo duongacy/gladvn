@@ -1,7 +1,14 @@
 import React from "react";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import * as z from "zod";
+import { useDevContext, useI18n } from "~app/components/dev-context";
+import {
+  ConfigurableShowcase,
+  DocsP,
+  ShowcaseDocs,
+} from "~app/components/showcase";
 
 import { ComboboxPreset } from "@/components/macro/combobox-preset";
 import { Button } from "@/components/micro/button";
@@ -37,12 +44,6 @@ import {
   InputGroupAddon,
   InputGroupInput,
 } from "@/components/micro/input-group";
-import { useDevContext, useI18n } from "~app/components/dev-context";
-import {
-  ConfigurableShowcase,
-  ShowcaseDocs,
-  DocsP,
-} from "~app/components/showcase";
 import { type Size } from "@/lib/types";
 
 const frameworkOptions = [
@@ -51,9 +52,6 @@ const frameworkOptions = [
   { value: "angular", label: "Angular" },
   { value: "svelte", label: "Svelte" },
 ];
-const frontendFrameworks = ["react", "vue", "svelte"];
-const backendFrameworks = ["express", "nest"];
-const allFrameworks = [...frontendFrameworks, ...backendFrameworks];
 const backendFrameworkOptions = [
   { value: "express", label: "Express" },
   { value: "nestjs", label: "NestJS" },
@@ -127,32 +125,6 @@ function ComboboxFormPreview({ globalSize }: { globalSize: Size }) {
   );
 }
 
-
-function FilteringComboboxPreview({ globalSize }: { globalSize: Size }) {
-  const [inputValue, setInputValue] = React.useState("");
-  const filteredOptions = React.useMemo(
-    () =>
-      frameworkOptions.filter((o) =>
-        o.label.toLowerCase().includes(inputValue.toLowerCase())
-      ),
-    [inputValue],
-  );
-  return (
-    <ComboboxPreset
-      className="w-full"
-      size={globalSize}
-      label="Framework"
-      description="Type to filter — the library never filters implicitly."
-      placeholder="Type to filter..."
-      emptyText="No match."
-      options={filteredOptions}
-      inputValue={inputValue}
-      onInputValueChange={setInputValue}
-    />
-  );
-}
-
-
 function useComboboxExamples() {
   const t = useI18n();
   const { size: globalSize } = useDevContext();
@@ -163,7 +135,7 @@ function useComboboxExamples() {
         title: t("Tiêu chuẩn", "Standard"),
         description: t(
           "Tương tự Select nhưng có thể gõ để tìm kiếm.",
-          "Similar to Select but allows typing to search."
+          "Similar to Select but allows typing to search.",
         ),
         macroCode: `<ComboboxPreset
   className="w-full"
@@ -227,12 +199,17 @@ function useComboboxExamples() {
 </Field>`,
         microPreview: (
           <Field size={globalSize} className="w-full">
-            <FieldLabel htmlFor="combobox-standard-preview">Framework</FieldLabel>
+            <FieldLabel htmlFor="combobox-standard-preview">
+              Framework
+            </FieldLabel>
             <FieldContent>
               <Combobox
                 items={frameworkOptions}
                 filter={null}
-                itemToStringLabel={(val) => frameworkOptions.find((o) => o.value === val)?.label ?? String(val ?? "")}
+                itemToStringLabel={(val) =>
+                  frameworkOptions.find((o) => o.value === val)?.label ??
+                  String(val ?? "")
+                }
               >
                 <ComboboxAnchor className="w-full">
                   <InputGroup size={globalSize} className="w-full">
@@ -241,8 +218,11 @@ function useComboboxExamples() {
                       placeholder="Select framework..."
                       render={<InputGroupInput />}
                     />
-                    <InputGroupAddon align="end" className="h-full py-0 gap-0.5 pr-1">
-                    <ComboboxDropdownIcon className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden" />
+                    <InputGroupAddon
+                      align="end"
+                      className="h-full py-0 gap-0.5 pr-1"
+                    >
+                      <ComboboxDropdownIcon className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden" />
                       <ComboboxClear />
                     </InputGroupAddon>
                   </InputGroup>
@@ -268,7 +248,7 @@ function useComboboxExamples() {
         title: t("Nhóm & Ngăn cách", "Grouped with Separator"),
         description: t(
           "Nhóm các lựa chọn liên quan với ComboboxLabel và phân cách nhóm bằng ComboboxSeparator.",
-          "Groups related options with ComboboxLabel and separates groups using ComboboxSeparator."
+          "Groups related options with ComboboxLabel and separates groups using ComboboxSeparator.",
         ),
         microCode: `<Field className="w-full">
   <FieldLabel htmlFor="combobox-grouped">Framework</FieldLabel>
@@ -314,13 +294,16 @@ function useComboboxExamples() {
 </Field>`,
         microPreview: (
           <Field size={globalSize} className="w-full">
-            <FieldLabel htmlFor="combobox-grouped-preview">Framework</FieldLabel>
+            <FieldLabel htmlFor="combobox-grouped-preview">
+              Framework
+            </FieldLabel>
             <FieldContent>
               <Combobox
                 items={allFrameworkOptions}
                 filter={null}
                 itemToStringLabel={(val) =>
-                  allFrameworkOptions.find((o) => o.value === val)?.label ?? String(val ?? "")
+                  allFrameworkOptions.find((o) => o.value === val)?.label ??
+                  String(val ?? "")
                 }
               >
                 <ComboboxAnchor className="w-full">
@@ -330,8 +313,11 @@ function useComboboxExamples() {
                       placeholder="Select framework..."
                       render={<InputGroupInput />}
                     />
-                    <InputGroupAddon align="end" className="h-full py-0 gap-0.5 pr-1">
-                    <ComboboxDropdownIcon className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden" />
+                    <InputGroupAddon
+                      align="end"
+                      className="h-full py-0 gap-0.5 pr-1"
+                    >
+                      <ComboboxDropdownIcon className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden" />
                       <ComboboxClear />
                     </InputGroupAddon>
                   </InputGroup>
@@ -363,7 +349,7 @@ function useComboboxExamples() {
         title: t("Chọn nhiều", "Multi-select Chips"),
         description: t(
           "Sử dụng ComboboxChips và ComboboxChip thay cho Input.",
-          "Uses ComboboxChips and ComboboxChip instead of Input."
+          "Uses ComboboxChips and ComboboxChip instead of Input.",
         ),
         microCode: `<Field className="w-full">
   <FieldLabel>Assign Tags</FieldLabel>
@@ -420,7 +406,10 @@ function useComboboxExamples() {
                 multiple
                 defaultValue={["bug", "feature"]}
                 filter={null}
-                itemToStringLabel={(val) => tagOptions.find((o) => o.value === val)?.label ?? String(val ?? "")}
+                itemToStringLabel={(val) =>
+                  tagOptions.find((o) => o.value === val)?.label ??
+                  String(val ?? "")
+                }
               >
                 <ComboboxAnchor className="w-full">
                   <ComboboxChips size={globalSize}>
@@ -439,7 +428,9 @@ function useComboboxExamples() {
                               </ComboboxChip>
                             );
                           })}
-                          <ComboboxChipsInput placeholder={values.length > 0 ? "" : "Add tag..."} />
+                          <ComboboxChipsInput
+                            placeholder={values.length > 0 ? "" : "Add tag..."}
+                          />
                         </React.Fragment>
                       )}
                     </ComboboxValue>
@@ -466,7 +457,7 @@ function useComboboxExamples() {
         title: t("Cuộn danh sách dài", "Long List Scrolling"),
         description: t(
           "Trải nghiệm mượt mà với danh sách ảo hoá.",
-          "Smooth experience with virtualized list."
+          "Smooth experience with virtualized list.",
         ),
         macroCode: `<ComboboxPreset
   className="w-full"
@@ -517,12 +508,17 @@ function useComboboxExamples() {
 </Field>`,
         microPreview: (
           <Field size={globalSize} className="w-full">
-            <FieldLabel htmlFor="combobox-timezone-preview">Timezone</FieldLabel>
+            <FieldLabel htmlFor="combobox-timezone-preview">
+              Timezone
+            </FieldLabel>
             <FieldContent>
               <Combobox
                 items={timezoneOptions}
                 filter={null}
-                itemToStringLabel={(val) => timezoneOptions.find((o) => o.value === val)?.label ?? String(val ?? "")}
+                itemToStringLabel={(val) =>
+                  timezoneOptions.find((o) => o.value === val)?.label ??
+                  String(val ?? "")
+                }
               >
                 <ComboboxAnchor className="w-full">
                   <InputGroup size={globalSize} className="w-full">
@@ -531,8 +527,11 @@ function useComboboxExamples() {
                       placeholder="Select timezone..."
                       render={<InputGroupInput />}
                     />
-                    <InputGroupAddon align="end" className="h-full py-0 gap-0.5 pr-1">
-                    <ComboboxDropdownIcon className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden" />
+                    <InputGroupAddon
+                      align="end"
+                      className="h-full py-0 gap-0.5 pr-1"
+                    >
+                      <ComboboxDropdownIcon className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden" />
                       <ComboboxClear />
                     </InputGroupAddon>
                   </InputGroup>
@@ -556,7 +555,7 @@ function useComboboxExamples() {
         title: t("Render Hướng Dữ liệu", "Data-Driven Rendering"),
         description: t(
           "Dùng ComboboxCollection để render items từ mảng dữ liệu — Base UI tự động áp dụng filter.",
-          "Use ComboboxCollection to render items from a data array — Base UI automatically applies filtering."
+          "Use ComboboxCollection to render items from a data array — Base UI automatically applies filtering.",
         ),
         microCode: `<Field className="w-full">
   <FieldLabel htmlFor="combobox-collection">Framework</FieldLabel>
@@ -595,12 +594,15 @@ function useComboboxExamples() {
 </Field>`,
         microPreview: (
           <Field size={globalSize} className="w-full">
-            <FieldLabel htmlFor="combobox-collection-preview">Framework</FieldLabel>
+            <FieldLabel htmlFor="combobox-collection-preview">
+              Framework
+            </FieldLabel>
             <FieldContent>
               <Combobox
                 items={frameworkOptions}
                 itemToStringLabel={(val) =>
-                  frameworkOptions.find((o) => o.value === val)?.label ?? String(val ?? "")
+                  frameworkOptions.find((o) => o.value === val)?.label ??
+                  String(val ?? "")
                 }
               >
                 <ComboboxAnchor className="w-full">
@@ -610,8 +612,11 @@ function useComboboxExamples() {
                       placeholder="Search framework..."
                       render={<InputGroupInput />}
                     />
-                    <InputGroupAddon align="end" className="h-full py-0 gap-0.5 pr-1">
-                    <ComboboxDropdownIcon className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden" />
+                    <InputGroupAddon
+                      align="end"
+                      className="h-full py-0 gap-0.5 pr-1"
+                    >
+                      <ComboboxDropdownIcon className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden" />
                       <ComboboxClear />
                     </InputGroupAddon>
                   </InputGroup>
@@ -637,7 +642,7 @@ function useComboboxExamples() {
         title: t("Trạng thái Lỗi", "Error State"),
         description: t(
           "Báo lỗi hoặc gắn trạng thái invalid.",
-          "Shows an error or sets invalid state."
+          "Shows an error or sets invalid state.",
         ),
         macroCode: `<ComboboxPreset
   className="w-full"
@@ -690,12 +695,17 @@ function useComboboxExamples() {
 </Field>`,
         microPreview: (
           <Field size={globalSize} error className="w-full">
-            <FieldLabel htmlFor="combobox-error-preview">Region (Error)</FieldLabel>
+            <FieldLabel htmlFor="combobox-error-preview">
+              Region (Error)
+            </FieldLabel>
             <FieldContent>
               <Combobox
                 items={regionOptions}
                 filter={null}
-                itemToStringLabel={(val) => regionOptions.find((o) => o.value === val)?.label ?? String(val ?? "")}
+                itemToStringLabel={(val) =>
+                  regionOptions.find((o) => o.value === val)?.label ??
+                  String(val ?? "")
+                }
               >
                 <ComboboxAnchor className="w-full">
                   <InputGroup size={globalSize} className="w-full">
@@ -706,8 +716,11 @@ function useComboboxExamples() {
                       aria-describedby="combobox-error-preview-msg"
                       render={<InputGroupInput />}
                     />
-                    <InputGroupAddon align="end" className="h-full py-0 gap-0.5 pr-1">
-                    <ComboboxDropdownIcon className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden" />
+                    <InputGroupAddon
+                      align="end"
+                      className="h-full py-0 gap-0.5 pr-1"
+                    >
+                      <ComboboxDropdownIcon className="group-has-[[data-slot=combobox-clear][data-visible]]/input-group:hidden" />
                       <ComboboxClear />
                     </InputGroupAddon>
                   </InputGroup>
@@ -719,7 +732,9 @@ function useComboboxExamples() {
                 </ComboboxContent>
               </Combobox>
             </FieldContent>
-            <FieldError id="combobox-error-preview-msg">Region is required.</FieldError>
+            <FieldError id="combobox-error-preview-msg">
+              Region is required.
+            </FieldError>
           </Field>
         ),
       },
@@ -727,7 +742,7 @@ function useComboboxExamples() {
         title: t("Khóa / Bất hoạt", "Disabled State"),
         description: t(
           "Người dùng không thể tương tác.",
-          "Users cannot interact with the input."
+          "Users cannot interact with the input.",
         ),
         macroCode: `<ComboboxPreset
   className="w-full"
@@ -787,7 +802,10 @@ function useComboboxExamples() {
                 items={teamOptions}
                 filter={null}
                 value="engineering"
-                itemToStringLabel={(val) => teamOptions.find((o) => o.value === val)?.label ?? String(val ?? "")}
+                itemToStringLabel={(val) =>
+                  teamOptions.find((o) => o.value === val)?.label ??
+                  String(val ?? "")
+                }
               >
                 <ComboboxAnchor className="w-full">
                   <InputGroup size={globalSize} className="w-full">
@@ -797,7 +815,10 @@ function useComboboxExamples() {
                       disabled
                       render={<InputGroupInput disabled />}
                     />
-                    <InputGroupAddon align="end" className="h-full py-0 gap-0.5 pr-1">
+                    <InputGroupAddon
+                      align="end"
+                      className="h-full py-0 gap-0.5 pr-1"
+                    >
                       <ComboboxDropdownIcon disabled />
                     </InputGroupAddon>
                   </InputGroup>
@@ -813,8 +834,8 @@ function useComboboxExamples() {
       {
         title: t("Giao diện Nút", "With Trigger"),
         description: t(
-          "Combobox dùng nút bấm (giống Select) thay vì ô nhập chữ (Input).",
-          "Combobox uses a button (like Select) instead of a text input."
+          "Combobox sử dụng nút bấm mở danh sách thay vì ô nhập văn bản trực tiếp.",
+          "Combobox uses a button (like Select) instead of a text input.",
         ),
         microCode: `<Field className="w-full">
   <FieldLabel>Select Engine</FieldLabel>
@@ -851,7 +872,10 @@ function useComboboxExamples() {
               <Combobox
                 items={engineOptions}
                 filter={null}
-                itemToStringLabel={(val) => engineOptions.find((o) => o.value === val)?.label ?? String(val ?? "")}
+                itemToStringLabel={(val) =>
+                  engineOptions.find((o) => o.value === val)?.label ??
+                  String(val ?? "")
+                }
               >
                 <ComboboxTrigger size={globalSize} className="w-full">
                   <ComboboxValue placeholder="Select an engine" />
@@ -882,7 +906,7 @@ function useComboboxExamples() {
         title: t("Tích hợp React Hook Form", "React Hook Form Integration"),
         description: t(
           "Sử dụng Controller để bắt giá trị.",
-          "Uses Controller to capture values."
+          "Uses Controller to capture values.",
         ),
         macroCode: `const formSchema = z.object({ framework: z.string().min(1, "Required") });
 
@@ -918,7 +942,7 @@ function ComboboxForm({ size }: { size: Size }) {
         macroPreview: <ComboboxFormPreview globalSize={globalSize} />,
       },
     ],
-    [globalSize, t]
+    [globalSize, t],
   );
 }
 
@@ -931,14 +955,14 @@ export default function ComboboxShowcase() {
       title="Combobox"
       description={t(
         "Thành phần mở rộng của Select, cho phép người dùng gõ phím để tìm kiếm và lọc qua các tập dữ liệu lớn.",
-        "An extension of Select, allowing users to type to search and filter through large datasets."
+        "An extension of Select, allowing users to type to search and filter through large datasets.",
       )}
       guideline={
         <ShowcaseDocs>
           <DocsP>
             {t(
               "Dùng để chọn một hoặc nhiều giá trị từ một danh sách lớn. Khác với Select, Combobox có ô nhập liệu để người dùng có thể gõ từ khóa tìm kiếm và lọc các tùy chọn một cách nhanh chóng.",
-              "Used to select one or multiple values from a large list. Unlike Select, Combobox has an input field so users can quickly type keywords to search and filter options."
+              "Used to select one or multiple values from a large list. Unlike Select, Combobox has an input field so users can quickly type keywords to search and filter options.",
             )}
           </DocsP>
         </ShowcaseDocs>

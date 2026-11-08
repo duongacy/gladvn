@@ -1,12 +1,13 @@
 import React from "react";
-import { Label } from "@/components/micro/label";
+
 import { useDevContext, useI18n } from "~app/components/dev-context";
 import {
   ConfigurableShowcase,
-  ShowcaseDocs,
   DocsP,
-  DocsCode,
+  ShowcaseDocs,
 } from "~app/components/showcase";
+
+import { Label } from "@/components/micro/label";
 
 function useLabelExamples() {
   const t = useI18n();
@@ -18,7 +19,7 @@ function useLabelExamples() {
         title: t("Mặc định", "Default"),
         description: t(
           "Cách sử dụng nhãn tiêu chuẩn.",
-          "How to use the standard label."
+          "How to use the standard label.",
         ),
         microCode: `<Label htmlFor="terms">Accept terms and conditions</Label>`,
         microPreview: (
@@ -31,7 +32,7 @@ function useLabelExamples() {
         title: t("Khóa / Bất hoạt", "Disabled"),
         description: t(
           "Trạng thái bị vô hiệu hóa khi nằm trong group bị vô hiệu.",
-          "Disabled state when placed in a disabled group."
+          "Disabled state when placed in a disabled group.",
         ),
         microCode: `<div data-disabled="true" className="group">
   <Label htmlFor="disabled">This label is disabled</Label>
@@ -47,8 +48,8 @@ function useLabelExamples() {
       {
         title: t("Trạng thái Lỗi", "Error State"),
         description: t(
-          "Hiển thị màu đỏ khi nằm trong group bị lỗi (data-invalid).",
-          "Displays red color when placed in an error group (data-invalid)."
+          "Hiển thị màu đỏ khi nằm trong nhóm đang ở trạng thái lỗi.",
+          "Displays red color when placed in an error group (data-invalid).",
         ),
         microCode: `<div data-invalid="true" className="group">
   <Label htmlFor="error">Email is required</Label>
@@ -64,8 +65,8 @@ function useLabelExamples() {
       {
         title: t("Kèm Input ngang hàng", "With Peer Input"),
         description: t(
-          "Phản hồi trạng thái disabled của input liền kề (dùng class peer).",
-          "Responds to the disabled state of an adjacent input (using the peer class)."
+          "Phản hồi trạng thái vô hiệu hóa của trường nhập liệu liền kề.",
+          "Responds to the disabled state of an adjacent input (using the peer class).",
         ),
         microCode: `<div className="flex items-center gap-2">
   <input
@@ -93,7 +94,7 @@ function useLabelExamples() {
         ),
       },
     ],
-    [t, globalSize]
+    [t, globalSize],
   );
 }
 
@@ -106,14 +107,14 @@ export default function LabelShowcase() {
       title="Label"
       description={t(
         "Nhãn gắn với form control, cải thiện accessibility.",
-        "Label attached to a form control, improving accessibility."
+        "Label attached to a form control, improving accessibility.",
       )}
       guideline={
         <ShowcaseDocs>
           <DocsP>
             {t(
-              "Label được sử dụng để gắn nhãn cho các trường nhập liệu form. Nó cải thiện khả năng truy cập (accessibility) bằng cách liên kết văn bản với một form control cụ thể (thông qua thuộc tính htmlFor).",
-              "Label is used to label form input fields. It improves accessibility by associating text with a specific form control (via the htmlFor attribute)."
+              "Label được sử dụng để gắn nhãn cho các trường nhập liệu biểu mẫu. Nó cải thiện khả năng tiếp cận bằng cách liên kết văn bản với một điều khiển biểu mẫu cụ thể thông qua thuộc tính htmlFor.",
+              "Label is used to label form input fields. It improves accessibility by associating text with a specific form control (via the htmlFor attribute).",
             )}
           </DocsP>
         </ShowcaseDocs>

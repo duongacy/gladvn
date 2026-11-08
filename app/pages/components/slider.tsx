@@ -1,4 +1,11 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
+
+import { useDevContext, useI18n } from "~app/components/dev-context";
+import {
+  ConfigurableShowcase,
+  DocsP,
+  ShowcaseDocs,
+} from "~app/components/showcase";
 
 import { SliderPreset } from "@/components/macro/slider-preset";
 import {
@@ -15,13 +22,6 @@ import {
   SliderThumb,
   SliderTrack,
 } from "@/components/micro/slider";
-import { useDevContext, useI18n } from "~app/components/dev-context";
-import {
-  ConfigurableShowcase,
-  ShowcaseDocs,
-  DocsP,
-} from "~app/components/showcase";
-import { type Size } from "@/lib/types";
 
 function useSliderExamples() {
   const t = useI18n();
@@ -29,13 +29,21 @@ function useSliderExamples() {
   const [val, setVal] = useState([50]);
   const [rangeVal, setRangeVal] = useState([20, 80]);
 
+  const handleRangeValChange = useCallback((v: number | readonly number[]) => {
+    setRangeVal(v as number[]);
+  }, []);
+
+  const handleValChange = useCallback((v: number | readonly number[]) => {
+    setVal(v as number[]);
+  }, []);
+
   return React.useMemo(
     () => [
       {
         title: t("Tiêu chuẩn", "Standard"),
         description: t(
           "Thanh trượt cơ bản có nhãn và mô tả.",
-          "Basic slider with label and description."
+          "Basic slider with label and description.",
         ),
         macroCode: `<SliderPreset
   className="w-full"
@@ -90,7 +98,7 @@ function useSliderExamples() {
         title: t("Trạng thái Lỗi", "Error State"),
         description: t(
           "Báo lỗi khi giá trị không hợp lệ.",
-          "Shows error when value is invalid."
+          "Shows error when value is invalid.",
         ),
         macroCode: `<div className="w-full flex flex-col gap-6">
   <SliderPreset
@@ -133,11 +141,7 @@ function useSliderExamples() {
   <FieldError>You only have $100 left in your budget.</FieldError>
 </Field>`,
         microPreview: (
-          <Field
-            size={globalSize}
-            className="w-full gap-2"
-            data-invalid={true}
-          >
+          <Field size={globalSize} className="w-full gap-2" data-invalid={true}>
             <FieldLabel>Maximum Budget</FieldLabel>
             <FieldContent>
               <CompositionalSlider
@@ -163,7 +167,7 @@ function useSliderExamples() {
         title: t("Thanh trượt Khoảng", "Range Slider"),
         description: t(
           "Truyền mảng 2 giá trị vào defaultValue hoặc value để tạo Range Slider.",
-          "Pass an array of 2 values to defaultValue or value to create a Range Slider."
+          "Pass an array of 2 values to defaultValue or value to create a Range Slider.",
         ),
         macroCode: `const [rangeVal, setRangeVal] = useState([20, 80]); return (
   <SliderPreset
@@ -182,7 +186,7 @@ function useSliderExamples() {
             label="Price Range"
             description={`Show products from ${rangeVal[0]} to ${rangeVal[1]}`}
             value={rangeVal}
-            onValueChange={(v) => setRangeVal(v as number[])}
+            onValueChange={handleRangeValChange}
             max={100}
             step={5}
           />
@@ -192,7 +196,7 @@ function useSliderExamples() {
         title: t("Khóa / Bất hoạt", "Disabled"),
         description: t(
           "Người dùng không thể tương tác với thanh trượt.",
-          "Users cannot interact with the slider."
+          "Users cannot interact with the slider.",
         ),
         macroCode: `<SliderPreset
   className="w-full"
@@ -218,7 +222,7 @@ function useSliderExamples() {
         title: "Controlled Mode",
         description: t(
           "Sử dụng biến state của React để điều khiển.",
-          "Use React state variable to control."
+          "Use React state variable to control.",
         ),
         macroCode: `const [val, setVal] = useState([50]); return (
   <SliderPreset
@@ -233,7 +237,7 @@ function useSliderExamples() {
             <SliderPreset
               size={globalSize}
               value={val}
-              onValueChange={(v) => setVal(v as number[])}
+              onValueChange={handleValChange}
               label="Controlled Value"
               description={`Current value is: ${val[0]}`}
             />
@@ -244,7 +248,7 @@ function useSliderExamples() {
         title: t("Nhiều Thumb", "Multi-thumb"),
         description: t(
           "Chỉ cần render nhiều SliderThumb, hệ thống sẽ tự chia.",
-          "Just render multiple SliderThumbs, the system will divide automatically."
+          "Just render multiple SliderThumbs, the system will divide automatically.",
         ),
         microCode: `<CompositionalSlider
   defaultValue={[20, 50, 80]}
@@ -284,7 +288,7 @@ function useSliderExamples() {
         title: t("Ghép nối Field thủ công", "Manual Field Composition"),
         description: t(
           "Lắp ráp với Field để có nhãn và mô tả.",
-          "Assemble with Field to get label and description."
+          "Assemble with Field to get label and description.",
         ),
         microCode: `<Field className="w-full">
   <FieldLabel>Display Density</FieldLabel>
@@ -329,7 +333,7 @@ function useSliderExamples() {
         ),
       },
     ],
-    [t, globalSize, val, rangeVal]
+    [t, globalSize, val, rangeVal],
   );
 }
 
@@ -341,15 +345,15 @@ export default function SliderShowcase() {
     <ConfigurableShowcase
       title="Slider"
       description={t(
-        "Thành phần điều khiển cho phép người dùng chọn một hoặc nhiều giá trị trong một phạm vi (range) nhất định.",
-        "A control component that allows users to select one or more values within a certain range."
+        "Thành phần điều khiển cho phép người dùng chọn một hoặc nhiều giá trị trong một phạm vi nhất định.",
+        "A control component that allows users to select one or more values within a certain range.",
       )}
       guideline={
         <ShowcaseDocs>
           <DocsP>
             {t(
-              "Thanh trượt thường được dùng để điều chỉnh các thông số liên tục như âm lượng, độ sáng, hoặc chọn một khoảng giá trị (range).",
-              "Sliders are typically used to adjust continuous parameters such as volume, brightness, or selecting a value range."
+              "Thanh trượt thường được dùng để điều chỉnh các thông số liên tục như âm lượng, độ sáng, hoặc chọn một khoảng giá trị.",
+              "Sliders are typically used to adjust continuous parameters such as volume, brightness, or selecting a value range.",
             )}
           </DocsP>
         </ShowcaseDocs>

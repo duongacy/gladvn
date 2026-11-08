@@ -1,5 +1,12 @@
 import React from "react";
+
 import { LinkIcon, SearchIcon } from "lucide-react";
+import { useDevContext, useI18n } from "~app/components/dev-context";
+import {
+  ConfigurableShowcase,
+  DocsP,
+  ShowcaseDocs,
+} from "~app/components/showcase";
 
 import { InputPreset } from "@/components/macro/input-preset";
 import {
@@ -16,12 +23,6 @@ import {
   InputGroupInput,
   InputGroupText,
 } from "@/components/micro/input-group";
-import { useDevContext, useI18n } from "~app/components/dev-context";
-import {
-  ConfigurableShowcase,
-  ShowcaseDocs,
-  DocsP,
-} from "~app/components/showcase";
 
 function useInputExamples() {
   const t = useI18n();
@@ -33,7 +34,7 @@ function useInputExamples() {
         title: t("Cơ bản", "Primitive"),
         description: t(
           "Thẻ input đơn giản không có nhãn.",
-          "Simple input tag without a label."
+          "Simple input tag without a label.",
         ),
         microCode: `<Input size="md" placeholder="Enter email address..." className="w-full" />`,
         microPreview: (
@@ -48,7 +49,7 @@ function useInputExamples() {
         title: t("Tiêu chuẩn", "Standard"),
         description: t(
           "Trường nhập văn bản hoàn chỉnh có nhãn và mô tả.",
-          "Complete text input field with label and description."
+          "Complete text input field with label and description.",
         ),
         macroCode: `<InputPreset
   size="md"
@@ -97,7 +98,7 @@ function useInputExamples() {
         title: t("Lỗi xác thực", "Validation Error"),
         description: t(
           "Hiển thị thông báo lỗi và viền đỏ báo hiệu khi có lỗi.",
-          "Display error message and red border on error."
+          "Display error message and red border on error.",
         ),
         macroCode: `<InputPreset
   size="md"
@@ -142,9 +143,7 @@ function useInputExamples() {
                 aria-invalid="true"
               />
             </FieldContent>
-            <FieldError>
-              Username cannot contain special characters.
-            </FieldError>
+            <FieldError>Username cannot contain special characters.</FieldError>
           </Field>
         ),
       },
@@ -152,7 +151,7 @@ function useInputExamples() {
         title: t("Với Tiền tố / Hậu tố", "With Adornments"),
         description: t(
           "Hỗ trợ các thành phần gắn thêm vào đầu hoặc cuối ô nhập liệu.",
-          "Supports components attached to the beginning or end of the input."
+          "Supports components attached to the beginning or end of the input.",
         ),
         macroCode: `<InputPreset
   size="md"
@@ -209,13 +208,13 @@ function useInputExamples() {
         title: t("Thực tế sử dụng", "Real-world Snippets"),
         description: t(
           "Tuỳ biến Label với ReactNode để tạo các nhãn phức tạp.",
-          "Customize Label with ReactNode to create complex labels."
+          "Customize Label with ReactNode to create complex labels.",
         ),
         macroCode: `<div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
   <InputPreset
     label={
       <span className="flex items-center gap-2">
-        API Key <span className="rounded bg-destructive/20 px-1.5 py-0.5 text-[10px] font-semibold text-destructive uppercase">Secure</span>
+        API Key <span className="rounded bg-destructive/20 px-1.5 py-0.5 text-xs font-semibold text-destructive uppercase">Secure</span>
       </span>
     }
     type="password"
@@ -229,7 +228,7 @@ function useInputExamples() {
     placeholder="Type keyword..."
     startAdornment={<SearchIcon className="size-4" />}
     endAdornment={
-      <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border border-border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground">
+      <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border border-border bg-muted px-1.5 font-mono text-xs font-medium text-muted-foreground">
         <span className="text-xs">⌘</span>K
       </kbd>
     }
@@ -243,7 +242,7 @@ function useInputExamples() {
               label={
                 <span className="flex items-center gap-2">
                   API Key{" "}
-                  <span className="rounded bg-destructive/20 px-1.5 py-0.5 text-[10px] font-semibold text-destructive uppercase">
+                  <span className="rounded bg-destructive/20 px-1.5 py-0.5 text-xs font-semibold text-destructive uppercase">
                     Secure
                   </span>
                 </span>
@@ -260,7 +259,7 @@ function useInputExamples() {
               placeholder="Type keyword..."
               startAdornment={<SearchIcon className="size-4" />}
               endAdornment={
-                <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border border-border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground">
+                <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border border-border bg-muted px-1.5 font-mono text-xs font-medium text-muted-foreground">
                   <span className="text-xs">⌘</span>K
                 </kbd>
               }
@@ -273,7 +272,7 @@ function useInputExamples() {
         title: t("Input Kiểu Tệp", "File Input"),
         description: t(
           "Input có hỗ trợ style gốc cho type file.",
-          "Input supports native styling for type file."
+          "Input supports native styling for type file.",
         ),
         microCode: `<Input size="md" type="file" className="w-full pt-0.5" />`,
         microPreview: (
@@ -284,7 +283,7 @@ function useInputExamples() {
         title: t("Khóa", "Disabled"),
         description: t(
           "Trạng thái không thể tương tác.",
-          "State that cannot be interacted with."
+          "State that cannot be interacted with.",
         ),
         macroCode: `<InputPreset
   size="md"
@@ -315,7 +314,7 @@ function useInputExamples() {
         ),
       },
     ],
-    [t, globalSize]
+    [t, globalSize],
   );
 }
 
@@ -328,14 +327,14 @@ export default function InputShowcase() {
       title="Input"
       description={t(
         "Trường nhập văn bản cho phép người dùng điền dữ liệu.",
-        "Text input field that allows users to enter data."
+        "Text input field that allows users to enter data.",
       )}
       guideline={
         <ShowcaseDocs>
           <DocsP>
             {t(
               "Sử dụng Input cho các dữ liệu văn bản ngắn như tên, email, mật khẩu.",
-              "Use Input for short text data like name, email, password."
+              "Use Input for short text data like name, email, password.",
             )}
           </DocsP>
         </ShowcaseDocs>

@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   CheckCircle2,
   Info,
@@ -6,6 +7,12 @@ import {
   XCircle,
   XIcon,
 } from "lucide-react";
+import { useDevContext, useI18n } from "~app/components/dev-context";
+import {
+  ConfigurableShowcase,
+  DocsP,
+  ShowcaseDocs,
+} from "~app/components/showcase";
 
 import { AlertPreset } from "@/components/macro/alert-preset";
 import {
@@ -16,12 +23,6 @@ import {
   AlertTitle,
 } from "@/components/micro/alert";
 import { Button } from "@/components/micro/button";
-import { useDevContext, useI18n } from "~app/components/dev-context";
-import {
-  ConfigurableShowcase,
-  ShowcaseDocs,
-  DocsP,
-} from "~app/components/showcase";
 
 function useAlertExamples() {
   const t = useI18n();
@@ -33,7 +34,7 @@ function useAlertExamples() {
         title: t("Tiêu chuẩn", "Standard"),
         description: t(
           "Cảnh báo cơ bản. Với Preset, truyền props trực tiếp thay vì lồng children.",
-          "Basic alert. With Preset, pass props directly instead of nesting children."
+          "Basic alert. With Preset, pass props directly instead of nesting children.",
         ),
         macroCode: `<AlertPreset
   color="info"
@@ -62,7 +63,10 @@ function useAlertExamples() {
   </div>
 </Alert>`,
         microPreview: (
-          <Alert size={globalSize} className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start">
+          <Alert
+            size={globalSize}
+            className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start"
+          >
             <div className="flex flex-1 items-start gap-3">
               <AlertIcon render={<Info />} className="mt-0.5 shrink-0" />
               <div className="flex-1 space-y-0.5">
@@ -78,8 +82,8 @@ function useAlertExamples() {
       {
         title: t("Tự Đóng", "Dismissible"),
         description: t(
-          "Thêm nút tắt (dismiss) ở góc trên bên phải.",
-          "Add a dismiss button in the top right corner."
+          "Thêm nút đóng ở góc trên bên phải.",
+          "Add a dismiss button in the top right corner.",
         ),
         macroCode: `<AlertPreset
   color="warning"
@@ -126,7 +130,10 @@ function useAlertExamples() {
             className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start pr-8 data-[size=sm]:pr-7 data-[size=lg]:pr-10"
           >
             <div className="flex flex-1 items-start gap-3">
-              <AlertIcon render={<TriangleAlert />} className="mt-0.5 shrink-0" />
+              <AlertIcon
+                render={<TriangleAlert />}
+                className="mt-0.5 shrink-0"
+              />
               <div className="flex-1 space-y-0.5">
                 <AlertTitle>Session expiring soon</AlertTitle>
                 <AlertDescription>
@@ -142,7 +149,10 @@ function useAlertExamples() {
               aria-label="Dismiss alert"
               iconOnly
             >
-              <XIcon aria-hidden="true" className="size-3.5 data-[size=sm]:size-3 data-[size=lg]:size-4" />
+              <XIcon
+                aria-hidden="true"
+                className="size-3.5 data-[size=sm]:size-3 data-[size=lg]:size-4"
+              />
             </Button>
           </Alert>
         ),
@@ -151,7 +161,7 @@ function useAlertExamples() {
         title: t("Màu sắc ngữ nghĩa", "Semantic Colors"),
         description: t(
           "Mỗi màu sắc truyền đạt một mức độ khẩn cấp hoặc ý nghĩa khác nhau.",
-          "Each color conveys a different level of urgency or meaning."
+          "Each color conveys a different level of urgency or meaning.",
         ),
         microCode: `<div className="flex flex-col gap-4 w-full">
   <Alert color="info" className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start">
@@ -204,7 +214,11 @@ function useAlertExamples() {
 </div>`,
         microPreview: (
           <div className="flex flex-col gap-4 w-full">
-            <Alert color="info" size={globalSize} className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start">
+            <Alert
+              color="info"
+              size={globalSize}
+              className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start"
+            >
               <div className="flex flex-1 items-start gap-3">
                 <AlertIcon render={<Info />} className="mt-0.5 shrink-0" />
                 <div className="flex-1 space-y-0.5">
@@ -215,9 +229,16 @@ function useAlertExamples() {
                 </div>
               </div>
             </Alert>
-            <Alert color="success" size={globalSize} className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start">
+            <Alert
+              color="success"
+              size={globalSize}
+              className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start"
+            >
               <div className="flex flex-1 items-start gap-3">
-                <AlertIcon render={<CheckCircle2 />} className="mt-0.5 shrink-0" />
+                <AlertIcon
+                  render={<CheckCircle2 />}
+                  className="mt-0.5 shrink-0"
+                />
                 <div className="flex-1 space-y-0.5">
                   <AlertTitle>Saved successfully</AlertTitle>
                   <AlertDescription>
@@ -226,9 +247,16 @@ function useAlertExamples() {
                 </div>
               </div>
             </Alert>
-            <Alert color="warning" size={globalSize} className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start">
+            <Alert
+              color="warning"
+              size={globalSize}
+              className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start"
+            >
               <div className="flex flex-1 items-start gap-3">
-                <AlertIcon render={<TriangleAlert />} className="mt-0.5 shrink-0" />
+                <AlertIcon
+                  render={<TriangleAlert />}
+                  className="mt-0.5 shrink-0"
+                />
                 <div className="flex-1 space-y-0.5">
                   <AlertTitle>Session expiring soon</AlertTitle>
                   <AlertDescription>
@@ -237,7 +265,11 @@ function useAlertExamples() {
                 </div>
               </div>
             </Alert>
-            <Alert color="destructive" size={globalSize} className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start">
+            <Alert
+              color="destructive"
+              size={globalSize}
+              className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start"
+            >
               <div className="flex flex-1 items-start gap-3">
                 <AlertIcon render={<XCircle />} className="mt-0.5 shrink-0" />
                 <div className="flex-1 space-y-0.5">
@@ -255,7 +287,7 @@ function useAlertExamples() {
         title: t("Nội dung phức tạp", "Complex Content"),
         description: t(
           "Có thể chèn nút hành động phụ hoặc thay thế toàn bộ bằng thẻ children.",
-          "You can insert secondary action buttons or replace everything with children."
+          "You can insert secondary action buttons or replace everything with children.",
         ),
         macroCode: `<div className="w-full max-w-xl">
   <AlertPreset
@@ -283,7 +315,11 @@ function useAlertExamples() {
               icon={<CheckCircle2 />}
               dismissible
               action={
-                <Button size={globalSize} variant="outline" className="h-7 px-2 text-xs">
+                <Button
+                  size={globalSize}
+                  variant="outline"
+                  className="h-7 px-2 text-xs"
+                >
                   View receipt
                 </Button>
               }
@@ -324,9 +360,16 @@ function useAlertExamples() {
 </div>`,
         microPreview: (
           <div className="w-full max-w-xl">
-            <Alert color="success" size={globalSize} className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start pr-8 data-[size=sm]:pr-7 data-[size=lg]:pr-10">
+            <Alert
+              color="success"
+              size={globalSize}
+              className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start pr-8 data-[size=sm]:pr-7 data-[size=lg]:pr-10"
+            >
               <div className="flex flex-1 items-start gap-3">
-                <AlertIcon render={<CheckCircle2 />} className="mt-0.5 shrink-0" />
+                <AlertIcon
+                  render={<CheckCircle2 />}
+                  className="mt-0.5 shrink-0"
+                />
                 <div className="flex-1 space-y-0.5">
                   <AlertTitle>Payment successful</AlertTitle>
                   <p className="text-sm mt-1 text-success/90">
@@ -335,7 +378,11 @@ function useAlertExamples() {
                 </div>
               </div>
               <AlertAction className="shrink-0 @sm/alert:ml-4">
-                <Button size={globalSize} variant="outline" className="h-7 px-2 text-xs">
+                <Button
+                  size={globalSize}
+                  variant="outline"
+                  className="h-7 px-2 text-xs"
+                >
                   View receipt
                 </Button>
               </AlertAction>
@@ -347,7 +394,10 @@ function useAlertExamples() {
                 aria-label="Dismiss alert"
                 iconOnly
               >
-                <XIcon aria-hidden="true" className="size-3.5 data-[size=sm]:size-3 data-[size=lg]:size-4" />
+                <XIcon
+                  aria-hidden="true"
+                  className="size-3.5 data-[size=sm]:size-3 data-[size=lg]:size-4"
+                />
               </Button>
             </Alert>
           </div>
@@ -357,7 +407,7 @@ function useAlertExamples() {
         title: t("Tối giản", "Minimal"),
         description: t(
           "Alert chỉ có nội dung mô tả, không có tiêu đề.",
-          "Alert with only description content, without a title."
+          "Alert with only description content, without a title.",
         ),
         microCode: `<div className="flex flex-col gap-4 w-full">
   <Alert color="info" className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start">
@@ -384,7 +434,11 @@ function useAlertExamples() {
 </div>`,
         microPreview: (
           <div className="flex flex-col gap-4 w-full">
-            <Alert color="info" size={globalSize} className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start">
+            <Alert
+              color="info"
+              size={globalSize}
+              className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start"
+            >
               <div className="flex flex-1 items-start gap-3">
                 <AlertIcon render={<Info />} className="mt-0.5 shrink-0" />
                 <div className="flex-1 space-y-0.5">
@@ -394,9 +448,16 @@ function useAlertExamples() {
                 </div>
               </div>
             </Alert>
-            <Alert color="warning" size={globalSize} className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start">
+            <Alert
+              color="warning"
+              size={globalSize}
+              className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start"
+            >
               <div className="flex flex-1 items-start gap-3">
-                <AlertIcon render={<TriangleAlert />} className="mt-0.5 shrink-0" />
+                <AlertIcon
+                  render={<TriangleAlert />}
+                  className="mt-0.5 shrink-0"
+                />
                 <div className="flex-1 space-y-0.5">
                   <AlertDescription>
                     Your trial will expire in 3 days.
@@ -411,7 +472,7 @@ function useAlertExamples() {
         title: t("Chỉ có chữ", "Text Only"),
         description: t(
           "Alert đơn giản không có icon — layout tự nhiên.",
-          "Simple alert without an icon — natural layout."
+          "Simple alert without an icon — natural layout.",
         ),
         microCode: `<div className="flex flex-col gap-4 w-full">
   <Alert color="success" className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start">
@@ -437,7 +498,11 @@ function useAlertExamples() {
 </div>`,
         microPreview: (
           <div className="flex flex-col gap-4 w-full">
-            <Alert color="success" size={globalSize} className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start">
+            <Alert
+              color="success"
+              size={globalSize}
+              className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start"
+            >
               <div className="flex flex-1 items-start gap-3">
                 <div className="flex-1 space-y-0.5">
                   <AlertTitle>Payment successful</AlertTitle>
@@ -447,7 +512,11 @@ function useAlertExamples() {
                 </div>
               </div>
             </Alert>
-            <Alert color="destructive" size={globalSize} className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start">
+            <Alert
+              color="destructive"
+              size={globalSize}
+              className="flex w-full flex-col gap-3 @sm/alert:flex-row @sm/alert:items-start"
+            >
               <div className="flex flex-1 items-start gap-3">
                 <div className="flex-1 space-y-0.5">
                   <AlertTitle>Account locked</AlertTitle>
@@ -461,7 +530,7 @@ function useAlertExamples() {
         ),
       },
     ],
-    [globalSize, t]
+    [globalSize, t],
   );
 }
 
@@ -474,14 +543,14 @@ export default function AlertShowcase() {
       title={t("Cảnh báo", "Alert")}
       description={t(
         "Hiển thị một thông báo nổi bật để thu hút sự chú ý của người dùng.",
-        "Displays a prominent message to grab the user's attention."
+        "Displays a prominent message to grab the user's attention.",
       )}
       guideline={
         <ShowcaseDocs>
           <DocsP>
             {t(
               "Dùng để hiển thị một thông báo quan trọng thu hút sự chú ý của người dùng (ví dụ: lỗi, cảnh báo, hoặc thông báo thành công). Không nên dùng Alert cho các thông báo mang tính tạm thời tự biến mất (hãy dùng Toast/Sonner).",
-              "Used to display an important message that grabs the user's attention (e.g. error, warning, or success message). Alert should not be used for temporary self-dismissing notifications (use Toast/Sonner instead)."
+              "Used to display an important message that grabs the user's attention (e.g. error, warning, or success message). Alert should not be used for temporary self-dismissing notifications (use Toast/Sonner instead).",
             )}
           </DocsP>
         </ShowcaseDocs>

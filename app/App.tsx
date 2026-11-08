@@ -8,13 +8,12 @@ import React, {
 } from "react";
 
 import { useDevContext } from "~app/components/dev-context";
+import { CommandMenu } from "~app/components/layout/CommandMenu";
+import { Header } from "~app/components/layout/Header";
+import { Sidebar } from "~app/components/layout/Sidebar";
 import { SizeToggle } from "~app/components/showcase";
 import { COMPONENTS } from "~app/config/data";
 import OverviewSection from "~app/pages/overview/overview";
-
-import { Header } from "~app/components/layout/Header";
-import { Sidebar } from "~app/components/layout/Sidebar";
-import { CommandMenu } from "~app/components/layout/CommandMenu";
 
 const components: Record<string, React.LazyExoticComponent<any>> = {};
 COMPONENTS.forEach((comp) => {
@@ -68,7 +67,7 @@ export default function App() {
     return <PreviewViewer blockId={blockId} />;
   }
 
-  const { size, setSize, language, setLanguage } = useDevContext();
+  const { size, setSize, language } = useDevContext();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [cmdOpen, setCmdOpen] = useState(false);
   const [active, setActiveState] = useState(() => {
@@ -198,10 +197,10 @@ export default function App() {
 
       {activeComponent?.hasSize && (
         <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-1.5 items-end animate-in fade-in slide-in-from-bottom-4 duration-300">
-          <SizeToggle 
-            value={size} 
-            onValueChange={setSize} 
-            className="bg-background/90 backdrop-blur-xl" 
+          <SizeToggle
+            value={size}
+            onValueChange={setSize}
+            className="bg-background/90 backdrop-blur-xl"
           />
         </div>
       )}

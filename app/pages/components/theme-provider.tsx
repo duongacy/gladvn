@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
+
 import { MoonIcon, SunIcon } from "lucide-react";
+import { useDevContext, useI18n } from "~app/components/dev-context";
+import {
+  ConfigurableShowcase,
+  DocsCode,
+  DocsH3,
+  DocsP,
+  ShowcaseDocs,
+} from "~app/components/showcase";
 
 import { Button } from "@/components/micro/button";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/micro/select";
 import {
   Combobox,
   ComboboxContent,
@@ -17,28 +19,14 @@ import {
   ComboboxList,
 } from "@/components/micro/combobox";
 import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/micro/tooltip";
-import {
-  Popover,
-  PopoverContent,
-  PopoverDescription,
-  PopoverHeader,
-  PopoverTitle,
-  PopoverTrigger,
-} from "@/components/micro/popover";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/micro/dropdown-menu";
+  Confirm,
+  ConfirmContent,
+  ConfirmDescription,
+  ConfirmFooter,
+  ConfirmHeader,
+  ConfirmTitle,
+  ConfirmTrigger,
+} from "@/components/micro/confirm";
 import {
   ContextMenu,
   ContextMenuContent,
@@ -57,15 +45,6 @@ import {
   DialogTrigger,
 } from "@/components/micro/dialog";
 import {
-  Confirm,
-  ConfirmContent,
-  ConfirmDescription,
-  ConfirmFooter,
-  ConfirmHeader,
-  ConfirmTitle,
-  ConfirmTrigger,
-} from "@/components/micro/confirm";
-import {
   Drawer,
   DrawerClose,
   DrawerContent,
@@ -76,13 +55,14 @@ import {
   DrawerTrigger,
 } from "@/components/micro/drawer";
 import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/micro/sheet";
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/micro/dropdown-menu";
 import {
   HoverCard,
   HoverCardContent,
@@ -97,22 +77,39 @@ import {
   NavigationMenuTrigger,
 } from "@/components/micro/navigation-menu";
 import {
-  ThemeProvider,
-  type ThemeMode,
-} from "@/components/micro/theme-provider";
-import { useDevContext, useI18n } from "~app/components/dev-context";
+  Popover,
+  PopoverContent,
+  PopoverDescription,
+  PopoverHeader,
+  PopoverTitle,
+  PopoverTrigger,
+} from "@/components/micro/popover";
 import {
-  ConfigurableShowcase,
-  DocsCode,
-  DocsH3,
-  DocsP,
-  ShowcaseDocs,
-} from "~app/components/showcase";
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/micro/select";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/micro/sheet";
+import {
+  type ThemeMode,
+  ThemeProvider,
+} from "@/components/micro/theme-provider";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/micro/tooltip";
 
-/**
- * Interactive container that creates a scoped theme context
- * with an interactive toggle switch.
- */
 function ScopedThemeBox({
   title,
   description,
@@ -125,19 +122,24 @@ function ScopedThemeBox({
   defaultMode?: ThemeMode;
 }) {
   const [mode, setMode] = useState<ThemeMode>(defaultMode);
+  const handleToggleMode = useCallback(() => {
+    setMode((m) => (m === "light" ? "dark" : "light"));
+  }, []);
 
   return (
     <div className="w-full flex flex-col gap-3">
       <div className="flex items-center justify-between text-xs">
         <div className="flex items-center gap-2">
-          <span className="text-muted-foreground font-mono">Scoped Context:</span>
+          <span className="text-muted-foreground font-mono">
+            Scoped Context:
+          </span>
           <span className="font-semibold text-foreground uppercase px-2 py-0.5 rounded bg-muted/80 border border-border">
             {mode} mode
           </span>
         </div>
         <button
           type="button"
-          onClick={() => setMode((m) => (m === "light" ? "dark" : "light"))}
+          onClick={handleToggleMode}
           className="flex items-center gap-1.5 font-medium px-2.5 py-1 rounded-md border border-border bg-background hover:bg-muted text-foreground transition-colors cursor-pointer"
         >
           {mode === "dark" ? (
@@ -160,7 +162,9 @@ function ScopedThemeBox({
             <div className="mb-5 pb-3 border-b border-border/40">
               {title && <h4 className="text-sm font-semibold">{title}</h4>}
               {description && (
-                <p className="text-xs text-muted-foreground mt-0.5">{description}</p>
+                <p className="text-xs text-muted-foreground mt-0.5">
+                  {description}
+                </p>
               )}
             </div>
           )}
@@ -173,11 +177,11 @@ function ScopedThemeBox({
   );
 }
 
-/**
- * 12-Component Unified Matrix Playground
- */
 function FullMatrixPlayground() {
   const [sandboxMode, setSandboxMode] = useState<ThemeMode>("dark");
+  const handleToggleSandboxMode = useCallback(() => {
+    setSandboxMode((m) => (m === "light" ? "dark" : "light"));
+  }, []);
 
   return (
     <div className="w-full flex flex-col gap-4">
@@ -187,7 +191,8 @@ function FullMatrixPlayground() {
             Scoped Theme Sandbox Matrix
           </span>
           <p className="text-xs text-muted-foreground">
-            Thử nghiệm trực tiếp cả 12 components overlay trong cùng một vùng theme độc lập.
+            Thử nghiệm trực tiếp cả 12 components overlay trong cùng một vùng
+            theme độc lập.
           </p>
         </div>
         <div className="flex items-center gap-2">
@@ -195,7 +200,7 @@ function FullMatrixPlayground() {
           <Button
             size="sm"
             variant="outline"
-            onClick={() => setSandboxMode((m) => (m === "light" ? "dark" : "light"))}
+            onClick={handleToggleSandboxMode}
             className="cursor-pointer gap-2"
           >
             {sandboxMode === "dark" ? (
@@ -216,9 +221,10 @@ function FullMatrixPlayground() {
       <ThemeProvider mode={sandboxMode} onModeChange={setSandboxMode}>
         <div className="w-full rounded-xl border border-border bg-card text-card-foreground p-6 shadow-md transition-colors duration-200">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* 1. Select */}
             <div className="flex flex-col gap-2 p-3 rounded-lg border border-border/50 bg-background/50">
-              <span className="text-xs font-semibold text-muted-foreground">1. Select</span>
+              <span className="text-xs font-semibold text-muted-foreground">
+                1. Select
+              </span>
               <Select defaultValue="react">
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Chọn thư viện..." />
@@ -231,12 +237,16 @@ function FullMatrixPlayground() {
               </Select>
             </div>
 
-            {/* 2. Combobox */}
             <div className="flex flex-col gap-2 p-3 rounded-lg border border-border/50 bg-background/50">
-              <span className="text-xs font-semibold text-muted-foreground">2. Combobox</span>
+              <span className="text-xs font-semibold text-muted-foreground">
+                2. Combobox
+              </span>
               <Combobox items={["Tokyo", "Hanoi", "Seoul", "Paris"]}>
                 <div className="relative w-full">
-                  <ComboboxInput placeholder="Tìm thành phố..." className="w-full" />
+                  <ComboboxInput
+                    placeholder="Tìm thành phố..."
+                    className="w-full"
+                  />
                 </div>
                 <ComboboxContent>
                   <ComboboxList>
@@ -249,9 +259,10 @@ function FullMatrixPlayground() {
               </Combobox>
             </div>
 
-            {/* 3. Tooltip */}
             <div className="flex flex-col gap-2 p-3 rounded-lg border border-border/50 bg-background/50">
-              <span className="text-xs font-semibold text-muted-foreground">3. Tooltip</span>
+              <span className="text-xs font-semibold text-muted-foreground">
+                3. Tooltip
+              </span>
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger
@@ -268,9 +279,10 @@ function FullMatrixPlayground() {
               </TooltipProvider>
             </div>
 
-            {/* 4. Popover */}
             <div className="flex flex-col gap-2 p-3 rounded-lg border border-border/50 bg-background/50">
-              <span className="text-xs font-semibold text-muted-foreground">4. Popover</span>
+              <span className="text-xs font-semibold text-muted-foreground">
+                4. Popover
+              </span>
               <Popover>
                 <PopoverTrigger
                   render={
@@ -290,9 +302,10 @@ function FullMatrixPlayground() {
               </Popover>
             </div>
 
-            {/* 5. DropdownMenu */}
             <div className="flex flex-col gap-2 p-3 rounded-lg border border-border/50 bg-background/50">
-              <span className="text-xs font-semibold text-muted-foreground">5. Dropdown Menu</span>
+              <span className="text-xs font-semibold text-muted-foreground">
+                5. Dropdown Menu
+              </span>
               <DropdownMenu>
                 <DropdownMenuTrigger
                   render={
@@ -308,14 +321,17 @@ function FullMatrixPlayground() {
                     <DropdownMenuItem>Cài đặt</DropdownMenuItem>
                   </DropdownMenuGroup>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem className="text-destructive">Đăng xuất</DropdownMenuItem>
+                  <DropdownMenuItem className="text-destructive">
+                    Đăng xuất
+                  </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
 
-            {/* 6. ContextMenu */}
             <div className="flex flex-col gap-2 p-3 rounded-lg border border-border/50 bg-background/50">
-              <span className="text-xs font-semibold text-muted-foreground">6. Context Menu</span>
+              <span className="text-xs font-semibold text-muted-foreground">
+                6. Context Menu
+              </span>
               <ContextMenu>
                 <ContextMenuTrigger className="flex h-9 w-full items-center justify-center rounded-md border border-dashed border-border text-xs text-muted-foreground select-none cursor-context-menu">
                   Chuột phải vào đây
@@ -329,9 +345,10 @@ function FullMatrixPlayground() {
               </ContextMenu>
             </div>
 
-            {/* 7. Dialog */}
             <div className="flex flex-col gap-2 p-3 rounded-lg border border-border/50 bg-background/50">
-              <span className="text-xs font-semibold text-muted-foreground">7. Dialog</span>
+              <span className="text-xs font-semibold text-muted-foreground">
+                7. Dialog
+              </span>
               <Dialog>
                 <DialogTrigger
                   render={
@@ -344,23 +361,31 @@ function FullMatrixPlayground() {
                   <DialogHeader>
                     <DialogTitle>Modal Dialog Theme</DialogTitle>
                     <DialogDescription>
-                      Dù mount ra ngoài document.body, Dialog vẫn giữ nguyên theme của Sandbox.
+                      Dù mount ra ngoài document.body, Dialog vẫn giữ nguyên
+                      theme của Sandbox.
                     </DialogDescription>
                   </DialogHeader>
                   <DialogFooter>
-                    <DialogClose render={<Button variant="outline">Đóng</Button>} />
+                    <DialogClose
+                      render={<Button variant="outline">Đóng</Button>}
+                    />
                   </DialogFooter>
                 </DialogContent>
               </Dialog>
             </div>
 
-            {/* 8. Confirm */}
             <div className="flex flex-col gap-2 p-3 rounded-lg border border-border/50 bg-background/50">
-              <span className="text-xs font-semibold text-muted-foreground">8. Confirm (Alert Dialog)</span>
+              <span className="text-xs font-semibold text-muted-foreground">
+                8. Confirm (Alert Dialog)
+              </span>
               <Confirm>
                 <ConfirmTrigger
                   render={
-                    <Button variant="outline" color="destructive" className="w-full">
+                    <Button
+                      variant="outline"
+                      color="destructive"
+                      className="w-full"
+                    >
                       Xác nhận hành động
                     </Button>
                   }
@@ -380,9 +405,10 @@ function FullMatrixPlayground() {
               </Confirm>
             </div>
 
-            {/* 9. Drawer */}
             <div className="flex flex-col gap-2 p-3 rounded-lg border border-border/50 bg-background/50">
-              <span className="text-xs font-semibold text-muted-foreground">9. Drawer</span>
+              <span className="text-xs font-semibold text-muted-foreground">
+                9. Drawer
+              </span>
               <Drawer>
                 <DrawerTrigger asChild>
                   <Button variant="outline" className="w-full">
@@ -399,7 +425,9 @@ function FullMatrixPlayground() {
                     </DrawerHeader>
                     <DrawerFooter>
                       <DrawerClose asChild>
-                        <Button variant="outline" className="w-full">Hoàn tất</Button>
+                        <Button variant="outline" className="w-full">
+                          Hoàn tất
+                        </Button>
                       </DrawerClose>
                     </DrawerFooter>
                   </div>
@@ -407,9 +435,10 @@ function FullMatrixPlayground() {
               </Drawer>
             </div>
 
-            {/* 10. Sheet */}
             <div className="flex flex-col gap-2 p-3 rounded-lg border border-border/50 bg-background/50">
-              <span className="text-xs font-semibold text-muted-foreground">10. Sheet</span>
+              <span className="text-xs font-semibold text-muted-foreground">
+                10. Sheet
+              </span>
               <Sheet>
                 <SheetTrigger
                   render={
@@ -422,16 +451,18 @@ function FullMatrixPlayground() {
                   <SheetHeader>
                     <SheetTitle>Bảng Trượt Sheet</SheetTitle>
                     <SheetDescription>
-                      Slide-over panel hiển thị đúng theme của ngữ cảnh khai báo.
+                      Slide-over panel hiển thị đúng theme của ngữ cảnh khai
+                      báo.
                     </SheetDescription>
                   </SheetHeader>
                 </SheetContent>
               </Sheet>
             </div>
 
-            {/* 11. HoverCard */}
             <div className="flex flex-col gap-2 p-3 rounded-lg border border-border/50 bg-background/50">
-              <span className="text-xs font-semibold text-muted-foreground">11. Hover Card</span>
+              <span className="text-xs font-semibold text-muted-foreground">
+                11. Hover Card
+              </span>
               <HoverCard>
                 <HoverCardTrigger
                   render={
@@ -442,18 +473,22 @@ function FullMatrixPlayground() {
                 />
                 <HoverCardContent className="w-72">
                   <div className="flex flex-col gap-1.5">
-                    <h4 className="text-sm font-semibold text-foreground">Gladvn UI</h4>
+                    <h4 className="text-sm font-semibold text-foreground">
+                      Gladvn UI
+                    </h4>
                     <p className="text-xs text-muted-foreground leading-relaxed">
-                      Zero-Portal Scoped Theme Tunneling tự động mang theme vào card.
+                      Zero-Portal Scoped Theme Tunneling tự động mang theme vào
+                      card.
                     </p>
                   </div>
                 </HoverCardContent>
               </HoverCard>
             </div>
 
-            {/* 12. NavigationMenu */}
             <div className="flex flex-col gap-2 p-3 rounded-lg border border-border/50 bg-background/50">
-              <span className="text-xs font-semibold text-muted-foreground">12. Navigation Menu</span>
+              <span className="text-xs font-semibold text-muted-foreground">
+                12. Navigation Menu
+              </span>
               <NavigationMenu className="w-full">
                 <NavigationMenuList className="w-full justify-center">
                   <NavigationMenuItem>
@@ -462,9 +497,12 @@ function FullMatrixPlayground() {
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
                       <div className="p-4 w-64 space-y-2">
-                        <h4 className="text-sm font-semibold text-foreground">Theme Tunneling</h4>
+                        <h4 className="text-sm font-semibold text-foreground">
+                          Theme Tunneling
+                        </h4>
                         <p className="text-xs text-muted-foreground leading-relaxed">
-                          Menu đa cấp tự động ăn theme từ NavigationMenuPositioner.
+                          Menu đa cấp tự động ăn theme từ
+                          NavigationMenuPositioner.
                         </p>
                       </div>
                     </NavigationMenuContent>
@@ -487,17 +525,13 @@ function useThemeProviderExamples() {
   return React.useMemo(
     () => [
       {
-        title: t(
-          "Sân Chơi Toàn Diện (12-Component Matrix)",
-          "Unified 12-Component Playground"
-        ),
+        title: t("Sân Chơi Toàn Diện", "Unified 12-Component Playground"),
         description: t(
           "Một Sandbox tổng hợp chứa đầy đủ cả 12 components overlay. Hãy bấm đổi theme của Sandbox để thấy toàn bộ 12 popup tự động tunnel theme tương ứng mà không cần ThemeWrapper.",
-          "An integrated Sandbox containing all 12 overlay components. Toggle the Sandbox theme to see all 12 popups automatically tunnel the corresponding theme without any manual ThemeWrapper."
+          "An integrated Sandbox containing all 12 overlay components. Toggle the Sandbox theme to see all 12 popups automatically tunnel the corresponding theme without any manual ThemeWrapper.",
         ),
         microCode: `<ThemeProvider mode={sandboxMode}>
   <div className="rounded-xl border bg-card p-6 text-card-foreground">
-    {/* Cả 12 components overlay khi mở ra đều tự động nhận theme của ThemeProvider */}
     <Select ... />
     <Combobox ... />
     <Tooltip ... />
@@ -515,12 +549,11 @@ function useThemeProviderExamples() {
         microPreview: <FullMatrixPlayground />,
       },
 
-      // 1. Select
       {
         title: t("1. Select trong Scoped Theme", "1. Select in Scoped Theme"),
         description: t(
           "SelectContent tự động mang theme của container khi mount ra Portal.",
-          "SelectContent automatically carries the container theme when portalled."
+          "SelectContent automatically carries the container theme when portalled.",
         ),
         microCode: `<ThemeProvider mode="dark">
   <div className="rounded-xl border bg-card p-6 text-card-foreground">
@@ -552,12 +585,14 @@ function useThemeProviderExamples() {
         ),
       },
 
-      // 2. Combobox
       {
-        title: t("2. Combobox trong Scoped Theme", "2. Combobox in Scoped Theme"),
+        title: t(
+          "2. Combobox trong Scoped Theme",
+          "2. Combobox in Scoped Theme",
+        ),
         description: t(
           "ComboboxContent giữ nguyên theme cho danh sách tìm kiếm và item indicator.",
-          "ComboboxContent preserves the theme for search list and item indicators."
+          "ComboboxContent preserves the theme for search list and item indicators.",
         ),
         microCode: `<ThemeProvider mode="dark">
   <div className="rounded-xl border bg-card p-6 text-card-foreground">
@@ -578,7 +613,10 @@ function useThemeProviderExamples() {
           <ScopedThemeBox title="Combobox Component Demo">
             <Combobox items={["Tokyo", "Hanoi", "Seoul", "Paris"]}>
               <div className="relative w-52">
-                <ComboboxInput placeholder="Tìm thành phố..." className="w-52" />
+                <ComboboxInput
+                  placeholder="Tìm thành phố..."
+                  className="w-52"
+                />
               </div>
               <ComboboxContent>
                 <ComboboxList>
@@ -593,12 +631,11 @@ function useThemeProviderExamples() {
         ),
       },
 
-      // 3. Tooltip
       {
         title: t("3. Tooltip trong Scoped Theme", "3. Tooltip in Scoped Theme"),
         description: t(
           "TooltipContent nổi trên document.body nhưng kế thừa màu nền và viền từ ThemeContext.",
-          "TooltipContent floats on document.body while inheriting background and border from ThemeContext."
+          "TooltipContent floats on document.body while inheriting background and border from ThemeContext.",
         ),
         microCode: `<ThemeProvider mode="dark">
   <div className="rounded-xl border bg-card p-6 text-card-foreground">
@@ -632,12 +669,11 @@ function useThemeProviderExamples() {
         ),
       },
 
-      // 4. Popover
       {
         title: t("4. Popover trong Scoped Theme", "4. Popover in Scoped Theme"),
         description: t(
           "PopoverContent mở ra đúng màu sắc của container cha.",
-          "PopoverContent opens with the exact colors of its parent container."
+          "PopoverContent opens with the exact colors of its parent container.",
         ),
         microCode: `<ThemeProvider mode="dark">
   <div className="rounded-xl border bg-card p-6 text-card-foreground">
@@ -677,12 +713,14 @@ function useThemeProviderExamples() {
         ),
       },
 
-      // 5. DropdownMenu
       {
-        title: t("5. Dropdown Menu trong Scoped Theme", "5. Dropdown Menu in Scoped Theme"),
+        title: t(
+          "5. Dropdown Menu trong Scoped Theme",
+          "5. Dropdown Menu in Scoped Theme",
+        ),
         description: t(
           "DropdownMenuContent hiển thị menu lệnh với đầy đủ separator và item states đúng theme.",
-          "DropdownMenuContent displays action menus with correct theme styling across all items."
+          "DropdownMenuContent displays action menus with correct theme styling across all items.",
         ),
         microCode: `<ThemeProvider mode="dark">
   <div className="rounded-xl border bg-card p-6 text-card-foreground">
@@ -716,19 +754,23 @@ function useThemeProviderExamples() {
                   <DropdownMenuItem>Cài đặt</DropdownMenuItem>
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem className="text-destructive">Đăng xuất</DropdownMenuItem>
+                <DropdownMenuItem className="text-destructive">
+                  Đăng xuất
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </ScopedThemeBox>
         ),
       },
 
-      // 6. ContextMenu
       {
-        title: t("6. Context Menu trong Scoped Theme", "6. Context Menu in Scoped Theme"),
+        title: t(
+          "6. Context Menu trong Scoped Theme",
+          "6. Context Menu in Scoped Theme",
+        ),
         description: t(
           "ContextMenuContent kích hoạt tại vị trí con trỏ chuột với theme được bảo toàn.",
-          "ContextMenuContent triggered at mouse position with preserved scoped theme."
+          "ContextMenuContent triggered at mouse position with preserved scoped theme.",
         ),
         microCode: `<ThemeProvider mode="dark">
   <div className="rounded-xl border bg-card p-6 text-card-foreground">
@@ -762,12 +804,11 @@ function useThemeProviderExamples() {
         ),
       },
 
-      // 7. Dialog
       {
         title: t("7. Dialog trong Scoped Theme", "7. Dialog in Scoped Theme"),
         description: t(
           "DialogContent ở giữa màn hình nhưng nhận đúng nền và chữ từ vùng Scoped.",
-          "DialogContent centered in viewport while inheriting background and text from scoped container."
+          "DialogContent centered in viewport while inheriting background and text from scoped container.",
         ),
         microCode: `<ThemeProvider mode="dark">
   <div className="rounded-xl border bg-card p-6 text-card-foreground">
@@ -801,11 +842,14 @@ function useThemeProviderExamples() {
                 <DialogHeader>
                   <DialogTitle>Modal Dialog Theme</DialogTitle>
                   <DialogDescription>
-                    Hộp thoại modal tự động bảo toàn theme của container khai báo.
+                    Hộp thoại modal tự động bảo toàn theme của container khai
+                    báo.
                   </DialogDescription>
                 </DialogHeader>
                 <DialogFooter>
-                  <DialogClose render={<Button variant="outline">Đóng</Button>} />
+                  <DialogClose
+                    render={<Button variant="outline">Đóng</Button>}
+                  />
                 </DialogFooter>
               </DialogContent>
             </Dialog>
@@ -813,12 +857,11 @@ function useThemeProviderExamples() {
         ),
       },
 
-      // 8. Confirm
       {
-        title: t("8. Confirm (Alert Dialog) trong Scoped Theme", "8. Confirm in Scoped Theme"),
+        title: t("8. Confirm trong Scoped Theme", "8. Confirm in Scoped Theme"),
         description: t(
           "ConfirmContent hộp thoại cảnh báo nguy hiểm thừa hưởng theme chuẩn mực.",
-          "ConfirmContent critical action dialog inherits theme seamlessly."
+          "ConfirmContent critical action dialog inherits theme seamlessly.",
         ),
         microCode: `<ThemeProvider mode="dark">
   <div className="rounded-xl border bg-card p-6 text-card-foreground">
@@ -842,7 +885,11 @@ function useThemeProviderExamples() {
             <Confirm>
               <ConfirmTrigger
                 render={
-                  <Button variant="outline" color="destructive" size={globalSize}>
+                  <Button
+                    variant="outline"
+                    color="destructive"
+                    size={globalSize}
+                  >
                     Xóa dự án
                   </Button>
                 }
@@ -864,12 +911,11 @@ function useThemeProviderExamples() {
         ),
       },
 
-      // 9. Drawer
       {
         title: t("9. Drawer trong Scoped Theme", "9. Drawer in Scoped Theme"),
         description: t(
           "DrawerContent trượt từ cạnh dưới màn hình với theme chuẩn xác.",
-          "DrawerContent slides from viewport bottom with exact scoped styling."
+          "DrawerContent slides from viewport bottom with exact scoped styling.",
         ),
         microCode: `<ThemeProvider mode="dark">
   <div className="rounded-xl border bg-card p-6 text-card-foreground">
@@ -911,7 +957,9 @@ function useThemeProviderExamples() {
                   </DrawerHeader>
                   <DrawerFooter>
                     <DrawerClose asChild>
-                      <Button variant="outline" className="w-full">Xong</Button>
+                      <Button variant="outline" className="w-full">
+                        Xong
+                      </Button>
                     </DrawerClose>
                   </DrawerFooter>
                 </div>
@@ -921,12 +969,11 @@ function useThemeProviderExamples() {
         ),
       },
 
-      // 10. Sheet
       {
         title: t("10. Sheet trong Scoped Theme", "10. Sheet in Scoped Theme"),
         description: t(
-          "SheetContent trượt từ cạnh bên (side-over) mang đầy đủ bảng màu Scoped.",
-          "SheetContent slides from screen edge with full scoped palette."
+          "SheetContent trượt từ cạnh bên mang đầy đủ bảng màu Scoped.",
+          "SheetContent slides from screen edge with full scoped palette.",
         ),
         microCode: `<ThemeProvider mode="dark">
   <div className="rounded-xl border bg-card p-6 text-card-foreground">
@@ -955,7 +1002,8 @@ function useThemeProviderExamples() {
                 <SheetHeader>
                   <SheetTitle>Bảng trượt Sheet</SheetTitle>
                   <SheetDescription>
-                    Nội dung panel trượt từ cạnh phải và giữ nguyên theme của Sandbox.
+                    Nội dung panel trượt từ cạnh phải và giữ nguyên theme của
+                    Sandbox.
                   </SheetDescription>
                 </SheetHeader>
               </SheetContent>
@@ -964,12 +1012,14 @@ function useThemeProviderExamples() {
         ),
       },
 
-      // 11. HoverCard
       {
-        title: t("11. HoverCard trong Scoped Theme", "11. HoverCard in Scoped Theme"),
+        title: t(
+          "11. HoverCard trong Scoped Theme",
+          "11. HoverCard in Scoped Theme",
+        ),
         description: t(
           "HoverCardContent hiển thị xem trước thông tin với theme tương ứng.",
-          "HoverCardContent previews information with corresponding theme styling."
+          "HoverCardContent previews information with corresponding theme styling.",
         ),
         microCode: `<ThemeProvider mode="dark">
   <div className="rounded-xl border bg-card p-6 text-card-foreground">
@@ -987,16 +1037,23 @@ function useThemeProviderExamples() {
             <HoverCard>
               <HoverCardTrigger
                 render={
-                  <Button variant="link" size={globalSize} className="font-semibold underline">
+                  <Button
+                    variant="link"
+                    size={globalSize}
+                    className="font-semibold underline"
+                  >
                     Rê chuột vào @gladvn
                   </Button>
                 }
               />
               <HoverCardContent className="w-72">
                 <div className="flex flex-col gap-1.5">
-                  <h4 className="text-sm font-semibold text-foreground">Gladvn UI</h4>
+                  <h4 className="text-sm font-semibold text-foreground">
+                    Gladvn UI
+                  </h4>
                   <p className="text-xs text-muted-foreground leading-relaxed">
-                    Zero-Portal Scoped Theme Tunneling tự động truyền theme vào popup.
+                    Zero-Portal Scoped Theme Tunneling tự động truyền theme vào
+                    popup.
                   </p>
                 </div>
               </HoverCardContent>
@@ -1005,12 +1062,14 @@ function useThemeProviderExamples() {
         ),
       },
 
-      // 12. NavigationMenu
       {
-        title: t("12. Navigation Menu trong Scoped Theme", "12. Navigation Menu in Scoped Theme"),
+        title: t(
+          "12. Navigation Menu trong Scoped Theme",
+          "12. Navigation Menu in Scoped Theme",
+        ),
         description: t(
           "NavigationMenuContent và Positioner điều phối menu dropdown đúng theme.",
-          "NavigationMenuContent and Positioner manage dropdown submenus with proper theme."
+          "NavigationMenuContent and Positioner manage dropdown submenus with proper theme.",
         ),
         microCode: `<ThemeProvider mode="dark">
   <div className="rounded-xl border bg-card p-6 text-card-foreground">
@@ -1035,14 +1094,15 @@ function useThemeProviderExamples() {
             <NavigationMenu className="w-full">
               <NavigationMenuList className="w-full justify-center">
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger>
-                    Khám phá Menu
-                  </NavigationMenuTrigger>
+                  <NavigationMenuTrigger>Khám phá Menu</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <div className="p-4 w-64 space-y-2">
-                      <h4 className="text-sm font-semibold text-foreground">Theme Tunneling</h4>
+                      <h4 className="text-sm font-semibold text-foreground">
+                        Theme Tunneling
+                      </h4>
                       <p className="text-xs text-muted-foreground leading-relaxed">
-                        Menu đa cấp tự động ăn theme từ NavigationMenuPositioner.
+                        Menu đa cấp tự động ăn theme từ
+                        NavigationMenuPositioner.
                       </p>
                     </div>
                   </NavigationMenuContent>
@@ -1054,7 +1114,7 @@ function useThemeProviderExamples() {
         ),
       },
     ],
-    [t, globalSize]
+    [t, globalSize],
   );
 }
 
@@ -1064,29 +1124,43 @@ export default function ThemeProviderShowcase() {
 
   return (
     <ConfigurableShowcase
-      title={t("Theme Provider & Scoped Tunnel", "Theme Provider & Scoped Tunnel")}
+      title={t(
+        "Theme Provider & Scoped Tunnel",
+        "Theme Provider & Scoped Tunnel",
+      )}
       description={t(
-        "Bộ quản lý chủ đề và cơ chế Scoped Theme Tunnel (Zero-Portal API) bảo toàn 100% theme cho các phần tử overlay khi mount ra document.body.",
-        "Theme management and Scoped Theme Tunnel (Zero-Portal API) preserving 100% theme context for all overlay elements when portalled to document.body."
+        "Bộ quản lý chủ đề và cơ chế Scoped Theme Tunnel bảo toàn 100% theme cho các phần tử overlay khi mount ra document.body.",
+        "Theme management and Scoped Theme Tunnel (Zero-Portal API) preserving 100% theme context for all overlay elements when portalled to document.body.",
       )}
       guideline={
         <ShowcaseDocs>
-          <DocsH3>{t("Cơ chế Zero-Portal Scoped Theme Tunnel", "Zero-Portal Scoped Theme Tunnel Mechanism")}</DocsH3>
+          <DocsH3>
+            {t(
+              "Cơ chế Zero-Portal Scoped Theme Tunnel",
+              "Zero-Portal Scoped Theme Tunnel Mechanism",
+            )}
+          </DocsH3>
           <DocsP>
             {t(
               "Trong hầu hết các thư viện UI (như shadcn/ui hay Radix Primitives), khi một phần tử overlay (Tooltip, Dialog, Select...) mở ra, React Portal sẽ dời DOM node ra document.body và làm mất ngữ cảnh class CSS (.dark hoặc .light) của container cha. Trong Gladvn, ThemeWrapper với kỹ thuật display: contents đã được nhúng ngầm sẵn vào tất cả 12 micro *Content component. Bạn chỉ cần dùng component như bình thường mà không cần bọc thêm bất kỳ wrapper nào.",
-              "In most UI libraries (like shadcn/ui or Radix Primitives), when an overlay element (Tooltip, Dialog, Select...) opens, React Portal moves the DOM node to document.body and loses the CSS class (.dark or .light) context of the parent container. In Gladvn, ThemeWrapper with display: contents is pre-integrated into all 12 micro *Content components. You can use components normally without manual wrappers."
+              "In most UI libraries (like shadcn/ui or Radix Primitives), when an overlay element (Tooltip, Dialog, Select...) opens, React Portal moves the DOM node to document.body and loses the CSS class (.dark or .light) context of the parent container. In Gladvn, ThemeWrapper with display: contents is pre-integrated into all 12 micro *Content components. You can use components normally without manual wrappers.",
             )}
           </DocsP>
           <div className="mt-3">
             <DocsP>
               <span className="font-semibold text-foreground">
-                {t("12 Micro Components được bảo hộ ngầm:", "12 Protected Micro Components:")}
+                {t(
+                  "12 Micro Components được bảo hộ ngầm:",
+                  "12 Protected Micro Components:",
+                )}
               </span>{" "}
-              <DocsCode>Select</DocsCode>, <DocsCode>Combobox</DocsCode>, <DocsCode>Tooltip</DocsCode>,{" "}
-              <DocsCode>Popover</DocsCode>, <DocsCode>DropdownMenu</DocsCode>, <DocsCode>ContextMenu</DocsCode>,{" "}
-              <DocsCode>Dialog</DocsCode>, <DocsCode>Confirm</DocsCode>, <DocsCode>Drawer</DocsCode>,{" "}
-              <DocsCode>Sheet</DocsCode>, <DocsCode>HoverCard</DocsCode>, <DocsCode>NavigationMenu</DocsCode>.
+              <DocsCode>Select</DocsCode>, <DocsCode>Combobox</DocsCode>,{" "}
+              <DocsCode>Tooltip</DocsCode>, <DocsCode>Popover</DocsCode>,{" "}
+              <DocsCode>DropdownMenu</DocsCode>,{" "}
+              <DocsCode>ContextMenu</DocsCode>, <DocsCode>Dialog</DocsCode>,{" "}
+              <DocsCode>Confirm</DocsCode>, <DocsCode>Drawer</DocsCode>,{" "}
+              <DocsCode>Sheet</DocsCode>, <DocsCode>HoverCard</DocsCode>,{" "}
+              <DocsCode>NavigationMenu</DocsCode>.
             </DocsP>
           </div>
         </ShowcaseDocs>

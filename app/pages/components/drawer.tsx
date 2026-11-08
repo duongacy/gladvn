@@ -1,4 +1,12 @@
 import React from "react";
+
+import { useDevContext, useI18n } from "~app/components/dev-context";
+import {
+  ConfigurableShowcase,
+  DocsP,
+  ShowcaseDocs,
+} from "~app/components/showcase";
+
 import { Button } from "@/components/micro/button";
 import {
   Drawer,
@@ -10,12 +18,6 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/micro/drawer";
-import { useDevContext, useI18n } from "~app/components/dev-context";
-import {
-  ConfigurableShowcase,
-  ShowcaseDocs,
-  DocsP,
-} from "~app/components/showcase";
 
 function useDrawerExamples() {
   const t = useI18n();
@@ -27,7 +29,7 @@ function useDrawerExamples() {
         title: t("Ngăn kéo Dưới", "Bottom Drawer"),
         description: t(
           "Drawer mặc định trượt từ dưới lên.",
-          "Default drawer that slides up from the bottom."
+          "Default drawer that slides up from the bottom.",
         ),
         microCode: `<Drawer>
   <DrawerTrigger asChild>
@@ -41,12 +43,12 @@ function useDrawerExamples() {
       </DrawerHeader>
       <div className="p-4 pb-0">
         <div className="flex items-center justify-center space-x-2">
-          <Button variant="outline" size="sm" className="h-8 w-8 rounded-full" onClick={() => {}}>-</Button>
+          <Button variant="outline" size="sm" className="h-8 w-8 rounded-full">-</Button>
           <div className="flex-1 text-center">
             <div className="text-7xl font-bold tracking-tighter">350</div>
-            <div className="text-[0.70rem] uppercase text-muted-foreground">Calories/day</div>
+            <div className="text-xs uppercase text-muted-foreground">Calories/day</div>
           </div>
-          <Button variant="outline" size="sm" className="h-8 w-8 rounded-full" onClick={() => {}}>+</Button>
+          <Button variant="outline" size="sm" className="h-8 w-8 rounded-full">+</Button>
         </div>
       </div>
       <DrawerFooter>
@@ -79,7 +81,6 @@ function useDrawerExamples() {
                       variant="outline"
                       size={globalSize === "sm" ? "sm" : "md"}
                       className="h-8 w-8 rounded-full"
-                      onClick={() => {}}
                     >
                       -
                     </Button>
@@ -87,7 +88,7 @@ function useDrawerExamples() {
                       <div className="text-7xl font-bold tracking-tighter">
                         350
                       </div>
-                      <div className="text-[0.70rem] uppercase text-muted-foreground">
+                      <div className="text-xs uppercase text-muted-foreground">
                         Calories/day
                       </div>
                     </div>
@@ -95,7 +96,6 @@ function useDrawerExamples() {
                       variant="outline"
                       size={globalSize === "sm" ? "sm" : "md"}
                       className="h-8 w-8 rounded-full"
-                      onClick={() => {}}
                     >
                       +
                     </Button>
@@ -118,7 +118,7 @@ function useDrawerExamples() {
         title: t("Tin nhắn đơn giản", "Simple Message"),
         description: t(
           "Drawer với nội dung văn bản đơn giản.",
-          "Drawer with simple text content."
+          "Drawer with simple text content.",
         ),
         microCode: `<Drawer>
   <DrawerTrigger asChild>
@@ -173,7 +173,7 @@ function useDrawerExamples() {
         title: t("Ngăn kéo Trái / Phải", "Left / Right Drawers"),
         description: t(
           "Drawer mở từ cạnh trái hoặc phải — phù hợp cho Sidebar và Filter panel.",
-          "Drawers opening from the left or right — suitable for Sidebar and Filter panels."
+          "Drawers opening from the left or right — suitable for Sidebar and Filter panels.",
         ),
         microCode: `<div className="flex gap-4">
   <Drawer direction="left">
@@ -290,7 +290,7 @@ function useDrawerExamples() {
         title: t("Ngăn kéo Trên", "Top Drawer"),
         description: t(
           "Drawer mở từ phía trên — phù hợp cho notifications, alerts, hoặc search.",
-          "Drawer opening from the top — suitable for notifications, alerts, or search."
+          "Drawer opening from the top — suitable for notifications, alerts, or search.",
         ),
         microCode: `<Drawer direction="top">
   <DrawerTrigger asChild>
@@ -348,7 +348,7 @@ function useDrawerExamples() {
         ),
       },
     ],
-    [globalSize, t]
+    [globalSize, t],
   );
 }
 
@@ -361,14 +361,14 @@ export default function DrawerShowcase() {
       title="Drawer"
       description={t(
         "Panel trượt ra từ cạnh màn hình — thường dùng cho bottom sheet, sidebar trên mobile.",
-        "Panel sliding out from the edge of the screen — commonly used for bottom sheets, sidebars on mobile."
+        "Panel sliding out from the edge of the screen — commonly used for bottom sheets, sidebars on mobile.",
       )}
       guideline={
         <ShowcaseDocs>
           <DocsP>
             {t(
               "Sử dụng Drawer (Ngăn kéo) để hiển thị thông tin hoặc tuỳ chọn bổ sung mà không làm mất bối cảnh hiện tại của người dùng. Tương tự như Dialog nhưng chủ yếu xuất hiện từ các cạnh màn hình (thường là từ dưới lên trên thiết bị di động).",
-              "Use the Drawer to display additional information or options without losing the user's current context. Similar to a Dialog but primarily appears from the edges of the screen (typically from the bottom up on mobile devices)."
+              "Use the Drawer to display additional information or options without losing the user's current context. Similar to a Dialog but primarily appears from the edges of the screen (typically from the bottom up on mobile devices).",
             )}
           </DocsP>
         </ShowcaseDocs>

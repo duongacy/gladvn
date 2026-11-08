@@ -1,5 +1,12 @@
 import React from "react";
+
 import { User } from "lucide-react";
+import { useDevContext, useI18n } from "~app/components/dev-context";
+import {
+  ConfigurableShowcase,
+  DocsP,
+  ShowcaseDocs,
+} from "~app/components/showcase";
 
 import { AvatarPreset } from "@/components/macro/avatar-preset";
 import {
@@ -10,12 +17,6 @@ import {
   AvatarGroupCount,
   AvatarImage,
 } from "@/components/micro/avatar";
-import { useDevContext, useI18n } from "~app/components/dev-context";
-import {
-  ConfigurableShowcase,
-  ShowcaseDocs,
-  DocsP,
-} from "~app/components/showcase";
 
 function useAvatarExamples() {
   const t = useI18n();
@@ -27,7 +28,7 @@ function useAvatarExamples() {
         title: t("Tiêu chuẩn", "Standard"),
         description: t(
           "Tự động fallback về chữ viết tắt dựa trên tên truyền vào alt, hoặc hiển thị icon mặc định.",
-          "Automatically falls back to initials based on the alt name, or displays a default icon."
+          "Automatically falls back to initials based on the alt name, or displays a default icon.",
         ),
         macroCode: `<div className="flex items-center gap-4">
   <AvatarPreset
@@ -68,10 +69,7 @@ function useAvatarExamples() {
         microPreview: (
           <div className="flex items-center gap-4">
             <Avatar size={globalSize}>
-              <AvatarImage
-                src="https://github.com/shadcn.png"
-                alt="@shadcn"
-              />
+              <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
             <Avatar size={globalSize}>
@@ -88,8 +86,8 @@ function useAvatarExamples() {
       {
         title: t("Trạng thái", "Status"),
         description: t(
-          "Hiển thị huy hiệu (badge) báo trạng thái hoạt động.",
-          "Displays a badge indicating activity status."
+          "Hiển thị chấm báo trạng thái hoạt động.",
+          "Displays a badge indicating activity status.",
         ),
         macroCode: `<div className="flex items-center gap-4">
   <AvatarPreset
@@ -158,7 +156,9 @@ function useAvatarExamples() {
                 <AvatarFallback>VC</AvatarFallback>
                 <AvatarBadge className="absolute z-10 right-0 top-0 bg-red-500" />
               </Avatar>
-              <span className="text-xs text-muted-foreground">Notification</span>
+              <span className="text-xs text-muted-foreground">
+                Notification
+              </span>
             </div>
           </div>
         ),
@@ -167,7 +167,7 @@ function useAvatarExamples() {
         title: t("Nhóm Avatar", "Avatar Group"),
         description: t(
           "Kết hợp các avatar xếp chồng lên nhau và bộ đếm.",
-          "Combine stacked avatars and a count."
+          "Combine stacked avatars and a count.",
         ),
         macroCode: `<AvatarGroup>
   <AvatarPreset
@@ -219,24 +219,15 @@ function useAvatarExamples() {
         microPreview: (
           <AvatarGroup>
             <Avatar size={globalSize}>
-              <AvatarImage
-                src="https://github.com/shadcn.png"
-                alt="@shadcn"
-              />
+              <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
             <Avatar size={globalSize}>
-              <AvatarImage
-                src="https://github.com/vercel.png"
-                alt="@vercel"
-              />
+              <AvatarImage src="https://github.com/vercel.png" alt="@vercel" />
               <AvatarFallback>VC</AvatarFallback>
             </Avatar>
             <Avatar size={globalSize}>
-              <AvatarImage
-                src="https://github.com/leerob.png"
-                alt="@leerob"
-              />
+              <AvatarImage src="https://github.com/leerob.png" alt="@leerob" />
               <AvatarFallback>LR</AvatarFallback>
             </Avatar>
             <AvatarGroupCount size={globalSize}>+12</AvatarGroupCount>
@@ -244,7 +235,7 @@ function useAvatarExamples() {
         ),
       },
     ],
-    [globalSize, t]
+    [globalSize, t],
   );
 }
 
@@ -257,14 +248,14 @@ export default function AvatarShowcase() {
       title={t("Ảnh đại diện", "Avatar")}
       description={t(
         "Hiển thị hình ảnh đại diện của người dùng hoặc các thực thể khác.",
-        "Displays the profile image of a user or other entities."
+        "Displays the profile image of a user or other entities.",
       )}
       guideline={
         <ShowcaseDocs>
           <DocsP>
             {t(
               "Dùng để hiển thị hình ảnh đại diện cho người dùng, nhóm hoặc tổ chức. Hỗ trợ tự động hiển thị chữ cái viết tắt hoặc icon mặc định khi không tải được ảnh.",
-              "Used to display a profile image for a user, group, or organization. Supports automatically displaying initials or a default icon when the image fails to load."
+              "Used to display a profile image for a user, group, or organization. Supports automatically displaying initials or a default icon when the image fails to load.",
             )}
           </DocsP>
         </ShowcaseDocs>

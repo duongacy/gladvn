@@ -1,4 +1,12 @@
 import React, { useState } from "react";
+
+import { useI18n } from "~app/components/dev-context";
+import {
+  ConfigurableShowcase,
+  DocsP,
+  ShowcaseDocs,
+} from "~app/components/showcase";
+
 import {
   ContextMenu,
   ContextMenuCheckboxItem,
@@ -15,12 +23,6 @@ import {
   ContextMenuSubTrigger,
   ContextMenuTrigger,
 } from "@/components/micro/context-menu";
-import { useDevContext, useI18n } from "~app/components/dev-context";
-import {
-  ConfigurableShowcase,
-  ShowcaseDocs,
-  DocsP,
-} from "~app/components/showcase";
 
 function FullMenuPreview() {
   const [showBookmarks, setShowBookmarks] = useState(true);
@@ -29,7 +31,7 @@ function FullMenuPreview() {
 
   return (
     <ContextMenu>
-      <ContextMenuTrigger className="flex h-[150px] w-full max-w-100 items-center justify-center rounded-md border border-border border-dashed text-sm">
+      <ContextMenuTrigger className="flex h-38 w-full max-w-100 items-center justify-center rounded-md border border-border border-dashed text-sm">
         Right click here
       </ContextMenuTrigger>
       <ContextMenuContent className="w-64">
@@ -77,7 +79,9 @@ function FullMenuPreview() {
           <ContextMenuLabel inset>People</ContextMenuLabel>
           <ContextMenuSeparator />
           <ContextMenuRadioGroup value={person} onValueChange={setPerson}>
-            <ContextMenuRadioItem value="pedro">Pedro Duarte</ContextMenuRadioItem>
+            <ContextMenuRadioItem value="pedro">
+              Pedro Duarte
+            </ContextMenuRadioItem>
             <ContextMenuRadioItem value="colm">Colm Tuite</ContextMenuRadioItem>
           </ContextMenuRadioGroup>
         </ContextMenuGroup>
@@ -95,10 +99,10 @@ function useContextMenuExamples() {
         title: t("Menu đầy đủ", "Full Context Menu"),
         description: t(
           "Nhấp chuột phải vào khu vực bên dưới để mở.",
-          "Right-click the area below to open."
+          "Right-click the area below to open.",
         ),
         microCode: `<ContextMenu>
-  <ContextMenuTrigger className="flex h-[150px] w-full max-w-100 items-center justify-center rounded-md border border-border border-dashed text-sm">
+  <ContextMenuTrigger className="flex h-38 w-full max-w-100 items-center justify-center rounded-md border border-border border-dashed text-sm">
     Right click here
   </ContextMenuTrigger>
   <ContextMenuContent className="w-64">
@@ -158,7 +162,7 @@ function useContextMenuExamples() {
         title: t("Biến thể Nguy hiểm", "Destructive Variant"),
         description: t(
           "Context menu với các action nguy hiểm hiển thị màu destructive.",
-          "Context menu with dangerous actions highlighted in destructive color."
+          "Context menu with dangerous actions highlighted in destructive color.",
         ),
         microCode: `<ContextMenu>
   <ContextMenuTrigger className="flex h-25 w-full max-w-75 items-center justify-center rounded-md border border-border border-dashed text-sm">
@@ -198,7 +202,7 @@ function useContextMenuExamples() {
         ),
       },
     ],
-    [t]
+    [t],
   );
 }
 
@@ -211,14 +215,14 @@ export default function ContextMenuShowcase() {
       title="Context Menu"
       description={t(
         "Menu ngữ cảnh hiển thị khi click chuột phải — dùng cho các hành động nhanh.",
-        "Context menu appearing on right-click — used for quick actions."
+        "Context menu appearing on right-click — used for quick actions.",
       )}
       guideline={
         <ShowcaseDocs>
           <DocsP>
             {t(
               "Dùng để hiển thị danh sách các tuỳ chọn hoặc hành động liên quan tới phần tử mà người dùng vừa nhấp chuột phải vào.",
-              "Used to display a list of options or actions related to the element the user just right-clicked."
+              "Used to display a list of options or actions related to the element the user just right-clicked.",
             )}
           </DocsP>
         </ShowcaseDocs>

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
+
 import {
   LogOutIcon,
   MailWarningIcon,
@@ -6,8 +7,15 @@ import {
   TrashIcon,
   XIcon,
 } from "lucide-react";
+import { useDevContext, useI18n } from "~app/components/dev-context";
+import {
+  ConfigurableShowcase,
+  DocsP,
+  ShowcaseDocs,
+} from "~app/components/showcase";
 
 import { ConfirmPreset } from "@/components/macro/confirm-preset";
+import { Button } from "@/components/micro/button";
 import {
   Confirm,
   ConfirmContent,
@@ -17,21 +25,26 @@ import {
   ConfirmMedia,
   ConfirmTitle,
 } from "@/components/micro/confirm";
-import { Button } from "@/components/micro/button";
-import { useDevContext, useI18n } from "~app/components/dev-context";
-import {
-  ConfigurableShowcase,
-  ShowcaseDocs,
-  DocsP,
-} from "~app/components/showcase";
 import { type Size } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 function DestructiveMacroPreview({ globalSize }: { globalSize: Size }) {
   const [open, setOpen] = useState(false);
+  const handleOpen = useCallback(() => setOpen(true), []);
+  const handleClose = useCallback(() => setOpen(false), []);
+  const handleYes = useCallback(() => {
+    console.log("Deleted!");
+    setOpen(false);
+  }, []);
+
   return (
     <>
-      <Button variant="outline" color="destructive" size={globalSize} onClick={() => setOpen(true)}>
+      <Button
+        variant="outline"
+        color="destructive"
+        size={globalSize}
+        onClick={handleOpen}
+      >
         Delete Account
       </Button>
       <ConfirmPreset
@@ -42,11 +55,8 @@ function DestructiveMacroPreview({ globalSize }: { globalSize: Size }) {
         noLabel="Cancel"
         yesLabel="Delete"
         yesColor="destructive"
-        onNo={() => setOpen(false)}
-        onYes={() => {
-          console.log("Deleted!");
-          setOpen(false);
-        }}
+        onNo={handleClose}
+        onYes={handleYes}
       />
     </>
   );
@@ -54,9 +64,16 @@ function DestructiveMacroPreview({ globalSize }: { globalSize: Size }) {
 
 function StandardMacroPreview({ globalSize }: { globalSize: Size }) {
   const [open, setOpen] = useState(false);
+  const handleOpen = useCallback(() => setOpen(true), []);
+  const handleClose = useCallback(() => setOpen(false), []);
+  const handleYes = useCallback(() => {
+    console.log("Logged out!");
+    setOpen(false);
+  }, []);
+
   return (
     <>
-      <Button variant="outline" size={globalSize} onClick={() => setOpen(true)}>
+      <Button variant="outline" size={globalSize} onClick={handleOpen}>
         Log Out
       </Button>
       <ConfirmPreset
@@ -66,11 +83,8 @@ function StandardMacroPreview({ globalSize }: { globalSize: Size }) {
         description="You will need to re-enter your credentials to access your account."
         noLabel="Stay"
         yesLabel="Log Out"
-        onNo={() => setOpen(false)}
-        onYes={() => {
-          console.log("Logged out!");
-          setOpen(false);
-        }}
+        onNo={handleClose}
+        onYes={handleYes}
       />
     </>
   );
@@ -78,9 +92,21 @@ function StandardMacroPreview({ globalSize }: { globalSize: Size }) {
 
 function IconMacroPreview({ globalSize }: { globalSize: Size }) {
   const [open, setOpen] = useState(false);
+  const handleOpen = useCallback(() => setOpen(true), []);
+  const handleClose = useCallback(() => setOpen(false), []);
+  const handleYes = useCallback(() => {
+    console.log("Revoked!");
+    setOpen(false);
+  }, []);
+
   return (
     <>
-      <Button variant="outline" color="warning" size={globalSize} onClick={() => setOpen(true)}>
+      <Button
+        variant="outline"
+        color="warning"
+        size={globalSize}
+        onClick={handleOpen}
+      >
         Revoke Access
       </Button>
       <ConfirmPreset
@@ -96,11 +122,8 @@ function IconMacroPreview({ globalSize }: { globalSize: Size }) {
         noLabel="Keep"
         yesLabel="Revoke"
         yesColor="warning"
-        onNo={() => setOpen(false)}
-        onYes={() => {
-          console.log("Revoked!");
-          setOpen(false);
-        }}
+        onNo={handleClose}
+        onYes={handleYes}
       />
     </>
   );
@@ -108,9 +131,16 @@ function IconMacroPreview({ globalSize }: { globalSize: Size }) {
 
 function CustomVariantsMacroPreview({ globalSize }: { globalSize: Size }) {
   const [open, setOpen] = useState(false);
+  const handleOpen = useCallback(() => setOpen(true), []);
+  const handleClose = useCallback(() => setOpen(false), []);
+  const handleYes = useCallback(() => {
+    console.log("Feedback sent!");
+    setOpen(false);
+  }, []);
+
   return (
     <>
-      <Button variant="outline" size={globalSize} onClick={() => setOpen(true)}>
+      <Button variant="outline" size={globalSize} onClick={handleOpen}>
         Custom Variants
       </Button>
       <ConfirmPreset
@@ -128,11 +158,8 @@ function CustomVariantsMacroPreview({ globalSize }: { globalSize: Size }) {
         yesLabel="Send"
         yesColor="info"
         yesVariant="soft"
-        onNo={() => setOpen(false)}
-        onYes={() => {
-          console.log("Feedback sent!");
-          setOpen(false);
-        }}
+        onNo={handleClose}
+        onYes={handleYes}
       />
     </>
   );
@@ -140,9 +167,21 @@ function CustomVariantsMacroPreview({ globalSize }: { globalSize: Size }) {
 
 function ChildrenMacroPreview({ globalSize }: { globalSize: Size }) {
   const [open, setOpen] = useState(false);
+  const handleOpen = useCallback(() => setOpen(true), []);
+  const handleClose = useCallback(() => setOpen(false), []);
+  const handleYes = useCallback(() => {
+    console.log("Report sent!");
+    setOpen(false);
+  }, []);
+
   return (
     <>
-      <Button variant="outline" color="warning" size={globalSize} onClick={() => setOpen(true)}>
+      <Button
+        variant="outline"
+        color="warning"
+        size={globalSize}
+        onClick={handleOpen}
+      >
         Report Bug
       </Button>
       <ConfirmPreset
@@ -153,11 +192,8 @@ function ChildrenMacroPreview({ globalSize }: { globalSize: Size }) {
         noLabel="Cancel"
         yesLabel="Send Report"
         yesColor="warning"
-        onNo={() => setOpen(false)}
-        onYes={() => {
-          console.log("Report sent!");
-          setOpen(false);
-        }}
+        onNo={handleClose}
+        onYes={handleYes}
       >
         <div className="mt-2 rounded-md border border-border bg-muted/50 p-3 font-mono text-xs text-muted-foreground">
           <p>Error Code: ERR_NETWORK_TIMEOUT</p>
@@ -171,24 +207,34 @@ function ChildrenMacroPreview({ globalSize }: { globalSize: Size }) {
 
 function BasicMicroPreview({ globalSize }: { globalSize: Size }) {
   const [open, setOpen] = useState(false);
+  const handleOpen = useCallback(() => setOpen(true), []);
+  const handleClose = useCallback(() => setOpen(false), []);
+
   return (
     <>
-      <Button variant="outline" size={globalSize} onClick={() => setOpen(true)}>
+      <Button variant="outline" size={globalSize} onClick={handleOpen}>
         Open Blank Dialog
       </Button>
       <Confirm open={open} onOpenChange={setOpen}>
-        <ConfirmContent className={cn("w-full max-w-[calc(100%-2rem)]", {"sm:max-w-sm": globalSize === "sm", "sm:max-w-md": globalSize === "md", "sm:max-w-lg": globalSize === "lg"})}>
+        <ConfirmContent
+          className={cn("w-full", {
+            "sm:max-w-sm": globalSize === "sm",
+            "sm:max-w-md": globalSize === "md",
+            "sm:max-w-lg": globalSize === "lg",
+          })}
+        >
           <ConfirmHeader>
             <ConfirmTitle>Primitive Structure</ConfirmTitle>
             <ConfirmDescription>
-              Không có bất kỳ layout "thần thánh" nào ép buộc ở đây. Các thành phần chỉ xếp dọc (flex-col) mặc định.
+              Không có bất kỳ layout "thần thánh" nào ép buộc ở đây. Các thành
+              phần chỉ xếp dọc (flex-col) mặc định.
             </ConfirmDescription>
           </ConfirmHeader>
           <ConfirmFooter>
-            <Button variant="outline" size={globalSize} onClick={() => setOpen(false)}>
+            <Button variant="outline" size={globalSize} onClick={handleClose}>
               Cancel
             </Button>
-            <Button size={globalSize} onClick={() => setOpen(false)}>
+            <Button size={globalSize} onClick={handleClose}>
               Continue
             </Button>
           </ConfirmFooter>
@@ -200,24 +246,46 @@ function BasicMicroPreview({ globalSize }: { globalSize: Size }) {
 
 function CustomLayoutMicroPreview({ globalSize }: { globalSize: Size }) {
   const [open, setOpen] = useState(false);
+  const handleOpen = useCallback(() => setOpen(true), []);
+  const handleClose = useCallback(() => setOpen(false), []);
+
   return (
     <>
-      <Button variant="outline" color="warning" size={globalSize} onClick={() => setOpen(true)}>
+      <Button
+        variant="outline"
+        color="warning"
+        size={globalSize}
+        onClick={handleOpen}
+      >
         Custom Interface
       </Button>
       <Confirm open={open} onOpenChange={setOpen}>
-        <ConfirmContent className={cn("w-full max-w-[calc(100%-2rem)] border-warning/50", {"sm:max-w-sm": globalSize === "sm", "sm:max-w-md": globalSize === "md", "sm:max-w-lg": globalSize === "lg"})}>
+        <ConfirmContent
+          className={cn("w-full border-warning/50", {
+            "sm:max-w-sm": globalSize === "sm",
+            "sm:max-w-md": globalSize === "md",
+            "sm:max-w-lg": globalSize === "lg",
+          })}
+        >
           <div className="flex flex-col-reverse items-center justify-center gap-4 py-4 sm:flex-row">
             <div className="size-16 rounded-lg bg-warning/20 border border-warning shrink-0" />
             <ConfirmHeader className="sm:text-left">
-              <ConfirmTitle className="text-warning">Custom Warning</ConfirmTitle>
+              <ConfirmTitle className="text-warning">
+                Custom Warning
+              </ConfirmTitle>
               <ConfirmDescription>
-                Icon đang nằm bên trái, hoặc có thể dời sang phải tuỳ ý bạn vì bạn đang kiểm soát HTML.
+                Icon đang nằm bên trái, hoặc có thể dời sang phải tuỳ ý bạn vì
+                bạn đang kiểm soát HTML.
               </ConfirmDescription>
             </ConfirmHeader>
           </div>
           <ConfirmFooter className="border-t-0 bg-transparent">
-            <Button variant="outline" size={globalSize} className="w-full" onClick={() => setOpen(false)}>
+            <Button
+              variant="outline"
+              size={globalSize}
+              className="w-full"
+              onClick={handleClose}
+            >
               I understand
             </Button>
           </ConfirmFooter>
@@ -229,13 +297,22 @@ function CustomLayoutMicroPreview({ globalSize }: { globalSize: Size }) {
 
 function MediaMicroPreview({ globalSize }: { globalSize: Size }) {
   const [open, setOpen] = useState(false);
+  const handleOpen = useCallback(() => setOpen(true), []);
+  const handleClose = useCallback(() => setOpen(false), []);
+
   return (
     <>
-      <Button variant="outline" size={globalSize} onClick={() => setOpen(true)}>
+      <Button variant="outline" size={globalSize} onClick={handleOpen}>
         With Media
       </Button>
       <Confirm open={open} onOpenChange={setOpen}>
-        <ConfirmContent className={cn("w-full max-w-[calc(100%-2rem)]", {"sm:max-w-sm": globalSize === "sm", "sm:max-w-md": globalSize === "md", "sm:max-w-lg": globalSize === "lg"})}>
+        <ConfirmContent
+          className={cn("w-full", {
+            "sm:max-w-sm": globalSize === "sm",
+            "sm:max-w-md": globalSize === "md",
+            "sm:max-w-lg": globalSize === "lg",
+          })}
+        >
           <div className="flex flex-col gap-1.5 sm:flex-row sm:gap-4">
             <ConfirmMedia className="mx-auto mb-2 shrink-0 sm:mx-0 sm:mb-0">
               <ShieldAlertIcon className="text-warning" />
@@ -243,15 +320,16 @@ function MediaMicroPreview({ globalSize }: { globalSize: Size }) {
             <ConfirmHeader>
               <ConfirmTitle>Security Warning</ConfirmTitle>
               <ConfirmDescription>
-                ConfirmMedia is a div containing an icon, automatically scaling its size according to the data-size of ConfirmContent.
+                ConfirmMedia is a div containing an icon, automatically scaling
+                its size according to the data-size of ConfirmContent.
               </ConfirmDescription>
             </ConfirmHeader>
           </div>
           <ConfirmFooter>
-            <Button variant="outline" size={globalSize} onClick={() => setOpen(false)}>
+            <Button variant="outline" size={globalSize} onClick={handleClose}>
               Cancel
             </Button>
-            <Button color="warning" size={globalSize} onClick={() => setOpen(false)}>
+            <Button color="warning" size={globalSize} onClick={handleClose}>
               Confirm
             </Button>
           </ConfirmFooter>
@@ -263,16 +341,25 @@ function MediaMicroPreview({ globalSize }: { globalSize: Size }) {
 
 function CloseMicroPreview({ globalSize }: { globalSize: Size }) {
   const [open, setOpen] = useState(false);
+  const handleOpen = useCallback(() => setOpen(true), []);
+  const handleClose = useCallback(() => setOpen(false), []);
+
   return (
     <>
-      <Button variant="outline" size={globalSize} onClick={() => setOpen(true)}>
+      <Button variant="outline" size={globalSize} onClick={handleOpen}>
         Dialog With X Button
       </Button>
       <Confirm open={open} onOpenChange={setOpen}>
-        <ConfirmContent className={cn("w-full max-w-[calc(100%-2rem)]", {"sm:max-w-sm": globalSize === "sm", "sm:max-w-md": globalSize === "md", "sm:max-w-lg": globalSize === "lg"})}>
+        <ConfirmContent
+          className={cn("w-full", {
+            "sm:max-w-sm": globalSize === "sm",
+            "sm:max-w-md": globalSize === "md",
+            "sm:max-w-lg": globalSize === "lg",
+          })}
+        >
           <button
             type="button"
-            onClick={() => setOpen(false)}
+            onClick={handleClose}
             className="absolute top-3 right-3 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:outline-none"
           >
             <XIcon className="size-4" />
@@ -281,14 +368,15 @@ function CloseMicroPreview({ globalSize }: { globalSize: Size }) {
           <ConfirmHeader>
             <ConfirmTitle>Custom Close Button</ConfirmTitle>
             <ConfirmDescription>
-              Unlike standard confirms, you can render an X icon, a link, or anything else to close by simply passing an onClick handler.
+              Unlike standard confirms, you can render an X icon, a link, or
+              anything else to close by simply passing an onClick handler.
             </ConfirmDescription>
           </ConfirmHeader>
           <ConfirmFooter>
-            <Button variant="outline" size={globalSize} onClick={() => setOpen(false)}>
+            <Button variant="outline" size={globalSize} onClick={handleClose}>
               Cancel
             </Button>
-            <Button size={globalSize} onClick={() => setOpen(false)}>
+            <Button size={globalSize} onClick={handleClose}>
               Agree
             </Button>
           </ConfirmFooter>
@@ -300,13 +388,27 @@ function CloseMicroPreview({ globalSize }: { globalSize: Size }) {
 
 function ActionColorMicroPreview({ globalSize }: { globalSize: Size }) {
   const [open, setOpen] = useState(false);
+  const handleOpen = useCallback(() => setOpen(true), []);
+  const handleClose = useCallback(() => setOpen(false), []);
+
   return (
     <>
-      <Button variant="outline" color="destructive" size={globalSize} onClick={() => setOpen(true)}>
+      <Button
+        variant="outline"
+        color="destructive"
+        size={globalSize}
+        onClick={handleOpen}
+      >
         Delete Account
       </Button>
       <Confirm open={open} onOpenChange={setOpen}>
-        <ConfirmContent className={cn("w-full max-w-[calc(100%-2rem)]", {"sm:max-w-sm": globalSize === "sm", "sm:max-w-md": globalSize === "md", "sm:max-w-lg": globalSize === "lg"})}>
+        <ConfirmContent
+          className={cn("w-full", {
+            "sm:max-w-sm": globalSize === "sm",
+            "sm:max-w-md": globalSize === "md",
+            "sm:max-w-lg": globalSize === "lg",
+          })}
+        >
           <div className="flex flex-col gap-1.5 sm:flex-row sm:gap-4">
             <ConfirmMedia className="mx-auto mb-2 shrink-0 sm:mx-0 sm:mb-0">
               <TrashIcon className="text-destructive" />
@@ -319,10 +421,10 @@ function ActionColorMicroPreview({ globalSize }: { globalSize: Size }) {
             </ConfirmHeader>
           </div>
           <ConfirmFooter>
-            <Button variant="outline" size={globalSize} onClick={() => setOpen(false)}>
+            <Button variant="outline" size={globalSize} onClick={handleClose}>
               Cancel
             </Button>
-            <Button color="destructive" size={globalSize} onClick={() => setOpen(false)}>
+            <Button color="destructive" size={globalSize} onClick={handleClose}>
               Delete Permanently
             </Button>
           </ConfirmFooter>
@@ -334,13 +436,22 @@ function ActionColorMicroPreview({ globalSize }: { globalSize: Size }) {
 
 function ActionVariantsMicroPreview({ globalSize }: { globalSize: Size }) {
   const [open, setOpen] = useState(false);
+  const handleOpen = useCallback(() => setOpen(true), []);
+  const handleClose = useCallback(() => setOpen(false), []);
+
   return (
     <>
-      <Button variant="outline" size={globalSize} onClick={() => setOpen(true)}>
+      <Button variant="outline" size={globalSize} onClick={handleOpen}>
         Custom Variants
       </Button>
       <Confirm open={open} onOpenChange={setOpen}>
-        <ConfirmContent className={cn("w-full max-w-[calc(100%-2rem)]", {"sm:max-w-sm": globalSize === "sm", "sm:max-w-md": globalSize === "md", "sm:max-w-lg": globalSize === "lg"})}>
+        <ConfirmContent
+          className={cn("w-full", {
+            "sm:max-w-sm": globalSize === "sm",
+            "sm:max-w-md": globalSize === "md",
+            "sm:max-w-lg": globalSize === "lg",
+          })}
+        >
           <div className="flex flex-col gap-1.5 sm:flex-row sm:gap-4">
             <ConfirmMedia className="mx-auto mb-2 shrink-0 sm:mx-0 sm:mb-0">
               <LogOutIcon />
@@ -348,15 +459,21 @@ function ActionVariantsMicroPreview({ globalSize }: { globalSize: Size }) {
             <ConfirmHeader>
               <ConfirmTitle>Log out?</ConfirmTitle>
               <ConfirmDescription>
-                Phiên đăng nhập của bạn sẽ kết thúc. Bạn cần nhập lại mật khẩu để quay lại.
+                Phiên đăng nhập của bạn sẽ kết thúc. Bạn cần nhập lại mật khẩu
+                để quay lại.
               </ConfirmDescription>
             </ConfirmHeader>
           </div>
           <ConfirmFooter>
-            <Button variant="ghost" size={globalSize} onClick={() => setOpen(false)}>
+            <Button variant="ghost" size={globalSize} onClick={handleClose}>
               Stay
             </Button>
-            <Button variant="soft" color="info" size={globalSize} onClick={() => setOpen(false)}>
+            <Button
+              variant="soft"
+              color="info"
+              size={globalSize}
+              onClick={handleClose}
+            >
               Đăng xuất
             </Button>
           </ConfirmFooter>
@@ -376,7 +493,7 @@ function useConfirmExamples() {
         title: t("Tiêu chuẩn", "Standard Confirmation"),
         description: t(
           "Dialog xác nhận thông thường chỉ với Text.",
-          "Standard confirmation dialog with just text."
+          "Standard confirmation dialog with just text.",
         ),
         macroCode: `<ConfirmPreset
   open={open}
@@ -408,10 +525,13 @@ function useConfirmExamples() {
         microPreview: <BasicMicroPreview globalSize={globalSize} />,
       },
       {
-        title: t("Nguy hiểm / Màu sắc hành động", "Destructive / Action Colors"),
+        title: t(
+          "Nguy hiểm / Màu sắc hành động",
+          "Destructive / Action Colors",
+        ),
         description: t(
           "Sử dụng prop color='destructive' để tạo nút hành động nguy hiểm.",
-          "Use color='destructive' prop to create a dangerous action button."
+          "Use color='destructive' prop to create a dangerous action button.",
         ),
         macroCode: `<ConfirmPreset
   open={open}
@@ -452,7 +572,7 @@ function useConfirmExamples() {
         title: t("Biểu tượng / Phương tiện", "Icon / Media"),
         description: t(
           "Tự động chia cột Flexbox Side-by-Side khi có icon/media.",
-          "Automatically splits into a Side-by-Side Flexbox layout when there's an icon/media."
+          "Automatically splits into a Side-by-Side Flexbox layout when there's an icon/media.",
         ),
         macroCode: `<ConfirmPreset
   open={open}
@@ -493,7 +613,7 @@ function useConfirmExamples() {
         title: t("Tùy chỉnh Variant của Nút", "Custom Button Variants"),
         description: t(
           "Tuỳ chỉnh variant cho nút Yes và No qua yesVariant/noVariant hoặc custom Button.",
-          "Customize the variant for Yes and No buttons via yesVariant/noVariant or custom Buttons."
+          "Customize the variant for Yes and No buttons via yesVariant/noVariant or custom Buttons.",
         ),
         macroCode: `<ConfirmPreset
   open={open}
@@ -531,7 +651,7 @@ function useConfirmExamples() {
         title: t("Tùy chỉnh Layout / Trẻ em", "Custom Layout / Children"),
         description: t(
           "Tự do chèn HTML vào bên trong.",
-          "Freely insert HTML inside."
+          "Freely insert HTML inside.",
         ),
         macroCode: `<ConfirmPreset
   open={open}
@@ -569,8 +689,8 @@ function useConfirmExamples() {
       {
         title: t("Nút Close tùy chỉnh", "Custom Close Button"),
         description: t(
-          "Tạo nút đóng (X) thủ công nếu cần thiết.",
-          "Create a manual close (X) button if needed."
+          "Tạo nút đóng thủ công ở góc hộp thoại nếu cần thiết.",
+          "Create a manual close (X) button if needed.",
         ),
         microCode: `<Confirm open={open} onOpenChange={setOpen}>
   <ConfirmContent>
@@ -597,7 +717,7 @@ function useConfirmExamples() {
         microPreview: <CloseMicroPreview globalSize={globalSize} />,
       },
     ],
-    [globalSize, t]
+    [globalSize, t],
   );
 }
 
@@ -610,14 +730,14 @@ export default function ConfirmShowcase() {
       title="Confirm"
       description={t(
         "Hộp thoại gián đoạn yêu cầu người dùng xác nhận các hành động quan trọng hoặc mang tính phá hủy.",
-        "An interrupting dialog that requires the user to confirm important or destructive actions."
+        "An interrupting dialog that requires the user to confirm important or destructive actions.",
       )}
       guideline={
         <ShowcaseDocs>
           <DocsP>
             {t(
               "Dùng để làm gián đoạn người dùng với một thông báo hoặc xác nhận cực kỳ quan trọng, thường mang tính phá huỷ (như Delete dữ liệu, Đăng xuất) hoặc không thể hoàn tác. Yêu cầu người dùng phải hành động rõ ràng thì mới thoát được cửa sổ.",
-              "Used to interrupt the user with a critical notification or confirmation, usually destructive (e.g., Delete data, Logout) or irreversible. Requires the user to take a specific action to close the dialog."
+              "Used to interrupt the user with a critical notification or confirmation, usually destructive (e.g., Delete data, Logout) or irreversible. Requires the user to take a specific action to close the dialog.",
             )}
           </DocsP>
         </ShowcaseDocs>

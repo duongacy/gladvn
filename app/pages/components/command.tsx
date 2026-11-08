@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
+
 import {
   CalculatorIcon,
   CalendarIcon,
@@ -7,6 +8,12 @@ import {
   SmileIcon,
   UserIcon,
 } from "lucide-react";
+import { useDevContext, useI18n } from "~app/components/dev-context";
+import {
+  ConfigurableShowcase,
+  DocsP,
+  ShowcaseDocs,
+} from "~app/components/showcase";
 
 import {
   CommandDialog,
@@ -23,45 +30,66 @@ import {
   CommandSeparator,
   CommandShortcut,
 } from "@/components/micro/command";
-import { useDevContext, useI18n } from "~app/components/dev-context";
-import {
-  ConfigurableShowcase,
-  ShowcaseDocs,
-  DocsP,
-} from "~app/components/showcase";
-
-// ---------------------------------------------------------------------------
-// Shared data for CommandPreset examples
-// ---------------------------------------------------------------------------
+import { type Size } from "@/lib/types";
 
 const COMMAND_GROUPS = [
   {
     heading: "Suggestions",
     items: [
-      { value: "calendar", label: "Calendar", icon: <CalendarIcon aria-hidden="true" /> },
-      { value: "emoji", label: "Search Emoji", icon: <SmileIcon aria-hidden="true" /> },
-      { value: "calculator", label: "Calculator", icon: <CalculatorIcon aria-hidden="true" />, disabled: true },
+      {
+        value: "calendar",
+        label: "Calendar",
+        icon: <CalendarIcon aria-hidden="true" />,
+      },
+      {
+        value: "emoji",
+        label: "Search Emoji",
+        icon: <SmileIcon aria-hidden="true" />,
+      },
+      {
+        value: "calculator",
+        label: "Calculator",
+        icon: <CalculatorIcon aria-hidden="true" />,
+        disabled: true,
+      },
     ],
   },
   {
     heading: "Settings",
     items: [
-      { value: "profile", label: "Profile", icon: <UserIcon aria-hidden="true" />, shortcut: "⌘P" },
-      { value: "billing", label: "Billing", icon: <CreditCardIcon aria-hidden="true" />, shortcut: "⌘B" },
-      { value: "settings", label: "Settings", icon: <SettingsIcon aria-hidden="true" />, shortcut: "⌘S" },
+      {
+        value: "profile",
+        label: "Profile",
+        icon: <UserIcon aria-hidden="true" />,
+        shortcut: "⌘P",
+      },
+      {
+        value: "billing",
+        label: "Billing",
+        icon: <CreditCardIcon aria-hidden="true" />,
+        shortcut: "⌘B",
+      },
+      {
+        value: "settings",
+        label: "Settings",
+        icon: <SettingsIcon aria-hidden="true" />,
+        shortcut: "⌘S",
+      },
     ],
   },
 ];
 
-// ---------------------------------------------------------------------------
-// Dialog preview sub-component (needs local state, so extracted)
-// ---------------------------------------------------------------------------
-
-function DialogPreview({ globalSize }: { globalSize: any }) {
+function DialogPreview({ globalSize }: { globalSize: Size }) {
   const [open, setOpen] = useState(false);
+  const handleOpen = useCallback(() => {
+    setOpen(true);
+  }, []);
+
   return (
     <>
-      <Button size={globalSize} onClick={() => setOpen(true)}>Open Command Palette</Button>
+      <Button size={globalSize} onClick={handleOpen}>
+        Open Command Palette
+      </Button>
       <CommandDialog open={open} onOpenChange={setOpen} size={globalSize}>
         <CommandInput placeholder="Type a command or search..." />
         <CommandList>
@@ -81,10 +109,6 @@ function DialogPreview({ globalSize }: { globalSize: any }) {
     </>
   );
 }
-
-// ---------------------------------------------------------------------------
-// Examples
-// ---------------------------------------------------------------------------
 
 function useCommandExamples() {
   const t = useI18n();
@@ -294,10 +318,26 @@ function useCommandExamples() {
             groups={[
               {
                 items: [
-                  { value: "profile", label: "View Profile", icon: <UserIcon aria-hidden="true" /> },
-                  { value: "settings", label: "Open Settings", icon: <SettingsIcon aria-hidden="true" /> },
-                  { value: "calendar", label: "Schedule Meeting", icon: <CalendarIcon aria-hidden="true" /> },
-                  { value: "billing", label: "Manage Billing", icon: <CreditCardIcon aria-hidden="true" /> },
+                  {
+                    value: "profile",
+                    label: "View Profile",
+                    icon: <UserIcon aria-hidden="true" />,
+                  },
+                  {
+                    value: "settings",
+                    label: "Open Settings",
+                    icon: <SettingsIcon aria-hidden="true" />,
+                  },
+                  {
+                    value: "calendar",
+                    label: "Schedule Meeting",
+                    icon: <CalendarIcon aria-hidden="true" />,
+                  },
+                  {
+                    value: "billing",
+                    label: "Manage Billing",
+                    icon: <CreditCardIcon aria-hidden="true" />,
+                  },
                 ],
               },
             ]}
@@ -336,10 +376,6 @@ function useCommandExamples() {
   );
 }
 
-// ---------------------------------------------------------------------------
-// Showcase
-// ---------------------------------------------------------------------------
-
 export default function CommandShowcase() {
   const t = useI18n();
   const examples = useCommandExamples();
@@ -355,7 +391,7 @@ export default function CommandShowcase() {
         <ShowcaseDocs>
           <DocsP>
             {t(
-              "Dùng để tạo các bảng lệnh (command palette) hoặc menu chọn có khả năng tìm kiếm nhanh, thường kích hoạt bằng phím tắt (như Cmd+K). Thích hợp cho các ứng dụng có nhiều chức năng phức tạp cần điều hướng nhanh.",
+              "Dùng để tạo các bảng lệnh hoặc menu chọn có khả năng tìm kiếm nhanh, thường kích hoạt bằng phím tắt như Cmd+K. Thích hợp cho các ứng dụng có nhiều chức năng phức tạp cần điều hướng nhanh.",
               "Used to create command palettes or fast-searchable selection menus, typically activated via shortcuts (like Cmd+K). Suitable for complex apps requiring quick navigation.",
             )}
           </DocsP>

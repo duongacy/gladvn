@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+
+import { useDevContext, useI18n } from "~app/components/dev-context";
+import { ConfigurableShowcase } from "~app/components/showcase";
+
 import { PaginationPreset } from "@/components/macro/pagination-preset";
 import {
   Pagination,
@@ -9,8 +13,6 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/micro/pagination";
-import { useDevContext, useI18n } from "~app/components/dev-context";
-import { ConfigurableShowcase } from "~app/components/showcase";
 
 function usePaginationExamples() {
   const t = useI18n();
@@ -24,7 +26,7 @@ function usePaginationExamples() {
         title: t("Tiêu chuẩn", "Standard"),
         description: t(
           "Phân trang cơ bản với state điều khiển.",
-          "Basic pagination with controlled state."
+          "Basic pagination with controlled state.",
         ),
         macroCode: `const [currentPage, setCurrentPage] = useState(1);
 
@@ -48,8 +50,8 @@ return (
       {
         title: t("Nhiều trang", "Many Pages"),
         description: t(
-          "Tự động thêm dấu ba chấm (ellipsis) khi số trang lớn.",
-          "Automatically adds ellipses when the number of pages is large."
+          "Tự động rút gọn bằng dấu ba chấm khi tổng số trang lớn.",
+          "Automatically adds ellipses when the number of pages is large.",
         ),
         macroCode: `<PaginationPreset size="md" currentPage={50} totalPages={100} />`,
         macroPreview: (
@@ -64,37 +66,29 @@ return (
         title: t("Trang đầu tiên", "First Page"),
         description: t(
           "Nút Previous tự động bị mờ đi.",
-          "The Previous button is automatically dimmed."
+          "The Previous button is automatically dimmed.",
         ),
         macroCode: `<PaginationPreset size="md" currentPage={1} totalPages={5} />`,
         macroPreview: (
-          <PaginationPreset
-            currentPage={1}
-            totalPages={5}
-            size={globalSize}
-          />
+          <PaginationPreset currentPage={1} totalPages={5} size={globalSize} />
         ),
       },
       {
         title: t("Trang cuối cùng", "Last Page"),
         description: t(
           "Nút Next tự động bị mờ đi.",
-          "The Next button is automatically dimmed."
+          "The Next button is automatically dimmed.",
         ),
         macroCode: `<PaginationPreset size="md" currentPage={5} totalPages={5} />`,
         macroPreview: (
-          <PaginationPreset
-            currentPage={5}
-            totalPages={5}
-            size={globalSize}
-          />
+          <PaginationPreset currentPage={5} totalPages={5} size={globalSize} />
         ),
       },
       {
-        title: t("Cơ bản (Micro)", "Default (Micro)"),
+        title: t("Lắp ghép thủ công", "Manual Composition"),
         description: t(
           "Lắp ráp thủ công các item và link. Hỗ trợ prop size.",
-          "Manually assemble items and links. Supports the size prop."
+          "Manually assemble items and links. Supports the size prop.",
         ),
         microCode: `<Pagination>
   <PaginationContent>
@@ -152,7 +146,7 @@ return (
         ),
       },
     ],
-    [t, globalSize, currentPage, setCurrentPage]
+    [t, globalSize, currentPage, setCurrentPage],
   );
 }
 
@@ -165,7 +159,7 @@ export default function PaginationShowcase() {
       title="Pagination"
       description={t(
         "Thanh phân trang với điều hướng trước/sau, tự động rút gọn dấu ba chấm.",
-        "Pagination bar with previous/next navigation, automatically collapsing with ellipses."
+        "Pagination bar with previous/next navigation, automatically collapsing with ellipses.",
       )}
       examples={examples}
     />

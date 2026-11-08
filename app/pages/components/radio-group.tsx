@@ -1,7 +1,10 @@
 import React from "react";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import * as z from "zod";
+import { useDevContext, useI18n } from "~app/components/dev-context";
+import { ConfigurableShowcase } from "~app/components/showcase";
 
 import { RadioGroupPreset } from "@/components/macro/radio-group-preset";
 import { Button } from "@/components/micro/button";
@@ -12,10 +15,6 @@ import {
   RadioGroupIndicator,
   RadioGroupItem,
 } from "@/components/micro/radio-group";
-import { useDevContext, useI18n } from "~app/components/dev-context";
-import {
-  ConfigurableShowcase,
-} from "~app/components/showcase";
 import { type Size } from "@/lib/types";
 
 const formSchema = z.object({
@@ -101,7 +100,7 @@ function useRadioGroupExamples() {
         title: t("Tiêu chuẩn", "Standard"),
         description: t(
           "Nhóm radio cơ bản với mảng options.",
-          "Basic radio group with an array of options."
+          "Basic radio group with an array of options.",
         ),
         macroCode: `<RadioGroupPreset
   className="w-full"
@@ -170,7 +169,7 @@ function useRadioGroupExamples() {
         title: t("Trạng thái Lỗi", "Error State"),
         description: t(
           "Báo lỗi khi form submit mà user chưa chọn hoặc tạo layout phức tạp với Field.",
-          "Shows an error when form is submitted without selection or creates a complex layout with Field."
+          "Shows an error when form is submitted without selection or creates a complex layout with Field.",
         ),
         macroCode: `<div className="w-full flex flex-col gap-6">
   <RadioGroupPreset
@@ -243,11 +242,7 @@ function useRadioGroupExamples() {
               className="flex flex-col gap-2"
             >
               <Field orientation="horizontal" size={globalSize}>
-                <RadioGroupItem
-                  value="monthly"
-                  id="plan-1"
-                  aria-invalid={true}
-                >
+                <RadioGroupItem value="monthly" id="plan-1" aria-invalid={true}>
                   <RadioGroupIndicator />
                 </RadioGroupItem>
                 <FieldLabel
@@ -258,11 +253,7 @@ function useRadioGroupExamples() {
                 </FieldLabel>
               </Field>
               <Field orientation="horizontal" size={globalSize}>
-                <RadioGroupItem
-                  value="yearly"
-                  id="plan-2"
-                  aria-invalid={true}
-                >
+                <RadioGroupItem value="yearly" id="plan-2" aria-invalid={true}>
                   <RadioGroupIndicator />
                 </RadioGroupItem>
                 <FieldLabel
@@ -281,7 +272,7 @@ function useRadioGroupExamples() {
         title: t("Mô tả Option", "Option Description"),
         description: t(
           "Truyền description vào mảng options để chú thích chi tiết.",
-          "Pass description into the options array for detailed notes."
+          "Pass description into the options array for detailed notes.",
         ),
         macroCode: `<RadioGroupPreset
   className="w-full"
@@ -320,7 +311,7 @@ function useRadioGroupExamples() {
         title: t("Bất hoạt", "Disabled"),
         description: t(
           "Người dùng không thể tương tác với form.",
-          "The user cannot interact with the form."
+          "The user cannot interact with the form.",
         ),
         macroCode: `<RadioGroupPreset
   className="w-full"
@@ -352,7 +343,7 @@ function useRadioGroupExamples() {
         title: t("Bố cục Ngang", "Horizontal Layout"),
         description: t(
           "Hiển thị các tuỳ chọn trên một hàng ngang.",
-          "Display options on a horizontal row."
+          "Display options on a horizontal row.",
         ),
         microCode: `<div className="space-y-3 w-full">
   <Label className="block text-muted-foreground">
@@ -437,7 +428,7 @@ function useRadioGroupExamples() {
         title: t("Card Layout", "Card Layout (Advanced UI)"),
         description: t(
           "Radio nhưng thiết kế dưới dạng Card để bấm.",
-          "Radio button designed as a clickable Card."
+          "Radio button designed as a clickable Card.",
         ),
         microCode: `<RadioGroup
   defaultValue="card-2"
@@ -497,13 +488,13 @@ function useRadioGroupExamples() {
         title: t("Tích hợp RHF", "RHF Integration"),
         description: t(
           "Sử dụng Controller để bắt giá trị.",
-          "Use Controller to capture the value."
+          "Use Controller to capture the value.",
         ),
         macroCode: rhfCode,
         macroPreview: <RadioGroupForm size={globalSize} />,
       },
     ],
-    [t, globalSize]
+    [t, globalSize],
   );
 }
 
@@ -515,8 +506,8 @@ export default function RadioGroupShowcase() {
     <ConfigurableShowcase
       title="Radio Group"
       description={t(
-        "Tập hợp các nút chọn một tuỳ chọn duy nhất trong danh sách (Radio Buttons).",
-        "A set of buttons to select a single option from a list (Radio Buttons)."
+        "Tập hợp các nút cho phép chọn một tuỳ chọn duy nhất trong danh sách.",
+        "A set of buttons to select a single option from a list (Radio Buttons).",
       )}
       examples={examples}
     />

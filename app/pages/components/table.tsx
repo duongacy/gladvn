@@ -1,4 +1,12 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
+
+import { useI18n } from "~app/components/dev-context";
+import {
+  ConfigurableShowcase,
+  DocsH3,
+  DocsP,
+  ShowcaseDocs,
+} from "~app/components/showcase";
 
 import {
   Table,
@@ -10,13 +18,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/micro/table";
-import { useI18n } from "~app/components/dev-context";
-import {
-  ConfigurableShowcase,
-  ShowcaseDocs,
-  DocsH3,
-  DocsP,
-} from "~app/components/showcase";
 
 type SortDirection = "asc" | "desc" | "none";
 
@@ -34,6 +35,9 @@ const DUMMY_DATA = [
 function useTableExamples() {
   const t = useI18n();
   const [invoiceSort, setInvoiceSort] = useState<SortDirection>("asc");
+  const handleInvoiceSort = useCallback((dir: SortDirection) => {
+    setInvoiceSort(dir);
+  }, []);
 
   const sortedData = [...DUMMY_DATA].sort((a, b) => {
     if (invoiceSort === "none") return 0;
@@ -47,7 +51,7 @@ function useTableExamples() {
         title: "Default",
         description: t(
           "Bảng tiêu chuẩn có chú thích.",
-          "Standard table with caption."
+          "Standard table with caption.",
         ),
         microCode: `<Table>
   <TableCaption>
@@ -130,11 +134,12 @@ function useTableExamples() {
         title: "Sortable",
         description: t(
           "Bảng có tính năng sắp xếp dữ liệu. Thử click vào cột Invoice!",
-          "Table with data sorting functionality. Try clicking on the Invoice column!"
+          "Table with data sorting functionality. Try clicking on the Invoice column!",
         ),
         microCode: `const [invoiceSort, setInvoiceSort] = React.useState<"asc" | "desc" | "none">("asc")
-
-// Calculate sortedData based on invoiceSort here...
+const handleInvoiceSort = React.useCallback((dir: SortDirection) => {
+  setInvoiceSort(dir);
+}, []);
 
 return (
 <Table>
@@ -144,7 +149,7 @@ return (
         className="w-25"
         sortDirection={invoiceSort}
         sortOptions={["asc", "desc"]}
-        onSort={(dir) => setInvoiceSort(dir as SortDirection)}
+        onSort={handleInvoiceSort}
       >
         Invoice
       </TableHead>
@@ -173,7 +178,7 @@ return (
                   className="w-25"
                   sortDirection={invoiceSort}
                   sortOptions={["asc", "desc"]}
-                  onSort={(dir) => setInvoiceSort(dir as SortDirection)}
+                  onSort={handleInvoiceSort}
                 >
                   Invoice
                 </TableHead>
@@ -196,7 +201,7 @@ return (
         ),
       },
     ],
-    [t, invoiceSort, sortedData]
+    [t, invoiceSort, sortedData, handleInvoiceSort],
   );
 }
 
@@ -214,7 +219,7 @@ export default function TableShowcase() {
           <DocsP>
             {t(
               "Sử dụng để hiển thị dữ liệu dạng bảng.",
-              "Use to display data in a tabular format."
+              "Use to display data in a tabular format.",
             )}
           </DocsP>
         </ShowcaseDocs>

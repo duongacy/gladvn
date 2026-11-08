@@ -1,5 +1,13 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
+
 import { FilterIcon, PanelRightIcon, SettingsIcon } from "lucide-react";
+import { useDevContext, useI18n } from "~app/components/dev-context";
+import {
+  ConfigurableShowcase,
+  DocsCode,
+  DocsP,
+  ShowcaseDocs,
+} from "~app/components/showcase";
 
 import { Button } from "@/components/micro/button";
 import { Input } from "@/components/micro/input";
@@ -14,20 +22,15 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/micro/sheet";
-import { useI18n, useDevContext } from "~app/components/dev-context";
-import {
-  ConfigurableShowcase,
-  ShowcaseDocs,
-  DocsP,
-  DocsCode,
-} from "~app/components/showcase";
 
 function useSheetExamples() {
   const t = useI18n();
   const { size: globalSize } = useDevContext();
 
-  // For controlled example
   const [open, setOpen] = useState(false);
+  const handleCloseSheet = useCallback(() => {
+    setOpen(false);
+  }, []);
 
   return React.useMemo(
     () => [
@@ -35,7 +38,7 @@ function useSheetExamples() {
         title: t("Hướng trượt", "Side"),
         description: t(
           "Sheet có thể trượt ra từ bốn cạnh: right (mặc định), left, top, bottom.",
-          "Sheet can slide out from four sides: right (default), left, top, bottom."
+          "Sheet can slide out from four sides: right (default), left, top, bottom.",
         ),
         microCode: `<Sheet>
   <SheetTrigger
@@ -284,7 +287,7 @@ function useSheetExamples() {
         title: t("Có nút đóng", "With Close Button (Default)"),
         description: t(
           "showCloseButton={true} — nút X tự động hiển thị ở góc trên phải.",
-          "showCloseButton={true} — the X button automatically appears in the top right corner."
+          "showCloseButton={true} — the X button automatically appears in the top right corner.",
         ),
         microCode: `<Sheet>
   <SheetTrigger render={<Button variant="outline" />}>
@@ -321,7 +324,7 @@ function useSheetExamples() {
         title: t("Ẩn nút đóng", "Hide Close Button"),
         description: t(
           "showCloseButton={false} — dùng khi muốn tự control nút đóng bên trong nội dung.",
-          "showCloseButton={false} — used when you want to control the close button manually inside the content."
+          "showCloseButton={false} — used when you want to control the close button manually inside the content.",
         ),
         microCode: `<Sheet>
   <SheetTrigger render={<Button variant="outline" />}>
@@ -378,13 +381,10 @@ function useSheetExamples() {
         ),
       },
       {
-        title: t(
-          "Trạng thái được kiểm soát",
-          "Controlled State"
-        ),
+        title: t("Trạng thái được kiểm soát", "Controlled State"),
         description: t(
           "Quản lý trạng thái đóng/mở qua React state với open và onOpenChange.",
-          "Manage the open/closed state via React state with open and onOpenChange."
+          "Manage the open/closed state via React state with open and onOpenChange.",
         ),
         microCode: `const [open, setOpen] = useState(false);
 
@@ -432,7 +432,7 @@ function useSheetExamples() {
                   </SheetDescription>
                 </SheetHeader>
                 <SheetFooter>
-                  <Button size={globalSize} onClick={() => setOpen(false)}>
+                  <Button size={globalSize} onClick={handleCloseSheet}>
                     Close via state
                   </Button>
                 </SheetFooter>
@@ -454,7 +454,7 @@ function useSheetExamples() {
         title: t("Tình huống sử dụng — Bảng lọc", "Use case — Filter Panel"),
         description: t(
           "Sheet dùng làm bảng lọc dữ liệu bên phải — pattern phổ biến trong dashboard, table view.",
-          "Sheet used as a right-side data filter panel — a common pattern in dashboards, table views."
+          "Sheet used as a right-side data filter panel — a common pattern in dashboards, table views.",
         ),
         microCode: `<Sheet>
   <SheetTrigger render={<Button variant="outline" />}>
@@ -531,7 +531,7 @@ function useSheetExamples() {
         ),
       },
     ],
-    [t, globalSize, open, setOpen]
+    [t, globalSize, open, setOpen],
   );
 }
 
@@ -544,7 +544,7 @@ export default function SheetShowcase() {
       title={t("Sheet", "Sheet")}
       description={t(
         "Panel trượt từ cạnh màn hình — mở rộng Dialog để hiển thị nội dung bổ sung mà không rời trang.",
-        "A panel that slides in from the edge of the screen — extending Dialog to display additional content without leaving the page."
+        "A panel that slides in from the edge of the screen — extending Dialog to display additional content without leaving the page.",
       )}
       guideline={
         <ShowcaseDocs>
@@ -552,7 +552,7 @@ export default function SheetShowcase() {
             <DocsCode>Sheet</DocsCode>
             {t(
               " là một variant của Dialog, nhưng thay vì hiện ở giữa màn hình, nó trượt ra từ một cạnh (right, left, top, bottom). Phù hợp cho navigation drawer, filter panel, settings sidebar, hay form chỉnh sửa.",
-              " is a variant of Dialog, but instead of appearing in the center of the screen, it slides out from an edge (right, left, top, bottom). Suitable for navigation drawer, filter panel, settings sidebar, or edit forms."
+              " is a variant of Dialog, but instead of appearing in the center of the screen, it slides out from an edge (right, left, top, bottom). Suitable for navigation drawer, filter panel, settings sidebar, or edit forms.",
             )}
           </DocsP>
           <DocsP>
@@ -565,7 +565,7 @@ export default function SheetShowcase() {
             <DocsCode>showCloseButton</DocsCode>
             {t(
               " cho phép bật/tắt nút X tự động. Dùng ",
-              " prop allows toggling the automatic X button. Use "
+              " prop allows toggling the automatic X button. Use ",
             )}
             <DocsCode>open</DocsCode>
             {t(" / ", " / ")}

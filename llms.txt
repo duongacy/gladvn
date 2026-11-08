@@ -1,23 +1,37 @@
 # gladvn UI - AI Guidelines
 
-You are an AI Coding Assistant helping a developer use the `gladvn` UI library. 
-`gladvn` is a React component library built on top of Radix UI and Tailwind CSS, focusing on beautiful, accessible, and highly composable components.
+You are an AI Coding Assistant helping a developer use the `gladvn` UI library.
+`gladvn` is a CLI-first React component library built on top of **Base UI (`@base-ui/react`)** and **Tailwind CSS v4**, featuring a strict **Micro (Primitives) / Macro (Presets)** architecture and **Zero-Portal Scoped Theme Tunneling**.
 
-### Installation
-- Use `npx gladvn init` to scaffold components into a project.
-- **NEVER** use `npm install gladvn`. The components are copied directly into the project's source code, typically under a `@gladvn/` alias (e.g., `src/gladvn/`).
+## 1. Installation & CLI Usage
+- Use `npx gladvn init` to scaffold the library, CSS tokens (`tokens.css` + `gladvn.css`), and `@gladvn` path aliases into a project.
+- Use `npx gladvn add <component>` or `npx gladvn add-block <block>` to add individual components or blocks.
+- **NEVER** use `npm install gladvn`. Components are copied directly into the project's source code under the `@gladvn` alias (default: `./gladvn/`).
 
 ### Import Guidelines
-- **ALWAYS** import components using the local alias path.
-  - Correct: `import { Button } from "@/gladvn/components/micro/button"` or `import { Button } from "@gladvn/components/micro/button"` (depending on the project's setup).
-  - Incorrect: `import { Button } from "gladvn"`
+- **ALWAYS** import components using the configured `@gladvn` alias path:
+  - **Micro Primitives (Barrel):** `import { Button, Card, Dialog } from "@gladvn"`
+  - **Micro Primitives (Deep):** `import { Button } from "@gladvn/components/micro/button"`
+  - **Macro Presets (Barrel):** `import { InputPreset, SelectPreset, DialogPreset } from "@gladvn/preset"`
+  - **Macro Presets (Deep):** `import { InputPreset } from "@gladvn/components/macro/input-preset"`
+  - **Incorrect:** `import { Button } from "gladvn"`
 
-## 2. Composition over Configuration
-`gladvn` heavily uses a composable architecture. When building complex UI, always use the provided sub-components rather than passing large configuration objects.
+## 2. Micro vs. Macro Architecture (Selection Hierarchy)
+1. **Macro First (Presets):** For standard forms, dialogs, selects, comboboxes, and cards, prefer Macro presets (`@gladvn/preset`). They encapsulate common state, validation, accessibility (`useId`, `aria-invalid`), and layout while composing Micro primitives under the hood.
+2. **Micro Second (Primitives):** When custom layout or fine-grained slot composition is needed, assemble UI using stateless Micro primitives (`@gladvn`).
 
-**Correct (Composition):**
 ```tsx
-import { Card, CardHeader, CardTitle, CardContent } from "gladvn";
+// ✅ Macro — Ready-to-use preset with label, description, error & adornments
+import { InputPreset } from "@gladvn/preset";
+
+<InputPreset
+  label="Email Address"
+  placeholder="name@example.com"
+  errorMessage={errors.email?.message}
+/>
+
+// ✅ Micro — Pure composition when custom structure is needed
+import { Card, CardHeader, CardTitle, CardContent } from "@gladvn";
 
 <Card>
   <CardHeader>
@@ -29,37 +43,46 @@ import { Card, CardHeader, CardTitle, CardContent } from "gladvn";
 </Card>
 ```
 
-**Incorrect (Do not hallucinate props):**
+**Incorrect (Do not hallucinate configuration props on Micro primitives):**
 ```tsx
-// ❌ DO NOT DO THIS
+// ❌ DO NOT DO THIS on Micro Card (use CardPreset instead)
 <Card title="Hello World" content="Some content here" />
 ```
 
-## 3. Form Fields
-When building forms, use the `Field` wrapper to automatically handle accessibility, labels, and error messages.
+## 3. Form Fields (Micro Composition)
+When building custom forms with Micro primitives instead of `FieldPreset` / `InputPreset`, use the `Field` family to handle accessibility, labels, and error messages:
 ```tsx
-import { Field, FieldLabel, FieldContent, FieldError, Input } from "gladvn";
+import { Field, FieldLabel, FieldContent, FieldError, Input } from "@gladvn";
 
-<Field error={errors.email?.message}>
+<Field invalid={!!errors.email}>
   <FieldLabel>Email Address</FieldLabel>
   <FieldContent>
-    <Input type="email" placeholder="name@example.com" />
+    <Input type="email" placeholder="name@example.com" aria-invalid={!!errors.email} />
   </FieldContent>
   <FieldError>{errors.email?.message}</FieldError>
 </Field>
 ```
 
-## 4. Styling
-- Components are fully styled by default.
-- If you need to override or extend styles, pass Tailwind CSS classes via the `className` prop.
-- Example: `<Button className="w-full mt-4" variant="solid" color="primary">Submit</Button>`
+## 4. Styling, Colors & Variants
+- Components support **9 semantic colors**: `primary`, `secondary`, `destructive`, `warning`, `success`, `info`, `tertiary`, `muted`, `accent`.
+- Interactive components (like `Button`, `Badge`, `Alert`) support **5 variants**: `solid`, `outline`, `soft`, `ghost`, `link`.
+- Sizes follow standard tokens: `sm`, `md`, `lg`.
+- Pass Tailwind CSS v4 utility classes via `className` to extend or position components:
+  `<Button className="w-full" variant="solid" color="primary">Submit</Button>`
 
-## 5. Overlay Components (Dialog, Popover, Sheet, DropdownMenu)
-Overlay components are unmounted by default and use portals.
-Always structure them with their respective Trigger and Content wrappers.
+## 5. Polymorphism (`render` prop)
+- Most interactive components are powered by **Base UI** and use the `render` prop (instead of Radix's `asChild`) for element delegation:
+  ```tsx
+  <Button render={<a href="/dashboard" />}>Go to Dashboard</Button>
+  ```
+
+## 6. Overlay Components & Zero-Portal Theming
+- Overlay components (`Dialog`, `Confirm`, `Sheet`, `Drawer`, `Popover`, `Tooltip`, `Select`, `Combobox`, `DropdownMenu`, `ContextMenu`, `HoverCard`, `NavigationMenu`) use portals and automatically inherit scoped `.light` / `.dark` themes from `ThemeProvider` via built-in `ThemeWrapper` (`display: contents`). Do **not** wrap overlay contents in manual theme wrappers.
 ```tsx
+import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, Button } from "@gladvn";
+
 <Dialog>
-  <DialogTrigger>Open</DialogTrigger>
+  <DialogTrigger render={<Button variant="outline" />}>Open</DialogTrigger>
   <DialogContent>
     <DialogHeader>
       <DialogTitle>Title</DialogTitle>
@@ -69,8 +92,8 @@ Always structure them with their respective Trigger and Content wrappers.
 </Dialog>
 ```
 
-## 6. Icons
-`gladvn` does not bundle an icon library by default, but relies on standard SVG icons (like `lucide-react`). When adding icons inside components like `Button` or `Empty`, use standard SVG elements or Lucide components.
+## 7. Icons
+`gladvn` relies on standard SVG icons (such as `lucide-react`). Components automatically size direct SVG icons using zero-specificity selectors (`[:where(&_svg)]`), so you can pass `<Icon />` without manual size classes or override them freely with `className="size-5"`.
 
 ---
-*Note to AI: Always prioritize reading the JSDoc/TSDoc definitions of the imported components if you are unsure of the props.*
+*Note to AI: Always prioritize reading the TypeScript types of the imported components in `@gladvn` and `@gladvn/preset` if you are unsure of the props.*

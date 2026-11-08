@@ -44,15 +44,15 @@ Both use the exact same design system.
 
 ```tsx
 // Micro — Assemble it your way
-import { Button } from "@gladvn/components/micro/button";
+import { Button } from "@gladvn";
 
 <Button variant="solid" color="primary">Submit</Button>
 
 
 // Macro — Ready-to-use presets
-import { InputPreset } from "@gladvn/components/macro/input-preset";
+import { InputPreset } from "@gladvn/preset";
 
-<InputPreset label="Email" error={errors.email} />
+<InputPreset label="Email" errorMessage={errors.email} />
 ```
 
 ## 🚀 Features
@@ -81,12 +81,19 @@ Run the following command in your React/Next.js project to initialize `gladvn` a
 npx gladvn init
 ```
 
-The CLI will launch an interactive session:
-1. Ask for the path to your global CSS file.
-2. Provide a **Checkbox Menu** for you to select exactly which components you want to install. Use `<space>` to select and `<enter>` to confirm.
-3. Copy the selected source code and core utilities into your project (default: `./gladvn/`).
-4. Inject Tailwind CSS configurations.
-5. Automatically scan your copied code and only install the npm packages you actually use.
+The CLI will automatically:
+1. Detect (or prompt you to select) your global CSS file.
+2. Copy core utilities (`lib`, `hooks`, `styles`) and components (`micro`, `macro`, `blocks`) into your project (default: `./gladvn/`).
+3. Inject `tokens.css` and `gladvn.css` imports into your main CSS file in the correct order.
+4. Configure `@gladvn` and `@gladvn/*` path aliases in `tsconfig.json` and `vite.config.ts`.
+5. Scan your copied source files and automatically install only the npm packages you actually use.
+
+You can also add individual components or pre-built blocks on demand:
+
+```bash
+npx gladvn add button
+npx gladvn add-block auth-form-block
+```
 
 ## 🆚 Comparison
 

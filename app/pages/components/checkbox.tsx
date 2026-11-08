@@ -1,8 +1,15 @@
 import React from "react";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Check, Minus } from "lucide-react";
 import { Controller, useForm } from "react-hook-form";
 import * as z from "zod";
+import { useDevContext, useI18n } from "~app/components/dev-context";
+import {
+  ConfigurableShowcase,
+  DocsP,
+  ShowcaseDocs,
+} from "~app/components/showcase";
 
 import { CheckboxPreset } from "@/components/macro/checkbox-preset";
 import { Button } from "@/components/micro/button";
@@ -14,12 +21,6 @@ import {
   FieldLabel,
 } from "@/components/micro/field";
 import { Label } from "@/components/micro/label";
-import { useDevContext, useI18n } from "~app/components/dev-context";
-import {
-  ConfigurableShowcase,
-  ShowcaseDocs,
-  DocsP,
-} from "~app/components/showcase";
 import { type Size } from "@/lib/types";
 
 const formSchema = z.object({
@@ -52,7 +53,7 @@ function CheckboxFormPreview({ globalSize }: { globalSize: Size }) {
             label="Use mobile device"
             description={t(
               "Cho phép chúng tôi gửi thông báo đến thiết bị di động của bạn.",
-              "Allow us to send notifications to your mobile device."
+              "Allow us to send notifications to your mobile device.",
             )}
             checked={field.value}
             onCheckedChange={field.onChange}
@@ -77,7 +78,7 @@ function useCheckboxExamples() {
         title: t("Tiêu chuẩn", "Standard"),
         description: t(
           "Checkbox cơ bản kèm nhãn và mô tả.",
-          "Basic checkbox with label and description."
+          "Basic checkbox with label and description.",
         ),
         macroCode: `<div className="w-full max-w-sm">
   <CheckboxPreset
@@ -130,7 +131,7 @@ function useCheckboxExamples() {
         title: t("Trạng thái Lỗi", "Error State"),
         description: t(
           "Báo lỗi khi chưa check vào ô (thường dùng trong form).",
-          "Shows an error when the box is unchecked (commonly used in forms)."
+          "Shows an error when the box is unchecked (commonly used in forms).",
         ),
         macroCode: `<div className="w-full max-w-sm">
   <CheckboxPreset
@@ -200,7 +201,7 @@ function useCheckboxExamples() {
         title: t("Trạng thái Khóa", "Disabled State"),
         description: t(
           "Checkbox bị vô hiệu hóa, không thể click.",
-          "The checkbox is disabled and cannot be clicked."
+          "The checkbox is disabled and cannot be clicked.",
         ),
         macroCode: `<div className="w-full max-w-sm flex flex-col gap-6">
   <CheckboxPreset
@@ -237,14 +238,14 @@ function useCheckboxExamples() {
         title: t("Tiêu đề tùy chỉnh", "React Node Label (Custom Content)"),
         description: t(
           "Label có thể chứa các component React phức tạp như Badge.",
-          "Label can contain complex React components like Badge."
+          "Label can contain complex React components like Badge.",
         ),
         macroCode: `<div className="w-full max-w-sm">
   <CheckboxPreset
     label={
       <span className="flex items-center gap-2">
         Join the BETA program{" "}
-        <span className="rounded bg-primary/20 px-1.5 py-0.5 text-[10px] font-semibold text-primary">
+        <span className="rounded bg-primary/20 px-1.5 py-0.5 text-xs font-semibold text-primary">
           NEW
         </span>
       </span>
@@ -260,7 +261,7 @@ function useCheckboxExamples() {
               label={
                 <span className="flex items-center gap-2">
                   Join the BETA program{" "}
-                  <span className="rounded bg-primary/20 px-1.5 py-0.5 text-[10px] font-semibold text-primary">
+                  <span className="rounded bg-primary/20 px-1.5 py-0.5 text-xs font-semibold text-primary">
                     NEW
                   </span>
                 </span>
@@ -275,7 +276,7 @@ function useCheckboxExamples() {
         title: t("Ghép nối với Field", "Composing with Field"),
         description: t(
           "Lắp ráp thủ công các thành phần Field khi cần layout phức tạp.",
-          "Manually assemble Field components for complex layouts."
+          "Manually assemble Field components for complex layouts.",
         ),
         microCode: `<Field className="flex items-start gap-3" data-size="md">
   <div className="flex items-center text-sm leading-snug group-data-[size=sm]/field:text-xs group-data-[size=lg]/field:text-base">
@@ -315,7 +316,9 @@ function useCheckboxExamples() {
               >
                 Save password
               </FieldLabel>
-              <FieldDescription>Automatically log in next time.</FieldDescription>
+              <FieldDescription>
+                Automatically log in next time.
+              </FieldDescription>
             </div>
           </Field>
         ),
@@ -324,7 +327,7 @@ function useCheckboxExamples() {
         title: t("Icon Tuỳ Biến", "Custom Icon"),
         description: t(
           "Vì dùng Composition, bạn có thể truyền bất kỳ icon nào (VD: Minus) vào Indicator.",
-          "Because of Composition, you can pass any icon (e.g., Minus) into the Indicator."
+          "Because of Composition, you can pass any icon (e.g., Minus) into the Indicator.",
         ),
         microCode: `<div className="flex items-center gap-3">
   <Checkbox id="cb-custom-icon">
@@ -360,7 +363,7 @@ function useCheckboxExamples() {
         title: t("Tích hợp React Hook Form", "React Hook Form Integration"),
         description: t(
           "Dùng Controller của RHF để bọc CheckboxPreset.",
-          "Use RHF's Controller to wrap CheckboxPreset."
+          "Use RHF's Controller to wrap CheckboxPreset.",
         ),
         macroCode: `const formSchema = z.object({ mobile: z.boolean().default(false).optional() });
 
@@ -392,7 +395,7 @@ function CheckboxForm({ size }: { size: Size }) {
         macroPreview: <CheckboxFormPreview globalSize={globalSize} />,
       },
     ],
-    [globalSize, t]
+    [globalSize, t],
   );
 }
 
@@ -405,14 +408,14 @@ export default function CheckboxShowcase() {
       title="Checkbox"
       description={t(
         "Thành phần cho phép người dùng chọn hoặc bỏ chọn một tuỳ chọn độc lập.",
-        "Component allowing users to select or deselect an independent option."
+        "Component allowing users to select or deselect an independent option.",
       )}
       guideline={
         <ShowcaseDocs>
           <DocsP>
             {t(
-              "Dùng để thu thập đầu vào dạng đúng/sai hoặc nhiều lựa chọn độc lập từ người dùng. Thường đi kèm với nhãn (label) và mô tả để giải thích ý nghĩa của tùy chọn.",
-              "Used to collect true/false or multiple independent choices from users. Usually accompanied by a label and description to explain the option's meaning."
+              "Dùng để thu thập đầu vào dạng đúng/sai hoặc nhiều lựa chọn độc lập từ người dùng. Thường đi kèm với nhãn và mô tả để giải thích ý nghĩa của tùy chọn.",
+              "Used to collect true/false or multiple independent choices from users. Usually accompanied by a label and description to explain the option's meaning.",
             )}
           </DocsP>
         </ShowcaseDocs>

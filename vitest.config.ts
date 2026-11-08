@@ -1,6 +1,6 @@
-import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
 import path from "path";
+import { defineConfig } from "vitest/config";
 
 export default defineConfig({
   plugins: [react()],
@@ -8,15 +8,26 @@ export default defineConfig({
     environment: "jsdom",
     globals: true,
     setupFiles: "./test/setup.ts",
-    include: ["src/**/*.test.ts", "src/**/*.test.tsx", "test/**/*.test.ts"],
+    include: [
+      "src/**/*.test.ts",
+      "src/**/*.test.tsx",
+      "test/**/*.test.ts",
+      "test/**/*.test.tsx",
+    ],
     alias: {
       "@gladvn": path.resolve(__dirname, "./src"),
+      "@": path.resolve(__dirname, "./src"),
     },
     coverage: {
       provider: "v8",
       reporter: ["text", "json", "html"],
       include: ["src/**/*.ts", "src/**/*.tsx"],
-      exclude: ["src/**/*.test.ts", "src/**/*.test.tsx", "src/dev/**/*", "src/**/index.ts"],
+      exclude: [
+        "src/**/*.test.ts",
+        "src/**/*.test.tsx",
+        "src/dev/**/*",
+        "src/**/index.ts",
+      ],
     },
   },
 });

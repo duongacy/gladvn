@@ -1,18 +1,21 @@
-import React, { useState, useCallback } from "react";
-import { type DateRange } from "react-day-picker";
+import React, { useCallback, useState } from "react";
 
-import { DatePicker } from "@/components/macro/date-picker";
-import { Calendar } from "@/components/micro/calendar";
+import { type DateRange } from "react-day-picker";
 import { useDevContext, useI18n } from "~app/components/dev-context";
 import {
   ConfigurableShowcase,
-  ShowcaseDocs,
   DocsP,
+  ShowcaseDocs,
 } from "~app/components/showcase";
+
+import { DatePicker } from "@/components/macro/date-picker";
+import { Calendar } from "@/components/micro/calendar";
 import { Size } from "@/lib/types";
 
 function SingleDatePreview({ globalSize }: { globalSize: Size }) {
-  const [singleDate, setSingleDate] = useState<Date | undefined>(new Date(2026, 5, 10));
+  const [singleDate, setSingleDate] = useState<Date | undefined>(
+    new Date(2026, 5, 10),
+  );
   return (
     <div className="border border-border rounded-xl inline-block bg-card p-3">
       <Calendar
@@ -96,7 +99,7 @@ function MultipleDatesPreview({ globalSize }: { globalSize: Size }) {
 function DisabledDatesPreview({ globalSize }: { globalSize: Size }) {
   const isPastDate = useCallback(
     (date: Date) => date < new Date(2026, 10, 15),
-    []
+    [],
   );
   return (
     <div className="border border-border rounded-xl inline-block bg-card p-3">
@@ -221,7 +224,6 @@ function DisabledMacroPreview({ globalSize }: { globalSize: Size }) {
   );
 }
 
-
 function useCalendarExamples() {
   const t = useI18n();
   const { size: globalSize } = useDevContext();
@@ -232,7 +234,7 @@ function useCalendarExamples() {
         title: t("Ngày đơn", "Single Date"),
         description: t(
           "Chọn một ngày duy nhất. Component Macro hiển thị dưới dạng DatePicker.",
-          "Select a single date. Macro component displays as a DatePicker."
+          "Select a single date. Macro component displays as a DatePicker.",
         ),
         macroCode: `const [date, setDate] = React.useState<Date | undefined>()
 
@@ -258,7 +260,7 @@ function useCalendarExamples() {
         title: t("Phạm vi ngày", "Date Range"),
         description: t(
           "Chọn một phạm vi ngày. Component Macro xử lý chọn khoảng thời gian.",
-          "Select a date range. Macro component handles date range selection."
+          "Select a date range. Macro component handles date range selection.",
         ),
         macroCode: `const [range, setRange] = React.useState<DateRange | undefined>()
 
@@ -288,27 +290,26 @@ function useCalendarExamples() {
         title: t("Điều hướng nhanh", "Quick Navigation"),
         description: t(
           "Sổ danh sách để chọn tháng và năm nhanh chóng thay vì click qua lại liên tục.",
-          "Dropdown to quickly select month and year instead of clicking repeatedly."
+          "Dropdown to quickly select month and year instead of clicking repeatedly.",
         ),
-        macroCode: `// Single Dropdown
-<DatePicker
-  className="w-64"
-  label="Birthday"
-  captionLayout="dropdown"
-  startMonth={new Date(1900, 0)}
-  endMonth={new Date()}
-/>
-
-// Range Dropdown
-<DatePicker
-  className="w-fit"
-  mode="range"
-  label="Date Range with Dropdowns"
-  captionLayout="dropdown"
-  numberOfMonths={2}
-  startMonth={new Date(2020, 0)}
-  endMonth={new Date(2030, 11)}
-/>`,
+        macroCode: `<div className="flex flex-wrap gap-4 items-start">
+  <DatePicker
+    className="w-64"
+    label="Birthday"
+    captionLayout="dropdown"
+    startMonth={new Date(1900, 0)}
+    endMonth={new Date()}
+  />
+  <DatePicker
+    className="w-fit"
+    mode="range"
+    label="Date Range with Dropdowns"
+    captionLayout="dropdown"
+    numberOfMonths={2}
+    startMonth={new Date(2020, 0)}
+    endMonth={new Date(2030, 11)}
+  />
+</div>`,
         macroPreview: (
           <div className="flex flex-wrap gap-4 items-start">
             <SingleDropdownMacroPreview globalSize={globalSize} />
@@ -327,8 +328,8 @@ function useCalendarExamples() {
       {
         title: t("Nhiều ngày", "Multiple Dates"),
         description: t(
-          "Chọn nhiều ngày rời rạc (mode='multiple').",
-          "Select multiple discrete dates (mode='multiple')."
+          "Chọn nhiều ngày rời rạc.",
+          "Select multiple discrete dates (mode='multiple').",
         ),
         microCode: `const [dates, setDates] = React.useState<Date[] | undefined>([])
 
@@ -345,8 +346,8 @@ function useCalendarExamples() {
       {
         title: t("Vô hiệu hóa ngày", "Disabled Dates"),
         description: t(
-          "Vô hiệu hóa chọn ngày (VD: ngày trong quá khứ).",
-          "Disable date selection (e.g., past dates)."
+          "Vô hiệu hóa việc chọn các ngày trong quá khứ.",
+          "Disable date selection (e.g., past dates).",
         ),
         microCode: `<div className="border border-border rounded-xl inline-block bg-card p-3">
   <Calendar
@@ -360,8 +361,8 @@ function useCalendarExamples() {
       {
         title: t("Hai tháng", "Two Months"),
         description: t(
-          "Hiển thị 2 tháng liền kề (numberOfMonths=2) thường dùng cho Date Range.",
-          "Displays 2 adjacent months (numberOfMonths=2), typically used for Date Range."
+          "Hiển thị 2 tháng liền kề, thường dùng khi chọn khoảng thời gian.",
+          "Displays 2 adjacent months (numberOfMonths=2), typically used for Date Range.",
         ),
         microCode: `<div className="border border-border rounded-xl inline-block bg-card p-3 overflow-x-auto max-w-full">
   <Calendar
@@ -377,8 +378,8 @@ function useCalendarExamples() {
       {
         title: t("Có nhãn & mô tả", "With Label & Description"),
         description: t(
-          "Hiển thị label và mô tả bên dưới trigger (Macro).",
-          "Displays a label and description below the trigger (Macro)."
+          "Hiển thị nhãn và mô tả bên dưới nút chọn ngày.",
+          "Displays a label and description below the trigger (Macro).",
         ),
         macroCode: `<DatePicker
   className="w-64"
@@ -391,8 +392,8 @@ function useCalendarExamples() {
       {
         title: t("Trạng thái lỗi", "Error State"),
         description: t(
-          "Trigger hiển thị viền đỏ khi có errorMessage (Macro).",
-          "Trigger displays a red border when errorMessage is present (Macro)."
+          "Nút chọn ngày hiển thị viền đỏ khi có thông báo lỗi.",
+          "Trigger displays a red border when errorMessage is present (Macro).",
         ),
         macroCode: `<DatePicker
   className="w-64"
@@ -405,13 +406,13 @@ function useCalendarExamples() {
         title: t("Vô hiệu hoá", "Disabled"),
         description: t(
           "Trigger bị vô hiệu hoá, người dùng không thể mở calendar.",
-          "Trigger is disabled, user cannot open the calendar."
+          "Trigger is disabled, user cannot open the calendar.",
         ),
         macroCode: `<DatePicker className="w-64" label="Date" disabled />`,
         macroPreview: <DisabledMacroPreview globalSize={globalSize} />,
       },
     ],
-    [globalSize, t]
+    [globalSize, t],
   );
 }
 
@@ -424,14 +425,14 @@ export default function CalendarShowcase() {
       title={t("Lịch", "Calendar")}
       description={t(
         "Thành phần chọn ngày, khoảng thời gian hoặc nhiều ngày.",
-        "A component to select a single date, multiple dates, or a date range."
+        "A component to select a single date, multiple dates, or a date range.",
       )}
       guideline={
         <ShowcaseDocs>
           <DocsP>
             {t(
               "Dùng để hiển thị lịch và cho phép người dùng chọn một ngày, nhiều ngày hoặc một khoảng thời gian. Thường được sử dụng kết hợp với Popover để tạo thành DatePicker.",
-              "Used to display a calendar and allow the user to select a single date, multiple dates, or a date range. Commonly used in combination with Popover to create a DatePicker."
+              "Used to display a calendar and allow the user to select a single date, multiple dates, or a date range. Commonly used in combination with Popover to create a DatePicker.",
             )}
           </DocsP>
         </ShowcaseDocs>

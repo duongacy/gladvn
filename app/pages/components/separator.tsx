@@ -1,16 +1,17 @@
 import React from "react";
 
-import { Separator } from "@/components/micro/separator";
 import { useI18n } from "~app/components/dev-context";
 import {
   ConfigurableShowcase,
-  ShowcaseDocs,
+  DocsCode,
   DocsH3,
   DocsLi,
   DocsP,
   DocsUl,
-  DocsCode,
+  ShowcaseDocs,
 } from "~app/components/showcase";
+
+import { Separator } from "@/components/micro/separator";
 
 function useSeparatorExamples() {
   const t = useI18n();
@@ -21,7 +22,7 @@ function useSeparatorExamples() {
         title: t("Ngang", "Horizontal"),
         description: t(
           "Sử dụng để phân tách các khối nội dung từ trên xuống dưới.",
-          "Used to separate content blocks from top to bottom."
+          "Used to separate content blocks from top to bottom.",
         ),
         microCode: `<div className="w-full max-w-sm rounded-lg border border-border bg-card p-6">
   <div className="space-y-1">
@@ -56,7 +57,7 @@ function useSeparatorExamples() {
         title: t("Dọc", "Vertical"),
         description: t(
           "Sử dụng để phân tách các mục nằm ngang (như menu, thanh công cụ).",
-          "Used to separate horizontal items (like menus, toolbars)."
+          "Used to separate horizontal items (like menus, toolbars).",
         ),
         microCode: `<div className="flex h-5 items-center space-x-4 text-sm">
   <div className="font-medium hover:underline cursor-pointer">
@@ -91,7 +92,7 @@ function useSeparatorExamples() {
         title: "Decorative vs Semantic",
         description: t(
           'Semantic (mặc định) được screen reader đọc. Truyền aria-hidden="true" khi Separator chỉ mang tính trang trí thuần.',
-          'Semantic (default) is read by screen readers. Pass aria-hidden="true" when the Separator is purely decorative.'
+          'Semantic (default) is read by screen readers. Pass aria-hidden="true" when the Separator is purely decorative.',
         ),
         microCode: `<div className="flex flex-col gap-6 w-full max-w-sm">
   <div>
@@ -125,7 +126,7 @@ function useSeparatorExamples() {
         ),
       },
     ],
-    [t]
+    [t],
   );
 }
 
@@ -137,8 +138,8 @@ export default function SeparatorShowcase() {
     <ConfigurableShowcase
       title="Separator"
       description={t(
-        "Thành phần phân cách trực quan hoặc ngữ nghĩa giữa các khối nội dung (Đường kẻ).",
-        "A visual or semantic separator between content blocks (Line)."
+        "Thành phần phân cách trực quan hoặc ngữ nghĩa giữa các khối nội dung.",
+        "A visual or semantic separator between content blocks (Line).",
       )}
       guideline={
         <ShowcaseDocs>
@@ -155,30 +156,30 @@ export default function SeparatorShowcase() {
                 because it is essentially just an interface dividing line. The
                 default is horizontal line (
                 <DocsCode>orientation="horizontal"</DocsCode>).
-              </>
+              </>,
             )}
           </DocsP>
 
           <div className="mt-6 rounded-lg border border-amber-500/20 bg-amber-500/10 p-4">
             <h4 className="mb-2 text-sm font-semibold text-amber-900 dark:text-amber-400">
               {t(
-                "⚠️ Lưu ý quan trọng về Layout (Auto Layout/Flexbox)",
-                "⚠️ Important Note on Layout (Auto Layout/Flexbox)"
+                "⚠️ Lưu ý quan trọng về Layout",
+                "⚠️ Important Note on Layout (Auto Layout/Flexbox)",
               )}
             </h4>
             <p className="mb-3 text-sm text-amber-900/90 dark:text-amber-200/90">
               {t(
                 'Separator rất "nhạy cảm" với cấu trúc flex bên ngoài. Nếu bạn thấy đường kẻ "biến mất" (kích thước bị bóp về 0px), hãy chú ý:',
-                'Separator is highly "sensitive" to the outer flex structure. If you see the line "disappear" (size squeezed to 0px), please note:'
+                'Separator is highly "sensitive" to the outer flex structure. If you see the line "disappear" (size squeezed to 0px), please note:',
               )}
             </p>
             <DocsUl className="mb-0 text-sm text-amber-900/90 dark:text-amber-200/90">
               <DocsLi>
                 {t(
                   <>
-                    <strong>Horizontal (Kẻ ngang):</strong> Component này mặc
-                    định chỉ cấp `h-px`. Vì là thẻ block nên nó tự giãn full
-                    ngang, tuy nhiên nếu ném vào{" "}
+                    <strong>Kẻ ngang:</strong> Component này mặc định chỉ cấp
+                    `h-px`. Vì là thẻ block nên nó tự giãn full ngang, tuy nhiên
+                    nếu ném vào{" "}
                     <DocsCode className="bg-transparent border-amber-500/30">
                       flex-row
                     </DocsCode>{" "}
@@ -216,17 +217,16 @@ export default function SeparatorShowcase() {
                       flex-1
                     </DocsCode>{" "}
                     if necessary.
-                  </>
+                  </>,
                 )}
               </DocsLi>
               <DocsLi>
                 {t(
                   <>
-                    <strong>Vertical (Kẻ dọc):</strong> Component chỉ cung cấp
-                    `w-px`. Nó hoàn toàn <strong>KHÔNG</strong> tự nội suy chiều
-                    cao (no self-stretch, no h-full). Do đó, bạn{" "}
-                    <strong>BẮT BUỘC</strong> phải truyền chiều cao rõ ràng từ
-                    bên ngoài thông qua{" "}
+                    <strong>Kẻ dọc:</strong> Component chỉ cung cấp `w-px`. Nó
+                    hoàn toàn <strong>KHÔNG</strong> tự nội suy chiều cao. Do
+                    đó, bạn <strong>BẮT BUỘC</strong> phải truyền chiều cao rõ
+                    ràng từ bên ngoài thông qua{" "}
                     <DocsCode className="bg-transparent border-amber-500/30">
                       className
                     </DocsCode>{" "}
@@ -265,7 +265,7 @@ export default function SeparatorShowcase() {
                       self-stretch
                     </DocsCode>
                     ).
-                  </>
+                  </>,
                 )}
               </DocsLi>
             </DocsUl>

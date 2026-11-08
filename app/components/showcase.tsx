@@ -1,16 +1,23 @@
 import React, { createContext, useContext, useState } from "react";
 
 import { BookOpenIcon, CheckIcon, CopyIcon } from "lucide-react";
+import { CodeHighlighter } from "~app/components/code-highlighter";
 import { useI18n } from "~app/components/dev-context";
+import { COLORS, COLOR_INFO } from "~app/config/data";
 
 import { Button } from "@/components/micro/button";
-import { CodeHighlighter } from "~app/components/code-highlighter";
+import { type Size } from "@/lib/types";
+import { cn } from "@/lib/utils";
 
-function CustomTabsList({ children, className }: { children: React.ReactNode; className?: string }) {
+function CustomTabsList({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
-    <div className={cn("flex w-fit items-center", className)}>
-      {children}
-    </div>
+    <div className={cn("flex w-fit items-center", className)}>{children}</div>
   );
 }
 
@@ -38,16 +45,13 @@ function CustomTabsTrigger({
           ? "bg-foreground text-background border-foreground relative z-10"
           : "bg-background text-muted-foreground border-border hover:bg-muted/50 hover:text-foreground relative z-0",
         disabled && "opacity-40 cursor-not-allowed",
-        className
+        className,
       )}
     >
       {children}
     </button>
   );
 }
-import { COLORS, COLOR_INFO } from "~app/config/data";
-import { type Size } from "@/lib/types";
-import { cn } from "@/lib/utils";
 
 type ShowcaseContextType = {
   exampleStates: Record<string, string>;
@@ -81,10 +85,21 @@ export function SectionHeader({
   );
 }
 
-export function ShowcaseDocs({ children, className }: { children: React.ReactNode; className?: string }) {
+export function ShowcaseDocs({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   const t = useI18n();
   return (
-    <div className={cn("overflow-hidden rounded-none border border-amber-500/20 bg-amber-500/5", className)}>
+    <div
+      className={cn(
+        "overflow-hidden rounded-none border border-amber-500/20 bg-amber-500/5",
+        className,
+      )}
+    >
       <div className="flex items-center gap-2 border-b border-amber-500/20 bg-amber-500/10 px-6 py-3.5">
         <BookOpenIcon className="size-4 text-amber-700 dark:text-amber-500" />
         <h3 className="text-sm font-semibold text-amber-900 dark:text-amber-200">
@@ -98,7 +113,13 @@ export function ShowcaseDocs({ children, className }: { children: React.ReactNod
   );
 }
 
-export function DocsH3({ children, className }: { children: React.ReactNode; className?: string }) {
+export function DocsH3({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
     <h3 className={cn("text-base font-semibold text-foreground", className)}>
       {children}
@@ -106,21 +127,54 @@ export function DocsH3({ children, className }: { children: React.ReactNode; cla
   );
 }
 
-export function DocsP({ children, className }: { children: React.ReactNode; className?: string }) {
+export function DocsP({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return <p className={cn(className)}>{children}</p>;
 }
 
-export function DocsUl({ children, className }: { children: React.ReactNode; className?: string }) {
-  return <ul className={cn("list-inside list-disc space-y-2", className)}>{children}</ul>;
+export function DocsUl({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <ul className={cn("list-inside list-disc space-y-2", className)}>
+      {children}
+    </ul>
+  );
 }
 
-export function DocsLi({ children, className }: { children: React.ReactNode; className?: string }) {
+export function DocsLi({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return <li className={className}>{children}</li>;
 }
 
-export function DocsCode({ children, className }: { children: React.ReactNode; className?: string }) {
+export function DocsCode({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
-    <code className={cn("rounded-md border border-amber-500/20 bg-amber-500/10 px-1.5 py-0.5 font-mono text-[13px] text-amber-900 dark:text-amber-200", className)}>
+    <code
+      className={cn(
+        "rounded-md border border-amber-500/20 bg-amber-500/10 px-1.5 py-0.5 font-mono text-[13px] text-amber-900 dark:text-amber-200",
+        className,
+      )}
+    >
       {children}
     </code>
   );
@@ -147,9 +201,10 @@ export function ShowcaseExample({
   const [copied, setCopied] = useState(false);
   const [localActiveTab, setLocalActiveTab] = useState("preview");
 
-  const activeTab = stableId && context && context.exampleStates[stableId]
-    ? context.exampleStates[stableId]
-    : localActiveTab;
+  const activeTab =
+    stableId && context && context.exampleStates[stableId]
+      ? context.exampleStates[stableId]
+      : localActiveTab;
 
   const hasCode = code !== undefined;
 
@@ -183,10 +238,16 @@ export function ShowcaseExample({
         </div>
         {hasCode && (
           <CustomTabsList>
-            <CustomTabsTrigger active={activeTab === "preview"} onClick={() => handleTabChange("preview")}>
+            <CustomTabsTrigger
+              active={activeTab === "preview"}
+              onClick={() => handleTabChange("preview")}
+            >
               Preview
             </CustomTabsTrigger>
-            <CustomTabsTrigger active={activeTab === "code"} onClick={() => handleTabChange("code")}>
+            <CustomTabsTrigger
+              active={activeTab === "code"}
+              onClick={() => handleTabChange("code")}
+            >
               Code
             </CustomTabsTrigger>
           </CustomTabsList>
@@ -194,20 +255,25 @@ export function ShowcaseExample({
       </div>
 
       <div className="relative w-full">
-        <div hidden={activeTab !== "preview"} className="mt-0 outline-none w-full">
+        <div
+          hidden={activeTab !== "preview"}
+          className="mt-0 outline-none w-full"
+        >
           <div
             className={cn(
               "relative min-h-30 w-full rounded-none border border-border bg-muted/30 dark:bg-muted/20 p-4 sm:p-6",
               className,
             )}
           >
-
             <div className="relative z-10 w-full">{preview}</div>
           </div>
         </div>
 
         {hasCode && (
-          <div hidden={activeTab !== "code"} className="mt-0 outline-none w-full">
+          <div
+            hidden={activeTab !== "code"}
+            className="mt-0 outline-none w-full"
+          >
             <div className="relative rounded-none border border-border bg-muted/30 dark:bg-muted/20 p-4 text-foreground overflow-clip group/code">
               <CodeHighlighter code={code} />
               <Button
@@ -280,7 +346,6 @@ export function ExampleGrid({
   );
 }
 
-
 const bgColorMap: Record<(typeof COLORS)[number], string> = {
   primary: "bg-primary",
   secondary: "bg-secondary",
@@ -291,10 +356,21 @@ const bgColorMap: Record<(typeof COLORS)[number], string> = {
   tertiary: "bg-tertiary",
 };
 
-export function ColorSwatch({ color, className }: { color: (typeof COLORS)[number]; className?: string }) {
+export function ColorSwatch({
+  color,
+  className,
+}: {
+  color: (typeof COLORS)[number];
+  className?: string;
+}) {
   const info = COLOR_INFO[color];
   return (
-    <div className={cn("flex flex-col items-center gap-3 p-3.5 sm:p-5 rounded-none bg-background/40 border border-border/50 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-primary group", className)}>
+    <div
+      className={cn(
+        "flex flex-col items-center gap-3 p-3.5 sm:p-5 rounded-none bg-background/40 border border-border/50 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-primary group",
+        className,
+      )}
+    >
       <div
         className={cn(
           "h-12 w-12 sm:h-16 sm:w-16 rounded-none border border-border transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 group-hover:rounded-none",
@@ -335,25 +411,29 @@ export function Showcase({
   macro,
   className,
 }: ShowcaseProps) {
-  const t = useI18n();
   const hasTabs = !!micro && !!macro;
 
-  const [activeRootTab, setActiveRootTab] = useState<"macro" | "micro">("macro");
+  const [activeRootTab, setActiveRootTab] = useState<"macro" | "micro">(
+    "macro",
+  );
 
-  const [exampleStates, setExampleStates] = useState<Record<string, string>>({});
+  const [exampleStates, setExampleStates] = useState<Record<string, string>>(
+    {},
+  );
   const setExampleState = (id: string, state: string) => {
-    setExampleStates(prev => ({ ...prev, [id]: state }));
+    setExampleStates((prev) => ({ ...prev, [id]: state }));
   };
 
-  const renderTabContent = (tab?: { content: React.ReactNode; useCaseComparison?: React.ReactNode }) => {
+  const renderTabContent = (tab?: {
+    content: React.ReactNode;
+    useCaseComparison?: React.ReactNode;
+  }) => {
     if (!tab) return null;
     return (
       <div className="space-y-10">
         {tab.content}
         {tab.useCaseComparison && (
-          <div className="mt-16">
-            {tab.useCaseComparison}
-          </div>
+          <div className="mt-16">{tab.useCaseComparison}</div>
         )}
       </div>
     );
@@ -361,12 +441,7 @@ export function Showcase({
 
   return (
     <ShowcaseContext.Provider value={{ exampleStates, setExampleState }}>
-      <div
-        className={cn(
-          "flex flex-col items-start",
-          className,
-        )}
-      >
+      <div className={cn("flex flex-col items-start", className)}>
         <SectionHeader title={title} description={description}>
           {actions}
         </SectionHeader>
@@ -378,26 +453,40 @@ export function Showcase({
             <div className="flex w-full flex-col gap-6">
               <CustomTabsList>
                 {macro && (
-                  <CustomTabsTrigger active={activeRootTab === "macro"} onClick={() => setActiveRootTab("macro")}>
+                  <CustomTabsTrigger
+                    active={activeRootTab === "macro"}
+                    onClick={() => setActiveRootTab("macro")}
+                  >
                     Macro
                   </CustomTabsTrigger>
                 )}
                 {micro && (
-                  <CustomTabsTrigger active={activeRootTab === "micro"} onClick={() => setActiveRootTab("micro")}>
+                  <CustomTabsTrigger
+                    active={activeRootTab === "micro"}
+                    onClick={() => setActiveRootTab("micro")}
+                  >
                     Micro
                   </CustomTabsTrigger>
                 )}
               </CustomTabsList>
 
-              <div hidden={activeRootTab !== "macro"} className="mt-0 outline-none w-full">
+              <div
+                hidden={activeRootTab !== "macro"}
+                className="mt-0 outline-none w-full"
+              >
                 {renderTabContent(macro)}
               </div>
-              <div hidden={activeRootTab !== "micro"} className="mt-0 outline-none w-full">
+              <div
+                hidden={activeRootTab !== "micro"}
+                className="mt-0 outline-none w-full"
+              >
                 {renderTabContent(micro)}
               </div>
             </div>
           ) : (
-            <div className="w-full pt-4">{renderTabContent(macro || micro)}</div>
+            <div className="w-full pt-4">
+              {renderTabContent(macro || micro)}
+            </div>
           )}
         </div>
       </div>
@@ -423,9 +512,9 @@ export function SizeToggle({
           onClick={() => onValueChange(size)}
           className={cn(
             "flex h-8 items-center justify-center px-3.5 text-xs font-mono font-medium transition-all border -ml-[1px] first:ml-0",
-            value === size 
-              ? "bg-foreground text-background border-foreground relative z-10" 
-              : "bg-background text-muted-foreground border-border hover:bg-muted/50 hover:text-foreground relative z-0"
+            value === size
+              ? "bg-foreground text-background border-foreground relative z-10"
+              : "bg-background text-muted-foreground border-border hover:bg-muted/50 hover:text-foreground relative z-0",
           )}
         >
           {size}
@@ -463,19 +552,16 @@ export function ConfigurableShowcase({
   examples,
   className,
 }: ConfigurableShowcaseProps) {
-  const [exampleStates, setExampleStates] = useState<Record<string, string>>({});
+  const [exampleStates, setExampleStates] = useState<Record<string, string>>(
+    {},
+  );
   const setExampleState = (id: string, state: string) => {
     setExampleStates((prev) => ({ ...prev, [id]: state }));
   };
 
   return (
     <ShowcaseContext.Provider value={{ exampleStates, setExampleState }}>
-      <div
-        className={cn(
-          "flex flex-col",
-          className,
-        )}
-      >
+      <div className={cn("flex flex-col", className)}>
         <SectionHeader title={title} description={description}>
           {actions}
         </SectionHeader>
@@ -510,9 +596,10 @@ function UnifiedShowcaseExample({
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
   const [localActiveTab, setLocalActiveTab] = useState("preview");
 
-  const activeTab = stableId && context && context.exampleStates[stableId]
-    ? context.exampleStates[stableId]
-    : localActiveTab;
+  const activeTab =
+    stableId && context && context.exampleStates[stableId]
+      ? context.exampleStates[stableId]
+      : localActiveTab;
 
   const handleTabChange = (value: string) => {
     if (stableId && context) {
@@ -552,19 +639,22 @@ function UnifiedShowcaseExample({
         </div>
         {hasAnyCode && (
           <CustomTabsList>
-            <CustomTabsTrigger active={activeTab === "preview"} onClick={() => handleTabChange("preview")}>
+            <CustomTabsTrigger
+              active={activeTab === "preview"}
+              onClick={() => handleTabChange("preview")}
+            >
               Preview
             </CustomTabsTrigger>
-            <CustomTabsTrigger 
-              active={activeTab === "macro-code"} 
+            <CustomTabsTrigger
+              active={activeTab === "macro-code"}
               onClick={() => handleTabChange("macro-code")}
               disabled={!hasMacroCode}
               className={cn(!hasMacroCode && "line-through")}
             >
               Macro
             </CustomTabsTrigger>
-            <CustomTabsTrigger 
-              active={activeTab === "micro-code"} 
+            <CustomTabsTrigger
+              active={activeTab === "micro-code"}
               onClick={() => handleTabChange("micro-code")}
               disabled={!hasMicroCode}
               className={cn(!hasMicroCode && "line-through")}
@@ -576,7 +666,10 @@ function UnifiedShowcaseExample({
       </div>
 
       <div className="relative w-full">
-        <div hidden={activeTab !== "preview"} className="mt-0 outline-none w-full">
+        <div
+          hidden={activeTab !== "preview"}
+          className="mt-0 outline-none w-full"
+        >
           <div
             className={cn(
               "relative min-h-30 w-full rounded-none border border-border bg-muted/30 dark:bg-muted/20 p-4 sm:p-6",
@@ -588,7 +681,10 @@ function UnifiedShowcaseExample({
         </div>
 
         {hasMacroCode && (
-          <div hidden={activeTab !== "macro-code"} className="mt-0 outline-none w-full">
+          <div
+            hidden={activeTab !== "macro-code"}
+            className="mt-0 outline-none w-full"
+          >
             <div className="relative rounded-none border border-border bg-muted/30 dark:bg-muted/20 p-4 text-foreground overflow-clip group/code">
               <CodeHighlighter code={macroCode} />
               <Button
@@ -608,7 +704,10 @@ function UnifiedShowcaseExample({
         )}
 
         {hasMicroCode && (
-          <div hidden={activeTab !== "micro-code"} className="mt-0 outline-none w-full">
+          <div
+            hidden={activeTab !== "micro-code"}
+            className="mt-0 outline-none w-full"
+          >
             <div className="relative rounded-none border border-border bg-muted/30 dark:bg-muted/20 p-4 text-foreground overflow-clip group/code">
               <CodeHighlighter code={microCode} />
               <Button

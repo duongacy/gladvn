@@ -1,18 +1,19 @@
 import React from "react";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import * as z from "zod";
+import { useDevContext, useI18n } from "~app/components/dev-context";
+import {
+  ConfigurableShowcase,
+  DocsP,
+  ShowcaseDocs,
+} from "~app/components/showcase";
 
 import { SwitchPreset } from "@/components/macro/switch-preset";
 import { Button } from "@/components/micro/button";
 import { Field, FieldError, FieldLabel } from "@/components/micro/field";
 import { Switch, SwitchThumb } from "@/components/micro/switch";
-import { useDevContext, useI18n } from "~app/components/dev-context";
-import {
-  ConfigurableShowcase,
-  ShowcaseDocs,
-  DocsP,
-} from "~app/components/showcase";
 import { type Size } from "@/lib/types";
 
 const formSchema = z.object({
@@ -21,7 +22,6 @@ const formSchema = z.object({
 type FormValues = z.infer<typeof formSchema>;
 
 function SwitchForm({ size }: { size: Size }) {
-  const t = useI18n();
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: { marketing: false },
@@ -90,7 +90,7 @@ function useSwitchExamples() {
         title: t("Tiêu chuẩn", "Standard"),
         description: t(
           "Công tắc cơ bản có nhãn và mô tả.",
-          "Basic switch with label and description."
+          "Basic switch with label and description.",
         ),
         macroCode: `<SwitchPreset
   className="w-full"
@@ -131,7 +131,7 @@ function useSwitchExamples() {
         title: t("Trạng thái Lỗi", "Error State"),
         description: t(
           "Báo lỗi khi bật/tắt thất bại hoặc hiển thị lỗi thủ công bằng FieldError.",
-          "Shows error when toggle fails or displays manual error using FieldError."
+          "Shows error when toggle fails or displays manual error using FieldError.",
         ),
         macroCode: `<div className="w-full flex flex-col gap-6">
   <SwitchPreset
@@ -201,7 +201,7 @@ function useSwitchExamples() {
         title: t("Khóa / Bất hoạt", "Disabled"),
         description: t(
           "Người dùng không thể tương tác với công tắc.",
-          "Users cannot interact with the switch."
+          "Users cannot interact with the switch.",
         ),
         macroCode: `<div className="w-full flex flex-col gap-6">
   <SwitchPreset
@@ -276,12 +276,7 @@ function useSwitchExamples() {
               >
                 Bluetooth
               </FieldLabel>
-              <Switch
-                id="switch-d1"
-                disabled
-                size={globalSize}
-                defaultChecked
-              >
+              <Switch id="switch-d1" disabled size={globalSize} defaultChecked>
                 <SwitchThumb />
               </Switch>
             </Field>
@@ -307,13 +302,13 @@ function useSwitchExamples() {
         title: t("Nhãn phức tạp", "Custom Content"),
         description: t(
           "Truyền React Node vào Label để tạo giao diện phong phú.",
-          "Pass React Node into Label to create rich interfaces."
+          "Pass React Node into Label to create rich interfaces.",
         ),
         macroCode: `<SwitchPreset
   label={
     <span className="flex items-center gap-2">
       Two-Factor Authentication (2FA)
-      <span className="rounded bg-success/20 px-1.5 py-0.5 text-[10px] font-semibold text-success">
+      <span className="rounded bg-success/20 px-1.5 py-0.5 text-xs font-semibold text-success">
         RECOMMENDED
       </span>
     </span>
@@ -326,7 +321,7 @@ function useSwitchExamples() {
             label={
               <span className="flex items-center gap-2">
                 Two-Factor Authentication (2FA)
-                <span className="rounded bg-success/20 px-1.5 py-0.5 text-[10px] font-semibold text-success">
+                <span className="rounded bg-success/20 px-1.5 py-0.5 text-xs font-semibold text-success">
                   RECOMMENDED
                 </span>
               </span>
@@ -339,7 +334,7 @@ function useSwitchExamples() {
         title: t("Layout Đảo ngược", "Reverse Layout"),
         description: t(
           "Dùng Field với orientation='horizontal' để đẩy Switch sang bên phải.",
-          "Use Field with orientation='horizontal' to push Switch to the right."
+          "Use Field with orientation='horizontal' to push Switch to the right.",
         ),
         microCode: `<div className="w-full space-y-4">
   <Field
@@ -410,13 +405,13 @@ function useSwitchExamples() {
         title: t("Tích hợp React Hook Form", "React Hook Form Integration"),
         description: t(
           "Dùng Controller của RHF để bọc SwitchPreset.",
-          "Use RHF's Controller to wrap SwitchPreset."
+          "Use RHF's Controller to wrap SwitchPreset.",
         ),
         macroCode: rhfCode,
         macroPreview: <SwitchForm size={globalSize} />,
       },
     ],
-    [t, globalSize]
+    [t, globalSize],
   );
 }
 
@@ -429,14 +424,14 @@ export default function SwitchShowcase() {
       title="Switch"
       description={t(
         "Thành phần điều khiển cho phép người dùng chuyển đổi qua lại giữa 2 trạng thái Bật / Tắt.",
-        "A control component that allows the user to toggle between two states: On / Off."
+        "A control component that allows the user to toggle between two states: On / Off.",
       )}
       guideline={
         <ShowcaseDocs>
           <DocsP>
             {t(
               "Switch được sử dụng để chuyển đổi một cài đặt duy nhất ngay lập tức.",
-              "Switch is used to toggle a single setting immediately."
+              "Switch is used to toggle a single setting immediately.",
             )}
           </DocsP>
         </ShowcaseDocs>

@@ -1,18 +1,37 @@
-import React from "react";
-import { toast } from "sonner";
+import React, { useCallback } from "react";
 
-import { Button } from "@/components/micro/button";
-import { useI18n, useDevContext } from "~app/components/dev-context";
+import { toast } from "sonner";
+import { useDevContext, useI18n } from "~app/components/dev-context";
 import {
   ConfigurableShowcase,
-  ShowcaseDocs,
   DocsH3,
   DocsP,
+  ShowcaseDocs,
 } from "~app/components/showcase";
+
+import { Button } from "@/components/micro/button";
 
 function useToastExamples() {
   const t = useI18n();
   const { size: globalSize } = useDevContext();
+
+  const handleDefaultToast = useCallback(() => {
+    toast("Event created", {
+      description: "Sunday, December 03, 2023 at 9:00 AM",
+      action: {
+        label: "Undo",
+        onClick: () => console.log("Undo"),
+      },
+    });
+  }, []);
+
+  const handleSuccessToast = useCallback(() => {
+    toast.success("Profile updated successfully");
+  }, []);
+
+  const handleErrorToast = useCallback(() => {
+    toast.error("Failed to update profile");
+  }, []);
 
   return React.useMemo(
     () => [
@@ -20,37 +39,26 @@ function useToastExamples() {
         title: "Toast Notifications",
         description: t(
           "Nhấp để kích hoạt các loại toast khác nhau.",
-          "Click to trigger different types of toasts."
+          "Click to trigger different types of toasts.",
         ),
         microCode: `<div className="flex flex-wrap gap-3">
   <Button
     variant="outline"
-    onClick={() => {
-      toast("Event created", {
-        description:
-          "Sunday, December 03, 2023 at 9:00 AM",
-        action: {
-          label: "Undo",
-          onClick: () => console.log("Undo") } })
-    }}
+    onClick={handleDefaultToast}
   >
     Show Toast
   </Button>
   <Button
     variant="outline"
     color="success"
-    onClick={() => {
-      toast.success("Profile updated successfully")
-    }}
+    onClick={handleSuccessToast}
   >
     Success Toast
   </Button>
   <Button
     variant="outline"
     color="destructive"
-    onClick={() => {
-      toast.error("Failed to update profile")
-    }}
+    onClick={handleErrorToast}
   >
     Error Toast
   </Button>
@@ -60,15 +68,7 @@ function useToastExamples() {
             <Button
               variant="outline"
               size={globalSize}
-              onClick={() => {
-                toast("Event created", {
-                  description: "Sunday, December 03, 2023 at 9:00 AM",
-                  action: {
-                    label: "Undo",
-                    onClick: () => console.log("Undo"),
-                  },
-                });
-              }}
+              onClick={handleDefaultToast}
             >
               Show Toast
             </Button>
@@ -76,9 +76,7 @@ function useToastExamples() {
               variant="outline"
               color="success"
               size={globalSize}
-              onClick={() => {
-                toast.success("Profile updated successfully");
-              }}
+              onClick={handleSuccessToast}
             >
               Success Toast
             </Button>
@@ -86,9 +84,7 @@ function useToastExamples() {
               variant="outline"
               color="destructive"
               size={globalSize}
-              onClick={() => {
-                toast.error("Failed to update profile");
-              }}
+              onClick={handleErrorToast}
             >
               Error Toast
             </Button>
@@ -96,7 +92,7 @@ function useToastExamples() {
         ),
       },
     ],
-    [t, globalSize]
+    [t, globalSize, handleDefaultToast, handleSuccessToast, handleErrorToast],
   );
 }
 
@@ -109,7 +105,7 @@ export default function ToastShowcase() {
       title="Toast"
       description={t(
         "Một thông báo ngắn gọn được hiển thị tạm thời.",
-        "A brief message that is displayed temporarily."
+        "A brief message that is displayed temporarily.",
       )}
       guideline={
         <ShowcaseDocs>
@@ -117,7 +113,7 @@ export default function ToastShowcase() {
           <DocsP>
             {t(
               "Sử dụng để hiển thị các thông báo nhanh cho người dùng.",
-              "Use to display quick notifications to users."
+              "Use to display quick notifications to users.",
             )}
           </DocsP>
         </ShowcaseDocs>

@@ -1,5 +1,12 @@
 import * as React from "react";
+
 import { ChevronsUpDown } from "lucide-react";
+import { useDevContext, useI18n } from "~app/components/dev-context";
+import {
+  ConfigurableShowcase,
+  DocsP,
+  ShowcaseDocs,
+} from "~app/components/showcase";
 
 import { Button } from "@/components/micro/button";
 import {
@@ -7,12 +14,6 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/micro/collapsible";
-import { useDevContext, useI18n } from "~app/components/dev-context";
-import {
-  ConfigurableShowcase,
-  ShowcaseDocs,
-  DocsP,
-} from "~app/components/showcase";
 
 function useCollapsibleExamples() {
   const t = useI18n();
@@ -24,9 +25,9 @@ function useCollapsibleExamples() {
         title: t("Mặc định", "Default"),
         description: t(
           "Nhấn để mở rộng hoặc thu gọn.",
-          "Click to expand or collapse."
+          "Click to expand or collapse.",
         ),
-        microCode: `<div className="w-full sm:w-[350px]">
+        microCode: `<div className="w-full sm:w-88">
   <Collapsible className="space-y-2">
     <div className="flex items-center justify-between space-x-4 px-4">
       <h4 className="text-sm font-semibold">
@@ -61,7 +62,7 @@ function useCollapsibleExamples() {
   </Collapsible>
 </div>`,
         microPreview: (
-          <div className="w-full sm:w-[350px]">
+          <div className="w-full sm:w-88">
             <Collapsible className="space-y-2">
               <div className="flex items-center justify-between space-x-4 px-4">
                 <h4 className="text-sm font-semibold">
@@ -101,9 +102,9 @@ function useCollapsibleExamples() {
         title: t("Vô hiệu hóa", "Disabled"),
         description: t(
           "Không thể tương tác để thay đổi trạng thái đóng/mở.",
-          "Cannot be interacted with to toggle state."
+          "Cannot be interacted with to toggle state.",
         ),
-        microCode: `<div className="w-full sm:w-[350px]">
+        microCode: `<div className="w-full sm:w-88">
   <Collapsible disabled className="space-y-2">
     <div className="flex items-center justify-between space-x-4 px-4">
       <h4 className="text-sm font-semibold">Archived Repositories</h4>
@@ -133,7 +134,7 @@ function useCollapsibleExamples() {
   </Collapsible>
 </div>`,
         microPreview: (
-          <div className="w-full sm:w-[350px]">
+          <div className="w-full sm:w-88">
             <Collapsible disabled className="space-y-2">
               <div className="flex items-center justify-between space-x-4 px-4">
                 <h4 className="text-sm font-semibold">Archived Repositories</h4>
@@ -165,7 +166,7 @@ function useCollapsibleExamples() {
         ),
       },
     ],
-    [globalSize, t]
+    [globalSize, t],
   );
 }
 
@@ -178,14 +179,14 @@ export default function CollapsibleShowcase() {
       title="Collapsible"
       description={t(
         "Mở rộng/thu gọn một panel nội dung.",
-        "Expand/collapse a content panel."
+        "Expand/collapse a content panel.",
       )}
       guideline={
         <ShowcaseDocs>
           <DocsP>
             {t(
               "Dùng để ẩn/hiện các phần nội dung phụ, giúp tiết kiệm không gian màn hình. Thường được sử dụng cho phần bình luận, chi tiết đơn hàng, hoặc các danh sách dài có thể thu gọn.",
-              "Used to show/hide secondary content, saving screen space. Commonly used for comments, order details, or long collapsible lists."
+              "Used to show/hide secondary content, saving screen space. Commonly used for comments, order details, or long collapsible lists.",
             )}
           </DocsP>
         </ShowcaseDocs>

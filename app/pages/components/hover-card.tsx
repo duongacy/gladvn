@@ -1,24 +1,21 @@
 import React from "react";
-import { CalendarIcon } from "lucide-react";
 
+import { CalendarIcon } from "lucide-react";
+import { useDevContext, useI18n } from "~app/components/dev-context";
 import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/components/micro/avatar";
+  ConfigurableShowcase,
+  DocsCode,
+  DocsP,
+  ShowcaseDocs,
+} from "~app/components/showcase";
+
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/micro/avatar";
 import { Button } from "@/components/micro/button";
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/micro/hover-card";
-import { useDevContext, useI18n } from "~app/components/dev-context";
-import {
-  ConfigurableShowcase,
-  ShowcaseDocs,
-  DocsP,
-  DocsCode,
-} from "~app/components/showcase";
 
 function NextJsCard() {
   return (
@@ -57,7 +54,7 @@ function useHoverCardExamples() {
         title: t("Default", "Default"),
         description: t(
           "Di chuột qua liên kết để xem bản xem trước. Trigger render dưới dạng Button với variant link.",
-          "Hover over the link to see a preview. Trigger renders as a Button with link variant."
+          "Hover over the link to see a preview. Trigger renders as a Button with link variant.",
         ),
         microCode: `<HoverCard>
   <HoverCardTrigger render={<Button variant="link" />}>
@@ -85,7 +82,7 @@ function useHoverCardExamples() {
         title: t("Vị trí", "Side Position"),
         description: t(
           "HoverCard có thể xuất hiện ở bốn phía của trigger thông qua prop side.",
-          "HoverCard can appear on all four sides of the trigger via the side prop."
+          "HoverCard can appear on all four sides of the trigger via the side prop.",
         ),
         microCode: `<div className="flex flex-wrap items-center justify-center gap-4 py-8">
   <HoverCard>
@@ -149,7 +146,7 @@ function useHoverCardExamples() {
         title: `Align: ${align}`,
         description: t(
           `Card căn ${align} theo trục ngang.`,
-          `Card aligns ${align} horizontally.`
+          `Card aligns ${align} horizontally.`,
         ),
         microCode: `<HoverCard>
   <HoverCardTrigger
@@ -183,7 +180,7 @@ function useHoverCardExamples() {
         title: t("Trigger: Button Link", "Trigger: Button Link"),
         description: t(
           "Trigger render như Button variant link — phù hợp cho text nội tuyến.",
-          "Trigger renders as a Button link variant — suitable for inline text."
+          "Trigger renders as a Button link variant — suitable for inline text.",
         ),
         microCode: `<HoverCardTrigger render={<Button variant="link" />}>
   @nextjs
@@ -206,7 +203,7 @@ function useHoverCardExamples() {
         title: t("Trigger: Thẻ anchor thuần", "Trigger: Native anchor tag"),
         description: t(
           "Trigger render như thẻ <a> HTML thuần — phù hợp cho liên kết tự nhiên trong văn bản.",
-          "Trigger renders as a native HTML <a> tag — suitable for natural links in text."
+          "Trigger renders as a native HTML <a> tag — suitable for natural links in text.",
         ),
         microCode: `<HoverCardTrigger
   render={
@@ -241,7 +238,7 @@ function useHoverCardExamples() {
         title: t("Độ trễ", "Delay (delay / closeDelay)"),
         description: t(
           "Tuỳ chỉnh thời gian trễ trước khi card xuất hiện hoặc biến mất. Props delay và closeDelay đặt trên HoverCardTrigger.",
-          "Customize the delay before the card appears or disappears. Props delay and closeDelay are set on HoverCardTrigger."
+          "Customize the delay before the card appears or disappears. Props delay and closeDelay are set on HoverCardTrigger.",
         ),
         microCode: `<div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
   <HoverCard>
@@ -338,7 +335,7 @@ function useHoverCardExamples() {
         ),
       },
     ],
-    [globalSize, t]
+    [globalSize, t],
   );
 }
 
@@ -351,26 +348,26 @@ export default function HoverCardShowcase() {
       title="Hover Card"
       description={t(
         "Xem trước nội dung đằng sau một liên kết khi hover.",
-        "Preview content behind a link on hover."
+        "Preview content behind a link on hover.",
       )}
       guideline={
         <ShowcaseDocs>
           <DocsP>
             <DocsCode>HoverCard</DocsCode>
             {t(
-              " hiển thị một khung xem trước thông tin bổ sung khi người dùng di chuột qua (hover) một phần tử, thường là một liên kết hoặc một từ khoá. Nó giúp người dùng nắm bắt thông tin nhanh chóng mà không cần chuyển hướng hay click.",
-              " displays a preview pane of additional information when the user hovers over an element, usually a link or a keyword. It helps users quickly grasp information without navigating or clicking."
+              " hiển thị một khung xem trước thông tin bổ sung khi người dùng di chuột qua một phần tử, thường là một liên kết hoặc một từ khoá. Nó giúp người dùng nắm bắt thông tin nhanh chóng mà không cần chuyển hướng hay nhấp chuột.",
+              " displays a preview pane of additional information when the user hovers over an element, usually a link or a keyword. It helps users quickly grasp information without navigating or clicking.",
             )}
           </DocsP>
           <DocsP>
             {t(
               "Trigger hỗ trợ polymorphism qua prop ",
-              "Trigger supports polymorphism via the "
+              "Trigger supports polymorphism via the ",
             )}
             <DocsCode>render</DocsCode>
             {t(
               " — bạn có thể truyền bất kỳ phần tử nào (Button, anchor, span…) và HoverCard sẽ giữ nguyên style & a11y của phần tử đó.",
-              " prop — you can pass any element (Button, anchor, span…) and HoverCard will retain the style & a11y of that element."
+              " prop — you can pass any element (Button, anchor, span…) and HoverCard will retain the style & a11y of that element.",
             )}
           </DocsP>
         </ShowcaseDocs>
